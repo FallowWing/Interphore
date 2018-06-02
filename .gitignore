@@ -9,6 +9,5 @@ log
 .tags
 .DS_Store
 *.tmx.*
-Makefile
 Makefile.secret
 ld.exe.stackdump
