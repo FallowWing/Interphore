@@ -137,7 +137,7 @@ void initGame(MintSprite *bgSpr) {
 	addJsFunction("getImageSize", getImageSize, 2);
 	addJsFunction("getTextSize", getTextSize, 2);
 	addJsFunction("getImageFrames", getImageFrames, 1);
-	addJsFunction("getImageProps_internal", getImageProps, 2);
+	addJsFunction("getImageProps_internal", getImageProps, 1);
 	addJsFunction("destroyImage", destroyImage, 1);
 	addJsFunction("addChild_internal", addChild, 2);
 	addJsFunction("gotoFrameNamed", gotoFrameNamed, 2);
@@ -771,8 +771,7 @@ duk_ret_t getImageFrames(duk_context *ctx) {
 }
 
 duk_ret_t getImageProps(duk_context *ctx) {
-	int arrayIndex = duk_get_number(ctx, -1);
-	int id = duk_get_number(ctx, -2);
+	int id = duk_get_number(ctx, -1);
 	MintSprite *img = game->images[id];
 
 	char *data = (char *)duk_push_buffer(ctx, sizeof(char) * 7, false);

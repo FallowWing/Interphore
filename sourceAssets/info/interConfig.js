@@ -114,14 +114,6 @@ function newImage() {
 }
 
 function getImageProps(id, index) {
-	var data = getImageProps_internal(id, index);
-	var img = images[index];
-	img.justPressed = data[0];
-	img.justReleased = data[1];
-	img.pressing = data[2];
-	img.justHovered = data[3];
-	img.justUnHovered = data[4];
-	img.hovering = data[4];
 }
 
 function addImage(assetId) {
@@ -541,9 +533,15 @@ function __update() {
 	}
 
 	/// Images
-	for (var i = 0; i < images.length; i++) {
-		var img = images[i];
-		getImageProps(img.id, i);
+	images.forEach(function(img) {
+		var data = getImageProps_internal(img.id);
+		img.justPressed = data[0];
+		img.justReleased = data[1];
+		img.pressing = data[2];
+		img.justHovered = data[3];
+		img.justUnHovered = data[4];
+		img.hovering = data[5];
+
 		if (img.justReleased && img.onRelease) img.onRelease();
 		if (img.justHovered && img.onHover) img.onHover();
 		if (img.justUnHovered && img.onUnHover) img.onUnHover();
@@ -579,7 +577,7 @@ function __update() {
 		}
 
 		setImageProps(img.id, img.x, img.y, img.scaleX, img.scaleY, img.alpha, img.rotation, img.tint, img.layer);
-	}
+	});
 
 	/// Audios
 	var audiosToDestroy = [];
