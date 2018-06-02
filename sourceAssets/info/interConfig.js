@@ -112,11 +112,22 @@ function newImage() {
 	return img;
 }
 
+function getImageProps(id, index) {
+	var data = getImageProps_internal(id, index);
+	var img = images[index];
+	img.justPressed = data[0];
+	img.justReleased = data[1];
+	img.pressing = data[2];
+	img.justHovered = data[3];
+	img.justUnHovered = data[4];
+	img.hovering = data[4];
+}
+
 function addImage(assetId) {
 	var img = newImage();
 	img.id = addImage_internal(assetId);
+	img.totalFrames = getImageFrames(img.id);
 	getImageSize(img.id, images.indexOf(img));
-	getImageProps(img.id, images.indexOf(img));
 	return img;
 }
 
@@ -125,7 +136,7 @@ function addCanvasImage(assetId, width, height) {
 	img.id = addCanvasImage_internal(assetId, width, height);
 	img.width = width;
 	img.height = height;
-	getImageProps(img.id, images.indexOf(img));
+	img.totalFrames = getImageFrames(img.id);
 	return img;
 }
 
@@ -134,7 +145,6 @@ function add9SliceImage(assetId, width, height, x1, y1, x2, y2) {
 	img.id = add9SliceImage_internal(assetId, width, height, x1, y1, x2, y2);
 	img.width = width;
 	img.height = height;
-	getImageProps(img.id, images.indexOf(img));
 	return img;
 }
 
@@ -143,7 +153,6 @@ function addRectImage(width, height, colour) {
 	img.id = addRectImage_internal(width, height, colour);
 	img.width = width;
 	img.height = height;
-	getImageProps(img.id, images.indexOf(img));
 	return img;
 }
 
@@ -152,7 +161,6 @@ function addEmptyImage(width, height) {
 	img.id = addEmptyImage_internal(width, height);
 	img.width = width;
 	img.height = height;
-	getImageProps(img.id, images.indexOf(img));
 	return img;
 }
 

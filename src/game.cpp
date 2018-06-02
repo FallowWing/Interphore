@@ -98,6 +98,7 @@ duk_ret_t setImageProps(duk_context *ctx);
 duk_ret_t setImageText(duk_context *ctx);
 duk_ret_t getImageSize(duk_context *ctx);
 duk_ret_t getTextSize(duk_context *ctx);
+duk_ret_t getImageFrames(duk_context *ctx);
 duk_ret_t getImageProps(duk_context *ctx);
 duk_ret_t destroyImage(duk_context *ctx);
 duk_ret_t addChild(duk_context *ctx);
@@ -153,7 +154,8 @@ void initGame(MintSprite *bgSpr) {
 	addJsFunction("setImageText_internal", setImageText, 2);
 	addJsFunction("getImageSize", getImageSize, 2);
 	addJsFunction("getTextSize", getTextSize, 2);
-	addJsFunction("getImageProps", getImageProps, 2);
+	addJsFunction("getImageFrames", getImageFrames, 1);
+	addJsFunction("getImageProps_internal", getImageProps, 2);
 	addJsFunction("destroyImage", destroyImage, 1);
 	addJsFunction("addChild_internal", addChild, 2);
 	addJsFunction("gotoFrameNamed", gotoFrameNamed, 2);
@@ -829,34 +831,27 @@ duk_ret_t getTextSize(duk_context *ctx) {
 	return 0;
 }
 
+duk_ret_t getImageFrames(duk_context *ctx) {
+	int id = duk_get_number(ctx, -1);
+	MintSprite *img = game->images[id];
+	duk_push_int(ctx, img->framesNum);
+	return 1;
+}
+
 duk_ret_t getImageProps(duk_context *ctx) {
 	int arrayIndex = duk_get_number(ctx, -1);
 	int id = duk_get_number(ctx, -2);
 	MintSprite *img = game->images[id];
 
-	char buf[1024];
-	sprintf(
-		buf,
-		"var curImg = images[%d];\n"
-		"curImg.justPressed = %d;\n"
-		"curImg.justReleased = %d;\n"
-		"curImg.pressing = %d;\n"
-		"curImg.justHovered = %d;\n"
-		"curImg.justUnHovered = %d;\n"
-		"curImg.hovering = %d;\n"
-		"curImg.totalFrames = %d;\n",
-		arrayIndex,
-		img->justPressed,
-		img->justReleased,
-		img->pressing,
-		img->justHovered,
-		img->justUnHovered,
-		img->hovering,
-		img->framesNum
-	);
-	runJs(buf);
+	char *data = (char *)duk_push_buffer(ctx, sizeof(char) * 7, false);
+	data[0] = img->justPressed;
+	data[1] = img->justReleased;
+	data[2] = img->pressing;
+	data[3] = img->justHovered;
+	data[4] = img->justUnHovered;
+	data[5] = img->hovering;
 
-	return 0;
+	return 1;
 }
 
 duk_ret_t destroyImage(duk_context *ctx) {
