@@ -8,7 +8,6 @@ function clearNodes() {
 }
 
 function submitNode(nodeName, result) {
-	print("Adding "+nodeName);
 	var node;
 	node = {
 		name: nodeName,

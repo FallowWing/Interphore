@@ -232,10 +232,6 @@ function playAudio(assetId) {
 	return audio;
 }
 
-function stopAudio(channelName) {
-	//@incomplete Stub
-}
-
 function getAudio(audioName) {
 	for (var i = 0; i < audios.length; i++) {
 		var audio = audios[i];
