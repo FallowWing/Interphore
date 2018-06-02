@@ -11,6 +11,7 @@ var mouseY = 0;
 var mouseDown = false;
 var mouseJustDown = false;
 var mouseJustUp = false;
+var mouseWheel = 0;
 var time = 0;
 var data = {};
 var checkpointStr = "{}";

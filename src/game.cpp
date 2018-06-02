@@ -189,13 +189,15 @@ void updateGame() {
 		"mouseJustDown = %d;"
 		"mouseJustUp = %d;"
 		"mouseDown = %d;"
+		"mouseWheel = %d;"
 		"__update();",
 		engine->time,
 		engine->mouseX,
 		engine->mouseY,
 		engine->leftMouseJustPressed,
 		engine->leftMouseJustReleased,
-		engine->leftMousePressed
+		engine->leftMousePressed,
+		platformMouseWheel
 		);
 	runJs(buf);
 
