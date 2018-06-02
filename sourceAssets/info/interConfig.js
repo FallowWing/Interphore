@@ -614,6 +614,7 @@ exitButton.x = gameWidth - exitButton.width*exitButton.scaleX - 16;
 exitButton.y = 16;
 exitButton.onRelease = function() {
 	if (exitButton.alpha != 1) return;
+	data = JSON.parse(checkpointStr);
 	gotoMap();
 }
 

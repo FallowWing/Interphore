@@ -24,12 +24,6 @@ namespace Writer {
 //
 //
 
-enum GameState {
-	STATE_NULL=0,
-	STATE_PASSAGE,
-	STATE_GRAPH
-};
-
 struct Passage {
 	String *name;
 	String *data;
@@ -37,12 +31,7 @@ struct Passage {
 
 struct Game {
 	MintSprite *bg;
-	GameState state;
-	GameState nextState;
 
-	float stateStartTime;
-	bool firstOfState;
-	bool lastOfState;
 	MintSprite *root;
 
 	/// Streaming
@@ -57,7 +46,6 @@ struct Game {
 
 	Asset *loadedAssets[ASSETS_MAX];
 
-	/// Passage
 	char mainTextStr[HUGE_STR];
 	MintSprite *mainText;
 	Passage *passages[PASSAGE_MAX];
@@ -65,13 +53,7 @@ struct Game {
 
 	MintSprite *images[IMAGES_MAX];
 	Channel *audios[AUDIOS_MAX];
-
-	/// Graph
 };
-
-void switchState(GameState state);
-void changeState();
-void updateState();
 
 void runMod(char *serialData);
 void msg(const char *str, ...);
@@ -189,49 +171,15 @@ void initGame(MintSprite *bgSpr) {
 	char *tempCode = (char *)getAsset("info/main.phore")->data;
 	runMod(tempCode);
 
-	switchState(STATE_PASSAGE);
+	game->root = createMintSprite();
+	game->root->setupContainer(engine->width, engine->height);
 }
 
 void deinitGame() {
 	printf("deinited\n");
 }
 
-void switchState(GameState state) {
-	if (game->nextState) return;
-
-	game->nextState = state;
-
-	if (game->state == STATE_NULL) changeState();
-}
-
-void changeState() {
-	GameState oldState = game->state;
-
-	game->firstOfState = false;
-	game->lastOfState = true;
-	updateState();
-
-	if (game->root) game->root->destroy();
-	game->root = createMintSprite();
-	game->root->setupContainer(engine->width, engine->height);
-	game->stateStartTime = engine->time;
-
-	game->firstOfState = true;
-	game->lastOfState = false;
-	game->state = game->nextState;
-	updateState();
-
-	game->firstOfState = false;
-	game->lastOfState = false;
-
-	game->nextState = STATE_NULL;
-}
-
 void updateGame() {
-	updateState();
-}
-
-void updateState() {
 	char buf[1024];
 	sprintf(
 		buf,
@@ -277,32 +225,14 @@ void updateState() {
 		}
 	}
 
-	if (game->state == STATE_PASSAGE) {
-		if (game->firstOfState) {
-		}
-
-		if (game->lastOfState) {
-			return;
-		}
-
-		if (!game->mainText) {
-			game->mainText = createMintSprite();
-			game->mainText->setupEmpty(engine->width - 64, 2048);
-		}
-		game->mainText->x = engine->width/2 - game->mainText->width/2;
-		game->mainText->y = 20;
-		game->mainText->layer = MAIN_TEXT_LAYER;
-		game->mainText->setText(game->mainTextStr);
+	if (!game->mainText) {
+		game->mainText = createMintSprite();
+		game->mainText->setupEmpty(engine->width - 64, 2048);
 	}
-
-	if (game->state == STATE_GRAPH) {
-		if (game->firstOfState) {
-		}
-
-		if (game->lastOfState) {
-			return;
-		}
-	}
+	game->mainText->x = engine->width/2 - game->mainText->width/2;
+	game->mainText->y = 20;
+	game->mainText->layer = MAIN_TEXT_LAYER;
+	game->mainText->setText(game->mainTextStr);
 }
 
 void runMod(char *serialData) {

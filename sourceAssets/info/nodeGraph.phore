@@ -51,7 +51,7 @@ function setNodeLocked(nodeName, fn) {
 function gotoMap() {
 	clear();
 	exitButton.alpha = 0;
-	data = JSON.parse(checkpointStr);
+	saveCheckpoint();
 
 	graphLines = [];
 
