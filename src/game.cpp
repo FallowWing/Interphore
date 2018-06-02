@@ -124,8 +124,8 @@ void initGame(MintSprite *bgSpr) {
 	addJsFunction("streamAsset", streamAsset, 2);
 	addJsFunction("execAsset", execAsset, 1);
 
-	addJsFunction("append", append, 1);
-	addJsFunction("setMainText", setMainText, 1);
+	addJsFunction("append_internal", append, 1);
+	addJsFunction("setMainText_internal", setMainText, 1);
 	addJsFunction("gotoPassage_internal", gotoPassage, 1);
 	addJsFunction("addImage_internal", addImage, 1);
 	addJsFunction("addCanvasImage_internal", addCanvasImage, 3);

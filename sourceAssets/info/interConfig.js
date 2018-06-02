@@ -157,6 +157,14 @@ function addEmptyImage(width, height) {
 	return img;
 }
 
+function setMainText(str) {
+	setMainText_internal(str);
+}
+
+function append(str) {
+	append_internal(str);
+}
+
 function addChoice(choiceText, result, config) {
 	var spr = add9SliceImage("img/writer/writerChoice.png", 256, 256, 5, 5, 10, 10);
 	spr.temp = false;
@@ -631,3 +639,7 @@ var inputField = addEmptyImage(gameWidth, 50);
 inputField.y = gameHeight * 0.45;
 inputField.temp = false;
 inputField.alpha = 0;
+
+var mainText = addEmptyImage(gameWidth - 64, 2048);
+mainText.temp = false;
+mainText.layer = MAIN_TEXT_LAYER;
