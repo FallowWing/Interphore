@@ -198,7 +198,7 @@ void updateGame() {
 		engine->leftMouseJustReleased,
 		engine->leftMousePressed,
 		platformMouseWheel
-		);
+	);
 	runJs(buf);
 
 	{ /// Update streaming
@@ -231,8 +231,21 @@ void updateGame() {
 		game->mainText = createMintSprite();
 		game->mainText->setupEmpty(engine->width - 64, 2048);
 	}
+
+	int viewHeight = engine->height - 256 - 16;
+	float newY = game->mainText->y;
+	int minY = -game->mainText->textHeight + viewHeight;
+	int maxY = 20;
+
+	if (game->mainText->textHeight > viewHeight) {
+		if (game->mainText->holding) newY = engine->mouseY - game->mainText->holdPivot.y;
+		if (platformMouseWheel < 0) newY -= 20;
+		if (platformMouseWheel > 0) newY += 20;
+		newY = Clamp(newY, minY, maxY);
+	}
+
 	game->mainText->x = engine->width/2 - game->mainText->width/2;
-	game->mainText->y = 20;
+	game->mainText->y = newY;
 	game->mainText->layer = MAIN_TEXT_LAYER;
 	game->mainText->setText(game->mainTextStr);
 }
