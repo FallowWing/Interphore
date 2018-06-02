@@ -1,0 +1,3 @@
+execAsset("mainMenu.phore");
+execAsset("introMod.phore");
+execAsset("utils.phore");

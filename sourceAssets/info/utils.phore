@@ -1,0 +1,121 @@
+function he(gender) {
+	if (gender === undefined) gender = data.gender;
+	if (gender === "male") return "he";
+	if (gender === "female") return "she";
+	if (gender === "both") return "they";
+	return "nil gender";
+}
+
+function hes(gender) {
+	if (gender === undefined) gender = data.gender;
+	if (gender === "male") return "he's";
+	if (gender === "female") return "she's";
+	if (gender === "both") return "they're";
+	return "nil gender";
+}
+
+function himself(gender) {
+	if (gender === undefined) gender = data.gender;
+	if (gender === "male") return "himself";
+	if (gender === "female") return "herself";
+	if (gender === "both") return "themselves";
+	return "nil gender";
+}
+
+function his(gender) {
+	if (gender === undefined) gender = data.gender;
+	if (gender === "male") return "his";
+	if (gender === "female") return "her";
+	if (gender === "both") return "their";
+	return "nil gender";
+}
+
+function him(gender) {
+	if (gender === undefined) gender = data.gender;
+	if (gender === "male") return "him";
+	if (gender === "female") return "her";
+	if (gender === "both") return "them";
+	return "nil gender";
+}
+
+function He(gender) {
+	if (gender === undefined) gender = data.gender;
+	if (gender === "male") return "He";
+	if (gender === "female") return "She";
+	if (gender === "both") return "They";
+	return "nil gender";
+}
+
+function Hes(gender) {
+	if (gender === undefined) gender = data.gender;
+	if (gender === "male") return "He's";
+	if (gender === "female") return "She's";
+	if (gender === "both") return "They're";
+	return "nil gender";
+}
+
+function Himself(gender) {
+	if (gender === undefined) gender = data.gender;
+	if (gender === "male") return "Himself";
+	if (gender === "female") return "Herself";
+	if (gender === "both") return "Themselves";
+	return "nil gender";
+}
+
+function His(gender) {
+	if (gender === undefined) gender = data.gender;
+	if (gender === "male") return "His";
+	if (gender === "female") return "Her";
+	if (gender === "both") return "Their";
+	return "nil gender";
+}
+
+function Him(gender) {
+	if (gender === undefined) gender = data.gender;
+	if (gender === "male") return "Him";
+	if (gender === "female") return "Her";
+	if (gender === "both") return "They";
+	return "nil gender";
+}
+
+function dog() {
+	return data.species;
+}
+
+function boobs(hasTiddy, noTiddy) {
+    if (data.hasBoobs && hasTiddy !== undefined) return hasTiddy;
+    if (data.hasBoobs && hasTiddy === undefined) return "tits";
+
+    if (!data.hasBoobs && noTiddy !== undefined) return noTiddy;
+    if (!data.hasBoobs && noTiddy === undefined) return "chest";
+}
+
+function myntCock(pickedCock, pickedCunt) {
+    if (data.myntCock && pickedCock !== undefined) return pickedCock;
+    if (data.myntCock && pickedCock === undefined) return "cock";
+
+    if (!data.myntCock && pickedCunt !== undefined) return pickedCunt;
+    if (!data.myntCock && pickedCunt === undefined) return "cunt";
+}
+
+function cock(genitals) {
+	if (genitals === undefined) genitals = data.genitals;
+	if (genitals === "male") return "cock";
+	if (genitals === "female") return "cunt";
+	if (genitals === "both") return "junk";
+	return "nil genitals";
+}
+
+function genitals(male, female, both) {
+	if (data.genitals === "male") return male;
+	if (data.genitals === "female") return female;
+	if (data.genitals === "both") return both;
+	return "Genitals not set";
+}
+
+function gender(male, female, both) {
+	if (data.gender === "male") return male;
+	if (data.gender === "female") return female;
+	if (data.gender === "both") return both;
+	return "Gender not set";
+}

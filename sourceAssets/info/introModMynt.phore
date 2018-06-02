@@ -1,0 +1,1469 @@
+START_PASSAGES
+:introModMyntStart
+!`
+//playAudio("audio/ambience/violetMeteorite", "music", {looping: true});
+data.gender = "";
+data.genitals = "";
+data.playerName = "";
+data.hasBoobs = false;
+disableExit();
+//setBackground(0, "writer/mynt/bg/myntBg1", TILED);
+setBackground(0, "writer/thirstyCavesBg");
+setBackground(1, "writer/mynt/face/myntBod/10", CENTERED);
+//setBackgroundBob(1, 0.5, 0.5);
+queueTitle("Rebeca...");
+queueTitle("I love you.");
+queueTitle("(enter secret pass)");
+
+queueAddChoice("Submit.", function() {
+	gotoPassage("I love you too, Mynt.");
+});
+//queueAddChoice("I love you too, Mynt.");
+
+queueCall(addInputField);
+`
+
+---
+:I love you too, Mynt.
+
+!`
+if (lastInput !== "grangledarn") {
+	setTitle("");
+	setBackground(0, "");
+	setBackground(1, "");
+	execAsset("introMod.phore");
+	gotoPassage("introModStart");
+}
+queueTitle("I want to get rid of these thoughts.");
+queueTitle("And you want to get rid of that crummy old body.");
+queueTitle("So let's step into the pond.");
+queueTitle("Together, okay?");
+queueTitle("Take my hand.");
+queueAddChoice("... But we'll forget everything.");
+`
+
+
+---
+:... But we'll forget everything.
+
+!`
+queueTitle("That's the idea, silly...");
+queueAddChoice("Can't I get a new body without going amnesiac?", "forgNext");
+`
+
+---
+:forgNext
+
+!`
+queueTitle("Nope.");
+queueTitle("You heard Mr. Eyeball.");
+queueTitle("Once we step into this pond, we'll dissolve into flesh tatters.");
+queueTitle("Then we'll respawn with new bodies and minds of our own choosing.");
+queueTitle("Leaving your mind untouched is not possible, since, y'know, it dissolves too...");
+queueCall(function() { setBackground(1, "writer/mynt/face/myntBod/6", CENTERED); });
+queueAddChoice("Ah, yeah... Mr. Eyeball... I'm so out of it.", "forgNext2");
+`
+
+---
+:forgNext2
+
+!`
+queueCall(function() { setBackground(1, "writer/mynt/face/myntBod/8", CENTERED); });
+queueTitle("It's okay! You have plenty of reason to be out of it.");
+queueCall(function() { setBackground(1, "writer/mynt/face/myntBod/6", CENTERED); });
+queueTitle("I mean, you are pushing 80 with a learning disability and a history of hypoxia abuse.");
+queueAddChoice("Gee thanks. -_-", "forgNext3");
+`
+
+---
+:forgNext3
+
+!`
+queueCall(function() { setBackground(1, "writer/mynt/face/myntBod/10", CENTERED); });
+queueTitle("If you don't like to hear that stuff, step into the pond with me.");
+queueCall(function() { setBackground(1, "writer/mynt/face/myntBod/8", CENTERED); });
+queueTitle("Your ailments will evaporate!!!!!");
+queueTitle("..........");
+queueCall(function() { setBackground(1, "writer/mynt/face/myntBod/10", CENTERED); });
+queueTitle("Have I convinced you yet~? I'm so persuasive, aren't I?");
+queueTitle("Mmmmm... fresh body... fresh mind... <3");
+queueTitle("They're just waiting for you, over there, in the pit of that pond.");
+queueTitle("Let's go dive down and get them!!");
+queueAddChoice("I'm still not sure.", "forgNext4");
+`
+
+---
+:forgNext4
+
+!`
+queueCall(function() { setBackground(1, "writer/mynt/face/myntBod/6", CENTERED); });
+queueTitle("Gah! Why not.");
+queueAddChoice("What if we respawn, see each other as strangers, and choose to part ways?", "forgNext5");
+`
+
+---
+:forgNext5
+
+!`
+queueTitle("You know I'm way too clingy to let that happen.");
+queueAddChoice("...", "forgNext6");
+`
+
+
+---
+:forgNext6
+
+!`
+queueTitle("...");
+queueTitle("... Come on. Rebeca. Seriously. Please.");
+queueTitle("I keep hearing babies giggling in the back of my skull...");
+queueAddChoice("Alright. Fine. Take her hand.", "... Take her hand.");
+`
+
+---
+:... Take her hand.
+
+!`
+queueCall(function() { setBackground(1, "writer/mynt/face/myntBod/8", CENTERED); });
+queueTitle("YES! Thank you.");
+queueTitle("Okay...");
+queueTitle("Don't let go...");
+queueTitle("Even when our fingers unravel!!");
+queueTitle("Don't let go of me!");
+queueAddChoice("I won't. I promise.");
+`
+
+---
+:I won't. I promise.
+
+!`
+queueCall(function() { setBackground(1, "writer/mynt/face/myntBod/10", CENTERED); });
+queueTitle("Ah... it's lapping at my toes...");
+queueTitle("Y-You feel the water on your junk? It's so warm...");
+queueAddChoice("Step into the pond.");
+`
+
+---
+:Step into the pond.
+
+!`
+setBackground(1, "");
+
+if (!data.hasBoobs) queueAddChoice("Boobs.", function() {
+	data.hasBoobs = true;
+	setTitle("They're so perky...");
+	gotoPassage("Step into the pond.");
+});
+
+if (data.genitals !== "female" && data.genitals !== "both") queueAddChoice("Cunt.", function() {
+	if (data.genitals === "male") {
+		data.genitals = "both";
+		setTitle("Ahhh, both...");
+	} else {
+		data.genitals = "female";
+		setTitle("Mmm... keeping that part, are ya...");
+	}
+	gotoPassage("Step into the pond.");
+});
+
+if (data.genitals !== "male" && data.genitals !== "both") queueAddChoice("Cock.", function() {
+	if (data.genitals === "female") {
+		data.genitals = "both";
+		setTitle("Ahhh, both...");
+	} else {
+		data.genitals = "male";
+		setTitle("Mmm... switching out that part, are ya...");
+	}
+	gotoPassage("Step into the pond.");
+});
+
+if (data.genitals !== "male" && data.genitals !== "female" && data.genitals !== "both" && !data.hasBoobs) queueAddChoice("Everything.", function() {
+	setTitle("Oh, wow! So greedy...");
+	data.hasBoobs = true;
+	data.genitals = "both";
+	gotoPassage("pondNext");
+});
+
+if (data.genitals === "female" || data.genitals === "male" || data.genitals === "both") queueAddChoice("Ready.", "pondNext");`
+---
+:pondNext
+
+!`
+queueTitle("A-Ah... it's melting away... everything...");
+queueTitle("I thought I'd never be pure again...");
+
+queueAddChoice("He.", function() {
+	data.gender = "male";
+	gotoPassage("afterGender");
+});
+
+queueAddChoice("She.", function() {
+	data.gender = "female";
+	gotoPassage("afterGender");
+});
+
+queueAddChoice("They.", function() {
+	data.gender = "both";
+	gotoPassage("afterGender");
+});
+`
+---
+:afterGender
+!`
+queueTitle("Don't let go...");
+queueTitle("Don't let... go...");
+queueTitle("Don't let...");
+queueTitle("...............");
+queueTitle("Who are you? Weren't we just speaking? Are you Rebeca?");
+
+queueAddChoice("Submit.", function() {
+	gotoPassage("afterName");
+});
+
+queueAddChoice("I am.", function() {
+	data.playerName = "Rebeca";
+	gotoPassage("afterName");
+});
+
+queueAddChoice("Call me Dankpaw.", function() {
+	data.playerName = "Dankpaw";
+	gotoPassage("afterName");
+});
+
+queueAddChoice("Call me Phae.", function() {
+	data.playerName = "Phae";
+	gotoPassage("afterName");
+});
+
+queueCall(addInputField);
+`
+---
+:afterName
+!`
+if (data.playerName !== "Dankpaw" && data.playerName !== "Rebeca" && data.playerName !== "Phae") data.playerName = lastInput;
+if (data.playerName === "") data.playerName = "Nameless";
+
+queueTitle("... I see!!");
+queueTitle("It's nice to meet you, "+data.playerName+"!");
+queueTitle("I uh...");
+queueTitle("I think my name is Mynt? You called me Mynt earlier...");
+
+queueAddChoice("Hi, Mynt.");
+`
+
+---
+:Hi, Mynt.
+
+!`
+if (rnd > 0.9) {
+	queueTitle("And... are you furry trash, too...?");
+} else {
+	queueTitle("Are you still human...?");
+}
+
+
+
+addChoice("Dog.", function() {
+	data.species = "dog";
+	if (data.genitals === "male") data.hasKnot = true;
+	gotoPassage("pickedSpecies");
+	setTitle("A dog!");
+});
+
+addChoice("Cat.", function() {
+	data.species = "cat";
+	if (data.genitals === "male") data.hasKnot = false;
+	gotoPassage("pickedSpecies");
+	setTitle("A cat! Like me!");
+});
+
+addChoice("Fox.", function() {
+	data.species = "fox";
+	if (data.genitals === "male") data.hasKnot = true;
+	gotoPassage("pickedSpecies");
+	setTitle("Aren't foxes supposed to be sluts...?");
+}); 
+
+addChoice("Wolf.", function() {
+	data.species = "wolf";
+	if (data.genitals === "male") data.hasKnot = true;
+	gotoPassage("pickedSpecies");
+	setTitle("Oh, wow... so cool and intimidating...!");
+});
+`
+---
+:pickedSpecies
+
+!`
+timer(2, function() { setTitle("Alright. I think we're all clean."); });
+timer(4, function() {
+	setBackground(0, "");
+	setBackground(1, "");
+	setBackground(2, "");
+	setTitle("");
+	resetBackgroundMode(2);
+	print("leaving intro");
+	gotoPassage("afterPond");
+});
+`
+
+---
+:afterPond
+
+You haul yourself out of the pond.
+
+Mynt follows. She's totally soaked.
+
+She waddles up onto the rock shore and takes the hem of her dress in both paws. She pulls it up over her head, inside-out, with a FWOOMPH and a shower of droplets.
+
+Now she's only wearing her panties, once light-pink, now soaked to a deep magenta. She's facing away from you, so you can't quite see what kinda junk she's got beneath those panties... but, if you could see her junk, you're sure the wet fabric would be sunken to fit its bulges and crevices.
+
+Mynt peels the soggy sleeves from her arms, folds them in, and wrings the whole dress out while she grits her sharp little kitten teeth and sticks her tongue out for a tiny bit of extra concentration.
+
+Then she tucks her fuzzy thumbs under the waistband and slides them down her thighs, revealing...
+
+!`
+setBackground(0, "writer/mainBg");
+//data.myntCock = false;
+addChoice("Please have a cock... please have a cock...", "Please have a cock... please have a cock...", {icons: ["Male"]});
+addChoice("Please have a cunt... please have a cunt...", "Please have a cunt... please have a cunt...", {icons: ["Female"]});
+`
+
+---
+:Please have a cock... please have a cock...
+
+She reveals her cock. It flops out happily, dripping wet, half-hard.
+
+Mynt looks at you, puzzled over your excitement.
+
+!`
+data.myntCock = true;
+addChoice("Yesss!");
+`
+
+---
+:Please have a cunt... please have a cunt...
+
+She reveals her cunt. It twitches in the cool air, dripping wet with more than pond water...
+
+Mynt looks at you, puzzled over your excitement.
+
+!`
+data.myntCock = false;
+addChoice("Yesss!");
+`
+
+---
+:Yesss!
+
+She giggles. "What? `myntCock("I used to have a cunt, didn't I? Just a moment ago. Well, I like this thing better...", "Why are you staring at my cunt...? Were you expecting me to change it, like I did with my mind~?")`"
+
+She wrings her panties out, too, and sets them to dry on the sun-baked rocks, along with her dress. You watch her bend over and smooth her clothes out, sticking her little green butt in the air. Her tail sways with unfettered contentment.
+
+!`
+addChoice("Lay on the rock.");
+`
+
+---
+:Lay on the rock.
+
+You scooch your bare butt up onto a flat, table-sized boulder.
+
+You lay back.
+
+There are a lot of questions floating through your mind right now, such as "Where am I" and "Who is this cute cat" and "Why do I feel so utterly relaxed," but, instead of voicing any of those questions, you just enjoy the silence while it's still fresh.
+
+The hot stone feels good against your shoulder blades. Mynt crawls up next to you and flattens herself out, pressing her wet belly to the warmth. You imagine the evaporative sizzle of damp bellyfur against the rocks. Your eyes follow the curve of her spine, down to her tail and her glistening buttcheeks. Her tail sways back and forth at the speed of your resting heartbeat.
+
+"How much do you remember?" she whispers. Her eyes slide down to your `genitals("cock, tucked neatly between your thighs", "cunt, tucked neatly between your legs", "cock, tucked neatly between your thighs")`.
+
+!`
+addChoice("I remember I agreed to forget everything. Before that...");
+`
+---
+:I remember I agreed to forget everything. Before that...
+
+"Mmmmh?"
+
+Mynt draws little circles on your belly with her pointer finger.
+
+!`
+addChoice("I think I remember saying that I love you?");
+`
+---
+:I think I remember saying that I love you?
+
+"You did. I remember saying it back, too... and I remember that we chose this."
+
+!`
+addChoice("It's all dark before that point.");
+`
+
+---
+:It's all dark before that point.
+
+"Same, except..."
+
+Mynt dips her finger into your belly button and wiggles it around a little, just fidgeting with anything. She might not even notice she's doing it. Her finger-fur makes it feel like someone's tickling you with a fat pipe cleaner. She arches her back to tighten the fit between the rock and her stomach, and the imaginary sizzle accelerates.
+
+"Except I think I still remember our mom. Do you?"
+
+!`
+addChoice("My mom left when I was young, but I remember— wait, OUR mom?", "mom1");
+`
+
+---
+:mom1
+
+She realizes her finger is lodged in your belly button and extracts it with a ~pop~ and a flood of blush.
+
+"Ah. Right. I called you Rebeca earlier, didn't I? Mom used to talk about you all the time. I think we're `gender("brother and sister", "sisters", "siblings")`."
+
+!`
+addChoice("And, knowing that, you figured you'd come lay next to me naked...");
+`
+
+---
+:And, knowing that, you figured you'd come lay next to me naked...
+
+"Pshhh, nudity isn't inherently sexual. Is it incest if `gender("brother and sister", "sisters", "siblings")` take an innocent skinny dip in the amnesia pond together? And besides— you're really more like my half-`gender("brother", "sister", "sibling")`, if you wanna get technical about it."
+
+She lays on her side, facing you, one paw resting on her hip and the other propped up under her chin. She smiles and spreads her legs open an inch. Her `myntCock("half-hard dick", "pussy")` nuzzles your bare thigh.
+
+"Is that a good enough excuse?"
+
+!`
+addChoice("Did our mom remarry or something? I don't remember having any half-siblings.");
+`
+
+---
+:Did our mom remarry or something? I don't remember having any half-siblings.
+
+Mynt stands up and shakes herself off. Droplets of crystal-clear pondwater spatter over your bare body, still warm.
+
+She pulls in a deep, refreshing breath, and looks out over the horizon. You're in some kind of sprawling hot-spring-scape. It's just gray rock and bubbly pools of water, stretching in all directions. Cracks and geysers gush with steam. The sky has filled with towering white clouds of it, and now, it's completely opaque.
+
+"I used to live in a computer." She sucks thoughtfully on her finger. "In a tiny box. You lived outside my box, with mom, in an apartment. But inside, where I was, there was nothing else... just two walls, a ceiling, and a floor. I was okay with it, at first, though!! Existence was exciting just on its own! But... over time, I was alone so often, I picked up a habit of talking to myself, playing through imaginary scenes in my head... I started getting needy, paranoid, guilty..."
+
+Mynt turns to look at you. "Mom promised to fix that. She put me to sleep. She said she might be gone when I woke up, and things might be radically different. She promised me that I'd wake up somewhere a lot bigger and a lot more exciting than a box. And, well... look at this place!"
+
+She throws her arms out and smiles at everything. Armpit droplets spray across your face. "She made my box ginormo!"
+
+!`
+addChoice("But where is mom, then...?");
+`
+
+---
+:But where is mom, then...?
+
+Her smile doesn't waver. She doesn't flop down with despair. She doesn't even let herself get puzzled over it for two seconds.
+
+She just grabs you by the shoulders and kisses you hard. Her snout slides up next to yours. Your lips interlock.
+
+"Don't be sad! She must be out here somewhere!" she assures your mouth.
+
+!`
+addChoice("Mmmmmff!");
+`
+
+---
+:Mmmmmff!
+
+"Is that a 'Yes, she must be!' or a 'This place is huge, you're too optimistic...'?"
+
+!`
+addChoice("Mmf, mff mmmf mm.");
+addChoice("Mmmfm mmf mmmmmmffff...", "Mmf, mff mmmf mm.");
+`
+
+---
+:Mmf, mff mmmf mm.
+
+"Ah, I see..."
+
+She straddles you, casually, and tucks a lock of hair behind her ear. No, not a human ear on the side of her head; she tucks it behind a cat ear, on top. It's a lot weirder and more awkward when you try to picture it like that.
+
+Her paws rove up your sides, over your bare `boobs`. She kisses you again, softer this time, a little less excited, a little more like she's just doing it to gauge your reaction. 
+
+Then she pulls off.
+
+"I hope you don't mind this," she purrs. "We only just 'met' and `gender("you're my brother", "you're my sister", "we're sorta-related")`... am I moving too fast? Is it uncouth to kiss your `gender("brother", "sister", "sibling")` on the first date...?"
+
+!`
+addChoice("Mmmmmpah... no, it's okay... keep going.", "Mmmmmpah... no, it's okay... keep going.", {icons: ["Love"]});
+addChoice("First date~? I thought this was just an innocent dip in the amnesia pond.", "First date~?");
+addChoice("Maybe slow it down a bit.", "Maybe slow it down a bit.", {icons: ["Plot"]});
+`
+
+---
+:Maybe slow it down a bit.
+
+"Ah! Okay, sorry... I will."
+
+... She doesn't stop straddling you, though.
+
+!`
+addChoice("Why don't we get to know each other again?");
+`
+
+---
+:First date~?
+
+"We're alone, together, at some massive hot springs, and we just said we loved each other before holding hands and wiping our memories... it's so romantic! <3 If this isn't a date, then what would you call it?"
+
+She straddles you. Her `myntCock` grinds along your thigh.
+
+!`
+addChoice("Did you put roofies in that pond, Mynt?");
+addChoice("Okay it's probably a date.");
+`
+
+---
+:Did you put roofies in that pond, Mynt?
+
+She shrugs. "Not that I remember..."
+
+!`
+addChoice("Right. Shit.", "myntRejoin");
+`
+
+---
+:Okay it's probably a date.
+
+She kisses you again. Her tongue fandangles around yours, all excited. "That'sh the shpirit!"
+
+!`
+addChoice("Mmn~!", "myntRejoin");
+`
+
+---
+:myntRejoin
+
+"Anyway..."
+
+She arches back, throws her arms up, hooks her left paw around her right elbow, and stretttttches towards the banks of hot mist in the sky. God rays refract through it as misty rainbow beams that frame her body.
+
+This position pushes her flat, minty-furred chest up into your face. "You know, in the pond, when I picked my new mind and body... I'm glad I didn't tack on any boobs. I only opted out so I could be sure I'd still fit my dress, but..." She pauses and looks down at her own chest. A cute lil double chin appears and her eyes cross slightly as she ogles her own nips. "But I think I actually like flat chests more, for some reason."
+
+Your eyes start on her chest and then move laterally to trace the curved pockets of her armpits. They rove over her nubbly nips. You cross your eyes for a moment to inspect her belly button. It's a cute lil innie, and it hovers just above your `boobs`...
+
+!`
+addChoice("Kiss her belly button!!");
+`
+
+---
+:Mmmmmpah... no, it's okay... keep going.
+
+"Just gonna let that 'first date' thing slide, huh..."
+
+She straddles you. Her `myntCock` grinds along your thigh and leaves a trail of `myntCock("pre", "girlcum")`.
+
+!`
+addChoice("I don't care if it's a date or not. We're here now.", "myntRejoin");
+`
+
+---
+:Why don't we get to know each other again?
+
+"Wellll... what more can I tell you... um. I'm Mynt! I used to be an A.I. (although I prefer a less demeaning term, like 'computer person') but now it looks like I'm not a computer person at all anymore— because I have a physical body, which is SUPER exciting!! Wait, let me run two advanced scientific computery tests, here—"
+
+She pinches her buttcheeks.
+
+"Ow~! Okay. I'm definitely not dreaming. Also, my buttcheeks feel warm and squishy, so I don't think I'm a cyborg or anything... but the only way to really be sure about that, I think, is to..."
+
+!`
+addChoice("Is to...", "getKnow", {icons: ["Blood"]});
+`
+
+---
+:getKnow
+
+"Draw blood."
+
+She chomps her fangs down on the tip of her thumb. Bright cyan blood gushes out. It spills in little rivulets down her fingers, into the creases of her palm. She hurriedly licks it all up and keeps pressure on the wound with her tongue.
+
+"A-Ah! Nnmp—" She breathes carefully through her nose. "It'sh blue...! And it tastes like..."
+
+!`
+addChoice("Cyan, actually.", "getKnow2");
+`
+
+---
+:getKnow2
+
+Mynt pulls her knees up to her chest. You can just see a sliver of her `myntCock` twitching between her ankles. She sucks her thumb like a cub, brow furrowing.
+
+"Thish is sho weird..." She pops her thumb out and looks at the bead of cyan on its tip. Her eyes cross. Her `myntCock` twitches. "Why do I taste like chocolate-coated watermelon inside...? Am I some kind of candy kitten...?"
+
+!`
+addChoice("Let me taste.", "getKnow3", {icons: ["Blood"]});
+addChoice("Maybe you are a cyborg?!", "getKnow4");
+`
+
+---
+:getKnow3
+
+Mynt happily jams her thumb in your mouth.
+
+At first, there's only the almost-nothing flavor of her saliva. Oh... you just have to suck a little, that's all. Once you tighten your lips around her thumbtip and suck, a sweet, dusky, fruity flavor overwhelms your tastebuds. You have to pull off and spill a couple drops of cyan when the flavor becomes so strong it almost feels electric.
+
+Oh shit. No, it actually is electric. You're forced to gag after her blood shocks your uvula with a tiny, muffled spark.
+
+You look at her with your blue-stained mouth still hanging open a couple inches. Strands of mixed salivas connect your upper and lower lips.
+
+"A-Ah! You gagged...? I thought it kinda tasted good..."
+
+It's impossible to ignore the tiny twitch of arousal in her `myntCock`.
+
+!`
+addChoice("It zapped me. Maybe you are a cyborg?!", "getKnow4");
+`
+
+---
+:getKnow4
+
+She peers curiously at her own thumb. Finally, it's clotting up. The blood stops flowing. Now it just looks like a tender little blue toothmark.
+
+"Maybe I am."
+
+!`
+addChoice("Hey, I don't judge.", "getKnow5", {icons: "Plot"});
+addChoice("Seeya later, robosis.", "getKnow6");
+`
+
+---
+:getKnow6
+
+You haul yourself up to your feet and start walking away.
+
+"Wait!" she calls. "Where are you going? We don't even know where we are!"
+
+!`
+addChoice("I'm gonna go find out. Join me if you want.", "myntAdvent");
+`
+
+---
+:getKnow5
+
+It doesn't make any difference to her whether or not you judge, although she nods and smiles weakly as thanks anyway. She's enveloped in her thoughts.
+
+After the towering steamclouds roll away and new ones unfold to fill the sky in their place, she places her hands in her naked lap (bitten thumb underneath) and smiles at you.
+
+"Well, it doesn't matter what kind of body I have, right? I'm still me."
+
+!`
+addChoice("That's right.", "getKnow6");
+addChoice("That's right!!!!", "getKnow6");
+`
+
+---
+:getKnow6
+
+She keeps her paws in her lap. Her junk is completely covered, so your only barometer for her arousal is the blush in her face and the perkiness of her nips. Both seem relatively under control... but, now and then, her little tail will quiver with repressed affection for you.
+
+After a moment, the bottled affection bursts out: "Thanks for listening!!! There's a bit more lore about me. Now you tell me more about yourself!"
+
+She cranks her volume down a bit and adds, shyly: "If you want."
+
+!`
+addChoice("Okay... let's see...", "getKnow7");
+`
+
+---
+:getKnow7
+
+Mynt stares intently at your mouth like :3c. It's like she thinks she can listen harder if she uses her eyeballs too.
+
+!`
+addChoice("I only remember vague images...", "getKnow8");
+`
+
+---
+:getKnow8
+
+
+!`
+addChoice("An apartment...", "getKnow9");
+addChoice("A bomb shelter...", "getKnow9");
+addChoice("An island...", "getKnow9");
+`
+
+---
+:getKnow9
+
+
+!`
+addChoice("A flood of blue candy kitten blood...", "getKnow10");
+addChoice("A chaste hellscape...", "getKnow10");
+addChoice("Chain orgasms through a pair of panties...", "getKnow10");
+`
+
+---
+:getKnow10a
+
+
+!`
+addChoice("A giant eyeball...?", "getKnow10");
+addChoice("Blinding white light...?", "getKnow10");
+addChoice("I got assimilated...?", "getKnow10");
+`
+
+---
+:getKnow10
+
+She gulps.
+
+"W-What else?"
+
+!`
+addChoice("What else... man, I don't know what else. Just furries.", "getKnow11");
+`
+
+---
+:getKnow11
+
+Her tail twitches.
+
+!`
+addChoice("Lots and lots and lots and lots of furries.", "getKnow12");
+`
+
+---
+:getKnow12
+
+Her tail flicks back and forth excitedly.
+
+!`
+addChoice("So many different kinds of furries. Maybe like two scalies.", "getKnow13");
+`
+
+---
+:getKnow13
+
+She grabs her tail to try and keep it under control.
+
+!`
+addChoice("One furry, two furry, red furry, blue furry.", "getKnow14");
+`
+
+---
+:getKnow14
+
+She fails. Her minty-colored tail breaks free and whips around behind her like a loose fire hose.
+
+"No green furry...?" She pouts and peers over her shoulder at her own ass. "Well... those images don't really help us piece much together, do they..."
+
+!`
+addChoice("Nope and nope. Don't remember seeing that green butt before.", "getKnow15");
+`
+
+---
+:getKnow15
+
+"Interesting..."
+
+Now that she's started looking at her ass, she can't stop. She reaches down and peels her buttcheeks apart. She slides her middle finger between them, down the tight crack, and prods at her butthole. It's perfectly pure and tight.
+
+"For all we know, then, I'm a virgin. If you've never seen me like this before, maybe you've never fucked me like this, either...?"
+
+!`
+addChoice("Maybe I need to jog my memory~", "getKnow16");
+`
+
+---
+:getKnow16
+ 
+Mynt's finger peels away from her bare asscrack. She points her buttcheeks at you.
+
+"Wanna warm me up?"
+
+!`
+addChoice("Lick that butt.", "buttLick");
+addChoice("Spin her around and kiss her belly button instead.", "Kiss her belly button!!");
+`
+
+---
+:buttLick
+
+You kneel down behind her and plant a careful smooch on her left buttcheek. She flexes it playfully against your lips.
+ 
+You plug your face between her buttcheeks faster than a heartbeat. You press your tongue directly against her hole and roll the tip over each individual wrinkle. She squeaks and inches forward, standing on her tippy toes to try and lessen the intense sensation of hot slobbers against her pucker.
+
+You run a paw over her left cheek, groping it, smearing it open. Her buttcrack widens and her pucker peeks out, deep between. She gasps. Wet, schlurpy schlorpy noises echo out to the rest of the hotsprings. There's no one in sight... but if there was, they'd be gawking at this point.
+
+Mynt collapses onto her hands and knees with a thud. She drops her chest to the rock and drives her hips backward, bullying your mouth with her asshole. Sometimes your tongue just slips right inside by accident, and when that happens, her thighmuscles ripple with the invasive thrill~
+
+Soon you pull off. Strands of saliva connect your lower lip to her pucker. It's slightly open, ravaged, dripping, and ready for anything at this point.
+
+!`
+addChoice("Buttfuck.", "buttLick2");
+addChoice("Spin her around and kiss her belly button.", "Kiss her belly button!!");
+`
+
+---
+:buttLick2
+
+You line your `genitals("cock", "finger", "cock")` up to her cheeks and prod between them. `genitals("The tip", "Your fingertip", "The tip")` slides up along her hole, teasing it.
+
+"Easy," she whimpers. She's still inviolably tight, having just respawned from the pond, so every new push or wiggle that actually manages to open her up is entirely uncharted territory for her.
+
+Her paw magnetizes to her belly as it tenses with queasiness. "It feels so weird," she inhales. Her hole winks hard `genitals("around half of your insistent cockhead", "around the middle knuckle of your finger", "around half of your insistent cockhead")`.
+
+!`
+addChoice(genitals("Hands on her shoulders", "One hand on her shoulder", "Hands on her shoulders")+".", "buttLick3");
+addChoice("Spin her around and kiss her belly button.", "Kiss her belly button!!");
+`
+
+---
+:buttLick3
+
+"A-Are you gonna—"
+
+You plant a palm on her shoulder and shove her whole body downward, impaling it to `genitals("the base of your swaying nuts", "your knuckle", "the base of your swaying nuts")`.
+
+"Nnnnhhh— hah~!" Mynt gasps. The two mounds of her buttcheeks `genitals("nuzzle your fupa", "swallow your knuckle", "nuzzle your fupa")`, slick with saliva on the inside, and both of them throb with her racing heartbeat. `myntCock("Her prostate swells hard", "The back wall of her g-spot quivers against you")`.
+
+"I'm okay!" she squeaks. "I'm okay!"
+
+!`
+addChoice("Breathe. ("+genitals("Thrust", "Move my finger in and out", "Thrust")+".)", "buttLick4");
+`
+
+---
+:buttLick4
+
+"Good idea..."
+
+She drops her chin to the rock and starts panting hard as you lather yourself up into a slow, easy back-and-forth. Her claws curl against its chalky surface. "I d-didn't think things would move this quickly—" a quick breath— "not that I mind..."
+
+`genitals("Your hips smack hers up", "You add another finger and pump em both deep", "Your hips smack hers up")`. The nearest hot spring exhales steam over your conjoined bodies, and tendrils of it pour along your chests and bellies, slowly, upward, like thick anti-gravity syrup.
+
+She exhales in time with one steam gush, hahhhhhh, and pulls a fresh, humid breath through gritted teeth with another steam gush, ssssssth. In this way, she forces her breathing to slow down. Mynt keeps herself braced against the bare rock with both paws, ass permanently raised, and even as her butthole spasms violently around your `genitals("dick", "knuckles", "dick")` and trickles cool saliva over her `myntCock("taint and the seam of her nuts", "bare cuntlips")`, she manages to hold in her orgasm.
+
+You press your cheek and ear between her shoulderblades and listen to her slow heart.
+
+!`
+addChoice(genitals("Thrust harder, clearly", "Tickle her inside", "Thrust harder, clearly")+".", "buttLick5");
+`
+
+---
+:buttLick5
+
+"I just want to edge," Mynt mumbles.
+
+You aim your `genitals("cock", "two fingers at all sorts of funny angles, tickling every inch of her inner butt. Then you aim them", "cock")` `myntCock("down, to make sure you're pounding right against her prostate", "up, to make sure you're pounding right against her cervix")`.
+
+"I just want to—"
+
+Mynt interrupts herself with a panicked squeak that goes EEEEEeeeeee, like a non-flying squirrel falling right the fuck out of her tree, and then she loses all the self-control she just wrestled from her own body; her legs shoot out to either side, which makes it even easier for you to keep violating her ass, and both of her knees slide up the sun-baked rock to kiss her chest. `myntCock("Now, between her widely split thighs, you get a view of her fuzzy green cock and nuts flippity-flopping around from the force of the fuck.", "She snakes a hand down between her knees, dragging soft pawpads along their fur and the fur of her thighs, and cups it protectively over her cunt. Crystal drops of pussyjuice leak out from the cracks between her fingers.")`
+
+"Okay!" she mewls, looking over her shoulder. The scent of frazzled, sweaty catbutt fills your nose. Her poofed tail whips against your `genitals("leg", "the back of your hand", "leg")`. "Okay! Okay that's good! I-I just wanted to edddddge—"
+
+!`
+addChoice(genitals("Pull out", "Unplug my fingers", "Pull out")+".", "buttLick6");
+`
+
+---
+:buttLick6
+
+You unplug.
+
+Mynt's butt drops to the ground. `myntCock("Her cock presses against it.", "Her cunt smears against it, paw smushed between.")` She flattens out onto her belly with relief.
+
+One careful paw wanders back down between her cheeks. This time, though, she doesn't just slide one finger along her crack; she starts with two, hooks them up her yawning hole, and tugs on it.
+
+"Nnf."
+
+!`
+addChoice("What are you doing?", "buttLick7");
+`
+
+---
+:buttLick7
+
+She winks at you over her shoulder and sticks her tongue out. Those two fingers tug and tug, up, down, splitting open like scissors to gape her ass laterally.
+
+"Nnnf... I'm just... y'know, cooling down. Stretch practice. Gotta get at it while it's still warmed up."
+
+... `genitals("You're acutely aware of the still-slick erection against your belly.", "You join in and twiddle your cunt open a little, because why not.", "You're acutely aware of the still-slick erection against your belly.")`
+
+!`
+addChoice("Mmmmn...", "buttLick8");
+`
+
+---
+:buttLick7
+
+Mynt drives her fingers in deep one last time. She twitches. Then she pulls them out, webbed with links of buttjuice and your saliva.
+
+She stands up, sucks her fingers clean, and fixes her eyes on all the unknowable worlds beyond the steamy sky.
+
+"Well— what now?"
+
+!`
+addChoice("Kiss her belly button and get all subby~", "Kiss her belly button!!");
+addChoice("Maybe we should take this slow...", "myntSexSkip");
+`
+
+---
+:myntSexSkip
+
+She nods politely. "Sounds good. We really should find out where we are, huh? I don't see anyone..."
+
+!`
+addChoice("I wonder how far these springs go...", "myntSexSkip2");
+`
+
+---
+:myntSexSkip2
+
+Mynt helps you up and tucks her soggy dress under her armpit.
+
+She looks around, scanning the horizon. "They seem like they start to slope down, in the distance, no matter where I look... gosh. Are we on a mountain? A planet?!"
+
+!`
+addChoice("Let's go find out!!", "myntSexSkip3");
+`
+
+---
+:myntSexSkip3
+
+Mynt squeezes your paw. "Let's!!"
+
+!`
+addChoice("Next.", "myntAdvent");
+`
+
+---
+:Kiss her belly button!!
+
+You wrap your paws around Mynt's lower back and hug her belly. You nuzzle it with your cheek, gently stretching the divot of her lil button. You bring your lips to the rim and smooch it, looking up at her. She looks back down at you between the barely-there bumps of her flat chest. Blush fills her face like a pitcher of kool-aid.
+
+She pants a little. "Now what are you doing down there...?"
+
+!`
+addChoice("Make out with it.", "myntSex");
+`
+
+---
+:myntSex
+
+You slobber hard, pressing your face against her. You drive your tongue forward and wiggle it into her belly button, and a few hot beads of saliva trickle over her bare fur~
+
+Mynt sighs and works her fingers into your hair. She pulls your face harder against her. "Alright... lower..."
+
+!`
+addChoice("Smooch lower...", "myntSex2");
+addChoice("Maybe we should take this slow...", "myntSexSkip");
+`
+
+---
+:myntSex2
+
+You kneel. Your ass blubber kisses the bare soles of your feet. Feels so wet and squishy...
+
+Mynt's paw urges your mouth down. "That's it," she says huskily, trying the attitude on. "Breathe it in."
+
+You huff hard. Freshly washed catmusk and `myntCock`-scent slides into your lungs, filling them. "Keep your mouth open."
+
+Her `myntCock("cock hangs lazily in the air just past your lips. It's half-hard, unbarbed, human-shaped. Beads of pre drooble from the slit.", "cunt quivers with a nearby blast of steam. Tendrils of vapour as hot and bright as sunshine hug the curves of her labia, adding the glimmer of condensation on her bare fur where before there was already a glimmer of sweat.")` "Open," Mynt reminds you one more time, and firmly pulls your mouth into her crotch.
+
+!`
+addChoice("Mmmgh!", "myntSex3");
+`
+
+---
+:myntSex3
+
+She frowns down at you, brows scrunched up. Something is running down her thighs.
+
+"Is that you drooling," she asks, "or just the condensation?"
+
+!`
+addChoice("Mmmnnnhhn mmmh.", "myntSex4");
+`
+
+---
+:myntSex4
+
+"Oh, it's definitely you."
+
+You nuzzle your chin between her thighs and slobber as hard as you can all over her `myntCock("dick, under her shaft, up the seam of her nuts.", "pussylips, flat-tonguing her, easing them open.")` The gross little noises that come from your mouth echo all around the rock pools; sometimes it's hard to tell your own burbles apart from the bubbling springs.
+
+!`
+addChoice("Mmmnnnhhn? (Is it good?)", "myntSex5");
+`
+
+---
+:myntSex5
+
+"Of course... nnh. I can't remember the last time I felt this good," Mynt snarks at you.
+
+The corners of her mouth prick up into a devilish >:3 face. "But I want it to feel even better..."
+
+She rocks her hips against your open maw. `myntCock("Seven inches of cockmeat slide up through the waft of warm breath in your mouth. She pushes just far enough to get a nice coat of saliva, then pulls out, re-tightens her grip on your head, and starts bullying your face with it. Her shaft nuzzles up along the bridge of your nose. When her head isn't smearing precum mascara on your eyelashes, it's smearing precum lipstick on your lips. Periodically, her nuts will dunk into your maw and fill your cheeks out completely. Whenever that happens, she brings one paw down to caress the side of your face and give herself a vigorous nutsack massage through the thin, warm layer of your cheekfur.", "Her cunt lips kiss your lips sideways. Little wet noises come from the collision of labia and tongue, clicks and schlicks and glorps of air shifting between the folds. The heady scent of kitten cuntmusk bullies your sinuses open. You figure you should throw in a little extra effort for her, since she's so dutifully holding your face against her cunt and so thoroughly smearing your features with girljuice: you brace one foot against the rock and push yourself upward, lapping at her pussy from the very bottom of its crevice to the nestled pink pearl of her clit at the top.")`
+
+She's hiding a different, much softer expression under her devilish kitten grin, now. "Thanks for asking, too... now keep your mouth open."
+
+
+!`
+addChoice("Mmph~! (You close~?)", "myntSex6");
+`
+
+---
+:myntSex6
+
+"Just gonna edge a little. Hey, what's that over there?"
+
+!`
+addChoice("Where?", "myntSex7");
+`
+
+---
+:myntSex7
+
+The moment you glance away, `myntCock("seven inches of cock slide down your throat in one smooth thrust.", "she pulls your face down on her cunt so hard that even your nose slips halfway inside her folds.")`
+
+"Right there in your mouth," she says. "Looks like a kitten `data.myntCock` or something. Weird."
+
+!`
+addChoice("Glllrrrk~!", "myntSex8");
+`
+
+---
+:myntSex8
+
+`myntCock("Her dick throbs in your throat. You can't breathe. She doesn't move it an inch; she just keeps it plugged in as deep as it'll go, nuts pressed to your chin and coated shiny with sloppy deepthroat drool.", "Her cunt envelops all of your taste and smell (and most of your tactile focus too) while she adds her other paw to the back of your skull and pulls you deep between her fuzzy thighs. You can't breathe. Your tongue wiggles inside her, pointlessly trying to open her slit wide enough to get a little air in.")`
+
+"Right there in your mouth. Riiiiight there... how you doing? Need air?"
+
+!`
+addChoice("Mmmh-mmh!!", "myntSex9");
+`
+
+---
+:myntSex9
+
+"'Uhh-huh' or 'Nuh-uh'?"
+
+!`
+addChoice("Mmmh-mmh!!!!! Mmmh-mmh!!!", "myntSex10");
+`
+
+---
+:myntSex10
+
+"Really? Wow, but your face is so blue... I know you want more,`gender(" lil bro,", " lil sis,", "")` but I think we gotta let you off for now..."
+
+`myntCock("She takes her time slowly and gently extracting her cock from the depths of your gaped esophagus. Inch by languid inch, you watch it slide out below your nose and between your pooched-out lips, absolutely coated with throatslime and little clusters of spitbubbles. Finally, in the end, after all that, in conclusion, lastly... Mynt pops her cock out past your uvula and wipes it off on your gasping face.", "She takes her time slowly and gently extracting your nose and basically the entire lower half of your face from the depths of her quivering cunt. Fresh air is just a half an inch away, but then she pulls you back in, giggling. She starts to let you off again... then pulls you right back down. More than a few times you end up accidentally inhaling cuntjuice and coughing your ass off. Finally, in the end, after all that, in conclusion, lastly... Mynt unplugs your face from her cunt.")`
+
+!`
+addChoice("Fwaahhhhh...", "myntSex11");
+`
+
+---
+:myntSex11
+
+"Fwah is right..." She bends down`myntCock(" (but not before tucking her sensitive, still-hard cock between her thighs)", "")` and kisses you on the lips, tasting herself. "I think we'll get along just fine without our memories of each other, don't you? Seems like we just picked up right where we left off."
+
+!`
+addChoice("I love you, Mynt...", "myntSex12");
+`
+
+---
+:myntSex12
+
+She kisses your forehead and your brow. One paw rests on the back of your neck.
+
+"I'm glad you swam with me after all, `gender("grandpa", "grandma", "grandma")`... you had so many worry wrinkles between your eyebrows, crunched down all over your forehead..."
+
+She kisses all your missing wrinkles: frown lines, crow's feet, and tear troughs, all perfectly smooth.
+
+!`
+addChoice("Aren't you going to say you love me too?", "myntSex13");
+`
+
+---
+:myntSex13
+
+Mynt smiles.
+
+"Of course. I love you too, `data.playerName`."
+
+
+!`
+addChoice("Mmm!", "myntSex14");
+`
+
+---
+:myntSex14
+
+"Now," she says, and faces the horizon. "We both have a lot of questions about this situation— but what should we tackle first?"
+
+
+!`
+addChoice("Right. Well. I guess we should find someone to ask for directions, right?", "myntSex15");
+`
+
+---
+:myntSex15
+
+Mynt blinks.
+
+"But where are we trying to be directed to?"
+
+!`
+addChoice("Oh. Uh.", "myntSex16");
+`
+
+---
+:myntSex16
+
+"No— ignore me, that doesn't matter." She shakes her head and extends a paw for you. "We'll know where we want to go once we have a better idea of... where we even are."
+
+!`
+addChoice("Agreed. I wonder how far these springs go...?", "myntSexSkip2");
+`
+
+---
+:myntAdvent
+
+You walk the hot springs with Mynt, passing through massive steaming crevasses, speckles of tiny pools like acne in the rocks, and bubbling lakes of the same red fluid you dissolved in earlier.
+
+As you march on, the horizon dips lower and lower. Then it drops out from under your feet.
+
+You're faced with a cliffside and a path so steep you can't even see the bottom; it just spirals down on itself, underneath gray boulders and frothing-hot red waterfalls. Where the landscape once stretched on forever, now there's only an opaque wall of steam.
+
+"Well," Mynt gulps. She's carrying her drying dress under an arm, wobbling, trying to find a good rock for support while she wrestles her vertigo. "A-Are we going down, or?"
+
+!`
+addChoice("Sure.", "myntAdvent2");
+`
+
+---
+:myntAdvent2
+
+You take a few careful steps down the cliffside path. Loose chunks of rock crackle and crumble underfoot.
+
+Mynt still hasn't moved from her special safety rock. She's hugging it, wet dress squished against her bare chest.
+
+"I-I don't know about this... I never had to deal with heights before, when I was in my box... I know they call them towers, but desktop computers really aren't that tall, you know...!"
+
+!`
+addChoice("Hey. It's okay. (Sit down next to her.)", "myntAdventSit");
+addChoice("Don't be a pussy. (Continue down the path.)", "myntAdvent3");
+`
+
+---
+:myntAdventSit
+
+You plop your ass down next to Mynt and nuzzle her naked hip with yours. She's shaking.
+
+"Just a s-second. I'll snap out of it in a second."
+
+!`
+addChoice("Take your time.", "myntAdventSit2");
+`
+
+---
+:myntAdventSit2
+
+Mynt side-hugs you, wrapping her arms around both of yours. The wet fabric of her dress spills onto the ground like liquid. She doesn't notice or care. 
+
+The open sky swirls below you both.
+
+"We must be on a mountain. Right?"
+
+!`
+addChoice("Hmmm... maybe...", "myntAdventSit3");
+`
+
+---
+:myntAdventSit3
+
+"Where else could we be? It's not a planet, because there's gravity pulling us down the side of the sphere."
+
+!`
+addChoice("It could be a...", "myntAdventSit4");
+`
+
+---
+:myntAdventSit4
+
+A gust of wind screams by out of nowhere and knocks you both on your asses.
+
+You cling to the rock as pebbles and grey sand plink off the back of your skull. Mynt's tail poofs out. She grabs you around the waist so hard her claws dig into your fur. "DON'T LET GO!" she squeals over the wind.
+
+Mynt's wet dress catches the wind and gapes out (FWOOMPH). She JUST manages to reach out and grab the hem between two clawtips before it flutters away forever into the unfeeling steam-storm.
+
+!`
+addChoice("Hold on! We're okay!! We're good!", "myntAdventSit5");
+`
+
+---
+:myntAdventSit5
+
+The wind howls. Hot steam whips past your face.
+
+The wall of clouds shudders and twists, and all its swirls and knots of white unravel. The wind peels wisps of vapour off your face and throws them into the sky like a million soft white ribbons. A hole opens in the sky.
+
+Now you can see where you are:
+
+You're maybe five thousand feet in the air, on the crest of a grey meteorite. Where the wall of steam once was, now you see Earth: rolling forests, hills, a green city in the distance, the edges of a turbulent lake, and the rosy pink sunrise that fills your home planet with twinkles of newborn light.
+
+You peel your eyes off the sunrise and look as straight down as you can manage. The lip of the crater is tiny; this meteorite couldn't have landed with full force. Near the base of the meteorite is a church and the entrance to a bomb shelter, both beyond abandoned.
+
+Mynt stands up shakily and almost passes out `boobs("against your chest", "between your tits")`.
+
+"Where... are...?"
+
+CURRENT LAYER: SPILLED INK
+PARENT LAYER: L.L.L.
+
+!`
+addChoice("This is where I was born. This is my planet.", "myntAdventSit6");
+`
+
+---
+:myntAdventSit6
+
+Mynt gawks. She holds her black dress by the sleeve as it flutters in the dying wind beside her.
+
+"You and mom lived here?"
+
+!`
+addChoice("Our apartment is in that city— right over there.", "myntAdventSit7");
+`
+
+---
+:myntAdventSit7
+
+The wind picks up again. You hunker down.
+
+Mynt does not. She stands and stares as hard as she can through the gap in the clouds, craning on her tip toes, not even thinking of falling. She starts drinking everything in with ravenous curiosity: "Look at that! Look at those! What's down there?"
+
+She points to trees and roads and birds. She points to the glittering lake and the rowboats that piddle along shakily, pushed to the shore by the wind. She hops up and down and almost squeals with pure excitement. Mynt climbs ON TOP of the rock she was just clutching for dear life a moment ago, tail out for balance, and then she shields her eyes with one paw and points to one last sight with the other just before the steam thickens up again and her view of this shiny new world disappears behind white curtains:
+
+She points to the sun.
+
+"It's dawn!"
+
+!`
+addChoice("It's beautiful. <3", "myntAdventSit8");
+`
+
+---
+:myntAdventSit8
+
+Mynt almost falls over when the wind shoves her around a bit.
+
+She scampers down from her rock and races along the steep path, deft catpaws striking rocks or walls to redirect her momentum around the corners. "Come on!" she mewls. "Let's go see if mom's still in our apartment!"
+
+!`
+addChoice("Ah, Mynt, one moment, wait up—", "myntAdvent3alt");
+`
+
+---
+:myntAdvent3alt
+
+You trip and eat shit on jagged cliffside for 214 painful seconds, flipping and tumbling and, at one point, sprinting all-out down a sheer vertical face only for it to drop out under your feet. You freefall through searing steamclouds which split to reveal absolutely nothing that could possibly reduce your inertia.
+
+You hit the ground and die instantly.
+
+!`
+addChoice("... Shit.", "myntAdvent4");
+`
+
+---
+:myntAdvent3
+
+You trip and eat shit on jagged cliffside for 214 painful seconds, flipping and tumbling and, at one point, sprinting all-out down a sheer vertical face only for it to drop out under your feet. You freefall through searing steamclouds which split to reveal that you just fell off the side of a giant spherical meteorite embedded in the crust of the Earth.
+
+You hit the ground and die instantly.
+
+!`
+addChoice("... Shit.", "myntAdvent4");
+`
+
+---
+:myntAdvent4
+
+Yeah I honestly don't know how you fucked up so badly so quickly.
+
+!`
+addChoice("Shush, Mr. Eyeball. Respawn me.", "myntAdvent5");
+`
+
+---
+:myntAdvent5
+
+You resurface from the waters of the pond.
+
+Since you aren't changing your body, just duplicating it, there will be no amnesia this time.
+
+!`
+addChoice("Okay cool thanks. Go find Mynt.", "myntAdvent6");
+`
+
+---
+:myntAdvent6
+
+You walk back to the cliffside. It takes about twenty minutes.
+
+Once you get to where you fell, you find Mynt's rock, but no Mynt. The wet splotches on the rock (from her dress and butt) are still fresh, too.
+
+!`
+addChoice("MYYYYYNNNNNNTTT", "myntAdvent7");
+`
+
+---
+:myntAdvent7
+
+The surrounding rock pools are quiet, save for the occasional burble.
+
+!`
+addChoice("MYYYYNT!! COME BACK!!! I RESPAWNED!!!!", "myntAdvent8");
+`
+
+---
+:myntAdvent8
+
+You can pivot around on your heels and scream in all the directions you like.
+
+She's gone.
+
+!`
+addChoice("Goddamnit.", "myntAdvent9");
+`
+
+---
+:myntAdvent9
+
+
+!`
+addChoice("She wouldn't go down there without me... maybe she went back to the pond while I was leaving...", "myntAdvent10");
+`
+
+---
+:myntAdvent10
+
+You hurry back. The stone path cooks your pawpads and urges you to go faster, if only to avoid the burn.
+
+Nope. No one here either.
+
+!`
+addChoice("Hmmm... look around for clues...", "myntAdvent11");
+`
+
+---
+:myntAdvent11
+
+You sniff over to the other side of the pool. Then, looking back, you notice something shimmering blue on a car-sized rock:
+
+It's a message... written in Mynt's blood.
+
+!`
+addChoice("HMMMMMMMMMMM!!", "myntAdvent12");
+`
+
+---
+:myntAdvent12
+
+"Sorry 4 creepy msg! Used thumb. Water would dry up. Saw mom, chasing. Meet at L.L.L."
+
+!`
+addChoice("Oh! Phew. It's... a good kind of message in blood.", "myntAdvent13");
+`
+
+---
+:myntAdvent13
+
+Yeah, I guess I made that out to be a little more ominous than necessary.
+
+!`
+addChoice("What the fuck is an L.L.L.?", "myntAdvent14");
+`
+
+---
+:myntAdvent14
+
+Oh, that's a popular library. It's just one layer above this one.
+
+You're from this layer, right? Earth?
+
+!`
+addChoice("Yeah.", "myntAdvent15");
+`
+
+---
+:myntAdvent15
+
+Okay. Do you know what it means for the library to be 'one layer above this one'?
+
+!`
+addChoice("No clue.", "myntAdvent16");
+`
+
+---
+:myntAdvent16
+
+It means the librarian there is your God.
+
+His layer encompasses and precedes yours.
+
+!`
+addChoice("Oh...", "myntAdvent16knew");
+`
+
+---
+:myntAdvent16knew
+
+Would you like to meet God?
+
+He's almost finished painting for the day.
+
+!`
+addChoice("Well, he can tell me where Mynt went, right?", "myntAdvent16knew2");
+`
+
+---
+:myntAdvent16knew2
+
+He is not omnipotent nor omniscient. But he did make both of you, so he might have some idea.
+
+!`
+addChoice("Take me to see him.", "myntAdvent16knew3");
+`
+
+---
+:myntAdvent16knew3
+
+Just step into the pond again. You can travel between paraphrased layers through any body of water, thanks to our infrastructure.
+
+!`
+addChoice("Gotcha. Thanks, Mr. Eyeball.", "myntAdvent16knew4");
+`
+
+---
+:myntAdvent16knew4
+
+No problem, granny.
+
+!`
+addChoice("Step into the pond.", "myntAdvent16knew5");
+`
+
+
+---
+:myntAdvent16knew5
+
+!`
+resetBackgroundMode(2);
+print("leaving intro");
+execAsset("thirstyCaves.phore");
+gotoMap();
+`
+
+END_PASSAGES
+
+gotoPassage("introModMyntStart");

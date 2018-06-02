@@ -1,0 +1,193 @@
+var graphNodes = [];
+
+var graphBg = null;
+var graphLines = [];
+
+function clearNodes() {
+	graphNodes = [];
+}
+
+function submitNode(nodeName, result) {
+	print("Adding "+nodeName);
+	var node;
+	node = {
+		name: nodeName,
+		result: result,
+		connectedTo: null,
+		connectedDir: 0,
+		sprite: null,
+		textField: null,
+		locked: false,
+		lockFunction: null
+	};
+	graphNodes.push(node);
+}
+
+function attachNode(prevName, nextName, dir) {
+	var prevNode = null;
+	var nextNode = null;
+
+	for (var i = 0; i < graphNodes.length; i++)
+		if (graphNodes[i].name == prevName)
+			prevNode = graphNodes[i];
+
+	for (var i = 0; i < graphNodes.length; i++)
+		if (graphNodes[i].name == nextName)
+			nextNode = graphNodes[i];
+
+	nextNode.connectedTo = prevNode;
+	nextNode.connectedDir = dir;
+}
+
+function setNodeLocked(nodeName, fn) {
+	var node = null;
+
+	for (var i = 0; i < graphNodes.length; i++)
+		if (graphNodes[i].name == nodeName)
+			node = graphNodes[i];
+
+	node.lockFunction = fn;
+}
+
+function gotoMap() {
+	clear();
+	exitButton.alpha = 0;
+	data = JSON.parse(checkpointStr);
+
+	graphLines = [];
+
+	graphBg = addEmptyImage(2048, 2048);
+	graphBg.x = gameWidth/2 - graphBg.width/2;
+	graphBg.y = gameHeight/2 - graphBg.height/2;
+	graphBg.draggable = true;
+
+	graphNodes.forEach(function(node) {
+		if (node.lockFunction) node.locked = !node.lockFunction();
+
+		node.sprite = add9SliceImage("img/writer/nodeChoice", 180, 180, 22, 22, 44, 44);
+		node.sprite.x = graphBg.width/2 - node.sprite.width/2;
+		node.sprite.y = graphBg.height/2 - node.sprite.height/2;
+		node.sprite.layer = GRAPH_NODE_LAYER;
+
+		if (node.locked) {
+				node.sprite.alpha = 0.1;
+		} else {
+			node.sprite.onHover = function() {
+				node.sprite.alpha = 0.5;
+			};
+			node.sprite.onUnHover = function() {
+				node.sprite.alpha = 1;
+			};
+			node.sprite.onRelease = function() {
+				if (typeof node.result === "string") {
+					gotoPassage(node.result);
+				} else {
+					node.result();
+				}
+			}
+		}
+		graphBg.addChild(node.sprite);
+
+		node.textField = addEmptyImage(node.sprite.width, node.sprite.height);
+		node.textField.setText(node.name);
+		node.textField.x = node.sprite.width/2 - node.textField.textWidth/2;
+		node.textField.y = node.sprite.height/2 - node.textField.textHeight/2;
+		node.textField.layer = GRAPH_NODE_LAYER;
+		node.sprite.addChild(node.textField);
+
+		// for (int i = 0; i < graph->nodesNum; i++) {
+
+		// 	{ /// Node locked
+		// 		if (node->unlockVarName) {
+		// 			execJs("var nodeLockedStr = %s ? \"1\" : \"0\";", node->unlockVarName);
+
+		// 			mjs_val_t jsData = mjs_get(mjs, mjs_get_global(mjs), "nodeLockedStr", strlen("nodeLockedStr"));
+		// 			size_t jsStrLen = 0;
+		// 			const char *jsStr = mjs_get_string(mjs, &jsData, &jsStrLen);
+		// 			bool isUnlocked = jsStr[0] == '1' ? true : false;
+		// 			// printf("%s is %d\n", node->name, isUnlocked);
+
+		// 			execJs("var nodeLockedStr = null;");
+
+		// 			if (!isUnlocked) node->sprite->alpha = 0.5;
+		// 		}
+		// 	}
+	});
+
+	graphNodes.forEach(function(node) {
+		var other = node.connectedTo;
+
+		if (other) {
+			var nodeSpr = node.sprite;
+			var otherSpr = other.sprite;
+
+			var nodePad = 300;
+			if (node.connectedDir == TOP) {
+				nodeSpr.x = otherSpr.x;
+				nodeSpr.y = otherSpr.y - nodePad;
+			} else if (node.connectedDir == BOTTOM) {
+				nodeSpr.x = otherSpr.x;
+				nodeSpr.y = otherSpr.y + nodePad;
+			} else if (node.connectedDir == LEFT) {
+				nodeSpr.x = otherSpr.x - nodePad;
+				nodeSpr.y = otherSpr.y;
+			} else if (node.connectedDir == RIGHT) {
+				nodeSpr.x = otherSpr.x + nodePad;
+				nodeSpr.y = otherSpr.y;
+			}
+
+			var x1 = nodeSpr.x + nodeSpr.width/2;
+			var y1 = nodeSpr.y + nodeSpr.height/2;
+			var x2 = otherSpr.x + otherSpr.width/2;
+			var y2 = otherSpr.y + otherSpr.height/2;
+			var dist = pointDistance(x1, y1, x2, y2);
+			var line = addRectImage(dist, 4, 0x752b2b);
+			graphBg.addChild(line);
+			line.x = x1;
+			line.y = y1;
+			line.layer = GRAPH_LINE_LAYER;
+			line.rotation = Math.atan2(y2 - y1, x2 - x1) * 180 / Math.PI;
+		}
+	});
+
+	var saveButton = addImage("writer/save.png");
+	saveButton.scaleX = saveButton.scaleY = 2;
+	saveButton.x = exitButton.x;
+	saveButton.y = exitButton.y + exitButton.height*exitButton.scaleX + 16;
+	saveButton.onRelease = saveGame;
+
+	var loadButton = addImage("writer/load.png");
+	loadButton.scaleX = loadButton.scaleY = 2;
+	loadButton.x = saveButton.x;
+	loadButton.y = saveButton.y + saveButton.height*saveButton.scaleX + 16;
+	loadButton.onRelease = loadGame;
+
+	// { /// Exit button
+	// 	MintSprite *spr = createMintSprite("writer/exit.png");
+	// 	writer->bg->addChild(spr);
+	// 	spr->scale(2, 2);
+	// 	spr->x = graph->loadButton->x;
+	// 	spr->y = graph->loadButton->y + graph->loadButton->getHeight() + 16; //@hardcode padding 16px
+	// 	spr->layer = lowestLayer + NODES_LAYER;
+
+	// 	graph->exitButton = spr;
+	// }
+}
+
+{ //@incomplete Move these somewhere else
+	submitNode("Scratch", function() {execAsset("scratch.phore");});
+	submitNode("Indigo Pond", "piss");
+	attachNode("Scratch", "Indigo Pond", TOP);
+
+	submitNode("Alcohol Pipeline", "pipeline");
+	attachNode("Indigo Pond", "Alcohol Pipeline", TOP);
+
+	submitNode("Underground Farms", "rox");
+	attachNode("Scratch", "Underground Farms", LEFT);
+
+	submitNode("Heaven", "heaven");
+	attachNode("Scratch", "Heaven", RIGHT);
+	setNodeLocked("Heaven", function() {
+		return data.apples > 3;
+	});
+}

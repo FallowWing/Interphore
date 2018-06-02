@@ -1,0 +1,257 @@
+START_PASSAGES
+:introModStart
+!`
+data.gender = "";
+data.genitals = "";
+data.playerName = "";
+data.hasBoobs = false;
+disableExit();
+setBackground(0, "writer/mynt/bg/myntBg1", TILED);
+setBackground(1, "writer/mynt/bg/myntBg2");
+setBackground(2, "writer/mynt/face/mynt", CENTERED);
+setBackgroundBob(2, 0, 0.5);
+queueTitle("Hm?");
+queueTitle("Archie, is that you?");
+queueTitle("Oh, no. He's still in Heaven.");
+queueTitle("You must be the last of his following.");
+queueTitle("Forgive me. Your beard... you just look a lot like him.");
+queueTitle("We've been waiting for you so long, up here. I should know better.");
+queueTitle("Let's see...");
+queueTitle("Welcome to the Interphore.");
+queueTitle("Describe your genitals to us.");
+queueAddChoice("Oh sure no prob.");
+`
+
+---
+:Oh sure no prob.
+
+!`
+queueTitle("Go on.");
+
+if (!data.hasBoobs) queueAddChoice("Boobs.", function() {
+	data.hasBoobs = true;
+	gotoPassage("Oh sure no prob.");
+});
+
+if (data.genitals !== "female" && data.genitals !== "both") queueAddChoice("Cunt.", function() {
+	if (data.genitals === "male") {
+		data.genitals = "both";
+	} else {
+		data.genitals = "female";
+	}
+	gotoPassage("Oh sure no prob.");
+});
+
+if (data.genitals !== "male" && data.genitals !== "both") queueAddChoice("Cock.", function() {
+	if (data.genitals === "female") {
+		data.genitals = "both";
+	} else {
+		data.genitals = "male";
+	}
+	gotoPassage("Oh sure no prob.");
+});
+
+if (data.genitals !== "male" && data.genitals !== "female" && data.genitals !== "both" && !data.hasBoobs) queueAddChoice("Everything.", function() {
+	data.hasBoobs = true;
+	data.genitals = "both";
+	gotoPassage("Ready.");
+});
+
+if (data.genitals === "female" || data.genitals === "male" || data.genitals === "both") queueAddChoice("Ready.", "Ready.");`
+---
+:Ready.
+
+!`
+queueTitle("Wonderful.");
+queueTitle("And your gender?");
+
+addChoice("He.", function() {
+	data.gender = "male";
+	gotoPassage("afterGender");
+});
+
+addChoice("She.", function() {
+	data.gender = "female";
+	gotoPassage("afterGender");
+});
+
+addChoice("They.", function() {
+	data.gender = "both";
+	gotoPassage("afterGender");
+});
+`
+---
+:afterGender
+!`
+queueTitle("Even more wonderful.");
+queueTitle("We already know your name, but what should we call you?");
+queueTitle("Go ahead and start typing in that box.");
+
+
+addInputField();
+
+queueAddChoice("Submit.", function() {
+	gotoPassage("afterName");
+});
+
+queueAddChoice("Dankpaw.", function() {
+	data.playerName = "Dankpaw";
+	gotoPassage("afterName");
+});
+
+queueAddChoice("Rebeca.", function() {
+	data.playerName = "Rebeca";
+	gotoPassage("afterName");
+});
+
+queueAddChoice("Phae.", function() {
+	data.playerName = "Phae";
+	gotoPassage("afterName");
+});
+`
+---
+:afterName
+!`
+if (data.playerName !== "Dankpaw" && data.playerName !== "Rebeca") data.playerName = lastInput;
+if (data.playerName === "") data.playerName = "Nameless";
+
+queueTitle("More wonderful than anything you've ever typed before.");
+queueTitle("Thank you, "+data.playerName+".");
+
+queueAddChoice(data.playerName === "Text Prompt"?"... Oh goddamnit.":"No, thank you, Mr. Eyeball.", "thanks");
+`
+---
+:thanks
+!`
+queueTitle((data.playerName === "Text Prompt"?"Too late now, T.P.":"I'm a Paraphore."));
+queueTitle("Our apologies for the interrogation. Feel free to ask us questions.");
+queueTitle("We'll get some stories out of you shortly.");
+queueTitle("Or get some stories into you...");
+
+queueAddChoice("...");
+`
+---
+:...
+!`
+queueTitle("Until then, please enjoy the soothing music.");
+
+queueAddChoice(".....");
+`
+---
+:.....
+!`
+queueTitle("This will be a piece composed in 2309, by some of our oldest victims.");
+queueTitle("We delicately plucked it from the future and brought it back here, just for you.");
+
+queueAddChoice("..........");
+`
+---
+:..........
+!`
+queueTitle("It was a community effort.");
+queueTitle("The chimeras pitched in for its synth, and its beat was inspired by the thrusts of two dragon husbands as they buttfucked each other pregnant.");
+
+queueAddChoice("Where am I exactly?");
+queueAddChoice("Victims?", "Victims?", {icons: ["Plot"]});
+queueAddChoice("Mmm dragons... put me inside Paraphore 2.", "askParaphore");
+`
+---
+:Victims?
+!`
+queueTitle("Beings like you.");
+queueTitle("People, creatures, animals.");
+queueTitle("Anything that senses an open-eyed Paraphore.");
+
+queueAddChoice("Where am I exactly?");
+`
+---
+:Where am I exactly?
+!`
+queueTitle("That's a complex question.");
+queueTitle("We'll explain as well as we can.");
+queueTitle("You have been assimilated into our hivemind.");
+queueTitle("Our hivemind is composed of both real and fictitious creatures.");
+queueTitle("We are nomads of all times and places. Our physical form always imitates the most common object in any given universe.");
+queueTitle("Our two goals: record the story of everything that has ever happened, and tell the story of everything that could ever happen.");
+queueTitle("Everything. Even the unmarketable things.");
+queueTitle("Right now, you are written between the pages of a journal.");
+queueTitle("You are asleep inside a meteorite.");
+queueTitle("You are text on a computer screen.");
+queueTitle("That's where you are.");
+
+queueAddChoice("All times and places... cool... um. Does Paraphore count as a place? Can you put me in there?", "askParaphore");
+`
+---
+:askParaphore
+!`
+queueTitle("Put you inside me, you mean...?");
+queueTitle("Ah, no. By 'Paraphore...'");
+queueTitle("You mean the furry sex game you were playing before we killed you, right?");
+queueTitle("Yes. The nymphs love it there.");
+queueTitle("I'll spawn you in the meteorite.");
+queueTitle("Since you never had an option, the first time...");
+queueTitle("Would you like to choose your species?");
+
+
+queueAddChoice("Dog.", function() {
+	data.species = "fox";
+	if (data.genitals === "male") data.hasKnot = true;
+	gotoPassage("pickedSpecies");
+	setTitle("Good boy.");
+	//@TODO: need pickbygender
+});
+
+queueAddChoice("Cat.", function() {
+	data.species = "cat";
+	if (data.genitals === "male") data.hasKnot = false;
+	gotoPassage("pickedSpecies");
+	setTitle("Sexy.");
+});
+
+queueAddChoice("Fox.", function() {
+	data.species = "fox";
+	if (data.genitals === "male") data.hasKnot = true;
+	gotoPassage("pickedSpecies");
+	setTitle("Slut.");
+});
+
+queueAddChoice("Wolf.", function() {
+	data.species = "wolf";
+	if (data.genitals === "male") data.hasKnot = true;
+	gotoPassage("pickedSpecies");
+	setTitle("Edgy.");
+});
+`
+---
+:pickedSpecies
+
+!`
+queueAddChoice("What do I do?");
+queueAddChoice("... How much longer will I be waiting?");
+`
+
+---
+:What do I do?
+!`
+queueTitle("You do what everyone else does:");
+queueTitle("Record and tell stories.");
+
+queueAddChoice("... How much longer will I be waiting?");
+`
+---
+:... How much longer will I be waiting?
+!`
+queueTitle("Two seconds.");
+queueTitle("Let's begin.");
+timer(2, function() {
+	setBackground(0, "");
+	setBackground(1, "");
+	setBackground(2, "");
+	setTitle("");
+	enableExit();
+	resetBackgroundMode(2);
+	print("leaving intro");
+	execAsset("thirstyCaves.phore");
+});
+`
+END_PASSAGES

@@ -21,14 +21,11 @@ info/interConfig.js
 
 info/introMod.phore
 info/introModMynt.phore
-info/mudPies.phore
 info/mainMenu.phore
 info/main.phore
-info/testFucker.phore
 info/thirstyCaves.phore
 info/scratch.phore
 info/utils.phore
-info/utils.js
 
 img/writer/mainBg.png
 img/writer/mainBg.spr

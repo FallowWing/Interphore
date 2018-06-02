@@ -1,0 +1,39 @@
+clearNodes();
+
+START_PASSAGES
+:mainMenuStart
+welcome
+[Story]
+[Load Mod]
+[Extra]
+---
+:Story
+!`
+
+gotoPassage("introModStart");
+clearNodes();`
+---
+:Extras (Buggy)
+!`
+clearNodes();
+stopAudio("music");
+gotoBrowser();
+`
+---
+:Back.
+!`gotoMap();`
+
+---
+:Exit
+
+END_PASSAGES
+
+// gotoPassage("Starting Passage");
+submitNode("Story", "Story");
+
+submitNode("Extras (Buggy)", "Extras (Buggy)");
+attachNode("Story", "Extras (Buggy)", RIGHT);
+
+gotoMap();
+setBackground(0, "writer/thirstyCavesBg");
+playAudio("audio/music/newVictim", "music", {looping: true});
