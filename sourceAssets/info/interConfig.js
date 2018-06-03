@@ -442,10 +442,12 @@ function queueCall(func) {
 
 function enableExit() {
 	exitDisabled = false;
+	exitButton.alpha = 1;
 }
 
 function disableExit() {
 	exitDisabled = true;
+	exitButton.alpha = 0;
 }
 
 function __update() {
