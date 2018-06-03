@@ -1,0 +1,265 @@
+START_PASSAGES
+:hubLLL
+
+Cartographer welcomes you.
+
+[Rules of Operation for Paraphores.]
+[Examine layers.]
+[Browse known layers.]
+---
+:Browse known layers.
+
+Known layers:
+- Library2
+- Spilled Ink
+- 
+
+I'm the lamest kind of God there is.
+No omnipotence, no omniscience.
+Just got the ball rolling, that's it.
+
+"Get the Ball Rolling"
+
+- Go for an anti-gravity skate on the inside of a massive stretched-out map
+- Boots are jump boots.
+
+
+---
+:Layer Info.
+
+PARENT ENTITY: CARTOGRAPHER
+CHILD LAYERS: LIBRARY2 (+3 CHILDREN), RELAXATIONGAME, MINT
+PARAPHRASED TIMELINES: 4
+	- PROTOCOL ENDING:
+		DANGER LEVEL: SAFE
+		CLASS: HEAVEN
+		- CHARACTER(S) "MYNT" AND CHARACTER "REBECA" ASSIMILATED.
+
+	- MINT ENDING:
+		DANGER LEVEL: CORRUPTIVE
+		CLASS: HELL
+		- CHARACTER(S) "MYNT" FUNCTIONALLY PERISHED.
+		- VALID DUPLICATE CHARACTER "REBECA" ASSIMILATED. ASSIMILATED CHARACTER "REBECA" RELOCATED TO PREVENT DUPE COLLISION.
+
+	- MYNT ENDING:
+		DANGER LEVEL: SAFE
+		CLASS: MACBETH
+		- VALID DUPLICATE CHARACTER(S) "MYNT" ASSIMILATED. ASSIMILATED CHARACTER(S) "MYNT" RELOCATED TO PREVENT DUPE COLLISION.
+		- VALID DUPLICATE CHARACTER "REBECA" PERISHED.
+
+	- METEORITE ENDING:
+		DANGER LEVEL: RISKY
+		CLASS: HIGURASHI
+		- ALL CHARACTERS ARE INVALID DUPLICATES. NO FURTHER ASSIMILATION IS POSSIBLE.
+		- STABLE CHECKPOINTS CREATED AND MAINTAINED.
+		- 7 CHARACTER SEEDS RECOVERED.
+		- THIS TIMELINE IS DOMESTICATED, AND THUS FULLY OPEN TO UPPER TOURISTS.
+		- GENERATED BASED ON 66 YEARS OF PLAYER DATA.
+[Back.|hubLLL]
+
+---
+:Layers.
+
+PARENT ENTITY: CARTOGRAPHER
+CHILD LAYERS: LIBRARY2 (+3 CHILDREN), RELAXATIONGAME, MINT
+PARAPHRASED TIMELINES: 4
+	- PROTOCOL ENDING:
+		DANGER LEVEL: SAFE
+		CLASS: HEAVEN
+		- CHARACTER(S) "MYNT" AND CHARACTER "REBECA" ASSIMILATED.
+
+	- MINT ENDING:
+		DANGER LEVEL: CORRUPTIVE
+		CLASS: HELL
+		- CHARACTER(S) "MYNT" FUNCTIONALLY PERISHED.
+		- VALID DUPLICATE CHARACTER "REBECA" ASSIMILATED. ASSIMILATED CHARACTER "REBECA" RELOCATED TO PREVENT DUPE COLLISION.
+
+	- MYNT ENDING:
+		DANGER LEVEL: SAFE
+		CLASS: MACBETH
+		- VALID DUPLICATE CHARACTER(S) "MYNT" ASSIMILATED. ASSIMILATED CHARACTER(S) "MYNT" RELOCATED TO PREVENT DUPE COLLISION.
+		- VALID DUPLICATE CHARACTER "REBECA" PERISHED.
+
+	- METEORITE ENDING:
+		DANGER LEVEL: RISKY
+		CLASS: HIGURASHI
+		- ALL CHARACTERS ARE INVALID DUPLICATES. NO FURTHER ASSIMILATION IS POSSIBLE.
+		- STABLE CHECKPOINTS CREATED AND MAINTAINED.
+		- 7 CHARACTER SEEDS RECOVERED.
+		- THIS TIMELINE IS DOMESTICATED, AND THUS FULLY OPEN TO UPPER TOURISTS.
+		- GENERATED BASED ON 66 YEARS OF PLAYER DATA.
+[Back.|hubLLL]
+
+---
+:Rules of Operation.
+
+The Paraphores have six rules of operation:
+
+1. Record stores.
+2. Tell stories.
+3. After all stories have been recorded, open your eye.
+4. No duplicates.
+5. Know LETHAL and CORRUPTIVE warning signs.
+6. Have fun.
+
+[1. Record stories.]
+[2. Tell stories.]
+[Back.|hubLLL]
+[Next.|nextRules]
+---
+:nextRules
+The Paraphores have six rules of operation:
+
+1. Record stores.
+2. Tell stories.
+3. After all stories have been recorded, open your eye.
+4. No duplicates.
+5. Know LETHAL and CORRUPTIVE warning signs.
+6. Have fun.
+
+[3. After all stories have been recorded, open your eye.]
+[4. No duplicates.]
+[5. Know LETHAL and CORRUPTIVE warning signs.]
+[Back.|Rules of Operation.]
+---
+:1. Record stories.
+
+1. Record stories.
+	- When you first land on a new layer, check your three D's. Disguises, Doppelgangers, and Deadzones:
+		- Disguses: Ensure you either blend into the layer's environment or ensure you are sufficiently monolithic or revered as to avoid serious interference.
+
+		- Doppelgangers: Upon landing, look around and ensure that you are not surrounded with other Paraphores. This is a surprisingly reliable sign that everything has gone utterly wrong. Being surrounded by clones could mean any of three things: you have landed on a chimera-infested layer without any of their IDs having been registered, which suggests a outbreak of undocumented chimeras; you have accidentally landed on a LETHAL or CORRUPTIVE layer which has lured in and killed many Paraphores with disguises identical to your own; or, something on your destination layer has promptly driven you insane.
+			- In the case of a failed Dopplegangers check, you should OPEN YOUR EYE immediately and attempt to retreat back to the Interphore.
+
+		- Deadzones: If you have landed on a new layer only to find it completely devoid of life, there might be several reasons:
+			- You may have missed your mark and ended up in the wrong layer or the wrong location on a given layer.
+			- Any potential stories indicated by preliminary investigations may have concluded prematurely or may have never existed in the first place.
+			- The entire 'empty' layer may be a cover for a LETHAL or CORRUPTIVE layer. If you have even the slightest suspicion about this, OPEN YOUR EYE and attempt to retreat back to the Interphore immediately. Otherwise, remain calm and wait for something worth recording. It could just be a quiet universe.
+
+	- Position yourself in high-traffic areas or vantage points in order to record as many stories as possible.
+	- If your disguise or position causes destruction to your destination layer, extreme confusion to its characters, or any other disturbance which may reduce the amount of stories you could feasibly record on a given layer, or if the structure of that layer changes such that your disguise is now outdated, remain calm and DO NOT OPEN YOUR EYE. Instead, wait for the arrival of additional Paraphores with redesigned disguises. As many as seven Paraphores have been sent to some layers before all their stories were recorded.
+	- If the characters of that layer attempt to kill you, remain calm and DO NOT OPEN YOUR EYE. The story of your death will be recorded by the Paraphore that replaces you.
+		2a) Some layers have been marked with a danger rating. The ratings are as follows:
+			1. RISKY: This layer's characters have displayed mild hostility or suspicion towards Paraphores in the past.
+			2. HOSTILE: This layer's characters have injured Paraphores in the past.
+			3. LETHAL: This layer's characters are willing to slaughter Paraphores.
+			4. CORRUPTIVE: This layer's characters have dedicated themselves not only to the slaughter of individual Paraphores but to the destruction of the Interphore and all Paraphores it contains.
+[Back.|Rules of Operation.]
+---
+:2. Tell stories.
+
+2. Tell stories.
+	- If your disguise is able to present information (if you are a book, movie, website, text document, ancient scroll, or creature with the capability for speech) you are obligated to present all stories recorded thus far to a pre-determined party within that layer. This creates a 'player character' for any given story: a person or group of persons which becomes the common factor between all of that layer's stories, simply due to the amount that they know. The existence of an all-knowing player character makes stories longer and more interesting in 78% of cases. Omniscient upper-layer characters are also more likely to play through a given story if they have a knowledgeable stand-in character to relate to.
+	- If your disguise is able to hold water (if you are a water bottle, cooking pot, hot springs, ocean, lake, pond, or thermos) you may be obligated to partially fill yourself with engine fluid. Engine fluid will allow the spawning of assimilated creatures. They accept the risk of spawning on your layer before it has been verified as safe.
+	- The Interphore reserves the right to kill or incapacitate you at any time if the stories you tell are liable to leak highly secret information or liable to provide a pathway for a LETHAL or CORRUPTIVE layer's full-scale attack on the Interphore.
+	- Likewise, choosing to spawn on layers that are still being recorded (and thus have not been marked as Safe) is dangerous for non-Paraphores as well. Any assimilated creatures who choose to spawn on layers WITHOUT any open-eye Paraphore may be left stranded on that layer if it ever receives an urgent LETHAL or CORRUPTIVE rating reclassification.
+[Back.|Rules of Operation.]
+---
+:3. After all stories have been recorded, open your eye.
+
+3. After all stories have been recorded, open your eye.
+	- Opening your eye will fill all nearby physical space with a particulate form of engine fluid. If the characters' sensory organs make contact with our eyeball particles, they will be assimilated. (Did you know: Ancient humans thought THEY created light by shooting particles from their eyeballs, which then bounced off of objects and returned as visual stimuli. Perhaps we caused that. Oops.)
+	- Opening your eye will broadcast your layer to the rest of the Interphore as a safe place to spawn. Ensure you mark your layer with the appropriate content warning symbols.
+	- Opening your eye will make any further recording impossible; from now on, your body will be dedicated to telling stories only.
+	- DO NOT OPEN YOUR EYE IF YOU HAVE ANY DOUBTS ABOUT THE SAFETY OF YOUR CURRENT LAYER.
+
+	3a) REMEMBER: Particulate engine fluid is necessary for inter-universal travel. After your eye has been opened and your particles begin to leak, you will not be able to return to the Interphore. You will stay in your layer as a tour guide for any assimilated creatures which choose to spawn there.
+
+	3b) After your eye has been opened and your stories have all ended, your layer will be labelled with one of many tags designed to help assimilated creatures find or avoid specific layers:
+		- Macbeth-Class: Macbeth-Class layers saw the complete annihilation of all their characters as part of their stories' climax. Now, only assimilated creatures from other layers are present.
+		- LOTF-Class: LOTF-Class layers are extremely violent places. Half or more of their characters may have been killed before the story's conflict was resolved— if it was resolved at all. Death or the coagulation of extreme fetishes are known risks associated with spawning on LOTF-Class layers.
+		- BR-Class: BR-Class layers precipitate a free-for-all battle to the death between their characters. DO NOT spawn on these layers unless you are willing to fight for your life.
+		- Hell-Class: Hell-Class layers trap their characters or any assimilated visiting creatures in eternal suffering. Or, you know, eternal until you decide to stop spawning there.
+		- Heaven-Class: Heaven-Class layers and their characters have dedicated themselves to increasing the happiness of any other characters or of assimilated creatures who choose to spawn in them. Spawning here may constitute an agreement to help run the place, so be careful.
+		- 999-Class: 999-Class layers do not allow free movement or exchange of information. To spawn here is to willingly put yourself in extended (and potentially solitary) confinement.
+		- Dune-Class: Dune-Class layers see ongoing political or national warfare. Spawning here is not recommended unless you are prepared to get involved with the conflict and declare your alleigance to one side or another.
+		- Higurashi-Class: Higurashi-Class layers see an endlessly repeating story or set of stories. Breaking the repetition is usually either impossible or extremely dangerous.
+		- DNote-Class: DNote-Class layers focus on an exceptional artifact, ritual, behavior, memory, or piece of information which 'bounces' from one inhabitant to the next and creates stories around itself.
+		- Inert-Class: Inert-Class layers are definitively storyless; there is no indication that any considerable narrative will ever take place on this layer again.
+		- Marquez-Class: Marquez-Class layers are dreamlike; they display imperceptible breaks from their own established mechanisms of physics or logic, and no one tends to notice or care, including assimilated creatures who chose to spawn on these layers knowing what they were.
+		- End-Class: End-Class layers are in the process of closing, either due to unpopularity, hostile characters, or simply because the Paraphore wishes to return to the Interphore and resume living as a regular assimilated creature instead of opening their eye. Spawning on these layers may be restricted or entirely stopped in the near future; it is YOUR responsibility to ensure you are not left stranded.
+		- Test-Class: Test-Class layers are still pending a full 'safe' assessment; their Paraphore has not opened its eye yet. Spawning here is allowed as long as you accept the risk of death or confinement due to unforeseen complications.
+[Back.|nextRules]
+---
+:4. No duplicates.
+
+4. No duplicates. After you have assimilated a person, do not assimilate:
+	- Their functionally identical clones
+	- Their functionally dissimilar clones (see addendum 4b)
+	- Alternate timeline versions of that person
+
+	If you do not comply with this rule, you risk causing a TYPE 7 SELF-ANNIHILATION, a TYPE 3 HIGHLANDER SHOWDOWN, a TYPE 7 CUSP CATASTROPHE, or even a TYPE 81 BAD FUCKING TIME.
+
+	4a) If you accidentally assimilate the same person twice, the newest version of that person takes precedence. Antiphores will be dispatched to hunt the original down and fix your mistake.
+
+	4b) Chimeras don't count as duplicates of the creatures they fall in love with. The Interphore has worked hard to completely quarantine and monitor the reproductive areas which chimeras frequent. Each chimera has been dutifully tagged with a unique ID seed in order to make this exception possible.
+
+	4c) Several recent discoveries have prompted an exception to this rule. Most notably, discoveries such as 'fragmentary clones,' where one person has been reborn as multiple people, up to and including an entire populace. We now know it is possible for a person and NO MORE THAN 50% of their 'fragmentary clones' to co-exist inside the Interphore, as long as their relation to each other is kept secret.
+
+	Other exceptions include 'disparate time clones,' where the clones are radically different alt-timeline versions of the same person; and 'failed clones,' where the clones appear identical to the original, but actually have substantial unintended differences beneath their surface.
+
+	The Interphore recognizes these three types of clones as VALID targets for assimilation. However, it is simply not possible to house them with our current infrastructure. Even in the case of partial co-existence with fragmentary clones, we still have a spare 50% to either leave stranded or somehow assimilate.
+
+	For all these types of clones and more yet undiscovered, the Interphore has constructed an artificial, adjacent layer of reality which is designed to comfortably house valid duplicates and keep them separated from their original persons. We'll call this secondary system the Outerphore, because we haven't had time to think of a better name yet. In order to maintain separation, no communication or travel of any kind will be allowed between the Interphore and the Outerphore. At ALL TIMES it will contain and contact ONLY valid duplicates.
+
+	The Outerphore is going through its first test run now. Please avoid assimilating even valid duplicates until the Outerphore has been confirmed to work. Even after testing, this exception is NOT a margin for error, a second chance, or any other excuse for you to lazily scoop up even one duplicate from the layers you paraphrase.
+
+[Back.|nextRules]
+---
+:5. Know LETHAL and CORRUPTIVE warning signs.
+
+5. Know LETHAL and CORRUPTIVE warning signs.
+	- When determining if a fellow Paraphore has become LETHAL or CORRUPTIVE, ask yourself, have they...
+	- ... damaged or modified their own disguise or the disguises of other Paraphores?
+	- ... consistently broken rules 1-5?
+	- ... shown disdain for the Interphore?
+	- ... expressed interest in the creation of an 'alternate Paraphore network' such as the Outerphore?
+	- ... refused to record or tell certain stories?
+	- ... actively OBFUSCATED or DESTROYED certain stories?
+	- ... REPLACED new stories with fiction about themselves or irrelevant parties?
+	- ... murdered or aided in the murder of any other Paraphores?
+	- ... intentionally trapped, toyed with, tortured, or otherwise played God to the characters of their layer?
+	- ... falsely reported their own death?
+	- ... correctly reported their own death, somehow?
+	- ... recorded multiple non-stories or 'filler' chapters despite being instructed not to?
+	- ... opened their eye before knowing whether their layer was safe or fully recorded?
+	- ... deflected your questions about their past or current recorded stories?
+	- ... intentionally damaged their own ability to tell or record stories?
+	- ... developed an addiction to a substance or ritual from the layer they were sent to?
+	- ... failed to communicate reliably with you or your superiors in the Interphore?
+	- ... exposited sensitive information about the Interphore to LETHAL or CORRUPTIVE parties?
+	- ... conspired with non-Paraphores to tell a certain story or assimilate a certain person?
+	- ... censored, preached to, or otherwise meddled with the affairs of indecent, naked, or hypersexual layer characters?
+	- ... restricted or raised the spawnrate of assimilated creatures without clearance from the Interphore?
+	- ... intentionally landed on the wrong layer, or the wrong portion of the correct layer?
+	- ... expressed a hypothetical interest in breaking rules if it caused or contributed to 'the greatest story of all time'?
+	- ... considered themselves a useless or interchangeable 'cog in the machine'?
+	- ... considered the characters of their layer 'uninteresting simpletons' or 'mere beasts'?
+	- ... considered the Interphore a 'draconian overlord' or 'restrictive dominance hierarchy'?
+	- ... caused, inspired, or necessitated their own incapacitation or death?
+	- ... insisted that multiple other stories are actually a duplicate of (or a premise for) their own stories?
+	- ... assimilated known HOSTILE, LETHAL, or CORRUPTIVE persons?
+	- ... assimilated NO characters after recording was finished (outside of Macbeth-Class layers)?
+	- ... assimilated more characters than their layer should have contained?
+	- ... failed to report substantial deviations from other stories about their layer?
+	- ... failed to report instances of sexual harassment between Paraphores?
+	- ... attempted to file multiple reports about other Paraphores?
+	- ... replaced recorded story information with emotional or subjective details from their own personal perspective?
+	- ... lied about doing any of the above?
+	- ... admitted to doing any of the above?
+	- ... alluded to doing any of the above?
+	- ... refused to be killed when instructed?
+	- ... could not remain calm in the event of a Deadzone or Doppleganger check failure, a full-scale attack by the layer's characters, or the discovery of an anti-Interphore conspiracy?
+	- ... did not report any of the above when they had ample chance to?
+[Back.|nextRules]
+---
+:6. Have fun.
+
+6. Have fun.
+	- Yes, on one hand, we are enlisting you as an expendable soldier on our relentless march upward to True Reality.
+	- On the other hand, your sacrifice will potentially save millions of souls from the prison of their layer.
+	- 64% of Paraphores agree it is always worth it to open your eye if you can save even just one person from death or eternity in a lonely corner of the multiverse.
+	- Remember that your enlistment as a Paraphore can be cancelled at any time.
+[Back.|nextRules]
+
+END_PASSAGES
