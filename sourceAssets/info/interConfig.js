@@ -34,6 +34,8 @@ var CHOICE_BUTTON_LAYER = 70;
 var CHOICE_TEXT_LAYER = 80;
 var TITLE_LAYER = 90;
 
+var CHOICES_PER_PAGE = 4;
+
 var TOP = 1;
 var BOTTOM = 2;
 var LEFT = 3;
@@ -159,9 +161,22 @@ function addEmptyImage(width, height) {
 }
 
 function addChoice(choiceText, result, config) {
+	var choice = {
+		sprite: null,
+		textField: null,
+		result: result
+	};
+
 	var spr = add9SliceImage("img/writer/writerChoice.png", 256, 256, 5, 5, 10, 10);
 	spr.temp = false;
 	spr.layer = CHOICE_BUTTON_LAYER;
+	spr.onRelease = function() {
+		if (typeof choice.result === "string") {
+			gotoPassage(choice.result);
+		} else {
+			choice.result();
+		}
+	}
 
 	var tf = addEmptyImage(256, 256);
 	spr.addChild(tf);
@@ -183,11 +198,8 @@ function addChoice(choiceText, result, config) {
 		}
 	}
 
-	var choice = {
-		sprite: spr,
-		textField: tf,
-		result: result
-	};
+	choice.sprite = spr;
+	choice.textField = tf;
 
 	choices.push(choice);
 	return choice;
@@ -516,26 +528,27 @@ function __update() {
 	}
 
 	/// Choices
-	for (var i = 0; i < choices.length; i++) {
+	prevChoices.alpha = nextChoices.alpha = choices.length > CHOICES_PER_PAGE ? 1 : 0;
+
+	for (var i = 0; i < choices.length; i++) choices[i].sprite.y = gameHeight;
+
+	var minChoice = choicePage * CHOICES_PER_PAGE;
+	var maxChoice = minChoice + 4;
+	if (maxChoice > choices.length) maxChoice = choices.length;
+	var choiceIndexOnPage = 0;
+	for (var i = minChoice; i < maxChoice; i++) {
 		var choice = choices[i];
 		var spr = choice.sprite;
 		var tf = choice.textField;
 
-		var choicesPerPage = 4;
-		var choicesWidth = choice.sprite.width * choicesPerPage;
+		var choicesWidth = choice.sprite.width * CHOICES_PER_PAGE;
 		var choicesOff = gameWidth/2 - choicesWidth/2;
 
-		spr.x = spr.width * i + choicesOff;
+		spr.x = spr.width * choiceIndexOnPage + choicesOff;
 		spr.y = gameHeight - spr.height;
 		spr.alpha = spr.hovering ? 0.5 : 1;
 
-		if (spr.justReleased) {
-			if (typeof choice.result === "string") {
-				gotoPassage(choice.result);
-			} else {
-				choice.result();
-			}
-		}
+		choiceIndexOnPage++;
 	}
 
 	/// Images
@@ -609,10 +622,21 @@ var nextChoices = addRectImage(64, 256, 0x000044);
 nextChoices.temp = false;
 nextChoices.x = gameWidth - nextChoices.width;
 nextChoices.y = gameHeight - nextChoices.height;
+nextChoices.onRelease = function() {
+	if (nextChoices.alpha != 1) return;
+	var totalPages = choices.length / CHOICES_PER_PAGE;
+	if (choicePage >= totalPages-1) return;
+	choicePage++;
+}
 
 var prevChoices = addRectImage(64, 256, 0x000044);
 prevChoices.y = gameHeight - prevChoices.height;
 prevChoices.temp = false;
+prevChoices.onRelease = function() {
+	if (prevChoices.alpha != 1) return;
+	if (choicePage <= 0) return;
+	choicePage--;
+}
 
 var exitButton = addImage("writer/exit.png");
 exitButton.temp = false;

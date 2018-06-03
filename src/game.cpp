@@ -731,6 +731,8 @@ duk_ret_t setImageProps(duk_context *ctx) {
 	int id = duk_get_number(ctx, -9);
 
 	MintSprite *img = game->images[id];
+	if (!img) return 0;
+
 	img->x = x;
 	img->y = y;
 	img->scaleX = scaleX;
