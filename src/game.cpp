@@ -87,6 +87,7 @@ duk_ret_t addChild(duk_context *ctx);
 duk_ret_t gotoFrameNamed(duk_context *ctx);
 duk_ret_t gotoFrameNum(duk_context *ctx);
 duk_ret_t copyPixels(duk_context *ctx);
+duk_ret_t setImageFont(duk_context *ctx);
 
 duk_ret_t getTextureWidth(duk_context *ctx);
 duk_ret_t getTextureHeight(duk_context *ctx);
@@ -143,6 +144,7 @@ void initGame(MintSprite *bgSpr) {
 	addJsFunction("gotoFrameNamed", gotoFrameNamed, 2);
 	addJsFunction("gotoFrameNum", gotoFrameNum, 2);
 	addJsFunction("copyPixels_internal", copyPixels, 7);
+	addJsFunction("setImageFont", setImageFont, 2);
 	addJsFunction("getTextureWidth_internal", getTextureWidth, 1);
 	addJsFunction("getTextureHeight_internal", getTextureHeight, 1);
 
@@ -750,6 +752,7 @@ duk_ret_t setImageText(duk_context *ctx) {
 	int id = duk_get_number(ctx, -2);
 
 	MintSprite *img = game->images[id];
+	printf("Setting image text to %s\n", text);
 	img->setText(text);
 
 	return 0;
@@ -855,6 +858,16 @@ duk_ret_t copyPixels(duk_context *ctx) {
 
 	MintSprite *img = game->images[id];
 	img->copyPixels(sx, sy, sw, sh, dx, dy);
+
+	return 0;
+}
+
+duk_ret_t setImageFont(duk_context *ctx) {
+	const char *fontName = duk_get_string(ctx, -1);
+	int id = duk_get_int(ctx, -2);
+
+	MintSprite *img = game->images[id];
+	strcpy(img->defaultFont, fontName);
 
 	return 0;
 }

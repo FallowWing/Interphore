@@ -60,7 +60,7 @@ function newImage() {
 		width: 0,
 		height: 0,
 		rotation: 0,
-		tint: 0x000000,
+		tint: 0x00000000,
 		alpha: 1,
 		scaleX: 1,
 		scaleY: 1,
@@ -72,7 +72,11 @@ function newImage() {
 		inInputField: false,
 		setText: function(text) {
 			img.text = text;
+			if (img.tint == 0) img.tint = 0xFFFFFFFF;
 			setImageText(img, text);
+		},
+		setFont: function(fontName) {
+			setImageFont(img.id, fontName);
 		},
 
 		justPressed: false,
@@ -181,6 +185,7 @@ function addChoice(choiceText, result, config) {
 	var tf = addEmptyImage(256, 256);
 	spr.addChild(tf);
 	tf.temp = false;
+	tf.setFont("NunitoSans-Light_22");
 	tf.setText(choiceText);
 	tf.layer = CHOICE_TEXT_LAYER;
 	tf.x = spr.width/2 - tf.textWidth/2;
@@ -658,6 +663,7 @@ titleBg.layer = TITLE_LAYER;
 
 var titleTf = addEmptyImage(titleBg.width, titleBg.height);
 titleTf.temp = false;
+titleTf.setFont("NunitoSans-Light_22");
 titleTf.layer = TITLE_LAYER;
 titleBg.addChild(titleTf);
 
