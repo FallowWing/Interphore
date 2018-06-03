@@ -72,8 +72,8 @@ function newImage() {
 		inInputField: false,
 		setText: function(text) {
 			img.text = text;
-			if (img.tint == 0) img.tint = 0xFFFFFFFF;
 			setImageText(img, text);
+			if (isFlash && img.tint == 0) img.tint = 0xFFFFFFFF;
 		},
 		setFont: function(fontName) {
 			setImageFont(img.id, fontName);
@@ -553,7 +553,7 @@ function __update() {
 
 		spr.x = spr.width * choiceIndexOnPage + choicesOff;
 		spr.y = gameHeight - spr.height;
-		spr.alpha = spr.hovering ? 0.5 : 1;
+		if (spr.hovering) spr.y -= 5;
 
 		choiceIndexOnPage++;
 	}

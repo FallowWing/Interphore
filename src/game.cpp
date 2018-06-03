@@ -118,7 +118,7 @@ void initGame(MintSprite *bgSpr) {
 	initJs();
 
 	char buf[1024];
-	sprintf(buf, "var gameWidth = %d;\n var gameHeight = %d;\n", engine->width, engine->height);
+	sprintf(buf, "var gameWidth = %d;\n var gameHeight = %d; var isFlash = %d\n", engine->width, engine->height, engine->platform == PLAT_FLASH);
 	runJs(buf);
 
 	addJsFunction("submitPassage", submitPassage, 1);
@@ -752,7 +752,6 @@ duk_ret_t setImageText(duk_context *ctx) {
 	int id = duk_get_number(ctx, -2);
 
 	MintSprite *img = game->images[id];
-	printf("Setting image text to %s\n", text);
 	img->setText(text);
 
 	return 0;
