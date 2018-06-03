@@ -45,27 +45,15 @@ Like text scrolling!
 [Titlescreen Test|titlescreenTest]
 [Background Test|backgroundTest]
 [Input Text Test|inputTest]
-[More|more]
----
-:more
 [Icon Test|iconTest]
 [Disable Exit Test|disableExitTest]
 [Load Mod Test|loadModTest]
-[More|more2]
----
-:more2
 [Goto browser|browserTest]
 [Title test|titleTest]
 [Looping Audio Test|loopingAudioTest]
-[More|more3]
----
-:more3
 [Image test|imageTest]
 [Variable test|variableTest]
 [Save test|saveTest]
-[More|more4]
----
-:more4
 [Tween test|tweenTest]
 [New background test|newBackgroundTest]
 ---

@@ -17,6 +17,7 @@ var data = {};
 var checkpointStr = "{}";
 var exitDisabled = false;
 var lastInput = "";
+var choicePage = 0;
 
 var queuedCommands = [];
 var queueTimeLeft = 0;
@@ -32,6 +33,8 @@ var DEFAULT_LAYER = 60;
 var CHOICE_BUTTON_LAYER = 70;
 var CHOICE_TEXT_LAYER = 80;
 var TITLE_LAYER = 90;
+
+var CHOICES_PER_PAGE = 4;
 
 var TOP = 1;
 var BOTTOM = 2;
@@ -57,7 +60,7 @@ function newImage() {
 		width: 0,
 		height: 0,
 		rotation: 0,
-		tint: 0x000000,
+		tint: 0x00000000,
 		alpha: 1,
 		scaleX: 1,
 		scaleY: 1,
@@ -70,6 +73,10 @@ function newImage() {
 		setText: function(text) {
 			img.text = text;
 			setImageText(img, text);
+			if (isFlash && img.tint == 0) img.tint = 0xFFFFFFFF;
+		},
+		setFont: function(fontName) {
+			setImageFont(img.id, fontName);
 		},
 
 		justPressed: false,
@@ -158,14 +165,31 @@ function addEmptyImage(width, height) {
 }
 
 function addChoice(choiceText, result, config) {
+	var choice = {
+		sprite: null,
+		textField: null,
+		result: result
+	};
+
 	var spr = add9SliceImage("img/writer/writerChoice.png", 256, 256, 5, 5, 10, 10);
 	spr.temp = false;
 	spr.layer = CHOICE_BUTTON_LAYER;
+	spr.onRelease = function() {
+		if (typeof choice.result === "string") {
+			gotoPassage(choice.result);
+		} else {
+			choice.result();
+		}
+	}
 
 	var tf = addEmptyImage(256, 256);
+	spr.addChild(tf);
 	tf.temp = false;
+	tf.setFont("NunitoSans-Light_22");
 	tf.setText(choiceText);
 	tf.layer = CHOICE_TEXT_LAYER;
+	tf.x = spr.width/2 - tf.textWidth/2;
+	tf.y = spr.height/2 - tf.textHeight/2;
 
 	if (config) {
 		if (config.icons) {
@@ -179,11 +203,8 @@ function addChoice(choiceText, result, config) {
 		}
 	}
 
-	var choice = {
-		sprite: spr,
-		textField: tf,
-		result: result
-	};
+	choice.sprite = spr;
+	choice.textField = tf;
 
 	choices.push(choice);
 	return choice;
@@ -239,6 +260,7 @@ function getAudio(audioName) {
 
 function clear() {
 	setMainText("");
+	choicePage = 0;
 	exitButton.alpha = exitDisabled ? 0 : 1; //@todo This should probably happen instantly
 	lastInput = inputField.text;
 	inputField.inInputField = false;
@@ -425,10 +447,12 @@ function queueCall(func) {
 
 function enableExit() {
 	exitDisabled = false;
+	exitButton.alpha = 1;
 }
 
 function disableExit() {
 	exitDisabled = true;
+	exitButton.alpha = 0;
 }
 
 function __update() {
@@ -511,25 +535,27 @@ function __update() {
 	}
 
 	/// Choices
-	for (var i = 0; i < choices.length; i++) {
+	prevChoices.alpha = nextChoices.alpha = choices.length > CHOICES_PER_PAGE ? 1 : 0;
+
+	for (var i = 0; i < choices.length; i++) choices[i].sprite.y = gameHeight;
+
+	var minChoice = choicePage * CHOICES_PER_PAGE;
+	var maxChoice = minChoice + 4;
+	if (maxChoice > choices.length) maxChoice = choices.length;
+	var choiceIndexOnPage = 0;
+	for (var i = minChoice; i < maxChoice; i++) {
 		var choice = choices[i];
 		var spr = choice.sprite;
 		var tf = choice.textField;
 
-		spr.x = spr.width * i;
+		var choicesWidth = choice.sprite.width * CHOICES_PER_PAGE;
+		var choicesOff = gameWidth/2 - choicesWidth/2;
+
+		spr.x = spr.width * choiceIndexOnPage + choicesOff;
 		spr.y = gameHeight - spr.height;
-		spr.alpha = spr.hovering ? 0.5 : 1;
+		if (spr.hovering) spr.y -= 5;
 
-		tf.x = spr.x + spr.width/2 - tf.textWidth/2;
-		tf.y = spr.y + spr.height/2 - tf.textHeight/2;
-
-		if (spr.justReleased) {
-			if (typeof choice.result === "string") {
-				gotoPassage(choice.result);
-			} else {
-				choice.result();
-			}
-		}
+		choiceIndexOnPage++;
 	}
 
 	/// Images
@@ -599,12 +625,25 @@ for (var i = 0; i < 500; i++) keys[i] = KEY_RELEASED;
 
 execAsset("info/nodeGraph.phore");
 
-// var nextChoices = addRectImage(64, 256, 0x000044);
-// nextChoices.temp = false;
-// nextChoices.x = gameWidth - nextChoices.width;
+var nextChoices = addRectImage(64, 256, 0x000044);
+nextChoices.temp = false;
+nextChoices.x = gameWidth - nextChoices.width;
+nextChoices.y = gameHeight - nextChoices.height;
+nextChoices.onRelease = function() {
+	if (nextChoices.alpha != 1) return;
+	var totalPages = choices.length / CHOICES_PER_PAGE;
+	if (choicePage >= totalPages-1) return;
+	choicePage++;
+}
 
-// var prevChoices = addRectImage(64, 256, 0x000044);
-// prevChoices.temp = false;
+var prevChoices = addRectImage(64, 256, 0x000044);
+prevChoices.y = gameHeight - prevChoices.height;
+prevChoices.temp = false;
+prevChoices.onRelease = function() {
+	if (prevChoices.alpha != 1) return;
+	if (choicePage <= 0) return;
+	choicePage--;
+}
 
 var exitButton = addImage("writer/exit.png");
 exitButton.temp = false;
@@ -624,6 +663,7 @@ titleBg.layer = TITLE_LAYER;
 
 var titleTf = addEmptyImage(titleBg.width, titleBg.height);
 titleTf.temp = false;
+titleTf.setFont("NunitoSans-Light_22");
 titleTf.layer = TITLE_LAYER;
 titleBg.addChild(titleTf);
 

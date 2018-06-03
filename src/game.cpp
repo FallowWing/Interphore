@@ -87,6 +87,7 @@ duk_ret_t addChild(duk_context *ctx);
 duk_ret_t gotoFrameNamed(duk_context *ctx);
 duk_ret_t gotoFrameNum(duk_context *ctx);
 duk_ret_t copyPixels(duk_context *ctx);
+duk_ret_t setImageFont(duk_context *ctx);
 
 duk_ret_t getTextureWidth(duk_context *ctx);
 duk_ret_t getTextureHeight(duk_context *ctx);
@@ -117,7 +118,7 @@ void initGame(MintSprite *bgSpr) {
 	initJs();
 
 	char buf[1024];
-	sprintf(buf, "var gameWidth = %d;\n var gameHeight = %d;\n", engine->width, engine->height);
+	sprintf(buf, "var gameWidth = %d;\n var gameHeight = %d; var isFlash = %d\n", engine->width, engine->height, engine->platform == PLAT_FLASH);
 	runJs(buf);
 
 	addJsFunction("submitPassage", submitPassage, 1);
@@ -143,6 +144,7 @@ void initGame(MintSprite *bgSpr) {
 	addJsFunction("gotoFrameNamed", gotoFrameNamed, 2);
 	addJsFunction("gotoFrameNum", gotoFrameNum, 2);
 	addJsFunction("copyPixels_internal", copyPixels, 7);
+	addJsFunction("setImageFont", setImageFont, 2);
 	addJsFunction("getTextureWidth_internal", getTextureWidth, 1);
 	addJsFunction("getTextureHeight_internal", getTextureHeight, 1);
 
@@ -230,6 +232,7 @@ void updateGame() {
 	if (!game->mainText) {
 		game->mainText = createMintSprite();
 		game->mainText->setupEmpty(engine->width - 64, 2048);
+		game->mainText->clipRect.setTo(0, 0, engine->width, engine->height - 256 - 16);
 	}
 
 	int viewHeight = engine->height - 256 - 16;
@@ -254,7 +257,7 @@ void runMod(char *serialData) {
 	// printf("Loaded data: %s\n", serialData);
 	char *inputData = (char *)zalloc(SERIAL_SIZE);
 
-	String *realData = newString();
+	String *realData = newString(4096);
 	realData->append("var __passage = \"\";\n");
 	realData->append("var __image = \"\";\n");
 	realData->append("var __audio = \"\";\n");
@@ -366,7 +369,7 @@ duk_ret_t append(duk_context *ctx) {
 		const char *data = duk_get_string(ctx, -1);
 		// printf("Appending |%s|\n", data);
 
-		String *str = newString();
+		String *str = newString(256);
 		str->set(data);
 
 		String **lines;
@@ -392,7 +395,7 @@ duk_ret_t append(duk_context *ctx) {
 					result = line->clone();
 				}
 
-				String *code = newString();
+				String *code = newString(256);
 				code->set("addChoice(\"");
 				code->append(label->cStr);
 				code->append("\", \"");
@@ -427,7 +430,7 @@ duk_ret_t append(duk_context *ctx) {
 
 duk_ret_t submitPassage(duk_context *ctx) {
 	const char *str = duk_get_string(ctx, -1);
-	String *data = newString();
+	String *data = newString(2048);
 	data->set(str);
 	// printf("\n\n\nPassage:\n%s\n", data->cStr);
 
@@ -435,7 +438,7 @@ duk_ret_t submitPassage(duk_context *ctx) {
 	int nameEndPos = data->indexOf("\n", colonPos);
 	String *name = data->subStrAbs(colonPos+1, nameEndPos);
 
-	String *jsData = newString();
+	String *jsData = newString(2048);
 	int curPos = nameEndPos;
 	bool isCode = false;
 	bool appendNextCode = true;
@@ -730,6 +733,8 @@ duk_ret_t setImageProps(duk_context *ctx) {
 	int id = duk_get_number(ctx, -9);
 
 	MintSprite *img = game->images[id];
+	if (!img) return 0;
+
 	img->x = x;
 	img->y = y;
 	img->scaleX = scaleX;
@@ -852,6 +857,16 @@ duk_ret_t copyPixels(duk_context *ctx) {
 
 	MintSprite *img = game->images[id];
 	img->copyPixels(sx, sy, sw, sh, dx, dy);
+
+	return 0;
+}
+
+duk_ret_t setImageFont(duk_context *ctx) {
+	const char *fontName = duk_get_string(ctx, -1);
+	int id = duk_get_int(ctx, -2);
+
+	MintSprite *img = game->images[id];
+	strcpy(img->defaultFont, fontName);
 
 	return 0;
 }
