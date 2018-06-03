@@ -17,6 +17,7 @@ var data = {};
 var checkpointStr = "{}";
 var exitDisabled = false;
 var lastInput = "";
+var choicePage = 0;
 
 var queuedCommands = [];
 var queueTimeLeft = 0;
@@ -163,9 +164,12 @@ function addChoice(choiceText, result, config) {
 	spr.layer = CHOICE_BUTTON_LAYER;
 
 	var tf = addEmptyImage(256, 256);
+	spr.addChild(tf);
 	tf.temp = false;
 	tf.setText(choiceText);
 	tf.layer = CHOICE_TEXT_LAYER;
+	tf.x = spr.width/2 - tf.textWidth/2;
+	tf.y = spr.height/2 - tf.textHeight/2;
 
 	if (config) {
 		if (config.icons) {
@@ -239,6 +243,7 @@ function getAudio(audioName) {
 
 function clear() {
 	setMainText("");
+	choicePage = 0;
 	exitButton.alpha = exitDisabled ? 0 : 1; //@todo This should probably happen instantly
 	lastInput = inputField.text;
 	inputField.inInputField = false;
@@ -516,12 +521,13 @@ function __update() {
 		var spr = choice.sprite;
 		var tf = choice.textField;
 
-		spr.x = spr.width * i;
+		var choicesPerPage = 4;
+		var choicesWidth = choice.sprite.width * choicesPerPage;
+		var choicesOff = gameWidth/2 - choicesWidth/2;
+
+		spr.x = spr.width * i + choicesOff;
 		spr.y = gameHeight - spr.height;
 		spr.alpha = spr.hovering ? 0.5 : 1;
-
-		tf.x = spr.x + spr.width/2 - tf.textWidth/2;
-		tf.y = spr.y + spr.height/2 - tf.textHeight/2;
 
 		if (spr.justReleased) {
 			if (typeof choice.result === "string") {
@@ -599,12 +605,14 @@ for (var i = 0; i < 500; i++) keys[i] = KEY_RELEASED;
 
 execAsset("info/nodeGraph.phore");
 
-// var nextChoices = addRectImage(64, 256, 0x000044);
-// nextChoices.temp = false;
-// nextChoices.x = gameWidth - nextChoices.width;
+var nextChoices = addRectImage(64, 256, 0x000044);
+nextChoices.temp = false;
+nextChoices.x = gameWidth - nextChoices.width;
+nextChoices.y = gameHeight - nextChoices.height;
 
-// var prevChoices = addRectImage(64, 256, 0x000044);
-// prevChoices.temp = false;
+var prevChoices = addRectImage(64, 256, 0x000044);
+prevChoices.y = gameHeight - prevChoices.height;
+prevChoices.temp = false;
 
 var exitButton = addImage("writer/exit.png");
 exitButton.temp = false;

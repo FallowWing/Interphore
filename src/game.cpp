@@ -230,6 +230,7 @@ void updateGame() {
 	if (!game->mainText) {
 		game->mainText = createMintSprite();
 		game->mainText->setupEmpty(engine->width - 64, 2048);
+		game->mainText->clipRect.setTo(0, 0, engine->width, engine->height - 256 - 16);
 	}
 
 	int viewHeight = engine->height - 256 - 16;
