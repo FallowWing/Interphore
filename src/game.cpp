@@ -255,7 +255,7 @@ void runMod(char *serialData) {
 	// printf("Loaded data: %s\n", serialData);
 	char *inputData = (char *)zalloc(SERIAL_SIZE);
 
-	String *realData = newString();
+	String *realData = newString(4096);
 	realData->append("var __passage = \"\";\n");
 	realData->append("var __image = \"\";\n");
 	realData->append("var __audio = \"\";\n");
@@ -367,7 +367,7 @@ duk_ret_t append(duk_context *ctx) {
 		const char *data = duk_get_string(ctx, -1);
 		// printf("Appending |%s|\n", data);
 
-		String *str = newString();
+		String *str = newString(256);
 		str->set(data);
 
 		String **lines;
@@ -393,7 +393,7 @@ duk_ret_t append(duk_context *ctx) {
 					result = line->clone();
 				}
 
-				String *code = newString();
+				String *code = newString(256);
 				code->set("addChoice(\"");
 				code->append(label->cStr);
 				code->append("\", \"");
@@ -428,7 +428,7 @@ duk_ret_t append(duk_context *ctx) {
 
 duk_ret_t submitPassage(duk_context *ctx) {
 	const char *str = duk_get_string(ctx, -1);
-	String *data = newString();
+	String *data = newString(2048);
 	data->set(str);
 	// printf("\n\n\nPassage:\n%s\n", data->cStr);
 
@@ -436,7 +436,7 @@ duk_ret_t submitPassage(duk_context *ctx) {
 	int nameEndPos = data->indexOf("\n", colonPos);
 	String *name = data->subStrAbs(colonPos+1, nameEndPos);
 
-	String *jsData = newString();
+	String *jsData = newString(2048);
 	int curPos = nameEndPos;
 	bool isCode = false;
 	bool appendNextCode = true;
