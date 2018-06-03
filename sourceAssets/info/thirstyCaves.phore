@@ -5,9 +5,10 @@ START_PASSAGES
 :thirstyCavesIntro
 
 !`
-stopAudio("music");
 setBackground(0, "writer/mainBg");
-playAudio("audio/ambience/violetMeteorite", "music", {looping: true});
+var music = playAudio("audio/ambience/violetMeteorite");
+music.name = "music";
+music.looping = true;
 `
 The first and only sensation is heat. You're blind, deaf, and mute... but you're warm.
 

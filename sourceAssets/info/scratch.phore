@@ -42,6 +42,9 @@ This scratch mod, used for testing various things
 34.
 35.
 Like text scrolling!
+[introModMynt]
+[wendyApt]
+[LLL]
 [Titlescreen Test|titlescreenTest]
 [Background Test|backgroundTest]
 [Input Text Test|inputTest]
@@ -56,6 +59,31 @@ Like text scrolling!
 [Save test|saveTest]
 [Tween test|tweenTest]
 [New background test|newBackgroundTest]
+---
+:introModMynt
+
+!`
+clear();
+execAsset("introModMynt.phore");
+gotoPassage("introModMyntStart");
+`
+
+---
+:wendyApt
+!`
+clear();
+execAsset("wendyApt.phore");
+gotoPassage("wendyAptStart");
+`
+
+---
+:LLL
+!`
+clear();
+execAsset("LLL.phore");
+gotoPassage("hubLLL");
+`
+
 ---
 :titlescreenTest
 !`var bg = addImage("img/writer/intro/titleBG.png");

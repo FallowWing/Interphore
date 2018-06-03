@@ -249,6 +249,7 @@ timer(2, function() {
 	setBackground(2, "");
 	setTitle("");
 	enableExit();
+	getAudio("music").destroy();
 	resetBackgroundMode(2);
 	print("leaving intro");
 	execAsset("thirstyCaves.phore");

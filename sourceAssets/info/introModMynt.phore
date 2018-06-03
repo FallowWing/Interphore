@@ -1,7 +1,11 @@
 START_PASSAGES
 :introModMyntStart
 !`
-//playAudio("audio/ambience/violetMeteorite", "music", {looping: true});
+getAudio("music").destroy();
+var music = playAudio("audio/ambience/violetMeteorite");
+music.name = "music";
+music.looping = true;
+
 data.gender = "";
 data.genitals = "";
 data.playerName = "";
@@ -13,27 +17,15 @@ setBackground(1, "writer/mynt/face/myntBod/10", CENTERED);
 //setBackgroundBob(1, 0.5, 0.5);
 queueTitle("Rebeca...");
 queueTitle("I love you.");
-queueTitle("(enter secret pass)");
 
-queueAddChoice("Submit.", function() {
-	gotoPassage("I love you too, Mynt.");
-});
-//queueAddChoice("I love you too, Mynt.");
+queueAddChoice("I love you too, Mynt.");
 
-queueCall(addInputField);
 `
 
 ---
 :I love you too, Mynt.
 
 !`
-if (lastInput !== "grangledarn") {
-	setTitle("");
-	setBackground(0, "");
-	setBackground(1, "");
-	execAsset("introMod.phore");
-	gotoPassage("introModStart");
-}
 queueTitle("I want to get rid of these thoughts.");
 queueTitle("And you want to get rid of that crummy old body.");
 queueTitle("So let's step into the pond.");
@@ -1465,5 +1457,3 @@ gotoMap();
 `
 
 END_PASSAGES
-
-gotoPassage("introModMyntStart");
