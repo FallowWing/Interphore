@@ -24,12 +24,6 @@ namespace Writer {
 //
 //
 
-enum GameState {
-	STATE_NULL=0,
-	STATE_PASSAGE,
-	STATE_GRAPH
-};
-
 struct Passage {
 	String *name;
 	String *data;
@@ -37,12 +31,7 @@ struct Passage {
 
 struct Game {
 	MintSprite *bg;
-	GameState state;
-	GameState nextState;
 
-	float stateStartTime;
-	bool firstOfState;
-	bool lastOfState;
 	MintSprite *root;
 
 	/// Streaming
@@ -57,7 +46,6 @@ struct Game {
 
 	Asset *loadedAssets[ASSETS_MAX];
 
-	/// Passage
 	char mainTextStr[HUGE_STR];
 	MintSprite *mainText;
 	Passage *passages[PASSAGE_MAX];
@@ -65,13 +53,7 @@ struct Game {
 
 	MintSprite *images[IMAGES_MAX];
 	Channel *audios[AUDIOS_MAX];
-
-	/// Graph
 };
-
-void switchState(GameState state);
-void changeState();
-void updateState();
 
 void runMod(char *serialData);
 void msg(const char *str, ...);
@@ -98,6 +80,7 @@ duk_ret_t setImageProps(duk_context *ctx);
 duk_ret_t setImageText(duk_context *ctx);
 duk_ret_t getImageSize(duk_context *ctx);
 duk_ret_t getTextSize(duk_context *ctx);
+duk_ret_t getImageFrames(duk_context *ctx);
 duk_ret_t getImageProps(duk_context *ctx);
 duk_ret_t destroyImage(duk_context *ctx);
 duk_ret_t addChild(duk_context *ctx);
@@ -153,7 +136,8 @@ void initGame(MintSprite *bgSpr) {
 	addJsFunction("setImageText_internal", setImageText, 2);
 	addJsFunction("getImageSize", getImageSize, 2);
 	addJsFunction("getTextSize", getTextSize, 2);
-	addJsFunction("getImageProps", getImageProps, 2);
+	addJsFunction("getImageFrames", getImageFrames, 1);
+	addJsFunction("getImageProps_internal", getImageProps, 1);
 	addJsFunction("destroyImage", destroyImage, 1);
 	addJsFunction("addChild_internal", addChild, 2);
 	addJsFunction("gotoFrameNamed", gotoFrameNamed, 2);
@@ -187,49 +171,15 @@ void initGame(MintSprite *bgSpr) {
 	char *tempCode = (char *)getAsset("info/main.phore")->data;
 	runMod(tempCode);
 
-	switchState(STATE_PASSAGE);
+	game->root = createMintSprite();
+	game->root->setupContainer(engine->width, engine->height);
 }
 
 void deinitGame() {
 	printf("deinited\n");
 }
 
-void switchState(GameState state) {
-	if (game->nextState) return;
-
-	game->nextState = state;
-
-	if (game->state == STATE_NULL) changeState();
-}
-
-void changeState() {
-	GameState oldState = game->state;
-
-	game->firstOfState = false;
-	game->lastOfState = true;
-	updateState();
-
-	if (game->root) game->root->destroy();
-	game->root = createMintSprite();
-	game->root->setupContainer(engine->width, engine->height);
-	game->stateStartTime = engine->time;
-
-	game->firstOfState = true;
-	game->lastOfState = false;
-	game->state = game->nextState;
-	updateState();
-
-	game->firstOfState = false;
-	game->lastOfState = false;
-
-	game->nextState = STATE_NULL;
-}
-
 void updateGame() {
-	updateState();
-}
-
-void updateState() {
 	char buf[1024];
 	sprintf(
 		buf,
@@ -239,14 +189,16 @@ void updateState() {
 		"mouseJustDown = %d;"
 		"mouseJustUp = %d;"
 		"mouseDown = %d;"
+		"mouseWheel = %d;"
 		"__update();",
 		engine->time,
 		engine->mouseX,
 		engine->mouseY,
 		engine->leftMouseJustPressed,
 		engine->leftMouseJustReleased,
-		engine->leftMousePressed
-		);
+		engine->leftMousePressed,
+		platformMouseWheel
+	);
 	runJs(buf);
 
 	{ /// Update streaming
@@ -275,32 +227,27 @@ void updateState() {
 		}
 	}
 
-	if (game->state == STATE_PASSAGE) {
-		if (game->firstOfState) {
-		}
-
-		if (game->lastOfState) {
-			return;
-		}
-
-		if (!game->mainText) {
-			game->mainText = createMintSprite();
-			game->mainText->setupEmpty(engine->width - 64, 2048);
-		}
-		game->mainText->x = engine->width/2 - game->mainText->width/2;
-		game->mainText->y = 20;
-		game->mainText->layer = MAIN_TEXT_LAYER;
-		game->mainText->setText(game->mainTextStr);
+	if (!game->mainText) {
+		game->mainText = createMintSprite();
+		game->mainText->setupEmpty(engine->width - 64, 2048);
 	}
 
-	if (game->state == STATE_GRAPH) {
-		if (game->firstOfState) {
-		}
+	int viewHeight = engine->height - 256 - 16;
+	float newY = game->mainText->y;
+	int minY = -game->mainText->textHeight + viewHeight;
+	int maxY = 20;
 
-		if (game->lastOfState) {
-			return;
-		}
+	if (game->mainText->textHeight > viewHeight) {
+		if (game->mainText->holding) newY = engine->mouseY - game->mainText->holdPivot.y;
+		if (platformMouseWheel < 0) newY -= 20;
+		if (platformMouseWheel > 0) newY += 20;
+		newY = Clamp(newY, minY, maxY);
 	}
+
+	game->mainText->x = engine->width/2 - game->mainText->width/2;
+	game->mainText->y = newY;
+	game->mainText->layer = MAIN_TEXT_LAYER;
+	game->mainText->setText(game->mainTextStr);
 }
 
 void runMod(char *serialData) {
@@ -829,34 +776,26 @@ duk_ret_t getTextSize(duk_context *ctx) {
 	return 0;
 }
 
+duk_ret_t getImageFrames(duk_context *ctx) {
+	int id = duk_get_number(ctx, -1);
+	MintSprite *img = game->images[id];
+	duk_push_int(ctx, img->framesNum);
+	return 1;
+}
+
 duk_ret_t getImageProps(duk_context *ctx) {
-	int arrayIndex = duk_get_number(ctx, -1);
-	int id = duk_get_number(ctx, -2);
+	int id = duk_get_number(ctx, -1);
 	MintSprite *img = game->images[id];
 
-	char buf[1024];
-	sprintf(
-		buf,
-		"var curImg = images[%d];\n"
-		"curImg.justPressed = %d;\n"
-		"curImg.justReleased = %d;\n"
-		"curImg.pressing = %d;\n"
-		"curImg.justHovered = %d;\n"
-		"curImg.justUnHovered = %d;\n"
-		"curImg.hovering = %d;\n"
-		"curImg.totalFrames = %d;\n",
-		arrayIndex,
-		img->justPressed,
-		img->justReleased,
-		img->pressing,
-		img->justHovered,
-		img->justUnHovered,
-		img->hovering,
-		img->framesNum
-	);
-	runJs(buf);
+	char *data = (char *)duk_push_buffer(ctx, sizeof(char) * 7, false);
+	data[0] = img->justPressed;
+	data[1] = img->justReleased;
+	data[2] = img->pressing;
+	data[3] = img->justHovered;
+	data[4] = img->justUnHovered;
+	data[5] = img->hovering;
 
-	return 0;
+	return 1;
 }
 
 duk_ret_t destroyImage(duk_context *ctx) {

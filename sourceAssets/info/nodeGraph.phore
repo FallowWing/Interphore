@@ -8,7 +8,6 @@ function clearNodes() {
 }
 
 function submitNode(nodeName, result) {
-	print("Adding "+nodeName);
 	var node;
 	node = {
 		name: nodeName,
@@ -52,7 +51,7 @@ function setNodeLocked(nodeName, fn) {
 function gotoMap() {
 	clear();
 	exitButton.alpha = 0;
-	data = JSON.parse(checkpointStr);
+	saveCheckpoint();
 
 	graphLines = [];
 

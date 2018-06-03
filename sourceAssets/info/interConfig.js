@@ -11,6 +11,7 @@ var mouseY = 0;
 var mouseDown = false;
 var mouseJustDown = false;
 var mouseJustUp = false;
+var mouseWheel = 0;
 var time = 0;
 var data = {};
 var checkpointStr = "{}";
@@ -112,11 +113,14 @@ function newImage() {
 	return img;
 }
 
+function getImageProps(id, index) {
+}
+
 function addImage(assetId) {
 	var img = newImage();
 	img.id = addImage_internal(assetId);
+	img.totalFrames = getImageFrames(img.id);
 	getImageSize(img.id, images.indexOf(img));
-	getImageProps(img.id, images.indexOf(img));
 	return img;
 }
 
@@ -125,7 +129,7 @@ function addCanvasImage(assetId, width, height) {
 	img.id = addCanvasImage_internal(assetId, width, height);
 	img.width = width;
 	img.height = height;
-	getImageProps(img.id, images.indexOf(img));
+	img.totalFrames = getImageFrames(img.id);
 	return img;
 }
 
@@ -134,7 +138,6 @@ function add9SliceImage(assetId, width, height, x1, y1, x2, y2) {
 	img.id = add9SliceImage_internal(assetId, width, height, x1, y1, x2, y2);
 	img.width = width;
 	img.height = height;
-	getImageProps(img.id, images.indexOf(img));
 	return img;
 }
 
@@ -143,7 +146,6 @@ function addRectImage(width, height, colour) {
 	img.id = addRectImage_internal(width, height, colour);
 	img.width = width;
 	img.height = height;
-	getImageProps(img.id, images.indexOf(img));
 	return img;
 }
 
@@ -152,7 +154,6 @@ function addEmptyImage(width, height) {
 	img.id = addEmptyImage_internal(width, height);
 	img.width = width;
 	img.height = height;
-	getImageProps(img.id, images.indexOf(img));
 	return img;
 }
 
@@ -222,10 +223,6 @@ function playAudio(assetId) {
 	audio.id = playAudio_internal(assetId);
 	audios.push(audio);
 	return audio;
-}
-
-function stopAudio(channelName) {
-	//@incomplete Stub
 }
 
 function getAudio(audioName) {
@@ -536,9 +533,15 @@ function __update() {
 	}
 
 	/// Images
-	for (var i = 0; i < images.length; i++) {
-		var img = images[i];
-		getImageProps(img.id, i);
+	images.forEach(function(img) {
+		var data = getImageProps_internal(img.id);
+		img.justPressed = data[0];
+		img.justReleased = data[1];
+		img.pressing = data[2];
+		img.justHovered = data[3];
+		img.justUnHovered = data[4];
+		img.hovering = data[5];
+
 		if (img.justReleased && img.onRelease) img.onRelease();
 		if (img.justHovered && img.onHover) img.onHover();
 		if (img.justUnHovered && img.onUnHover) img.onUnHover();
@@ -574,7 +577,7 @@ function __update() {
 		}
 
 		setImageProps(img.id, img.x, img.y, img.scaleX, img.scaleY, img.alpha, img.rotation, img.tint, img.layer);
-	}
+	});
 
 	/// Audios
 	var audiosToDestroy = [];
@@ -610,6 +613,7 @@ exitButton.x = gameWidth - exitButton.width*exitButton.scaleX - 16;
 exitButton.y = 16;
 exitButton.onRelease = function() {
 	if (exitButton.alpha != 1) return;
+	data = JSON.parse(checkpointStr);
 	gotoMap();
 }
 

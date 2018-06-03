@@ -16,8 +16,9 @@ clearNodes();`
 :Extras (Buggy)
 !`
 clearNodes();
-stopAudio("music");
-gotoBrowser();
+getAudio("music").destroy();
+execAsset("scratch.phore");
+// gotoBrowser();
 `
 ---
 :Back.
@@ -36,4 +37,7 @@ attachNode("Story", "Extras (Buggy)", RIGHT);
 
 gotoMap();
 setBackground(0, "writer/thirstyCavesBg");
-playAudio("audio/music/newVictim", "music", {looping: true});
+
+var music = playAudio("audio/music/newVictim");
+music.name = "music";
+music.looping = true;
