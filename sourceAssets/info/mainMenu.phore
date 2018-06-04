@@ -33,6 +33,7 @@ loadRect.onRelease = function() {
 	getAudio("music").destroy();
 	playEffect("audio/ui/choiceClick");
 	clearNodes();
+	gotoMap();
 	loadGame();
 }
 
