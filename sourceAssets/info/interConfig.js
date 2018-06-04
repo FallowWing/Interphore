@@ -178,7 +178,7 @@ function addChoice(choiceText, result, config) {
 		playEffect("audio/ui/hoverChoiceButtons");
 	}
 	spr.onRelease = function() {
-		playEffect("ui/choiceClick");
+		playEffect("audio/ui/newChoiceClick");
 		if (typeof choice.result === "string") {
 			gotoPassage(choice.result);
 		} else {

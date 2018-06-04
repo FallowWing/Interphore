@@ -45,6 +45,7 @@ Like text scrolling!
 [introModMynt]
 [wendyApt]
 [LLL]
+[Hub|thirstyCaves]
 [Titlescreen Test|titlescreenTest]
 [Background Test|backgroundTest]
 [Input Text Test|inputTest]
@@ -59,6 +60,15 @@ Like text scrolling!
 [Save test|saveTest]
 [Tween test|tweenTest]
 [New background test|newBackgroundTest]
+---
+:thirstyCaves
+
+!`
+execAsset("thirstyCaves.phore");
+initThirstyCaves();
+gotoMap();
+`
+
 ---
 :introModMynt
 
