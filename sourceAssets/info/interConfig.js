@@ -640,6 +640,7 @@ var nextArrow = addImage("choiceArrow.png");
 nextArrow.temp = false;
 nextChoices.addChild(nextArrow);
 nextArrow.x = nextChoices.width/2 - nextArrow.width/2;
+nextArrow.y = nextChoices.height/2 - nextArrow.height/2;
 
 var prevChoices = add9SliceImage("img/writer/writerChoice.png", 128, 256, 5, 5, 10, 10);
 prevChoices.y = gameHeight - prevChoices.height;
@@ -655,6 +656,7 @@ prevArrow.temp = false;
 prevChoices.addChild(prevArrow);
 prevArrow.scaleX = -1;
 prevArrow.x = prevChoices.width/2 - prevArrow.width/2 + prevArrow.width;
+prevArrow.y = prevChoices.height/2 - prevArrow.height/2;
 
 var exitButton = addImage("writer/exit.png");
 exitButton.temp = false;
