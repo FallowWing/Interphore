@@ -124,6 +124,13 @@ audio/ui/newChoiceClick/6.ogg
 audio/ui/newChoiceClick/7.ogg
 audio/ui/newChoiceClick/8.ogg
 audio/ui/newChoiceClick/9.ogg
+audio/ui/bestChoiceClick/1.ogg
+audio/ui/bestChoiceClick/2.ogg
+audio/ui/bestChoiceClick/3.ogg
+audio/ui/bestChoiceClick/4.ogg
+audio/ui/bestChoiceClick/5.ogg
+audio/ui/bestChoiceClick/6.ogg
+audio/ui/bestChoiceClick/7.ogg
 audio/ui/choiceClick/1.ogg
 audio/ui/choiceClick/2.ogg
 audio/ui/choiceClick/3.ogg
