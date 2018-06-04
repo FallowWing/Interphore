@@ -174,7 +174,11 @@ function addChoice(choiceText, result, config) {
 	var spr = add9SliceImage("img/writer/writerChoice.png", 256, 256, 5, 5, 10, 10);
 	spr.temp = false;
 	spr.layer = CHOICE_BUTTON_LAYER;
+	spr.onHover = function() {
+		playEffect("audio/ui/hoverChoiceButtons");
+	}
 	spr.onRelease = function() {
+		playEffect("ui/choiceClick");
 		if (typeof choice.result === "string") {
 			gotoPassage(choice.result);
 		} else {
@@ -264,6 +268,13 @@ function getAudio(audioName) {
 	dummyAudio.exists = false;
 	dummyAudio.destroy = function() {};
 	return dummyAudio;
+}
+
+function getAudioById(id) {
+	for (var i = 0; i < audios.length; i++) {
+		var audio = audios[i];
+		if (audio.id == id) return audio;
+	}
 }
 
 function clear() {

@@ -225,7 +225,7 @@ void updateGame() {
 			if (!channel->exists) {
 				game->audios[i] = NULL;
 				char buf[1024];
-				sprintf(buf, "audios[%d].exists = false;", i);
+				sprintf(buf, "getAudioById(%d).destroy();", i);
 				runJs(buf);
 			}
 		}
