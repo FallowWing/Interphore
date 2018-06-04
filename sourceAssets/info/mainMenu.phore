@@ -7,6 +7,68 @@ welcome
 [Load Mod]
 [Extra]
 ---
+:Title Screen
+!`var bg = addImage("img/writer/intro/titleBG.png");
+
+//Gray rects
+var titleRect = addRectImage(gameWidth, 156, 0x302f32);
+titleRect.y = 54;
+
+var taglineRect = addRectImage(gameWidth, 48, 0x302f32);
+taglineRect.y = 230;
+
+var playRect = addRectImage(374, 48, 0x302f32);
+playRect.y = 420;
+playRect.onRelease = function() {
+	getAudio("music").destroy();
+	playEffect("audio/ui/choiceClick");
+	gotoPassage("introModStart");
+	clearNodes();
+}
+
+var loadRect = addRectImage(374, 48, 0x302f32);
+loadRect.y = 420 + playRect.height + 20; //Magic 20 for spacing
+
+loadRect.onRelease = function() {
+	getAudio("music").destroy();
+	playEffect("audio/ui/choiceClick");
+	clearNodes();
+}
+
+var extrasRect = addRectImage(374, 48, 0x302f32);
+extrasRect.y = 420 + playRect.height + 20 + loadRect.height + 20; //Magic 20 for spacing
+
+extrasRect.onRelease = function() {
+	playEffect("audio/ui/choiceClick");
+	clearNodes();
+	getAudio("music").destroy();
+	execAsset("scratch.phore");
+}
+
+playRect.x = loadRect.x = extrasRect.x = gameWidth - playRect.width;
+
+var bottomRect = addRectImage(gameWidth, 96, 0x302f32);
+bottomRect.y = 625;
+
+//Text
+var text = addImage("img/writer/intro/titleText.png");
+
+//Cart
+
+/*var cartBG = addImage("img/writer/characters/cart/cart2.png");
+cartBG.tint = 0xFF000000;
+cartBG.alpha = 0.30;
+cartBG.x = 40;
+cartBG.y = -20;
+cartBG.scaleX = cartBG.scaleY = 1.6;
+
+var cart = addImage("img/writer/characters/cart/cart2.png");
+cart.x = 70;
+cart.y = 20;
+cart.scaleX = cart.scaleY = 1.3;*/
+`
+
+---
 :Story
 !`
 
@@ -35,7 +97,7 @@ submitNode("Story", "Story");
 submitNode("Extras (Buggy)", "Extras (Buggy)");
 attachNode("Story", "Extras (Buggy)", RIGHT);
 
-gotoMap();
+gotoPassage("Title Screen");
 setBackground(0, "writer/thirstyCavesBg");
 
 var music = playAudio("audio/music/newVictim");
