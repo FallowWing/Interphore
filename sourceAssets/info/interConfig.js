@@ -231,7 +231,6 @@ function newAudio() { /// You must push into audios manually
 		id: -1,
 		name: "",
 		looping: false,
-		exists: true,
 		volume: 1,
 		destroy: function() {
 			destroyAudio(audio.id);
@@ -265,7 +264,6 @@ function getAudio(audioName) {
 	}
 
 	var dummyAudio = newAudio();
-	dummyAudio.exists = false;
 	dummyAudio.destroy = function() {};
 	return dummyAudio;
 }
@@ -625,19 +623,10 @@ function __update() {
 	});
 
 	/// Audios
-	var audiosToDestroy = [];
 	for (var i = 0; i < audios.length; i++) {
 		var audio = audios[i];
-
-		if (!audio.exists) {
-			audiosToDestroy.push(audio);
-			continue;
-		}
-
 		setAudioFlags(audio.id, audio.looping, audio.volume);
 	}
-
-	for (var i = 0; i < audiosToDestroy.length; i++) audiosToDestroy[i].destroy();
 }
 
 for (var i = 0; i < 500; i++) keys[i] = KEY_RELEASED;
