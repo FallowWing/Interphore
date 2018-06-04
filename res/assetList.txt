@@ -24,6 +24,8 @@ info/introModMynt.phore
 info/mainMenu.phore
 info/main.phore
 info/thirstyCaves.phore
+info/wendyApt.phore
+info/LLL.phore
 info/scratch.phore
 info/utils.phore
 
