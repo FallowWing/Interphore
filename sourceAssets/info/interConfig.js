@@ -625,7 +625,7 @@ for (var i = 0; i < 500; i++) keys[i] = KEY_RELEASED;
 
 execAsset("info/nodeGraph.phore");
 
-var nextChoices = addRectImage(64, 256, 0x000044);
+var nextChoices = add9SliceImage("img/writer/writerChoice.png", 128, 256, 5, 5, 10, 10);
 nextChoices.temp = false;
 nextChoices.x = gameWidth - nextChoices.width;
 nextChoices.y = gameHeight - nextChoices.height;
@@ -636,7 +636,12 @@ nextChoices.onRelease = function() {
 	choicePage++;
 }
 
-var prevChoices = addRectImage(64, 256, 0x000044);
+var nextArrow = addImage("choiceArrow.png");
+nextArrow.temp = false;
+nextChoices.addChild(nextArrow);
+nextArrow.x = nextChoices.width/2 - nextArrow.width/2;
+
+var prevChoices = add9SliceImage("img/writer/writerChoice.png", 128, 256, 5, 5, 10, 10);
 prevChoices.y = gameHeight - prevChoices.height;
 prevChoices.temp = false;
 prevChoices.onRelease = function() {
@@ -644,6 +649,12 @@ prevChoices.onRelease = function() {
 	if (choicePage <= 0) return;
 	choicePage--;
 }
+
+var prevArrow = addImage("choiceArrow.png");
+prevArrow.temp = false;
+prevChoices.addChild(prevArrow);
+prevArrow.scaleX = -1;
+prevArrow.x = prevChoices.width/2 - prevArrow.width/2 + prevArrow.width;
 
 var exitButton = addImage("writer/exit.png");
 exitButton.temp = false;
