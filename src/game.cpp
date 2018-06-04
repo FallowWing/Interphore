@@ -93,7 +93,8 @@ duk_ret_t getTextureWidth(duk_context *ctx);
 duk_ret_t getTextureHeight(duk_context *ctx);
 
 /// Audio
-duk_ret_t playAudio(duk_context *ctx);
+duk_ret_t playMusic(duk_context *ctx);
+duk_ret_t playEffect(duk_context *ctx);
 duk_ret_t destroyAudio(duk_context *ctx);
 duk_ret_t setAudioFlags(duk_context *ctx);
 
@@ -148,7 +149,8 @@ void initGame(MintSprite *bgSpr) {
 	addJsFunction("getTextureWidth_internal", getTextureWidth, 1);
 	addJsFunction("getTextureHeight_internal", getTextureHeight, 1);
 
-	addJsFunction("playAudio_internal", playAudio, 1);
+	addJsFunction("playMusic_internal", playMusic, 1);
+	addJsFunction("playEffect_internal", playEffect, 1);
 	addJsFunction("destroyAudio", destroyAudio, 1);
 	addJsFunction("setAudioFlags", setAudioFlags, 3);
 
@@ -897,7 +899,27 @@ duk_ret_t getTextureHeight(duk_context *ctx) {
 //
 //
 
-duk_ret_t playAudio(duk_context *ctx) {
+duk_ret_t playMusic(duk_context *ctx) {
+	const char *assetId = duk_get_string(ctx, -1);
+
+	int slot;
+	for (slot = 0; slot < AUDIOS_MAX; slot++) if (!game->audios[slot]) break;
+
+	if (slot >= AUDIOS_MAX) {
+		msg("Too many audios");
+		duk_push_int(ctx, -1);
+		return 1;
+	}
+
+	Channel *channel = playMusic(assetId);
+	game->audios[slot] = channel;
+
+	duk_push_int(ctx, slot);
+
+	return 1;
+}
+
+duk_ret_t playEffect(duk_context *ctx) {
 	const char *assetId = duk_get_string(ctx, -1);
 
 	int slot;

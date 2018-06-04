@@ -6,7 +6,7 @@ START_PASSAGES
 
 !`
 setBackground(0, "writer/mainBg");
-var music = playAudio("audio/ambience/violetMeteorite");
+var music = playMusic("audio/ambience/violetMeteorite");
 music.name = "music";
 music.looping = true;
 `

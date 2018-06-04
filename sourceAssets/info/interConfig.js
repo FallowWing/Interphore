@@ -239,9 +239,17 @@ function newAudio() { /// You must push into audios manually
 	return audio;
 }
 
-function playAudio(assetId) {
+function playMusic(assetId) {
 	var audio = newAudio();
-	audio.id = playAudio_internal(assetId);
+	audio.id = playMusic_internal(assetId);
+	audio.looping = true;
+	audios.push(audio);
+	return audio;
+}
+
+function playEffect(assetId) {
+	var audio = newAudio();
+	audio.id = playEffect_internal(assetId);
 	audios.push(audio);
 	return audio;
 }

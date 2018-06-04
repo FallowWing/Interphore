@@ -154,14 +154,13 @@ That text was (`lastInput`)
 This is a looping audio test
 !`
 addChoice("Place once", function() {
-	var channel = playAudio("newChoiceClick/1.ogg");
+	var channel = playEffect("newChoiceClick/1.ogg");
 	channel.name = "clickSound";
 });
 
 addChoice("Place looping", function() {
-	var channel = playAudio("newChoiceClick/1.ogg");
+	var channel = playMusic("newChoiceClick/1.ogg");
 	channel.name = "clickSound";
-	channel.looping = true;
 });
 
 addChoice("Stop audio", function() {

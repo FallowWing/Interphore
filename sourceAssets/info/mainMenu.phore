@@ -38,6 +38,6 @@ attachNode("Story", "Extras (Buggy)", RIGHT);
 gotoMap();
 setBackground(0, "writer/thirstyCavesBg");
 
-var music = playAudio("audio/music/newVictim");
+var music = playMusic("audio/music/newVictim");
 music.name = "music";
 music.looping = true;

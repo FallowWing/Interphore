@@ -2,7 +2,7 @@ START_PASSAGES
 :introModMyntStart
 !`
 getAudio("music").destroy();
-var music = playAudio("audio/ambience/violetMeteorite");
+var music = playMusic("audio/ambience/violetMeteorite");
 music.name = "music";
 music.looping = true;
 
