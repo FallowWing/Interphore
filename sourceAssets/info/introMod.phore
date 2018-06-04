@@ -257,7 +257,10 @@ timer(2, function() {
 	getAudio("music").destroy();
 	resetBackgroundMode(2);
 	print("leaving intro");
+
 	execAsset("thirstyCaves.phore");
+	initThirstyCaves();
+	gotoPassage("thirstyCavesIntro");
 });
 `
 END_PASSAGES

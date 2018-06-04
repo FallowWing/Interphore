@@ -1585,29 +1585,28 @@ You follow the ALCOHOL LAYER pipeline underground. It takes a sharp left turn ou
 
 END_PASSAGES
 
-submitNode("Nymphore", "introArea");
-submitNode("Indigo Pond", "piss");
-attachNode("Nymphore", "Indigo Pond", TOP);
+function initThirstyCaves() {
+	submitNode("Nymphore", "introArea");
+	submitNode("Indigo Pond", "piss");
+	attachNode("Nymphore", "Indigo Pond", TOP);
 
-submitNode("Alcohol Pipeline", "pipeline");
-attachNode("Indigo Pond", "Alcohol Pipeline", TOP);
+	submitNode("Alcohol Pipeline", "pipeline");
+	attachNode("Indigo Pond", "Alcohol Pipeline", TOP);
 
-submitNode("Underground Farms", "rox");
-attachNode("Nymphore", "Underground Farms", LEFT);
+	submitNode("Underground Farms", "rox");
+	attachNode("Nymphore", "Underground Farms", LEFT);
 
-submitNode("Heaven", "heaven");
-attachNode("Nymphore", "Heaven", RIGHT);
-/*
-submitNode("Old Abattoir", "gore");
-attachNode("Cave Stables", "Old Abattoir", BOTTOM);
+	submitNode("Heaven", "heaven");
+	attachNode("Nymphore", "Heaven", RIGHT);
 
-submitNode("Greasy Crevass", "raunch");
-attachNode("Nymphore", "Greasy Crevass", LEFT);
+	// submitNode("Old Abattoir", "gore");
+	// attachNode("Cave Stables", "Old Abattoir", BOTTOM);
 
-submitNode("Roxelle's Farm", "rox");
-attachNode("Greasy Crevass", "Roxelle's Farm", LEFT);*/
+	// submitNode("Greasy Crevass", "raunch");
+	// attachNode("Nymphore", "Greasy Crevass", LEFT);
 
-gotoPassage("thirstyCavesIntro");
-
+	// submitNode("Roxelle's Farm", "rox");
+	// attachNode("Greasy Crevass", "Roxelle's Farm", LEFT);
+}
 
 //Taro, Cade, Gryphon, and Kemp's truck cameo
