@@ -174,7 +174,11 @@ function addChoice(choiceText, result, config) {
 	var spr = add9SliceImage("img/writer/writerChoice.png", 256, 256, 5, 5, 10, 10);
 	spr.temp = false;
 	spr.layer = CHOICE_BUTTON_LAYER;
+	spr.onHover = function() {
+		playEffect("audio/ui/hoverChoiceButtons");
+	}
 	spr.onRelease = function() {
+		playEffect("ui/choiceClick");
 		if (typeof choice.result === "string") {
 			gotoPassage(choice.result);
 		} else {
@@ -227,7 +231,6 @@ function newAudio() { /// You must push into audios manually
 		id: -1,
 		name: "",
 		looping: false,
-		exists: true,
 		volume: 1,
 		destroy: function() {
 			destroyAudio(audio.id);
@@ -239,9 +242,17 @@ function newAudio() { /// You must push into audios manually
 	return audio;
 }
 
-function playAudio(assetId) {
+function playMusic(assetId) {
 	var audio = newAudio();
-	audio.id = playAudio_internal(assetId);
+	audio.id = playMusic_internal(assetId);
+	audio.looping = true;
+	audios.push(audio);
+	return audio;
+}
+
+function playEffect(assetId) {
+	var audio = newAudio();
+	audio.id = playEffect_internal(assetId);
 	audios.push(audio);
 	return audio;
 }
@@ -253,9 +264,15 @@ function getAudio(audioName) {
 	}
 
 	var dummyAudio = newAudio();
-	dummyAudio.exists = false;
 	dummyAudio.destroy = function() {};
 	return dummyAudio;
+}
+
+function getAudioById(id) {
+	for (var i = 0; i < audios.length; i++) {
+		var audio = audios[i];
+		if (audio.id == id) return audio;
+	}
 }
 
 function clear() {
@@ -606,19 +623,10 @@ function __update() {
 	});
 
 	/// Audios
-	var audiosToDestroy = [];
 	for (var i = 0; i < audios.length; i++) {
 		var audio = audios[i];
-
-		if (!audio.exists) {
-			audiosToDestroy.push(audio);
-			continue;
-		}
-
 		setAudioFlags(audio.id, audio.looping, audio.volume);
 	}
-
-	for (var i = 0; i < audiosToDestroy.length; i++) audiosToDestroy[i].destroy();
 }
 
 for (var i = 0; i < 500; i++) keys[i] = KEY_RELEASED;
@@ -640,6 +648,7 @@ var nextArrow = addImage("choiceArrow.png");
 nextArrow.temp = false;
 nextChoices.addChild(nextArrow);
 nextArrow.x = nextChoices.width/2 - nextArrow.width/2;
+nextArrow.y = nextChoices.height/2 - nextArrow.height/2;
 
 var prevChoices = add9SliceImage("img/writer/writerChoice.png", 128, 256, 5, 5, 10, 10);
 prevChoices.y = gameHeight - prevChoices.height;
@@ -655,6 +664,7 @@ prevArrow.temp = false;
 prevChoices.addChild(prevArrow);
 prevArrow.scaleX = -1;
 prevArrow.x = prevChoices.width/2 - prevArrow.width/2 + prevArrow.width;
+prevArrow.y = prevChoices.height/2 - prevArrow.height/2;
 
 var exitButton = addImage("writer/exit.png");
 exitButton.temp = false;
