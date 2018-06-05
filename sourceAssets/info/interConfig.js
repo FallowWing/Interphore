@@ -476,15 +476,18 @@ function disableExit() {
 
 function msg(str) {
 	var tf = addEmptyImage(256, 256);
+	tf.temp = false;
 	tf.layer = MSG_TEXT_LAYER;
 	tf.setText(str);
 
 	var spr = add9SliceImage("img/writer/writerChoice.png", tf.textWidth + 32, tf.textHeight + 32, 5, 5, 10, 10);
+	spr.temp = false;
 	spr.layer = MSG_SPRITE_LAYER;
 	spr.addChild(tf);
 
 	spr.x = gameWidth - spr.width - 16;
-	spr.y = gameHeight;
+	spr.y = gameHeight - BUTTON_HEIGHT;
+	spr.alpha = 0;
 
 	tf.x = spr.width/2 - tf.textWidth/2;
 	tf.y = spr.height/2 - tf.textHeight/2;
@@ -508,7 +511,13 @@ function __update() {
 
 	/// Msgs
 	var msgsToDestroy = [];
-	var bottomY = gameHeight - (BUTTON_HEIGHT - 16);
+	var msgPad = 16;
+
+	var moveMsgsUp = false;
+	for (var i = 0; i < msgs.length; i++)
+		if (msgs[i].sprite.y + msgs[i].sprite.height > gameHeight - BUTTON_HEIGHT)
+			moveMsgsUp = true;
+
 	for (var i = 0; i < msgs.length; i++) {
 		var msg = msgs[i];
 		var spr = msgs[i].sprite;
@@ -519,21 +528,21 @@ function __update() {
 		if (msg.timeShown > 5) {
 			msg.sprite.alpha -= 0.2;
 			if (msg.sprite.alpha <= 0) msgsToDestroy.push(msg);
+		} else {
+			msg.sprite.alpha += 0.2;
 		}
 
-		var destY = bottomY;
-
-		if (i > 0) {
+		if (i == 0) {
+			if (moveMsgsUp) spr.y -= 5;
+		} else {
 			var prevSpr = msgs[i-1].sprite;
-			destY = prevSpr.y + prevSpr.height + 16;
+			var destY = prevSpr.y + prevSpr.height + msgPad;
+
+			if (spr.y < destY) spr.y = destY;
+
+			spr.y -= 5;
 		}
-
-		if (spr.y < destY) spr.y = destY;
-
-		spr.y -= 5;
 	}
-
-	// if (bringMsgsUp) msgs[0].sprite.y -= 5;
 
 	for (var i = 0; i < msgsToDestroy.length; i++) {
 		var msg = msgsToDestroy[i];
