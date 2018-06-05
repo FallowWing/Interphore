@@ -60,6 +60,7 @@ Like text scrolling!
 [Save test|saveTest]
 [Tween test|tweenTest]
 [New background test|newBackgroundTest]
+[Msg test|msgText]
 ---
 :thirstyCaves
 
@@ -289,6 +290,16 @@ backgrounds[0].bobY = 0.5;
 setBackground(1, "myntBg2");
 `
 There's some backgrounds.
+[Go back|Start]
+---
+:msgText
+!`
+addChoice("Show some msgs", function() {
+	msg("This is a test msg");
+	msg("Here's another");
+	msg("And another");
+});
+`
 [Go back|Start]
 ---
 :Exit

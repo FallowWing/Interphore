@@ -5,6 +5,7 @@ var timers = [];
 var tweens = [];
 var backgrounds = [];
 var keys = [];
+var msgs = [];
 
 var mouseX = 0;
 var mouseY = 0;
@@ -32,9 +33,12 @@ var GRAPH_NODE_LAYER = 50;
 var DEFAULT_LAYER = 60;
 var CHOICE_BUTTON_LAYER = 70;
 var CHOICE_TEXT_LAYER = 80;
-var TITLE_LAYER = 90;
+var MSG_SPRITE_LAYER = 90;
+var MSG_TEXT_LAYER = 100;
+var TITLE_LAYER = 110;
 
 var CHOICES_PER_PAGE = 4;
+var BUTTON_HEIGHT = 256;
 
 var TOP = 1;
 var BOTTOM = 2;
@@ -168,7 +172,7 @@ function addChoice(choiceText, result, config) {
 		result: result
 	};
 
-	var spr = add9SliceImage("img/writer/writerChoice.png", 256, 256, 5, 5, 10, 10);
+	var spr = add9SliceImage("img/writer/writerChoice.png", 256, BUTTON_HEIGHT, 5, 5, 10, 10);
 	spr.temp = false;
 	spr.layer = CHOICE_BUTTON_LAYER;
 	spr.onHover = function() {
@@ -183,7 +187,7 @@ function addChoice(choiceText, result, config) {
 		}
 	}
 
-	var tf = addEmptyImage(256, 256);
+	var tf = addEmptyImage(spr.width, spr.height);
 	spr.addChild(tf);
 	tf.temp = false;
 	tf.setFont("NunitoSans-Light_22");
@@ -378,7 +382,6 @@ function setBackground(bgNum, assetId, bgType) {
 
 	if (backgrounds[bgNum]) {
 		tween(backgrounds[bgNum].sprite, 0.5, {alpha: 0}, {onComplete: function() {
-			// print("onComplete ran on bgNum: "+bgNum);
 			if (backgrounds[bgNum]) backgrounds[bgNum].sprite.destroy();
 			backgrounds[bgNum] = null;
 			createBg();
@@ -471,11 +474,74 @@ function disableExit() {
 	exitButton.alpha = 0;
 }
 
+function msg(str) {
+	var tf = addEmptyImage(256, 256);
+	tf.layer = MSG_TEXT_LAYER;
+	tf.setText(str);
+
+	var spr = add9SliceImage("img/writer/writerChoice.png", tf.textWidth + 32, tf.textHeight + 32, 5, 5, 10, 10);
+	spr.layer = MSG_SPRITE_LAYER;
+	spr.addChild(tf);
+
+	spr.x = gameWidth - spr.width - 16;
+	spr.y = gameHeight;
+
+	tf.x = spr.width/2 - tf.textWidth/2;
+	tf.y = spr.height/2 - tf.textHeight/2;
+
+	var message;
+	message = {
+		sprite: spr,
+		textField: tf,
+		timeShown: 0,
+	};
+
+	msgs.push(message);
+	return message;
+}
+
 function __update() {
 	var elapsed = 1/60;
 
 	/// Misc
 	inputField.x = gameWidth/2 - inputField.textWidth/2;
+
+	/// Msgs
+	var msgsToDestroy = [];
+	var bottomY = gameHeight - (BUTTON_HEIGHT - 16);
+	for (var i = 0; i < msgs.length; i++) {
+		var msg = msgs[i];
+		var spr = msgs[i].sprite;
+
+		msg.timeShown += elapsed;
+		if (spr.justReleased) msg.timeShown = 99;
+
+		if (msg.timeShown > 5) {
+			msg.sprite.alpha -= 0.2;
+			if (msg.sprite.alpha <= 0) msgsToDestroy.push(msg);
+		}
+
+		var destY = bottomY;
+
+		if (i > 0) {
+			var prevSpr = msgs[i-1].sprite;
+			destY = prevSpr.y + prevSpr.height + 16;
+		}
+
+		if (spr.y < destY) spr.y = destY;
+
+		spr.y -= 5;
+	}
+
+	// if (bringMsgsUp) msgs[0].sprite.y -= 5;
+
+	for (var i = 0; i < msgsToDestroy.length; i++) {
+		var msg = msgsToDestroy[i];
+		msg.sprite.destroy();
+		msg.textField.destroy();
+		var index = msgs.indexOf(msg);
+		msgs.splice(index, 1);
+	}
 
 	/// Command queue
 	if (keys[32] == KEY_JUST_PRESSED) commandSkipped = true;
@@ -642,7 +708,7 @@ for (var i = 0; i < 500; i++) keys[i] = KEY_RELEASED;
 
 execAsset("info/nodeGraph.phore");
 
-var nextChoices = add9SliceImage("img/writer/writerChoice.png", 128, 256, 5, 5, 10, 10);
+var nextChoices = add9SliceImage("img/writer/writerChoice.png", 128, BUTTON_HEIGHT, 5, 5, 10, 10);
 nextChoices.temp = false;
 nextChoices.x = gameWidth - nextChoices.width;
 nextChoices.y = gameHeight - nextChoices.height;
@@ -659,7 +725,7 @@ nextChoices.addChild(nextArrow);
 nextArrow.x = nextChoices.width/2 - nextArrow.width/2;
 nextArrow.y = nextChoices.height/2 - nextArrow.height/2;
 
-var prevChoices = add9SliceImage("img/writer/writerChoice.png", 128, 256, 5, 5, 10, 10);
+var prevChoices = add9SliceImage("img/writer/writerChoice.png", 128, BUTTON_HEIGHT, 5, 5, 10, 10);
 prevChoices.y = gameHeight - prevChoices.height;
 prevChoices.temp = false;
 prevChoices.onRelease = function() {
