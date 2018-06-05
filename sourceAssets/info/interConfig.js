@@ -45,6 +45,9 @@ var DEFAULT = 5;
 var TILED = 6;
 var CENTERED = 7;
 
+var LOOPING = 8;
+var PINGPONG = 9;
+
 function newImage() {
 	var img;
 	img = {
@@ -403,6 +406,7 @@ function setBackgroundBob(bgNum, bobX, bobY) {
 function tween(src, time, params, config) {
 	if (!config) config = {};
 	if (config.ease == undefined) config.ease = LINEAR;
+	if (config.reversed == undefined) config.reversed = false;
 
 	var startParams = {};
 	for (key in params) startParams[key] = src[key];
@@ -512,11 +516,19 @@ function __update() {
 	var tweensToRemove = [];
 	tweens.forEach(function(tw) {
 		var perc = tw.elapsed / tw.totalTime;
+		if (tw.config.reversed) perc = 1 - perc;
 		perc = tweenEase(perc, tw.config.ease);
 
-		if (perc >= 1) {
-			if (tw.config.onComplete) tw.config.onComplete();
-			tweensToRemove.push(tw);
+		if ((perc >= 1 && !tw.config.reversed) || (perc <= 0 && tw.config.reversed)) {
+			if (tw.config.type == LOOPING) {
+				tw.elapsed = 0;
+			} else if (tw.config.type == PINGPONG) {
+				tw.elapsed = 0;
+				tw.config.reversed = !tw.config.reversed;
+			} else {
+				if (tw.config.onComplete) tw.config.onComplete();
+				tweensToRemove.push(tw);
+			}
 		}
 		tw.elapsed += elapsed;
 

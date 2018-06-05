@@ -273,9 +273,8 @@ This will only work in the new engine
 var spr = addRectImage(64, 64, 0x0000FF);
 spr.x = 20;
 spr.y = 20;
-tween(spr, 3, {x: 500, y: 300, rotation: 90}, {ease: SINE_OUT});
+tween(spr, 3, {x: 500, y: 300, rotation: 90}, {ease: SINE_OUT, type: PINGPONG});
 `
-[Repeat|realTweenTest]
 [Go back|Start]
 ---
 :newBackgroundTest
