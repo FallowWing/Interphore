@@ -53,6 +53,11 @@ function gotoMap() {
 	exitButton.alpha = 0;
 	saveCheckpoint();
 
+	if (graphNodes.length == 0) {
+		execAsset("thirstyCaves.phore");
+		initThirstyCaves();
+	}
+
 	graphLines = [];
 
 	graphBg = addEmptyImage(2048, 2048);
