@@ -45,12 +45,6 @@ var DEFAULT = 5;
 var TILED = 6;
 var CENTERED = 7;
 
-var KEY_JUST_PRESSED = 1;
-var KEY_PRESSED = 2;
-var KEY_RELEASED = 3;
-var KEY_JUST_RELEASED = 4;
-var KEY_SHIFT = 305;
-
 function newImage() {
 	var img;
 	img = {
@@ -408,6 +402,7 @@ function setBackgroundBob(bgNum, bobX, bobY) {
 
 function tween(src, time, params, config) {
 	if (!config) config = {};
+	if (config.ease == undefined) config.ease = LINEAR;
 
 	var startParams = {};
 	for (key in params) startParams[key] = src[key];
@@ -517,6 +512,8 @@ function __update() {
 	var tweensToRemove = [];
 	tweens.forEach(function(tw) {
 		var perc = tw.elapsed / tw.totalTime;
+		perc = tweenEase(perc, tw.config.ease);
+
 		if (perc >= 1) {
 			if (tw.config.onComplete) tw.config.onComplete();
 			tweensToRemove.push(tw);

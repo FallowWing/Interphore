@@ -70,6 +70,8 @@ duk_ret_t saveGame(duk_context *ctx);
 duk_ret_t loadGame(duk_context *ctx);
 void gameLoaded(char *data);
 
+duk_ret_t interTweenEase(duk_context *ctx);
+
 /// Images
 duk_ret_t addImage(duk_context *ctx);
 duk_ret_t addCanvasImage(duk_context *ctx);
@@ -119,7 +121,87 @@ void initGame(MintSprite *bgSpr) {
 	initJs();
 
 	char buf[1024];
-	sprintf(buf, "var gameWidth = %d;\n var gameHeight = %d; var isFlash = %d\n", engine->width, engine->height, engine->platform == PLAT_FLASH);
+	sprintf(
+		buf,
+		"var gameWidth = %d;"
+		"var gameHeight = %d;"
+		"var isFlash = %d;"
+		"var KEY_JUST_PRESSED = %d;"
+		"var KEY_PRESSED = %d;"
+		"var KEY_RELEASED = %d;"
+		"var KEY_JUST_RELEASED = %d;"
+		"var KEY_SHIFT = %d;"
+		"var LINEAR = %d;"
+		"var QUAD_IN = %d;"
+		"var QUAD_OUT = %d;"
+		"var QUAD_IN_OUT = %d;"
+		"var CUBIC_IN = %d;"
+		"var CUBIC_OUT = %d;"
+		"var CUBIC_IN_OUT = %d;"
+		"var QUART_IN = %d;"
+		"var QUART_OUT = %d;"
+		"var QUART_IN_OUT = %d;"
+		"var QUINT_IN = %d;"
+		"var QUINT_OUT = %d;"
+		"var QUINT_IN_OUT = %d;"
+		"var SINE_IN = %d;"
+		"var SINE_OUT = %d;"
+		"var SINE_IN_OUT = %d;"
+		"var CIRC_IN = %d;"
+		"var CIRC_OUT = %d;"
+		"var CIRC_IN_OUT = %d;"
+		"var EXP_IN = %d;"
+		"var EXP_OUT = %d;"
+		"var EXP_IN_OUT = %d;"
+		"var ELASTIC_IN = %d;"
+		"var ELASTIC_OUT = %d;"
+		"var ELASTIC_IN_OUT = %d;"
+		"var BACK_IN = %d;"
+		"var BACK_OUT = %d;"
+		"var BACK_IN_OUT = %d;"
+		"var BOUNCE_IN = %d;"
+		"var BOUNCE_OUT = %d;"
+		"var BOUNCE_IN_OUT = %d;",
+		engine->width,
+		engine->height,
+		engine->platform == PLAT_FLASH,
+		KEY_JUST_PRESSED,
+		KEY_PRESSED,
+		KEY_RELEASED,
+		KEY_JUST_RELEASED,
+		KEY_SHIFT,
+		LINEAR,
+		QUAD_IN,
+		QUAD_OUT,
+		QUAD_IN_OUT,
+		CUBIC_IN,
+		CUBIC_OUT,
+		CUBIC_IN_OUT,
+		QUART_IN,
+		QUART_OUT,
+		QUART_IN_OUT,
+		QUINT_IN,
+		QUINT_OUT,
+		QUINT_IN_OUT,
+		SINE_IN,
+		SINE_OUT,
+		SINE_IN_OUT,
+		CIRC_IN,
+		CIRC_OUT,
+		CIRC_IN_OUT,
+		EXP_IN,
+		EXP_OUT,
+		EXP_IN_OUT,
+		ELASTIC_IN,
+		ELASTIC_OUT,
+		ELASTIC_IN_OUT,
+		BACK_IN,
+		BACK_OUT,
+		BACK_IN_OUT,
+		BOUNCE_IN,
+		BOUNCE_OUT,
+		BOUNCE_IN_OUT
+		);
 	runJs(buf);
 
 	addJsFunction("submitPassage", submitPassage, 1);
@@ -129,6 +211,8 @@ void initGame(MintSprite *bgSpr) {
 	addJsFunction("append", append, 1);
 	addJsFunction("setMainText", setMainText, 1);
 	addJsFunction("gotoPassage_internal", gotoPassage, 1);
+	addJsFunction("tweenEase", interTweenEase, 2);
+
 	addJsFunction("addImage_internal", addImage, 1);
 	addJsFunction("addCanvasImage_internal", addCanvasImage, 3);
 	addJsFunction("addRectImage_internal", addRectImage, 3);
@@ -605,6 +689,15 @@ duk_ret_t setMainText(duk_context *ctx) {
 	const char *text = duk_get_string(ctx, -1);
 	strcpy(game->mainTextStr, text);
 	return 0;
+}
+
+duk_ret_t interTweenEase(duk_context *ctx) {
+	int easeType = duk_get_int(ctx, -1);
+	float perc = duk_get_number(ctx, -2);
+
+	duk_push_number(ctx, tweenEase(perc, (Ease)easeType));
+
+	return 1;
 }
 
 //
