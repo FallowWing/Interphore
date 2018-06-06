@@ -107,19 +107,11 @@ Game *game = NULL;
 char tempBytes[Megabytes(2)];
 
 void initGame(MintSprite *bgSpr) {
-	///
-	//@incomplete Copy sound tweaks
-	///
-
 	getTextureAsset("NunitoSans-Light_22")->level = 3;
 	getTextureAsset("NunitoSans-Light_30")->level = 3;
 	getTextureAsset("NunitoSans-Light_38")->level = 3;
 
-	if (engine->platform == PLAT_ANDROID) {
-		strcpy(engine->spriteData.defaultFont, "OpenSans-Regular_40");
-	} else {
-		strcpy(engine->spriteData.defaultFont, "OpenSans-Regular_20");
-	}
+	strcpy(engine->spriteData.defaultFont, "OpenSans-Regular_40");
 
 	initJs();
 
@@ -167,10 +159,6 @@ void initGame(MintSprite *bgSpr) {
 	// if (streq(name, "loadModFromDisk")) return (void *)loadModFromDisk;
 
 	game = (Game *)zalloc(sizeof(Game));
-
-	///
-	//@incomplete Setup mod repo
-	///
 
 	char *initCode = (char *)getAsset("info/interConfig.js")->data;
 	runJs(initCode);
