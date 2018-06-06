@@ -577,6 +577,8 @@ function __update() {
 
 			currentCommand = command;
 			queueTimeLeft = command.addedTime;
+
+			if (queuedCommands.length > 0 && queuedCommands[0].type == "addChoice") queueTimeLeft = 0;
 		}
 	}
 

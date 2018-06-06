@@ -376,7 +376,7 @@ duk_ret_t append(duk_context *ctx) {
 			String *line = lines[i];
 			if (line->charAt(0) == '[') {
 				line->pop();
-				line->unshift();
+				line->shift();
 				String *label;
 				String *result;
 
