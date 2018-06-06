@@ -517,6 +517,22 @@ function __update() {
 	/// Misc
 	var elapsed = 1/60;
 
+	/// Image mouse events
+	images.forEach(function(img) {
+		var data = getImageProps_internal(img.id);
+		img.justPressed = data[0];
+		img.justReleased = data[1];
+		img.pressing = data[2];
+		img.justHovered = data[3];
+		img.justUnHovered = data[4];
+		img.hovering = data[5];
+
+		if (img.justReleased && img.onRelease) img.onRelease();
+		if (img.justHovered && img.onHover) img.onHover();
+		if (img.justUnHovered && img.onUnHover) img.onUnHover();
+	});
+
+
 	/// Input field
 	inputField.x = inputFieldBg.width/2 - inputField.textWidth/2;
 	inputField.y = inputFieldBg.height/2 - inputField.textHeight/2;
@@ -683,18 +699,6 @@ function __update() {
 
 	/// Images
 	images.forEach(function(img) {
-		var data = getImageProps_internal(img.id);
-		img.justPressed = data[0];
-		img.justReleased = data[1];
-		img.pressing = data[2];
-		img.justHovered = data[3];
-		img.justUnHovered = data[4];
-		img.hovering = data[5];
-
-		if (img.justReleased && img.onRelease) img.onRelease();
-		if (img.justHovered && img.onHover) img.onHover();
-		if (img.justUnHovered && img.onUnHover) img.onUnHover();
-
 		if (img.draggable) {
 			if (img.justPressed) {
 				img.dragPivotX = mouseX - img.x;
