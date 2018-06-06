@@ -95,6 +95,7 @@ duk_ret_t getTextureWidth(duk_context *ctx);
 duk_ret_t getTextureHeight(duk_context *ctx);
 
 /// Audio
+duk_ret_t addSoundTweakJs(duk_context *ctx);
 duk_ret_t playMusic(duk_context *ctx);
 duk_ret_t playEffect(duk_context *ctx);
 duk_ret_t destroyAudio(duk_context *ctx);
@@ -149,6 +150,7 @@ void initGame(MintSprite *bgSpr) {
 	addJsFunction("getTextureWidth_internal", getTextureWidth, 1);
 	addJsFunction("getTextureHeight_internal", getTextureHeight, 1);
 
+	addJsFunction("addSoundTweak", addSoundTweakJs, 2);
 	addJsFunction("playMusic_internal", playMusic, 1);
 	addJsFunction("playEffect_internal", playEffect, 1);
 	addJsFunction("destroyAudio", destroyAudio, 1);
@@ -907,6 +909,15 @@ duk_ret_t getTextureHeight(duk_context *ctx) {
 //         AUDIO START
 //
 //
+
+duk_ret_t addSoundTweakJs(duk_context *ctx) {
+	float volume = duk_get_number(ctx, -1);
+	const char *assetId = duk_get_string(ctx, -2);
+
+	addSoundTweak(assetId, volume);
+
+	return 0;
+}
 
 duk_ret_t playMusic(duk_context *ctx) {
 	const char *assetId = duk_get_string(ctx, -1);

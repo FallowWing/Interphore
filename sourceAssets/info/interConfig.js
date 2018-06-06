@@ -715,10 +715,6 @@ function __update() {
 	}
 }
 
-for (var i = 0; i < 500; i++) keys[i] = KEY_RELEASED;
-
-execAsset("info/nodeGraph.phore");
-
 var nextChoices = add9SliceImage("img/writer/writerChoice.png", 128, BUTTON_HEIGHT, 5, 5, 10, 10);
 nextChoices.temp = false;
 nextChoices.x = gameWidth - nextChoices.width;
@@ -781,3 +777,29 @@ inputFieldBg.y = gameHeight - BUTTON_HEIGHT - inputFieldBg.height;
 var inputField = addEmptyImage(gameWidth, 100);
 inputFieldBg.addChild(inputField);
 inputField.temp = false;
+
+for (var i = 0; i < 500; i++) keys[i] = KEY_RELEASED;
+execAsset("info/nodeGraph.phore");
+
+addSoundTweak("audio/ui/exit", 0.1);
+addSoundTweak("audio/ui/restart", 0.3);
+addSoundTweak("audio/ui/newChoiceClick/1", 0.2);
+addSoundTweak("audio/ui/newChoiceClick/2", 0.2);
+addSoundTweak("audio/ui/newChoiceClick/3", 0.2);
+addSoundTweak("audio/ui/newChoiceClick/4", 0.2);
+addSoundTweak("audio/ui/newChoiceClick/5", 0.2);
+addSoundTweak("audio/ui/newChoiceClick/6", 0.2);
+addSoundTweak("audio/ui/newChoiceClick/7", 0.2);
+addSoundTweak("audio/ui/newChoiceClick/8", 0.2);
+addSoundTweak("audio/ui/newChoiceClick/9", 0.2);
+addSoundTweak("audio/ui/hoverChoiceButtons/1", 0.1);
+addSoundTweak("audio/ui/hoverChoiceButtons/2", 0.1);
+addSoundTweak("audio/ui/hoverChoiceButtons/3", 0.1);
+addSoundTweak("audio/ui/tooltip/1", 0.2);
+addSoundTweak("audio/ui/tooltip/2", 0.2);
+addSoundTweak("audio/ui/tooltip/3", 0.2);
+addSoundTweak("audio/ui/hoverChoiceIcons/1", 0.2);
+addSoundTweak("audio/ui/hoverChoiceIcons/2", 0.2);
+addSoundTweak("audio/ui/hoverChoiceIcons/3", 0.2);
+
+addSoundTweak("audio/music/newVictim", 0.5);
