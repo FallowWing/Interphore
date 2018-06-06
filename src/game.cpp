@@ -406,6 +406,14 @@ duk_ret_t append(duk_context *ctx) {
 					result = line->clone();
 				}
 
+				String *quoteReplacedLabel = label->replace("\"", "\\\"");
+				label->destroy();
+				label = quoteReplacedLabel;
+
+				String *quoteReplacedResult = result->replace("\"", "\\\"");
+				result->destroy();
+				result = quoteReplacedResult;
+
 				String *code = newString(256);
 				code->set("addChoice(\"");
 				code->append(label->cStr);
@@ -468,10 +476,13 @@ duk_ret_t submitPassage(duk_context *ctx) {
 			}
 			jsData->append("append(\"");
 
-			String *fixedSeg = segment->replace("\n", "\\n");
+			String *nlReplacedSeg = segment->replace("\n", "\\n");
 			segment->destroy();
-			segment = fixedSeg;
-			//@incompelte Parse addChoice alias ([myTitle|myPass])
+			segment = nlReplacedSeg;
+
+			String *quoteReplaced = segment->replace("\"", "\\\"");
+			segment->destroy();
+			segment = quoteReplaced;
 
 			jsData->append(segment->cStr);
 			jsData->append("\");");
