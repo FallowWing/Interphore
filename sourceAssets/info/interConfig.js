@@ -323,10 +323,12 @@ function saveCheckpoint() {
 }
 
 function saveGame() {
+	msg("Game Saved");
 	saveGame_internal(checkpointStr);
 }
 
 function loadGame() {
+	msg("Game Loaded");
 	loadGame_internal();
 }
 
@@ -757,8 +759,7 @@ exitButton.x = gameWidth - exitButton.width*exitButton.scaleX - 16;
 exitButton.y = 16;
 exitButton.onRelease = function() {
 	if (exitButton.alpha != 1) return;
-	data = JSON.parse(checkpointStr);
-	gotoMap();
+	gotoMap(false);
 }
 
 var titleBg = addRectImage(gameWidth, 50, 0x000000);

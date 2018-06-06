@@ -48,10 +48,18 @@ function setNodeLocked(nodeName, fn) {
 	node.lockFunction = fn;
 }
 
-function gotoMap() {
+function gotoMap(isCheckpoint) {
+	if (isCheckpoint === undefined) isCheckpoint = true;
+
+	if (isCheckpoint) {
+		msg("Checkpoint");
+		saveCheckpoint();
+	} else {
+		data = JSON.parse(checkpointStr);
+	}
+
 	clear();
 	exitButton.alpha = 0;
-	saveCheckpoint();
 
 	if (graphNodes.length == 0) {
 		execAsset("thirstyCaves.phore");
