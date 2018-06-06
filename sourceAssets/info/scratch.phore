@@ -154,7 +154,7 @@ There's some backgrounds.
 ---
 :inputTest
 Gimme some text.
-!`addInputField();`
+!`addInputField("Right here:");`
 [Continue|inputTest2]
 ---
 :inputTest2

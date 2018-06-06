@@ -220,7 +220,10 @@ function addChoice(choiceText, result, config) {
 	return choice;
 }
 
-function addInputField() {
+function addInputField(title) {
+	if (title === undefined) title = "Input:";
+	inputTitle.setText(title);
+
 	inputFieldBg.alpha = 1;
 	inputField.inInputField = true;
 	inputField.setText("");
@@ -415,8 +418,8 @@ function setBackgroundBob(bgNum, bobX, bobY) {
 
 function tween(src, time, params, config) {
 	if (!config) config = {};
-	if (config.ease == undefined) config.ease = LINEAR;
-	if (config.reversed == undefined) config.reversed = false;
+	if (config.ease === undefined) config.ease = LINEAR;
+	if (config.reversed === undefined) config.reversed = false;
 
 	var startParams = {};
 	for (key in params) startParams[key] = src[key];
@@ -517,6 +520,9 @@ function __update() {
 	/// Input field
 	inputField.x = inputFieldBg.width/2 - inputField.textWidth/2;
 	inputField.y = inputFieldBg.height/2 - inputField.textHeight/2;
+
+	inputTitle.x = inputField.x - inputTitle.textWidth - 16;
+	inputTitle.y = inputFieldBg.height/2 - inputTitle.textHeight/2;
 
 	inputCarrot.x = inputField.x + inputField.textWidth;
 	inputCarrot.y = inputField.y + inputField.textHeight/2 - inputCarrot.height/2;
@@ -797,6 +803,12 @@ inputField.setFont("NunitoSans-Light_38");
 var inputCarrot = addRectImage(4, 32, 0xFFFFFF);
 inputFieldBg.addChild(inputCarrot);
 inputCarrot.temp = false;
+
+var inputTitle = addEmptyImage(gameWidth, 150);
+inputTitle.temp = false;
+inputFieldBg.addChild(inputTitle);
+inputTitle.setFont("NunitoSans-Light_38");
+inputTitle.alpha = 0.75;
 
 for (var i = 0; i < 500; i++) keys[i] = KEY_RELEASED;
 execAsset("info/nodeGraph.phore");
