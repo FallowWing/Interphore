@@ -10,6 +10,9 @@
 
 #define MAIN_TEXT_LAYER 20
 
+#define PROFILE_JS_UPDATE 0
+#define PROFILE_GAME_UPDATE 1
+
 void initGame(MintSprite *bgSpr);
 void deinitGame();
 void updateGame();
@@ -32,6 +35,8 @@ struct Passage {
 };
 
 struct Game {
+	Profiler profiler;
+
 	MintSprite *bg;
 
 	MintSprite *root;
@@ -159,6 +164,7 @@ void initGame(MintSprite *bgSpr) {
 	// if (streq(name, "loadModFromDisk")) return (void *)loadModFromDisk;
 
 	game = (Game *)zalloc(sizeof(Game));
+	initProfiler(&game->profiler);
 
 	char *initCode = (char *)getAsset("info/interConfig.js")->data;
 	runJs(initCode);
@@ -176,6 +182,8 @@ void deinitGame() {
 }
 
 void updateGame() {
+	game->profiler.startProfile(PROFILE_JS_UPDATE);
+
 	char buf[1024];
 	sprintf(
 		buf,
@@ -196,6 +204,9 @@ void updateGame() {
 		platformMouseWheel
 	);
 	runJs(buf);
+
+	game->profiler.endProfile(PROFILE_JS_UPDATE);
+	game->profiler.startProfile(PROFILE_GAME_UPDATE);
 
 	{ /// Update streaming
 		if (!game->isStreaming && game->streamNamesNum > game->curStreamIndex) {
@@ -245,6 +256,12 @@ void updateGame() {
 	game->mainText->y = newY;
 	game->mainText->layer = MAIN_TEXT_LAYER;
 	game->mainText->setText(game->mainTextStr);
+
+	game->profiler.endProfile(PROFILE_GAME_UPDATE);
+
+	if (keyIsJustReleased('`')) {
+		printf("JS: %0.2f CPP: %0.2f\n", game->profiler.getAverage(PROFILE_JS_UPDATE), game->profiler.getAverage(PROFILE_GAME_UPDATE));
+	}
 }
 
 void runMod(char *serialData) {
