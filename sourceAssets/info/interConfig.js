@@ -190,7 +190,7 @@ function addChoice(choiceText, result, config) {
 	var tf = addEmptyImage(spr.width, spr.height);
 	spr.addChild(tf);
 	tf.temp = false;
-	tf.setFont("NunitoSans-Light_22");
+	tf.setFont("NunitoSans-Light_38");
 	tf.setText(choiceText);
 	tf.layer = CHOICE_TEXT_LAYER;
 	tf.x = spr.width/2 - tf.textWidth/2;
@@ -698,6 +698,9 @@ function __update() {
 		if (img.alpha > 1) img.alpha = 1;
 
 		if (img.inInputField) {
+			img.x = round(img.x);
+			img.y = round(img.y);
+
 			var keyWasPressed = false;
 			for (var j = 65; j < 90; j++) {
 				if (keys[j] == KEY_JUST_PRESSED) {
@@ -772,7 +775,7 @@ titleBg.layer = TITLE_LAYER;
 
 var titleTf = addEmptyImage(titleBg.width, titleBg.height);
 titleTf.temp = false;
-titleTf.setFont("NunitoSans-Light_22");
+titleTf.setFont("NunitoSans-Light_38");
 titleTf.layer = TITLE_LAYER;
 titleBg.addChild(titleTf);
 
@@ -784,6 +787,7 @@ inputFieldBg.y = gameHeight - BUTTON_HEIGHT - inputFieldBg.height - 32;
 var inputField = addEmptyImage(gameWidth, 100);
 inputFieldBg.addChild(inputField);
 inputField.temp = false;
+inputField.setFont("NunitoSans-Light_38");
 
 for (var i = 0; i < 500; i++) keys[i] = KEY_RELEASED;
 execAsset("info/nodeGraph.phore");
