@@ -431,6 +431,7 @@ duk_ret_t submitPassage(duk_context *ctx) {
 	int colonPos = data->indexOf(":");
 	int nameEndPos = data->indexOf("\n", colonPos);
 	String *name = data->subStrAbs(colonPos+1, nameEndPos);
+	while (name->getLastChar() == ' ') name->pop();
 
 	String *jsData = newString(2048);
 	int curPos = nameEndPos;
