@@ -198,13 +198,18 @@ function addChoice(choiceText, result, config) {
 
 	if (config) {
 		if (config.icons) {
-			for (var i = 0; i < config.icons.length; i++) {
+			config.icons.forEach(function(iconName, i) {
 				var icon = addImage("writer/icon.png");
 				icon.gotoFrame(config.icons[i]);
-				icon.x = i * icon.width;
+				icon.scaleX = icon.scaleY = 2;
+				icon.x = i * icon.width * icon.scaleY;
+				icon.y = -icon.height * icon.scaleY;
 				icon.layer = CHOICE_TEXT_LAYER;
+				icon.onRelease = function() {
+					msg(config.icons[i]);
+				}
 				spr.addChild(icon);
-			}
+			});
 		}
 	}
 
