@@ -518,6 +518,11 @@ function __update() {
 	inputField.x = inputFieldBg.width/2 - inputField.textWidth/2;
 	inputField.y = inputFieldBg.height/2 - inputField.textHeight/2;
 
+	inputCarrot.x = inputField.x + inputField.textWidth;
+	inputCarrot.y = inputField.y + inputField.textHeight/2 - inputCarrot.height/2;
+	inputCarrot.alpha -= 0.03;
+	if (inputCarrot.alpha <= 0) inputCarrot.alpha = 1;
+
 	/// Msgs
 	var msgsToDestroy = [];
 	var msgPad = 16;
@@ -779,7 +784,7 @@ titleTf.setFont("NunitoSans-Light_38");
 titleTf.layer = TITLE_LAYER;
 titleBg.addChild(titleTf);
 
-var inputFieldBg = addRectImage(gameWidth, 100);
+var inputFieldBg = addRectImage(gameWidth, 100, 0x222222);
 inputFieldBg.temp = false;
 inputFieldBg.alpha = 0;
 inputFieldBg.y = gameHeight - BUTTON_HEIGHT - inputFieldBg.height - 32;
@@ -788,6 +793,10 @@ var inputField = addEmptyImage(gameWidth, 100);
 inputFieldBg.addChild(inputField);
 inputField.temp = false;
 inputField.setFont("NunitoSans-Light_38");
+
+var inputCarrot = addRectImage(4, 32, 0xFFFFFF);
+inputFieldBg.addChild(inputCarrot);
+inputCarrot.temp = false;
 
 for (var i = 0; i < 500; i++) keys[i] = KEY_RELEASED;
 execAsset("info/nodeGraph.phore");
