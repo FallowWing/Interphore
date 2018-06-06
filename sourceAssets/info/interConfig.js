@@ -216,7 +216,7 @@ function addChoice(choiceText, result, config) {
 }
 
 function addInputField() {
-	inputField.alpha = 1;
+	inputFieldBg.alpha = 1;
 	inputField.inInputField = true;
 	inputField.setText("");
 }
@@ -282,7 +282,7 @@ function clear() {
 	exitButton.alpha = exitDisabled ? 0 : 1; //@todo This should probably happen instantly
 	lastInput = inputField.text;
 	inputField.inInputField = false;
-	inputField.alpha = 0;
+	inputFieldBg.alpha = 0;
 
 	var imagesToRemove = [];
 	for (var i = 0; i < images.length; i++) if (images[i].temp) imagesToRemove.push(images[i]);
@@ -506,10 +506,12 @@ function msg(str) {
 }
 
 function __update() {
+	/// Misc
 	var elapsed = 1/60;
 
-	/// Misc
-	inputField.x = gameWidth/2 - inputField.textWidth/2;
+	/// Input field
+	inputField.x = inputFieldBg.width/2 - inputField.textWidth/2;
+	inputField.y = inputFieldBg.height/2 - inputField.textHeight/2;
 
 	/// Msgs
 	var msgsToDestroy = [];
@@ -764,7 +766,7 @@ exitButton.onRelease = function() {
 
 var titleBg = addRectImage(gameWidth, 50, 0x000000);
 titleBg.temp = false;
-titleBg.y = gameHeight * 0.55;
+titleBg.y = gameHeight/2 - titleBg.height/2;
 titleBg.layer = TITLE_LAYER;
 
 var titleTf = addEmptyImage(titleBg.width, titleBg.height);
@@ -773,7 +775,11 @@ titleTf.setFont("NunitoSans-Light_22");
 titleTf.layer = TITLE_LAYER;
 titleBg.addChild(titleTf);
 
-var inputField = addEmptyImage(gameWidth, 50);
-inputField.y = gameHeight * 0.45;
+var inputFieldBg = addRectImage(gameWidth, 100);
+inputFieldBg.temp = false;
+inputFieldBg.alpha = 0;
+inputFieldBg.y = gameHeight - BUTTON_HEIGHT - inputFieldBg.height;
+
+var inputField = addEmptyImage(gameWidth, 100);
+inputFieldBg.addChild(inputField);
 inputField.temp = false;
-inputField.alpha = 0;
