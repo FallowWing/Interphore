@@ -6,6 +6,8 @@
 #define STREAM_MAX 256
 #define ASSETS_MAX 256
 
+#define BUTTON_HEIGHT 128
+
 #define MAIN_TEXT_LAYER 20
 
 void initGame(MintSprite *bgSpr);
@@ -236,10 +238,10 @@ void updateGame() {
 	if (!game->mainText) {
 		game->mainText = createMintSprite();
 		game->mainText->setupEmpty(engine->width - 64, 2048);
-		game->mainText->clipRect.setTo(0, 0, engine->width, engine->height - 256 - 16);
+		game->mainText->clipRect.setTo(0, 0, engine->width, engine->height - BUTTON_HEIGHT - 16);
 	}
 
-	int viewHeight = engine->height - 256 - 16;
+	int viewHeight = engine->height - BUTTON_HEIGHT - 16;
 	float newY = game->mainText->y;
 	int minY = -game->mainText->textHeight + viewHeight;
 	int maxY = 20;

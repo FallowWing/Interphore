@@ -38,7 +38,7 @@ var MSG_TEXT_LAYER = 100;
 var TITLE_LAYER = 110;
 
 var CHOICES_PER_PAGE = 4;
-var BUTTON_HEIGHT = 256;
+var BUTTON_HEIGHT = 128;
 
 var TOP = 1;
 var BOTTOM = 2;
@@ -772,7 +772,7 @@ titleBg.addChild(titleTf);
 var inputFieldBg = addRectImage(gameWidth, 100);
 inputFieldBg.temp = false;
 inputFieldBg.alpha = 0;
-inputFieldBg.y = gameHeight - BUTTON_HEIGHT - inputFieldBg.height;
+inputFieldBg.y = gameHeight - BUTTON_HEIGHT - inputFieldBg.height - 32;
 
 var inputField = addEmptyImage(gameWidth, 100);
 inputFieldBg.addChild(inputField);
