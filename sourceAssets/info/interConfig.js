@@ -701,10 +701,8 @@ function __update() {
 				}
 			}
 
-			if (keys[32] == KEY_JUST_RELEASED) {
-				img.text += " ";
-				img.setText(img.text);
-			}
+			if (keys[32] == KEY_JUST_RELEASED) img.setText(img.text + " ");
+			if (keys[KEY_BACKSPACE] == KEY_JUST_RELEASED) img.setText(img.text.substring(0, img.text.length-1));
 		}
 
 		setImageProps(img.id, img.x, img.y, img.scaleX, img.scaleY, img.alpha, img.rotation, img.tint, img.layer);
