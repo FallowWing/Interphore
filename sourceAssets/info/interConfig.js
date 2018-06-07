@@ -514,6 +514,15 @@ function msg(str) {
 }
 
 function __update() {
+	try {
+		realUpdate();
+	} catch (e) {
+		print(e.stack);
+		msg(e);
+	}
+}
+
+function realUpdate() {
 	/// Misc
 	var elapsed = 1/60;
 

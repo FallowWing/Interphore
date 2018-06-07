@@ -30,8 +30,8 @@ namespace Writer {
 //
 
 struct Passage {
-	String *name;
-	String *data;
+	char *name;
+	char *data;
 };
 
 struct Game {
@@ -76,6 +76,7 @@ duk_ret_t gotoPassage(duk_context *ctx);
 duk_ret_t saveGame(duk_context *ctx);
 duk_ret_t loadGame(duk_context *ctx);
 void gameLoaded(char *data);
+void jsError(const char *msg);
 
 duk_ret_t interTweenEase(duk_context *ctx);
 
@@ -507,15 +508,17 @@ duk_ret_t submitPassage(duk_context *ctx) {
 	}
 
 	Passage *passage = (Passage *)zalloc(sizeof(Passage));
-	passage->name = name;
-	passage->data = jsData;
+	passage->name = stringClone(name->cStr);
+	passage->data = stringClone(jsData->cStr);
+	name->destroy();
+	data->destroy();
 	// printf("Code: %s\n", jsData->cStr);
 
 	bool addNew = true;
 	for (int i = 0; i < game->passagesNum; i++) {
-		if (game->passages[i]->name->equals(passage->name)) {
-			game->passages[i]->name->destroy();
-			game->passages[i]->data->destroy();
+		if (streq(game->passages[i]->name, passage->name)) {
+			Free(game->passages[i]->name);
+			Free(game->passages[i]->data);
 			Free(game->passages[i]);
 			game->passages[i] = passage;
 			addNew = false;
@@ -524,7 +527,6 @@ duk_ret_t submitPassage(duk_context *ctx) {
 
 	if (addNew) game->passages[game->passagesNum++] = passage;
 
-	data->destroy();
 	// exit(0);
 	return 0;
 }
@@ -583,8 +585,8 @@ duk_ret_t gotoPassage(duk_context *ctx) {
 	for (int i = 0; i < game->passagesNum; i++) {
 		Passage *passage = game->passages[i];
 		// printf("Checking passage %s\n", passage->name);
-		if (streq(passage->name->cStr, passageName)) {
-			runJs(passage->data->cStr);
+		if (streq(passage->name, passageName)) {
+			runJs(passage->data);
 			return 0;
 		}
 	}
@@ -635,6 +637,12 @@ duk_ret_t interTweenEase(duk_context *ctx) {
 	duk_push_number(ctx, tweenEase(perc, (Ease)easeType));
 
 	return 1;
+}
+
+void jsError(const char *msg) {
+	char buf[1024];
+	sprintf(buf, "msg(\"%s\");", msg);
+	runJs(buf);
 }
 
 //
