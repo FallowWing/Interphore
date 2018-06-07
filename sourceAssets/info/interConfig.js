@@ -74,7 +74,6 @@ function newImage() {
 		setText: function(text) {
 			img.text = text;
 			setImageText(img, text);
-			if (isFlash && img.tint == 0) img.tint = 0xFFFFFFFF;
 		},
 		setFont: function(fontName) {
 			setImageFont(img.id, fontName);
@@ -191,6 +190,7 @@ function addChoice(choiceText, result, config) {
 	spr.addChild(tf);
 	tf.temp = false;
 	tf.setFont("NunitoSans-Light_38");
+	tf.tint = 0xFFFFFFFF;
 	tf.setText(choiceText);
 	tf.layer = CHOICE_TEXT_LAYER;
 	tf.x = spr.width/2 - tf.textWidth/2;
@@ -501,6 +501,7 @@ function msg(str, config) {
 	if (config.smallFont) tf.setFont("NunitoSans-Light_22");
 	tf.temp = false;
 	tf.layer = MSG_TEXT_LAYER;
+	tf.tint = 0xFFFFFFFF;
 	tf.setText(str);
 
 	var spr = add9SliceImage("img/writer/writerChoice.png", tf.textWidth + 32, tf.textHeight + 32, 5, 5, 10, 10);
@@ -819,6 +820,7 @@ var titleTf = addEmptyImage(titleBg.width, titleBg.height);
 titleTf.temp = false;
 titleTf.setFont("NunitoSans-Bold_22");
 titleTf.layer = TITLE_LAYER;
+titleTf.tint = 0xFFFFFFFF;
 titleBg.addChild(titleTf);
 
 var inputFieldBg = addRectImage(gameWidth, 100, 0x222222);
@@ -829,6 +831,7 @@ inputFieldBg.y = gameHeight - BUTTON_HEIGHT - inputFieldBg.height - 32;
 var inputField = addEmptyImage(gameWidth, 100);
 inputFieldBg.addChild(inputField);
 inputField.temp = false;
+inputField.tint = 0xFFFFFFFF;
 inputField.setFont("NunitoSans-Light_38");
 
 var inputCarrot = addRectImage(4, 32, 0xFFFFFF);
@@ -838,6 +841,7 @@ inputCarrot.temp = false;
 var inputTitle = addEmptyImage(gameWidth, 150);
 inputTitle.temp = false;
 inputFieldBg.addChild(inputTitle);
+inputTitle.tint = 0xFFFFFFFF;
 inputTitle.setFont("NunitoSans-Light_38");
 inputTitle.alpha = 0.75;
 

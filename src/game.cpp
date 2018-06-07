@@ -755,8 +755,8 @@ duk_ret_t addEmptyImage(duk_context *ctx) {
 }
 
 duk_ret_t setImageProps(duk_context *ctx) {
-	int layer = duk_get_number(ctx, -1);
-	int tint = duk_get_number(ctx, -2);
+	int layer = duk_get_int(ctx, -1);
+	int tint = duk_get_uint(ctx, -2);
 	double rotation = duk_get_number(ctx, -3);
 	double alpha = duk_get_number(ctx, -4);
 	double scaleY = duk_get_number(ctx, -5);

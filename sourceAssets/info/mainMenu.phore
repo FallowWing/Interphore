@@ -14,15 +14,28 @@ bg.scaleY = 1.5;
 
 tween(bg, 10, {scaleX: 1, scaleY: 1});
 
+var buttonWidth = 400;
+var buttonHeight = 50;
+var buttonPad = 20;
+var buttonTextLeftPad = 40;
+
 //Gray rects
 var titleRect = addRectImage(gameWidth, 156, 0x302f32);
 titleRect.y = 54;
 
-var taglineRect = addRectImage(gameWidth, 48, 0x302f32);
+var taglineRect = addRectImage(gameWidth, buttonHeight, 0x302f32);
 taglineRect.y = 230;
 
-var playRect = addRectImage(374, 48, 0x302f32);
-playRect.y = 420;
+var taglineText = addEmptyImage(gameWidth, buttonHeight);
+taglineText.setText("sex, violence, and reading");
+taglineText.tint = 0xFFFF0000;
+taglineText.x = gameWidth - taglineText.textWidth - 40;
+taglineText.y = taglineRect.height/2 - taglineText.textHeight/2;
+taglineRect.addChild(taglineText);
+
+var playRect = addRectImage(buttonWidth, buttonHeight, 0x302f32);
+playRect.x = gameWidth - playRect.width;
+playRect.y = taglineRect.y + taglineRect.height + 130;
 playRect.onRelease = function() {
 	getAudio("music").destroy();
 	playEffect("audio/ui/choiceClick");
@@ -30,9 +43,15 @@ playRect.onRelease = function() {
 	clearNodes();
 }
 
-var loadRect = addRectImage(374, 48, 0x302f32);
-loadRect.y = 420 + playRect.height + 20; //Magic 20 for spacing
+var playText = addEmptyImage(buttonWidth, buttonHeight);
+playText.setText("Play");
+playText.x = buttonTextLeftPad;
+playText.y = playRect.height/2 - playText.textHeight/2;
+playRect.addChild(playText);
 
+var loadRect = addRectImage(buttonWidth, buttonHeight, 0x302f32);
+loadRect.x = gameWidth - loadRect.width;
+loadRect.y = playRect.y + playRect.height + buttonPad;
 loadRect.onRelease = function() {
 	getAudio("music").destroy();
 	playEffect("audio/ui/choiceClick");
@@ -41,9 +60,15 @@ loadRect.onRelease = function() {
 	loadGame();
 }
 
-var extrasRect = addRectImage(374, 48, 0x302f32);
-extrasRect.y = 420 + playRect.height + 20 + loadRect.height + 20; //Magic 20 for spacing
+var loadText = addEmptyImage(buttonWidth, buttonHeight);
+loadText.setText("Load");
+loadText.x = buttonTextLeftPad;
+loadText.y = loadRect.height/2 - loadText.textHeight/2;
+loadRect.addChild(loadText);
 
+var extrasRect = addRectImage(buttonWidth, buttonHeight, 0x302f32);
+extrasRect.x = gameWidth - extrasRect.width;
+extrasRect.y = 420 + loadRect.height + 20 + loadRect.height + 20; //Magic 20 for spacing
 extrasRect.onRelease = function() {
 	playEffect("audio/ui/choiceClick");
 	clearNodes();
@@ -51,9 +76,13 @@ extrasRect.onRelease = function() {
 	execAsset("scratch.phore");
 }
 
-playRect.x = loadRect.x = extrasRect.x = gameWidth - playRect.width;
+var extraText = addEmptyImage(buttonWidth, buttonHeight);
+extraText.setText("Extras");
+extraText.x = buttonTextLeftPad;
+extraText.y = extrasRect.height/2 - extraText.textHeight/2;
+extrasRect.addChild(extraText);
 
-var bottomRect = addRectImage(gameWidth, 96, 0x302f32);
+var bottomRect = addRectImage(gameWidth, buttonHeight*2, 0x302f32);
 bottomRect.y = 625;
 
 //Text
