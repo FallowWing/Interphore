@@ -1,10 +1,9 @@
 START_PASSAGES
 :introModMyntStart
 !`
-getAudio("music").destroy();
-var music = playMusic("audio/ambience/violetMeteorite");
+setBackground(0, "writer/mynt/bg/myntBodBg");
+var music = playMusic("audio/music/newSelf");
 music.name = "music";
-music.looping = true;
 
 data.gender = "";
 data.genitals = "";
@@ -315,6 +314,10 @@ Mynt peels the soggy sleeves from her arms, folds them in, and wrings the whole 
 Then she tucks her fuzzy thumbs under the waistband and slides them down her thighs, revealing...
 
 !`
+getAudio("music").destroy();
+var music = playMusic("audio/ambience/violetMeteorite");
+music.name = "music";
+
 setBackground(0, "writer/mainBg");
 //data.myntCock = false;
 addChoice("Please have a cock... please have a cock...", "Please have a cock... please have a cock...", {icons: ["Male"]});

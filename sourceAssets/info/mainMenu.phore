@@ -9,6 +9,10 @@ welcome
 ---
 :Title Screen
 !`var bg = addImage("img/writer/intro/titleBG.png");
+bg.scaleX = 1.5;
+bg.scaleY = 1.5;
+
+tween(bg, 10, {scaleX: 1, scaleY: 1});
 
 //Gray rects
 var titleRect = addRectImage(gameWidth, 156, 0x302f32);

@@ -147,4 +147,5 @@ audio/ui/restart.ogg
 audio/ui/exit.ogg
 audio/ui/load.ogg
 audio/music/newVictim.ogg
+audio/music/newSelf.ogg
 audio/ambience/violetMeteorite.ogg

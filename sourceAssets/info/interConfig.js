@@ -367,7 +367,7 @@ function setBackground(bgNum, assetId, bgType) {
 		bgSprite.temp = false;
 		bgSprite.layer = BG_START_LAYER + bgNum;
 		bgSprite.alpha = 0;
-		tween(bgSprite, 0.5, {alpha: 1});
+		tween(bgSprite, 0.2, {alpha: 1});
 
 		var bg = {
 			sprite: bgSprite,
@@ -571,6 +571,10 @@ function __update() {
 		spr.x = spr.width * choiceIndexOnPage + choicesOff;
 		spr.y = gameHeight - spr.height;
 		if (spr.hovering) spr.y -= 5;
+		if (prevChoices.hovering) prevChoices.y = gameHeight - prevChoices.height - 5
+		else prevChoices.y = gameHeight - prevChoices.height;
+		if (nextChoices.hovering) nextChoices.y = gameHeight - nextChoices.height - 5
+		else nextChoices.y = gameHeight - nextChoices.height;
 
 		choiceIndexOnPage++;
 	}
@@ -677,14 +681,14 @@ exitButton.onRelease = function() {
 	gotoMap();
 }
 
-var titleBg = addRectImage(gameWidth, 50, 0x000000);
+var titleBg = addRectImage(gameWidth, 50, 0x2d354c);
 titleBg.temp = false;
 titleBg.y = gameHeight * 0.55;
 titleBg.layer = TITLE_LAYER;
 
 var titleTf = addEmptyImage(titleBg.width, titleBg.height);
 titleTf.temp = false;
-titleTf.setFont("NunitoSans-Light_22");
+titleTf.setFont("NunitoSans-Bold_22");
 titleTf.layer = TITLE_LAYER;
 titleBg.addChild(titleTf);
 
