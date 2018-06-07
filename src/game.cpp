@@ -76,7 +76,6 @@ duk_ret_t gotoPassage(duk_context *ctx);
 duk_ret_t saveGame(duk_context *ctx);
 duk_ret_t loadGame(duk_context *ctx);
 void gameLoaded(char *data);
-void jsError(const char *msg);
 
 duk_ret_t interTweenEase(duk_context *ctx);
 
@@ -637,12 +636,6 @@ duk_ret_t interTweenEase(duk_context *ctx) {
 	duk_push_number(ctx, tweenEase(perc, (Ease)easeType));
 
 	return 1;
-}
-
-void jsError(const char *msg) {
-	char buf[1024];
-	sprintf(buf, "msg(\"%s\");", msg);
-	runJs(buf);
 }
 
 //
