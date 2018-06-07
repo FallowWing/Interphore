@@ -484,8 +484,21 @@ function disableExit() {
 	exitButton.alpha = 0;
 }
 
-function msg(str) {
-	var tf = addEmptyImage(256, 256);
+function msg(str, config) {
+	if (config === undefined) config = {};
+	if (config.smallFont === undefined) config.smallFont = false;
+	if (config.hugeTexture === undefined) config.hugeTexture = false;
+	if (config.extraTime === undefined) config.extraTime = 0;
+
+	var tf;
+
+	if (config.hugeTexture) {
+		tf = addEmptyImage(1024, 2048);
+	} else {
+		tf = addEmptyImage(256, 512);
+	}
+
+	if (config.smallFont) tf.setFont("NunitoSans-Light_22");
 	tf.temp = false;
 	tf.layer = MSG_TEXT_LAYER;
 	tf.setText(str);
@@ -506,7 +519,7 @@ function msg(str) {
 	message = {
 		sprite: spr,
 		textField: tf,
-		timeShown: 0,
+		timeShown: -config.extraTime,
 	};
 
 	msgs.push(message);
@@ -518,7 +531,8 @@ function __update() {
 		realUpdate();
 	} catch (e) {
 		print(e.stack);
-		msg(e);
+		msg(String(e));
+		msg(String(e.stack), {smallFont: true, hugeTexture: true, extraTime: 20});
 	}
 }
 
