@@ -6,7 +6,12 @@
 #define STREAM_MAX 256
 #define ASSETS_MAX 256
 
+#define BUTTON_HEIGHT 128
+
 #define MAIN_TEXT_LAYER 20
+
+#define PROFILE_JS_UPDATE 0
+#define PROFILE_GAME_UPDATE 1
 
 void initGame(MintSprite *bgSpr);
 void deinitGame();
@@ -30,6 +35,8 @@ struct Passage {
 };
 
 struct Game {
+	Profiler profiler;
+
 	MintSprite *bg;
 
 	MintSprite *root;
@@ -70,6 +77,8 @@ duk_ret_t saveGame(duk_context *ctx);
 duk_ret_t loadGame(duk_context *ctx);
 void gameLoaded(char *data);
 
+duk_ret_t interTweenEase(duk_context *ctx);
+
 /// Images
 duk_ret_t addImage(duk_context *ctx);
 duk_ret_t addCanvasImage(duk_context *ctx);
@@ -93,6 +102,7 @@ duk_ret_t getTextureWidth(duk_context *ctx);
 duk_ret_t getTextureHeight(duk_context *ctx);
 
 /// Audio
+duk_ret_t addSoundTweakJs(duk_context *ctx);
 duk_ret_t playMusic(duk_context *ctx);
 duk_ret_t playEffect(duk_context *ctx);
 duk_ret_t destroyAudio(duk_context *ctx);
@@ -102,25 +112,13 @@ Game *game = NULL;
 char tempBytes[Megabytes(2)];
 
 void initGame(MintSprite *bgSpr) {
-	///
-	//@incomplete Copy sound tweaks
-	///
-
 	getTextureAsset("NunitoSans-Light_22")->level = 3;
 	getTextureAsset("NunitoSans-Light_30")->level = 3;
 	getTextureAsset("NunitoSans-Light_38")->level = 3;
 
-	if (engine->platform == PLAT_ANDROID) {
-		strcpy(engine->spriteData.defaultFont, "OpenSans-Regular_40");
-	} else {
-		strcpy(engine->spriteData.defaultFont, "OpenSans-Regular_20");
-	}
+	strcpy(engine->spriteData.defaultFont, "OpenSans-Regular_40");
 
 	initJs();
-
-	char buf[1024];
-	sprintf(buf, "var gameWidth = %d;\n var gameHeight = %d; var isFlash = %d\n", engine->width, engine->height, engine->platform == PLAT_FLASH);
-	runJs(buf);
 
 	addJsFunction("submitPassage", submitPassage, 1);
 	addJsFunction("streamAsset", streamAsset, 2);
@@ -129,6 +127,8 @@ void initGame(MintSprite *bgSpr) {
 	addJsFunction("append", append, 1);
 	addJsFunction("setMainText", setMainText, 1);
 	addJsFunction("gotoPassage_internal", gotoPassage, 1);
+	addJsFunction("tweenEase", interTweenEase, 2);
+
 	addJsFunction("addImage_internal", addImage, 1);
 	addJsFunction("addCanvasImage_internal", addCanvasImage, 3);
 	addJsFunction("addRectImage_internal", addRectImage, 3);
@@ -149,6 +149,7 @@ void initGame(MintSprite *bgSpr) {
 	addJsFunction("getTextureWidth_internal", getTextureWidth, 1);
 	addJsFunction("getTextureHeight_internal", getTextureHeight, 1);
 
+	addJsFunction("addSoundTweak", addSoundTweakJs, 2);
 	addJsFunction("playMusic_internal", playMusic, 1);
 	addJsFunction("playEffect_internal", playEffect, 1);
 	addJsFunction("destroyAudio", destroyAudio, 1);
@@ -163,10 +164,7 @@ void initGame(MintSprite *bgSpr) {
 	// if (streq(name, "loadModFromDisk")) return (void *)loadModFromDisk;
 
 	game = (Game *)zalloc(sizeof(Game));
-
-	///
-	//@incomplete Setup mod repo
-	///
+	initProfiler(&game->profiler);
 
 	char *initCode = (char *)getAsset("info/interConfig.js")->data;
 	runJs(initCode);
@@ -184,6 +182,8 @@ void deinitGame() {
 }
 
 void updateGame() {
+	game->profiler.startProfile(PROFILE_JS_UPDATE);
+
 	char buf[1024];
 	sprintf(
 		buf,
@@ -204,6 +204,9 @@ void updateGame() {
 		platformMouseWheel
 	);
 	runJs(buf);
+
+	game->profiler.endProfile(PROFILE_JS_UPDATE);
+	game->profiler.startProfile(PROFILE_GAME_UPDATE);
 
 	{ /// Update streaming
 		if (!game->isStreaming && game->streamNamesNum > game->curStreamIndex) {
@@ -234,10 +237,10 @@ void updateGame() {
 	if (!game->mainText) {
 		game->mainText = createMintSprite();
 		game->mainText->setupEmpty(engine->width - 64, 2048);
-		game->mainText->clipRect.setTo(0, 0, engine->width, engine->height - 256 - 16);
+		game->mainText->clipRect.setTo(0, 0, engine->width, engine->height - BUTTON_HEIGHT - 16);
 	}
 
-	int viewHeight = engine->height - 256 - 16;
+	int viewHeight = engine->height - BUTTON_HEIGHT - 16;
 	float newY = game->mainText->y;
 	int minY = -game->mainText->textHeight + viewHeight;
 	int maxY = 20;
@@ -253,6 +256,12 @@ void updateGame() {
 	game->mainText->y = newY;
 	game->mainText->layer = MAIN_TEXT_LAYER;
 	game->mainText->setText(game->mainTextStr);
+
+	game->profiler.endProfile(PROFILE_GAME_UPDATE);
+
+	if (keyIsJustReleased('`')) {
+		printf("JS: %0.2f CPP: %0.2f\n", game->profiler.getAverage(PROFILE_JS_UPDATE), game->profiler.getAverage(PROFILE_GAME_UPDATE));
+	}
 }
 
 void runMod(char *serialData) {
@@ -384,7 +393,7 @@ duk_ret_t append(duk_context *ctx) {
 			String *line = lines[i];
 			if (line->charAt(0) == '[') {
 				line->pop();
-				line->unshift();
+				line->shift();
 				String *label;
 				String *result;
 
@@ -396,6 +405,14 @@ duk_ret_t append(duk_context *ctx) {
 					label = line->clone();
 					result = line->clone();
 				}
+
+				String *quoteReplacedLabel = label->replace("\"", "\\\"");
+				label->destroy();
+				label = quoteReplacedLabel;
+
+				String *quoteReplacedResult = result->replace("\"", "\\\"");
+				result->destroy();
+				result = quoteReplacedResult;
 
 				String *code = newString(256);
 				code->set("addChoice(\"");
@@ -439,6 +456,7 @@ duk_ret_t submitPassage(duk_context *ctx) {
 	int colonPos = data->indexOf(":");
 	int nameEndPos = data->indexOf("\n", colonPos);
 	String *name = data->subStrAbs(colonPos+1, nameEndPos);
+	while (name->getLastChar() == ' ') name->pop();
 
 	String *jsData = newString(2048);
 	int curPos = nameEndPos;
@@ -458,10 +476,13 @@ duk_ret_t submitPassage(duk_context *ctx) {
 			}
 			jsData->append("append(\"");
 
-			String *fixedSeg = segment->replace("\n", "\\n");
+			String *nlReplacedSeg = segment->replace("\n", "\\n");
 			segment->destroy();
-			segment = fixedSeg;
-			//@incompelte Parse addChoice alias ([myTitle|myPass])
+			segment = nlReplacedSeg;
+
+			String *quoteReplaced = segment->replace("\"", "\\\"");
+			segment->destroy();
+			segment = quoteReplaced;
 
 			jsData->append(segment->cStr);
 			jsData->append("\");");
@@ -605,6 +626,15 @@ duk_ret_t setMainText(duk_context *ctx) {
 	const char *text = duk_get_string(ctx, -1);
 	strcpy(game->mainTextStr, text);
 	return 0;
+}
+
+duk_ret_t interTweenEase(duk_context *ctx) {
+	int easeType = duk_get_int(ctx, -1);
+	float perc = duk_get_number(ctx, -2);
+
+	duk_push_number(ctx, tweenEase(perc, (Ease)easeType));
+
+	return 1;
 }
 
 //
@@ -898,6 +928,15 @@ duk_ret_t getTextureHeight(duk_context *ctx) {
 //         AUDIO START
 //
 //
+
+duk_ret_t addSoundTweakJs(duk_context *ctx) {
+	float volume = duk_get_number(ctx, -1);
+	const char *assetId = duk_get_string(ctx, -2);
+
+	addSoundTweak(assetId, volume);
+
+	return 0;
+}
 
 duk_ret_t playMusic(duk_context *ctx) {
 	const char *assetId = duk_get_string(ctx, -1);

@@ -5,12 +5,6 @@ GAME_NAME := Interphore
 CPP_TOOLS := ..
 CPP_TOOLS_WIN := ..
 
-OLD ?= 0
-
-ifeq ($(OLD), 1)
-	EXTRA_DEFINES += -DOLD_WRITER
-endif
-
 include Makefile.secret
 
 ifeq ($(shell echo $$DEV_NAME), FallowWing)

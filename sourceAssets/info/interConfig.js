@@ -5,6 +5,7 @@ var timers = [];
 var tweens = [];
 var backgrounds = [];
 var keys = [];
+var msgs = [];
 
 var mouseX = 0;
 var mouseY = 0;
@@ -32,9 +33,12 @@ var GRAPH_NODE_LAYER = 50;
 var DEFAULT_LAYER = 60;
 var CHOICE_BUTTON_LAYER = 70;
 var CHOICE_TEXT_LAYER = 80;
-var TITLE_LAYER = 90;
+var MSG_SPRITE_LAYER = 90;
+var MSG_TEXT_LAYER = 100;
+var TITLE_LAYER = 110;
 
 var CHOICES_PER_PAGE = 4;
+var BUTTON_HEIGHT = 128;
 
 var TOP = 1;
 var BOTTOM = 2;
@@ -45,11 +49,8 @@ var DEFAULT = 5;
 var TILED = 6;
 var CENTERED = 7;
 
-var KEY_JUST_PRESSED = 1;
-var KEY_PRESSED = 2;
-var KEY_RELEASED = 3;
-var KEY_JUST_RELEASED = 4;
-var KEY_SHIFT = 305;
+var LOOPING = 8;
+var PINGPONG = 9;
 
 function newImage() {
 	var img;
@@ -171,7 +172,7 @@ function addChoice(choiceText, result, config) {
 		result: result
 	};
 
-	var spr = add9SliceImage("img/writer/writerChoice.png", 256, 256, 5, 5, 10, 10);
+	var spr = add9SliceImage("img/writer/writerChoice.png", 256, BUTTON_HEIGHT, 5, 5, 10, 10);
 	spr.temp = false;
 	spr.layer = CHOICE_BUTTON_LAYER;
 	spr.onHover = function() {
@@ -186,10 +187,10 @@ function addChoice(choiceText, result, config) {
 		}
 	}
 
-	var tf = addEmptyImage(256, 256);
+	var tf = addEmptyImage(spr.width, spr.height);
 	spr.addChild(tf);
 	tf.temp = false;
-	tf.setFont("NunitoSans-Light_22");
+	tf.setFont("NunitoSans-Light_38");
 	tf.setText(choiceText);
 	tf.layer = CHOICE_TEXT_LAYER;
 	tf.x = spr.width/2 - tf.textWidth/2;
@@ -197,13 +198,18 @@ function addChoice(choiceText, result, config) {
 
 	if (config) {
 		if (config.icons) {
-			for (var i = 0; i < config.icons.length; i++) {
+			config.icons.forEach(function(iconName, i) {
 				var icon = addImage("writer/icon.png");
 				icon.gotoFrame(config.icons[i]);
-				icon.x = i * icon.width;
+				icon.scaleX = icon.scaleY = 2;
+				icon.x = i * icon.width * icon.scaleY;
+				icon.y = -icon.height * icon.scaleY;
 				icon.layer = CHOICE_TEXT_LAYER;
+				icon.onRelease = function() {
+					msg(config.icons[i]);
+				}
 				spr.addChild(icon);
-			}
+			});
 		}
 	}
 
@@ -214,8 +220,11 @@ function addChoice(choiceText, result, config) {
 	return choice;
 }
 
-function addInputField() {
-	inputField.alpha = 1;
+function addInputField(title) {
+	if (title === undefined) title = "Input:";
+	inputTitle.setText(title);
+
+	inputFieldBg.alpha = 1;
 	inputField.inInputField = true;
 	inputField.setText("");
 }
@@ -281,7 +290,7 @@ function clear() {
 	exitButton.alpha = exitDisabled ? 0 : 1; //@todo This should probably happen instantly
 	lastInput = inputField.text;
 	inputField.inInputField = false;
-	inputField.alpha = 0;
+	inputFieldBg.alpha = 0;
 
 	var imagesToRemove = [];
 	for (var i = 0; i < images.length; i++) if (images[i].temp) imagesToRemove.push(images[i]);
@@ -322,10 +331,12 @@ function saveCheckpoint() {
 }
 
 function saveGame() {
+	msg("Game Saved");
 	saveGame_internal(checkpointStr);
 }
 
 function loadGame() {
+	msg("Game Loaded");
 	loadGame_internal();
 }
 
@@ -381,7 +392,6 @@ function setBackground(bgNum, assetId, bgType) {
 
 	if (backgrounds[bgNum]) {
 		tween(backgrounds[bgNum].sprite, 0.5, {alpha: 0}, {onComplete: function() {
-			// print("onComplete ran on bgNum: "+bgNum);
 			if (backgrounds[bgNum]) backgrounds[bgNum].sprite.destroy();
 			backgrounds[bgNum] = null;
 			createBg();
@@ -408,6 +418,8 @@ function setBackgroundBob(bgNum, bobX, bobY) {
 
 function tween(src, time, params, config) {
 	if (!config) config = {};
+	if (config.ease === undefined) config.ease = LINEAR;
+	if (config.reversed === undefined) config.reversed = false;
 
 	var startParams = {};
 	for (key in params) startParams[key] = src[key];
@@ -472,11 +484,109 @@ function disableExit() {
 	exitButton.alpha = 0;
 }
 
+function msg(str) {
+	var tf = addEmptyImage(256, 256);
+	tf.temp = false;
+	tf.layer = MSG_TEXT_LAYER;
+	tf.setText(str);
+
+	var spr = add9SliceImage("img/writer/writerChoice.png", tf.textWidth + 32, tf.textHeight + 32, 5, 5, 10, 10);
+	spr.temp = false;
+	spr.layer = MSG_SPRITE_LAYER;
+	spr.addChild(tf);
+
+	spr.x = gameWidth - spr.width - 16;
+	spr.y = gameHeight - BUTTON_HEIGHT;
+	spr.alpha = 0;
+
+	tf.x = spr.width/2 - tf.textWidth/2;
+	tf.y = spr.height/2 - tf.textHeight/2;
+
+	var message;
+	message = {
+		sprite: spr,
+		textField: tf,
+		timeShown: 0,
+	};
+
+	msgs.push(message);
+	return message;
+}
+
 function __update() {
+	/// Misc
 	var elapsed = 1/60;
 
-	/// Misc
-	inputField.x = gameWidth/2 - inputField.textWidth/2;
+	/// Image mouse events
+	images.forEach(function(img) {
+		var data = getImageProps_internal(img.id);
+		img.justPressed = data[0];
+		img.justReleased = data[1];
+		img.pressing = data[2];
+		img.justHovered = data[3];
+		img.justUnHovered = data[4];
+		img.hovering = data[5];
+
+		if (img.justReleased && img.onRelease) img.onRelease();
+		if (img.justHovered && img.onHover) img.onHover();
+		if (img.justUnHovered && img.onUnHover) img.onUnHover();
+	});
+
+
+	/// Input field
+	inputField.x = inputFieldBg.width/2 - inputField.textWidth/2;
+	inputField.y = inputFieldBg.height/2 - inputField.textHeight/2;
+
+	inputTitle.x = inputField.x - inputTitle.textWidth - 16;
+	inputTitle.y = inputFieldBg.height/2 - inputTitle.textHeight/2;
+
+	inputCarrot.x = inputField.x + inputField.textWidth;
+	inputCarrot.y = inputField.y + inputField.textHeight/2 - inputCarrot.height/2;
+	inputCarrot.alpha -= 0.03;
+	if (inputCarrot.alpha <= 0) inputCarrot.alpha = 1;
+
+	/// Msgs
+	var msgsToDestroy = [];
+	var msgPad = 16;
+
+	var moveMsgsUp = false;
+	for (var i = 0; i < msgs.length; i++)
+		if (msgs[i].sprite.y + msgs[i].sprite.height > gameHeight - BUTTON_HEIGHT)
+			moveMsgsUp = true;
+
+	for (var i = 0; i < msgs.length; i++) {
+		var msg = msgs[i];
+		var spr = msgs[i].sprite;
+
+		msg.timeShown += elapsed;
+		if (spr.justReleased) msg.timeShown = 99;
+
+		if (msg.timeShown > 5) {
+			msg.sprite.alpha -= 0.2;
+			if (msg.sprite.alpha <= 0) msgsToDestroy.push(msg);
+		} else {
+			msg.sprite.alpha += 0.2;
+		}
+
+		if (i == 0) {
+			if (moveMsgsUp) spr.y -= 5;
+		} else {
+			var prevSpr = msgs[i-1].sprite;
+			var destY = prevSpr.y + prevSpr.height + msgPad;
+
+			if (spr.y < destY) spr.y = destY;
+
+			spr.y -= 5;
+		}
+	}
+
+	for (var i = 0; i < msgsToDestroy.length; i++) {
+		var msg = msgsToDestroy[i];
+		msg.sprite.destroy();
+		msg.textField.destroy();
+		var index = msgs.indexOf(msg);
+		msgs.splice(index, 1);
+	}
 
 	/// Command queue
 	if (keys[32] == KEY_JUST_PRESSED) commandSkipped = true;
@@ -494,6 +604,8 @@ function __update() {
 
 			currentCommand = command;
 			queueTimeLeft = command.addedTime;
+
+			if (queuedCommands.length > 0 && queuedCommands[0].type == "addChoice") queueTimeLeft = 0;
 		}
 	}
 
@@ -517,9 +629,19 @@ function __update() {
 	var tweensToRemove = [];
 	tweens.forEach(function(tw) {
 		var perc = tw.elapsed / tw.totalTime;
-		if (perc >= 1) {
-			if (tw.config.onComplete) tw.config.onComplete();
-			tweensToRemove.push(tw);
+		if (tw.config.reversed) perc = 1 - perc;
+		perc = tweenEase(perc, tw.config.ease);
+
+		if ((perc >= 1 && !tw.config.reversed) || (perc <= 0 && tw.config.reversed)) {
+			if (tw.config.type == LOOPING) {
+				tw.elapsed = 0;
+			} else if (tw.config.type == PINGPONG) {
+				tw.elapsed = 0;
+				tw.config.reversed = !tw.config.reversed;
+			} else {
+				if (tw.config.onComplete) tw.config.onComplete();
+				tweensToRemove.push(tw);
+			}
 		}
 		tw.elapsed += elapsed;
 
@@ -581,18 +703,6 @@ function __update() {
 
 	/// Images
 	images.forEach(function(img) {
-		var data = getImageProps_internal(img.id);
-		img.justPressed = data[0];
-		img.justReleased = data[1];
-		img.pressing = data[2];
-		img.justHovered = data[3];
-		img.justUnHovered = data[4];
-		img.hovering = data[5];
-
-		if (img.justReleased && img.onRelease) img.onRelease();
-		if (img.justHovered && img.onHover) img.onHover();
-		if (img.justUnHovered && img.onUnHover) img.onUnHover();
-
 		if (img.draggable) {
 			if (img.justPressed) {
 				img.dragPivotX = mouseX - img.x;
@@ -607,6 +717,9 @@ function __update() {
 		if (img.alpha > 1) img.alpha = 1;
 
 		if (img.inInputField) {
+			img.x = round(img.x);
+			img.y = round(img.y);
+
 			var keyWasPressed = false;
 			for (var j = 65; j < 90; j++) {
 				if (keys[j] == KEY_JUST_PRESSED) {
@@ -617,10 +730,8 @@ function __update() {
 				}
 			}
 
-			if (keys[32] == KEY_JUST_RELEASED) {
-				img.text += " ";
-				img.setText(img.text);
-			}
+			if (keys[32] == KEY_JUST_RELEASED) img.setText(img.text + " ");
+			if (keys[KEY_BACKSPACE] == KEY_JUST_RELEASED) img.setText(img.text.substring(0, img.text.length-1));
 		}
 
 		setImageProps(img.id, img.x, img.y, img.scaleX, img.scaleY, img.alpha, img.rotation, img.tint, img.layer);
@@ -633,11 +744,7 @@ function __update() {
 	}
 }
 
-for (var i = 0; i < 500; i++) keys[i] = KEY_RELEASED;
-
-execAsset("info/nodeGraph.phore");
-
-var nextChoices = add9SliceImage("img/writer/writerChoice.png", 128, 256, 5, 5, 10, 10);
+var nextChoices = add9SliceImage("img/writer/writerChoice.png", 128, BUTTON_HEIGHT, 5, 5, 10, 10);
 nextChoices.temp = false;
 nextChoices.x = gameWidth - nextChoices.width;
 nextChoices.y = gameHeight - nextChoices.height;
@@ -654,7 +761,7 @@ nextChoices.addChild(nextArrow);
 nextArrow.x = nextChoices.width/2 - nextArrow.width/2;
 nextArrow.y = nextChoices.height/2 - nextArrow.height/2;
 
-var prevChoices = add9SliceImage("img/writer/writerChoice.png", 128, 256, 5, 5, 10, 10);
+var prevChoices = add9SliceImage("img/writer/writerChoice.png", 128, BUTTON_HEIGHT, 5, 5, 10, 10);
 prevChoices.y = gameHeight - prevChoices.height;
 prevChoices.temp = false;
 prevChoices.onRelease = function() {
@@ -677,13 +784,12 @@ exitButton.x = gameWidth - exitButton.width*exitButton.scaleX - 16;
 exitButton.y = 16;
 exitButton.onRelease = function() {
 	if (exitButton.alpha != 1) return;
-	data = JSON.parse(checkpointStr);
-	gotoMap();
+	gotoMap(false);
 }
 
 var titleBg = addRectImage(gameWidth, 50, 0x2d354c);
 titleBg.temp = false;
-titleBg.y = gameHeight * 0.55;
+titleBg.y = gameHeight/2 - titleBg.height/2;
 titleBg.layer = TITLE_LAYER;
 
 var titleTf = addEmptyImage(titleBg.width, titleBg.height);
@@ -692,7 +798,48 @@ titleTf.setFont("NunitoSans-Bold_22");
 titleTf.layer = TITLE_LAYER;
 titleBg.addChild(titleTf);
 
-var inputField = addEmptyImage(gameWidth, 50);
-inputField.y = gameHeight * 0.45;
+var inputFieldBg = addRectImage(gameWidth, 100, 0x222222);
+inputFieldBg.temp = false;
+inputFieldBg.alpha = 0;
+inputFieldBg.y = gameHeight - BUTTON_HEIGHT - inputFieldBg.height - 32;
+
+var inputField = addEmptyImage(gameWidth, 100);
+inputFieldBg.addChild(inputField);
 inputField.temp = false;
-inputField.alpha = 0;
+inputField.setFont("NunitoSans-Light_38");
+
+var inputCarrot = addRectImage(4, 32, 0xFFFFFF);
+inputFieldBg.addChild(inputCarrot);
+inputCarrot.temp = false;
+
+var inputTitle = addEmptyImage(gameWidth, 150);
+inputTitle.temp = false;
+inputFieldBg.addChild(inputTitle);
+inputTitle.setFont("NunitoSans-Light_38");
+inputTitle.alpha = 0.75;
+
+for (var i = 0; i < 500; i++) keys[i] = KEY_RELEASED;
+execAsset("info/nodeGraph.phore");
+
+addSoundTweak("audio/ui/exit", 0.1);
+addSoundTweak("audio/ui/restart", 0.3);
+addSoundTweak("audio/ui/newChoiceClick/1", 0.2);
+addSoundTweak("audio/ui/newChoiceClick/2", 0.2);
+addSoundTweak("audio/ui/newChoiceClick/3", 0.2);
+addSoundTweak("audio/ui/newChoiceClick/4", 0.2);
+addSoundTweak("audio/ui/newChoiceClick/5", 0.2);
+addSoundTweak("audio/ui/newChoiceClick/6", 0.2);
+addSoundTweak("audio/ui/newChoiceClick/7", 0.2);
+addSoundTweak("audio/ui/newChoiceClick/8", 0.2);
+addSoundTweak("audio/ui/newChoiceClick/9", 0.2);
+addSoundTweak("audio/ui/hoverChoiceButtons/1", 0.1);
+addSoundTweak("audio/ui/hoverChoiceButtons/2", 0.1);
+addSoundTweak("audio/ui/hoverChoiceButtons/3", 0.1);
+addSoundTweak("audio/ui/tooltip/1", 0.2);
+addSoundTweak("audio/ui/tooltip/2", 0.2);
+addSoundTweak("audio/ui/tooltip/3", 0.2);
+addSoundTweak("audio/ui/hoverChoiceIcons/1", 0.2);
+addSoundTweak("audio/ui/hoverChoiceIcons/2", 0.2);
+addSoundTweak("audio/ui/hoverChoiceIcons/3", 0.2);
+
+addSoundTweak("audio/music/newVictim", 0.5);

@@ -60,6 +60,7 @@ Like text scrolling!
 [Save test|saveTest]
 [Tween test|tweenTest]
 [New background test|newBackgroundTest]
+[Msg test|msgText]
 ---
 :thirstyCaves
 
@@ -153,7 +154,7 @@ There's some backgrounds.
 ---
 :inputTest
 Gimme some text.
-!`addInputField();`
+!`addInputField("Right here:");`
 [Continue|inputTest2]
 ---
 :inputTest2
@@ -273,9 +274,8 @@ This will only work in the new engine
 var spr = addRectImage(64, 64, 0x0000FF);
 spr.x = 20;
 spr.y = 20;
-tween(spr, 3, {x: 500, y: 300, rotation: 90});
+tween(spr, 3, {x: 500, y: 300, rotation: 90}, {ease: SINE_OUT, type: PINGPONG});
 `
-[Repeat|realTweenTest]
 [Go back|Start]
 ---
 :newBackgroundTest
@@ -290,6 +290,16 @@ backgrounds[0].bobY = 0.5;
 setBackground(1, "myntBg2");
 `
 There's some backgrounds.
+[Go back|Start]
+---
+:msgText
+!`
+addChoice("Show some msgs", function() {
+	msg("This is a test msg");
+	msg("Here's another");
+	msg("And another");
+});
+`
 [Go back|Start]
 ---
 :Exit
