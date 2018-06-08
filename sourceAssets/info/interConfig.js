@@ -430,7 +430,16 @@ function tween(src, time, params, config) {
 		elapsed: 0,
 		startParams: startParams,
 		params: params,
-		config: config
+		config: config,
+		reset: function() {
+			for (key in tw.params) {
+				tw.source[key] = tw.startParams[key];
+			}
+		},
+		cancel: function() {
+			var index = tweens.indexOf(tw);
+			if (index > 0) tweens.splice(tw, 1);
+		}
 	};
 
 	tweens.push(tw);
