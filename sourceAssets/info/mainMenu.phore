@@ -120,61 +120,61 @@ tween(loadText, 2.7, {x: buttonTextLeftPad, alpha: 1}, {ease: QUINT_OUT});
 tween(modText, 2.9, {x: buttonTextLeftPad, alpha: 1}, {ease: QUINT_OUT});
 tween(extraText, 3.1, {x: buttonTextLeftPad, alpha: 1}, {ease: QUINT_OUT});
 
-tween(playRect, 2, {x: gameWidth - playRect.width}, {ease: QUART_OUT});
-tween(loadRect, 2.2, {x: gameWidth - loadRect.width}, {ease: QUART_OUT});
-tween(modRect, 2.4, {x: gameWidth - modRect.width}, {ease: QUART_OUT});
-tween(extraRect, 2.6, {x: gameWidth - extraRect.width}, {ease: QUART_OUT});
+//tween(playRect, 2, {x: gameWidth - playRect.width}, {ease: QUART_OUT});
+//tween(loadRect, 2.2, {x: gameWidth - loadRect.width}, {ease: QUART_OUT});
+//tween(modRect, 2.4, {x: gameWidth - modRect.width}, {ease: QUART_OUT});
+//tween(extraRect, 2.6, {x: gameWidth - extraRect.width}, {ease: QUART_OUT});
 
-//var playRectTween = tween(playRect, 0.5, {alpha: 0.8});
-//var playRectTween2 = tween(playText, 0.6, {x: buttonTextLeftPad - 20});
+var playRectTween = tween(playRect, 0.5, {alpha: 0.8});
+var playRectTween2 = tween(playText, 0.6, {x: buttonTextLeftPad - 20});
 
-//var loadRectTween = tween(loadRect, 0.5, {alpha: 0.8});
-//var loadTextTween2 = tween(loadText, 0.6, {x: buttonTextLeftPad - 20});
+var loadRectTween = tween(loadRect, 0.5, {alpha: 0.8});
+var loadTextTween2 = tween(loadText, 0.6, {x: buttonTextLeftPad - 20});
 
-//var modRectTween = tween(modRect, 0.5, {alpha: 0.8});
-//var modTextTween2 = tween(modText, 0.6, {x: buttonTextLeftPad - 20});
+var modRectTween = tween(modRect, 0.5, {alpha: 0.8});
+var modTextTween2 = tween(modText, 0.6, {x: buttonTextLeftPad - 20});
 
-//var extraRectTween = tween(extraRect, 0.5, {alpha: 0.8});
-//var extraTextTween2 = tween(extraText, 0.6, {x: buttonTextLeftPad - 20});
+var extraRectTween = tween(extraRect, 0.5, {alpha: 0.8});
+var extraTextTween2 = tween(extraText, 0.6, {x: buttonTextLeftPad - 20});
 
 playRect.onHover = function() {
 	playEffect("audio/ui/hoverChoiceIcons");
-	//playRectTween.cancel();
-	//playRectTween2.cancel();
-	//playRectTween = tween(playRect, 0.5, {alpha: 0.8});
-	//playRectTween2 = tween(playText, 0.6, {x: buttonTextLeftPad - 20});
-	tween(playRect, 0.5, {alpha: 0.8});
-	tween(playText, 0.6, {x: buttonTextLeftPad - 20});
+	playRectTween.cancel();
+	playRectTween2.cancel();
+	playRectTween = tween(playRect, 0.5, {alpha: 0.8});
+	playRectTween2 = tween(playText, 0.6, {x: buttonTextLeftPad - 20});
+	//tween(playRect, 0.5, {alpha: 0.8});
+	//tween(playText, 0.6, {x: buttonTextLeftPad - 20});
 }
 
 loadRect.onHover = function() {
 	playEffect("audio/ui/hoverChoiceIcons");
-	//loadRectTween.cancel();
-	//loadRectTween2.cancel();
-	//loadRectTween = tween(loadRect, 0.5, {alpha: 0.8});
-	//loadTextTween2 = tween(loadText, 0.6, {x: buttonTextLeftPad - 20});
-	tween(loadRect, 0.5, {alpha: 0.8});
-	tween(loadText, 0.6, {x: buttonTextLeftPad - 20});
+	loadRectTween.cancel();
+	loadRectTween2.cancel();
+	loadRectTween = tween(loadRect, 0.5, {alpha: 0.8});
+	loadTextTween2 = tween(loadText, 0.6, {x: buttonTextLeftPad - 20});
+	//tween(loadRect, 0.5, {alpha: 0.8});
+	//tween(loadText, 0.6, {x: buttonTextLeftPad - 20});
 }
 
 modRect.onHover = function() {
 	playEffect("audio/ui/hoverChoiceIcons");
-	//modRectTween.cancel();
-	//modRectTween2.cancel();
-	//modRectTween = tween(modRect, 0.5, {alpha: 0.8});
-	//modTextTween2 = tween(modText, 0.6, {x: buttonTextLeftPad - 20});
-	tween(modRect, 0.5, {alpha: 0.8});
-	tween(modText, 0.6, {x: buttonTextLeftPad - 20});
+	modRectTween.cancel();
+	modRectTween2.cancel();
+	modRectTween = tween(modRect, 0.5, {alpha: 0.8});
+	modTextTween2 = tween(modText, 0.6, {x: buttonTextLeftPad - 20});
+	//tween(modRect, 0.5, {alpha: 0.8});
+	//tween(modText, 0.6, {x: buttonTextLeftPad - 20});
 }
 
 extraRect.onHover = function() {
 	playEffect("audio/ui/hoverChoiceIcons");
-	//extraRectTween.cancel();
-	//extraRectTween2.cancel();
-	//extraRectTween = tween(extraRect, 0.5, {alpha: 0.8});
-	//extraTextTween2 = tween(extraText, 0.6, {x: buttonTextLeftPad - 20});
-	tween(extraRect, 0.5, {alpha: 0.8});
-	tween(extraText, 0.6, {x: buttonTextLeftPad - 20});
+	extraRectTween.cancel();
+	extraRectTween2.cancel();
+	extraRectTween = tween(extraRect, 0.5, {alpha: 0.8});
+	extraTextTween2 = tween(extraText, 0.6, {x: buttonTextLeftPad - 20});
+	//tween(extraRect, 0.5, {alpha: 0.8});
+	//tween(extraText, 0.6, {x: buttonTextLeftPad - 20});
 }
 
 var bottomRect = addRectImage(gameWidth, buttonHeight*2, 0x302f32);
