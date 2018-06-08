@@ -654,6 +654,7 @@ function realUpdate() {
 		var perc = tw.elapsed / tw.totalTime;
 		if (tw.config.reversed) perc = 1 - perc;
 		perc = tweenEase(perc, tw.config.ease);
+		perc = round(perc * 1000) / 1000;
 
 		if ((perc >= 1 && !tw.config.reversed) || (perc <= 0 && tw.config.reversed)) {
 			if (tw.config.type == LOOPING) {
