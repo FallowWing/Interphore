@@ -2,6 +2,24 @@ ASSET_PATH := sourceAssets
 EXTRA_DEFINES := 
 GAME_NAME := Interphore
 
+NEEDED_FONTS := "Espresso-Dolce 22" \
+									"Espresso-Dolce 30" \
+									"Espresso-Dolce 38" \
+									"Espresso-Dolce 44" \
+									"OpenSans-Regular 20" \
+									"OpenSans-Regular 30" \
+									"OpenSans-Regular 35" \
+									"OpenSans-Regular 40" \
+									"NunitoSans-Light 22" \
+									"NunitoSans-Bold 22" \
+									"NunitoSans-Italic 22" \
+									"NunitoSans-Light 26" \
+									"NunitoSans-Bold 26" \
+									"NunitoSans-Italic 26" \
+									"NunitoSans-Light 30" \
+									"NunitoSans-Bold 30" \
+									"NunitoSans-Italic 30" \
+
 CPP_TOOLS := ..
 CPP_TOOLS_WIN := ..
 

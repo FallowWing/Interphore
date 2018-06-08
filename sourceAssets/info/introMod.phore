@@ -9,7 +9,7 @@ disableExit();
 setBackground(0, "writer/mynt/bg/myntBg1", TILED);
 setBackground(1, "writer/mynt/bg/myntBg2");
 setBackground(2, "writer/mynt/face/mynt", CENTERED);
-setBackgroundBob(2, 0, 0.5);
+backgrounds[2].bobY = 0.5;
 
 var music = playMusic("audio/music/newVictim");
 music.name = "music";

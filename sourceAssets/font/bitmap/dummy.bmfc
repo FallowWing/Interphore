@@ -2,15 +2,15 @@
 fileVersion=1
 
 # font settings
-fontName=NunitoSans-Bold
-fontFile=../NunitoSans-Bold.ttf
+fontName=NunitoSans-Italic
+fontFile=../NunitoSans-Italic.ttf
 charSet=0
-fontSize=44
+fontSize=30
 aa=1
 scaleH=100
 useSmoothing=1
-isBold=1
-isItalic=0
+isBold=0
+isItalic=1
 useUnicode=1
 disableBoxChars=1
 outputInvalidCharGlyph=0
