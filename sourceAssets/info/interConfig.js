@@ -414,13 +414,6 @@ function resetBackgroundMode(bgNum) {
 	backgrounds[bgNum].bobY = 0;
 }
 
-function setBackgroundBob(bgNum, bobX, bobY) {
-	//@incomplete Remove this
-	// print("This is going away, don't call this!");
-	backgrounds[bgNum].bobX = bobX;
-	backgrounds[bgNum].bobY = bobY;
-}
-
 function tween(src, time, params, config) {
 	if (!config) config = {};
 	if (config.ease === undefined) config.ease = LINEAR;

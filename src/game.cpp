@@ -332,6 +332,8 @@ void runMod(char *serialData) {
 				for (int lineIndex = 0; lineIndex < strlen(line); lineIndex++) {
 					if (line[lineIndex] == '"') {
 						realData->append("\\\"");
+					} else if (line[lineIndex] == '\\') {
+						realData->append("\\\\");
 					} else {
 						char buf[2] = {};
 						buf[0] = line[lineIndex];
@@ -382,7 +384,6 @@ duk_ret_t append(duk_context *ctx) {
 	duk_int_t type = duk_get_type(ctx, -1);
 	if (type == DUK_TYPE_STRING) {
 		const char *data = duk_get_string(ctx, -1);
-		// printf("Appending |%s|\n", data);
 
 		String *str = newString(256);
 		str->set(data);
@@ -497,6 +498,11 @@ duk_ret_t submitPassage(duk_context *ctx) {
 				jsData->append(segment->cStr);
 				jsData->append(");");
 			} else {
+				// String *nlReplacedSeg = segment->replace("\n", "NL");
+				// segment->destroy();
+				// segment = nlReplacedSeg;
+
+				printf("Adding code: |%s|\n", segment->cStr);
 				jsData->append(segment->cStr);
 			}
 
@@ -589,6 +595,7 @@ duk_ret_t gotoPassage(duk_context *ctx) {
 		Passage *passage = game->passages[i];
 		// printf("Checking passage %s\n", passage->name);
 		if (streq(passage->name, passageName)) {
+			printf("Running passage |%s|\n", passage->data);
 			runJs(passage->data);
 			return 0;
 		}
