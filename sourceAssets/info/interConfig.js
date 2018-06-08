@@ -438,9 +438,11 @@ function tween(src, time, params, config) {
 }
 
 function setTitle(text) {
+	tween(titleTf, 0.20, {scaleY: 0}, {ease: QUINT_OUT});
 	tween(titleTf, 0.25, {alpha: 0}, {onComplete: function() {
 		titleTf.setText(text);
 		tween(titleTf, 0.25, {alpha: 1});
+		tween(titleTf, 0.3, {scaleY: 1}, {ease: QUINT_OUT});
 	}});
 }
 
