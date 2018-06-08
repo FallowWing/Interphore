@@ -76,6 +76,8 @@ duk_ret_t gotoPassage(duk_context *ctx);
 duk_ret_t saveGame(duk_context *ctx);
 duk_ret_t loadGame(duk_context *ctx);
 void gameLoaded(char *data);
+duk_ret_t loadMod(duk_context *ctx);
+void modLoaded(char *data);
 
 duk_ret_t interTweenEase(duk_context *ctx);
 
@@ -134,7 +136,7 @@ void initGame(MintSprite *bgSpr) {
 	addJsFunction("addRectImage_internal", addRectImage, 3);
 	addJsFunction("add9SliceImage_internal", add9SliceImage, 7);
 	addJsFunction("addEmptyImage_internal", addEmptyImage, 2);
-	addJsFunction("setImageProps", setImageProps, 9);
+	addJsFunction("setImageProps", setImageProps, 10);
 	addJsFunction("setImageText_internal", setImageText, 2);
 	addJsFunction("getImageSize", getImageSize, 2);
 	addJsFunction("getTextSize", getTextSize, 2);
@@ -157,6 +159,7 @@ void initGame(MintSprite *bgSpr) {
 
 	addJsFunction("saveGame_internal", saveGame, 1);
 	addJsFunction("loadGame_internal", loadGame, 0);
+	addJsFunction("loadMod_internal", loadMod, 0);
 
 	// if (streq(name, "addNotif")) return (void *)addNotif;
 
@@ -237,6 +240,7 @@ void updateGame() {
 	if (!game->mainText) {
 		game->mainText = createMintSprite();
 		game->mainText->setupEmpty(engine->width - 64, 2048);
+		game->mainText->tint = 0xFFFFFFFF;
 		game->mainText->clipRect.setTo(0, 0, engine->width, engine->height - BUTTON_HEIGHT - 16);
 	}
 
@@ -328,6 +332,8 @@ void runMod(char *serialData) {
 				for (int lineIndex = 0; lineIndex < strlen(line); lineIndex++) {
 					if (line[lineIndex] == '"') {
 						realData->append("\\\"");
+					} else if (line[lineIndex] == '\\') {
+						realData->append("\\\\");
 					} else {
 						char buf[2] = {};
 						buf[0] = line[lineIndex];
@@ -378,7 +384,6 @@ duk_ret_t append(duk_context *ctx) {
 	duk_int_t type = duk_get_type(ctx, -1);
 	if (type == DUK_TYPE_STRING) {
 		const char *data = duk_get_string(ctx, -1);
-		// printf("Appending |%s|\n", data);
 
 		String *str = newString(256);
 		str->set(data);
@@ -493,6 +498,11 @@ duk_ret_t submitPassage(duk_context *ctx) {
 				jsData->append(segment->cStr);
 				jsData->append(");");
 			} else {
+				// String *nlReplacedSeg = segment->replace("\n", "NL");
+				// segment->destroy();
+				// segment = nlReplacedSeg;
+
+				// printf("Adding code: |%s|\n", segment->cStr);
 				jsData->append(segment->cStr);
 			}
 
@@ -585,6 +595,7 @@ duk_ret_t gotoPassage(duk_context *ctx) {
 		Passage *passage = game->passages[i];
 		// printf("Checking passage %s\n", passage->name);
 		if (streq(passage->name, passageName)) {
+			// printf("Running passage |%s|\n", passage->data);
 			runJs(passage->data);
 			return 0;
 		}
@@ -622,6 +633,26 @@ void gameLoaded(char *data) {
 
 	Free(data);
 }
+
+duk_ret_t loadMod(duk_context *ctx) {
+	platformLoadFromDisk(modLoaded);
+	return 0;
+}
+
+void modLoaded(char *data) {
+	// printf("Loaded: %s\n", data);
+
+	if (!streq(data, "none") && !streq(data, "(null)")) {
+		msg("Mod loaded!");
+		runMod(data);
+		Free(data);
+	} else {
+		msg("No mod found");
+	}
+
+	Free(data);
+}
+
 
 duk_ret_t setMainText(duk_context *ctx) {
 	const char *text = duk_get_string(ctx, -1);
@@ -755,15 +786,16 @@ duk_ret_t addEmptyImage(duk_context *ctx) {
 }
 
 duk_ret_t setImageProps(duk_context *ctx) {
-	int layer = duk_get_int(ctx, -1);
-	int tint = duk_get_uint(ctx, -2);
-	double rotation = duk_get_number(ctx, -3);
-	double alpha = duk_get_number(ctx, -4);
-	double scaleY = duk_get_number(ctx, -5);
-	double scaleX = duk_get_number(ctx, -6);
-	double y = duk_get_number(ctx, -7);
-	double x = duk_get_number(ctx, -8);
-	int id = duk_get_number(ctx, -9);
+	int smoothing = duk_get_boolean(ctx, -1);
+	int layer = duk_get_int(ctx, -2);
+	int tint = duk_get_uint(ctx, -3);
+	double rotation = duk_get_number(ctx, -4);
+	double alpha = duk_get_number(ctx, -5);
+	double scaleY = duk_get_number(ctx, -6);
+	double scaleX = duk_get_number(ctx, -7);
+	double y = duk_get_number(ctx, -8);
+	double x = duk_get_number(ctx, -9);
+	int id = duk_get_number(ctx, -10);
 
 	MintSprite *img = game->images[id];
 	if (!img) return 0;
@@ -776,6 +808,7 @@ duk_ret_t setImageProps(duk_context *ctx) {
 	img->rotation = rotation;
 	img->tint = tint;
 	img->layer = layer;
+	img->smoothing = smoothing;
 
 	return 0;
 }

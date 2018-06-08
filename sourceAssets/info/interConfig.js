@@ -65,6 +65,7 @@ function newImage() {
 		alpha: 1,
 		scaleX: 1,
 		scaleY: 1,
+		smoothing: false,
 
 		text: "", //@cleanup Consider removing this
 		textWidth: 0,
@@ -336,8 +337,13 @@ function saveGame() {
 }
 
 function loadGame() {
-	msg("Game Loaded");
+	msg("Loading game...");
 	loadGame_internal();
+}
+
+function loadMod() {
+	msg("Loading mod...");
+	loadMod_internal();
 }
 
 function pointDistance(x1, y1, x2, y2) { return Math.sqrt((Math.pow(x2-x1, 2))+(Math.pow(y2-y1, 2))); }
@@ -407,13 +413,6 @@ function resetBackgroundMode(bgNum) {
 
 	backgrounds[bgNum].bobX = 0;
 	backgrounds[bgNum].bobY = 0;
-}
-
-function setBackgroundBob(bgNum, bobX, bobY) {
-	//@incomplete Remove this
-	// print("This is going away, don't call this!");
-	backgrounds[bgNum].bobX = bobX;
-	backgrounds[bgNum].bobY = bobY;
 }
 
 function tween(src, time, params, config) {
@@ -655,6 +654,7 @@ function realUpdate() {
 		var perc = tw.elapsed / tw.totalTime;
 		if (tw.config.reversed) perc = 1 - perc;
 		perc = tweenEase(perc, tw.config.ease);
+		perc = round(perc * 1000) / 1000;
 
 		if ((perc >= 1 && !tw.config.reversed) || (perc <= 0 && tw.config.reversed)) {
 			if (tw.config.type == LOOPING) {
@@ -759,7 +759,7 @@ function realUpdate() {
 			if (keys[KEY_BACKSPACE] == KEY_JUST_RELEASED) img.setText(img.text.substring(0, img.text.length-1));
 		}
 
-		setImageProps(img.id, img.x, img.y, img.scaleX, img.scaleY, img.alpha, img.rotation, img.tint, img.layer);
+		setImageProps(img.id, img.x, img.y, img.scaleX, img.scaleY, img.alpha, img.rotation, img.tint, img.layer, img.smoothing);
 	});
 
 	/// Audios
