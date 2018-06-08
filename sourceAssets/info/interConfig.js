@@ -336,8 +336,13 @@ function saveGame() {
 }
 
 function loadGame() {
-	msg("Game Loaded");
+	msg("Loading game...");
 	loadGame_internal();
+}
+
+function loadMod() {
+	msg("Loading mod...");
+	loadMod_internal();
 }
 
 function pointDistance(x1, y1, x2, y2) { return Math.sqrt((Math.pow(x2-x1, 2))+(Math.pow(y2-y1, 2))); }

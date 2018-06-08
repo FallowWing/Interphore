@@ -76,6 +76,8 @@ duk_ret_t gotoPassage(duk_context *ctx);
 duk_ret_t saveGame(duk_context *ctx);
 duk_ret_t loadGame(duk_context *ctx);
 void gameLoaded(char *data);
+duk_ret_t loadMod(duk_context *ctx);
+void modLoaded(char *data);
 
 duk_ret_t interTweenEase(duk_context *ctx);
 
@@ -157,6 +159,7 @@ void initGame(MintSprite *bgSpr) {
 
 	addJsFunction("saveGame_internal", saveGame, 1);
 	addJsFunction("loadGame_internal", loadGame, 0);
+	addJsFunction("loadMod_internal", loadMod, 0);
 
 	// if (streq(name, "addNotif")) return (void *)addNotif;
 
@@ -237,6 +240,7 @@ void updateGame() {
 	if (!game->mainText) {
 		game->mainText = createMintSprite();
 		game->mainText->setupEmpty(engine->width - 64, 2048);
+		game->mainText->tint = 0xFFFFFFFF;
 		game->mainText->clipRect.setTo(0, 0, engine->width, engine->height - BUTTON_HEIGHT - 16);
 	}
 
@@ -622,6 +626,26 @@ void gameLoaded(char *data) {
 
 	Free(data);
 }
+
+duk_ret_t loadMod(duk_context *ctx) {
+	platformLoadFromDisk(modLoaded);
+	return 0;
+}
+
+void modLoaded(char *data) {
+	// printf("Loaded: %s\n", data);
+
+	if (!streq(data, "none") && !streq(data, "(null)")) {
+		msg("Mod loaded!");
+		runMod(data);
+		Free(data);
+	} else {
+		msg("No mod found");
+	}
+
+	Free(data);
+}
+
 
 duk_ret_t setMainText(duk_context *ctx) {
 	const char *text = duk_get_string(ctx, -1);

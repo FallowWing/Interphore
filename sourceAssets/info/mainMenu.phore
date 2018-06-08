@@ -35,7 +35,7 @@ taglineRect.addChild(taglineText);
 
 var playRect = addRectImage(buttonWidth, buttonHeight, 0x302f32);
 playRect.x = gameWidth - playRect.width;
-playRect.y = taglineRect.y + taglineRect.height + 130;
+playRect.y = taglineRect.y + taglineRect.height + 50;
 playRect.onRelease = function() {
 	getAudio("music").destroy();
 	playEffect("audio/ui/choiceClick");
@@ -47,6 +47,7 @@ var playText = addEmptyImage(buttonWidth, buttonHeight);
 playText.setText("Play");
 playText.x = buttonTextLeftPad;
 playText.y = playRect.height/2 - playText.textHeight/2;
+playText.tint = 0xFFFFFFFF;
 playRect.addChild(playText);
 
 var loadRect = addRectImage(buttonWidth, buttonHeight, 0x302f32);
@@ -64,11 +65,28 @@ var loadText = addEmptyImage(buttonWidth, buttonHeight);
 loadText.setText("Load");
 loadText.x = buttonTextLeftPad;
 loadText.y = loadRect.height/2 - loadText.textHeight/2;
+loadText.tint = 0xFFFFFFFF;
 loadRect.addChild(loadText);
+
+var modRect = addRectImage(buttonWidth, buttonHeight, 0x302f32);
+modRect.x = gameWidth - modRect.width;
+modRect.y = loadRect.y + loadRect.height + buttonPad;
+modRect.onRelease = function() {
+	playEffect("audio/ui/choiceClick");
+	getAudio("music").destroy();
+	loadMod();
+}
+
+var modText = addEmptyImage(buttonWidth, buttonHeight);
+modText.setText("Load a mod");
+modText.x = buttonTextLeftPad;
+modText.y = modRect.height/2 - modText.textHeight/2;
+modText.tint = 0xFFFFFFFF;
+modRect.addChild(modText);
 
 var extrasRect = addRectImage(buttonWidth, buttonHeight, 0x302f32);
 extrasRect.x = gameWidth - extrasRect.width;
-extrasRect.y = 420 + loadRect.height + 20 + loadRect.height + 20; //Magic 20 for spacing
+extrasRect.y = modRect.y + modRect.height + buttonPad;
 extrasRect.onRelease = function() {
 	playEffect("audio/ui/choiceClick");
 	clearNodes();
@@ -80,6 +98,7 @@ var extraText = addEmptyImage(buttonWidth, buttonHeight);
 extraText.setText("Extras");
 extraText.x = buttonTextLeftPad;
 extraText.y = extrasRect.height/2 - extraText.textHeight/2;
+extraText.tint = 0xFFFFFFFF;
 extrasRect.addChild(extraText);
 
 var bottomRect = addRectImage(gameWidth, buttonHeight*2, 0x302f32);
