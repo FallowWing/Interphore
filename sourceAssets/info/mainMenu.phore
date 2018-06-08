@@ -9,10 +9,11 @@ welcome
 ---
 :Title Screen
 !`var bg = addImage("img/writer/intro/titleBG.png");
-bg.scaleX = 1.5;
-bg.scaleY = 1.5;
+bg.scaleX = 1.2;
+bg.scaleY = 1.2;
 
-tween(bg, 10, {scaleX: 1, scaleY: 1});
+tween(bg, 4, {scaleX: 1, scaleY: 1}, {type: PINGPONG, ease: QUAD_IN});
+tween(bg, 4, {y: -70}, {type: PINGPONG, ease: QUAD_IN_OUT});
 
 var buttonWidth = 400;
 var buttonHeight = 50;
@@ -28,10 +29,13 @@ taglineRect.y = 230;
 
 var taglineText = addEmptyImage(gameWidth, buttonHeight);
 taglineText.setText("sex, violence, and reading");
-taglineText.tint = 0xFFFF0000;
-taglineText.x = gameWidth - taglineText.textWidth - 40;
+taglineText.tint = 0xFFeb3b3b;
+taglineText.x = gameWidth - taglineText.textWidth - 140;
+taglineText.alpha = 0;
 taglineText.y = taglineRect.height/2 - taglineText.textHeight/2;
 taglineRect.addChild(taglineText);
+
+tween(taglineText, 3, {x: gameWidth - taglineText.textWidth - 40, alpha: 1}, {ease: QUINT_OUT});
 
 var playRect = addRectImage(buttonWidth, buttonHeight, 0x302f32);
 playRect.x = gameWidth - playRect.width;
@@ -45,7 +49,9 @@ playRect.onRelease = function() {
 
 var playText = addEmptyImage(buttonWidth, buttonHeight);
 playText.setText("Play");
-playText.x = buttonTextLeftPad;
+playText.x = buttonTextLeftPad + 100;
+playText.tint = 0xFF00a6fc;
+playText.alpha = 0;
 playText.y = playRect.height/2 - playText.textHeight/2;
 playRect.addChild(playText);
 
@@ -62,7 +68,9 @@ loadRect.onRelease = function() {
 
 var loadText = addEmptyImage(buttonWidth, buttonHeight);
 loadText.setText("Load");
-loadText.x = buttonTextLeftPad;
+loadText.tint = 0xFF00a6fc;
+loadText.alpha = 0;
+loadText.x = buttonTextLeftPad + 100;
 loadText.y = loadRect.height/2 - loadText.textHeight/2;
 loadRect.addChild(loadText);
 
@@ -78,29 +86,39 @@ extrasRect.onRelease = function() {
 
 var extraText = addEmptyImage(buttonWidth, buttonHeight);
 extraText.setText("Extras");
-extraText.x = buttonTextLeftPad;
+extraText.tint = 0xFF00a6fc;
+extraText.alpha = 0;
+extraText.x = buttonTextLeftPad + 100;
 extraText.y = extrasRect.height/2 - extraText.textHeight/2;
 extrasRect.addChild(extraText);
+
+tween(playText, 2.5, {x: buttonTextLeftPad, alpha: 1}, {ease: QUINT_OUT});
+tween(loadText, 2.7, {x: buttonTextLeftPad, alpha: 1}, {ease: QUINT_OUT});
+tween(extraText, 2.9, {x: buttonTextLeftPad, alpha: 1}, {ease: QUINT_OUT});
 
 var bottomRect = addRectImage(gameWidth, buttonHeight*2, 0x302f32);
 bottomRect.y = 625;
 
 //Text
 var text = addImage("img/writer/intro/titleText.png");
+text.x = gameWidth;
+tween(text, 2, {x: 0}, {ease: QUINT_OUT});
 
 //Cart
 
-/*var cartBG = addImage("img/writer/characters/cart/cart2.png");
+var cartBG = addImage("img/writer/characters/cart/cart2.png");
 cartBG.tint = 0xFF000000;
 cartBG.alpha = 0.30;
 cartBG.x = 40;
 cartBG.y = -20;
+cartBG.smoothing = true;
 cartBG.scaleX = cartBG.scaleY = 1.6;
 
 var cart = addImage("img/writer/characters/cart/cart2.png");
 cart.x = 70;
 cart.y = 20;
-cart.scaleX = cart.scaleY = 1.3;*/
+cart.smoothing = true;
+cart.scaleX = cart.scaleY = 1.3;
 `
 
 ---
