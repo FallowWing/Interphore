@@ -65,6 +65,7 @@ function newImage() {
 		alpha: 1,
 		scaleX: 1,
 		scaleY: 1,
+		smoothing: false,
 
 		text: "", //@cleanup Consider removing this
 		textWidth: 0,
@@ -756,7 +757,7 @@ function realUpdate() {
 			if (keys[KEY_BACKSPACE] == KEY_JUST_RELEASED) img.setText(img.text.substring(0, img.text.length-1));
 		}
 
-		setImageProps(img.id, img.x, img.y, img.scaleX, img.scaleY, img.alpha, img.rotation, img.tint, img.layer);
+		setImageProps(img.id, img.x, img.y, img.scaleX, img.scaleY, img.alpha, img.rotation, img.tint, img.layer, img.smoothing);
 	});
 
 	/// Audios
