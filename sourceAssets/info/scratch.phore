@@ -251,7 +251,7 @@ addChoice("Show some msgs", function() {
 :textScrollingTest
 [Go back|Start]
 !`
-append("A\nword");
+for (var i = 0; i < 40; i++) append("A line\n ");
 `
 ---
 :Exit

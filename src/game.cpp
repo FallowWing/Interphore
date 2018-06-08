@@ -502,7 +502,7 @@ duk_ret_t submitPassage(duk_context *ctx) {
 				// segment->destroy();
 				// segment = nlReplacedSeg;
 
-				printf("Adding code: |%s|\n", segment->cStr);
+				// printf("Adding code: |%s|\n", segment->cStr);
 				jsData->append(segment->cStr);
 			}
 
@@ -595,7 +595,7 @@ duk_ret_t gotoPassage(duk_context *ctx) {
 		Passage *passage = game->passages[i];
 		// printf("Checking passage %s\n", passage->name);
 		if (streq(passage->name, passageName)) {
-			printf("Running passage |%s|\n", passage->data);
+			// printf("Running passage |%s|\n", passage->data);
 			runJs(passage->data);
 			return 0;
 		}
