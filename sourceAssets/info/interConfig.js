@@ -190,7 +190,7 @@ function addChoice(choiceText, result, config) {
 	var tf = addEmptyImage(spr.width, spr.height);
 	spr.addChild(tf);
 	tf.temp = false;
-	tf.setFont("NunitoSans-Light_26");
+	tf.setFont("NunitoSans-Light_22");
 	tf.tint = 0xFFFFFFFF;
 	tf.setText(choiceText);
 	tf.layer = CHOICE_TEXT_LAYER;
@@ -508,7 +508,7 @@ function msg(str, config) {
 		tf = addEmptyImage(256, 512);
 	}
 
-	if (config.smallFont) tf.setFont("NunitoSans-Light_26");
+	if (config.smallFont) tf.setFont("NunitoSans-Light_22");
 	tf.temp = false;
 	tf.layer = MSG_TEXT_LAYER;
 	tf.tint = 0xFFFFFFFF;
@@ -830,7 +830,7 @@ titleBg.layer = TITLE_LAYER;
 
 var titleTf = addEmptyImage(titleBg.width, titleBg.height);
 titleTf.temp = false;
-titleTf.setFont("NunitoSans-Bold_22");
+titleTf.setFont("NunitoSans-Light_22");
 titleTf.layer = TITLE_LAYER;
 titleTf.tint = 0xFFFFFFFF;
 titleBg.addChild(titleTf);
@@ -844,7 +844,7 @@ var inputField = addEmptyImage(gameWidth, 100);
 inputFieldBg.addChild(inputField);
 inputField.temp = false;
 inputField.tint = 0xFFFFFFFF;
-inputField.setFont("NunitoSans-Light_26");
+inputField.setFont("NunitoSans-Light_22");
 
 var inputCarrot = addRectImage(4, 32, 0xFFFFFF);
 inputFieldBg.addChild(inputCarrot);
@@ -854,7 +854,7 @@ var inputTitle = addEmptyImage(gameWidth, 150);
 inputTitle.temp = false;
 inputFieldBg.addChild(inputTitle);
 inputTitle.tint = 0xFFFFFFFF;
-inputTitle.setFont("NunitoSans-Light_26");
+inputTitle.setFont("NunitoSans-Light_22");
 inputTitle.alpha = 0.75;
 
 for (var i = 0; i < 500; i++) keys[i] = KEY_RELEASED;

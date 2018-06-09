@@ -116,7 +116,7 @@ char tempBytes[Megabytes(2)];
 void initGame(MintSprite *bgSpr) {
 	getTextureAsset("NunitoSans-Light_22")->level = 3;
 	getTextureAsset("NunitoSans-Light_30")->level = 3;
-	getTextureAsset("NunitoSans-Light_38")->level = 3;
+	getTextureAsset("NunitoSans-Light_26")->level = 3;
 
 	strcpy(engine->spriteData.defaultFont, "OpenSans-Regular_40");
 
@@ -240,8 +240,9 @@ void updateGame() {
 	if (!game->mainText) {
 		game->mainText = createMintSprite();
 		game->mainText->setupEmpty(engine->width - 64, 2048);
-		game->mainText->tint = 0xFFFFFFFF;
 		game->mainText->clipRect.setTo(0, 0, engine->width, engine->height - BUTTON_HEIGHT - 16);
+		strcpy(game->mainText->defaultFont, "NunitoSans-Light_26");
+		game->mainText->tint = 0xFFFFFFFF;
 	}
 
 	int viewHeight = engine->height - BUTTON_HEIGHT - 16;
