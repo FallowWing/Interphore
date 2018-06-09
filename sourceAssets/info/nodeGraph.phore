@@ -102,6 +102,7 @@ function gotoMap(isCheckpoint) {
 
 		node.textField = addEmptyImage(node.sprite.width, node.sprite.height);
 		node.textField.setText(node.name);
+		node.textField.tint = 0xFFFFFFFF;
 		node.textField.x = node.sprite.width/2 - node.textField.textWidth/2;
 		node.textField.y = node.sprite.height/2 - node.textField.textHeight/2;
 		node.textField.layer = GRAPH_NODE_LAYER;
