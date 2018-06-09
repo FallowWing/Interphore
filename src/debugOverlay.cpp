@@ -2,7 +2,7 @@ struct DebugOverlay {
 	bool active;
 	int bottomLayer;
 
-	MintSprite *versionTf;
+	MintSprite *info;
 
 	void update();
 };
@@ -18,17 +18,17 @@ void DebugOverlay::update() {
 	if (keyIsJustReleased('`')) dgb->active = !dgb->active;
 
 	if (dgb->active) {
-		if (!dgb->versionTf) {
-			dgb->versionTf = createMintSprite();
-			dgb->versionTf->setupEmpty(512, 256);
-			dgb->versionTf->layer = dgb->bottomLayer;
-			dgb->versionTf->setText("Build %d\n", engine->commitCount);
+		if (!dgb->info) {
+			dgb->info = createMintSprite();
+			dgb->info->setupEmpty(512, 512);
+			dgb->info->layer = dgb->bottomLayer;
 		}
+			dgb->info->setText("Build %d\nActive Sprite: %d", engine->commitCount, engine->activeSprites);
 	}
 	if (!dgb->active) {
-		if (dgb->versionTf) {
-			dgb->versionTf->destroy();
-			dgb->versionTf = NULL;
+		if (dgb->info) {
+			dgb->info->destroy();
+			dgb->info = NULL;
 		}
 	}
 
