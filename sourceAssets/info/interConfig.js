@@ -441,6 +441,8 @@ function tween(src, time, params, config) {
 			for (key in tw.params) {
 				tw.source[key] = tw.startParams[key];
 			}
+
+			if (tweens.indexOf(tw) == -1) tweens.push(tw);
 		},
 		cancel: function() {
 			var index = tweens.indexOf(tw);
@@ -556,6 +558,7 @@ function __update() {
 function realUpdate() {
 	/// Misc
 	var elapsed = 1/60;
+	// print("Tweens: "+tweens.length);
 
 	/// Image mouse events
 	images.forEach(function(img) {
