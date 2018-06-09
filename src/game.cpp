@@ -657,6 +657,7 @@ void modLoaded(char *data) {
 duk_ret_t setMainText(duk_context *ctx) {
 	const char *text = duk_get_string(ctx, -1);
 	strcpy(game->mainTextStr, text);
+	if (game->mainText) game->mainText->y = 20;
 	return 0;
 }
 
