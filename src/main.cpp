@@ -1,16 +1,8 @@
-#define VERSION "0.0.1" //@cleanup I shouldn't have to do this
-
-#ifndef OLD_WRITER
-# define SEMI_SOUND_NEW
-#endif
+#define SEMI_SOUND_NEW
 
 #include "gameEngine.h"
-
-#ifdef OLD_WRITER
-# include "writer/writer.cpp"
-#else
-# include "game.cpp"
-#endif
+#include "debugOverlay.cpp"
+#include "game.cpp"
 
 void updateMain();
 void initMain();

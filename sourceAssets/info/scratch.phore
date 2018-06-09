@@ -10,21 +10,19 @@ This scratch mod, used for testing various things
 [wendyApt]
 [LLL]
 [Hub|thirstyCaves]
-[Titlescreen Test|titlescreenTest]
 [Background Test|backgroundTest]
 [Input Text Test|inputTest]
 [Icon Test|iconTest]
 [Disable Exit Test|disableExitTest]
-[Load Mod Test|loadModTest]
-[Goto browser|browserTest]
 [Title test|titleTest]
-[Looping Audio Test|loopingAudioTest]
+[Audio Test|audioTest]
 [Image test|imageTest]
 [Variable test|variableTest]
 [Save test|saveTest]
 [Tween test|tweenTest]
 [Msg test|msgText]
 [Text scrolling test|textScrollingTest]
+[Tag test|tagTest]
 ---
 :thirstyCaves
 
@@ -58,55 +56,6 @@ clear();
 execAsset("LLL.phore");
 gotoPassage("hubLLL");
 `
-
----
-:titlescreenTest
-!`var bg = addImage("img/writer/intro/titleBG.png");
-
-//Gray rects
-var titleRect = addRectImage(gameWidth, 156, 0x302f32);
-titleRect.y = 54;
-
-var taglineRect = addRectImage(gameWidth, 48, 0x302f32);
-taglineRect.y = 230;
-
-var playRect = addRectImage(374, 48, 0x302f32);
-playRect.y = 420;
-playRect.result = function() {
-	playRect.alpha = 0;
-}
-playRect.onReleaseOnceDepricated = function() {
-	print("I was pressed");
-}
-
-var loadRect = addRectImage(374, 48, 0x302f32);
-loadRect.y = 420 + playRect.height + 20; //Magic 20 for spacing
-
-var extrasRect = addRectImage(374, 48, 0x302f32);
-extrasRect.y = 420 + playRect.height + 20 + loadRect.height + 20; //Magic 20 for spacing
-
-playRect.x = loadRect.x = extrasRect.x = gameWidth - playRect.width;
-
-var bottomRect = addRectImage(gameWidth, 96, 0x302f32);
-bottomRect.y = 625;
-
-//Text
-var text = addImage("img/writer/intro/titleText.png");
-
-//Cart
-
-/*var cartBG = addImage("img/writer/characters/cart/cart2.png");
-cartBG.tint = 0xFF000000;
-cartBG.alpha = 0.30;
-cartBG.x = 40;
-cartBG.y = -20;
-cartBG.scaleX = cartBG.scaleY = 1.6;
-
-var cart = addImage("img/writer/characters/cart/cart2.png");
-cart.x = 70;
-cart.y = 20;
-cart.scaleX = cart.scaleY = 1.3;*/
-`
 ---
 :backgroundTest
 !`
@@ -126,7 +75,7 @@ Gimme some text.
 That text was (`lastInput`)
 [Go back|Start]
 ---
-:loopingAudioTest
+:audioTest
 This is a looping audio test
 !`
 addChoice("Place once", function() {
@@ -163,14 +112,6 @@ addChoice("Enable", function() {
 	enableExit();
 });
 `
-[Go back|Start]
----
-:browserTest
-!`gotoBrowser();`
----
-:loadModTest
-!`loadModFromDisk();`
-You could load a mod here
 [Go back|Start]
 ---
 :titleTest
@@ -254,6 +195,10 @@ addChoice("Show some msgs", function() {
 !`
 for (var i = 0; i < 40; i++) append("A line\n ");
 `
+---
+:tagTest
+This <b>text</b> has <i>tags!</i>
+[Go back|Start]
 ---
 :Exit
 `exitMod();`

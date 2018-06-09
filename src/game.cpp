@@ -36,6 +36,7 @@ struct Passage {
 
 struct Game {
 	Profiler profiler;
+	DebugOverlay debugOverlay;
 
 	MintSprite *bg;
 
@@ -80,6 +81,7 @@ duk_ret_t loadMod(duk_context *ctx);
 void modLoaded(char *data);
 
 duk_ret_t interTweenEase(duk_context *ctx);
+duk_ret_t setFontTag(duk_context *ctx);
 
 /// Images
 duk_ret_t addImage(duk_context *ctx);
@@ -130,6 +132,7 @@ void initGame(MintSprite *bgSpr) {
 	addJsFunction("setMainText", setMainText, 1);
 	addJsFunction("gotoPassage_internal", gotoPassage, 1);
 	addJsFunction("tweenEase", interTweenEase, 2);
+	addJsFunction("setFontTag", setFontTag, 2);
 
 	addJsFunction("addImage_internal", addImage, 1);
 	addJsFunction("addCanvasImage_internal", addCanvasImage, 3);
@@ -168,6 +171,7 @@ void initGame(MintSprite *bgSpr) {
 
 	game = (Game *)zalloc(sizeof(Game));
 	initProfiler(&game->profiler);
+	initDebugOverlay(&game->debugOverlay);
 
 	char *initCode = (char *)getAsset("info/interConfig.js")->data;
 	runJs(initCode);
@@ -267,6 +271,8 @@ void updateGame() {
 	if (keyIsJustReleased('`')) {
 		printf("JS: %0.2f CPP: %0.2f\n", game->profiler.getAverage(PROFILE_JS_UPDATE), game->profiler.getAverage(PROFILE_GAME_UPDATE));
 	}
+
+	game->debugOverlay.update();
 }
 
 void runMod(char *serialData) {
@@ -658,6 +664,7 @@ void modLoaded(char *data) {
 duk_ret_t setMainText(duk_context *ctx) {
 	const char *text = duk_get_string(ctx, -1);
 	strcpy(game->mainTextStr, text);
+	if (game->mainText) game->mainText->y = 20;
 	return 0;
 }
 
@@ -668,6 +675,15 @@ duk_ret_t interTweenEase(duk_context *ctx) {
 	duk_push_number(ctx, tweenEase(perc, (Ease)easeType));
 
 	return 1;
+}
+
+duk_ret_t setFontTag(duk_context *ctx) {
+	const char *fontName = duk_get_string(ctx, -1);
+	const char *tag = duk_get_string(ctx, -2);
+
+	engine->spriteData.tagMap->setString(tag, stringClone(fontName));
+
+	return 0;
 }
 
 //
