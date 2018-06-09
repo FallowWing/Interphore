@@ -56,6 +56,7 @@ function newImage() {
 	var img;
 	img = {
 		id: -1,
+		exists: true,
 		x: 0,
 		y: 0,
 		width: 0,
@@ -95,6 +96,7 @@ function newImage() {
 
 		temp: true,
 		destroy: function() {
+			img.exists = false;
 			destroyImage(img.id);
 			var index = images.indexOf(img);
 			images.splice(index, 1);
@@ -432,6 +434,7 @@ function tween(src, time, params, config) {
 		params: params,
 		config: config,
 		reset: function() {
+			tw.elapsed = 0;
 			for (key in tw.params) {
 				tw.source[key] = tw.startParams[key];
 			}
@@ -662,6 +665,11 @@ function realUpdate() {
 	/// Tweens
 	var tweensToRemove = [];
 	tweens.forEach(function(tw) {
+		if (tw.source.exists === false) {
+			tweensToRemove.push(tw);
+			return;
+		}
+
 		var perc = tw.elapsed / tw.totalTime;
 		if (tw.config.reversed) perc = 1 - perc;
 		perc = tweenEase(perc, tw.config.ease);
