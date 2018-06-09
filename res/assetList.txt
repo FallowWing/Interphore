@@ -14,8 +14,6 @@ font/bitmap/NunitoSans-Italic_38*
 font/bitmap/OpenSans-Regular_20*
 font/bitmap/OpenSans-Regular_40*
 
-info/oldInterConfig.js
-
 info/nodeGraph.phore
 info/interConfig.js
 
