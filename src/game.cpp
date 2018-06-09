@@ -342,9 +342,7 @@ void runMod(char *serialData) {
 					} else if (line[lineIndex] == '\\') {
 						realData->append("\\\\");
 					} else {
-						char buf[2] = {};
-						buf[0] = line[lineIndex];
-						realData->append(buf);
+						realData->appendChar(line[lineIndex]);
 					}
 				}
 			} else {
