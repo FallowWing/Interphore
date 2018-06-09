@@ -1,7 +1,7 @@
 START_PASSAGES
 :Start
 !`
-setBackground(0, "");
+setBackground(0, "img/writer/mainBg");
 setBackground(1, "");
 streamAsset("coin.png", "https://i.imgur.com/mmt2kcc.png");
 `
