@@ -36,6 +36,7 @@ struct Passage {
 
 struct Game {
 	Profiler profiler;
+	DebugOverlay debugOverlay;
 
 	MintSprite *bg;
 
@@ -170,6 +171,7 @@ void initGame(MintSprite *bgSpr) {
 
 	game = (Game *)zalloc(sizeof(Game));
 	initProfiler(&game->profiler);
+	initDebugOverlay(&game->debugOverlay);
 
 	char *initCode = (char *)getAsset("info/interConfig.js")->data;
 	runJs(initCode);
@@ -268,6 +270,8 @@ void updateGame() {
 	if (keyIsJustReleased('`')) {
 		printf("JS: %0.2f CPP: %0.2f\n", game->profiler.getAverage(PROFILE_JS_UPDATE), game->profiler.getAverage(PROFILE_GAME_UPDATE));
 	}
+
+	game->debugOverlay.update();
 }
 
 void runMod(char *serialData) {
