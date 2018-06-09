@@ -85,12 +85,14 @@ function gotoMap(isCheckpoint) {
 				node.sprite.alpha = 0.1;
 		} else {
 			node.sprite.onHover = function() {
-				node.sprite.alpha = 0.5;
+				playEffect("audio/ui/hoverChoiceButtons");
+				node.sprite.alpha = 0.8;
 			};
 			node.sprite.onUnHover = function() {
 				node.sprite.alpha = 1;
 			};
 			node.sprite.onRelease = function() {
+				playEffect("audio/ui/bestChoiceClick");
 				if (typeof node.result === "string") {
 					gotoPassage(node.result);
 				} else {
@@ -101,7 +103,9 @@ function gotoMap(isCheckpoint) {
 		graphBg.addChild(node.sprite);
 
 		node.textField = addEmptyImage(node.sprite.width, node.sprite.height);
+		node.textField.setFont("NunitoSans-Light_22");
 		node.textField.setText(node.name);
+		node.textField.tint = 0xFFa5e3f2;
 		node.textField.x = node.sprite.width/2 - node.textField.textWidth/2;
 		node.textField.y = node.sprite.height/2 - node.textField.textHeight/2;
 		node.textField.layer = GRAPH_NODE_LAYER;
