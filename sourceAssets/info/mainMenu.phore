@@ -134,10 +134,6 @@ playRect.onHover = function() {
 	playRect.tint = 0xFF375266;
 	playRectTween.reset();
 	playTextTween.reset();
-	playRectTween = tween(playRect, 0.1, {scaleX: 1.05});
-	playTextTween = tween(playText, 0.3, {x: buttonTextLeftPad + 20}, {ease: QUINT_OUT});
-	//tween(playRect, 0.1, {scaleX: 1.05});
-	//tween(playText, 0.3, {x: buttonTextLeftPad + 20}, {ease: QUINT_OUT});
 }
 
 loadRect.onHover = function() {
@@ -146,10 +142,6 @@ loadRect.onHover = function() {
 	loadRect.tint = 0xFF375266;
 	loadRectTween.reset();
 	loadTextTween.reset();
-	loadRectTween = tween(loadRect, 0.1, {scaleX: 1.05});
-	loadTextTween = tween(loadText, 0.3, {x: buttonTextLeftPad + 20}, {ease: QUINT_OUT});
-	//tween(loadRect, 0.1, {scaleX: 1.05});
-	//tween(loadText, 0.3, {x: buttonTextLeftPad + 20}, {ease: QUINT_OUT});
 }
 
 modRect.onHover = function() {
@@ -158,10 +150,6 @@ modRect.onHover = function() {
 	modRect.tint = 0xFF375266;
 	modRectTween.reset();
 	modTextTween.reset();
-	modRectTween = tween(modRect, 0.1, {scaleX: 1.05});
-	modTextTween = tween(modText, 0.3, {x: buttonTextLeftPad + 20}, {ease: QUINT_OUT});
-	//tween(modRect, 0.1, {scaleX: 1.05});
-	//tween(modText, 0.3, {x: buttonTextLeftPad + 20}, {ease: QUINT_OUT});
 }
 
 extraRect.onHover = function() {
@@ -170,10 +158,6 @@ extraRect.onHover = function() {
 	extraRect.tint = 0xFF375266;
 	extraRectTween.reset();
 	extraTextTween.reset();
-	extraRectTween = tween(extraRect, 0.1, {scaleX: 1.05});
-	extraTextTween = tween(extraText, 0.3, {x: buttonTextLeftPad + 20}, {ease: QUINT_OUT});
-	//tween(extraRect, 0.1, {scaleX: 1.05});
-	//tween(extraText, 0.3, {x: buttonTextLeftPad + 20}, {ease: QUINT_OUT});
 }
 
 var bottomRect = addRectImage(gameWidth, buttonHeight*2, 0x302f32);

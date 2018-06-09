@@ -37,7 +37,7 @@ var MSG_SPRITE_LAYER = 90;
 var MSG_TEXT_LAYER = 100;
 var TITLE_LAYER = 110;
 
-var CHOICES_PER_PAGE = 4;
+var choicesPerPage = 4;
 var BUTTON_HEIGHT = 128;
 
 var TOP = 1;
@@ -174,7 +174,9 @@ function addChoice(choiceText, result, config) {
 		result: result
 	};
 
-	var spr = add9SliceImage("img/writer/writerChoice.png", 256, BUTTON_HEIGHT, 5, 5, 10, 10);
+	var buttonWidth = (gameWidth - nextChoices.width - prevChoices.width)/choicesPerPage;
+
+	var spr = add9SliceImage("img/writer/writerChoice.png", buttonWidth, BUTTON_HEIGHT, 5, 5, 10, 10);
 	spr.temp = false;
 	spr.layer = CHOICE_BUTTON_LAYER;
 	spr.onHover = function() {
@@ -290,6 +292,7 @@ function getAudioById(id) {
 function clear() {
 	setMainText("");
 	choicePage = 0;
+	choicesPerPage = 4;
 	exitButton.alpha = exitDisabled ? 0 : 1; //@todo This should probably happen instantly
 	lastInput = inputField.text;
 	inputField.inInputField = false;
@@ -438,6 +441,8 @@ function tween(src, time, params, config) {
 			for (key in tw.params) {
 				tw.source[key] = tw.startParams[key];
 			}
+
+			if (tweens.indexOf(tw) == -1) tweens.push(tw);
 		},
 		cancel: function() {
 			var index = tweens.indexOf(tw);
@@ -553,6 +558,7 @@ function __update() {
 function realUpdate() {
 	/// Misc
 	var elapsed = 1/60;
+	// print("Tweens: "+tweens.length);
 
 	/// Image mouse events
 	images.forEach(function(img) {
@@ -717,11 +723,11 @@ function realUpdate() {
 	}
 
 	/// Choices
-	prevChoices.alpha = nextChoices.alpha = choices.length > CHOICES_PER_PAGE ? 1 : 0;
+	prevChoices.alpha = nextChoices.alpha = choices.length > choicesPerPage ? 1 : 0;
 
 	for (var i = 0; i < choices.length; i++) choices[i].sprite.y = gameHeight;
 
-	var minChoice = choicePage * CHOICES_PER_PAGE;
+	var minChoice = choicePage * choicesPerPage;
 	var maxChoice = minChoice + 4;
 	if (maxChoice > choices.length) maxChoice = choices.length;
 	var choiceIndexOnPage = 0;
@@ -730,7 +736,7 @@ function realUpdate() {
 		var spr = choice.sprite;
 		var tf = choice.textField;
 
-		var choicesWidth = choice.sprite.width * CHOICES_PER_PAGE;
+		var choicesWidth = choice.sprite.width * choicesPerPage;
 		var choicesOff = gameWidth/2 - choicesWidth/2;
 
 		spr.x = spr.width * choiceIndexOnPage + choicesOff;
@@ -797,7 +803,7 @@ nextChoices.x = gameWidth - nextChoices.width;
 nextChoices.y = gameHeight - nextChoices.height;
 nextChoices.onRelease = function() {
 	if (nextChoices.alpha != 1) return;
-	var totalPages = choices.length / CHOICES_PER_PAGE;
+	var totalPages = choices.length / choicesPerPage;
 	if (choicePage >= totalPages-1) return;
 	playEffect("audio/ui/nextArrow");
 	choicePage++;
