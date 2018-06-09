@@ -788,6 +788,9 @@ function realUpdate() {
 	}
 }
 
+setFontTag("i", "NunitoSans-Italic_26");
+setFontTag("b", "NunitoSans-Bold_26");
+
 var nextChoices = add9SliceImage("img/writer/writerChoice.png", 128, BUTTON_HEIGHT, 5, 5, 10, 10);
 nextChoices.temp = false;
 nextChoices.x = gameWidth - nextChoices.width;

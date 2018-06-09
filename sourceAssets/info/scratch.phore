@@ -22,6 +22,7 @@ This scratch mod, used for testing various things
 [Tween test|tweenTest]
 [Msg test|msgText]
 [Text scrolling test|textScrollingTest]
+[Tag test|tagTest]
 ---
 :thirstyCaves
 
@@ -194,6 +195,10 @@ addChoice("Show some msgs", function() {
 !`
 for (var i = 0; i < 40; i++) append("A line\n ");
 `
+---
+:tagTest
+This <b>text</b> has <i>tags!</i>
+[Go back|Start]
 ---
 :Exit
 `exitMod();`
