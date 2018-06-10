@@ -2,32 +2,62 @@ START_PASSAGES
 :introModMyntStart
 !`
 setBackground(0, "writer/mynt/bg/myntBodBg");
-var music = playMusic("audio/music/newSelf");
-music.name = "music";
-
 data.gender = "";
 data.genitals = "";
 data.playerName = "";
+data.hasKnot = false;
 data.hasBoobs = false;
 disableExit();
-//setBackground(0, "writer/mynt/bg/myntBg1", TILED);
+
+var myntBod = addImage("writer/mynt/face/myntBod/10");
+myntBod.tint = 0xFF000000;
+myntBod.x = gameWidth/2 - myntBod.width/2;
+myntBod.y = gameHeight/2 - myntBod.height/2;
+
+var music = playMusic("audio/ambience/violetMeteorite");
+music.name = "music";
+
+msg("18 or older only.");
+msg("Press Space to skip.");
+
+addChoice("Mynt...", "realStart");
+`
+
+---
+:realStart
+
+!`
+var music = playMusic("audio/music/newSelf");
+music.name = "music2";
+
+var fader = addRectImage(gameWidth, gameHeight, 0x000000);
+fader.alpha = 1;
+
+tween(fader, 5, {alpha: 0}, {ease: QUAD_IN});
+
 setBackground(0, "writer/thirstyCavesBg");
 setBackground(1, "writer/mynt/face/myntBod/10", CENTERED);
-queueTitle("Rebeca...");
-queueTitle("I love you.");
-
-queueAddChoice("I love you too, Mynt.");
-
+timer(4, function() { setTitle("Rebeca..."); });
+timer(7, function() { setTitle("I love you."); });
+timer(8, function() { addChoice("I love you too, Mynt.", "I love you too, Mynt."); });
 `
 
 ---
 :I love you too, Mynt.
 
 !`
-queueTitle("I want to get rid of these thoughts.");
-queueTitle("And you want to get rid of that crummy old body.");
-queueTitle("So let's step into the pond.");
+queueTitle("Let's step into the pond.");
 queueTitle("Together, okay?");
+queueTitle("Take my hand.");
+queueAddChoice("Why do we have to go in the pond?");
+`
+
+---
+:Why do we have to go in the pond?
+
+!`
+queueTitle("Because I want to get rid of these thoughts.");
+queueTitle("And you want to get rid of that crummy old body.");
 queueTitle("Take my hand.");
 queueAddChoice("... But we'll forget everything.");
 `
@@ -38,19 +68,19 @@ queueAddChoice("... But we'll forget everything.");
 
 !`
 queueTitle("That's the idea, silly...");
-queueAddChoice("Can't I get a new body without going amnesiac?", "forgNext");
+queueAddChoice("For you, yeah. But isn't there any way I can get around that?", "forgNext");
 `
 
 ---
 :forgNext
 
 !`
-queueTitle("Nope.");
-queueTitle("You heard Mr. Eyeball.");
 queueTitle("Once we step into this pond, we'll dissolve into flesh tatters.");
-queueTitle("Then we'll respawn with new bodies and minds of our own choosing.");
-queueTitle("Leaving your mind untouched is not possible, since, y'know, it dissolves too...");
+queueTitle("Our brains, too.");
 queueCall(function() { setBackground(1, "writer/mynt/face/myntBod/6", CENTERED); });
+queueTitle("Forgetting is not optional.");
+queueCall(function() { setBackground(1, "writer/mynt/face/myntBod/10", CENTERED); });
+queueTitle("Weren't you listening when Mr. Eyeball explained it?");
 queueAddChoice("Ah, yeah... Mr. Eyeball... I'm so out of it.", "forgNext2");
 `
 
@@ -59,9 +89,9 @@ queueAddChoice("Ah, yeah... Mr. Eyeball... I'm so out of it.", "forgNext2");
 
 !`
 queueCall(function() { setBackground(1, "writer/mynt/face/myntBod/8", CENTERED); });
-queueTitle("It's okay! You have plenty of reason to be out of it.");
+queueTitle("That's okay. <3 You have plenty of reason to be out of it.");
 queueCall(function() { setBackground(1, "writer/mynt/face/myntBod/6", CENTERED); });
-queueTitle("I mean, you are pushing 80 with a learning disability and a history of hypoxia abuse.");
+queueTitle("I mean, you are pushing 80 with a learning disability and a history of hypoxia abuse...");
 queueAddChoice("Gee thanks. -_-", "forgNext3");
 `
 
@@ -70,15 +100,12 @@ queueAddChoice("Gee thanks. -_-", "forgNext3");
 
 !`
 queueCall(function() { setBackground(1, "writer/mynt/face/myntBod/10", CENTERED); });
-queueTitle("If you don't like to hear that stuff, step into the pond with me.");
+queueTitle("If you're not proud of that, change it when you're in the pond.");
+queueTitle("I'm making some edits. You can too.");
+queueTitle("We can make our new selves together.");
 queueCall(function() { setBackground(1, "writer/mynt/face/myntBod/8", CENTERED); });
-queueTitle("Your ailments will evaporate!!!!!");
+queueTitle("Please?");
 queueTitle("..........");
-queueCall(function() { setBackground(1, "writer/mynt/face/myntBod/10", CENTERED); });
-queueTitle("Have I convinced you yet~? I'm so persuasive, aren't I?");
-queueTitle("Mmmmm... fresh body... fresh mind... <3");
-queueTitle("They're just waiting for you, over there, in the pit of that pond.");
-queueTitle("Let's go dive down and get them!!");
 queueAddChoice("I'm still not sure.", "forgNext4");
 `
 
@@ -88,7 +115,7 @@ queueAddChoice("I'm still not sure.", "forgNext4");
 !`
 queueCall(function() { setBackground(1, "writer/mynt/face/myntBod/6", CENTERED); });
 queueTitle("Gah! Why not.");
-queueAddChoice("What if we respawn, see each other as strangers, and choose to part ways?", "forgNext5");
+queueAddChoice("After we respawn, we might be strangers again. We might split up!", "forgNext5");
 `
 
 ---
@@ -96,7 +123,7 @@ queueAddChoice("What if we respawn, see each other as strangers, and choose to p
 
 !`
 queueTitle("You know I'm way too clingy to let that happen.");
-queueAddChoice("...", "forgNext6");
+queueAddChoice("... Okay that is kind of true...", "forgNext6");
 `
 
 
@@ -105,9 +132,11 @@ queueAddChoice("...", "forgNext6");
 
 !`
 queueTitle("...");
-queueTitle("... Come on. Rebeca. Seriously. Please.");
-queueTitle("I keep hearing babies giggling in the back of my skull...");
-queueAddChoice("Alright. Fine. Take her hand.", "... Take her hand.");
+queueTitle("... Please, Rebeca.");
+queueTitle("These little silent patches... of ellipses... are killing me...");
+queueTitle("Whenever it's quiet...");
+queueTitle("I hear them crying in the back of my skull...");
+queueAddChoice("Take her hand.", "... Take her hand.");
 `
 
 ---
@@ -115,7 +144,7 @@ queueAddChoice("Alright. Fine. Take her hand.", "... Take her hand.");
 
 !`
 queueCall(function() { setBackground(1, "writer/mynt/face/myntBod/8", CENTERED); });
-queueTitle("YES! Thank you.");
+queueTitle("Thank you.");
 queueTitle("Okay...");
 queueTitle("Don't let go...");
 queueTitle("Even when our fingers unravel!!");
@@ -204,13 +233,14 @@ queueTitle("Don't let go...");
 queueTitle("Don't let... go...");
 queueTitle("Don't let...");
 queueTitle("...............");
+queueCall(function() { getAudio("music2").destroy(); });
 queueTitle("Who are you? Weren't we just speaking? Are you Rebeca?");
 
 queueAddChoice("Submit.", function() {
 	gotoPassage("afterName");
 });
 
-queueAddChoice("I am.", function() {
+queueAddChoice("I guess I must be.", function() {
 	data.playerName = "Rebeca";
 	gotoPassage("afterName");
 });
@@ -286,8 +316,7 @@ addChoice("Wolf.", function() {
 
 !`
 timer(2, function() { setTitle("Alright. I think we're all clean."); });
-timer(4, function() {
-	setBackground(0, "");
+timer(5, function() {
 	setBackground(1, "");
 	setBackground(2, "");
 	setTitle("");
@@ -313,11 +342,7 @@ Mynt peels the soggy sleeves from her arms, folds them in, and wrings the whole 
 Then she tucks her fuzzy thumbs under the waistband and slides them down her thighs, revealing...
 
 !`
-getAudio("music").destroy();
-var music = playMusic("audio/ambience/violetMeteorite");
-music.name = "music";
-
-setBackground(0, "writer/mainBg");
+//setBackground(0, "writer/mainBg");
 //data.myntCock = false;
 addChoice("Please have a cock... please have a cock...", "Please have a cock... please have a cock...", {icons: ["Male"]});
 addChoice("Please have a cunt... please have a cunt...", "Please have a cunt... please have a cunt...", {icons: ["Female"]});
@@ -330,9 +355,10 @@ She reveals her cock. It flops out happily, dripping wet, half-hard.
 
 Mynt looks at you, puzzled over your excitement.
 
+
+[Yesss!]
 !`
 data.myntCock = true;
-addChoice("Yesss!");
 `
 
 ---
@@ -342,23 +368,21 @@ She reveals her cunt. It twitches in the cool air, dripping wet with more than p
 
 Mynt looks at you, puzzled over your excitement.
 
+[Yesss!]
 !`
 data.myntCock = false;
-addChoice("Yesss!");
 `
 
 ---
 :Yesss!
 
-//`myntCock("I used to have a cunt, didn't I? Just a moment ago. Well, I like this thing better...", "Why are you staring at my cunt...? Were you expecting me to change it, like I did with my mind~?")`
+`myntCock("I used to have a cunt, didn't I? Just a moment ago. Well, I like this thing better...", "Why are you staring at my cunt...? Were you expecting me to change it, like I did with my mind~?")`
 
 She giggles. "What?"
 
 She wrings her panties out, too, and sets them to dry on the sun-baked rocks, along with her dress. You watch her bend over and smooth her clothes out, sticking her little green butt in the air. Her tail sways with unfettered contentment.
 
-!`
-addChoice("Lay on the rock.");
-`
+[Lay on the rock.]
 
 ---
 :Lay on the rock.
@@ -373,9 +397,7 @@ The hot stone feels good against your shoulder blades. Mynt crawls up next to yo
 
 "How much do you remember?" she whispers. Her eyes slide down to your `genitals("cock, tucked neatly between your thighs", "cunt, tucked neatly between your legs", "cock, tucked neatly between your thighs")`.
 
-!`
-addChoice("I remember I agreed to forget everything. Before that...");
-`
+[I remember I agreed to forget everything. Before that...]
 ---
 :I remember I agreed to forget everything. Before that...
 
@@ -383,17 +405,13 @@ addChoice("I remember I agreed to forget everything. Before that...");
 
 Mynt draws little circles on your belly with her pointer finger.
 
-!`
-addChoice("I think I remember saying that I love you?");
-`
+[I think I remember saying that I love you?]
 ---
 :I think I remember saying that I love you?
 
 "You did. I remember saying it back, too... and I remember that we chose this."
 
-!`
-addChoice("It's all dark before that point.");
-`
+[It's all dark before that point.]
 
 ---
 :It's all dark before that point.
@@ -415,9 +433,7 @@ She realizes her finger is lodged in your belly button and extracts it with a ~p
 
 "Ah. Right. I called you Rebeca earlier, didn't I? Mom used to talk about you all the time. I think we're `gender("brother and sister", "sisters", "siblings")`."
 
-!`
-addChoice("And, knowing that, you figured you'd come lay next to me naked...");
-`
+[And, knowing that, you figured you'd come lay next to me naked...]
 
 ---
 :And, knowing that, you figured you'd come lay next to me naked...
@@ -428,9 +444,7 @@ She lays on her side, facing you, one paw resting on her hip and the other propp
 
 "Is that a good enough excuse?"
 
-!`
-addChoice("Did our mom remarry or something? I don't remember having any half-siblings.");
-`
+[Did our mom remarry or something? I don't remember having any half-siblings.]
 
 ---
 :Did our mom remarry or something? I don't remember having any half-siblings.
@@ -445,9 +459,7 @@ Mynt turns to look at you. "Mom promised to fix that. She put me to sleep. She s
 
 She throws her arms out and smiles at everything. Armpit droplets spray across your face. "She made my box ginormo!"
 
-!`
-addChoice("But where is mom, then...?");
-`
+[But where is mom, then...?]
 
 ---
 :But where is mom, then...?
@@ -458,9 +470,7 @@ She just grabs you by the shoulders and kisses you hard. Her snout slides up nex
 
 "Don't be sad! She must be out here somewhere!" she assures your mouth.
 
-!`
-addChoice("Mmmmmff!");
-`
+[Mmmmmff!]
 
 ---
 :Mmmmmff!
@@ -468,7 +478,7 @@ addChoice("Mmmmmff!");
 "Is that a 'Yes, she must be!' or a 'This place is huge, you're too optimistic...'?"
 
 !`
-addChoice("Mmf, mff mmmf mm.");
+addChoice("Mmf, mff mmmf mm.", "Mmf, mff mmmf mm.");
 addChoice("Mmmfm mmf mmmmmmffff...", "Mmf, mff mmmf mm.");
 `
 
@@ -498,9 +508,7 @@ addChoice("Maybe slow it down a bit.", "Maybe slow it down a bit.", {icons: ["Pl
 
 ... She doesn't stop straddling you, though.
 
-!`
-addChoice("Why don't we get to know each other again?");
-`
+[Why don't we get to know each other again?]
 
 ---
 :First date~?
@@ -509,10 +517,8 @@ addChoice("Why don't we get to know each other again?");
 
 She straddles you. Her `myntCock` grinds along your thigh.
 
-!`
-addChoice("Did you put roofies in that pond, Mynt?");
-addChoice("Okay it's probably a date.");
-`
+[Did you put roofies in that pond, Mynt?]
+[Okay it's probably a date.]
 
 ---
 :Did you put roofies in that pond, Mynt?
@@ -543,9 +549,7 @@ This position pushes her flat, minty-furred chest up into your face. "You know, 
 
 Your eyes start on her chest and then move laterally to trace the curved pockets of her armpits. They rove over her nubbly nips. You cross your eyes for a moment to inspect her belly button. It's a cute lil innie, and it hovers just above your `boobs`...
 
-!`
-addChoice("Kiss her belly button!!");
-`
+[Kiss her belly button!!]
 
 ---
 :Mmmmmpah... no, it's okay... keep going.

@@ -402,7 +402,7 @@ function setBackground(bgNum, assetId, bgType) {
 	}
 
 	if (backgrounds[bgNum]) {
-		tween(backgrounds[bgNum].sprite, 0.5, {alpha: 0}, {onComplete: function() {
+		tween(backgrounds[bgNum].sprite, 0.2, {alpha: 0}, {onComplete: function() {
 			if (backgrounds[bgNum]) backgrounds[bgNum].sprite.destroy();
 			backgrounds[bgNum] = null;
 			createBg();
@@ -460,6 +460,7 @@ function setTitle(text) {
 		titleTf.setText(text);
 		tween(titleTf, 0.25, {alpha: 1});
 		tween(titleTf, 0.3, {scaleY: 1}, {ease: QUINT_OUT});
+		playEffect("audio/ui/myntTalk");
 	}});
 }
 
@@ -585,7 +586,7 @@ function realUpdate() {
 
 	inputCarrot.x = inputField.x + inputField.textWidth;
 	inputCarrot.y = inputField.y + inputField.textHeight/2 - inputCarrot.height/2;
-	inputCarrot.alpha -= 0.03;
+	inputCarrot.alpha -= 0.02;
 	if (inputCarrot.alpha <= 0) inputCarrot.alpha = 1;
 
 	/// Msgs
@@ -851,14 +852,15 @@ titleBg.layer = TITLE_LAYER;
 
 var titleTf = addEmptyImage(titleBg.width, titleBg.height);
 titleTf.temp = false;
-titleTf.setFont("NunitoSans-Light_22");
+titleTf.setFont("NunitoSans-Bold_22");
 titleTf.layer = TITLE_LAYER;
-titleTf.tint = 0xFFFFFFFF;
+titleTf.tint = 0xFFdff9ff;
 titleBg.addChild(titleTf);
 
 var inputFieldBg = addRectImage(gameWidth, 100, 0x222222);
 inputFieldBg.temp = false;
 inputFieldBg.alpha = 0;
+inputFieldBg.tint = 0x2d354c;
 inputFieldBg.y = gameHeight - BUTTON_HEIGHT - inputFieldBg.height - 32;
 
 var inputField = addEmptyImage(gameWidth, 100);
@@ -867,7 +869,7 @@ inputField.temp = false;
 inputField.tint = 0xFFa5e3f2;
 inputField.setFont("NunitoSans-Light_22");
 
-var inputCarrot = addRectImage(4, 32, 0xFFFFFF);
+var inputCarrot = addRectImage(4, 32, 0x2acbed);
 inputFieldBg.addChild(inputCarrot);
 inputCarrot.temp = false;
 
@@ -905,4 +907,6 @@ addSoundTweak("audio/ui/hoverChoiceIcons/1", 0.6);
 addSoundTweak("audio/ui/hoverChoiceIcons/2", 0.6);
 addSoundTweak("audio/ui/hoverChoiceIcons/3", 0.6);
 
-addSoundTweak("audio/music/newVictim", 0.5);
+addSoundTweak("audio/music/newVictim", 0.2);
+addSoundTweak("audio/music/newSelf", 0.4);
+addSoundTweak("audio/music/violetMeteorite", 0.1);

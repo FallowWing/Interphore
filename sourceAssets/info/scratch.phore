@@ -1,13 +1,22 @@
 START_PASSAGES
-:Start
+:scratchModStart
 !`
 setBackground(0, "img/writer/mainBg");
 setBackground(1, "");
 streamAsset("coin.png", "https://i.imgur.com/mmt2kcc.png");
 `
-This scratch mod, used for testing various things
-[introModMynt]
-[wendyApt]
+WIP Dev Menu
+
+Scene Progress:
+- New intro [X]
+- Meeting Cartographer [  ]
+- Wendy's apartment [X]
+- Meeting Patch [X]
+- LLL [  ]
+- A handful of small kinky worldbuilding scenes [  ]
+
+[introModOriginal]
+[Apartment Scene (comes after LLL and Mynt intro)|wendyApt]
 [LLL]
 [Hub|thirstyCaves]
 [Background Test|backgroundTest]
@@ -34,12 +43,12 @@ gotoMap();
 `
 
 ---
-:introModMynt
+:introModOriginal
 
 !`
 clear();
-execAsset("introModMynt.phore");
-gotoPassage("introModMyntStart");
+execAsset("introMod.phore");
+gotoPassage("introModStart");
 `
 
 ---
@@ -223,4 +232,4 @@ addChoice("Alpha", function() {
 `exitMod();`
 END_PASSAGES
 
-gotoPassage("Start");
+gotoPassage("scratchModStart");
