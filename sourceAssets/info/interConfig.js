@@ -730,7 +730,7 @@ function realUpdate() {
 	/// Choices
 	prevChoices.alpha = nextChoices.alpha = choices.length > choicesPerPage ? 1 : 0;
 
-	for (var i = 0; i < choices.length; i++) choices[i].sprite.y = gameHeight;
+	for (var i = 0; i < choices.length; i++) choices[i].sprite.y = gameHeight + 256; // Go way down there!
 
 	var minChoice = choicePage * choicesPerPage;
 	var maxChoice = minChoice + 4;
