@@ -74,7 +74,7 @@ backgrounds[0].bobY = 0.5;
 setBackground(1, "myntBg2");
 `
 There's some backgrounds.
-[Go back|Start]
+[Go back|scratchModStart]
 ---
 :inputTest
 Gimme some text.
@@ -83,7 +83,7 @@ Gimme some text.
 ---
 :inputTest2
 That text was (`lastInput`)
-[Go back|Start]
+[Go back|scratchModStart]
 ---
 :audioTest
 This is a looping audio test
@@ -103,13 +103,13 @@ addChoice("Stop audio", function() {
 	channel.destroy();
 });
 `
-[Go back|Start]
+[Go back|scratchModStart]
 ---
 :iconTest
 This is a test of the icons
 
 !`
-addChoice("Go back", "Start", {icons: ["Male", "Female"]});
+addChoice("Go back", "scratchModStart", {icons: ["Male", "Female"]});
 `
 ---
 :disableExitTest
@@ -122,7 +122,7 @@ addChoice("Enable", function() {
 	enableExit();
 });
 `
-[Go back|Start]
+[Go back|scratchModStart]
 ---
 :titleTest
 Let's test some titles!
@@ -139,7 +139,7 @@ addChoice("Go for it", function() {
 	queueTitle("Describe your genitals to us.");
 });
 `
-[Go back|Start]
+[Go back|scratchModStart]
 ---
 :imageTest
 Here's some images
@@ -152,7 +152,7 @@ var coin = addImage("coin.png");
 coin.x = 500;
 coin.y = 100;
 `
-[Go back|Start]
+[Go back|scratchModStart]
 ---
 :variableTest
 !`if (data.apples === undefined) data.apples = 1;`
@@ -188,7 +188,7 @@ spr.y = 20;
 tween(spr, 3, {scaleX: 0.8, scaleY: 0.8}, {ease: QUAD_IN, type: PINGPONG});
 tween(spr, 3, {x: 100}, {ease: QUAD_IN, type: PINGPONG});
 `
-[Go back|Start]
+[Go back|scratchModStart]
 ---
 :msgText
 !`
@@ -198,17 +198,17 @@ addChoice("Show some msgs", function() {
 	msg("And another");
 });
 `
-[Go back|Start]
+[Go back|scratchModStart]
 ---
 :textScrollingTest
-[Go back|Start]
+[Go back|scratchModStart]
 !`
 for (var i = 0; i < 40; i++) append("A line\n ");
 `
 ---
 :tagTest
 This <b>text</b> has <i>tags!</i>
-[Go back|Start]
+[Go back|scratchModStart]
 ---
 :benchmark
 This is going to be a sprite benchmark.
@@ -226,7 +226,7 @@ addChoice("Scale", function() {
 addChoice("Alpha", function() {
 });
 `
-[Go back|Start]
+[Go back|scratchModStart]
 ---
 :Exit
 `exitMod();`

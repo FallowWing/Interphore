@@ -498,7 +498,7 @@ Then she pulls off.
 !`
 addChoice("Mmmmmpah... no, it's okay... keep going.", "Mmmmmpah... no, it's okay... keep going.", {icons: ["Love"]});
 addChoice("First date~? I thought this was just an innocent dip in the amnesia pond.", "First date~?");
-addChoice("Maybe slow it down a bit.", "Maybe slow it down a bit.", {icons: ["Plot"]});
+addChoice("Maybe slow it down a bit.", "Maybe slow it down a bit.");
 `
 
 ---
