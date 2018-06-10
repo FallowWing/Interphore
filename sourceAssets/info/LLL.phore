@@ -4,8 +4,8 @@ START_PASSAGES
 Cartographer welcomes you.
 
 [Rules of Operation for Paraphores.]
-[Examine layers.]
-[Browse known layers.]
+[Examine Spilled Ink.|Layer Info.]
+
 ---
 :Browse known layers.
 
@@ -30,24 +30,24 @@ Just got the ball rolling, that's it.
 PARENT ENTITY: CARTOGRAPHER
 CHILD LAYERS: LIBRARY2 (+3 CHILDREN), RELAXATIONGAME, MINT
 PARAPHRASED TIMELINES: 4
-	- PROTOCOL ENDING:
+	> PROTOCOL ENDING:
 		DANGER LEVEL: SAFE
 		CLASS: HEAVEN
 		- CHARACTER(S) "MYNT" AND CHARACTER "REBECA" ASSIMILATED.
 
-	- MINT ENDING:
+	> MINT ENDING:
 		DANGER LEVEL: CORRUPTIVE
 		CLASS: HELL
 		- CHARACTER(S) "MYNT" FUNCTIONALLY PERISHED.
 		- VALID DUPLICATE CHARACTER "REBECA" ASSIMILATED. ASSIMILATED CHARACTER "REBECA" RELOCATED TO PREVENT DUPE COLLISION.
 
-	- MYNT ENDING:
+	> MYNT ENDING:
 		DANGER LEVEL: SAFE
 		CLASS: MACBETH
 		- VALID DUPLICATE CHARACTER(S) "MYNT" ASSIMILATED. ASSIMILATED CHARACTER(S) "MYNT" RELOCATED TO PREVENT DUPE COLLISION.
 		- VALID DUPLICATE CHARACTER "REBECA" PERISHED.
 
-	- METEORITE ENDING:
+	> METEORITE ENDING:
 		DANGER LEVEL: RISKY
 		CLASS: HIGURASHI
 		- ALL CHARACTERS ARE INVALID DUPLICATES. NO FURTHER ASSIMILATION IS POSSIBLE.
@@ -91,7 +91,7 @@ PARAPHRASED TIMELINES: 4
 [Back.|hubLLL]
 
 ---
-:Rules of Operation.
+:Rules of Operation for Paraphores.
 
 The Paraphores have six rules of operation:
 
@@ -104,23 +104,10 @@ The Paraphores have six rules of operation:
 
 [1. Record stories.]
 [2. Tell stories.]
-[Back.|hubLLL]
-[Next.|nextRules]
----
-:nextRules
-The Paraphores have six rules of operation:
-
-1. Record stores.
-2. Tell stories.
-3. After all stories have been recorded, open your eye.
-4. No duplicates.
-5. Know LETHAL and CORRUPTIVE warning signs.
-6. Have fun.
-
 [3. After all stories have been recorded, open your eye.]
 [4. No duplicates.]
 [5. Know LETHAL and CORRUPTIVE warning signs.]
-[Back.|Rules of Operation.]
+[Back.|hubLLL]
 ---
 :1. Record stories.
 
@@ -257,9 +244,9 @@ The Paraphores have six rules of operation:
 
 6. Have fun.
 	- Yes, on one hand, we are enlisting you as an expendable soldier on our relentless march upward to True Reality.
-	- On the other hand, your sacrifice will potentially save millions of souls from the prison of their layer.
-	- 64% of Paraphores agree it is always worth it to open your eye if you can save even just one person from death or eternity in a lonely corner of the multiverse.
-	- Remember that your enlistment as a Paraphore can be cancelled at any time.
+	- On the other hand, your sacrifice will potentially save millions of souls from the prison of a fictional reality.
+	- 77% of Paraphores agree it is always worth it to open your eye if you can save even just one person from death or eternity in a lonely, isolated world.
+	- Remember that your enlistment as a Paraphore can be cancelled at any time prior to deployment.
 [Back.|nextRules]
 
 END_PASSAGES

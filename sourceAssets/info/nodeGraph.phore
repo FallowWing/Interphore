@@ -85,11 +85,13 @@ function gotoMap(isCheckpoint) {
 				node.sprite.alpha = 0.1;
 		} else {
 			node.sprite.onHover = function() {
-				playEffect("audio/ui/hoverChoiceButtons");
-				node.sprite.alpha = 0.8;
+				playEffect("audio/ui/hoverChoiceIcons");
+				node.sprite.scaleX = 1.1;
+				node.sprite.scaleY = 1.1;
 			};
 			node.sprite.onUnHover = function() {
-				node.sprite.alpha = 1;
+				node.sprite.scaleX = 1;
+				node.sprite.scaleY = 1;
 			};
 			node.sprite.onRelease = function() {
 				playEffect("audio/ui/bestChoiceClick");

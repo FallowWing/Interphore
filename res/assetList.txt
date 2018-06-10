@@ -115,6 +115,11 @@ img/ui/dialog/wendyDialog.spr
 audio/ui/notification.ogg
 audio/ui/nextArrow.ogg
 audio/ui/backArrow.ogg
+audio/ui/myntTalk/1.ogg
+audio/ui/myntTalk/2.ogg
+audio/ui/myntTalk/3.ogg
+audio/ui/myntTalk/4.ogg
+audio/ui/myntTalk/5.ogg
 audio/ui/newChoiceClick/1.ogg
 audio/ui/newChoiceClick/2.ogg
 audio/ui/newChoiceClick/3.ogg

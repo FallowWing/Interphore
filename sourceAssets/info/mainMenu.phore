@@ -24,19 +24,21 @@ var buttonTextLeftPad = 40;
 
 //Gray rects
 var titleRect = addRectImage(gameWidth, 156, 0x302f32);
+titleRect.alpha = 0;
 titleRect.y = -titleRect.height;
 
-tween(titleRect, 2, {y: 54}, {ease: QUINT_OUT});
+tween(titleRect, 2, {y: 54, alpha: 1}, {ease: QUINT_OUT});
 
 var taglineRect = addRectImage(gameWidth, buttonHeight, 0x302f32);
 taglineRect.y = 230;
 
-var taglines = ["sex, violence, and reading", "step into the pond"];
-var ran = rndInt(0, 1);
+var taglines = ["sex, violence, and reading", "step into the pond", "sensual text misadventure", "post-apocalyptic amnesiac grandma furries", "finding wendy", "seven layer sex dip", "greater mama", "i can't believe it's not butt hair", "moby dink's revenge 2: the dinkening", "big boi spikes again: a volleyball text game", "ginormo kitten tiddies", "you basically just click buttons", "violent and disgusting (soon)", "porno butt holes", "inherently pornographic organisms", "yiff yiff yiff yiff yiff yiff yiff", "erotic furry text game", "partially customizable groin", "click the play button to begin clicking other buttons", "furry ero text game", "spilled ink", "fucking furries", "reality is a fingerpainting", "navigate treacherous non-euclidean space", "the taglines are random and all equally canon", "you can assimilate me if you want, daddy"];
+var ran = rndInt(0, taglines.length);
 
 var taglineText = addEmptyImage(gameWidth, buttonHeight);
 taglineText.setText(taglines[ran]);
 taglineText.tint = 0xFFeb3b3b;
+taglineText.alpha = 0;
 taglineText.x = gameWidth - taglineText.textWidth - 140;
 taglineText.y = taglineRect.height/2 - taglineText.textHeight/2;
 taglineRect.addChild(taglineText);
@@ -49,7 +51,7 @@ playRect.y = taglineRect.y + taglineRect.height + 50;
 playRect.onRelease = function() {
 	getAudio("music").destroy();
 	playEffect("audio/ui/newChoiceClick");
-	gotoPassage("introModStart");
+	gotoPassage("introModMyntStart");
 	clearNodes();
 }
 
@@ -128,42 +130,47 @@ var modTextTween = tween(modText, 0.3, {x: buttonTextLeftPad + 20}, {ease: QUINT
 var extraRectTween = tween(extraRect, 0.1, {scaleX: 1.05});
 var extraTextTween = tween(extraText, 0.3, {x: buttonTextLeftPad + 20}, {ease: QUINT_OUT});
 
+
 playRect.onHover = function() {
-	playEffect("audio/ui/hoverChoiceIcons");
-	playRect.tint = loadRect.tint = modRect.tint = extraRect.tint = 0;
+	playEffect("audio/ui/hoverChoiceButtons");
 	playRect.tint = 0xFF375266;
 	playRectTween.reset();
 	playTextTween.reset();
 }
 
 loadRect.onHover = function() {
-	playEffect("audio/ui/hoverChoiceIcons");
-	playRect.tint = loadRect.tint = modRect.tint = extraRect.tint = 0;
+	playEffect("audio/ui/hoverChoiceButtons");
 	loadRect.tint = 0xFF375266;
 	loadRectTween.reset();
 	loadTextTween.reset();
 }
 
 modRect.onHover = function() {
-	playEffect("audio/ui/hoverChoiceIcons");
-	playRect.tint = loadRect.tint = modRect.tint = extraRect.tint = 0;
+	playEffect("audio/ui/hoverChoiceButtons");
 	modRect.tint = 0xFF375266;
 	modRectTween.reset();
 	modTextTween.reset();
 }
 
 extraRect.onHover = function() {
-	playEffect("audio/ui/hoverChoiceIcons");
-	playRect.tint = loadRect.tint = modRect.tint = extraRect.tint = 0;
+	playEffect("audio/ui/hoverChoiceButtons");
 	extraRect.tint = 0xFF375266;
 	extraRectTween.reset();
 	extraTextTween.reset();
 }
 
+playRect.onUnHover = loadRect.onUnHover = modRect.onUnHover = extraRect.onUnHover = function() {
+	playRect.tint = loadRect.tint = modRect.tint = extraRect.tint = 0;
+	playEffect("audio/ui/hoverChoiceIcons");
+}
+
 var bottomRect = addRectImage(gameWidth, buttonHeight*2, 0x302f32);
+bottomRect.alpha = 0;
+bottomRect.tint = 0xFFd85252;
 bottomRect.y = gameHeight;
 
-tween(bottomRect, 2, {y: 625}, {ease: QUINT_OUT});
+tween(bottomRect, 2, {y: 625, alpha: 1}, {ease: QUINT_OUT});
+tween(bottomRect, 6, {scaleY: 1.2}, {type: PINGPONG, ease: QUAD_IN_OUT});
 
 //Text
 var text = addImage("img/writer/intro/titleText.png");
@@ -189,7 +196,7 @@ cart.smoothing = true;
 cart.scaleX = cart.scaleY = 1.3;
 
 tween(cart, 1.3, {x: 70, alpha: 1}, {ease: QUINT_OUT});
-tween(cartBG, 0.6, {x: 40}, {ease: QUINT_OUT});
+tween(cartBG, 4, {x: 40}, {type: PINGPONG, ease: QUAD_IN_OUT});
 `
 
 ---
