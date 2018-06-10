@@ -376,7 +376,7 @@ data.myntCock = false;
 ---
 :Yesss!
 
-`myntCock("I used to have a cunt, didn't I? Just a moment ago. Well, I like this thing better...", "Why are you staring at my cunt...? Were you expecting me to change it, like I did with my mind~?")`
+"`myntCock("I used to have a cunt, didn't I? Just a moment ago. Well, I like this thing better...", "Why are you staring at my cunt...? Were you expecting me to change it, like I did with my mind~?")`"
 
 She giggles. "What?"
 
@@ -489,7 +489,7 @@ addChoice("Mmmfm mmf mmmmmmffff...", "Mmf, mff mmmf mm.");
 
 She straddles you, casually, and tucks a lock of hair behind her ear. No, not a human ear on the side of her head; she tucks it behind a cat ear, on top. It's a lot weirder and more awkward when you try to picture it like that.
 
-Her paws rove up your sides, over your bare `boobs`. She kisses you again, softer this time, a little less excited, a little more like she's just doing it to gauge your reaction. 
+Her paws rove up your sides, over your bare `boobs()`. She kisses you again, softer this time, a little less excited, a little more like she's just doing it to gauge your reaction. 
 
 Then she pulls off.
 
@@ -498,7 +498,7 @@ Then she pulls off.
 !`
 addChoice("Mmmmmpah... no, it's okay... keep going.", "Mmmmmpah... no, it's okay... keep going.", {icons: ["Love"]});
 addChoice("First date~? I thought this was just an innocent dip in the amnesia pond.", "First date~?");
-addChoice("Maybe slow it down a bit.", "Maybe slow it down a bit.");
+addChoice("Maybe slow it down a bit.", "Maybe slow it down a bit.", {icons: ["Plot"]});
 `
 
 ---
@@ -515,7 +515,7 @@ addChoice("Maybe slow it down a bit.", "Maybe slow it down a bit.");
 
 "We're alone, together, at some massive hot springs, and we just said we loved each other before holding hands and wiping our memories... it's so romantic! <3 If this isn't a date, then what would you call it?"
 
-She straddles you. Her `myntCock` grinds along your thigh.
+She straddles you. Her `myntCock()` grinds along your thigh.
 
 [Did you put roofies in that pond, Mynt?]
 [Okay it's probably a date.]
@@ -547,7 +547,7 @@ She arches back, throws her arms up, hooks her left paw around her right elbow, 
 
 This position pushes her flat, minty-furred chest up into your face. "You know, in the pond, when I picked my new mind and body... I'm glad I didn't tack on any boobs. I only opted out so I could be sure I'd still fit my dress, but..." She pauses and looks down at her own chest. A cute lil double chin appears and her eyes cross slightly as she ogles her own nips. "But I think I actually like flat chests more, for some reason."
 
-Your eyes start on her chest and then move laterally to trace the curved pockets of her armpits. They rove over her nubbly nips. You cross your eyes for a moment to inspect her belly button. It's a cute lil innie, and it hovers just above your `boobs`...
+Your eyes start on her chest and then move laterally to trace the curved pockets of her armpits. They rove over her nubbly nips. You cross your eyes for a moment to inspect her belly button. It's a cute lil innie, and it hovers just above your `boobs()`...
 
 [Kiss her belly button!!]
 
@@ -556,7 +556,7 @@ Your eyes start on her chest and then move laterally to trace the curved pockets
 
 "Just gonna let that 'first date' thing slide, huh..."
 
-She straddles you. Her `myntCock` grinds along your thigh and leaves a trail of `myntCock("pre", "girlcum")`.
+She straddles you. Her `myntCock()` grinds along your thigh and leaves a trail of `myntCock("pre", "girlcum")`.
 
 !`
 addChoice("I don't care if it's a date or not. We're here now.", "myntRejoin");
@@ -591,9 +591,9 @@ addChoice("Cyan, actually.", "getKnow2");
 ---
 :getKnow2
 
-Mynt pulls her knees up to her chest. You can just see a sliver of her `myntCock` twitching between her ankles. She sucks her thumb like a cub, brow furrowing.
+Mynt pulls her knees up to her chest. You can just see a sliver of her `myntCock()` twitching between her ankles. She sucks her thumb like a cub, brow furrowing.
 
-"Thish is sho weird..." She pops her thumb out and looks at the bead of cyan on its tip. Her eyes cross. Her `myntCock` twitches. "Why do I taste like chocolate-coated watermelon inside...? Am I some kind of candy kitten...?"
+"Thish is sho weird..." She pops her thumb out and looks at the bead of cyan on its tip. Her eyes cross. Her `myntCock()` twitches. "Why do I taste like chocolate-coated watermelon inside...? Am I some kind of candy kitten...?"
 
 !`
 addChoice("Let me taste.", "getKnow3", {icons: ["Blood"]});
@@ -613,7 +613,7 @@ You look at her with your blue-stained mouth still hanging open a couple inches.
 
 "A-Ah! You gagged...? I thought it kinda tasted good..."
 
-It's impossible to ignore the tiny twitch of arousal in her `myntCock`.
+It's impossible to ignore the tiny twitch of arousal in her `myntCock()`.
 
 !`
 addChoice("It zapped me. Maybe you are a cyborg?!", "getKnow4");
@@ -627,7 +627,7 @@ She peers curiously at her own thumb. Finally, it's clotting up. The blood stops
 "Maybe I am."
 
 !`
-addChoice("Hey, I don't judge.", "getKnow5", {icons: "Plot"});
+addChoice("Hey, I don't judge.", "getKnow5", {icons: ["Plot"]});
 addChoice("Seeya later, robosis.", "getKnow6");
 `
 
@@ -964,7 +964,7 @@ You kneel. Your ass blubber kisses the bare soles of your feet. Feels so wet and
 
 Mynt's paw urges your mouth down. "That's it," she says huskily, trying the attitude on. "Breathe it in."
 
-You huff hard. Freshly washed catmusk and `myntCock`-scent slides into your lungs, filling them. "Keep your mouth open."
+You huff hard. Freshly washed catmusk and `myntCock()`-scent slides into your lungs, filling them. "Keep your mouth open."
 
 Her `myntCock("cock hangs lazily in the air just past your lips. It's half-hard, unbarbed, human-shaped. Beads of pre drooble from the slit.", "cunt quivers with a nearby blast of steam. Tendrils of vapour as hot and bright as sunshine hug the curves of her labia, adding the glimmer of condensation on her bare fur where before there was already a glimmer of sweat.")` "Open," Mynt reminds you one more time, and firmly pulls your mouth into her crotch.
 
