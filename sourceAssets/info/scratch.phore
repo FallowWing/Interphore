@@ -7,6 +7,8 @@ streamAsset("coin.png", "https://i.imgur.com/mmt2kcc.png");
 `
 WIP Dev Menu
 
+Make sure you play through the intro or go to Hub and visit Nymphore to set your player variables
+
 Scene Progress:
 - New intro [X]
 - Meeting Cartographer [  ]
@@ -15,10 +17,11 @@ Scene Progress:
 - LLL [  ]
 - A handful of small kinky worldbuilding scenes [  ]
 
-[introModOriginal]
 [Apartment Scene (comes after LLL and Mynt intro)|wendyApt]
 [LLL]
+[Change Mynt's genitals]
 [Hub|thirstyCaves]
+[introModOriginal]
 [Background Test|backgroundTest]
 [Input Text Test|inputTest]
 [Icon Test|iconTest]
@@ -33,6 +36,24 @@ Scene Progress:
 [Text scrolling test|textScrollingTest]
 [Tag test|tagTest]
 [Benchmark|benchmark]
+---
+:Change Mynt's genitals
+
+She currently has `myntCock()`
+
+!`addChoice("Cock", function() {
+	data.myntCock = true;
+	gotoPassage("Change Mynt's genitals");
+});
+
+addChoice("Cunt", function() {
+	data.myntCock = false;
+	gotoPassage("Change Mynt's genitals");
+});
+
+addChoice("Back", "scratchModStart");
+`
+
 ---
 :thirstyCaves
 
@@ -138,8 +159,12 @@ addChoice("Go for it", function() {
 	queueTitle("Welcome to the Interphore.");
 	queueTitle("Describe your genitals to us.");
 });
+
+addChoice("Back", function() {
+	setTitle("");
+	gotoPassage("scratchModStart");
+});
 `
-[Go back|scratchModStart]
 ---
 :imageTest
 Here's some images
@@ -163,7 +188,7 @@ This passage shows off basic variables.
 You have `data.apples` apples.
 [Gain an apple]
 [Lose an apple]
-[Leave|Start]
+[Leave|scratchModStart]
 ---
 :Gain an apple
 !`data.apples += 1;`
@@ -178,7 +203,7 @@ You lost an apple.
 :saveTest
 !`saveCheckpoint();`
 Your data has been saved, you can exit now without losing your data
-[Nice!|Start]
+[Nice!|scratchModStart]
 ---
 :tweenTest
 !`
@@ -225,8 +250,8 @@ addChoice("Scale", function() {
 });
 addChoice("Alpha", function() {
 });
+addChoice("Go back", "scratchModStart");
 `
-[Go back|scratchModStart]
 ---
 :Exit
 `exitMod();`

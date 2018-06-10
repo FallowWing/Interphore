@@ -2,9 +2,6 @@ START_PASSAGES
 :wendyAptStart
 
 !`
-data.genitals = "male";
-data.gender = "male";
-data.species = "cat";
 data.tookStairs = false;
 setBackground(0, "img/writer/mainBg");`
 
@@ -1164,5 +1161,10 @@ Mynt's face pops out of the window. She extracts a paw from her burrito and wave
 :End
 
 To be continued in the next version of Interphore.
+
+!`addChoice("Dev Menu", function() {
+	clear();
+	execAsset("scratch.phore");
+});
 
 END_PASSAGES

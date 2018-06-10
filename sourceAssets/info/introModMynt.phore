@@ -2,6 +2,9 @@ START_PASSAGES
 :introModMyntStart
 !`
 setBackground(0, "writer/mynt/bg/myntBodBg");
+streamEmbeddedTexture("writer/mynt/face/myntBod/10");
+streamEmbeddedTexture("writer/mynt/face/myntBod/6");
+streamEmbeddedTexture("writer/mynt/face/myntBod/8");
 data.gender = "";
 data.genitals = "";
 data.playerName = "";
