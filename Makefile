@@ -25,21 +25,6 @@ CPP_TOOLS_WIN := ..
 
 include Makefile.secret
 
-ifeq ($(shell echo $$DEV_NAME), FallowWing)
-	CPP_TOOLS_ABS := /c/Dropbox/cpp
-	CPP_TOOLS_ABS_WIN := C:\Dropbox\cpp
-	CROSSBRIDGE_PATH = /d/_tools/_sdks/crossbridge
-	JAVA_MAKE_PATH := /d/_tools/_sdks/jdk8u144_x64
-	AIR_MAKE_PATH := /d/_tools/_sdks/air
-	ANDROID_SDK_PATH := /d/_tools/_sdks/android-sdk
-	ANT_PATH := /d/_tools/_sdks/ant
-	FLASH_SO_DIR := /c/Users/$$USERNAME/AppData/Roaming/Macromedia/Flash\ Player/\#SharedObjects/6U22UWBZ/localhost/Dropbox/cpp
-	EMSCRIPTEN_DIR := /d/_tools/_sdks/emsdk-portable/emscripten/1.37.21
-	EMSCRIPTEN_DIR_WIN := D:\_tools/_sdks/emsdk-portable/emscripten/1.37.21
-	PYTHON3 := /c/Users/$$USERNAME/AppData/Local/Programs/Python/Python36/python.exe
-	PARAPHORE_COM_PATH := /d/paraphore.com
-endif
-
 ifeq ($(shell echo $$DEV_NAME), Kittery)
 	CPP_TOOLS_ABS := /c/Users/$$USERNAME/Dropbox/cpp
 	CPP_TOOLS_ABS_WIN := C:\Users\$$USERNAME\Dropbox\cpp
