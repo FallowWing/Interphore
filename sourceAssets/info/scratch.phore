@@ -109,7 +109,7 @@ addChoice("Stop audio", function() {
 This is a test of the icons
 
 !`
-addChoice("Go back", "Start", {icons: ["Male", "Female"]});
+addChoice("Go back", "scratchModStart", {icons: ["Male", "Female"]});
 `
 ---
 :disableExitTest
