@@ -614,7 +614,12 @@ You lift your chin a little and stare at the stucco ceiling, once dripping dust,
 !`if (data.myntCock && (data.genitals == "male" || data.genitals == "both")) addChoice("Frot.", "frot1");
 if (!data.myntCock && (data.genitals == "female" || data.genitals == "both")) addChoice("Scissor.", "scissor1");
 if (!data.myntCock && (data.genitals == "male" || data.genitals == "both")) addChoice("Dry hump her cunt.", "vaginal1");
-if (data.myntCock && (data.genitals == "female" || data.genitals == "both")) addChoice("Spread my cunt for her~", "vaginalSub1");`
+if (data.myntCock && (data.genitals == "female" || data.genitals == "both")) addChoice("Spread my cunt for her~", "vaginalSub1");
+if (data.genitals === undefined) addChoice("Go set your variables you rube", function() {
+	clear();
+	execAsset("thirstyCaves.phore");
+	gotoPassage("Jump in.");
+});`
 
 ---
 :frot1
@@ -820,9 +825,9 @@ At first she seems excited about that, but then her brow furrows a little, and h
 
 She squints. "Hmmmm? They're just scattered everywhere. What do you mean, they're not random?"
 
-[Mr. Eyeball, describe the city as seen from the pond on the meteorite.|windDown5]
+[Mr. Eyeball, describe the city as seen from the pond on the meteorite.|windDown4]
 ---
-:windDown5
+:windDown4
 
 Right where the tourists spawn in? You really are crafty.
 
@@ -844,9 +849,9 @@ She looks at you.
 
 "Or something like that. Right?"
 
-[I guess we can ask Mom when we find her.|windDown5]
+[I guess we can ask Mom when we find her.|windDown5a]
 ---
-:windDown5
+:windDown5a
 
 She giggles and slides off the windowsill— no, not over the edge, back inside.
 
@@ -1165,6 +1170,6 @@ To be continued in the next version of Interphore.
 !`addChoice("Dev Menu", function() {
 	clear();
 	execAsset("scratch.phore");
-});
+});`
 
 END_PASSAGES
