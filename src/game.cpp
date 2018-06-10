@@ -365,9 +365,6 @@ void runMod(char *serialData) {
 		lineStart = lineEnd+1;
 	}
 
-	// printf("Gonna exec:\n%s\n", realData);
-	// exit(1);
-
 	Free(inputData);
 
 	// printf("Final: %s\n", realData->cStr);
