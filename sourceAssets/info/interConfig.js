@@ -914,5 +914,5 @@ addSoundTweak("audio/music/newVictim", 0.2);
 addSoundTweak("audio/music/newSelf", 0.4);
 addSoundTweak("audio/music/violetMeteorite", 0.1);
 
-streamEmbededTexture("NunitoSans-Light_22");
-streamEmbededTexture("NunitoSans-Bold_22");
+streamEmbeddedTexture("NunitoSans-Light_22");
+streamEmbeddedTexture("NunitoSans-Bold_22");
