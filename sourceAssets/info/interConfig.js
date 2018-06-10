@@ -265,10 +265,14 @@ function playMusic(assetId) {
 }
 
 function playEffect(assetId) {
-	var audio = newAudio();
-	audio.id = playEffect_internal(assetId);
-	audios.push(audio);
+	var audio = playMusic(assetId);
+	audio.looping = false;
 	return audio;
+
+	// var audio = newAudio();
+	// audio.id = playEffect_internal(assetId);
+	// audios.push(audio);
+	// return audio;
 }
 
 function getAudio(audioName) {
@@ -909,3 +913,6 @@ addSoundTweak("audio/ui/hoverChoiceIcons/3", 0.6);
 addSoundTweak("audio/music/newVictim", 0.2);
 addSoundTweak("audio/music/newSelf", 0.4);
 addSoundTweak("audio/music/violetMeteorite", 0.1);
+
+streamEmbededTexture("NunitoSans-Light_22");
+streamEmbededTexture("NunitoSans-Bold_22");
