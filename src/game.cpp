@@ -65,6 +65,7 @@ struct Game {
 
 void runMod(char *serialData);
 void msg(const char *str, ...);
+void jsError(const char *message);
 
 duk_ret_t append(duk_context *ctx);
 duk_ret_t setMainText(duk_context *ctx);
@@ -124,6 +125,7 @@ void initGame(MintSprite *bgSpr) {
 	strcpy(engine->spriteData.defaultFont, "OpenSans-Regular_40");
 
 	initJs();
+	jsErrorFn = jsError;
 
 	addJsFunction("submitPassage", submitPassage, 1);
 	addJsFunction("streamAsset", streamAsset, 2);
@@ -399,6 +401,15 @@ void msg(const char *str, ...) {
 	printf("msg: %s\n", buffer);
 }
 
+void jsError(const char *message) {
+	printf("Got js Error: %s\n", message);
+
+	char *buf = (char *)Malloc(strlen(message) + 1024);
+	sprintf(buf, "msg(\"Error: %s\", {smallFont: true, hugeTexture: true, extraTime: 20});", message);
+	runJs(buf);
+	Free(buf);
+}
+
 duk_ret_t append(duk_context *ctx) {
 	duk_int_t type = duk_get_type(ctx, -1);
 	if (type == DUK_TYPE_STRING) {
@@ -663,8 +674,12 @@ void modLoaded(char *data) {
 
 	if (!streq(data, "none") && !streq(data, "(null)")) {
 		msg("Mod loaded!");
-		runMod(data);
-		Free(data);
+		String *str = newString(2048);
+		str->append("try {\n");
+		str->append(data);
+		str->append("\n} catch (e) { msg(String(e.stack), {smallFont: true, hugeTexture: true, extraTime: 20}); }\n");
+		runMod(str->cStr);
+		str->destroy();
 	} else {
 		msg("No mod found");
 	}
