@@ -170,6 +170,7 @@ void initGame(MintSprite *bgSpr) {
 	// if (streq(name, "loadModFromDisk")) return (void *)loadModFromDisk;
 
 	game = (Game *)zalloc(sizeof(Game));
+	game->bg = bgSpr;
 	initProfiler(&game->profiler);
 	initDebugOverlay(&game->debugOverlay);
 
@@ -185,6 +186,20 @@ void initGame(MintSprite *bgSpr) {
 }
 
 void deinitGame() {
+	for (int i = 0; i < IMAGES_MAX; i++) {
+		MintSprite *img = game->images[i];
+		if (img) img->destroyReal();
+	}
+	game->bg->destroyReal();
+
+	for (int i = 0; i < game->passagesNum; i++) {
+		Passage *passage = game->passages[i];
+		Free(passage->name);
+		Free(passage->data);
+		Free(passage);
+	}
+
+	// stb_leakcheck_dumpmem();
 	printf("deinited\n");
 }
 
