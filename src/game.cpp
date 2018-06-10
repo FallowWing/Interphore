@@ -82,6 +82,7 @@ void modLoaded(char *data);
 
 duk_ret_t interTweenEase(duk_context *ctx);
 duk_ret_t setFontTag(duk_context *ctx);
+duk_ret_t streamEmbeddedTexture(duk_context *ctx);
 
 /// Images
 duk_ret_t addImage(duk_context *ctx);
@@ -133,6 +134,7 @@ void initGame(MintSprite *bgSpr) {
 	addJsFunction("gotoPassage_internal", gotoPassage, 1);
 	addJsFunction("tweenEase", interTweenEase, 2);
 	addJsFunction("setFontTag", setFontTag, 2);
+	addJsFunction("streamEmbeddedTexture", streamEmbeddedTexture, 1);
 
 	addJsFunction("addImage_internal", addImage, 1);
 	addJsFunction("addCanvasImage_internal", addCanvasImage, 3);
@@ -692,6 +694,16 @@ duk_ret_t setFontTag(duk_context *ctx) {
 	const char *tag = duk_get_string(ctx, -2);
 
 	engine->spriteData.tagMap->setString(tag, stringClone(fontName));
+
+	return 0;
+}
+
+duk_ret_t streamEmbeddedTexture(duk_context *ctx) {
+	const char *assetId = duk_get_string(ctx, -1);
+
+	const char *textures[1] = {assetId};
+
+	streamTextures(textures, 1, 1);
 
 	return 0;
 }
