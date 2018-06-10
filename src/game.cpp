@@ -246,7 +246,7 @@ void updateGame() {
 		game->mainText->setupEmpty(engine->width - 64, 2048);
 		game->mainText->clipRect.setTo(0, 0, engine->width, engine->height - BUTTON_HEIGHT - 16);
 		strcpy(game->mainText->defaultFont, "NunitoSans-Light_26");
-		game->mainText->tint = 0xFFFFFFFF;
+		game->mainText->tint = 0xFFdff9ff;
 	}
 
 	int viewHeight = engine->height - BUTTON_HEIGHT - 16;

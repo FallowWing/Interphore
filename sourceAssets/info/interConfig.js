@@ -195,7 +195,7 @@ function addChoice(choiceText, result, config) {
 	spr.addChild(tf);
 	tf.temp = false;
 	tf.setFont("NunitoSans-Light_22");
-	tf.tint = 0xFFFFFFFF;
+	tf.tint = 0xFFa5e3f2;
 	tf.setText(choiceText);
 	tf.layer = CHOICE_TEXT_LAYER;
 	tf.x = spr.width/2 - tf.textWidth/2;
@@ -805,12 +805,14 @@ nextChoices.onRelease = function() {
 	if (nextChoices.alpha != 1) return;
 	var totalPages = choices.length / choicesPerPage;
 	if (choicePage >= totalPages-1) return;
+	playEffect("audio/ui/nextArrow");
 	choicePage++;
 }
 
 var nextArrow = addImage("choiceArrow.png");
 nextArrow.temp = false;
 nextChoices.addChild(nextArrow);
+nextArrow.tint = 0xFFa5e3f2;
 nextArrow.x = nextChoices.width/2 - nextArrow.width/2;
 nextArrow.y = nextChoices.height/2 - nextArrow.height/2;
 
@@ -820,6 +822,7 @@ prevChoices.temp = false;
 prevChoices.onRelease = function() {
 	if (prevChoices.alpha != 1) return;
 	if (choicePage <= 0) return;
+	playEffect("audio/ui/backArrow");
 	choicePage--;
 }
 
@@ -827,6 +830,7 @@ var prevArrow = addImage("choiceArrow.png");
 prevArrow.temp = false;
 prevChoices.addChild(prevArrow);
 prevArrow.scaleX = -1;
+prevArrow.tint = 0xFFa5e3f2;
 prevArrow.x = prevChoices.width/2 - prevArrow.width/2 + prevArrow.width;
 prevArrow.y = prevChoices.height/2 - prevArrow.height/2;
 
@@ -860,7 +864,7 @@ inputFieldBg.y = gameHeight - BUTTON_HEIGHT - inputFieldBg.height - 32;
 var inputField = addEmptyImage(gameWidth, 100);
 inputFieldBg.addChild(inputField);
 inputField.temp = false;
-inputField.tint = 0xFFFFFFFF;
+inputField.tint = 0xFFa5e3f2;
 inputField.setFont("NunitoSans-Light_22");
 
 var inputCarrot = addRectImage(4, 32, 0xFFFFFF);
@@ -870,7 +874,7 @@ inputCarrot.temp = false;
 var inputTitle = addEmptyImage(gameWidth, 150);
 inputTitle.temp = false;
 inputFieldBg.addChild(inputTitle);
-inputTitle.tint = 0xFFFFFFFF;
+inputTitle.tint = 0xFFa5e3f2;
 inputTitle.setFont("NunitoSans-Light_22");
 inputTitle.alpha = 0.75;
 
@@ -888,14 +892,17 @@ addSoundTweak("audio/ui/newChoiceClick/6", 0.2);
 addSoundTweak("audio/ui/newChoiceClick/7", 0.2);
 addSoundTweak("audio/ui/newChoiceClick/8", 0.2);
 addSoundTweak("audio/ui/newChoiceClick/9", 0.2);
-addSoundTweak("audio/ui/hoverChoiceButtons/1", 0.4);
-addSoundTweak("audio/ui/hoverChoiceButtons/2", 0.4);
-addSoundTweak("audio/ui/hoverChoiceButtons/3", 0.4);
+addSoundTweak("audio/ui/bestChoiceClick/1", 0.2);
+addSoundTweak("audio/ui/bestChoiceClick/2", 0.2);
+addSoundTweak("audio/ui/bestChoiceClick/3", 0.2);
+addSoundTweak("audio/ui/hoverChoiceButtons/1", 0.07);
+addSoundTweak("audio/ui/hoverChoiceButtons/2", 0.07);
+addSoundTweak("audio/ui/hoverChoiceButtons/3", 0.07);
 addSoundTweak("audio/ui/tooltip/1", 0.2);
 addSoundTweak("audio/ui/tooltip/2", 0.2);
 addSoundTweak("audio/ui/tooltip/3", 0.2);
-addSoundTweak("audio/ui/hoverChoiceIcons/1", 0.2);
-addSoundTweak("audio/ui/hoverChoiceIcons/2", 0.2);
-addSoundTweak("audio/ui/hoverChoiceIcons/3", 0.2);
+addSoundTweak("audio/ui/hoverChoiceIcons/1", 0.6);
+addSoundTweak("audio/ui/hoverChoiceIcons/2", 0.6);
+addSoundTweak("audio/ui/hoverChoiceIcons/3", 0.6);
 
 addSoundTweak("audio/music/newVictim", 0.5);

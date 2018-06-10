@@ -163,7 +163,7 @@ extraRect.onHover = function() {
 var bottomRect = addRectImage(gameWidth, buttonHeight*2, 0x302f32);
 bottomRect.y = gameHeight;
 
-tween(bottomRect, 2, {y: 625}, {ease: QUINT_IN});
+tween(bottomRect, 2, {y: 625}, {ease: QUINT_OUT});
 
 //Text
 var text = addImage("img/writer/intro/titleText.png");

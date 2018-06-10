@@ -1,7 +1,12 @@
 START_PASSAGES
 :wendyAptStart
 
-!`setBackground(0, "img/writer/mainBg");`
+!`
+data.genitals = "male";
+data.gender = "male";
+data.species = "cat";
+data.tookStairs = false;
+setBackground(0, "img/writer/mainBg");`
 
 You and Mynt come to the double-doors of 322 Peachpit Road, a shitty apartment complex.
 
@@ -13,7 +18,7 @@ Mynt shoves the double-doors open wide with both paws and struts into the little
 
 Mynt's finger trails down the buttons... and lands on one with the name <i>Wendy Archibald</i> next to it.
 
-She turns to you. "Our mom's name is Wendy," she breathlessly reveres. "What a cute name!!! Like from Peter Pan!"
+She turns to you. "Our mom's name is Wendy," she breathlessly reveres. "I knew I remembered it right. Had a feeling it was Pater Pannish, at least..."
 
 [Yeah. Just like Peter Pan.]
 ---
@@ -21,9 +26,7 @@ She turns to you. "Our mom's name is Wendy," she breathlessly reveres. "What a c
 
 Mynt presses Wendy's button. There's a little beep and a spark from the back of the panel.
 
-"The electricity is still on..."
-
-The glass door to the main lobby is locked and shattered. Mynt punches a bit more of it out with a sleeve balled over her fist, grimacing, and ducks through.
+The glass door to the main lobby is locked and shattered. Mynt ducks through after she grimaces and punches a bit more of it out with a sleeve balled over her fist.
 
 [Follow.]
 ---
@@ -40,11 +43,17 @@ Dust chunks and broken ceiling tiles and cables and glass shards from the broken
 ---
 :Sure. I'm lazy.
 
+!`data.tookStairs = false;`
+
 Mynt presses the UP button. The elevator <i>dings</i> and starts to drop.
 
-Reedy animal screams echo down the shaft. You stare wide-eyed at Mynt. Both of you listen to the sound of twigs and nesting splintering under the weight of the elevator, pattering down on the concrete floor, thwapping against the inside of the elevator doors.
+Animal screams echo down the shaft.
 
-Two small thumps and three smaller thumps as some little creatures hit the bottom.
+You stare wide-eyed at Mynt.
+
+What sounds like multiple nests splinter under the weight of the elevator, pattering down like rain on the concrete floor, scraping twiggy wooden fingernails along the inside of the metal elevator doors.
+
+Two small thumps and three smaller thumps hit the bottom.
 
 Mynt covers her face. "Oh."
 
@@ -52,7 +61,7 @@ Another ding.
 
 The elevator doors open.
 
-It's empty, stained, dark. The lights burnt out a while ago, but most of the buttons still glow.
+It's empty, stained, dark. The lights burnt out a while ago. None of the buttons glow anymore.
 
 Mynt trudges inside, looking at the ground. She wrings her paws in front of her lap.
 
@@ -61,7 +70,7 @@ Mynt trudges inside, looking at the ground. She wrings her paws in front of her 
 ---
 :It's not our fault.
 
-"Whose fault is it?" she responds immediately. "It was my idea."
+"Whose fault could it be?" she responds immediately. "It was my idea."
 
 [It's their fault for building a nest in an elevator shaft.]
 ---
@@ -102,9 +111,11 @@ After a short, silent, pitch-black ride to the top, you step out of the elevator
 
 You both look down the hallway. All the lights have gone now. There's only a stained, cracked window at the very end. Numbers from 70-79 run down the walls.
 
-[Why room seventy-seven?]
+[Next.|I dunno.]
 ---
 :The stairs would be safer.
+
+!`data.tookStairs = true;`
 
 "Right," she says, eyeing the burnt-out tubes in the flourescent lights. "We don't want the power cutting out halfway up."
 
@@ -112,35 +123,29 @@ You both look down the hallway. All the lights have gone now. There's only a sta
 ---
 :next1
 
-The stairs look like they're melting; all the concrete has started to sag, and the carpet that used to fit each stair perfectly now looks like loose, floppy foreskin.
+The stairs look like they're melting; all the concrete has started to sag, and the carpet that used to fit each stair perfectly now looks like loose, floppy stair-foreskin.
 
-By the time you reach floor seven, you're both panting and smiling with exertion.
+By the time you reach floor seven, you're both panting and wincing with exertion.
 
 "It feels good," Mynt pants, "to have a body."
 
-[It feels good to have a functional body.]
+[It feels good to have a young, cute body.]
 ---
-:It feels good to have a functional body.
+:It feels good to have a young, cute body.
 
 She kisses your cheek breathlessly. Her warm breath washes over the side of your mouth.
 
-"Of course. That's what I meant."
+"Of course. That's what," she pants, "I meant."
 
-You both look down the hallway. All the lights have gone now. There's only a stained, cracked window at the very end. Numbers from 70-79 run down the walls.
+You both look down the hallway. All the lights have gone now. There's only a stained, cracked window at the very end.
 
-[Why room seventy-seven?]
----
-:Why room seventy-seven?
+Numbers from 70-79 run down the walls.
 
-"I dunno. Why not room seventy-seven?"
-
-Her eyes are set on the end of the hall.
-
-[I dunno.]
+[Next.|I dunno.]
 ---
 :I dunno.
 
-She leads the way, speed-walking, without looking backwards once.
+Mynt leads the way, speed-walking, without looking backwards once.
 
 73, 74...
 
@@ -152,49 +157,59 @@ She leads the way, speed-walking, without looking backwards once.
 
 75, 76...
 
-[This place is abandoned. She's probably not here.]
+[This place is abandoned. Mom's probably not here.]
 ---
-:This place is abandoned. She's probably not here.
+:This place is abandoned. Mom's probably not here.
 
 ... 77.
 
 "I know! But still— maybe— I mean— if she's expecting us, this is where she would—"
 
-Mynt tries to turn the handle but it's locked, so she casually backs up, braces herself against the hallway wall, kicks off for a sprinting start, and shoulder-checks Wendy's apartment open. Weak wood spliters away from the handle. The door THWACKs against the opposite wall. A stench of rot and musty air seeps over you.
+Mynt tries to turn the handle. It's locked.
 
-"... be."
+She casually backs up, braces herself against the hallway wall, kicks off for a sprinting start, and shoulder-checks Wendy's old apartment door open. Weak wood spliters away from the handle. The door THWACKs against the opposite wall. A stench of rot and musty air seeps over you.
 
-Her wet eyes go blank. 
+There is no light or movement inside.
+
+"... this is where she would be."
+
+Her eyes go blank. 
 
 [Hug her.]
 ---
 :Hug her.
 
-You hug Mynt, linking your arms around the small of her back. She doesn't hug back, but she does relax a little.
+You hug Mynt, linking your arms around the small of her back.
+
+She doesn't hug back, but she does relax a little.
 
 [It's okay. We'll find her somewhere.]
 ---
 :It's okay. We'll find her somewhere.
 
-Mynt peeks over your shoulder at Wendy's apartment. It's packed to the absolute fucking brim with pile after pile of useless shit: half-used kleenex boxes, stained plates, a billion dust-caked baby toys, trophies, magazines, pile after pile, little free ketchup packets, perfume samples, bath bombs, pile after pile, anti-bacterial hand soap samples, socks, panties, pile after pile, old clothes, clothes that never fit you or Wendy and never would have, losing lottery tickets, shitty code handbooks half-gift-wrapped with birthday cards and christmas cards <i>(to Wendy...)</i> still stuck between the pages, bottles of detergent with half an inch left in the bottom, pile after pile, diapers, pile after pile, baby powder, pile after pile, kid's books, pile after pile, pile after pile, pile after...
+Mynt nods against you and peeks over your shoulder, into Wendy's apartment. Sunshine pours in through the open window and bakes the stench of the room into a humid smog.
 
-Mynt whimpers: "W-Was someone squatting here? Did she do this? If she's buried in here somewhere..."
+It's packed to the absolute fucking brim with pile after pile of useless shit: half-used kleenex boxes, stained plates, a billion dust-caked toys, trophies, magazines, pile after pile, little free ketchup packets, perfume samples, bath bombs, decomposed food, pile after pile, anti-bacterial hand soap samples, socks, panties, pile after pile, old clothes, clothes that never fit you or Wendy and never would have, losing lottery tickets, shitty Javascript handbooks half-gift-wrapped with birthday cards and christmas cards still stuck between the pages <i>(to Wendy...)</i>, pile after pile, bottles of detergent with half an inch left in the bottom, pile after pile, diapers, pile after pile, baby powder, pile after pile, kid's books, pile after pile, pile after pile, pile after...
 
-[No. I remember she got assimilated. If she did die in here, she'd respawn.]
+Mynt whimpers: "If her dead body is buried in here somewhere, I'll snap..."
+
+[But she was assimilated just like us. She'd just respawn if she died.]
 ---
-:No. I remember she got assimilated. If she did die in here, she'd respawn.
+:But she was assimilated just like us. She'd just respawn if she died.
 
 "Right... I guess we should check anyway, just in case..."
 
 The inside of the apartment smells how it looks. A thousand different pungent stanks bully each other out of the way for the privilege of raping your nostrils, but none of those stanks resembles rotting human flesh.
 
-"She's not here," Mynt admits to herself, after tearing apart eight piles and knocking over two more by accident. She flops down on the mattress— one of the only clear places in the apartment, besides a maze of narrow hallways carved through the piles of junk by habit. "She's not here."
+"She's not here," Mynt admits to herself, after tearing apart eight piles and knocking over two more by accident. She flops down on the bare, stained mattress— one of the only garbage-free places in the apartment, besides a maze of narrow hallways carved through the junk piles by years and years of habit.
+
+"She's not here."
 
 [That's fine. At least we know where to wait for her.]
 ---
 :That's fine. At least we know where to wait for her.
 
-Mynt cocks her head and furrows her brow. Her tail flicks with suppressed annoyance.
+Mynt cocks her head and furrows her brow. Her tail flicks with suppressed annoyance and her nose shrivels up.
 
 "You want to <i>stay</i> here...?"
 
@@ -202,11 +217,13 @@ Mynt cocks her head and furrows her brow. Her tail flicks with suppressed annoya
 ---
 :Why not? We have to set up home base somewhere.
 
-"Yeah.. but..."
+She squints at you.
 
-[And we might as well pick the one place she might come back to.]
+"Yeah... but..."
+
+[We might as well pick the one place she might come back to.]
 ---
-:And we might as well pick the one place she might come back to.
+:We might as well pick the one place she might come back to.
 
 "Yeaaaaaah.. buuuut..."
 
@@ -214,11 +231,11 @@ She winces.
 
 "It's a fucking dump."
 
-[Let's just clean it out, then.]
+[It's always been messy. Let's just clean it out, then.]
 ---
-:Let's just clean it out, then.
+:It's always been messy. Let's just clean it out, then.
 
-"Clean it out?! Do you know how long it will—"
+"You grew up in <i>this</i>—? You... wait, clean it out?! Do you know how long it will—"
 
 [Mynt.]
 ---
@@ -230,7 +247,7 @@ She winces.
 ---
 :We're not really here.
 
-... She grabs two handfuls of crusty old bedsheets. They crunch with tight anxiety.
+... She grabs two handfuls of crusty old bedsheets. They crunch tight with anxiety.
 
 "What do you mean? This is real."
 
@@ -243,6 +260,8 @@ She winces.
 [Because I can do this.]
 ---
 :Because I can do this.
+
+...
 
 [Next x2.|next2]
 ---
@@ -265,7 +284,9 @@ She puts on a face like |:< and clearly doesn't get it at all.
 ---
 :next3
 
-I dutifully skip exactly three moments for both of you.
+She enters that command.
+
+I put her on autopilot for exactly three moments. I summarize it as 'A few moments pass' for her.
 
 Mynt blinks. Her understanding of the world falls away.
 
@@ -273,19 +294,19 @@ She clutches her head and tries to come up with some new existential scaffolding
 
 "No... wait... hold on..."
 
-[You really never noticed that everything was being narrated to you, and not directly experienced?]
+[You really never noticed that everything was being narrated into your head?]
 ---
-:You really never noticed that everything was being narrated to you, and not directly experienced?
+:You really never noticed that everything was being narrated into your head?
 
-"It's not that I didn't notice, it's just—it's not so different from how I used to be, in the computer... I'm still just running commands, here. Give me a break."
+"It's not that I didn't notice, it's just— this system is not so different from how I used to be, in the computer... I'm still just running commands, here. Give me a break."
 
-She pauses, deeply frustrated. She grits her teeth and forces herself to keep talking to you, to stay present, to keep out of the black water that just opened up at her toes.
+Mynt pauses, deeply frustrated at the goddamn mishmash hodgepodge trainwreck that is the structure of being. She grits her teeth and forces herself to keep talking to you, to stay present, because she wants to focus on anything other than the black water that just opened up at her toes.
 
 "I really thought... this was just what real life was like... a narrator, and reading, and commands..."
 
 [I'm pretty used to it, too. I really hadn't questioned it much til now.]
 ---
-:I'm pretty used to it, too.  I really hadn't questioned it much til now.
+:I'm pretty used to it, too. I really hadn't questioned it much til now.
 
 She looks at her paws.
 
@@ -303,7 +324,7 @@ She looks at her paws.
 
 She gulps. The trash heaps and the dirty walls of the apartment surround her.
 
-"I feel claustrophobic."
+"I feel restless."
 
 [I've got just the thing for that.]
 ---
@@ -319,13 +340,23 @@ She gulps. The trash heaps and the dirty walls of the apartment surround her.
 ---
 :Clean out the apartment.
 
-You grab a double-armful of miscellaneous garbage and haul it all the way out of the apartment, down the hall, down the @TODO need var stairs/elevator, right to the dumpsters you saw on your way in.
+You grab a double-armful of miscellaneous garbage and haul it all the way out of the apartment, down the hall, down the `data.tookStairs ? "stairs" : "elevator"`, right to the dumpsters you saw on your way in.
 
-You repeat that process eighty-seven times. Mynt joins in from the fifth haul onward, rejuvenated by your craftiness. You tend to take smaller loads and carry them more carefully; On the other hand, Mynt grabs eight more things than she can reasonably carry and jogs them down way too fast. She takes the corners so quickly that lateral G's topple about half of each load by the time it reaches ground floor. She never notices, thankfully, because you're always right behind her to pick up the trail of junk.
+You repeat that process eighty-seven times. Mynt joins in from the fifth haul onward— she would've never thought to exploit this new system of consciousness just to cheat hard labour out of me, so she's rejuvenated and frankly aroused by your craftiness. Every time you pass her out by the dumpsters, she blushes and thanks you again for coming up with this plan.
 
-You don't throw out everything: Mynt starts a pile of keepsakes and maybe-keepsakes outside the front door, including a journal, some nudie magazines, some trophies...
+Don't read that in a passive-aggressive way, though. I mean, it would have been nice of you to ask first, but I don't mind hauling your mom's hot garbage either way.
 
-Now you're left with a roomful of spiders and stains. Mynt digs out some cleaning chemicals and a couple sponges from the maid's long-abandoned cart and sets to work genociding all the bacteria caked into the floors and walls. Meanwhile, you get a broom and knock the cobwebs off the ceiling, wipe the windows with some glass cleaner, and give the carpet a deep and thorough soap soak.
+You tend to take smaller loads and carry them more carefully; On the other hand, rejuvenated Mynt thinks she's being just as crafty as you when she grabs eight more things than she can reasonably carry and jogs them down way too fast. She takes the corners so sharply that lateral G's topple about half of each load onto the ground by the time she reaches the lobby. She never notices, thankfully, because you're always right behind her to pick up the trail of junk.
+
+You guys don't throw out everything, though. Mynt starts a pile of keepsakes and maybe-keepsakes outside the front door, including a journal, some nudie magazines, some trophies, a little too many stuffed animals than a grown woman should have... 
+
+[Next next next, yadda yadda, ez game...]
+---
+:Next next next, yadda yadda, ez game...
+
+Basically an entire day's worth of moments pass.
+
+Now you're left with a roomful of spiders and stains. Mynt digs out some cleaning chemicals and a couple sponges from the maid's long-abandoned cart and sets to work genociding all the dirt and bacteria caked into the floors and walls. Meanwhile, you get a broom and knock the cobwebs off the ceiling, wipe the windows with some glass cleaner, and give the carpet a deep and thorough soap soak. To unwind, you both tie towels to your feet and squish around on the soft, sudsy wet carpet to help it dry out a little faster.
 
 [See? Easy. All we had to do was read a couple paragraphs in our heads.]
 ---
@@ -349,15 +380,15 @@ She pulls you in for a good squeezer. "It smells like a dentist's office in here
 
 "Me too."
 
-Birds sing and flutter by outside the open window. The sun has started to set. In the distance, halfway embedded between clouds, a nuclear power plant chugs away. The city lights up with a sparse sprinkling of lights— just the ones that haven't burnt out.
+Birds sing and flutter by outside the open window. The sun has started to set. In the distance, halfway embedded between clouds, a nuclear power plant chugs away. The city lights up with a sparse sprinkling of lights— just the ones that haven't burnt out, that's all.
 
-Soon, the chemical smell wafts out the window and the open door. All you can smell now is Mynt's fur. It's vaguely sweet? Must be the candy kitten blood, just beneath it.
+Soon, the chemical smell wafts out the window and the open door. It leaves pure, fresh nothingness in its wake. All you can smell now is Mynt's fur. It's vaguely sweet? Must be the candy kitten blood just underneath.
 
 "Are you sniffing my fur?" she asks, turning her nose up at you.
 
-[What if I am.]
+[And what if I am.]
 ---
-:What if I am.
+:And what if I am.
 
 She smirks and slips one of Wendy's crinkled nudie mags out from the chest of her dress.
 
@@ -367,11 +398,17 @@ She smirks and slips one of Wendy's crinkled nudie mags out from the chest of he
 ---
 :What are the consequences?
 
-"... I actually don't know. I was hoping I could just improv with this... but my shitty banter reserves are dry. Too much stress for one day. I lost all my memories, chased Mom, met a little fox mapper, came to Earth, cleaned out an apartment, and—"
+She rolls it up and whacks you with it.
+
+"Bad `dog`! Bad!"
+
+[Ow fuck stop!]
+---
+:Ow fuck stop!
 
 She just shakes her head, over-frazzled, and kisses you.
 
-"— oh, I'll just ask. Wanna look at this dirty magazine with me?"
+"Okay, fine, don't play along. I'll just ask. Wanna look at this dirty magazine with me?"
 
 [Sure~]
 ---
@@ -379,33 +416,33 @@ She just shakes her head, over-frazzled, and kisses you.
 
 You snuggle up with Mynt and peek at the magazine's cover.
 
-CALLIOPE
-Ladies Only
+<i>CALLIOPE
+Ladies Only</i>
 
-The cover shot catches two kneeling ladies at a POV angle, as seen from above; their curves are constrained by too-tight spaghetti-string "clothes," including tiny bikini tops that cover only their nipples, and tiny golden teardrop pendants dangle from their cunts, both sets of lips flossed with spandex.
+The cover shot catches two kneeling ladies at a POV angle, as seen from above; their curves are constrained by too-tight spaghetti-string "clothes," including tiny bikini tops that cover only their nipples, and tiny golden teardrop pendants that dangle from their cunts, both sets of pussylips flossed with spandex.
 
 Mynt's eyes go wide. `myntCock("Her dress tents.", "She shifts her legs to grind her thighs over her undoubtedly tingly cunt.")`
 
-"Well," she says, "`genitals("I'm definitely at least bi.", "I guess mom and I both like girls...", "I'm definitely at least bi.")`"
+"Well," she says, "`genitals("I'm definitely at least bi.", "I guess mom and I both like that kinda thing...", "I'm definitely at least bi.")`"
 
 [Read the blurbs...]
 ---
 :Read the blurbs...
 
-CURIOUS INSERTIONS
-Are you one of those exploratory types that scours the fridge for dildos? Some veggies, like carrots, can actually harm you if you jam them up the wrong hole. See pg. 7 for tips and tricks on how to SAFELY get some cummies out of your crisper.
+<b>CURIOUS INSERTIONS</b>
+<i>Are you one of those exploratory types that scours the fridge for fresh sexual adventures? Some veggies, like carrots, can actually harm you if you jam them up your snatch without protection. See pg. 7 for tips and tricks on how to SAFELY extract some cummies from your crisper.</i>
 
-SCISSOR ME TIMBERS
-Could lumberjack butch style make a comeback this year? See pg. 15 for the scoop.
+<b>SCISSOR ME TIMBERS</b>
+<i>Could lumberjack butch style make a comeback this year? See pg. 15 for the scoop.</i>
 
-THE APOCALYPSE
-A giant meteorite landed on Earth and assimilated everyone into a multiversal shapeshifter hivemind that calls itself the Interphore. What kind of body do you want? Are you going to opt in or out of lesbianism, and why? Fill out our short questionnaire on pg. 22 for a chance to win a tour of six popular girls-only layers, hosted by God himself!
+<b>THE APOCALYPSE</b>
+<i>A giant meteorite landed on Earth without destroying anything and then it slowly assimilated everyone into a multiversal shapeshifting hivemind that calls itself the Interphore. What kind of body do you want? Are you going to opt in or out of your same-sex attractions, and why? Fill out our short questionnaire on pg. 22 for a chance to win a tour of six popular girls-only layers— hosted by Cartographer himself!</i>
 
 [Huh.|nextMag1]
 ---
 :nextMag1
 
-"So that's where we swam," Mynt says, jabbing a finger at the word <i>meteorite</i>.
+"So that's where we swam together," Mynt says, jabbing a finger at the word <i>meteorite</i>.
 
 [Right. Gosh, how old is this magazine?]
 ---
@@ -431,13 +468,13 @@ She squints.
 ---
 :Something like that.
 
-"I guess the girls-only tour contest is over, then..."
+"I guess the girls-only tour contest is probably over by now, then..."
 
 [That's what you're concerned about?!]
 ---
 :That's what you're concerned about?!
 
-"What?! I was thinking about it, that's all..."
+"What?! I just want to see more of what's out there, that's all... and if cute girls happen to be part of it, you know, then..."
 
 A two-page spread derails her train of thought: girls, girls, girls, and then a couple more girls for good measure. It's a massive orgy of all species and sizes— well, not cubs, because another blurb on the back proclaims proudly that this magazine stays away from that stuff entirely— but almost every kind of human, furry, or alien girl is represented on the spread, usually peeling her legs open and showing the camera her cooch or leaving her mouth wide to show everyone how drooly and wet her tongue is: big-hipped bitches, skinny bitches, bad bitches, mediocre bitches, goo bitches, pink bitches, purple bitches, they've got em all.
 
@@ -463,7 +500,11 @@ She flips another page.
 
 "It's... me."
 
-This section of the magazine is a big yuri fest. Seems like once-human artists returned to Earth from their new homes all over the multiverse and sent in their cutest girl-on-girl drawings as part of last month's contest. In the far right corner of the page there's a noobish doodle of Mynt's green cat body, complete with her black dress. It wasn't even close to winning. You think they just put it in the yuri collage out of pity.
+This section of the magazine is a big yuri fest. Seems like once-human artists returned to Earth from their new homes all over the Interphore just to send in their cutest girl-on-girl drawings as part of March's contest.
+
+In the far right corner of the page, there's a noobish doodle of Mynt's green cat body, complete with her black dress.
+
+It wasn't even close to winning. You think they just put it in the yuri collage out of pity.
 
 Mynt immediately flips to the back of the mag and scans for a list of people who entered the contest. There's nothing. You guess copyright and crediting practices did kind of go out the window when everyone's identity liquified and humanity scattered into a thousand different planes of existence.
 
@@ -483,25 +524,25 @@ Nothing.
 
 "Kittery, Maine," Mynt says, pointing to the fine print on the inside of the cover.
 
-[Hmmmmmmmmmmmmmmm.]
+[Hmmmmmmmmm.]
 ---
-:Hmmmmmmmmmmmmmmm.
+:Hmmmmmmmmm.
 
 She sighs and folds the magazine up in her lap. A nymph girl winks up at her from the back cover, petite tits, puffy pussy, ass stuck out.
 
 "DO YOU KNOW WHAT THIS MEANS?" she explodes.
 
-[AAAAH FUCK what what does it mean]
+[AAAAH FUCK what what does the sexy nymph mean]
 ---
-:AAAAH FUCK what what does it mean
+:AAAAH FUCK what what does the sexy nymph mean
 
-"It means she came back here! She visited her apartment, at least! She didn't just fly off into space forever!!!"
+"No, not that— the fact that she had this magazine at all. It means she came back here after impact! She visited her apartment, at least! She didn't just fly off into space forever!!!"
 
 [Ooo that is kind of promising, isn't it?]
 ---
 :Ooo that is kind of promising, isn't it?
 
-"Although– this magazine is so old. Maybe she hasn't been here in half a century..."
+"Although... this magazine is so old. Maybe she hasn't been here in half a century..."
 
 [Still, if she came back once, she might again.]
 ---
@@ -533,13 +574,13 @@ She wraps a hand around your hips. The saucy girl on the back of Wendy's magazin
 
 [Mmmm...]
 ---
-Mmmm...
+:Mmmm...
 
 "Pleeeeeeeeeeaaase?"
 
 [I'll think about it.]
 ---
-I'll think about it.
+:I'll think about it.
 
 "Ugh!"
 
@@ -549,11 +590,11 @@ She rolls on top of you, crushing you under her hips. `myntCock("Her cock smushe
 
 The sun has set now. Cool, dusky air rolls in through the open window and stirs up the floral scent of Wendy's freshly cleaned apartment. It ruffles and plays with the hem of Mynt's dress.
 
-She lowers her maw to your neck and brushes it with her lips. "We're gonna part again soon, so let's make the most of this evening, okay?"
+She lowers her maw to your neck and brushes it with her lips. "If we're gonna part again soon, let's make the most of this evening, okay?"
 
 [Okay...]
 ---
-Okay...
+:Okay...
 
 Her lips close on your sensitive neck. She sucks gently.
 
@@ -561,7 +602,9 @@ Her lips close on your sensitive neck. She sucks gently.
 ---
 :I assume you want to top...?
 
-She slams her hips down on yours and growls into your neck. The bedframe squeaks with inanimate excitement.
+She slams her hips down on yours and growls into your neck.
+
+The bedframe squeaks with inanimate excitement.
 
 [I'll take that as a yes.]
 ---
@@ -571,10 +614,10 @@ You lift your chin a little and stare at the stucco ceiling, once dripping dust,
 
 "Mmmngh?" Mynt asks. She reaches back and pulls her dress up until you can see each mound of her asscheeks peeking out, threaded by panties. Downstairs, her `myntCock("cock is tenting them; a tiny bead of pre forms on the fabric and drips onto your bare crotch", "cunt's all bunched up in their fabric. She pinches it and tugs it out, revealing a couple thin juice stains")`.
 
-`if (data.myntCock && (data.hasCock || data.hasBoth)) addChoice("Frot.", "frot1");
-if (!data.myntCock && (data.hasCunt || data.hasBoth)) addChoice("Scissor.", "scissor1");
-if (!data.myntCock && (data.hasCock || data.hasBoth)) addChoice("Dry hump her cunt.", "vaginal1");
-if (data.myntCock && (data.hasCunt || data.hasBoth)) addChoice("Spread my cunt for her~", "vaginalSub1");`
+!`if (data.myntCock && (data.genitals == "male" || data.genitals == "both")) addChoice("Frot.", "frot1");
+if (!data.myntCock && (data.genitals == "female" || data.genitals == "both")) addChoice("Scissor.", "scissor1");
+if (!data.myntCock && (data.genitals == "male" || data.genitals == "both")) addChoice("Dry hump her cunt.", "vaginal1");
+if (data.myntCock && (data.genitals == "female" || data.genitals == "both")) addChoice("Spread my cunt for her~", "vaginalSub1");`
 
 ---
 :frot1
@@ -669,13 +712,13 @@ You gasp and stare at the ceiling, wide-eyed. Heat leaks over the seam of your n
 
 Mynt goes utterly feral after about five seconds of cock. She's just gone.
 
-Her thrusts katamari damacy pace and force over time, fuckin NAAAA NA NA NA NA NA NAing more and more of it every single second. She can't even keep a constant rhythm going because she's just permanently accelerating.
+Her thrusts katamari damacy pace and force over time, fuckin NAAAA NA NA NA NA NA NAing more and more of it every second. She can't even keep a constant rhythm going because she's just permanently accelerating.
 
 "Fuck," she urges you.
 
 You can't match her rhythm, because there is no rhythm, but you try to match her rate of acceleration at least: you beat your hips up against hers, nuts flapping around adorably. "Yes," she gasps mindlessly, "Come on— yes!"
 
-Her cuntlips smack against your fupa, and the sensitive bits of skin around the base of your dick, including the little squishy part just below that isn't quite your nutsack yet, and every smack sends pangs of pleasure up your spinal column, directly into the most carnal parts of your mind— the parts built up over millions of years of mammalian sex, the same parts that urged every single one of your ancestors to seek out pussy and fuck it hard.
+Her cuntlips smack against your fupa and the sensitive bits of skin around the base of your dick, including that little squishy divot where your nuts meet your shaft. Every smack sends pangs of pleasure up your spinal column, directly into the most carnal parts of your mind— the parts built up over millions of years of mammalian sex, the same parts that urged every single one of your ancestors to seek out pussy and fuck it hard.
 
 [Harder!|vaginal3]
 ---
@@ -685,7 +728,7 @@ You try to bring your hands up to squeeze her ass and fuck her harder but she ta
 
 Mynt's clit throbs against the base of your dick on the downswing. Her asscheeks ripple and sway on the upswing. She drives your cock in so deeply that your slit starts kissing her cervix.
 
-She slams down to max depth`knot(", knotting herself on your dick,", "")` and holds it there, shivering.
+She slams down to max depth`data.hasKnot?", knotting herself on your dick,":""` and holds it there, shivering.
 
 Sweat drops hang from her chin and belly button.
 
@@ -762,9 +805,11 @@ Mynt hobbles off the bed, dripping. She flops her upper body out the apartment w
 ---
 :windDown2
 
-The lights are almost all burnt out, so light pollution is barely even there. Constellations hang in the sky, scattered like dots of paint from a flicked brush. Dark city buildings complicate the horizon, where a single strip of purple sunset still lingers.
+The lights are almost all burnt out, so light pollution is barely even there. Constellations hang in the sky. Dark city buildings complicate the horizon, where a single strip of purple sunset still lingers.
 
-"It's so huge..." she purrs. At first she seems excited about that, but then her brow furrows a little, and her purrs die out. Her ass bumps yours and nuzzles with it. "A little too huge. But— hey, why'd they take care of some random lights, but not all of them...? There's no way all those bulbs lasted all these years..."
+"It's so huge..." she purrs.
+
+At first she seems excited about that, but then her brow furrows a little, and her purrs die out. Her ass bumps yours and nuzzles with it. "A little too huge. But— hey, why'd they take care of some random lights, but not all of them...? There's no way all those bulbs lasted all these years without maintenance."
 
 [... Hold the fuck on.|windDown3]
 ---
@@ -772,19 +817,19 @@ The lights are almost all burnt out, so light pollution is barely even there. Co
 
 "Hmmmm~?"
 
-[They're not random.|windDown4]
+[Maybe they're not random.|windDown4]
 ---
 :windDown4
 
 She squints. "Hmmmm? They're just scattered everywhere. What do you mean, they're not random?"
 
-[Hey Eyeball, describe the city from the perspective of someone who just spawned here.|windDown5]
+[Mr. Eyeball, describe the city as seen from the pond on the meteorite.|windDown5]
 ---
 :windDown5
 
-From up on the meteorite, near the pond? You're crafty.
+Right where the tourists spawn in? You really are crafty.
 
-If you looked at the city from up there right now, the lights would align to form one word:
+If you looked at the city from up there right now, the only lights that people have returned to maintain would align to form one word:
 
 FREE.
 
@@ -792,29 +837,35 @@ FREE.
 ---
 :windDown5
 
+"Free..."
+
 Mynt places a paw on her chin and thinks about this.
 
-"It must be an advertisement," she concludes after a moment. "Humanity is asking people to come down here and make it their home. They're saying: 'Look, we know there are tons of buildings and flags and shit that looks like territorial markings everywhere, but we've left now, and this planet is free for anyone to use! It's been like a loving, big-hipped mama to us, but now we're moving on to greater things, and greater mamas. Please come down and fill it with life again! Don't let our planet be lonely and neglected!'"
+"It must be an advertisement," she concludes after a moment. "Humanity is asking people to come down here and make it their home. They're saying: 'Look, we know there are tons of buildings and flags and things that look like territorial markings everywhere, but we've left now, and this planet is free for anyone to use! It's been like a loving, big-hipped mama to us, and now we're moving on to greater things, and greater mamas. Please come down and fill it with life again! Don't let our planet be lonely and neglected!'"
 
-[Mynt where the fuck did you get all that from.|windDown5]
+She looks at you.
+
+"Or something like that. Right?"
+
+[I guess we can ask Mom when we find her.|windDown5]
 ---
 :windDown5
 
 She giggles and slides off the windowsill— no, not over the edge, back inside.
 
-"I dunno. That's just how Mom would have put it."
+"I guess we can."
 
-[Maybe it's just a victory thing. Like, 'yay, we're free! We've ascended to a new mode of being!']
+[Maybe it's just a victory thing. Like, 'yay, we're free! We've escaped our mama planet!']
 ---
-:Maybe it's just a victory thing. Like, 'yay, we're free! We've ascended to a new mode of being!'
+:Maybe it's just a victory thing. Like, 'yay, we're free! We've escaped our mama planet!'
 
 She pouts. "But that doesn't sound as cute."
 
-[Too bad.|windDown6]
+[Humanity isn't very cute.|windDown6]
 ---
 :windDown6
 
-She sticks her tongue out at you.
+She sticks her tongue out at you. "I disagree."
 
 [Smooch it.|windDown7]
 ---
@@ -826,9 +877,11 @@ You peck her tongue. She recoils in shock, like you just hit her.
 ---
 :windDown8
 
-"Ah— what! I was surprised..."
+"Ah— what! You don't just kiss someone's tongue like that..."
 
-She wanders around the empty apartment, wringing her dress. Her panties still lay discarded on the bed, but you don't think she even notices she isn't wearing them. You've been naked this whole time, after all, and it has felt perfectly natural.
+Mynt trails off into grumbles, rolling her tongue around in her mouth and probably still tasting your saliva a little.
+
+She wanders around the empty apartment, wringing her dress. Her panties still lay discarded on the bed. You don't think she even notices she isn't wearing them. You've been naked this whole time, after all, and it feels perfectly natural.
 
 "So..."
 
@@ -840,13 +893,15 @@ She wanders around the empty apartment, wringing her dress. Her panties still la
 ---
 :So you want to go to Kittery.
 
-"Yes," she says carefully, sitting on the bed. "I want to be the one to sniff her out, if there's sniffing to be done."
+"Yes," she says carefully, sitting on the bed. "I want to be the one to sniff Mom out, if there's sniffing to be done."
 
 [And you want me to wait here for her, in case she comes back.]
 ---
 :And you want me to wait here for her, in case she comes back.
 
-"Yes. But you don't have to just be a lump. You can go find some plants and set them up on the windowsill— or cute posters! Or sex toys! Just explore the other apartments, dig through people's shit, and keep an ear out for her." She pauses to look over the bare, scoured walls. "We need to decorate. Badly."
+"Yes. But you don't have to just be a lump. You can go find some plants and set them up on the windowsill— or cute posters! Or sex toys! Just explore the other apartments, dig through people's shit, and keep an ear out for her."
+
+She pauses to look over the bare, scoured walls. "Also, we need to decorate. Badly."
 
 [Welllll. Alright, I guess.]
 ---
@@ -860,15 +915,17 @@ She blinks.
 ---
 :Yeah. I'll let you go.
 
-You're expecting her to explode with excitement, but her smile just flickers to life half-heartedly and then fades. "Aha... ah, wow, that was easy... I guess um. I'll guess I'll just be going, then."
+You're expecting her to explode with excitement, but her smile just flickers to life half-heartedly and then fades.
+
+"Aha... ah, wow, that was easy... I was ready to launch into a full banter sesh. Guess um. Guess I'll just be going, then."
 
 [Yep. Seeya later. Love you.]
 ---
 :Yep. Seeya later. Love you.
 
-... Before she heads for the door, she takes one last look out at the city. She makes the mistake of looking directly up at the stars, which look like they hang from invisible threads across a black dome the size of... well, the size of the entire planet.
+... Before she heads for the door, she takes one last look out at the city. She makes the mistake of looking directly up at the stars, which seem to hang from invisible threads across a black dome the size of... well, the size of the entire planet.
 
-"Oh..." she says, weakly. It's just a bit louder than a croak in the pit of her throat.
+"Oh..." she says, weakly. It's just a soft croak in the pit of her throat.
 
 [What's wrong?|end1]
 ---
@@ -890,9 +947,11 @@ I'm not omniscient. I don't know the name of every city on every bumfuck layer i
 ---
 :Wow, tone down the sass please.
 
-"Can you at least tell us how far it is from this city to Kittery?" Mynt asks me. For some reason she feels the need to stare at the ceiling, like I'm above her instead of directly inside her head. I guess it's better than crossing her eyes to try and look inside herself.
+"Can you at least tell us how far it is from this city to Maine?" Mynt asks me.
 
-You're two thousand miles away from Kittery. It's six hundred and thirty hours away on foot, or about a month. I can timeskip it for you if you use the Next command, or you can kill yourself and respawn at any fixed point in the layer— including a point two thousand miles away, if you wanted.
+For some reason she feels the need to stare at the ceiling, like I'm above her instead of directly inside her head. I guess it's better than crossing her eyes to try and look inside herself.
+
+You're in a city two thousand miles away from Kittery. It's six hundred and thirty hours away on foot, or about a month. I can timeskip it for you if you use the Next command, or you can kill yourself and respawn at any fixed point in the layer— including a point two thousand miles away, if you wanted.
 
 [Welp, that settles it. Mynt, lemme push you out the window.]
 ---
@@ -926,15 +985,15 @@ The planet or the whole universe?
 
 "The— well, I don't know— all of it. How big is all of it?"
 
-92,000,000,000 light years.
+We have seen a minimum girth of 92,000,000,000 light years. It might be bigger.
 
 She blinks.
 
-"And what's a light-year?"
+"And... how far is a light-year?"
 
 In kilometres or miles?
 
-"The—" she blinks again, rapid-fire— "I don't know, the... the... one that works out to a... smaller number."
+"The—" she blinks again, rapid-fire— "I don't know. The one that works out to a smaller number?"
 
 One light year is 5,900,000,000,000 miles.
 
@@ -956,7 +1015,7 @@ Mynt burrows under the sheets of the bed and becomes a shivering lump in two sec
 ---
 :Whaaat? But you were all excited about that earlier!
 
-"I didn't— until I looked at the sky, I didn't— it's <i> way too big!!!!</i> How did you LIVE here?! Weren't you scared of falling off the planet, into all that endless black?!"
+"I didn't— until I looked at the sky, I didn't— it's <i>way too big!!!!</i> How did you LIVE here?! Weren't you scared of falling off the planet, into all that endless black?!"
 
 [That's not how gravity works.]
 ---
@@ -964,7 +1023,7 @@ Mynt burrows under the sheets of the bed and becomes a shivering lump in two sec
 
 Her voice comes out muffled from underneath several layers of burrowing, now:
 
-"Universal constants could shift at any time!!! Don't get so comfortable!!!!!!"
+"Your universal constants could shift at any time!!! Don't get so comfortable!!!!!!"
 
 [Cool it with the exclamation marks. I'll go.]
 ---
@@ -997,7 +1056,7 @@ She slips back under the blankets.
 ---
 :Gotcha. I'm gonna go through those keepsakes out front, then I'll jump out the window.
 
-"Ehe... okay... tell me if you find any new lore on mom, yeah...?"
+"Ehe... okay... tell me if you find any new mom lore, yeah...?"
 
 [I will.|end3]
 ---
@@ -1007,7 +1066,7 @@ You leave the shivering lump in the bed to her own business and step outside the
 
 The hall is completely black. You hadn't really noticed how dark it was, since the starlight was pouring in through the window.
 
-Trying to sort through the pile of not-junk you skimmed out from the many, many piles of total junk is not easy in the darkness. You end up feeling over most things... soft, fuzzy... hard, metallic... crinkly paper...
+The darkness doesn't make it easy to sort through this pile of maybe-not-junk. You end up just feeling over most things... soft, fuzzy... hard, metallic... crinkly paper...
 
 [Examine fuzzy thing.]
 [Examine metal thing.]
