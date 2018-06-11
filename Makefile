@@ -25,20 +25,6 @@ CPP_TOOLS_WIN := ..
 
 include Makefile.secret
 
-ifeq ($(shell echo $$DEV_NAME), Kittery)
-	CPP_TOOLS_ABS := /c/Users/$$USERNAME/Dropbox/cpp
-	CPP_TOOLS_ABS_WIN := C:\Users\$$USERNAME\Dropbox\cpp
-	CROSSBRIDGE_PATH = /d/tools/sdks/crossbridge
-	JAVA_MAKE_PATH := /d/tools/sdks/jdk8u144_x64
-	AIR_MAKE_PATH := /d/tools/sdks/air
-	ANDROID_SDK_PATH := /d/tools/sdks/androidsdk
-	ANT_PATH := /d/tools/sdks/ant
-	FLASH_SO_DIR := /c/Users/$$USERNAME/AppData/Roaming/Macromedia/Flash\ Player/\#SharedObjects/2WELS2GC/localhost/Users/$$USERNAME/Dropbox/cpp
-	EMSCRIPTEN_DIR := /d/_tools/_sdks/emsdk-portable/emscripten/1.37.21
-	PYTHON3 := /c/Users/$$USERNAME/AppData/Local/Programs/Python/Python36/python.exe
-	PARAPHORE_COM_PATH := ../../mintykitt/EroGame/Mint/other/paraphore.com
-endif
-
 GAME_WIDTH=1280
 GAME_HEIGHT=720
 SCREEN_ORIENTATION := landscape
