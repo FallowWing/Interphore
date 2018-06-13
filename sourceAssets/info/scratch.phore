@@ -17,6 +17,9 @@ Scene Progress:
 - LLL [  ]
 - A handful of small kinky worldbuilding scenes [  ]
 
+!`
+addChoice("Load a mod", loadMod);
+`
 [Apartment Scene (comes after LLL and Mynt intro)|wendyApt]
 [LLL]
 [Change Mynt's genitals]
