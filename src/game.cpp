@@ -460,6 +460,8 @@ duk_ret_t append(duk_context *ctx) {
 				code->destroy();
 				label->destroy();
 				result->destroy();
+			} else if (line->charAt(0) == '\0') {
+				strcat(game->mainTextStr, "\n");
 			} else {
 				strcat(game->mainTextStr, line->cStr);
 				if (i < linesNum-1) strcat(game->mainTextStr, "\n");
