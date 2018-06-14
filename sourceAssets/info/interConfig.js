@@ -550,6 +550,11 @@ function msg(str, config) {
 	return message;
 }
 
+function submitPassage(str) {
+	print("Submitting "+str);
+	submitPassage_internal(str);
+}
+
 function __update() {
 	try {
 		realUpdate();

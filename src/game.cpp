@@ -70,6 +70,7 @@ void jsError(const char *message);
 duk_ret_t append(duk_context *ctx);
 duk_ret_t setMainText(duk_context *ctx);
 duk_ret_t submitPassage(duk_context *ctx);
+duk_ret_t addPassage(duk_context *ctx);
 duk_ret_t streamAsset(duk_context *ctx);
 void assetStreamed(char *serialData);
 duk_ret_t execAsset(duk_context *ctx);
@@ -127,7 +128,8 @@ void initGame(MintSprite *bgSpr) {
 	initJs();
 	jsErrorFn = jsError;
 
-	addJsFunction("submitPassage", submitPassage, 1);
+	addJsFunction("submitPassage_internal", submitPassage, 1);
+	addJsFunction("addPassage", addPassage, 2);
 	addJsFunction("streamAsset", streamAsset, 2);
 	addJsFunction("execAsset", execAsset, 1);
 
@@ -571,6 +573,33 @@ duk_ret_t submitPassage(duk_context *ctx) {
 	// exit(0);
 	return 0;
 }
+
+duk_ret_t addPassage(duk_context *ctx) {
+	const char *data = duk_get_string(ctx, -1);
+	const char *name = duk_get_string(ctx, -2);
+
+	Passage *passage = (Passage *)zalloc(sizeof(Passage));
+	passage->name = stringClone(name);
+	passage->data = stringClone(data);
+	printf("Passage |%s| added, contains:\n%s\n", name, data);
+
+	bool addNew = true;
+	for (int i = 0; i < game->passagesNum; i++) {
+		if (streq(game->passages[i]->name, passage->name)) {
+			Free(game->passages[i]->name);
+			Free(game->passages[i]->data);
+			Free(game->passages[i]);
+			game->passages[i] = passage;
+			addNew = false;
+		}
+	}
+
+	if (addNew) game->passages[game->passagesNum++] = passage;
+
+	// exit(0);
+	return 0;
+}
+
 
 duk_ret_t streamAsset(duk_context *ctx) {
 	const char *url = duk_get_string(ctx, -1);
