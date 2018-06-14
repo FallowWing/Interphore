@@ -1,0 +1,18 @@
+START_PASSAGES
+:startBasic
+This is a basic mod `5`
+
+`1`
+`2`
+`3`
+
+With some random `"stuff"` in !`var test = 4+4;` to test stuff
+!`
+if (test == 8) {
+	append("test\nwas\n8!");
+}
+`
+---
+END_PASSAGES
+
+gotoPassage("startBasic");

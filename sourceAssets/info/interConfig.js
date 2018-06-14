@@ -551,8 +551,45 @@ function msg(str, config) {
 }
 
 function submitPassage(str) {
-	print("Submitting "+str);
-	submitPassage_internal(str);
+	var code = "";
+
+	str = str.replace(/\r/g, "");
+	var lines = str.split("\n");
+	var name = lines.shift().replace(/^\s+|\s+$/g, "");
+	name = name.substr(1, name.length);
+	print("Got name: "+name);
+
+	var preCode = lines.join("\n");
+	lines = preCode.split("`");
+
+	var inCode = false;
+	var noAppendNextCode = false;
+	lines.forEach(function(line, i) {
+		if (!inCode) {
+			line = line.replace(/\"/g, "\\\"");
+			if (line.charAt(line.length-1) == "!") {
+				noAppendNextCode = true;
+				line = line.substr(0, line.length-1);
+			}
+			line = line.replace(/\n/g, "\\n");
+			code += "append(\""+line+"\");\n";
+		} else {
+			if (noAppendNextCode) {
+				code += line;
+			} else {
+				if (line.charAt(line.length-1) == ";") line = line.substr(0, line.length-1);
+			code += "append("+line+");\n";
+			}
+			noAppendNextCode = false;
+		}
+		inCode = !inCode;
+	});
+	
+	print("Got code:\n"+code);
+	addPassage(name, code);
+
+	// print("Submitting "+str);
+	// submitPassage_internal(str);
 }
 
 function __update() {

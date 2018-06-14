@@ -183,8 +183,9 @@ void initGame(MintSprite *bgSpr) {
 	char *initCode = (char *)getAsset("info/interConfig.js")->data;
 	runJs(initCode);
 
+	char *tempCode = (char *)getAsset("info/basic.phore")->data;
 	// char *tempCode = (char *)getAsset("info/scratch.phore")->data;
-	char *tempCode = (char *)getAsset("info/main.phore")->data;
+	// char *tempCode = (char *)getAsset("info/main.phore")->data;
 	runMod(tempCode);
 
 	game->root = createMintSprite();
@@ -417,6 +418,9 @@ duk_ret_t append(duk_context *ctx) {
 	if (type == DUK_TYPE_STRING) {
 		const char *data = duk_get_string(ctx, -1);
 
+		// strcat(game->mainTextStr, data);
+		// return 0;
+
 		String *str = newString(256);
 		str->set(data);
 
@@ -581,7 +585,7 @@ duk_ret_t addPassage(duk_context *ctx) {
 	Passage *passage = (Passage *)zalloc(sizeof(Passage));
 	passage->name = stringClone(name);
 	passage->data = stringClone(data);
-	printf("Passage |%s| added, contains:\n%s\n", name, data);
+	// printf("Passage |%s| added, contains:\n%s\n", name, data);
 
 	bool addNew = true;
 	for (int i = 0; i < game->passagesNum; i++) {

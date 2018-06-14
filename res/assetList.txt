@@ -25,6 +25,7 @@ info/thirstyCaves.phore
 info/wendyApt.phore
 info/LLL.phore
 info/scratch.phore
+info/basic.phore
 info/utils.phore
 
 img/writer/mainBg.png
