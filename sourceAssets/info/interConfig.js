@@ -20,7 +20,7 @@ var checkpointStr = "{}";
 var exitDisabled = false;
 var lastInput = "";
 var choicePage = 0;
-var doneStreamingAssets = false;
+var assetStreamsLeft = 0;
 
 var queuedCommands = [];
 var queueTimeLeft = 0;
@@ -636,13 +636,7 @@ function __update() {
 function realUpdate() {
 	/// Misc
 	var elapsed = 1/60;
-	if (doneStreamingAssets) {
-		while (doneStreamingFns.length > 0) doneStreamingFns.shift()();
-
-		doneStreamingFns = [];
-		doneStreamingAssets = false;
-	}
-	// print("Tweens: "+tweens.length);
+	while (doneStreamingFns.length > 0 && assetStreamsLeft == 0) doneStreamingFns.shift()();
 
 	/// Image mouse events
 	images.forEach(function(img) {

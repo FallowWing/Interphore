@@ -184,6 +184,7 @@ void initGame(MintSprite *bgSpr) {
 	// char *tempCode = (char *)getAsset("info/basic.phore")->data;
 	// char *tempCode = (char *)getAsset("info/scratch.phore")->data;
 	char *tempCode = (char *)getAsset("info/main.phore")->data;
+	// char *tempCode = (char *)getAsset("info/odd.txt")->data;
 	runMod(tempCode);
 
 	game->root = createMintSprite();
@@ -221,6 +222,7 @@ void updateGame() {
 		"mouseJustUp = %d;"
 		"mouseDown = %d;"
 		"mouseWheel = %d;"
+		"assetStreamsLeft = %d;"
 		"__update();",
 		engine->time,
 		engine->mouseX,
@@ -228,7 +230,8 @@ void updateGame() {
 		engine->leftMouseJustPressed,
 		engine->leftMouseJustReleased,
 		engine->leftMousePressed,
-		platformMouseWheel
+		platformMouseWheel,
+		game->streamUrlsNum - game->curStreamIndex
 	);
 	runJs(buf);
 
@@ -241,11 +244,10 @@ void updateGame() {
 			platformLoadFromUrl(game->streamUrls[game->curStreamIndex], assetStreamed);
 		}
 
-		if (game->curStreamIndex == game->streamUrlsNum && game->curStreamIndex != 0) {
+		if (game->curStreamIndex == game->streamUrlsNum) {
 			game->streamUrlsNum = 0;
 			game->streamNamesNum = 0;
 			game->curStreamIndex = 0;
-			runJs("doneStreamingAssets = true;");
 		}
 	}
 
@@ -458,6 +460,7 @@ void assetStreamed(char *serialData) {
 	const char *name = game->streamNames[game->curStreamIndex];
 	const char *url = game->streamUrls[game->curStreamIndex];
 
+	// printf("Asset done streaming: %s\n", name);
 	addAsset(name, serialData, platformLoadedStringSize);
 
 	for (int i = 0; i < ASSETS_MAX; i++) {
