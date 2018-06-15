@@ -587,7 +587,7 @@ function submitPassage(str) {
 	var lines = str.split("\n");
 	var name = lines.shift().replace(/^\s+|\s+$/g, "");
 	name = name.substr(1, name.length);
-	print("Got name: "+name);
+	// print("Got name: "+name);
 
 	var preCode = lines.join("\n");
 	lines = preCode.split("`");
