@@ -69,7 +69,6 @@ void jsError(const char *message);
 
 duk_ret_t append(duk_context *ctx);
 duk_ret_t setMainText(duk_context *ctx);
-duk_ret_t submitPassage(duk_context *ctx);
 duk_ret_t addPassage(duk_context *ctx);
 duk_ret_t streamAsset(duk_context *ctx);
 void assetStreamed(char *serialData);
@@ -128,7 +127,6 @@ void initGame(MintSprite *bgSpr) {
 	initJs();
 	jsErrorFn = jsError;
 
-	addJsFunction("submitPassage_internal", submitPassage, 1);
 	addJsFunction("addPassage", addPassage, 2);
 	addJsFunction("streamAsset", streamAsset, 2);
 	addJsFunction("execAsset", execAsset, 1);
@@ -414,167 +412,9 @@ void jsError(const char *message) {
 }
 
 duk_ret_t append(duk_context *ctx) {
-	duk_int_t type = duk_get_type(ctx, -1);
-	if (type == DUK_TYPE_STRING) {
-		const char *data = duk_get_string(ctx, -1);
+	const char *data = duk_get_string(ctx, -1);
+	strcat(game->mainTextStr, data);
 
-		strcat(game->mainTextStr, data);
-		return 0;
-
-		String *str = newString(256);
-		str->set(data);
-
-		String **lines;
-		int linesNum;
-		str->split("\n", &lines, &linesNum);
-		str->destroy();
-
-		for (int i = 0; i < linesNum; i++) {
-			// printf("Line is |%s|\n", lines[i]->cStr);
-			String *line = lines[i];
-			if (line->charAt(0) == '[') {
-				line->pop();
-				line->shift();
-				String *label;
-				String *result;
-
-				int barIndex = line->indexOf("|");
-				if (barIndex != -1) {
-					label = line->subStrAbs(0, barIndex);
-					result = line->subStrAbs(barIndex+1, line->length);
-				} else {
-					label = line->clone();
-					result = line->clone();
-				}
-
-				String *quoteReplacedLabel = label->replace("\"", "\\\"");
-				label->destroy();
-				label = quoteReplacedLabel;
-
-				String *quoteReplacedResult = result->replace("\"", "\\\"");
-				result->destroy();
-				result = quoteReplacedResult;
-
-				String *code = newString(256);
-				code->set("addChoice(\"");
-				code->append(label->cStr);
-				code->append("\", \"");
-				code->append(result->cStr);
-				code->append("\");");
-				// printf("Gonna run %s\n", code->cStr);
-				runJs(code->cStr);
-				code->destroy();
-				label->destroy();
-				result->destroy();
-			} else if (line->charAt(0) == '\0') {
-				strcat(game->mainTextStr, "\n");
-			} else {
-				strcat(game->mainTextStr, line->cStr);
-				if (i < linesNum-1) strcat(game->mainTextStr, "\n");
-			}
-			line->destroy();
-		}
-		Free(lines);
-
-	} else if (type == DUK_TYPE_NUMBER) {
-		double num = duk_get_number(ctx, -1);
-		char buf[64];
-		if (num == round(num)) {
-			sprintf(buf, "%.0f", num);
-		} else {
-			sprintf(buf, "%f", num);
-		}
-		strcat(game->mainTextStr, buf);
-	}
-
-	return 0;
-}
-
-duk_ret_t submitPassage(duk_context *ctx) {
-	const char *str = duk_get_string(ctx, -1);
-	String *data = newString(2048);
-	data->set(str);
-	// printf("\n\n\nPassage:\n%s\n", data->cStr);
-
-	int colonPos = data->indexOf(":");
-	int nameEndPos = data->indexOf("\n", colonPos);
-	String *name = data->subStrAbs(colonPos+1, nameEndPos);
-	while (name->getLastChar() == ' ') name->pop();
-
-	String *jsData = newString(2048);
-	int curPos = nameEndPos;
-	bool isCode = false;
-	bool appendNextCode = true;
-	for (;;) {
-		int nextPos = data->indexOf("`", curPos);
-
-		if (nextPos == -1) nextPos = data->length-1;
-
-		String *segment = data->subStrAbs(curPos, nextPos);
-		// printf("Seg (code: %d): %s\n", isCode, segment->cStr);
-		if (!isCode) {
-			if (segment->getLastChar() == '!') {
-				appendNextCode = false;
-				segment->pop(1);
-			}
-			jsData->append("append(\"");
-
-			String *nlReplacedSeg = segment->replace("\n", "\\n");
-			segment->destroy();
-			segment = nlReplacedSeg;
-
-			String *quoteReplaced = segment->replace("\"", "\\\"");
-			segment->destroy();
-			segment = quoteReplaced;
-
-			jsData->append(segment->cStr);
-			jsData->append("\");");
-		} else {
-			if (appendNextCode) {
-				jsData->append("append(");
-				if (segment->getLastChar() == ';') segment->pop(1);
-				jsData->append(segment->cStr);
-				jsData->append(");");
-			} else {
-				// String *nlReplacedSeg = segment->replace("\n", "NL");
-				// segment->destroy();
-				// segment = nlReplacedSeg;
-
-				// printf("Adding code: |%s|\n", segment->cStr);
-				jsData->append(segment->cStr);
-			}
-
-			appendNextCode = true;
-		}
-		jsData->append("\n");
-		segment->destroy();
-
-		curPos = nextPos + 1;
-		isCode = !isCode;
-		if (curPos >= data->length-1) break;
-	}
-
-	Passage *passage = (Passage *)zalloc(sizeof(Passage));
-	passage->name = stringClone(name->cStr);
-	passage->data = stringClone(jsData->cStr);
-	name->destroy();
-	data->destroy();
-	// printf("Code: %s\n", jsData->cStr);
-
-	bool addNew = true;
-	for (int i = 0; i < game->passagesNum; i++) {
-		if (streq(game->passages[i]->name, passage->name)) {
-			Free(game->passages[i]->name);
-			Free(game->passages[i]->data);
-			Free(game->passages[i]);
-			game->passages[i] = passage;
-			addNew = false;
-		}
-	}
-
-	if (addNew) game->passages[game->passagesNum++] = passage;
-
-	// exit(0);
 	return 0;
 }
 
@@ -600,10 +440,8 @@ duk_ret_t addPassage(duk_context *ctx) {
 
 	if (addNew) game->passages[game->passagesNum++] = passage;
 
-	// exit(0);
 	return 0;
 }
-
 
 duk_ret_t streamAsset(duk_context *ctx) {
 	const char *url = duk_get_string(ctx, -1);
