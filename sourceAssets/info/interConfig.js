@@ -7,6 +7,7 @@ var backgrounds = [];
 var keys = [];
 var msgs = [];
 var doneStreamingFns = [];
+var iconDatabase = [];
 
 var mouseX = 0;
 var mouseY = 0;
@@ -206,8 +207,7 @@ function addChoice(choiceText, result, config) {
 	if (config) {
 		if (config.icons) {
 			config.icons.forEach(function(iconName, i) {
-				var icon = addImage("writer/icon.png");
-				icon.gotoFrame(config.icons[i]);
+				var icon = addImage(iconDatabase[iconName]);
 				icon.scaleX = icon.scaleY = 2;
 				icon.x = i * icon.width * icon.scaleY;
 				icon.y = -icon.height * icon.scaleY;
@@ -621,6 +621,10 @@ function submitPassage(str) {
 
 function whenDoneStreaming(fn) {
 	doneStreamingFns.push(fn);
+}
+
+function registerIcon(iconName, iconPath) {
+	iconDatabase[iconName] = iconPath;
 }
 
 function __update() {

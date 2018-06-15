@@ -196,9 +196,9 @@ void initGame(MintSprite *bgSpr) {
 void deinitGame() {
 	for (int i = 0; i < IMAGES_MAX; i++) {
 		MintSprite *img = game->images[i];
-		if (img) img->destroyReal();
+		if (img) img->destroy();
 	}
-	game->bg->destroyReal();
+	game->bg->destroy();
 
 	for (int i = 0; i < game->passagesNum; i++) {
 		Passage *passage = game->passages[i];
@@ -549,7 +549,7 @@ duk_ret_t loadMod(duk_context *ctx) {
 }
 
 void modLoaded(char *data) {
-	printf("Loaded: %s\n", data);
+	// printf("Loaded: %s\n", data);
 
 	if (!streq(data, "none") && !streq(data, "(null)")) {
 		msg("Mod loaded!");
