@@ -6,6 +6,7 @@ var tweens = [];
 var backgrounds = [];
 var keys = [];
 var msgs = [];
+var doneStreamingFns = [];
 
 var mouseX = 0;
 var mouseY = 0;
@@ -19,6 +20,7 @@ var checkpointStr = "{}";
 var exitDisabled = false;
 var lastInput = "";
 var choicePage = 0;
+var assetStreamsLeft = 0;
 
 var queuedCommands = [];
 var queueTimeLeft = 0;
@@ -550,6 +552,77 @@ function msg(str, config) {
 	return message;
 }
 
+function append(data) {
+	if (typeof data !== "string") data = String(data);
+	var newStr = "";
+
+	var lines = data.split("\n");
+	lines.forEach(function(line, i) {
+		if (line.charAt(0) == "[") {
+			var barIndex = line.indexOf("|");
+			var choiceName = "";
+			var choiceDest = "";
+			if (barIndex != -1) {
+				choiceName = line.substring(1, barIndex);
+				choiceDest = line.substring(barIndex+1, line.length-1);
+			} else {
+				choiceName = line.substring(1, line.length-1);
+				choiceDest = choiceName;
+			}
+			addChoice(choiceName, choiceDest);
+		} else {
+			newStr += line;
+			if (i < lines.length-1) newStr += "\n";
+		}
+	});
+	append_internal(newStr);
+}
+
+function submitPassage(str) {
+	var code = "";
+
+	str = str.replace(/\r/g, "");
+	while (str.charAt(0) == "\n") str = str.substr(1, str.length);
+
+	var lines = str.split("\n");
+	var name = lines.shift().replace(/^\s+|\s+$/g, "");
+	name = name.substr(1, name.length);
+	// print("Got name: "+name);
+
+	var preCode = lines.join("\n");
+	lines = preCode.split("`");
+
+	var inCode = false;
+	var noAppendNextCode = false;
+	lines.forEach(function(line, i) {
+		if (!inCode) {
+			line = line.replace(/\"/g, "\\\"");
+			if (line.charAt(line.length-1) == "!") {
+				noAppendNextCode = true;
+				line = line.substr(0, line.length-1);
+			}
+			line = line.replace(/\n/g, "\\n");
+			code += "append(\""+line+"\");\n";
+		} else {
+			if (noAppendNextCode) {
+				code += line;
+			} else {
+				if (line.charAt(line.length-1) == ";") line = line.substr(0, line.length-1);
+			code += "append("+line+");\n";
+			}
+			noAppendNextCode = false;
+		}
+		inCode = !inCode;
+	});
+	
+	// print("Got code:\n"+code);
+	addPassage(name, code);
+}
+
+function whenDoneStreaming(fn) {
+	doneStreamingFns.push(fn);
+}
+
 function __update() {
 	try {
 		realUpdate();
@@ -563,7 +636,9 @@ function __update() {
 function realUpdate() {
 	/// Misc
 	var elapsed = 1/60;
-	// print("Tweens: "+tweens.length);
+
+	/// Asset streaming
+	while (doneStreamingFns.length > 0 && assetStreamsLeft == 0) doneStreamingFns.shift()();
 
 	/// Image mouse events
 	images.forEach(function(img) {
@@ -733,7 +808,7 @@ function realUpdate() {
 	for (var i = 0; i < choices.length; i++) choices[i].sprite.y = gameHeight + 256; // Go way down there!
 
 	var minChoice = choicePage * choicesPerPage;
-	var maxChoice = minChoice + 4;
+	var maxChoice = minChoice + choicesPerPage;
 	if (maxChoice > choices.length) maxChoice = choices.length;
 	var choiceIndexOnPage = 0;
 	for (var i = minChoice; i < maxChoice; i++) {
@@ -798,121 +873,4 @@ function realUpdate() {
 	}
 }
 
-setFontTag("i", "NunitoSans-Italic_26");
-setFontTag("b", "NunitoSans-Bold_26");
-
-var nextChoices = add9SliceImage("img/writer/writerChoice.png", 128, BUTTON_HEIGHT, 5, 5, 10, 10);
-nextChoices.temp = false;
-nextChoices.x = gameWidth - nextChoices.width;
-nextChoices.y = gameHeight - nextChoices.height;
-nextChoices.onRelease = function() {
-	if (nextChoices.alpha != 1) return;
-	var totalPages = choices.length / choicesPerPage;
-	if (choicePage >= totalPages-1) return;
-	playEffect("audio/ui/nextArrow");
-	choicePage++;
-}
-
-var nextArrow = addImage("choiceArrow.png");
-nextArrow.temp = false;
-nextChoices.addChild(nextArrow);
-nextArrow.tint = 0xFFa5e3f2;
-nextArrow.x = nextChoices.width/2 - nextArrow.width/2;
-nextArrow.y = nextChoices.height/2 - nextArrow.height/2;
-
-var prevChoices = add9SliceImage("img/writer/writerChoice.png", 128, BUTTON_HEIGHT, 5, 5, 10, 10);
-prevChoices.y = gameHeight - prevChoices.height;
-prevChoices.temp = false;
-prevChoices.onRelease = function() {
-	if (prevChoices.alpha != 1) return;
-	if (choicePage <= 0) return;
-	playEffect("audio/ui/backArrow");
-	choicePage--;
-}
-
-var prevArrow = addImage("choiceArrow.png");
-prevArrow.temp = false;
-prevChoices.addChild(prevArrow);
-prevArrow.scaleX = -1;
-prevArrow.tint = 0xFFa5e3f2;
-prevArrow.x = prevChoices.width/2 - prevArrow.width/2 + prevArrow.width;
-prevArrow.y = prevChoices.height/2 - prevArrow.height/2;
-
-var exitButton = addImage("writer/exit.png");
-exitButton.temp = false;
-exitButton.scaleX = exitButton.scaleY = 2;
-exitButton.x = gameWidth - exitButton.width*exitButton.scaleX - 16;
-exitButton.y = 16;
-exitButton.onRelease = function() {
-	if (exitButton.alpha != 1) return;
-	gotoMap(false);
-}
-
-var titleBg = addRectImage(gameWidth, 50, 0x2d354c);
-titleBg.temp = false;
-titleBg.y = gameHeight/2 - titleBg.height/2;
-titleBg.layer = TITLE_LAYER;
-
-var titleTf = addEmptyImage(titleBg.width, titleBg.height);
-titleTf.temp = false;
-titleTf.setFont("NunitoSans-Bold_22");
-titleTf.layer = TITLE_LAYER;
-titleTf.tint = 0xFFdff9ff;
-titleBg.addChild(titleTf);
-
-var inputFieldBg = addRectImage(gameWidth, 100, 0x222222);
-inputFieldBg.temp = false;
-inputFieldBg.alpha = 0;
-inputFieldBg.tint = 0x2d354c;
-inputFieldBg.y = gameHeight - BUTTON_HEIGHT - inputFieldBg.height - 32;
-
-var inputField = addEmptyImage(gameWidth, 100);
-inputFieldBg.addChild(inputField);
-inputField.temp = false;
-inputField.tint = 0xFFa5e3f2;
-inputField.setFont("NunitoSans-Light_22");
-
-var inputCarrot = addRectImage(4, 32, 0x2acbed);
-inputFieldBg.addChild(inputCarrot);
-inputCarrot.temp = false;
-
-var inputTitle = addEmptyImage(gameWidth, 150);
-inputTitle.temp = false;
-inputFieldBg.addChild(inputTitle);
-inputTitle.tint = 0xFFa5e3f2;
-inputTitle.setFont("NunitoSans-Light_22");
-inputTitle.alpha = 0.75;
-
-for (var i = 0; i < 500; i++) keys[i] = KEY_RELEASED;
-execAsset("info/nodeGraph.phore");
-
-addSoundTweak("audio/ui/exit", 0.1);
-addSoundTweak("audio/ui/restart", 0.3);
-addSoundTweak("audio/ui/newChoiceClick/1", 0.2);
-addSoundTweak("audio/ui/newChoiceClick/2", 0.2);
-addSoundTweak("audio/ui/newChoiceClick/3", 0.2);
-addSoundTweak("audio/ui/newChoiceClick/4", 0.2);
-addSoundTweak("audio/ui/newChoiceClick/5", 0.2);
-addSoundTweak("audio/ui/newChoiceClick/6", 0.2);
-addSoundTweak("audio/ui/newChoiceClick/7", 0.2);
-addSoundTweak("audio/ui/newChoiceClick/8", 0.2);
-addSoundTweak("audio/ui/newChoiceClick/9", 0.2);
-addSoundTweak("audio/ui/bestChoiceClick/1", 0.2);
-addSoundTweak("audio/ui/bestChoiceClick/2", 0.2);
-addSoundTweak("audio/ui/bestChoiceClick/3", 0.2);
-addSoundTweak("audio/ui/hoverChoiceButtons/1", 0.07);
-addSoundTweak("audio/ui/hoverChoiceButtons/2", 0.07);
-addSoundTweak("audio/ui/hoverChoiceButtons/3", 0.07);
-addSoundTweak("audio/ui/tooltip/1", 0.2);
-addSoundTweak("audio/ui/tooltip/2", 0.2);
-addSoundTweak("audio/ui/tooltip/3", 0.2);
-addSoundTweak("audio/ui/hoverChoiceIcons/1", 0.6);
-addSoundTweak("audio/ui/hoverChoiceIcons/2", 0.6);
-addSoundTweak("audio/ui/hoverChoiceIcons/3", 0.6);
-
-addSoundTweak("audio/music/newVictim", 0.2);
-addSoundTweak("audio/music/newSelf", 0.4);
-addSoundTweak("audio/music/violetMeteorite", 0.1);
-
-streamEmbeddedTexture("NunitoSans-Light_22");
-streamEmbeddedTexture("NunitoSans-Bold_22");
+execAsset("interStart.phore");

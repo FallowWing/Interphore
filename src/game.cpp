@@ -69,7 +69,7 @@ void jsError(const char *message);
 
 duk_ret_t append(duk_context *ctx);
 duk_ret_t setMainText(duk_context *ctx);
-duk_ret_t submitPassage(duk_context *ctx);
+duk_ret_t addPassage(duk_context *ctx);
 duk_ret_t streamAsset(duk_context *ctx);
 void assetStreamed(char *serialData);
 duk_ret_t execAsset(duk_context *ctx);
@@ -118,6 +118,8 @@ Game *game = NULL;
 char tempBytes[Megabytes(2)];
 
 void initGame(MintSprite *bgSpr) {
+	windowsDiskLoadPath = stringClone("currentMod.phore");
+
 	getTextureAsset("NunitoSans-Light_22")->level = 3;
 	getTextureAsset("NunitoSans-Light_30")->level = 3;
 	getTextureAsset("NunitoSans-Light_26")->level = 3;
@@ -127,11 +129,11 @@ void initGame(MintSprite *bgSpr) {
 	initJs();
 	jsErrorFn = jsError;
 
-	addJsFunction("submitPassage", submitPassage, 1);
+	addJsFunction("addPassage", addPassage, 2);
 	addJsFunction("streamAsset", streamAsset, 2);
 	addJsFunction("execAsset", execAsset, 1);
 
-	addJsFunction("append", append, 1);
+	addJsFunction("append_internal", append, 1);
 	addJsFunction("setMainText", setMainText, 1);
 	addJsFunction("gotoPassage_internal", gotoPassage, 1);
 	addJsFunction("tweenEase", interTweenEase, 2);
@@ -181,8 +183,10 @@ void initGame(MintSprite *bgSpr) {
 	char *initCode = (char *)getAsset("info/interConfig.js")->data;
 	runJs(initCode);
 
+	// char *tempCode = (char *)getAsset("info/basic.phore")->data;
 	// char *tempCode = (char *)getAsset("info/scratch.phore")->data;
 	char *tempCode = (char *)getAsset("info/main.phore")->data;
+	// char *tempCode = (char *)getAsset("info/odd.txt")->data;
 	runMod(tempCode);
 
 	game->root = createMintSprite();
@@ -220,6 +224,7 @@ void updateGame() {
 		"mouseJustUp = %d;"
 		"mouseDown = %d;"
 		"mouseWheel = %d;"
+		"assetStreamsLeft = %d;"
 		"__update();",
 		engine->time,
 		engine->mouseX,
@@ -227,7 +232,8 @@ void updateGame() {
 		engine->leftMouseJustPressed,
 		engine->leftMouseJustReleased,
 		engine->leftMousePressed,
-		platformMouseWheel
+		platformMouseWheel,
+		game->streamUrlsNum - game->curStreamIndex
 	);
 	runJs(buf);
 
@@ -411,147 +417,20 @@ void jsError(const char *message) {
 }
 
 duk_ret_t append(duk_context *ctx) {
-	duk_int_t type = duk_get_type(ctx, -1);
-	if (type == DUK_TYPE_STRING) {
-		const char *data = duk_get_string(ctx, -1);
-
-		String *str = newString(256);
-		str->set(data);
-
-		String **lines;
-		int linesNum;
-		str->split("\n", &lines, &linesNum);
-		str->destroy();
-
-		for (int i = 0; i < linesNum; i++) {
-			// printf("Line is |%s|\n", lines[i]->cStr);
-			String *line = lines[i];
-			if (line->charAt(0) == '[') {
-				line->pop();
-				line->shift();
-				String *label;
-				String *result;
-
-				int barIndex = line->indexOf("|");
-				if (barIndex != -1) {
-					label = line->subStrAbs(0, barIndex);
-					result = line->subStrAbs(barIndex+1, line->length);
-				} else {
-					label = line->clone();
-					result = line->clone();
-				}
-
-				String *quoteReplacedLabel = label->replace("\"", "\\\"");
-				label->destroy();
-				label = quoteReplacedLabel;
-
-				String *quoteReplacedResult = result->replace("\"", "\\\"");
-				result->destroy();
-				result = quoteReplacedResult;
-
-				String *code = newString(256);
-				code->set("addChoice(\"");
-				code->append(label->cStr);
-				code->append("\", \"");
-				code->append(result->cStr);
-				code->append("\");");
-				// printf("Gonna run %s\n", code->cStr);
-				runJs(code->cStr);
-				code->destroy();
-				label->destroy();
-				result->destroy();
-			} else {
-				strcat(game->mainTextStr, line->cStr);
-				if (i < linesNum-1) strcat(game->mainTextStr, "\n");
-			}
-			line->destroy();
-		}
-		Free(lines);
-
-	} else if (type == DUK_TYPE_NUMBER) {
-		double num = duk_get_number(ctx, -1);
-		char buf[64];
-		if (num == round(num)) {
-			sprintf(buf, "%.0f", num);
-		} else {
-			sprintf(buf, "%f", num);
-		}
-		strcat(game->mainTextStr, buf);
-	}
+	const char *data = duk_get_string(ctx, -1);
+	strcat(game->mainTextStr, data);
 
 	return 0;
 }
 
-duk_ret_t submitPassage(duk_context *ctx) {
-	const char *str = duk_get_string(ctx, -1);
-	String *data = newString(2048);
-	data->set(str);
-	// printf("\n\n\nPassage:\n%s\n", data->cStr);
-
-	int colonPos = data->indexOf(":");
-	int nameEndPos = data->indexOf("\n", colonPos);
-	String *name = data->subStrAbs(colonPos+1, nameEndPos);
-	while (name->getLastChar() == ' ') name->pop();
-
-	String *jsData = newString(2048);
-	int curPos = nameEndPos;
-	bool isCode = false;
-	bool appendNextCode = true;
-	for (;;) {
-		int nextPos = data->indexOf("`", curPos);
-
-		if (nextPos == -1) nextPos = data->length-1;
-
-		String *segment = data->subStrAbs(curPos, nextPos);
-		// printf("Seg (code: %d): %s\n", isCode, segment->cStr);
-		if (!isCode) {
-			if (segment->getLastChar() == '!') {
-				appendNextCode = false;
-				segment->pop(1);
-			}
-			jsData->append("append(\"");
-
-			String *nlReplacedSeg = segment->replace("\n", "\\n");
-			segment->destroy();
-			segment = nlReplacedSeg;
-
-			String *quoteReplaced = segment->replace("\"", "\\\"");
-			segment->destroy();
-			segment = quoteReplaced;
-
-			jsData->append(segment->cStr);
-			jsData->append("\");");
-		} else {
-			if (appendNextCode) {
-				jsData->append("append(");
-				if (segment->getLastChar() == ';') segment->pop(1);
-				jsData->append(segment->cStr);
-				jsData->append(");");
-			} else {
-				// String *nlReplacedSeg = segment->replace("\n", "NL");
-				// segment->destroy();
-				// segment = nlReplacedSeg;
-
-				// printf("Adding code: |%s|\n", segment->cStr);
-				jsData->append(segment->cStr);
-			}
-
-			appendNextCode = true;
-		}
-		jsData->append("\n");
-		segment->destroy();
-
-		curPos = nextPos + 1;
-		isCode = !isCode;
-		if (curPos >= data->length-1) break;
-	}
+duk_ret_t addPassage(duk_context *ctx) {
+	const char *data = duk_get_string(ctx, -1);
+	const char *name = duk_get_string(ctx, -2);
 
 	Passage *passage = (Passage *)zalloc(sizeof(Passage));
-	passage->name = stringClone(name->cStr);
-	passage->data = stringClone(jsData->cStr);
-	name->destroy();
-	data->destroy();
-	// printf("Code: %s\n", jsData->cStr);
+	passage->name = stringClone(name);
+	passage->data = stringClone(data);
+	// printf("Passage |%s| added, contains:\n%s\n", name, data);
 
 	bool addNew = true;
 	for (int i = 0; i < game->passagesNum; i++) {
@@ -566,7 +445,6 @@ duk_ret_t submitPassage(duk_context *ctx) {
 
 	if (addNew) game->passages[game->passagesNum++] = passage;
 
-	// exit(0);
 	return 0;
 }
 
@@ -584,6 +462,7 @@ void assetStreamed(char *serialData) {
 	const char *name = game->streamNames[game->curStreamIndex];
 	const char *url = game->streamUrls[game->curStreamIndex];
 
+	// printf("Asset done streaming: %s\n", name);
 	addAsset(name, serialData, platformLoadedStringSize);
 
 	for (int i = 0; i < ASSETS_MAX; i++) {
@@ -670,7 +549,7 @@ duk_ret_t loadMod(duk_context *ctx) {
 }
 
 void modLoaded(char *data) {
-	// printf("Loaded: %s\n", data);
+	printf("Loaded: %s\n", data);
 
 	if (!streq(data, "none") && !streq(data, "(null)")) {
 		msg("Mod loaded!");

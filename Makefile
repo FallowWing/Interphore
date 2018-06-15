@@ -23,13 +23,13 @@ NEEDED_FONTS := "Espresso-Dolce 22" \
 CPP_TOOLS := ..
 CPP_TOOLS_WIN := ..
 
-include Makefile.secret
-
+include ../other/Makefile.secret
 GAME_WIDTH=1280
 GAME_HEIGHT=720
 SCREEN_ORIENTATION := landscape
 
 all:
+	cp res/currentMod.phore bin
 	$(MAKE) defaultAll
 
 exportAssets:

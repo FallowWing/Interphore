@@ -4,6 +4,7 @@ START_PASSAGES
 setBackground(0, "img/writer/mainBg");
 setBackground(1, "");
 streamAsset("coin.png", "https://i.imgur.com/mmt2kcc.png");
+choicesPerPage = 8;
 `
 WIP Dev Menu
 
@@ -17,6 +18,9 @@ Scene Progress:
 - LLL [  ]
 - A handful of small kinky worldbuilding scenes [  ]
 
+!`
+addChoice("Load a mod", loadMod);
+`
 [Apartment Scene (comes after LLL and Mynt intro)|wendyApt]
 [LLL]
 [Change Mynt's genitals]
@@ -126,7 +130,8 @@ addChoice("Stop audio", function() {
 `
 [Go back|scratchModStart]
 ---
-:iconTest
+:iconTest   
+!`// If going here fails it's because of the spaces after the title`
 This is a test of the icons
 
 !`

@@ -15,6 +15,7 @@ font/bitmap/OpenSans-Regular_20*
 font/bitmap/OpenSans-Regular_40*
 
 info/nodeGraph.phore
+info/interStart.phore
 info/interConfig.js
 
 info/introMod.phore
@@ -25,6 +26,7 @@ info/thirstyCaves.phore
 info/wendyApt.phore
 info/LLL.phore
 info/scratch.phore
+info/basic.phore
 info/utils.phore
 
 img/writer/mainBg.png
