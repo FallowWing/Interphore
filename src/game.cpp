@@ -133,7 +133,7 @@ void initGame(MintSprite *bgSpr) {
 	addJsFunction("streamAsset", streamAsset, 2);
 	addJsFunction("execAsset", execAsset, 1);
 
-	addJsFunction("append", append, 1);
+	addJsFunction("append_internal", append, 1);
 	addJsFunction("setMainText", setMainText, 1);
 	addJsFunction("gotoPassage_internal", gotoPassage, 1);
 	addJsFunction("tweenEase", interTweenEase, 2);
@@ -183,8 +183,8 @@ void initGame(MintSprite *bgSpr) {
 	char *initCode = (char *)getAsset("info/interConfig.js")->data;
 	runJs(initCode);
 
-	char *tempCode = (char *)getAsset("info/basic.phore")->data;
-	// char *tempCode = (char *)getAsset("info/scratch.phore")->data;
+	// char *tempCode = (char *)getAsset("info/basic.phore")->data;
+	char *tempCode = (char *)getAsset("info/scratch.phore")->data;
 	// char *tempCode = (char *)getAsset("info/main.phore")->data;
 	runMod(tempCode);
 
@@ -418,8 +418,8 @@ duk_ret_t append(duk_context *ctx) {
 	if (type == DUK_TYPE_STRING) {
 		const char *data = duk_get_string(ctx, -1);
 
-		// strcat(game->mainTextStr, data);
-		// return 0;
+		strcat(game->mainTextStr, data);
+		return 0;
 
 		String *str = newString(256);
 		str->set(data);

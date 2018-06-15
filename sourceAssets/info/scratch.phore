@@ -129,7 +129,8 @@ addChoice("Stop audio", function() {
 `
 [Go back|scratchModStart]
 ---
-:iconTest
+:iconTest   
+!`// If going here fails it's because of the spaces after the title`
 This is a test of the icons
 
 !`

@@ -550,6 +550,32 @@ function msg(str, config) {
 	return message;
 }
 
+function append(data) {
+	if (typeof data !== "string") data = String(data);
+	var newStr = "";
+
+	var lines = data.split("\n");
+	lines.forEach(function(line, i) {
+		if (line.charAt(0) == "[") {
+			var barIndex = line.indexOf("|");
+			var choiceName = "";
+			var choiceDest = "";
+			if (barIndex != -1) {
+				choiceName = line.substring(1, barIndex);
+				choiceDest = line.substring(barIndex+1, line.length-1);
+			} else {
+				choiceName = line.substring(1, line.length-1);
+				choiceDest = choiceName;
+			}
+			addChoice(choiceName, choiceDest);
+		} else {
+			newStr += line;
+			if (i < lines.length-1) newStr += "\n";
+		}
+	});
+	append_internal(newStr);
+}
+
 function submitPassage(str) {
 	var code = "";
 
@@ -557,7 +583,7 @@ function submitPassage(str) {
 	var lines = str.split("\n");
 	var name = lines.shift().replace(/^\s+|\s+$/g, "");
 	name = name.substr(1, name.length);
-	print("Got name: "+name);
+	// print("Got name: "+name);
 
 	var preCode = lines.join("\n");
 	lines = preCode.split("`");
@@ -585,11 +611,8 @@ function submitPassage(str) {
 		inCode = !inCode;
 	});
 	
-	print("Got code:\n"+code);
+	// print("Got code:\n"+code);
 	addPassage(name, code);
-
-	// print("Submitting "+str);
-	// submitPassage_internal(str);
 }
 
 function __update() {
