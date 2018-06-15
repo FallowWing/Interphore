@@ -142,3 +142,7 @@ registerIcon("Snuff", "img/writer/icons/Snuff.png");
 registerIcon("Toddler", "img/writer/icons/Toddler.png");
 registerIcon("Trash", "img/writer/icons/Trash.png");
 registerIcon("Vomit", "img/writer/icons/Vomit.png");
+registerIcon("Candy Gore", "img/writer/icons/Candy-Gore.png");
+registerIcon("Soft Vore", "img/writer/icons/Soft-Vore.png");
+registerIcon("Guest Writer", "img/writer/icons/Guest-Writer.png");
+registerIcon("Patreon Commission", "img/writer/icons/Patreon-Commission.png");
