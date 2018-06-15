@@ -49,7 +49,7 @@ timer(8, function() { addChoice("I love you too, Mynt.", "I love you too, Mynt."
 :I love you too, Mynt.
 
 !`
-queueTitle("Let's step into the pond.");
+queueTitle("Let's step into the red pond.");
 queueTitle("Together, okay?");
 queueTitle("Take my hand.");
 queueAddChoice("Why do we have to go in the pond?");
@@ -1280,7 +1280,7 @@ addChoice("... Shit.", "myntAdvent4");
 ---
 :myntAdvent3
 
-You trip and eat shit on jagged cliffside for 214 painful seconds, flipping and tumbling and, at one point, sprinting all-out down a sheer vertical face only for it to drop out under your feet. You freefall through searing steamclouds which split to reveal that you just fell off the side of a giant spherical meteorite embedded in the crust of the Earth.
+You trip and eat shit on jagged cliffside for 214 painful seconds, flipping and tumbling and, at one point, sprinting all-out down a sheer vertical face— only for it to drop out under your feet entirely. You freefall through searing steamclouds which split to reveal that you just fell off the side of a giant spherical meteorite embedded in the crust of the Earth.
 
 You hit the ground and die instantly.
 
@@ -1361,7 +1361,7 @@ addChoice("Hmmm... look around for clues...", "myntAdvent11");
 ---
 :myntAdvent11
 
-You sniff over to the other side of the pool. Then, looking back, you notice something shimmering blue on a car-sized rock:
+You sniff over to the other side of the pool. Then, looking back, you notice something shimmering blue on a rock:
 
 It's a message... written in Mynt's blood.
 
@@ -1412,7 +1412,7 @@ addChoice("No clue.", "myntAdvent16");
 
 It means the librarian there is your God.
 
-His layer encompasses and precedes yours.
+His layer encompasses and precedes your layer.
 
 !`
 addChoice("Oh...", "myntAdvent16knew");
@@ -1421,27 +1421,31 @@ addChoice("Oh...", "myntAdvent16knew");
 ---
 :myntAdvent16knew
 
+Unless Mynt chases her down, you might want to ask the librarian where your mom went. He did create her, after all.
+
 Would you like to meet God?
 
 He's almost finished painting for the day.
 
 !`
-addChoice("Well, he can tell me where Mynt went, right?", "myntAdvent16knew2");
+addChoice("I wanna regroup with Mynt first.", "myntAdvent16knew2");
 `
 
 ---
 :myntAdvent16knew2
 
-He is not omnipotent nor omniscient. But he did make both of you, so he might have some idea.
+Understood.
+
+Are you ready to go now?
 
 !`
-addChoice("Take me to see him.", "myntAdvent16knew3");
+addChoice("I guess? Where do I go.", "myntAdvent16knew3");
 `
 
 ---
 :myntAdvent16knew3
 
-Just step into the pond again. You can travel between paraphrased layers through any body of water, thanks to our infrastructure.
+Just step into the pond again. You can travel between layers freely, now, thanks to our special red juice.
 
 !`
 addChoice("Gotcha. Thanks, Mr. Eyeball.", "myntAdvent16knew4");
