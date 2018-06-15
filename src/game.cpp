@@ -118,6 +118,8 @@ Game *game = NULL;
 char tempBytes[Megabytes(2)];
 
 void initGame(MintSprite *bgSpr) {
+	windowsDiskLoadPath = stringClone("currentMod.phore");
+
 	getTextureAsset("NunitoSans-Light_22")->level = 3;
 	getTextureAsset("NunitoSans-Light_30")->level = 3;
 	getTextureAsset("NunitoSans-Light_26")->level = 3;
@@ -547,7 +549,7 @@ duk_ret_t loadMod(duk_context *ctx) {
 }
 
 void modLoaded(char *data) {
-	// printf("Loaded: %s\n", data);
+	printf("Loaded: %s\n", data);
 
 	if (!streq(data, "none") && !streq(data, "(null)")) {
 		msg("Mod loaded!");

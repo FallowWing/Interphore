@@ -29,6 +29,7 @@ GAME_HEIGHT=720
 SCREEN_ORIENTATION := landscape
 
 all:
+	cp res/currentMod.phore bin
 	$(MAKE) defaultAll
 
 exportAssets:
