@@ -29,7 +29,6 @@ GAME_HEIGHT=720
 SCREEN_ORIENTATION := landscape
 
 all:
-	cp res/currentMod.phore bin
 	$(MAKE) defaultAll
 
 exportAssets:
@@ -44,6 +43,7 @@ resetSite:
 shipInter:
 	$(MAKE) resetSite
 	
+	cp res/currentMod.phore bin
 	$(MAKE) boptflash EXTRA_DEFINES="-D SEMI_DEV"
 	$(MAKE) packWindows EXTRA_DEFINES="-D SEMI_DEV"
 	$(MAKE) bandroid EXTRA_DEFINES="-D SEMI_DEV"

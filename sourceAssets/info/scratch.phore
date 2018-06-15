@@ -4,6 +4,7 @@ START_PASSAGES
 setBackground(0, "img/writer/mainBg");
 setBackground(1, "");
 streamAsset("coin.png", "https://i.imgur.com/mmt2kcc.png");
+streamAsset("test1.png", "https://upload.wikimedia.org/wikipedia/commons/d/dc/Large_Drive-In_EMC_Test_Chamber.png");
 choicesPerPage = 8;
 `
 WIP Dev Menu
@@ -175,12 +176,17 @@ addChoice("Back", function() {
 Here's some images
 !`
 var img = addRectImage(265, 128, 0xFF0000);
-img.x = 100;
-img.y = 100;
+img.x = 800;
+img.y = 800;
 
 var coin = addImage("coin.png");
 coin.x = 500;
 coin.y = 100;
+
+var test1 = addImage("test1.png");
+test1.x = 0;
+test1.y = 0;
+test1.scaleX = test1.scaleY = 0.20;
 `
 [Go back|scratchModStart]
 ---
