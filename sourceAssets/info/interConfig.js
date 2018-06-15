@@ -6,6 +6,7 @@ var tweens = [];
 var backgrounds = [];
 var keys = [];
 var msgs = [];
+var doneStreamingFns = [];
 
 var mouseX = 0;
 var mouseY = 0;
@@ -19,6 +20,7 @@ var checkpointStr = "{}";
 var exitDisabled = false;
 var lastInput = "";
 var choicePage = 0;
+var doneStreamingAssets = false;
 
 var queuedCommands = [];
 var queueTimeLeft = 0;
@@ -580,10 +582,12 @@ function submitPassage(str) {
 	var code = "";
 
 	str = str.replace(/\r/g, "");
+	while (str.charAt(0) == "\n") str = str.substr(1, str.length);
+
 	var lines = str.split("\n");
 	var name = lines.shift().replace(/^\s+|\s+$/g, "");
 	name = name.substr(1, name.length);
-	// print("Got name: "+name);
+	print("Got name: "+name);
 
 	var preCode = lines.join("\n");
 	lines = preCode.split("`");
@@ -615,6 +619,10 @@ function submitPassage(str) {
 	addPassage(name, code);
 }
 
+function whenDoneStreaming(fn) {
+	doneStreamingFns.push(fn);
+}
+
 function __update() {
 	try {
 		realUpdate();
@@ -628,6 +636,12 @@ function __update() {
 function realUpdate() {
 	/// Misc
 	var elapsed = 1/60;
+	if (doneStreamingAssets) {
+		while (doneStreamingFns.length > 0) doneStreamingFns.shift()();
+
+		doneStreamingFns = [];
+		doneStreamingAssets = false;
+	}
 	// print("Tweens: "+tweens.length);
 
 	/// Image mouse events

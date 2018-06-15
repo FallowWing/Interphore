@@ -241,10 +241,11 @@ void updateGame() {
 			platformLoadFromUrl(game->streamUrls[game->curStreamIndex], assetStreamed);
 		}
 
-		if (game->curStreamIndex == game->streamUrlsNum) {
+		if (game->curStreamIndex == game->streamUrlsNum && game->curStreamIndex != 0) {
 			game->streamUrlsNum = 0;
 			game->streamNamesNum = 0;
 			game->curStreamIndex = 0;
+			runJs("doneStreamingAssets = true;");
 		}
 	}
 
