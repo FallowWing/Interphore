@@ -37,8 +37,8 @@ img/writer/icons/Baby.png
 img/writer/icons/Baby.spr
 img/writer/icons/Blood.png
 img/writer/icons/Blood.spr
-img/writer/icons/Candy Gore.png
-img/writer/icons/Candy Gore.spr
+img/writer/icons/Candy-Gore.png
+img/writer/icons/Candy-Gore.spr
 img/writer/icons/Cub.png
 img/writer/icons/Cub.spr
 img/writer/icons/Drugs.png
@@ -51,10 +51,10 @@ img/writer/icons/Foodplay.png
 img/writer/icons/Foodplay.spr
 img/writer/icons/Gore.png
 img/writer/icons/Gore.spr
-img/writer/icons/Guest Writer.png
-img/writer/icons/Guest Writer.spr
-img/writer/icons/Hard Vore.png
-img/writer/icons/Hard Vore.spr
+img/writer/icons/Guest-Writer.png
+img/writer/icons/Guest-Writer.spr
+img/writer/icons/Hard-Vore.png
+img/writer/icons/Hard-Vore.spr
 img/writer/icons/Hyper.png
 img/writer/icons/Hyper.spr
 img/writer/icons/Intersex.png
@@ -79,16 +79,16 @@ img/writer/icons/Scat.png
 img/writer/icons/Scat.spr
 img/writer/icons/Snuff.png
 img/writer/icons/Snuff.spr
-img/writer/icons/Soft Vore.png
-img/writer/icons/Soft Vore.spr
+img/writer/icons/Soft-Vore.png
+img/writer/icons/Soft-Vore.spr
 img/writer/icons/Toddler.png
 img/writer/icons/Toddler.spr
 img/writer/icons/Trash.png
 img/writer/icons/Trash.spr
 img/writer/icons/Vomit.png
 img/writer/icons/Vomit.spr
-img/writer/icons/Patreon Commission.png
-img/writer/icons/Patreon Commission.spr
+img/writer/icons/Patreon-Commission.png
+img/writer/icons/Patreon-Commission.spr
 
 img/writer/mainBg.png
 img/writer/mainBg.spr
