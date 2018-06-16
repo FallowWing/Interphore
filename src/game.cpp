@@ -114,6 +114,7 @@ duk_ret_t playMusic(duk_context *ctx);
 duk_ret_t playEffect(duk_context *ctx);
 duk_ret_t destroyAudio(duk_context *ctx);
 duk_ret_t setAudioFlags(duk_context *ctx);
+duk_ret_t setMasterVolume(duk_context *ctx);
 
 Game *game = NULL;
 char tempBytes[Megabytes(2)];
@@ -167,6 +168,7 @@ void initGame(MintSprite *bgSpr) {
 	addJsFunction("playEffect_internal", playEffect, 1);
 	addJsFunction("destroyAudio", destroyAudio, 1);
 	addJsFunction("setAudioFlags", setAudioFlags, 3);
+	addJsFunction("setMasterVolume", setMasterVolume, 1);
 
 	addJsFunction("saveGame_internal", saveGame, 1);
 	addJsFunction("loadGame_internal", loadGame, 0);
@@ -972,6 +974,14 @@ duk_ret_t setAudioFlags(duk_context *ctx) {
 	Channel *channel = game->audios[id];
 	channel->looping = looping;
 	channel->userVolume = volume;
+	return 0;
+}
+
+duk_ret_t setMasterVolume(duk_context *ctx) {
+	float volume = duk_get_number(ctx, -1);
+
+	engine->soundData.masterVolume = volume;
+
 	return 0;
 }
 

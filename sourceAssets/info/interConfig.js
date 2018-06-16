@@ -20,6 +20,7 @@ var data = {};
 var checkpointStr = "{}";
 var exitDisabled = false;
 var keyboardOpened = false;
+var isMuted = false;
 var lastInput = "";
 var choicePage = 0;
 var assetStreamsLeft = 0;

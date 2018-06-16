@@ -169,6 +169,13 @@ bottomRect.alpha = 0;
 bottomRect.tint = 0xFFd85252;
 bottomRect.y = gameHeight;
 
+var muteButton = addImage("writer/mute.png");
+muteButton.onRelease = function() {
+	isMuted = !isMuted;
+	if (isMuted) setMasterVolume(0);
+	else setMasterVolume(1);
+};
+
 tween(bottomRect, 2, {y: 625, alpha: 1}, {ease: QUINT_OUT});
 tween(bottomRect, 6, {scaleY: 1.2}, {type: PINGPONG, ease: QUAD_IN_OUT});
 
