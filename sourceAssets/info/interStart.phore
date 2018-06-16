@@ -64,7 +64,6 @@ var inputFieldBg = addRectImage(gameWidth, 100, 0x222222);
 inputFieldBg.temp = false;
 inputFieldBg.alpha = 0;
 inputFieldBg.tint = 0x2d354c;
-inputFieldBg.y = gameHeight - BUTTON_HEIGHT - inputFieldBg.height - 32;
 
 var inputField = addEmptyImage(gameWidth, 100);
 inputFieldBg.addChild(inputField);

@@ -19,6 +19,7 @@ var time = 0;
 var data = {};
 var checkpointStr = "{}";
 var exitDisabled = false;
+var keyboardOpened = false;
 var lastInput = "";
 var choicePage = 0;
 var assetStreamsLeft = 0;
@@ -299,6 +300,7 @@ function clear() {
 	setMainText("");
 	choicePage = 0;
 	choicesPerPage = 4;
+	keyboardOpened = false;
 	exitButton.alpha = exitDisabled ? 0 : 1; //@todo This should probably happen instantly
 	lastInput = inputField.text;
 	inputField.inInputField = false;
@@ -661,8 +663,15 @@ function realUpdate() {
 
 
 	/// Input field
+	if (keyboardOpened) inputFieldBg.y = 20
+	else inputFieldBg.y = gameHeight - BUTTON_HEIGHT - inputFieldBg.height - 32;
+
 	inputField.x = inputFieldBg.width/2 - inputField.textWidth/2;
 	inputField.y = inputFieldBg.height/2 - inputField.textHeight/2;
+	if (isAndroid && inputField.justReleased && inputFieldBg.alpha == 1) {
+		keyboardOpened = true;
+		openSoftwareKeyboard();
+	}
 
 	inputTitle.x = inputField.x - inputTitle.textWidth - 16;
 	inputTitle.y = inputFieldBg.height/2 - inputTitle.textHeight/2;
