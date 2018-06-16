@@ -174,11 +174,6 @@ void initGame(MintSprite *bgSpr) {
 	addJsFunction("loadGame_internal", loadGame, 0);
 	addJsFunction("loadMod_internal", loadMod, 0);
 
-	// if (streq(name, "addNotif")) return (void *)addNotif;
-
-	// if (streq(name, "gotoBrowser")) return (void *)gotoBrowser;
-	// if (streq(name, "loadModFromDisk")) return (void *)loadModFromDisk;
-
 	game = (Game *)zalloc(sizeof(Game));
 	game->bg = bgSpr;
 	initProfiler(&game->profiler);
@@ -893,6 +888,7 @@ duk_ret_t getTextureHeight(duk_context *ctx) {
 	duk_push_int(ctx, textureAsset->height);
 	return 1;
 }
+
 //
 //
 //         IMAGES END
