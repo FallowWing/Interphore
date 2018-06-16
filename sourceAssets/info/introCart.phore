@@ -1,3 +1,6 @@
+var watchCart = false;
+var cartArt;
+
 START_PASSAGES
 :introModCartStart
 !`
@@ -15,17 +18,17 @@ var music = playMusic("audio/ambience/violetMeteorite");
 music.name = "music";
 `
 
-You jump into the pond and your whole body unravels again. Thankfully, the amnesia is only a first-time thing.
+You jump into the pond and your whole body unravels again. Thankfully, your mind is no longer inside your body, so it does not get unravelled.
 
-Your mind is still fully intact, it just feels a little less certain about everything; when your brain dissolves and flows through the fluid, all concepts of space and time and sound and sex begin to blur around their edges: you get to feeling like maybe you could measure duration in celsius, direction in decibels, altitude in lovelaces, arousal in cubic jiffies...
+It just feels a little less certain about everything. When your brain dissolves and flows through the red fluid, all concepts of space and time and sound and sex begin to blur around their edges: you get to feeling like maybe you could measure duration in celsius, direction in decibels, altitude in lovelaces, cup size in cubic jiffies...
 
-You surface from a tiny red puddle. It basically shits your whole body out, straining around your hips. Cold cobblestone floor meets your bare paws.
+You surface from a tiny red puddle. It basically shits your whole body out, and the edges of the puddle have to gape and strain around your hips. Cold cobblestone floor meets your bare paws.
 
 You stand up and glance around for Mynt. This world is much darker than Earth, and your eyes are still adjusting.
 
 You don't have to look very far. Mynt sits two feet away from you, dejected, still dripping red herself. She perks up when she sees you and shakes herself off like a puppy.
 
-"Ptoo! Ptwa! God, this red gunk is all in my fur... what a weird way to travel..."
+"Hey, I just saw— Ptoo! Ptwa! God, this red gunk is all in my fur... what a weird way to travel..."
 
 [You said you saw Mom?]
 ---
@@ -33,27 +36,31 @@ You don't have to look very far. Mynt sits two feet away from you, dejected, sti
 
 She avoids eye contact with you and looks at the puddle instead.
 
-"I saw her! I'm sure I did," she tells her reflection. "But she jumped right back in here and unravelled... before I could get my bearings or stop her."
+"I saw her! I'm sure I did," she tells her reflection. "But she jumped right back in the puddle and unravelled... before I could get my bearings or stop her."
 
 [Hmmmm... are you sure it was her? Why would she run from us?]
 ---
 :Hmmmm... are you sure it was her? Why would she run from us?
 
-"I don't know," Mynt pouts. She sits on her heels and stares at the swirling red puddle. "Maybe she hates us."
+"I don't know," Mynt pouts. She squats and rocks self-soothingly on her heels. Her eyes can't leave the swirling red puddle.
 
-[Nooo, don't say that. It just wasn't her.]
+"Maybe she hates us."
+
+[Nooo, don't say that. It was probably just someone else.]
 ---
-:Nooo, don't say that. It just wasn't her.
+:Nooo, don't say that. It was probably just someone else.
 
 She prods the puddle. It's only two inches deep. Tiny ripples flicker out in rings.
 
 "I guesso."
 
-[Come on. Let's go meet my God.]
+[Come on. Let's go meet God.]
 ---
-:Come on. Let's go meet my God.
+:Come on. Let's go meet God.
 
 "Right." Mynt stands up and brushes off the front of her dress. "The librarian, right?"
+
+She looks out toward a dim glow of neon and firelight in the distance. As your eyes adjust, you start to see the outline of bigass butts and cocks above you. Er, sorry... I mean the curves of titanic lovers lace the sky like aurora borealis.
 
 [Right. This place doesn't really look like a library, though.]
 ---
@@ -61,19 +68,21 @@ She prods the puddle. It's only two inches deep. Tiny ripples flicker out in rin
 
 She coughs. "Well, um. I think the actual library part is pretty deep inside the... other stuff... so let's get a move on."
 
+She sets off toward the light.
+
 [Look around.]
 ---
 :Look around.
 
 You're in a sex dungeon the size of a city.
 
-The cobblestone walls go up for miles until they reach a domed ceiling lavished like the sistine chapel with holy constellations of gay buttsex. All around you: sex swings, beanbag chairs, dildo thrones, porn stages with tripods and boom mics, hot dog stands operated by muscular dudes, whole churches with their stained-glass windows dedicated to big fat cocks spearing open the impossibly pure holes of their messiah...
+The cobblestone walls go up for miles until they reach a domed ceiling lavished like the sistine chapel with holy constellations of gay buttsex. All around you: sex swings, bondage tables, dildo thrones, porn stages with tripods and boom mics, hot dog stands operated by muscular dudes, whole churches with their stained-glass windows dedicated to big fat cocks that spew tribute to the impossibly pure body of their messiah...
 
-It's kind of a ghost town, though. Here and there you'll catch a shirtless furry dude humping quietly in an alley between massive sex clubs, or you'll spot a couple cute young guys chatting and fapping on their way to the porn theatre, but overall the universe seems essentially deserted.
+It's kind of a ghost town, though. Here and there you'll catch a shirtless furry dude humping quietly in an alley between massive sex clubs, or you'll spot a couple cute young hairdressers chatting and fapping on their way to the porn theatre, but overall the universe seems essentially deserted.
 
 Mynt tags along close behind you. A guy `myntCock("shoots her bedroom eyes and glances at the bulge in her dress", "lifts his nose up at her, completely uninterested")`.
 
-She hurries away and tugs your tail. "Is this like a whole... just a whole Gay Realm...?"
+She hurries away and tugs your tail. "Hey, is this like a whole... just a whole Gay Realm...?"
 
 [Kinda looks like it.]
 ---
@@ -86,7 +95,7 @@ Mynt's eyes go everywhere, anywhere except around that corner. She turns robotic
 "Just gonna wait over here!" she squeaks from off-screen. "You do whatever you want! You know! Just be yourself! But I'm gonna wait over here!"
 
 !`addChoice("... Take a look.", "seedy", {icons: ["Cub", "Male", "Male", "Male", "Male", "Male"]});
-addChoice("Move along.", "followMynt");`
+addChoice("Follow Mynt.", "followMynt");`
 
 ---
 :seedy
@@ -102,7 +111,7 @@ It's got graffiti'd off-yellow walls decorated by little multicolored paint-drip
 A random cub boy patters up on quick feetpaws and grabs your hand, tugging you over to the bustling playground.
 
 [Go with him.]
-[Back.|followMyntPre]
+[Follow Mynt.|followMyntPre]
 ---
 :Go with him.
 
@@ -123,7 +132,7 @@ His friend is beside himself with jealousy. His little ears fold back and he wra
 Both of the boys look up at you with massive, wonder-stricken eyes. Their paws automatically rove up your thighs as they attach their little bodies to you. "Wanna play`gender(", mister", ", lady", "")`?"
 
 [Sure... tag team me, boys.]
-[Back.|followMyntPre]
+[Follow Mynt.|followMyntPre]
 ---
 :Sure... tag team me, boys.
 
@@ -138,7 +147,7 @@ The bandaid-butt cub slides his hands around his friend's waist and kisses him s
 They break the neck-kiss and latch to your crotch, both at once. Two sets of glittering, reverent eyes look up at you with as their wet lips roll over `genitals("the base of your cock", "the lips of your cunt", "the base of your cock")`. Each places a tiny, adorable paw on `genitals("one of your nuts", "one of your buttcheeks", "one of your nuts")` and squeezes, pulling you deeper into the cub sandwich.
 
 [Mmnnn...]
-[Back.|followMyntPre]
+[Follow Mynt.|followMyntPre]
 ---
 :Mnnn...
 
@@ -151,7 +160,7 @@ The cubs between your legs aren't getting enough of your attention. They compete
 Finally, Bandaid Butt shoves the other boy into the sand and just `genitals("impales his own throat on your cock all at once. It bulges his little neck out obscenely. His scrunched-up eyes start to water. A rippling gag bursts from deep in his belly, and you feel it vibrate against your bare shaft", "takes your whole cuntlips into his tiny maw, sucking hard, puffing them out, nursing the sticky strands of pussyjuice out", "impales his own throat on your cock all at once. It bulges his little neck out obscenely. His scrunched-up eyes start to water. A rippling gag bursts from deep in his belly, and you feel it vibrate against your bare shaft")`.
 
 [Cum.|playgroundCum]
-[Back.|followMyntPre]
+[Follow Mynt.|followMyntPre]
 
 ---
 :playgroundCum
@@ -166,7 +175,7 @@ The bell rings. Recess is over.
 
 The two boys thank you, wipe their mouths, and scamper off for gym class. The gym teacher is a huge dude wearing only a pair of tight, athletic shorts. He gathers them all into a big gymnasium filled with wicked-looking "exercise" machines, and then he winks at you and shuts the door.
 
-[Back.|followMyntPre]
+[Follow Mynt.|followMyntPre]
 ---
 :followMyntPre
 
@@ -184,7 +193,7 @@ She raises her eyebrows and glances at your `genitals("cock", "cunt", "cock")`. 
 
 ... You're dripping a bit, down there.
 
-[Yep~|followMynt]
+[WELP let's hurry onward~|followMynt]
 
 ---
 :followMyntPre3
@@ -201,9 +210,9 @@ She stifles a giggle. "Well, at least you were brave enough to try it out. I don
 ---
 :followMynt
 
-You trail after Mynt through the sex and the city. It's easy to forget that you've been indoors this whole time, but you're reminded every time you look up at the gorgeous porn on the ceiling. Who could have possibly painted that, you wonder? And if this is all inside a dungeon, then what's outside?
+You trail after Mynt through the sex and the city. You mean the sex dungeon that just looks like a city. It's easy to forget that you've been indoors this whole time, but you're reminded every time you look up at the gorgeous porn on the ceiling. Who could have possibly painted that, you wonder? And if this is all inside a dungeon, then what's outside?
 
-"We're almost there, I think," Mynt says.
+"We're almost there, I think," Mynt says. The back wall looms.
 
 You hit a fork in the road.
 
@@ -220,23 +229,25 @@ Mynt looks at you.
 
 "I mean... on your own time, if you want... but I'm kinda... I don't really wanna be around when you uh... if you uh..."
 
-[Oops, haha, um. Sorry, misread the sign. Left I mean.|Left.]
+[Oops, haha, um. Sorry, misread the sign. Left I meant.|Left.]
 ---
 :Left.
 
-You push deeper and deeper, until the fog of sex sweat penetrates your nostrils. Then, all at once, you realize you've reached the far back wall of the universe.
+You push deeper and deeper towards the back wall, harder and deeper, deeper and even more harder, heeper and darder, until the fog of sex sweat penetrates your nostrils. Then, all at once, you can reach out and touch the far back wall of this universe.
 
-There's a tiny iron door set into the cobblestone wall. It's passlocked.
+There's a tiny iron door set into the cobblestone. It's passlocked.
 
 The password is 9271x1837x2913x1093x1923xOLDxSEVENxSIXTYxFORGETxNEVERxARExCOULDxFORTHxYOUNG. No, I won't make you type it in.
 
-"What does it mean...?" Mynt wonders breathlessly.
+"What does it mean...?" Mynt wonders breathlessly, her `myntCock("cock", "pussy")` dripping at the prospect of lore.
 
-[Yeah, what DOES it mean? Are you calling me old?]
+[Yeah, what does it mean, Mr. Eyeball?]
 ---
-:Yeah, what DOES it mean? Are you calling me old?
+:Yeah, what does it mean, Mr. Eyeball?
 
-The password is meaningless. It's randomly generated every two hours from a random set of words and numbers.
+The password is meaningless.
+
+It's randomly generated every two hours from a random set of random words and numbers.
 
 [Oh. Alright.]
 ---
@@ -244,13 +255,13 @@ The password is meaningless. It's randomly generated every two hours from a rand
 
 The door clicks happily and swings open.
 
-It's a cozy little antechamber. There are a few small cushioned chairs, some magazines, and a set of double-doors that lead into the map dome. That's where God will be waiting for you.
+It's a cozy little antechamber. There are a few small cushioned chairs, some lewd magazines, and a set of double-doors that lead into God's map dome. That's where he will be waiting for you.
 
-Mynt wrings her dress nervously. "Is... I've been meaning to ask, sorry, is he my god, too?"
+Mynt wrings her dress nervously. "Is... I've been meaning to ask, sorry for all the questions, but, um. Is the librarian my god, too?"
 
-[And what is um... does he have a name?]
+[And hey yeah what is um... does God have a name?]
 ---
-:And what is um... does he have a name?
+:And hey yeah what is um... does God have a name?
 
 You both have no need to be so nervous around me. Please loosen up.
 
@@ -258,35 +269,189 @@ You both have no need to be so nervous around me. Please loosen up.
 
 Mynt, `data.playerName`'s layer encompasses and precedes yours.
 
-If Cartographer is `data.playerName`'s god, then `data.playerName` is your god.
+If Cartographer is `data.playerName`'s god, then `data.playerName` is your god by the same logic.
 
 [...|next1]
 ---
 :next1
 
-Mynt looks at you like she wants to make out really fucking badly.
+Mynt looks at you like she wants to make out really fucking badly. Her knees slide together subbily.
 
 [Hey!! I don't deserve that credit. I'm not omnipotent or omniscient.]
 ---
 :Hey!! I don't deserve that credit. I'm not omnipotent or omniscient.
 
-And neither is he.
+And neither is Cartographer.
 
-Nevertheless, Mynt bows to you.
+Mynt bows to you. "Please forgive me, O great one," she whispers. "For I have sinned and probably just don't remember it..."
 
 [Oh quit it.]
 ---
 :Oh quit it.
 
-She smiles at you and straightens up. "Sorry~"
+She smiles at you and straightens up. "Sorry. It's really not that much of a shock. I already knew you were from outside my computer, anyway, and that already makes you super sublime, in my book..."
 
-Cart is almost finished painting. I told him about both of you, so skip the introductions.
+Cartographer is almost finished painting. I told him about both of you, so skip the introductions.
 
 [Gotcha. Open the doors.]
 ---
 :Gotcha. Open the doors.
 
+The doors swing open.
 
+Immediately, the fur on your `genitals("nuts", "cuntlips", "nuts and cuntlips")` stands on end— not from goosebumps, but because the map dome is a bubble of localized anti-gravity.
+
+It's a colossal sphere, sliced into twelve crescent panes of parchment. The panes shift and flip and trade places according to precise forces applied by the feet and arms of a tiny, naked, brown-furred blur which skates around the dome in great concentric paths, like a motorcycle stuntman in a steel mesh ball. His bare feet clunkclunkclunk over the small gaps between the panes.
+
+"Is that... paint?" Mynt asks.
+
+You squint.
+
+His feet and paws are coated with it.
+
+[Oh my God.]
+---
+:Oh my God.
+
+At the same time as Cartographer kicks and slides the panels of his map dome into place, he also fingerpaints/toepaints the parchment attached to them with a collage of long and curvy symbols designed to be recognizable even when he draws them at incredible speeds. He drags routes and roads with his fingers, he pokes points of interest into the parchment with his pinky toes, and sometimes (usually during a long fall) he even palms big gashes of black paint over finished sections of his map with the pained expression of an author who just deleted two thirds of their rough draft.
+
+When he fucks up, he'll skip or correct a section by sliding over it on a knee or elbow. Other times he'll squat, tense, and launch himself from one side of the dome to the other.
+
+Mynt is amazed. She cranes forward to watch. She cranes a little too far, actually, and finds that her feet are no longer attached to the ground.
+
+"Ah!! Oh no—"
+
+Her ass goes up and her head goes down. Cartographer skates by at 50mph, just above her, and his shockwave sets Mynt to cartwheeling in mid-air.
+
+"FUCKING HELP!" she squeals, flailing.
+
+[Ah! Grab her!]
+---
+:Ah! Grab her!
+
+You grab her by her tail and yank her back into the antechamber, where the gravity is normal. She flops down on her back.
+
+"OH! You're here! Just a moment!" Cartographer pleads with you. "Don't enter the map dome until I'm done!"
+
+[Okay!! Sorry, God!]
+---
+:Okay!! Sorry, God!
+
+"Call me Cart!"
+
+[Okay sorry Cart!!!]
+---
+:Okay sorry Cart!!!
+
+"Don't even worry about it!" he says.
+
+Mynt sits up, holding her head.
+
+"A-Ah... I hope I didn't wreck his thingy..."
+
+[His map? (Help her up.)|helpMynt]
+---
+:helpMynt
+
+"Yeah, the um. The ball map... I just wanted to watch."
+
+The doppler effect stretches Cart's voice out as he rockets past the doorway:
+
+"You can watch, if you like! Just don't stick your head out too far. Also, I'm pretty aerodynamic right now, so if that's not your kind of thing, wait until I get some clothes on."
+
+!`
+addChoice("Watch him.", function() {
+	watchCart = true;
+	gotoPassage("cartWatch1");
+}, {icons: ["Art", "Cub", "Male"]});
+
+addChoice("Just talk from in here.", function() {
+	watchCart = false;
+	gotoPassage("cartWatch1");
+});
+`
+---
+:cartWatch1
+
+!`
+clear();
+//setBackground(0, "writer/mynt/bg/myntBodBg");
+
+`
+
+---
+C: One moment.
+R: Hi. We're here to ask about Wendy?
+C: Who?
+C: Oh boy... took that turn a little sharp...
+R: Wendy, our mom. We came to...
+R: (Mynt? You there?)
+R: ... Okay, well, *I* came to ask if you've seen Wendy.
+R: You're like a map guru, right kid?
+R: Maybe you'll know where she may have gone.
+C: Mmm, Wendy...
+C: The name Wendy...
+C: Wenders... Wendalynn... Wendygo...
+C: OH. Yes. Now I remember.
+C: Wendy is...
+C: Wendy is definitely an Earth name, right?
+R: Goddamnit why can't anyone just be a normal person.
+R: An 'Earth name'?
+R: Are you an alien too??
+C: Oh, I hope not.
+R: Are you from another planet, I mean?
+C: Um... no...
+C: Do I look like an Alien...?
+C: I thought they were grey and slimy...
+R: Well actually yes, you do look like some kind of alien, but that's besides the point.
+R: If you're not from another planet, where are you from?
+C: I'm from right here.
+C: This is my home layer.
+R: Layer...? Listen, I just want to know if you've seen Wendy.
+R: She's chubby, pear-shaped, glasses, shoulder-length hair.
+C: Ohhhh yes.
+C: She came in here looking for someone a long time ago.
+R: She did?!
+C: Yup.
+R: Who was she looking for?
+C: She was looking for another Wendy.
+R: What?!
+C: You sound confused.
+R: That's because I am.
+R: Wendy came in here looking for a clone of herself?
+C: Yes, well, we aren't allowed to assimilate clones, but...
+C: Someone disguised as Wendy came in looking for the real one.
+C: Or Wendy came in looking for someone disguised as her.
+C: That's all I know.
+R: ... I see.
+
+
+M busts in
+M: OH MY GOD I'm gonna die of embarrassment.
+R: What happened?
+M: I chased down a bimbo who I thought was Mom but she wasn't mom and then I kind of jumped the gun and started lavishing affection over her and she was very happy with it I think but I was mortified because I had been feeling her up for like fifteen minutes at that point and then when she turned around—
+R: Good effort, kid.
+M: Ahhh... thanks. I try.
+M: Did map boi have any clues for us?
+R: Sort of not really.
+R: He said either Wendy or someone disguised as her came in asking about another Wendy.
+M: Ahhh, interesting.
+R: ... Why did you just accept that at face value.
+M: Haven't we been doing that non-stop since we got here?
+R: Good point.
+
+C: Almost done!
+C: One moment.
+M: ... What are you doing up there, naked and covered in paint?
+C: I'm mapping.
+R: Mapping what?
+C: Layers, and the gunk between.
+M: Oh coooool!
+M: Isn't that super hard?
+C: Oh, it is.
+C: But this technique makes it easier.
+R: Right, the technique where you strip down and skate around a massive concave zero-gravity map dome on all four limbs at once.
+C: It's surprisingly intuitive once you build up some articulation in your toes!
 
 ---
 :myntAdvent16knew5
