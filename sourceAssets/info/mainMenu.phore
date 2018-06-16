@@ -166,7 +166,7 @@ playRect.onUnHover = loadRect.onUnHover = modRect.onUnHover = extraRect.onUnHove
 
 var bottomRect = addRectImage(gameWidth, buttonHeight*2, 0x302f32);
 bottomRect.alpha = 0;
-bottomRect.tint = 0xFFd85252;
+bottomRect.tint = 0x302f32;
 bottomRect.y = gameHeight;
 
 var muteButton = addImage("writer/mute.png");
@@ -174,7 +174,23 @@ muteButton.onRelease = function() {
 	isMuted = !isMuted;
 	if (isMuted) setMasterVolume(0);
 	else setMasterVolume(1);
+	playEffect("audio/ui/bestChoiceClick");
 };
+
+muteButton.scaleY = muteButton.scaleX = 2;
+muteButton.x = (muteButton.width * muteButton.scaleX) * -1;
+muteButton.y = gameHeight - muteButton.height * muteButton.scaleY * 1.5;
+
+muteButton.onHover = function() {
+	playEffect("audio/ui/hoverChoiceButtons");
+	muteButton.tint = 0xFF375266;
+}
+
+muteButton.onUnHover = function() {
+	muteButton.tint = 0;
+}
+
+tween(muteButton, 3, {x: gameWidth - muteButton.width * muteButton.scaleX - 20}, {ease: QUINT_OUT});
 
 tween(bottomRect, 2, {y: 625, alpha: 1}, {ease: QUINT_OUT});
 tween(bottomRect, 6, {scaleY: 1.2}, {type: PINGPONG, ease: QUAD_IN_OUT});
