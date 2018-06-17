@@ -95,6 +95,7 @@ duk_ret_t setImageFont(duk_context *ctx);
 
 duk_ret_t getTextureWidth(duk_context *ctx);
 duk_ret_t getTextureHeight(duk_context *ctx);
+duk_ret_t setWordWrapWidth(duk_context *ctx);
 
 /// Audio
 duk_ret_t addSoundTweakJs(duk_context *ctx);
@@ -150,6 +151,7 @@ void initGame() {
 	addJsFunction("setImageFont", setImageFont, 2);
 	addJsFunction("getTextureWidth_internal", getTextureWidth, 1);
 	addJsFunction("getTextureHeight_internal", getTextureHeight, 1);
+	addJsFunction("setWordWrapWidth_internal", setWordWrapWidth, 2);
 
 	addJsFunction("addSoundTweak", addSoundTweakJs, 2);
 	addJsFunction("playMusic_internal", playMusic, 1);
@@ -877,6 +879,15 @@ duk_ret_t getTextureHeight(duk_context *ctx) {
 	Asset *textureAsset = getTextureAsset(assetId);
 	duk_push_int(ctx, textureAsset->height);
 	return 1;
+}
+
+duk_ret_t setWordWrapWidth(duk_context *ctx) {
+	int wordWrapWidth = duk_get_int(ctx, -1);
+	int id = duk_get_int(ctx, -2);
+
+	MintSprite *img = game->images[id];
+	img->wordWrapWidth = wordWrapWidth;
+	return 0;
 }
 
 //

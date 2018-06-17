@@ -90,6 +90,9 @@ function newImage() {
 		setFont: function(fontName) {
 			setImageFont(img.id, fontName);
 		},
+		setWordWrapWidth: function(wordWrapWidth) {
+			setWordWrapWidth_internal(img.id, wordWrapWidth);
+		},
 
 		justPressed: false,
 		justReleased: false,
