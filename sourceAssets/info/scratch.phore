@@ -43,6 +43,7 @@ addChoice("Load a mod", loadMod);
 [Tag test|tagTest]
 [Benchmark|benchmark]
 [Tooltip Test|tooltipTest]
+[Word wrap Test|wordWrapTest]
 ---
 :Change Mynt's genitals
 
@@ -331,6 +332,36 @@ spr.whileHovering = function() {
 `
 
 [Go back|scratchModStart]
+---
+:wordWrapTest
+This is a word wrap test.
+
+!`
+var wwField = null;
+var wwLine = addRectImage(8, 128, 0x0000FF);
+
+var wwWidth = 0;
+
+var wwTimer = timer(1, function() {
+	if (wwWidth <= 128) wwWidth = 1024;
+	if (wwField) wwField.destroy();
+
+	wwField = addEmptyImage(wwWidth, gameHeight);
+	wwField.tint = 0xFFFFFFFF;
+	wwField.setText("This is some test text. This is some test text. This is some test text. This is some test text. This is some test text. This is some test text. This is some test text. This is some test text. This is some test text. This is some test text. This is some test text. This is some test text.");
+	wwField.x = 100;
+	wwField.y = 100;
+
+	wwLine.x = wwField.x + wwField.width;
+	wwLine.y = wwField.y;
+
+	wwWidth /= 2;
+}, -1);
+
+clearFunctions.push(function() {
+	wwTimer.destroy();
+});
+`
 ---
 :Exit
 `exitMod();`
