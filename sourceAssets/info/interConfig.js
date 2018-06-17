@@ -214,13 +214,19 @@ function addChoice(choiceText, result, config) {
 		if (config.icons) {
 			config.icons.forEach(function(iconName, i) {
 				var icon = addImage(iconDatabase[iconName]);
-				icon.scaleX = icon.scaleY = 2;
+				if (isAndroid) {
+					icon.scaleX = icon.scaleY = 2;
+					icon.onRelease = function() {
+						msg(config.icons[i]);
+					}
+				} else {
+					icon.whileHovering = function() {
+						showTooltip(config.icons[i]);
+					}
+				}
 				icon.x = i * icon.width * icon.scaleY;
 				icon.y = -icon.height * icon.scaleY;
 				icon.layer = CHOICE_TEXT_LAYER;
-				icon.onRelease = function() {
-					msg(config.icons[i]);
-				}
 				spr.addChild(icon);
 			});
 		}
