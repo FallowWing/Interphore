@@ -1372,7 +1372,9 @@ addChoice("HMMMMMMMMMMM!!", "myntAdvent12");
 ---
 :myntAdvent12
 
-"Sorry 4 creepy msg! Used thumb. Water would dry up. Saw mom, chasing. Meet at L.L.L."
+Sorry 4 creepy msg! Used thumb. Water would dry up. Saw mom, chasing. Meet at L.L.L.
+
+P.S. I think her name is Wendy.
 
 !`
 addChoice("Oh! Phew. It's... a good kind of message in blood.", "myntAdvent13");
@@ -1425,7 +1427,7 @@ Unless Mynt chases her down, you might want to ask the librarian where your mom 
 
 Would you like to meet God?
 
-He's almost finished painting for the day.
+He's almost finished paintskating for the day.
 
 !`
 addChoice("I wanna regroup with Mynt first.", "myntAdvent16knew2");

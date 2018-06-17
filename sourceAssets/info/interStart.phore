@@ -109,6 +109,11 @@ addSoundTweak("audio/ui/hoverChoiceIcons/1", 0.6);
 addSoundTweak("audio/ui/hoverChoiceIcons/2", 0.6);
 addSoundTweak("audio/ui/hoverChoiceIcons/3", 0.6);
 
+addSoundTweak("audio/effect/cartSlide/right/1", 0.5);
+addSoundTweak("audio/effect/cartSlide/right/2", 0.5);
+addSoundTweak("audio/effect/cartSlide/left/1", 0.5);
+addSoundTweak("audio/effect/cartSlide/left/2", 0.5);
+
 addSoundTweak("audio/music/newVictim", 0.2);
 addSoundTweak("audio/music/newSelf", 0.4);
 addSoundTweak("audio/music/violetMeteorite", 0.1);

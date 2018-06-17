@@ -24,6 +24,7 @@ info/mainMenu.phore
 info/main.phore
 info/thirstyCaves.phore
 info/wendyApt.phore
+info/introCart.phore
 info/LLL.phore
 info/scratch.phore
 info/basic.phore
@@ -148,6 +149,8 @@ img/writer/characters/cart/cart.png
 img/writer/characters/cart/cart.spr
 img/writer/characters/cart/cart2.png
 img/writer/characters/cart/cart2.spr
+img/writer/characters/cart/cartSkate.png
+img/writer/characters/cart/cartSkate.spr
 img/writer/intro/titleBG.png
 img/writer/intro/titleBG.spr
 img/writer/intro/titleText.png
@@ -174,6 +177,11 @@ img/ui/dialog/paraDialog.png
 img/ui/dialog/paraDialog.spr
 img/ui/dialog/wendyDialog.png
 img/ui/dialog/wendyDialog.spr
+
+audio/effect/cartSlide/right/1.ogg
+audio/effect/cartSlide/right/2.ogg
+audio/effect/cartSlide/left/1.ogg
+audio/effect/cartSlide/left/2.ogg
 
 audio/ui/notification.ogg
 audio/ui/nextArrow.ogg

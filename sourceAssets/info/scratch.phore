@@ -5,7 +5,7 @@ setBackground(0, "img/writer/mainBg");
 setBackground(1, "");
 streamAsset("coin.png", "https://i.imgur.com/mmt2kcc.png");
 streamAsset("test1.png", "https://upload.wikimedia.org/wikipedia/commons/d/dc/Large_Drive-In_EMC_Test_Chamber.png");
-choicesPerPage = 8;
+choicesPerPage = 6;
 `
 WIP Dev Menu
 
@@ -22,6 +22,7 @@ Scene Progress:
 !`
 addChoice("Load a mod", loadMod);
 `
+[cartIntro]
 [Apartment Scene (comes after LLL and Mynt intro)|wendyApt]
 [LLL]
 [Change Mynt's genitals]
@@ -75,6 +76,13 @@ gotoMap();
 clear();
 execAsset("introMod.phore");
 gotoPassage("introModStart");
+`
+---
+:cartIntro
+!`
+clear();
+execAsset("introCart.phore");
+gotoPassage("introModCartStart");
 `
 
 ---

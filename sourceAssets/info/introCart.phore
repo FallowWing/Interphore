@@ -1,18 +1,63 @@
 var watchCart = false;
+var cartLeft = true;
 var cartArt;
+var cartTween;
+
+function specialTitle(str) {
+	queueTitle(str);
+
+	queueCall(function() {
+		//Restart the tween if it stopped
+		if (cartArt.x >= gameWidth + cartArt.width || cartArt.x <= -cartArt.width * 2) {
+
+			//Set a new direction, if you can
+			if (cartArt.x >= gameWidth) {
+				cartLeft = false;
+			} else if (cartArt.x <= -cartArt.width) {
+				cartLeft = true;
+			}
+
+			cartTween.cancel();
+
+			if (!cartLeft) playEffect("audio/effect/cartSlide/left")
+			else playEffect("audio/effect/cartSlide/right");
+
+			if (rnd() > 0.7) {
+				cartArt.y = cartArt.height;
+				cartArt.scaleY = -1;
+			} else {
+				cartArt.y = gameHeight - cartArt.height - 10;
+				cartArt.scaleY = 1;
+			}
+
+			if (cartLeft) {
+				cartArt.scaleX = 1;
+				cartTween = tween(cartArt, 5, {x: gameWidth + cartArt.width}, {ease: QUAD_OUT});
+			} else {
+				cartArt.scaleX = -1;
+				cartTween = tween(cartArt, 5, {x: -cartArt.width * 2}, {ease: QUAD_OUT});
+			}
+		}
+	});
+}
 
 START_PASSAGES
 :introModCartStart
 !`
-setBackground(0, "writer/mynt/bg/myntBodBg");
+//setBackground(0, "writer/mynt/bg/myntBodBg");
+streamEmbeddedTexture("writer/characters/cart/cartSkate");
 streamEmbeddedTexture("writer/characters/cart/cart");
 streamEmbeddedTexture("writer/characters/cart/cart2");
-disableExit();
 
-var myntBod = addImage("writer/characters/cart/cart");
-myntBod.tint = 0xFF000000;
-myntBod.x = gameWidth/2 - myntBod.width/2;
-myntBod.y = gameHeight/2 - myntBod.height/2;
+cartArt = addImage("writer/characters/cart/cartSkate");
+cartArt.temp = false;
+cartArt.y = gameHeight - cartArt.height - 10;
+cartArt.x = -cartArt.width * 2;
+cartArt.layer = titleTf.layer + 1;
+
+cartTween = tween(cartArt, 1, {alpha: 1});
+
+disableExit();
 
 var music = playMusic("audio/ambience/violetMeteorite");
 music.name = "music";
@@ -31,16 +76,17 @@ You don't have to look very far. Mynt sits two feet away from you, dejected, sti
 "Hey, I just saw— Ptoo! Ptwa! God, this red gunk is all in my fur... what a weird way to travel..."
 
 [You said you saw Mom?]
+[cartWatch1]
 ---
 :You said you saw Mom?
 
 She avoids eye contact with you and looks at the puddle instead.
 
-"I saw her! I'm sure I did," she tells her reflection. "But she jumped right back in the puddle and unravelled... before I could get my bearings or stop her."
+"I saw Wendy! I'm sure I did," she tells her reflection. "But she jumped right back in the puddle and unravelled... before I could get my bearings or stop her."
 
-[Hmmmm... are you sure it was her? Why would she run from us?]
+[Hmmmm... are you sure it was mom? Why would she run from us?]
 ---
-:Hmmmm... are you sure it was her? Why would she run from us?
+:Hmmmm... are you sure it was mom? Why would she run from us?
 
 "I don't know," Mynt pouts. She squats and rocks self-soothingly on her heels. Her eyes can't leave the swirling red puddle.
 
@@ -289,13 +335,15 @@ Mynt bows to you. "Please forgive me, O great one," she whispers. "For I have si
 ---
 :Oh quit it.
 
-She smiles at you and straightens up. "Sorry. It's really not that much of a shock. I already knew you were from outside my computer, anyway, and that already makes you super sublime, in my book..."
+She smiles at you and straightens up. "Sorry. It's really not that much of a shock. I already knew you were from above my little box computer world, anyway, and that already makes you super ascended, in my book..."
 
-Cartographer is almost finished painting. I told him about both of you, so skip the introductions.
+I told Mynt "Super ascended = one layer above = godhood."
 
-[Gotcha. Open the doors.]
+Cartographer is almost finished paintskating. I told him about both of you, so skip the introductions.
+
+[Wait. What is he doing? Open the doors.]
 ---
-:Gotcha. Open the doors.
+:Wait. What is he doing? Open the doors.
 
 The doors swing open.
 
@@ -353,11 +401,19 @@ Mynt sits up, holding her head.
 ---
 :helpMynt
 
-"Yeah, the um. The ball map... I just wanted to watch."
+"Yeah, the um. The ball map... the paint-skating... I just wanted to watch."
 
 The doppler effect stretches Cart's voice out as he rockets past the doorway:
 
-"You can watch, if you like! Just don't stick your head out too far. Also, I'm pretty aerodynamic right now, so if that's not your kind of thing, wait until I get some clothes on."
+"YYYYYYou can watch. Just do not stick your head out too faaaaaaar."
+
+And the second go round:
+
+"AAAAAAAlso, I am pretty aerodynamic right nowwwwwww."
+
+And the third:
+
+"SSSSSSSo you might want to wait until I get some clothes onnnnnnnnn."
 
 !`
 addChoice("Watch him.", function() {
@@ -372,91 +428,163 @@ addChoice("Just talk from in here.", function() {
 `
 ---
 :cartWatch1
-
 !`
 clear();
+msg("Art: Cubber");
 //setBackground(0, "writer/mynt/bg/myntBodBg");
-
+specialTitle("Hello again.");
+specialTitle("I will be finished in a moment.");
+specialTitle("Enjoy the view.");
+specialTitle("Wooooo~");
+queueAddChoice("Hi. We're here to ask about Wendy.", "cartWatch2");
 `
-
 ---
-C: One moment.
-R: Hi. We're here to ask about Wendy?
-C: Who?
-C: Oh boy... took that turn a little sharp...
-R: Wendy, our mom. We came to...
-R: (Mynt? You there?)
-R: ... Okay, well, *I* came to ask if you've seen Wendy.
-R: You're like a map guru, right kid?
-R: Maybe you'll know where she may have gone.
-C: Mmm, Wendy...
-C: The name Wendy...
-C: Wenders... Wendalynn... Wendygo...
-C: OH. Yes. Now I remember.
-C: Wendy is...
-C: Wendy is definitely an Earth name, right?
-R: Goddamnit why can't anyone just be a normal person.
-R: An 'Earth name'?
-R: Are you an alien too??
-C: Oh, I hope not.
-R: Are you from another planet, I mean?
-C: Um... no...
-C: Do I look like an Alien...?
-C: I thought they were grey and slimy...
-R: Well actually yes, you do look like some kind of alien, but that's besides the point.
-R: If you're not from another planet, where are you from?
-C: I'm from right here.
-C: This is my home layer.
-R: Layer...? Listen, I just want to know if you've seen Wendy.
-R: She's chubby, pear-shaped, glasses, shoulder-length hair.
-C: Ohhhh yes.
-C: She came in here looking for someone a long time ago.
-R: She did?!
-C: Yup.
-R: Who was she looking for?
-C: She was looking for another Wendy.
-R: What?!
-C: You sound confused.
-R: That's because I am.
-R: Wendy came in here looking for a clone of herself?
-C: Yes, well, we aren't allowed to assimilate clones, but...
-C: Someone disguised as Wendy came in looking for the real one.
-C: Or Wendy came in looking for someone disguised as her.
-C: That's all I know.
-R: ... I see.
-
-
-M busts in
-M: OH MY GOD I'm gonna die of embarrassment.
-R: What happened?
-M: I chased down a bimbo who I thought was Mom but she wasn't mom and then I kind of jumped the gun and started lavishing affection over her and she was very happy with it I think but I was mortified because I had been feeling her up for like fifteen minutes at that point and then when she turned around—
-R: Good effort, kid.
-M: Ahhh... thanks. I try.
-M: Did map boi have any clues for us?
-R: Sort of not really.
-R: He said either Wendy or someone disguised as her came in asking about another Wendy.
-M: Ahhh, interesting.
-R: ... Why did you just accept that at face value.
-M: Haven't we been doing that non-stop since we got here?
-R: Good point.
-
-C: Almost done!
-C: One moment.
-M: ... What are you doing up there, naked and covered in paint?
-C: I'm mapping.
-R: Mapping what?
-C: Layers, and the gunk between.
-M: Oh coooool!
-M: Isn't that super hard?
-C: Oh, it is.
-C: But this technique makes it easier.
-R: Right, the technique where you strip down and skate around a massive concave zero-gravity map dome on all four limbs at once.
-C: It's surprisingly intuitive once you build up some articulation in your toes!
-
+:cartWatch2
+!`
+specialTitle("Woooooo—");
+specialTitle("Who?");
+queueAddChoice("Wendy, our mom.", "cartWatch3");
+`
 ---
-:myntAdvent16knew5
+:cartWatch3
+!`
+specialTitle("...");
+queueAddChoice("She just teleported to your dungeon place, through the red pond.", "cartWatch4");
+`
+---
+:cartWatch4
+!`
+specialTitle("...");
+queueAddChoice("Then we lost her again.", "cartWatch5");
+`
+---
+:cartWatch5
+!`
+specialTitle("...");
+queueAddChoice("You're like a map guru, right?", "cartWatch6");
+`
+---
+:cartWatch6
+!`
+specialTitle("...");
+queueAddChoice("Do you know where she might've gone?", "cartWatch7");
+`
+---
+:cartWatch7
+!`
+specialTitle("Mmm, Wendy...");
+specialTitle("The name Wendy...");
+specialTitle("Wendy... Wenders... Wendalynn... Wendygo...");
+specialTitle("OH. Yes. Now I remember.");
+specialTitle("Wendy is...");
+specialTitle("Wendy is definitely an Earth name, right?");
+queueAddChoice("Goddamnit why can't anyone just be a normal person.", "cartWatch8");
+`
+---
+:cartWatch8
+!`
+specialTitle("I am normal.");
+queueAddChoice("You're a naked underaged boy paint-skating around an anti-gravity map dome.", "cartWatch9");
+`
+---
+:cartWatch9
+!`
+specialTitle("And you are a brain-damaged furry grandma covered in teleblood.");
+queueAddChoice("Are you an alien or what?", "cartWatch10");
+`
+---
+:cartWatch10
+!`
+specialTitle("Oh, I hope not.");
+queueAddChoice("Are you from another planet? You called 'Wendy' an Earth name.", "cartWatch11");
+`
+---
+:cartWatch11
+!`
+specialTitle("I'm from the dungeon.");
+specialTitle("This is my home layer.");
+queueAddChoice("Layer...? Listen, I just want to know if you've seen Wendy.", "cartWatch12");
+`
+---
+:cartWatch12
+!`
+specialTitle("Wenders.");
+queueAddChoice("No, Wendy. I don't know how old she is now, but...", "cartWatch13");
+`
+---
+:cartWatch13
+!`
+specialTitle("Wendalynn.");
+queueAddChoice("No, Wendy. She's chubby, pear-shaped, glasses, shoulder-length hair.", "cartWatch14");
+`
+---
+:cartWatch14
+!`
+specialTitle("Wendygo.");
+queueAddChoice("Is she a fucking lost pet? I shouldn't have to tell you she answers to Wendy.", "cartWatch15");
+`
+---
+:cartWatch15
+!`
+specialTitle("Ohhhh, WENDY? Yes.");
+specialTitle("She came in here looking for someone a long time ago.");
+queueAddChoice("She did?!", "cartWatch16");
+`
+---
+:cartWatch16
+!`
+specialTitle("Yup.");
+queueAddChoice("Who was she looking for?", "cartWatch17");
+`
+---
+:cartWatch17
+!`
+specialTitle("She was looking for another Wendy.");
+queueAddChoice("What?", "cartWatch18");
+`
+---
+:cartWatch18
+!`
+specialTitle("You sound confused.");
+queueAddChoice("... Are there... are there clones of our mom...?", "cartWatch19");
+`
+---
+:cartWatch19
+!`
+specialTitle("We are not allowed to assimilate duplicates.");
+specialTitle("Someone disguised as Wendy came in, looking for the real one.");
+specialTitle("Or Wendy came in, looking for someone disguised as her.");
+specialTitle("That is all I know.");
+queueAddChoice("...", "cartWatch20");
+`
+---
+:cartWatch20
+!`
+specialTitle("Wenders.");
+queueAddChoice("Stop. Where did she/they go after that?", "cartWatch21");
+`
+---
+:cartWatch21
+!`
+specialTitle("I do not know.");
+specialTitle("I was too busy mapping.");
+queueAddChoice("You were, huh.", "cartWatch22");
+`
+---
+:cartWatch22
+!`
+queueTitle("Almost done!");
+queueTitle("One moment.");
+queueTitle("Just let me get some clothes on.");
+queueAddChoice("I see.", "cartWatch23");
+`
+---
+:cartWatch23
 
 !`
+cartArt.destroy();
+cartTween.destroy();
+specialTitle.destroy();
 resetBackgroundMode(2);
 print("leaving intro");
 
