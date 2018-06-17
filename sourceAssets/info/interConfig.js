@@ -6,8 +6,10 @@ var tweens = [];
 var backgrounds = [];
 var keys = [];
 var msgs = [];
-var doneStreamingFns = [];
 var iconDatabase = [];
+var doneStreamingFns = [];
+var tempUpdateFunctions = [];
+var clearFunctions = [];
 
 var mouseX = 0;
 var mouseY = 0;
@@ -308,6 +310,12 @@ function getAudioById(id) {
 }
 
 function clear() {
+	clearFunctions.forEach(function(fn) {
+		fn();
+	});
+	clearFunctions = [];
+	tempUpdateFunctions = [];
+
 	setMainText("");
 	choicePage = 0;
 	choicesPerPage = 4;
@@ -334,15 +342,23 @@ function gotoPassage(passageName) {
 	gotoPassage_internal(passageName);
 }
 
-function timer(delay, onComplete) {
+function timer(delay, onComplete, loopCount) {
+	if (loopCount === undefined) loopCount = 1;
 	var tim;
 	tim = {
 		delay: delay,
 		timeLeft: delay,
-		onComplete: onComplete
+		onComplete: onComplete,
+		loopCount: loopCount,
+		destroy: function() {
+			var index = timers.indexOf(tim);
+			if (index != -1) timers.splice(index, 1);
+		}
 	};
 
 	timers.push(tim);
+
+	return tim;
 }
 
 function rnd() { return Math.random(); }
@@ -671,8 +687,11 @@ function realUpdate() {
 	/// Misc
 	var elapsed = 1/60;
 
-	/// Asset streaming
+	/// Callbacks
 	while (doneStreamingFns.length > 0 && assetStreamsLeft == 0) doneStreamingFns.shift()();
+	tempUpdateFunctions.forEach(function(fn) {
+		fn();
+	});
 
 	/// Image mouse events
 	images.forEach(function(img) {
@@ -844,10 +863,15 @@ function realUpdate() {
 	var timersToRemove = [];
 	for (var i = 0; i < timers.length; i++) {
 		var tim = timers[i];
-		tim.delay -= elapsed;
-		if (tim.delay <= 0) {
+		tim.timeLeft -= elapsed;
+		if (tim.timeLeft <= 0) {
 			tim.onComplete();
-			timersToRemove.push(tim);
+			tim.loopCount--;
+			if (tim.loopCount == 0) {
+				timersToRemove.push(tim);
+			} else {
+				tim.timeLeft = tim.delay;
+			}
 		}
 	}
 
