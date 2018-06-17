@@ -21,6 +21,7 @@ var checkpointStr = "{}";
 var exitDisabled = false;
 var keyboardOpened = false;
 var isMuted = false;
+var tooltipShowing = false;
 var lastInput = "";
 var choicePage = 0;
 var assetStreamsLeft = 0;
@@ -41,6 +42,8 @@ var CHOICE_TEXT_LAYER = 80;
 var MSG_SPRITE_LAYER = 90;
 var MSG_TEXT_LAYER = 100;
 var TITLE_LAYER = 110;
+var TOOLTIP_SPRITE_LAYER = 120;
+var TOOLTIP_TEXT_LAYER = 130;
 
 var choicesPerPage = 4;
 var BUTTON_HEIGHT = 128;
@@ -97,6 +100,7 @@ function newImage() {
 		dragPivotY: 0,
 		onRelease: null,
 		onHover: null,
+		whileHovering: null,
 		onUnHover: null,
 
 		temp: true,
@@ -630,6 +634,23 @@ function registerIcon(iconName, iconPath) {
 	iconDatabase[iconName] = iconPath;
 }
 
+function showTooltip(str) {
+	var rebuildBg = false;
+	if (str != tooltipTf.text) rebuildBg = true;
+
+	tooltipTf.setText(str);
+
+	if (rebuildBg) {
+		if (tooltipBg) tooltipBg.destroy();
+		tooltipBg = add9SliceImage("img/writer/writerChoice.png", tooltipTf.textWidth + 16, tooltipTf.textHeight + 16, 5, 5, 10, 10);
+		tooltipBg.temp = false;
+		tooltipBg.layer = TOOLTIP_SPRITE_LAYER;
+		tooltipTf.addChild(tooltipBg);
+	}
+
+	tooltipShowing = true;
+}
+
 function __update() {
 	try {
 		realUpdate();
@@ -659,9 +680,22 @@ function realUpdate() {
 
 		if (img.justReleased && img.onRelease) img.onRelease();
 		if (img.justHovered && img.onHover) img.onHover();
+		if (img.hovering && img.whileHovering) img.whileHovering();
 		if (img.justUnHovered && img.onUnHover) img.onUnHover();
 	});
 
+	/// Tooltips
+	if (tooltipShowing) { 
+		tooltipTf.alpha += 0.05;
+		tooltipBg.x = tooltipTf.textWidth/2 - tooltipBg.width/2;
+		tooltipBg.y = tooltipTf.textHeight/2 - tooltipBg.height/2;
+
+		tooltipTf.x = mouseX;
+		tooltipTf.y = mouseY;
+	} else {
+		tooltipTf.alpha -= 0.05;
+	}
+	tooltipShowing = false;
 
 	/// Input field
 	if (keyboardOpened) inputFieldBg.y = 20

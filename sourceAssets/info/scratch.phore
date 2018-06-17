@@ -42,6 +42,7 @@ addChoice("Load a mod", loadMod);
 [Text scrolling test|textScrollingTest]
 [Tag test|tagTest]
 [Benchmark|benchmark]
+[Tooltip Test|tooltipTest]
 ---
 :Change Mynt's genitals
 
@@ -271,6 +272,19 @@ addChoice("Alpha", function() {
 });
 addChoice("Go back", "scratchModStart");
 `
+---
+:tooltipTest
+This sprite displays a tooltip when you hover it.
+!`
+var spr = addRectImage(128, 128, 0xFF0000);
+spr.x = 300;
+spr.y = 300;
+spr.whileHovering = function() {
+	showTooltip("This is a longer test tooltip, how are you today?");
+}
+`
+
+[Go back|scratchModStart]
 ---
 :Exit
 `exitMod();`
