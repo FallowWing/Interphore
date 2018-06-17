@@ -13,22 +13,6 @@
 #define PROFILE_JS_UPDATE 0
 #define PROFILE_GAME_UPDATE 1
 
-void initGame(MintSprite *bgSpr);
-void deinitGame();
-void updateGame();
-
-namespace Writer {
-	void initWriter(MintSprite *bgSpr) { initGame(bgSpr); }
-	void deinitWriter() { deinitGame(); }
-	void updateWriter() { updateGame(); }
-}
-
-//
-//
-//         LEGACY END
-//
-//
-
 struct Passage {
 	char *name;
 	char *data;
@@ -62,6 +46,10 @@ struct Game {
 	MintSprite *images[IMAGES_MAX];
 	Channel *audios[AUDIOS_MAX];
 };
+
+void initGame();
+void deinitGame();
+void updateGame();
 
 void runMod(char *serialData);
 void msg(const char *str, ...);
@@ -119,7 +107,7 @@ duk_ret_t setMasterVolume(duk_context *ctx);
 Game *game = NULL;
 char tempBytes[Megabytes(2)];
 
-void initGame(MintSprite *bgSpr) {
+void initGame() {
 	windowsDiskLoadPath = stringClone("currentMod.phore");
 
 	getTextureAsset("NunitoSans-Light_22")->level = 3;
@@ -175,7 +163,9 @@ void initGame(MintSprite *bgSpr) {
 	addJsFunction("loadMod_internal", loadMod, 0);
 
 	game = (Game *)zalloc(sizeof(Game));
-	game->bg = bgSpr;
+	game->bg = createMintSprite();
+	game->bg->setupRect(engine->width, engine->height, 0x000000);
+
 	initProfiler(&game->profiler);
 	initDebugOverlay(&game->debugOverlay);
 
