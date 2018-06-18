@@ -334,29 +334,36 @@ This is a word wrap test.
 
 !`
 var wwField = addEmptyImage(gameWidth, gameHeight);
-var wwLine = addRectImage(8, 128, 0x0000FF);
+var wwRect = addRectImage(1, 1, 0x0000FF);
+wwRect.alpha = 0.3;
 
 var wwWidth = 0;
 
-var wwTimer = timer(1, function() {
+function drawText() {
 	if (wwWidth <= 100) wwWidth = 1024;
-
 	wwField.tint = 0xFFFFFFFF;
 	wwField.setWordWrapWidth(wwWidth);
 	wwField.setText("");
-	wwField.setText("This is some test text. This is some test text. This is some test text. This is some test text. This is some test text. This is some test text. This is some test text. This is some test text. This is some test text. This is some test text. This is some test text. This is some test text.");
+	wwField.setText("This is some test text. This is some test text. This is some test text.");
 	wwField.x = 100;
 	wwField.y = 100;
 
-	wwLine.x = wwField.x + wwWidth;
-	wwLine.y = wwField.y;
+	wwRect.x = wwField.x;
+	wwRect.y = wwField.y;
+	wwRect.scaleX = wwWidth;
+	wwRect.scaleY = wwField.textHeight;
+}
 
-	wwWidth -= 100;
-}, -1);
-
-clearFunctions.push(function() {
-	wwTimer.destroy();
+addChoice("-10", function() {
+	wwWidth -= 10;
+	drawText();
 });
+
+addChoice("+10", function() {
+	wwWidth += 10;
+	drawText();
+});
+addChoice("Go back", "scratchModStart");
 `
 ---
 :Exit
