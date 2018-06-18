@@ -117,6 +117,8 @@ img/writer/choiceArrow.png
 img/writer/choiceArrow.spr
 img/writer/thirstyCavesBg.png
 img/writer/thirstyCavesBg.spr
+img/writer/cartBg.png
+img/writer/cartBg.spr
 img/writer/mynt/bg/myntBg1.png
 img/writer/mynt/bg/myntBg1.spr
 img/writer/mynt/bg/myntBg2.png
