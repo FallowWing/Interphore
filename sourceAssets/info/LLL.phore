@@ -5,30 +5,22 @@ Cartographer welcomes you.
 
 [Rules of Operation for Paraphores.]
 [Examine Spilled Paint.|Layer Info.]
+!`
+getAudio("music").destroy();
+var music = playMusic("audio/ambience/cell");
+music.name = "music";
 
----
-:Browse known layers.
-
-Known layers:
-- Library2
-- Spilled Paint
-- 
-
-I'm the lamest kind of God there is.
-No omnipotence, no omniscience.
-Just got the ball rolling, that's it.
-
-"Get the Ball Rolling"
-
-- Go for an anti-gravity skate on the inside of a massive stretched-out map
-- Boots are jump boots.
-
-
+addChoice("Move along.", function() {
+	execAsset("thirstyCaves");
+	initThirstyCaves();
+	gotoMap();
+});
+`
 ---
 :Layer Info.
 
 PARENT ENTITY: CARTOGRAPHER
-CHILD LAYERS: LIBRARY2 (+3 CHILDREN), RELAXATIONGAME, MINT
+CHILD LAYERS: LIBRARY2 (+3 CHILDREN), RELAXATIONGAME
 PARAPHRASED TIMELINES: 4
 	> PROTOCOL ENDING:
 		DANGER LEVEL: SAFE

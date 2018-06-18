@@ -1484,7 +1484,7 @@ print("leaving intro");
 
 execAsset("thirstyCaves.phore");
 initThirstyCaves();
-gotoMap();
+gotoPassage("thirstyCavesIntro");
 `
 
 END_PASSAGES

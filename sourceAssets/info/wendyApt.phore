@@ -29,6 +29,12 @@ The glass door to the main lobby is locked and shattered. Mynt ducks through aft
 ---
 :Follow.
 
+!`
+if (music) music.destroy();
+var music = playMusic("audio/ambience/cell");
+music.name = "music";
+`
+
 The lobby is silent and sunny.
 
 Dust chunks and broken ceiling tiles and cables and glass shards from the broken skylights. Some fluorescent lights haven't burnt out yet, and they hum perpetually.
@@ -1003,6 +1009,12 @@ One light year is 5,900,000,000,000 miles.
 ---
 :end2
 
+!`
+if (music) music.destroy();
+var music = playMusic("audio/ambience/library");
+music.name = "music";
+`
+
 Mynt burrows under the sheets of the bed and becomes a shivering lump in two seconds.
 
 "Okay you go! I'll stay!" she squeaks.
@@ -1167,9 +1179,10 @@ Mynt's face pops out of the window. She extracts a paw from her burrito and wave
 
 To be continued in the next version of Interphore.
 
-!`addChoice("Dev Menu", function() {
+!`addChoice("[Dev Menu]", function() {
 	clear();
 	execAsset("scratch.phore");
+	data.unlockedDev = true;
 });`
 
 END_PASSAGES
