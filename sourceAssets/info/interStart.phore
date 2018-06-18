@@ -82,6 +82,13 @@ inputTitle.tint = 0xFFa5e3f2;
 inputTitle.setFont("NunitoSans-Light_22");
 inputTitle.alpha = 0.75;
 
+var tooltipTf = addEmptyImage(256, 256);
+tooltipTf.temp = false;
+tooltipTf.tint = 0xFFFFFFFF;
+tooltipTf.layer = TOOLTIP_TEXT_LAYER;
+
+var tooltipBg = null;
+
 for (var i = 0; i < 500; i++) keys[i] = KEY_RELEASED;
 execAsset("info/nodeGraph.phore");
 

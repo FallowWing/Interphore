@@ -42,6 +42,8 @@ addChoice("Load a mod", loadMod);
 [Text scrolling test|textScrollingTest]
 [Tag test|tagTest]
 [Benchmark|benchmark]
+[Tooltip Test|tooltipTest]
+[Word wrap Test|wordWrapTest]
 ---
 :Change Mynt's genitals
 
@@ -259,17 +261,106 @@ This is going to be a sprite benchmark.
 
 !`
 choicesPerPage = 8;
+var numSprites = 10;
+var posEnabled = true;
+var rotEnabled = true;
+var scaleEnabled = true;
+var alphaEnabled = true;
+
 addChoice("-10", function() {
+	numSprites -= 10;
+	if (numSprites < 0) numSprites = 0;
 });
 addChoice("+10", function() {
+	numSprites += 10;
+});
+addChoice("Pos", function() {
+	posEnabled = !posEnabled;
 });
 addChoice("Rot", function() {
+	rotEnabled = !rotEnabled;
 });
 addChoice("Scale", function() {
+	scaleEnabled = !scaleEnabled;
 });
 addChoice("Alpha", function() {
+	alphaEnabled = !alphaEnabled;
 });
 addChoice("Go back", "scratchModStart");
+
+var timerTime = 3;
+var benchTimer = timer(timerTime, function() {
+	var sprIndexArr = [];
+	for (var i = 0; i < numSprites; i++) sprIndexArr.push(i);
+	sprIndexArr.forEach(function(i) {
+		var spr = addRectImage(64, 64, rndInt(0, 0xFFFFFF));
+		spr.x = rndFloat(0, gameWidth);
+		spr.y = rndFloat(0, gameHeight);
+
+		var targetObject = {};
+		if (posEnabled) {
+			targetObject.x = spr.x + rndFloat(-300, 300);
+			targetObject.y = spr.y + rndFloat(-300, 300);
+		}
+		if (rotEnabled) targetObject.rotation = rndFloat(-180, 180);
+		if (scaleEnabled) {
+			targetObject.scaleX = rndFloat(0.5, 1.5);
+			targetObject.scaleY = rndFloat(0.5, 1.5);
+		}
+		if (alphaEnabled) targetObject.alpha = rndFloat(0.25, 1);
+
+		tween(spr, timerTime, targetObject, { onComplete: function() {
+			spr.destroy();
+		}});
+	});
+}, -1);
+
+clearFunctions.push(function() {
+	benchTimer.destroy();
+});
+`
+---
+:tooltipTest
+This sprite displays a tooltip when you hover it.
+!`
+var spr = addRectImage(128, 128, 0xFF0000);
+spr.x = 300;
+spr.y = 300;
+spr.whileHovering = function() {
+	showTooltip("This is a longer test tooltip, how are you today?");
+}
+`
+
+[Go back|scratchModStart]
+---
+:wordWrapTest
+This is a word wrap test.
+
+!`
+var wwField = addEmptyImage(gameWidth, gameHeight);
+var wwLine = addRectImage(8, 128, 0x0000FF);
+
+var wwWidth = 0;
+
+var wwTimer = timer(1, function() {
+	if (wwWidth <= 100) wwWidth = 1024;
+
+	wwField.tint = 0xFFFFFFFF;
+	wwField.setWordWrapWidth(wwWidth);
+	wwField.setText("");
+	wwField.setText("This is some test text. This is some test text. This is some test text. This is some test text. This is some test text. This is some test text. This is some test text. This is some test text. This is some test text. This is some test text. This is some test text. This is some test text.");
+	wwField.x = 100;
+	wwField.y = 100;
+
+	wwLine.x = wwField.x + wwWidth;
+	wwLine.y = wwField.y;
+
+	wwWidth -= 100;
+}, -1);
+
+clearFunctions.push(function() {
+	wwTimer.destroy();
+});
 `
 ---
 :Exit

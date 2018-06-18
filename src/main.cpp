@@ -27,25 +27,13 @@ void entryPoint() {
 void initMain() {
 	engine->exitCallback = exitMain;
 
-#if 0
-	MintSprite *bg = createMintSprite();
-	bg->setupRect(1, 1, 0x000000);
-	bg->alpha = 0;
-	bg->scale(engine->width, engine->height);
-
-	MintSprite *spr = createMintSprite();
-	spr->setupContainer(engine->width, engine->height);
-#else
-	MintSprite *spr = createMintSprite();
-	spr->setupRect(engine->width, engine->height, 0x000000);
-#endif
-	Writer::initWriter(spr);
+	initGame();
 }
 
 void updateMain() {
-	Writer::updateWriter();
+	updateGame();
 }
 
 void exitMain() {
-	Writer::deinitWriter();
+	deinitGame();
 }

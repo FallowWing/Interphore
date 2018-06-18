@@ -13,22 +13,6 @@
 #define PROFILE_JS_UPDATE 0
 #define PROFILE_GAME_UPDATE 1
 
-void initGame(MintSprite *bgSpr);
-void deinitGame();
-void updateGame();
-
-namespace Writer {
-	void initWriter(MintSprite *bgSpr) { initGame(bgSpr); }
-	void deinitWriter() { deinitGame(); }
-	void updateWriter() { updateGame(); }
-}
-
-//
-//
-//         LEGACY END
-//
-//
-
 struct Passage {
 	char *name;
 	char *data;
@@ -62,6 +46,10 @@ struct Game {
 	MintSprite *images[IMAGES_MAX];
 	Channel *audios[AUDIOS_MAX];
 };
+
+void initGame();
+void deinitGame();
+void updateGame();
 
 void runMod(char *serialData);
 void msg(const char *str, ...);
@@ -107,6 +95,7 @@ duk_ret_t setImageFont(duk_context *ctx);
 
 duk_ret_t getTextureWidth(duk_context *ctx);
 duk_ret_t getTextureHeight(duk_context *ctx);
+duk_ret_t setWordWrapWidth(duk_context *ctx);
 
 /// Audio
 duk_ret_t addSoundTweakJs(duk_context *ctx);
@@ -119,7 +108,7 @@ duk_ret_t setMasterVolume(duk_context *ctx);
 Game *game = NULL;
 char tempBytes[Megabytes(2)];
 
-void initGame(MintSprite *bgSpr) {
+void initGame() {
 	windowsDiskLoadPath = stringClone("currentMod.phore");
 
 	getTextureAsset("NunitoSans-Light_22")->level = 3;
@@ -162,6 +151,7 @@ void initGame(MintSprite *bgSpr) {
 	addJsFunction("setImageFont", setImageFont, 2);
 	addJsFunction("getTextureWidth_internal", getTextureWidth, 1);
 	addJsFunction("getTextureHeight_internal", getTextureHeight, 1);
+	addJsFunction("setWordWrapWidth_internal", setWordWrapWidth, 2);
 
 	addJsFunction("addSoundTweak", addSoundTweakJs, 2);
 	addJsFunction("playMusic_internal", playMusic, 1);
@@ -175,7 +165,9 @@ void initGame(MintSprite *bgSpr) {
 	addJsFunction("loadMod_internal", loadMod, 0);
 
 	game = (Game *)zalloc(sizeof(Game));
-	game->bg = bgSpr;
+	game->bg = createMintSprite();
+	game->bg->setupRect(engine->width, engine->height, 0x000000);
+
 	initProfiler(&game->profiler);
 	initDebugOverlay(&game->debugOverlay);
 
@@ -887,6 +879,15 @@ duk_ret_t getTextureHeight(duk_context *ctx) {
 	Asset *textureAsset = getTextureAsset(assetId);
 	duk_push_int(ctx, textureAsset->height);
 	return 1;
+}
+
+duk_ret_t setWordWrapWidth(duk_context *ctx) {
+	int wordWrapWidth = duk_get_int(ctx, -1);
+	int id = duk_get_int(ctx, -2);
+
+	MintSprite *img = game->images[id];
+	img->wordWrapWidth = wordWrapWidth;
+	return 0;
 }
 
 //
