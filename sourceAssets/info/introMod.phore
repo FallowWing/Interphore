@@ -22,7 +22,7 @@ queueTitle("Oh, no. He's still in Heaven.");
 queueTitle("You must be the last of his following.");
 queueTitle("Welcome to the Interphore.");
 queueTitle("Go ahead and pick your genitals.");
-queueAddChoice("Hi Mr. Eyeball. Nice to be here.");
+queueAddChoice("Hi Mr. Eyeball. Nice to see you up close.", "Oh sure no prob.");
 `
 
 ---
@@ -219,8 +219,8 @@ queueAddChoice("Okay, I'm all done.");
 !`
 queueTitle("I'll spit you back out of the pond, then.");
 queueTitle("See you in the main text.");
-timer(2, function() {
-	setBackground(0, "");
+queueCall(function() {
+	setBackground(0, "writer/mainBg");
 	setBackground(1, "");
 	setBackground(2, "");
 	setTitle("");
@@ -231,7 +231,12 @@ timer(2, function() {
 
 	execAsset("thirstyCaves.phore");
 	initThirstyCaves();
-	gotoPassage("thirstyCavesIntro");
+	if (data.shapeShifted) {
+		gotoMap();
+	} else {
+		data.shapeShifted = true;
+		gotoPassage("thirstyCavesIntro");
+	}
 });
 `
 END_PASSAGES

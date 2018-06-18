@@ -654,6 +654,8 @@ queueAddChoice("Thanks.", "cartWatch25");
 !`
 clear();
 bg.destroy();
+cartArt.destroy();
+
 setTitle("");
 var cartStanding = addImage("writer/characters/cart/cart2");
 cartStanding.x = gameWidth;
@@ -683,7 +685,7 @@ Mynt squicks out. "That's not blood tea, is it...?"
 ---
 :tea2
 
-"No," he says. "First of all, it's only 7:00 AM, which is way too early for that kind of thing. Second of all, this is just regular pondwater tea."
+"No," he says. "First of all, it is only 7:00 AM, which is way too early for that kind of thing. Second of all, this is just regular pondwater tea."
 
 Mynt winces.
 
@@ -693,7 +695,7 @@ Mynt winces.
 
 Cart fills the last teacup steaming full and sets the kettle down with a soft clatter.
 
-"Now that you swam in the pond and dissolved, you're using a new body, whcih is 70% pondwater. Don't worry. Pondwater tea is as harmless as sipping saline."
+"Now that you swam in the pond and dissolved, you are using a new body, which is 70 percent pondwater. Do not worry. Pondwater tea is as harmless as sipping saline."
 
 He takes a hot sip to prove it. He spasms mildly, exhales, and pats his little belly, refreshed.
 
@@ -761,7 +763,7 @@ She pouts and sucks on the rim of her teacup, thighs grinding together. "Fine...
 ---
 :gayName
 
-"My real name is Lana. People just call me Cart for the same reason Spilled Paint people called each other Smith. It's easier to remember someone if their profession is their name, and a lot of people need to remember me."
+"My real name is Lana. People just call me Cart for the same reason Spilled Paint people called each other Smith. It is easier to remember someone if their profession is their name, and a lot of people need to remember me."
 
 [And what am I, now that I've been assimilated?|assim]
 ---
@@ -876,7 +878,12 @@ He puts you in a headlock.
 "Do not come into my glorious map dome as a guest and then demand to know why I did not care for you. As far as I am concerned, `data.playerName`, you are presently nestled right the fuck up under my plush, motherly wing. Now inhale."
 
 !`
-addChoice("Mynt? Help?", "endCart");
+addChoice("Mynt? Help?", function() {
+	getAudio("music").destroy();
+	music = playMusic("audio/ambience/library");
+	music.name = "music";
+	gotoPassage("endCart");
+});
 addChoice("Inhale.", "booze8", {icons: ["Raunch"]});
 `
 ---
@@ -902,16 +909,16 @@ Mynt is sitting awkwardly. She's a little drunk now, so even though she's just p
 
 "Oh." She looks over, pretending that she only just noticed you two so close together. "Should I go outside for a bit?"
 
-[No, we were just having a little moment.|endCart]
+!`
+addChoice("No, we were just having a little moment.", function() {
+	getAudio("music").destroy();
+	var music = playMusic("audio/ambience/library");
+	music.name = "music";
+	gotoPassage("endCart");
+});
+`
 ---
 :endCart
-
-!`
-
-music.destroy();
-var music = playMusic("audio/ambience/library");
-music.name = "music";
-`
 
 Mynt steps between you two and plops down on a beanbag, arms crossed.
 
@@ -981,8 +988,8 @@ Mynt ponders.
 
 !`
 choicesPerPage = 3;
-addChoice("We have to go down to the porn game, Library2. (WIP)", "endCart", {enabled: false});
-addChoice("Let's plumb the unknown RELAXATIONGAME. (WIP)", "endCart", {enabled: false});
+addChoice("We have to go down to the porn game, Library2. (WIP)", "member5", {enabled: false});
+addChoice("Let's plumb the unknown RELAXATIONGAME. (WIP)", "member5", {enabled: false});
 addChoice("Gotta search her apartment first, right?", "member6");
 `
 ---
@@ -1094,11 +1101,12 @@ Cart smiles hopefully and looks from one of you to the other, resting his chin o
 :cartEndMap
 
 !`
-cartArt.destroy();
-cartTween.destroy();
-cartTween2.destroy();
 resetBackgroundMode(2);
 print("leaving intro");
+
+getAudio("music").destroy();
+var music = playMusic("audio/ambience/violetMeteorite");
+music.name = "music";
 
 execAsset("thirstyCaves.phore");
 initThirstyCaves();
