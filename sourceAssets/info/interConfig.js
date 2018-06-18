@@ -206,6 +206,7 @@ function addChoice(choiceText, result, config) {
 	}
 
 	var tf = addEmptyImage(spr.width, spr.height);
+	tf.wordWrapWidth = spr.width + 5;
 	spr.addChild(tf);
 	tf.temp = false;
 	tf.setFont("NunitoSans-Light_22");

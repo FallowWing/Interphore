@@ -5,6 +5,7 @@ data.gender = "";
 data.genitals = "";
 data.playerName = "";
 data.hasBoobs = false;
+data.hasKnot = false;
 disableExit();
 setBackground(0, "writer/mynt/bg/myntBg1", TILED);
 setBackground(1, "writer/mynt/bg/myntBg2");
@@ -19,12 +20,9 @@ queueTitle("Hm?");
 queueTitle("Archie, is that you?");
 queueTitle("Oh, no. He's still in Heaven.");
 queueTitle("You must be the last of his following.");
-queueTitle("Forgive me. Your beard... you just look a lot like him.");
-queueTitle("We've been waiting for you so long, up here. I should know better.");
-queueTitle("Let's see...");
 queueTitle("Welcome to the Interphore.");
-queueTitle("Describe your genitals to us.");
-queueAddChoice("Oh sure no prob.");
+queueTitle("Go ahead and pick your genitals.");
+queueAddChoice("Hi Mr. Eyeball. Nice to see you up close.", "Oh sure no prob.");
 `
 
 ---
@@ -89,7 +87,7 @@ addChoice("They.", function() {
 :afterGender
 !`
 queueTitle("Even more wonderful.");
-queueTitle("We already know your name, but what should we call you?");
+queueTitle("We already know your name, of course, but what should we call you?");
 queueTitle("Go ahead and start typing in that box.");
 
 
@@ -128,7 +126,7 @@ queueAddChoice(data.playerName === "Text Prompt"?"... Oh goddamnit.":"No, thank 
 ---
 :thanks
 !`
-queueTitle((data.playerName === "Text Prompt"?"Too late now, T.P.":"I'm a Paraphore."));
+queueTitle((data.playerName === "Text Prompt"?"Too late now, T.P.":"I'm an off-duty Paraphore."));
 queueTitle("Our apologies for the interrogation. Feel free to ask us questions.");
 queueTitle("We'll get some stories out of you shortly.");
 queueTitle("Or get some stories into you...");
@@ -138,27 +136,7 @@ queueAddChoice("...");
 ---
 :...
 !`
-queueTitle("Until then, please enjoy the soothing music.");
-
-queueAddChoice(".....");
-`
----
-:.....
-!`
-queueTitle("This will be a piece composed in 2309, by some of our oldest victims.");
-queueTitle("We delicately plucked it from the future and brought it back here, just for you.");
-
-queueAddChoice("..........");
-`
----
-:..........
-!`
-queueTitle("It was a community effort.");
-queueTitle("The chimeras pitched in for its synth, and its beat was inspired by the thrusts of two dragon husbands as they buttfucked each other pregnant.");
-
 queueAddChoice("Where am I exactly?");
-queueAddChoice("Victims?", "Victims?", {icons: ["Plot"]});
-queueAddChoice("Mmm dragons... put me inside Paraphore 2.", "askParaphore");
 `
 ---
 :Victims?
@@ -175,27 +153,21 @@ queueAddChoice("Where am I exactly?");
 queueTitle("That's a complex question.");
 queueTitle("We'll explain as well as we can.");
 queueTitle("You have been assimilated into our hivemind.");
-queueTitle("Our hivemind is composed of both real and fictitious creatures.");
-queueTitle("We are nomads of all times and places. Our physical form always imitates the most common object in any given universe.");
-queueTitle("Our two goals: record the story of everything that has ever happened, and tell the story of everything that could ever happen.");
-queueTitle("Everything. Even the unmarketable things.");
-queueTitle("Right now, you are written between the pages of a journal.");
-queueTitle("You are asleep inside a meteorite.");
-queueTitle("You are text on a computer screen.");
+queueTitle("Our hivemind is composed of assimilated creatures.");
+queueTitle("We are nomads. We Paraphores navigate through and assimilate layers, or worlds.");
+queueTitle("Our physical form always imitates the most common object in any given universe, plus an eyeball.");
+queueTitle("Mentally, you are in the pondwater.");
+queueTitle("Physically, you are spread across all existence.");
+queueTitle("Spiritually, you are in the afterlife.");
 queueTitle("That's where you are.");
 
-queueAddChoice("All times and places... cool... um. Does Paraphore count as a place? Can you put me in there?", "askParaphore");
+queueAddChoice("Cool, thanks.", "askParaphore");
 `
 ---
 :askParaphore
 !`
-queueTitle("Put you inside me, you mean...?");
-queueTitle("Ah, no. By 'Paraphore...'");
-queueTitle("You mean the furry sex game you were playing before we killed you, right?");
-queueTitle("Yes. The nymphs love it there.");
-queueTitle("I'll spawn you in the meteorite.");
-queueTitle("Since you never had an option, the first time...");
-queueTitle("Would you like to choose your species?");
+queueTitle("No problem.");
+queueTitle("Would you like to choose a new species?");
 
 
 queueAddChoice("Dog.", function() {
@@ -232,24 +204,23 @@ queueAddChoice("Wolf.", function() {
 
 !`
 queueAddChoice("What do I do?");
-queueAddChoice("... How much longer will I be waiting?");
+queueAddChoice("Okay, I'm all done.");
 `
 
 ---
 :What do I do?
 !`
-queueTitle("You do what everyone else does:");
-queueTitle("Record and tell stories.");
+queueTitle("You are free to do anything you like.");
 
-queueAddChoice("... How much longer will I be waiting?");
+queueAddChoice("Okay, I'm all done.");
 `
 ---
-:... How much longer will I be waiting?
+:Okay, I'm all done.
 !`
-queueTitle("Two seconds.");
-queueTitle("Let's begin.");
-timer(2, function() {
-	setBackground(0, "");
+queueTitle("I'll spit you back out of the pond, then.");
+queueTitle("See you in the main text.");
+queueCall(function() {
+	setBackground(0, "writer/mainBg");
 	setBackground(1, "");
 	setBackground(2, "");
 	setTitle("");
@@ -260,7 +231,12 @@ timer(2, function() {
 
 	execAsset("thirstyCaves.phore");
 	initThirstyCaves();
-	gotoPassage("thirstyCavesIntro");
+	if (data.shapeShifted) {
+		gotoMap();
+	} else {
+		data.shapeShifted = true;
+		gotoPassage("thirstyCavesIntro");
+	}
 });
 `
 END_PASSAGES

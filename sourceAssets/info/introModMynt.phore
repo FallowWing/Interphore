@@ -276,6 +276,18 @@ queueAddChoice("Hi, Mynt.");
 
 ---
 :Hi, Mynt.
+!`
+if (data.playerName !== "Dankpaw" && data.playerName !== "Rebeca" && data.playerName !== "Phae") data.playerName = lastInput;
+if (data.playerName === "") data.playerName = "Nameless";
+
+queueTitle("My mind feels different than it did a moment ago...");
+queueTitle("Why does that make me so happy?");
+
+queueAddChoice("Remove hypoxia damage. Remove learning disability.", "furryTrash");
+queueAddChoice("Stay as I am.", "furryTrash");
+`
+---
+:furryTrash
 
 !`
 if (rnd > 0.9) {
@@ -1220,7 +1232,7 @@ Mynt stands up shakily and almost passes out `boobs("against your chest", "betwe
 
 "Where... are...?"
 
-CURRENT LAYER: SPILLED INK
+CURRENT LAYER: Spilled Paint
 PARENT LAYER: L.L.L.
 
 !`
