@@ -177,7 +177,6 @@ void initGame() {
 	// char *tempCode = (char *)getAsset("info/basic.phore")->data;
 	// char *tempCode = (char *)getAsset("info/scratch.phore")->data;
 	char *tempCode = (char *)getAsset("info/main.phore")->data;
-	// char *tempCode = (char *)getAsset("info/odd.txt")->data;
 	runMod(tempCode);
 
 	game->root = createMintSprite();
