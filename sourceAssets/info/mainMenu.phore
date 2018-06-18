@@ -8,7 +8,8 @@ welcome
 [Extra]
 ---
 :Title Screen
-!`var bg = addImage("img/writer/intro/titleBG.png");
+!`
+var bg = addImage("img/writer/intro/titleBG.png");
 bg.x = -70;
 bg.scaleX = 1.2;
 bg.scaleY = 1.2;
@@ -26,11 +27,13 @@ var buttonTextLeftPad = 40;
 var titleRect = addRectImage(gameWidth, 156, 0x302f32);
 titleRect.alpha = 0;
 titleRect.y = -titleRect.height;
+bg.addChild(titleRect);
 
 tween(titleRect, 2, {y: 54, alpha: 1}, {ease: QUINT_OUT});
 
 var taglineRect = addRectImage(gameWidth, buttonHeight, 0x302f32);
 taglineRect.y = 230;
+bg.addChild(taglineRect);
 
 var taglines = ["sex, violence, and reading", "step into the pond", "sensual text misadventure", "post-apocalyptic amnesiac grandma furries", "finding wendy", "seven layer sex dip", "greater mama", "i can't believe it's not butt hair", "moby dink's revenge 2: the dinkening", "big boi spikes again: a volleyball text game", "ginormo kitten tiddies", "you basically just click buttons", "violent and disgusting (soon)", "porno butt holes", "inherently pornographic organisms", "yiff yiff yiff yiff yiff yiff yiff", "erotic furry text game", "partially customizable groin", "click the play button to begin clicking other buttons", "furry ero text game", "spilled paint", "fucking furries", "reality is a fingerpainting", "this is the only canon tagline", "you can assimilate me if you want, daddy"];
 var ran = rndInt(0, taglines.length);
@@ -48,6 +51,7 @@ tween(taglineText, 3, {x: gameWidth - taglineText.textWidth - 40, alpha: 1}, {ea
 var playRect = addRectImage(buttonWidth, buttonHeight, 0x302f32);
 playRect.x = gameWidth - playRect.width;// gameWidth;
 playRect.y = taglineRect.y + taglineRect.height + 50;
+bg.addChild(playRect);
 playRect.onRelease = function() {
 	getAudio("music").destroy();
 	playEffect("audio/ui/newChoiceClick");
@@ -65,6 +69,7 @@ playRect.addChild(playText);
 var loadRect = addRectImage(buttonWidth, buttonHeight, 0x302f32);
 loadRect.x = gameWidth - loadRect.width; //gameWidth;
 loadRect.y = playRect.y + playRect.height + buttonPad;
+bg.addChild(loadRect);
 loadRect.onRelease = function() {
 	getAudio("music").destroy();
 	playEffect("audio/ui/newChoiceClick");
@@ -83,6 +88,7 @@ loadRect.addChild(loadText);
 var modRect = addRectImage(buttonWidth, buttonHeight, 0x302f32);
 modRect.x = gameWidth - modRect.width;// gameWidth;
 modRect.y = loadRect.y + loadRect.height + buttonPad;
+bg.addChild(modRect);
 modRect.onRelease = function() {
 	playEffect("audio/ui/newChoiceClick");
 	getAudio("music").destroy();
@@ -99,6 +105,7 @@ modRect.addChild(modText);
 var extraRect = addRectImage(buttonWidth, buttonHeight, 0x302f32);
 extraRect.x = gameWidth - extraRect.width;// gameWidth;
 extraRect.y = modRect.y + modRect.height + buttonPad;
+bg.addChild(extraRect);
 extraRect.onRelease = function() {
 	playEffect("audio/ui/newChoiceClick");
 	clearNodes();
@@ -168,18 +175,19 @@ var bottomRect = addRectImage(gameWidth, buttonHeight*2, 0x302f32);
 bottomRect.alpha = 0;
 bottomRect.tint = 0x302f32;
 bottomRect.y = gameHeight;
+bg.addChild(bottomRect);
 
 var muteButton = addImage("writer/mute.png");
+muteButton.scaleY = muteButton.scaleX = 2;
+muteButton.x = (muteButton.width * muteButton.scaleX) * -1;
+muteButton.y = gameHeight - muteButton.height * muteButton.scaleY * 1.5;
+bg.addChild(muteButton);
 muteButton.onRelease = function() {
 	isMuted = !isMuted;
 	if (isMuted) setMasterVolume(0);
 	else setMasterVolume(1);
 	playEffect("audio/ui/bestChoiceClick");
 };
-
-muteButton.scaleY = muteButton.scaleX = 2;
-muteButton.x = (muteButton.width * muteButton.scaleX) * -1;
-muteButton.y = gameHeight - muteButton.height * muteButton.scaleY * 1.5;
 
 muteButton.onHover = function() {
 	playEffect("audio/ui/hoverChoiceButtons");
@@ -210,6 +218,7 @@ cartBG.x = -cartBG.width;
 cartBG.y = -20;
 cartBG.smoothing = true;
 cartBG.scaleX = cartBG.scaleY = 1.6;
+bg.addChild(cartBG);
 
 var cart = addImage("img/writer/characters/cart/cart2.png");
 cart.x = gameWidth;
@@ -217,6 +226,7 @@ cart.y = 20;
 cart.alpha = 0;
 cart.smoothing = true;
 cart.scaleX = cart.scaleY = 1.3;
+bg.addChild(cart);
 
 tween(cart, 1.3, {x: 70, alpha: 1}, {ease: QUINT_OUT});
 tween(cartBG, 4, {x: 40}, {type: PINGPONG, ease: QUAD_IN_OUT});
