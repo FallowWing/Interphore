@@ -1,10 +1,14 @@
 print("arriving at thirstyCaves");
 
+if (music) music.destroy();
+var music = playMusic("audio/ambience/violetMeteorite");
+music.name = "music";
+
 START_PASSAGES
 ---
 :thirstyCavesIntro
 
-The first and only sensation you feel when your body reforms is heat. You're blind, deaf, and mute... but you're warm.
+The first and only sensation you feel after your body reforms is heat. You're blind, deaf, and mute... but you're warm.
 
 You are floating around in a totally different red pond, in all red ponds, temporarily formless and non-localized.
 
@@ -148,7 +152,7 @@ You sink too deep to have any chance of getting back to the surface in time. You
 [Respawn.|Move along.]
 ---
 :introArea
-You find a pond, any pond.
+You find a red pond, no matter where you are.
 
 If you jump in, you can change your body again.
 
@@ -258,7 +262,7 @@ All done.
 [Move along.]
 ---
 :piss
-The Thirsty Caves guzzle you up. Your footsteps get closer and closer together as you descend into the dim, musky-aired depths of the meteorite.
+Your footsteps get closer and closer together as you descend into the dim, musky-aired depths of the meteorite.
 
 A gaggle of nymphs pass you, all boys. They push their little bodies through a crack in the rock wall, hardly wider than their hips, and disappear.
 
@@ -323,7 +327,7 @@ You take the right path. It's a long one, but the voices never get any quieter; 
 
 It's an underground pond. There are nymphs everywhere, mostly boys. They're all curled up on squishy velvet cushions, swimming naked in the pond, or kissing each other passionately at the bar. A nearby sign explains this place to you with very curly letters and prose: it's a secret, nymphs-only bar and urinal. Behind the bar, a pipeline marked ALCOHOL LAYER runs into the rock.
 
-... Oh. That's no ordinary pond. The water is a steamy, murky yellow...
+... This pond is totally different from the red ones. The water is a steamy, murky yellow...
 
 [Go for a dip.]
 ---
@@ -1581,40 +1585,67 @@ clearNodes();
 getAudio("music").destroy();
 execAsset("scratch.phore");
 `
+---
+:LLL
+!`
+clear();
+if (data.metCart) {
+	execAsset("LLL.phore");
+	gotoPassage("hubLLL");
+} else {
+	execAsset("introCart.phore");
+	gotoPassage("introModCartStart");
+	data.metCart = true;
+}
+`
+
+---
+:wendyApt
+!`
+clear();
+execAsset("wendyApt.phore");
+gotoPassage("wendyAptStart");
+`
+---
+:myntIntro
+!`
+clear();
+execAsset("introModMynt.phore");
+gotoPassage("introModMyntStart");
+`
 
 END_PASSAGES
 
 function initThirstyCaves() {
-	getAudio("music").destroy();
-	var music = playMusic("audio/ambience/violetMeteorite");
-	music.name = "music";
-
-	submitNode("A Pond", "introArea");
-	submitNode("Indigo Pond", "piss");
-	attachNode("A Pond", "Indigo Pond", TOP);
-
-	submitNode("Alcohol Pipeline", "pipeline");
-	attachNode("Indigo Pond", "Alcohol Pipeline", TOP);
-
+	submitNode("Red Pond", "introArea");
+	submitNode("Yellow Pond", "piss");
+	submitNode("Red Pond", "introArea");
+	submitNode("Alcohol Layer", "pipeline");
 	submitNode("Underground Farms", "rox");
-	attachNode("A Pond", "Underground Farms", LEFT);
-
 	submitNode("Heaven", "heaven");
-	attachNode("A Pond", "Heaven", RIGHT);
-
 	submitNode("Dev Menu", "devMenu");
+	submitNode("L.L.L.", "LLL");
+	submitNode("Spilled Paint", "wendyApt");
+	submitNode("Intro", "myntIntro");
+	
+	attachNode("Red Pond", "Underground Farms", RIGHT);
+	attachNode("Underground Farms", "Heaven", RIGHT);
 	attachNode("Heaven", "Dev Menu", RIGHT);
+	attachNode("Red Pond", "Yellow Pond", LEFT);
+	attachNode("Yellow Pond", "Alcohol Layer", LEFT);
+	attachNode("Red Pond", "Spilled Paint", BOTTOM);
+	attachNode("Spilled Paint", "Intro", BOTTOM);
+	attachNode("Red Pond", "L.L.L.", TOP);
+
+	setNodeLocked("Spilled Paint", function() {
+		return data.metCart;
+  	});
+
+  	setNodeLocked("Dev Menu", function() {
+		return data.unlockedDev;
+  	});
 
 	setBackground(0, "writer/mainBg");
-
-	// submitNode("Old Abattoir", "gore");
-	// attachNode("Cave Stables", "Old Abattoir", BOTTOM);
-
-	// submitNode("Greasy Crevass", "raunch");
-	// attachNode("A Pond", "Greasy Crevass", LEFT);
-
-	// submitNode("Roxelle's Farm", "rox");
-	// attachNode("Greasy Crevass", "Roxelle's Farm", LEFT);
 }
 
 //Taro, Cade, Gryphon, and Kemp's truck cameo

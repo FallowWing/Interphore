@@ -82,8 +82,9 @@ function gotoMap(isCheckpoint) {
 		node.sprite.layer = GRAPH_NODE_LAYER;
 
 		if (node.locked) {
-				node.sprite.alpha = 0.1;
+				node.sprite.tint = 0xCC0d0d0d;
 		} else {
+			node.sprite.tint = 0;
 			node.sprite.onHover = function() {
 				playEffect("audio/ui/hoverChoiceIcons");
 				node.sprite.scaleX = 1.1;

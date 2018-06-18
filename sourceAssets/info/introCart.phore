@@ -2,6 +2,7 @@ var watchCart = false;
 var cartLeft = true;
 var cartArt;
 var cartTween;
+var music;
 
 function specialTitle(str) {
 	queueTitle(str);
@@ -70,6 +71,7 @@ cartTween = tween(cartArt, 1, {alpha: 1});
 
 disableExit();
 
+if (music) music.destroy();
 var music = playMusic("audio/ambience/cell");
 music.name = "music";
 `
@@ -87,7 +89,6 @@ You don't have to look very far. Mynt sits two feet away from you, dejected, sti
 "Hey, I just saw— Ptoo! Ptwa! God, this red gunk is all in my fur... what a weird way to travel..."
 
 [You said you saw Mom?]
-[cartWatch1]
 ---
 :You said you saw Mom?
 
@@ -447,6 +448,7 @@ addChoice("Just talk from in here.", function() {
 !`
 clear();
 msg("Art: Cubber");
+msg("Music: Rocket");
 var bg = addImage("writer/cartBg");
 bg.temp = false;
 bg.x = gameWidth/2 - bg.width + 150;
@@ -466,6 +468,7 @@ if (watchCart) {
 }
 queueAddChoice("Hi. We're here to ask about Wendy.", "cartWatch2");
 
+if (music) music.destroy();
 var music = playMusic("audio/ambience/library");
 music.name = "music";
 `
@@ -1104,9 +1107,7 @@ Cart smiles hopefully and looks from one of you to the other, resting his chin o
 resetBackgroundMode(2);
 print("leaving intro");
 
-getAudio("music").destroy();
-var music = playMusic("audio/ambience/violetMeteorite");
-music.name = "music";
+if (music) music.destroy();
 
 execAsset("thirstyCaves.phore");
 initThirstyCaves();

@@ -1,6 +1,10 @@
 START_PASSAGES
 :scratchModStart
 !`
+if (music) music.destroy();
+var music = playMusic("audio/ambience/violetMeteorite");
+music.name = "music";
+
 setBackground(0, "img/writer/mainBg");
 setBackground(1, "");
 streamAsset("coin.png", "https://i.imgur.com/mmt2kcc.png");
@@ -9,25 +13,17 @@ choicesPerPage = 6;
 `
 WIP Dev Menu
 
-Make sure you play through the intro or go to Hub and visit Nymphore to set your player variables
-
-Scene Progress:
-- New intro [X]
-- Meeting Cartographer [  ]
-- Wendy's apartment [X]
-- Meeting Patch [X]
-- LLL [  ]
-- A handful of small kinky worldbuilding scenes [  ]
+Make sure you play through the intro or go to Hub and visit Red Pond to set your player variables
 
 !`
 addChoice("Load a mod", loadMod);
 `
-[cartIntro]
-[Apartment Scene (comes after LLL and Mynt intro)|wendyApt]
+[Cart Intro|cartIntro]
+[Wendy's Apartment|wendyApt]
 [LLL]
 [Change Mynt's genitals]
 [Hub|thirstyCaves]
-[introModOriginal]
+[Red Pond|introModOriginal]
 [Background Test|backgroundTest]
 [Input Text Test|inputTest]
 [Icon Test|iconTest]
