@@ -659,10 +659,6 @@ var cartStanding = addImage("writer/characters/cart/cart2");
 cartStanding.x = gameWidth;
 cartStanding.y = gameHeight - cartStanding.height *1.05;
 tween(cartStanding, 4, {x: gameWidth - cartStanding.width * 1.1}, {ease: QUAD_OUT});
-
-music.destroy();
-var music = playMusic("audio/ambience/cell");
-music.name = "music";
 `
 "Hi," Mynt says, starstruck. "I'm Meet. Nice to Mynt you."
 
@@ -851,6 +847,12 @@ Cart draws little circles on Mynt's back with a deft pinky. She squirms and spin
 ---
 :booze5
 
+!`
+music.destroy();
+var music = playMusic("audio/ambience/cell");
+music.name = "music";
+`
+
 Okay, Mynt sets Cart down and the mood dies.
 
 [If you made us on accident, why didn't you come down and take care of us?|booze6]
@@ -903,6 +905,13 @@ Mynt is sitting awkwardly. She's a little drunk now, so even though she's just p
 [No, we were just having a little moment.|endCart]
 ---
 :endCart
+
+!`
+
+music.destroy();
+var music = playMusic("audio/ambience/library");
+music.name = "music";
+`
 
 Mynt steps between you two and plops down on a beanbag, arms crossed.
 
