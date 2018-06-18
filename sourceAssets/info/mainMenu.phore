@@ -8,7 +8,12 @@ welcome
 [Extra]
 ---
 :Title Screen
-!`var bg = addImage("img/writer/intro/titleBG.png");
+!`
+var container = addEmptyImage(1, 1);
+container.scaleX = gameWidth/desiredWidth;
+container.scaleY = gameHeight/desiredHeight;
+
+var bg = addImage("img/writer/intro/titleBG.png");
 bg.x = -70;
 bg.scaleX = 1.2;
 bg.scaleY = 1.2;
@@ -23,31 +28,34 @@ var buttonPad = 20;
 var buttonTextLeftPad = 40;
 
 //Gray rects
-var titleRect = addRectImage(gameWidth, 156, 0x302f32);
+var titleRect = addRectImage(desiredWidth, 156, 0x302f32);
 titleRect.alpha = 0;
 titleRect.y = -titleRect.height;
+container.addChild(titleRect);
 
 tween(titleRect, 2, {y: 54, alpha: 1}, {ease: QUINT_OUT});
 
-var taglineRect = addRectImage(gameWidth, buttonHeight, 0x302f32);
+var taglineRect = addRectImage(desiredWidth, buttonHeight, 0x302f32);
 taglineRect.y = 230;
+container.addChild(taglineRect);
 
 var taglines = ["sex, violence, and reading", "step into the pond", "sensual text misadventure", "post-apocalyptic amnesiac grandma furries", "finding wendy", "seven layer sex dip", "greater mama", "i can't believe it's not butt hair", "moby dink's revenge 2: the dinkening", "big boi spikes again: a volleyball text game", "ginormo kitten tiddies", "you basically just click buttons", "violent and disgusting (soon)", "porno butt holes", "inherently pornographic organisms", "yiff yiff yiff yiff yiff yiff yiff", "erotic furry text game", "partially customizable groin", "click the play button to begin clicking other buttons", "furry ero text game", "spilled paint", "fucking furries", "reality is a fingerpainting", "this is the only canon tagline", "you can assimilate me if you want, daddy"];
 var ran = rndInt(0, taglines.length);
 
-var taglineText = addEmptyImage(gameWidth, buttonHeight);
+var taglineText = addEmptyImage(desiredWidth, buttonHeight);
 taglineText.setText(taglines[ran]);
 taglineText.tint = 0xFFeb3b3b;
 taglineText.alpha = 0;
-taglineText.x = gameWidth - taglineText.textWidth - 140;
+taglineText.x = desiredWidth - taglineText.textWidth - 140;
 taglineText.y = taglineRect.height/2 - taglineText.textHeight/2;
 taglineRect.addChild(taglineText);
 
-tween(taglineText, 3, {x: gameWidth - taglineText.textWidth - 40, alpha: 1}, {ease: QUINT_OUT});
+tween(taglineText, 3, {x: desiredWidth - taglineText.textWidth - 40, alpha: 1}, {ease: QUINT_OUT});
 
 var playRect = addRectImage(buttonWidth, buttonHeight, 0x302f32);
-playRect.x = gameWidth - playRect.width;// gameWidth;
+playRect.x = desiredWidth - playRect.width;
 playRect.y = taglineRect.y + taglineRect.height + 50;
+container.addChild(playRect);
 playRect.onRelease = function() {
 	getAudio("music").destroy();
 	playEffect("audio/ui/newChoiceClick");
@@ -63,8 +71,9 @@ playText.y = playRect.height/2 - playText.textHeight/2;
 playRect.addChild(playText);
 
 var loadRect = addRectImage(buttonWidth, buttonHeight, 0x302f32);
-loadRect.x = gameWidth - loadRect.width; //gameWidth;
+loadRect.x = desiredWidth - loadRect.width; //gameWidth;
 loadRect.y = playRect.y + playRect.height + buttonPad;
+container.addChild(loadRect);
 loadRect.onRelease = function() {
 	getAudio("music").destroy();
 	playEffect("audio/ui/newChoiceClick");
@@ -81,8 +90,9 @@ loadText.y = loadRect.height/2 - loadText.textHeight/2;
 loadRect.addChild(loadText);
 
 var modRect = addRectImage(buttonWidth, buttonHeight, 0x302f32);
-modRect.x = gameWidth - modRect.width;// gameWidth;
+modRect.x = desiredWidth - modRect.width;// desiredWidth;
 modRect.y = loadRect.y + loadRect.height + buttonPad;
+container.addChild(modRect);
 modRect.onRelease = function() {
 	playEffect("audio/ui/newChoiceClick");
 	getAudio("music").destroy();
@@ -97,8 +107,9 @@ modText.y = modRect.height/2 - modText.textHeight/2;
 modRect.addChild(modText);
 
 var extraRect = addRectImage(buttonWidth, buttonHeight, 0x302f32);
-extraRect.x = gameWidth - extraRect.width;// gameWidth;
+extraRect.x = desiredWidth - extraRect.width;// desiredWidth;
 extraRect.y = modRect.y + modRect.height + buttonPad;
+container.addChild(extraRect);
 extraRect.onRelease = function() {
 	playEffect("audio/ui/newChoiceClick");
 	clearNodes();
@@ -113,10 +124,10 @@ extraText.x = buttonTextLeftPad;
 extraText.y = extraRect.height/2 - extraText.textHeight/2;
 extraRect.addChild(extraText);
 
-tween(playRect, 2, {x: gameWidth - playRect.width}, {ease: QUART_OUT});
-tween(loadRect, 2.2, {x: gameWidth - loadRect.width}, {ease: QUART_OUT});
-tween(modRect, 2.4, {x: gameWidth - modRect.width}, {ease: QUART_OUT});
-tween(extraRect, 2.6, {x: gameWidth - extraRect.width}, {ease: QUART_OUT});
+tween(playRect, 2, {x: desiredWidth - playRect.width}, {ease: QUART_OUT});
+tween(loadRect, 2.2, {x: desiredWidth - loadRect.width}, {ease: QUART_OUT});
+tween(modRect, 2.4, {x: desiredWidth - modRect.width}, {ease: QUART_OUT});
+tween(extraRect, 2.6, {x: desiredWidth - extraRect.width}, {ease: QUART_OUT});
 
 var playRectTween = tween(playRect, 0.1, {scaleX: 1.05});
 var playTextTween = tween(playText, 0.3, {x: buttonTextLeftPad + 20}, {ease: QUINT_OUT});
@@ -164,22 +175,23 @@ playRect.onUnHover = loadRect.onUnHover = modRect.onUnHover = extraRect.onUnHove
 	playEffect("audio/ui/hoverChoiceIcons");
 }
 
-var bottomRect = addRectImage(gameWidth, buttonHeight*2, 0x302f32);
+var bottomRect = addRectImage(desiredWidth, buttonHeight*2, 0x302f32);
 bottomRect.alpha = 0;
 bottomRect.tint = 0x302f32;
-bottomRect.y = gameHeight;
+bottomRect.y = desiredHeight;
+container.addChild(bottomRect);
 
 var muteButton = addImage("writer/mute.png");
+muteButton.scaleY = muteButton.scaleX = 2;
+muteButton.x = (muteButton.width * muteButton.scaleX) * -1;
+muteButton.y = desiredHeight - muteButton.height*muteButton.scaleY * 1.5;
+container.addChild(muteButton);
 muteButton.onRelease = function() {
 	isMuted = !isMuted;
 	if (isMuted) setMasterVolume(0);
 	else setMasterVolume(1);
 	playEffect("audio/ui/bestChoiceClick");
 };
-
-muteButton.scaleY = muteButton.scaleX = 2;
-muteButton.x = (muteButton.width * muteButton.scaleX) * -1;
-muteButton.y = gameHeight - muteButton.height * muteButton.scaleY * 1.5;
 
 muteButton.onHover = function() {
 	playEffect("audio/ui/hoverChoiceButtons");
@@ -190,14 +202,15 @@ muteButton.onUnHover = function() {
 	muteButton.tint = 0;
 }
 
-tween(muteButton, 3, {x: gameWidth - muteButton.width * muteButton.scaleX - 20}, {ease: QUINT_OUT});
+tween(muteButton, 3, {x: desiredWidth - muteButton.width * muteButton.scaleX - 20}, {ease: QUINT_OUT});
 
 tween(bottomRect, 2, {y: 625, alpha: 1}, {ease: QUINT_OUT});
 tween(bottomRect, 6, {scaleY: 1.2}, {type: PINGPONG, ease: QUAD_IN_OUT});
 
 //Text
 var text = addImage("img/writer/intro/titleText.png");
-text.x = gameWidth;
+text.x = desiredWidth;
+container.addChild(text);
 
 tween(text, 2, {x: 0}, {ease: QUINT_OUT});
 
@@ -210,13 +223,15 @@ cartBG.x = -cartBG.width;
 cartBG.y = -20;
 cartBG.smoothing = true;
 cartBG.scaleX = cartBG.scaleY = 1.6;
+container.addChild(cartBG);
 
 var cart = addImage("img/writer/characters/cart/cart2.png");
-cart.x = gameWidth;
+cart.x = desiredWidth;
 cart.y = 20;
 cart.alpha = 0;
 cart.smoothing = true;
 cart.scaleX = cart.scaleY = 1.3;
+container.addChild(cart);
 
 tween(cart, 1.3, {x: 70, alpha: 1}, {ease: QUINT_OUT});
 tween(cartBG, 4, {x: 40}, {type: PINGPONG, ease: QUAD_IN_OUT});

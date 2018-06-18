@@ -91,6 +91,9 @@ tooltipTf.layer = TOOLTIP_TEXT_LAYER;
 
 var tooltipBg = null;
 
+var desiredWidth = 1280;
+var desiredHeight = 720;
+
 for (var i = 0; i < 500; i++) keys[i] = KEY_RELEASED;
 execAsset("info/nodeGraph.phore");
 
