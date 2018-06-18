@@ -7,6 +7,8 @@ function specialTitle(str) {
 	queueTitle(str);
 
 	queueCall(function() {
+		if (!watchCart) return;
+
 		//Restart the tween if it stopped
 		if (cartArt.x >= gameWidth + cartArt.width || cartArt.x <= -cartArt.width * 2) {
 
@@ -68,7 +70,7 @@ cartTween = tween(cartArt, 1, {alpha: 1});
 
 disableExit();
 
-var music = playMusic("audio/ambience/violetMeteorite");
+var music = playMusic("audio/ambience/cell");
 music.name = "music";
 `
 
@@ -113,17 +115,17 @@ She prods the puddle. It's only two inches deep. Tiny ripples flicker out in rin
 ---
 :Come on. Let's go meet God.
 
-"Right." Mynt stands up and brushes off the front of her dress. "The librarian, right?"
+"Right." Mynt stands up and brushes off the front of her dress. "He's the librarian on this... layer? What is a layer? Is this a layer? A library layer?"
 
-She looks out toward a dim glow of neon and firelight in the distance. As your eyes adjust, you start to see the outline of bigass butts and cocks above you. Er, sorry... I mean the curves of titanic lovers lace the sky like aurora borealis.
+She looks out toward a dim glow of neon and firelight in the distance. As your eyes adjust, you start to see the outline of bigass butts and cocks, far above. Er, sorry... I mean the curves of titanic lovers lace the sky like aurora borealis.
 
-[Right. This place doesn't really look like a library, though.]
+[This place doesn't really look like a library.]
 ---
-:Right. This place doesn't really look like a library, though.
+:This place doesn't really look like a library.
 
-She coughs. "Well, um. I think the actual library part is pretty deep inside the... other stuff... so let's get a move on."
+She coughs. "Well, um. I think the actual library part is pretty deep inside the... other stuff. Let's get a move on. Maybe he can help us find her... or at least help us find out if she's avoiding us or not."
 
-She sets off toward the light.
+Mynt sets off toward the light.
 
 [Look around.]
 ---
@@ -149,8 +151,9 @@ Mynt's eyes go everywhere, anywhere except around that corner. She turns robotic
 
 "Just gonna wait over here!" she squeaks from off-screen. "You do whatever you want! You know! Just be yourself! But I'm gonna wait over here!"
 
-!`addChoice("... Take a look.", "seedy", {icons: ["Cub", "Male", "Male", "Male", "Male", "Male"]});
-addChoice("Follow Mynt.", "followMynt");`
+!`addChoice("Follow Mynt.", "followMynt");
+addChoice("... Take a look.", "seedy", {icons: ["Cub", "Male", "Male", "Male", "Male", "Male"]});
+`
 
 ---
 :seedy
@@ -163,14 +166,14 @@ It's got graffiti'd off-yellow walls decorated by little multicolored paint-drip
 
 "Come play!"
 
-A random cub boy patters up on quick feetpaws and grabs your hand, tugging you over to the bustling playground.
+A random cub otter boy patters up on quick feetpaws and grabs your hand, tugging you over to the bustling playground.
 
 [Go with him.]
 [Follow Mynt.|followMyntPre]
 ---
 :Go with him.
 
-You let the cub drag you into the depths of the playground. It's been corrupted, too: the swings all have 8" dildos attached to their seats, the water fountains make you suck a fat nipple to actually get the water out, and the slides are all shiny and wet with lube, so that no cub boy can play on them without simultaneously making his ass slick, eye-catching, and ready for hard sex.
+You let the cub drag you into the depths of the playground. It's been corrupted, too: the swings all have 8" dildos attached to their seats, the water fountains make you suck a fat dick-shaped nipple to actually get the water out, and the slides are all shiny and wet with lube, so that no cub boy can play on them without simultaneously making his ass slick, eye-catching, and ready for hard sex.
 
 Big burly dad-lookin "supervisors" roam around. They scoop up random cubs and thoroughly check their little bodies for any scrapes or owies. When they find one, they let the kid pick out his special bandaid from a big jar, all bright pink, all emblazoned with text like SLUT or KISS IT BETTER or even HURT ME MORE, DADDY. Most pick the last one because they want a reason to get another cute bandaid before recess is over.
 
@@ -184,7 +187,7 @@ His friend is beside himself with jealousy. His little ears fold back and he wra
 
 "Mhm!"
 
-Both of the boys look up at you with massive, wonder-stricken eyes. Their paws automatically rove up your thighs as they attach their little bodies to you. "Wanna play`gender(", mister", ", lady", "")`?"
+Both of the otter boys look up at you with massive, wonder-stricken eyes. Their paws automatically rove up your thighs as they attach their little bodies to you. "Wanna play`gender(", mister", ", lady", "")`?"
 
 [Sure... tag team me, boys.]
 [Follow Mynt.|followMyntPre]
@@ -204,7 +207,7 @@ They break the neck-kiss and latch to your crotch, both at once. Two sets of gli
 [Mmnnn...]
 [Follow Mynt.|followMyntPre]
 ---
-:Mnnn...
+:Mmnnn...
 
 Their hips grind together as they slobber all over you. `genitals("One maw turns sideways and suckles noisily up and down the side of your shaft", "One of them slides down and starts making out with the bit of fur between your asshole and your cunt", "One maw turns sideways and suckles noisily up and down the side of your shaft")` while the other yanks his pretty purple bandaid off and shoves two cub digits up his ass.
 
@@ -292,15 +295,19 @@ You push deeper and deeper towards the back wall, harder and deeper, deeper and 
 
 There's a tiny iron door set into the cobblestone. It's passlocked.
 
-The password is <b>1204x0043x3220x2212x0007xACCUSEDxCHRONICxCOMMENTxEVIDENTxLEISURExFAILINGxSATISFYxVIRTUALxANALYST.</b> No, I won't make you type it in.
+The password is <b>1204x0043x3220x2212x4012x1401x0007xACCUSEDxCHRONICxVIRTUALxEVIDENTxLEISURExFAILINGxSATISFY.</b>
 
-"What does it mean...?" Mynt wonders breathlessly, her `myntCock("cock", "pussy")` dripping at the prospect of yet more lore.
+No, I won't make you type it in.
+
+"What does it mean...?" Mynt wonders breathlessly, her `myntCock("cock", "pussy")` dripping at the prospect of cryptic lore.
 
 [Yeah, what does it mean, Mr. Eyeball?]
 ---
 :Yeah, what does it mean, Mr. Eyeball?
 
-It means we discovered password crackers and made the password randomly generated every two hours from a random set of random words and numbers.
+It means we made the password randomly generated every two hours from a random set of random words and numbers.
+
+Password crackers exist.
 
 [Oh.]
 ---
@@ -328,13 +335,15 @@ If Cartographer is `data.playerName`'s god, then `data.playerName` is your god, 
 ---
 :next1
 
-Mynt looks at you like she wants to make out really fucking badly. Her knees slide together and grind beneath her dress.
+Mynt looks at you like she wants to make out really fucking badly.
+
+Her knees slide together and grind beneath her dress.
 
 [Hey!! I don't deserve that credit. I'm not omnipotent or omniscient.]
 ---
 :Hey!! I don't deserve that credit. I'm not omnipotent or omniscient.
 
-Neither is Cartographer. He's still above you.
+Neither is Cartographer, and yet his layer is still above yours.
 
 Mynt bows to you. "Please forgive me, O great one," she whispers. "For I have sinned and probably just don't remember it..."
 
@@ -346,7 +355,7 @@ She smiles at you and straightens up. "Sorry. It's really not that much of a sho
 
 I told Mynt "Super ascended = one layer above = godhood."
 
-Cartographer is almost finished paintskating. I told him about both of you, so skip the introductions.
+Cartographer is almost finished paint-skating. I told him about both of you, so skip the introductions.
 
 [Open the doors.]
 ---
@@ -445,17 +454,25 @@ bg.y = gameHeight/2 - bg.height/2;
 tween(bg, 12, {x: -325}, {type: PINGPONG, ease: QUAD_IN_OUT});
 tween(bg, 16.2, {y: -700}, {type: PINGPONG, ease: QUAD_IN_OUT});
 bg.scaleX = bg.scaleY = 2;
+
 queueTitle("Thank you for the company.");
 queueTitle("You're new, aren't you?");
 queueTitle("I will be finished in a moment, so until then...");
-queueTitle("Enjoy the view.");
-specialTitle("Wooooo~");
+if (watchCart) {
+	queueTitle("Enjoy the view.");
+	specialTitle("Wooooo~");
+} else {
+	queueTitle("I'll try to help you get your bearings, here.");
+}
 queueAddChoice("Hi. We're here to ask about Wendy.", "cartWatch2");
+
+var music = playMusic("audio/ambience/library");
+music.name = "music";
 `
 ---
 :cartWatch2
 !`
-specialTitle("Woooooo—");
+if (watchCart) specialTitle("Woooooo—");
 queueTitle("Who?");
 queueAddChoice("Wendy, our mom.", "cartWatch3");
 `
@@ -500,13 +517,14 @@ queueAddChoice("How did I know God was going to be a weird little fuck.", "cartW
 !`
 queueTitle("Hmmm?");
 specialTitle("I am normal.");
-queueAddChoice("You're a naked underaged boy paint-skating around an anti-gravity map dome.", "cartWatch9");
+if (watchCart) queueAddChoice("You're a naked underaged boy paint-skating around an anti-gravity map dome.", "cartWatch9");
+if (!watchCart) queueAddChoice("Spilled Paint...? You know what, nevermind. Have you seen our mom?", "cartWatch10");
 `
 ---
 :cartWatch9
 !`
 specialTitle("And you are a motherless "+dog()+" grandma covered in pondwater.");
-queueTitle("I was here first. You are the abnormal one.");
+queueTitle("I existed first. You are the abnormal one.");
 queueAddChoice("Have you seen our mom or not?", "cartWatch10");
 `
 ---
@@ -514,7 +532,7 @@ queueAddChoice("Have you seen our mom or not?", "cartWatch10");
 !`
 specialTitle("What kind of body/mind did she pick?");
 specialTitle("In the pond, after she was assimilated.");
-queueAddChoice("After she was... oh. So that's how Mynt and I got here.", "cartWatch11");
+queueAddChoice("After she was... oh. So that's how Mynt and I got into this situation.", "cartWatch11");
 `
 ---
 :cartWatch11
@@ -569,7 +587,7 @@ queueAddChoice("What?", "cartWatch18");
 :cartWatch18
 !`
 specialTitle("Not a clone, just a doppelganger.");
-queueAddChoice("...", "cartWatch19");
+queueAddChoice("That's a subtle difference.", "cartWatch19");
 `
 ---
 :cartWatch19
@@ -602,13 +620,14 @@ queueAddChoice("Darn. Hey, it's fine, don't worry about it.", "cartWatch22");
 queueTitle("Almost done!");
 queueTitle("One moment.");
 queueTitle("Just let me get some clothes on.");
-queueAddChoice("Are they uh... are they <b>clothes</b>, or skimpy 'clothes?'", "cartWatch23");
+queueAddChoice("Are they uh... are they clothes, or skimpy 'clothes?'", "cartWatch23");
 `
 ---
 :cartWatch23
 !`
 queueTitle("Hmmm?");
-queueAddChoice("I don't want to ogle your boitaint any more than I just had to.", "cartWatch24a");
+if (watchCart) queueAddChoice("I don't want to ogle your boitaint any more than I just had to.", "cartWatch24a");
+if (!watchCart) queueAddChoice("I just don't want to ogle your boitaint, that's all.", "cartWatch24a");
 queueAddChoice("My cat partner doesn't like cubs, that's all.", "cartWatch24");
 `
 ---
@@ -617,7 +636,7 @@ queueAddChoice("My cat partner doesn't like cubs, that's all.", "cartWatch24");
 queueTitle("But it's so plump...");
 queueTitle("Fine.");
 queueTitle("I usually just slip on a pink turtleneck and leave my cock out.");
-queueTitle("But I'll put on my science outfit.");
+queueTitle("But I will put on my science outfit.");
 queueTitle("Just for you.");
 queueAddChoice("Thanks.", "cartWatch25");
 `
@@ -626,7 +645,7 @@ queueAddChoice("Thanks.", "cartWatch25");
 !`
 queueTitle("Ah, one of those.");
 queueTitle("I usually just slip on a pink turtleneck and leave my cock out.");
-queueTitle("But I'll put on my science outfit.");
+queueTitle("But I will put on my science outfit.");
 queueTitle("Just for her.");
 queueAddChoice("Thanks.", "cartWatch25");
 `
@@ -637,20 +656,24 @@ clear();
 bg.destroy();
 setTitle("");
 var cartStanding = addImage("writer/characters/cart/cart2");
-cartStanding.temp = false;
 cartStanding.x = gameWidth;
 cartStanding.y = gameHeight - cartStanding.height *1.05;
 tween(cartStanding, 4, {x: gameWidth - cartStanding.width * 1.1}, {ease: QUAD_OUT});
+
+music.destroy();
+var music = playMusic("audio/ambience/cell");
+music.name = "music";
 `
-"Hi," Mynt says, starstruck. "I'm Mynt."
+"Hi," Mynt says, starstruck. "I'm Meet. Nice to Mynt you."
 
 "There, now. I will leave that to dry." Cart glides down through the air and steps gracefully back into gravity. "Hello, Mynt. Mr. Eyeball already introduced you. Can I get you two anything to drink?"
 
 Mynt sits up, finally recovered. She stares at Cart's big boots.
-
+!`
 addChoice("Tea, please.", "Tea, please.", {icons: ["Plot"]});
 addChoice("Booze.", "Booze.", {icons: ["Cub", "Male", "Love"]});
 addChoice("Cum.", "Cum.", {icons: ["Cub", "Male", "Love"]});
+`
 ---
 :Tea, please.
 
@@ -674,11 +697,11 @@ Mynt winces.
 
 Cart fills the last teacup steaming full and sets the kettle down with a soft clatter.
 
-"Now that you swam in the pond and dissolved, you're using a new body, whcih is 70% pondwater. Don't worry. Pondwater tea is as natural and harmless as sipping saline."
+"Now that you swam in the pond and dissolved, you're using a new body, whcih is 70% pondwater. Don't worry. Pondwater tea is as harmless as sipping saline."
 
-He takes a hot sip to prove it. He shivers electrically, exhales, and pats his little belly, refreshed.
+He takes a hot sip to prove it. He spasms mildly, exhales, and pats his little belly, refreshed.
 
-"Ahhh. Reminds me of the hot springs."
+"Ahhh. Reminds me of the hot springs in a thunderstorm, down on Spilled Paint's meteorite."
 
 [Look at Mynt.|tea4]
 ---
@@ -695,7 +718,7 @@ addChoice("Don't drink.", "tea6");
 
 You pinch the handle and bring the teacup to your lips. You take a hearty sip. The syrupy red tea burns and mildly electrocutes your tongue. It's a bit acidic, like citrus. 
 
-Cart giggles at your reaction. "Watch out. It is conductive. I put a couple volts into the first pot of the day. Wakes me up."
+"Watch out." Cart giggles at your reaction. "It is conductive. I put a couple volts into the first pot of the day. Wakes me up."
 
 [Look at Mynt again.|tea6]
 ---
@@ -705,7 +728,7 @@ Mynt tries a sip. Immediately, she jerks her head back and makes a dopey orgasm 
 
 "A-Auuuh. It euuugh. It eeuuuuuuuu..."
 
-She seizes out a little bit. Flickers run through her muscles. Then a wave of relaxation crests over her. She slumps down in her chair, squirming with pleasure, lips still hanging off the rim of her teacup.
+She seizes out a little bit. Flickers run through her muscles. Then a wave of relaxation crests over her, and she slumps down in her chair, squirming with pleasure, lips still hanging off the rim of her teacup.
 
 [You okay?|tea7]
 ---
@@ -739,17 +762,16 @@ She pouts and sucks on the rim of her teacup, thighs grinding together. "Fine...
 
 [Why do you have such a gay name.|gayName]
 [What am I, now that I've been assimilated?|assim]
-[Is there anything else you remember about Wendy?|member]
 ---
 :gayName
 
 "My real name is Lana. People just call me Cart for the same reason Spilled Paint people called each other Smith. It's easier to remember someone if their profession is their name, and a lot of people need to remember me."
 
-[Oh okay.|tea11]
+[And what am I, now that I've been assimilated?|assim]
 ---
 :assim
 
-"Your old bodies have been dissolved and stripped of their nutrients for other assimilated people to use," he calmly explains. "Now only your minds remain, and they have been separated from your bodies. Your minds interface directly with Mr. Eyeball now."
+"Your old bodies have been dissolved and stripped of their resources for the good of the Interphore," he calmly explains. "The Interphore is just what we call our collective system, here. All the ponds and all the people. Now only your minds remain, and they have been separated from your bodies. Your minds interface directly with Mr. Eyeball now."
 
 That's me.
 
@@ -771,78 +793,31 @@ Being remote-controlled doesn't seem to bother Mynt as much as it bothers you. S
 
 Cartographer nods. His little blue curl bounces happily.
 
-"Yes! Tons and tons," he rambles. "We are a big, scattered ocean of people. We used to be stranded alone in our own layers. I lived for so long in that dungeon, before Mr. Eyeball scooped me up. All of our bodies, your own included, are made from the same red juice you are drinking right now. Swimming allows your bodies to liquify and potentially transfer to another pond in another world. You can go anywhere you want among the ponds of all the layers we have captured and catalogued. You may even return to your own home layers, if you want."
+"Yes! Tons and tons," he rambles. "We are a big, scattered ocean of people. We used to be stranded alone in our own layers. I lived for so long in that dungeon, before Mr. Eyeball scooped me up. All of our bodies, your own included, are made from the same red juice you are drinking right now. So when we swim in the ponds, and our bodies liquify back into red juice, we can reform them at another pond in another world, and our minds stay intact in-between. You can go anywhere you want among the ponds of all the layers we have captured and catalogued. You may even return to your own home layers, if you want."
 
-Mynt chugs the rest of her tea and electrogasms over that. "Uwaa-aa-aaa-aaah~! We can go back to mom's place and look for clues!"
+Mynt chugs the rest of her tea and electrogasms over that. "Uwaa-aa-aaa-aaah~! We can go back to mom's apartment and look for clues! I can finally see my computer from the outside!"
 
-[We're getting off track.|offTrack]
----
-:offTrack
-
-"Right," Mynt jolts. She sits up straight. "Mom. Tell us about mom."
-
-[Next.|member]
----
-:member
-
-Cart twirls a finger through his blue curl, crosses his legs, and thinks back.
-
-"She was a little rude, at first. She wanted to find her doppelganger and that was that. She grabbed me by the tail and killed my momentum. On her insistent request, I stopped what I was doing and brought up three maps for her on the dome."
-
-Mynt holds her breath.
-
-Cart goes on: "Each map centered around a layer she was interested in. First was Library2— your home layer, Mynt. A degenerate island. And it was familiar to me, being so similar to my dungeon. It is a little computer game, `data.playerName`."
-
-[Mynt mentioned.|member2]
----
-:member2
-
-"The second layer Wendy inquired about was adjacent to Library2— that is, inside the same computer, but not inside Library2 itself. That layer is called RELAXATIONGAME."
-
-Mynt looks at you. Neither of you have much of a clue what this means.
-
-[Go on...|member3]
----
-:member3
-
-"Lastly..." Cart pours more tea for himself, head down. His blue bangs part to reveal two piercing eyes. Both are pointed right at you. "Lastly, she asked about the uppermost layer."
-
-He stops pouring. The kettle burps.
-
-"Dumb question. No one has any idea what's up there. That is the whole point of the Interphore: find a way to climb up to true reality."
-
-[Gotcha.|member4]
----
-:member4
-
-Mynt nods aggressively. "Right. Okay. So we've got three leads."
-
-"You can visit the first two layers, your home and the RELAXATIONGAME, they have been paraphrased. But we have not reached the uppermost layer yet, so you can forget about that."
-
-"I already did. What is it again?"
-
-"To recap: This library contains `data.playerName`'s layer. `data.playerName`'s layer contains Library2, RELAXATIONGAME, and the computer they both run on. These are the lowest layers we know of. But we have no idea what is above us."
-
-[Let's go.|endCart]
+[We're getting off track.|endCart]
 ---
 :Booze.
 
 Cart pulls out a bottle of bright blue glowberry wine. "Illicit stuff," he says. "But I have enough clout to break a couple rules around here."
 
-He pours a shimmering, sparking rubber wine glass full for each of you. Mynt gets a blue one and you get a red one.
+He pours a shimmering, sparking rubber wine glass full for each of you. Mynt gets a blue glass and you get a red glass.
 
 "Thank you!" she says, and bows a little, eyes down.
 
 Cart watches her. "Why are you staring at my boots?"
 
-"No reason!" she squeaks, and sips her wine violently. It goes down the wrong tube and she starts hacking into a balled fist, trying to keep her mouth closed. The result is a cute little grunting sound, watery eyes, and her cheeks get all puffed-out.
+"No reason!" Mynt squeaks. She sips her wine violently. It goes down the wrong tube and she starts hacking into a balled fist, trying to keep her mouth closed. The result is a cute little grunting sound, watery eyes, and her cheeks get all puffed-out.
+
 [Sip my wine.|booze2]
 ---
 :booze2
 
 You sip your wine. It tastes like chocolate-coated watermelons.
 
-Cart pats Mynt on the back to help her get her coughs out. Sometimes he has to pull his belly in and dodge a couple blue wine droplets. His little body is so nimble, he barely even has to think about moving before he's already doing it.
+Cart pats Mynt on the back to help her get her coughs out. Sometimes he has to pull his belly in and dodge a couple blue wine droplets as they spray from her nose. His little body is so nimble, he barely even has to think about moving before he's already doing it.
 
 Mynt's big white eyes bulge. She clears her throat: "HNNNNRGH—KRGH."
 
@@ -850,7 +825,7 @@ Mynt's big white eyes bulge. She clears her throat: "HNNNNRGH—KRGH."
 
 Mynt tries a few slow breaths and then stands up. Her face fills with a deep blue flush.
 
-She wraps her arms around Cart and squeezes him tight. "Thank— ahrm— thank you, O God of my God."
+She wraps her arms around Cart and squeezes him tight. "Thank God— erm— thank you, O God of my God."
 
 Cart plays along and waves his hand over her forehead solemnly. "You are blessed, O good and cute cat, child of my accident."
 
@@ -862,7 +837,7 @@ Mynt hangs off of Cart, her arms linked under his armpits and between his should
 
 He nuzzles up underneath her chin automatically. His thighs slide around her hips and his feet lock around the ankles, just above her butt.
 
-"My accident," he says over her shoulder, "was your universe. It is called Spilled Paint for a reason."
+"My accident," he says over her shoulder, "was your universe. Your layer. It is called Spilled Paint for a reason."
 
 [How do you just accidentally do that.|booze4]
 ---
@@ -872,13 +847,13 @@ He nuzzles up underneath her chin automatically. His thighs slide around her hip
 
 Cart draws little circles on Mynt's back with a deft pinky. She squirms and spins around. "Aaah~! Stop! That tickles! Stop— this is a serious moment for `data.playerName`..."
 
-[Why did you allow suffering to exist?|booze5]
+[Why did you allow us to suffer in ignorance for so long?|booze5]
 ---
 :booze5
 
 Okay, Mynt sets Cart down and the mood dies.
 
-[If you made us on accident, why didn't you take care of us?|booze6]
+[If you made us on accident, why didn't you come down and take care of us?|booze6]
 ---
 :booze6
 
@@ -890,60 +865,229 @@ Cartographer pulls his bangs aside and looks you in the eyes.
 ---
 :booze7
 
-He gestures at the ceiling to indicate literally everything.
+He throws his arms out to indicate literally everything.
 
-"What were you, seventy something? Now you are now young, immortal, and sexy. Now you are surrounded with realms of pleasure and free travel between them via a system of inter-dimensional ponds prototyped and propagated by my own two paws. I constructed this library, ran it, maintained it, and used its dome to help navigate to and assimilate every layer up to the straining walls of known reality just so that we might save stranded souls such as Mynt and yourself from death or insanity by prolonged isolation."
+"What were you, seventy something? Now you are now young, immortal, and sexy. I constructed this library, ran it, maintained it, and used its dome to help our Paraphores assimilate every layer up to the straining walls of known reality just so that we might save stranded souls such as Mynt and yourself from death or insanity by prolonged isolation."
 
 He puts you in a headlock.
 
 "Do not come into my glorious map dome as a guest and then demand to know why I did not care for you. As far as I am concerned, `data.playerName`, you are presently nestled right the fuck up under my plush, motherly wing. Now inhale."
 
 !`
+addChoice("Mynt? Help?", "endCart");
 addChoice("Inhale.", "booze8", {icons: ["Raunch"]});
-addChoice("Mynt? Help?", "booze9");
 `
 ---
 :booze8
 
 You apologetically tuck your snout deeper and take a rank whiff of his little pits.
 
-He's still sweaty from paint-skating. He tenses his arm and holds you closer, grinding the musky fabric over your nose.
+He's still sweaty from painstaking paint-skating. He tenses his arm and holds you closer, grinding the musky fabric over your nose. The little dress part of his white coat tents out with a soft bulge of cubdick.
 
 "Thank me," he whispers.
 
-[Thank you for building this afterlife, God.|booze8a]
+[Thank you for building this afterlife and pulling us into it, God.|booze8a]
 ---
 :booze8a
 
-He pulls you off. Fresh air floods into your lungs, but his scent still lingers. Now that it's been smeared all over your nose, it'll probably linger for a while yet.
+He lets you off.
+
+"You're welcome."
+
+Fresh air floods into your lungs, but his scent still lingers. Now that it's been smeared all over your nose, it'll probably linger for a while yet.
 
 Mynt is sitting awkwardly. She's a little drunk now, so even though she's just pointedly looking in another direction, she can't sit still; her body sways subconsciously.
 
 "Oh." She looks over, pretending that she only just noticed you two so close together. "Should I go outside for a bit?"
 
-[No, we were just having a little moment.]
+[No, we were just having a little moment.|endCart]
+---
+:endCart
+
+Mynt steps between you two and plops down on a beanbag, arms crossed.
+
+"Well, let's stop talking about all this complex abstract stuff," she pouts. "Layers? Paraphores? Spilled Paint? Assimilation? Red juice? Fogeddaboutit. We came here to ask about Wendy. Let's talk about Wendy."
+
+Cart grins at you. "Your cat is right, `data.playerName`."
+
+(Mynt's face looks like she's thinking <i>'`gender("His", "Her", "Their")` cat?'</i>)
+
+"I always puke lore at new people and end up nauseating them," he continues. "There is just so much you do not know. I should really just start with a simple recap before I get into all that: you both got sucked into a multiversal narrative hivemind. This is due mostly to my hard work. Also, this next factoid is going to blow your minds: some Paraphores can actually take the form of <i>people</i>— oh, and by the way, Paraphores are—"
+
+Mynt cuts him off with a serious glare.
+
+"But uh," he says, "we should save that for another time. What did you want to know about Wendy?"
+
+[She came looking for her copy. Which direction did you point her?|member]
+---
+:member
+
+Cart twirls a finger through his blue curl, crosses his legs, and thinks back.
+
+"She was a little rude, at first. She wanted to find her doppelganger and that was that. She grabbed me by the tail while I was skating. Completely killed my momentum. I even wrecked the map with my asscheeks on the way down. On her insistent request, I stopped what I was doing and brought up three different maps for her on the dome. She wanted their full history, directions to get there, everything."
+
+Mynt holds her breath.
+
+Cart goes on: "Each of the three maps centered around a layer she was interested in. First was Library2— your home layer, Mynt. A degenerate furry porn game about an island. And it was familiar to me. If you don't remember, Mynt used to live in a little computer game, `data.playerName`."
+
+[She mentioned.|member2]
+---
+:member2
+
+"The second layer Wendy inquired about was adjacent to Library2— that is, installed inside the same computer, but not inside the Library2 program itself. That layer is called RELAXATIONGAME, and Wendy left it unfinished. I am not familiar with that one."
+
+Mynt looks at you.
+
+[Go on...|member3]
+---
+:member3
+
+"Lastly..." Cart pours more tea for himself, head down. His blue bangs part to reveal two piercing eyes. Both are pointed right at you. "Lastly, she asked about the uppermost layer."
+
+He stops pouring. The kettle burps.
+
+"Dumb question. No one has any idea what is up there. That is the whole point of the Interphore, this collection of pond-people: we are trying to find a way to get out of here and up to true reality."
+
+[That's a noble goal.|member4]
+---
+:member4
+
+Mynt nods aggressively. "Right. Okay. So we've got three leads. Library2, RELAXATIONGAME, and Wendy's apartment down on... not Earth, sorry..."
+
+"Spilled Paint."
+
+"Right. Down on Spilled Paint."
+
+She nods nods nods.
+
+[Okay. We're getting somewhere.|member5]
+---
+:member5
+
+Cart rests his chin on both palms and stares at you lovingly. At least you think he's doing it lovingly. His hair is in the way.
+
+"I'm so excited for you two," he gushes. "I wish I could go on a mom quest like this. We only have dads, here. Where are you going to go first?"
+
+Mynt ponders.
+
+!`
+choicesPerPage = 3;
+addChoice("We have to go down to the porn game, Library2. (WIP)", "endCart", {enabled: false});
+addChoice("Let's plumb the unknown RELAXATIONGAME. (WIP)", "endCart", {enabled: false});
+addChoice("Gotta search her apartment first, right?", "member6");
+`
+---
+:member6
+
+"Right," Mynt says. "That's probably the last place she was at— if she isn't there right now!"
+
+"It might have been the fake wendy asking about those three layers, too," Cart reminds you. "Do not get too hopeful."
+
+[Let's head down to Earth. Maybe we can even set up home base.|member7]
+---
+:member7
+
+Mynt stands up and smooths out the front of her dress.
+
+"Thank you for the information and the drinks and the hospitality," she says politely.
+
+Cart looks at her. She's finally done staring at his boots, and now she can't take her eyes off his fluffy cheekfur.
+
+"You can touch me if you want," he purrs. "I do not mind affection."
+
+Mynt lunges forward and wraps her arms around Cart's little shoulders and smooches his blue hair over and over again. "Oh, thank you! Thank you so much, Cart! Sorry `data.playerName` was so rude, earlier."
+
+[I wasn't rude...|member8]
+---
+:member8
+
+"It is fine, it is fine," Cart says, muffled against Mynt's flat chest. She pulls him even closer and hugs the shit out of him. He has to stand on the tippy-toes of his boots to stay balanced.
+
+"MmmmmMMM!" Mynt squeaks. "You're so huggable!"
+
+"Thank you very much."
+
+"Seriously!!" She sniffs his head. "And who does your hair? What shampoo do you use? How do you get that curl to stay?"
+
+[Mynt...|member9]
+---
+:member9
+
+"I wash it with glowberry shampoo," he says. "My fur, too. I just twirl my curl a lot when I think hard, and now it stays like that."
+
+Mynt's curious paws rove over his neck, down the collar of his science coat. She plays with his curl. "Well, it smells fruity... and good..."
+
+Cart shivers. "Careful. It is sensitive."
+
+[Mynt.|member10]
+---
+:member10
+
+She unplugs her snout from Cart's hair.
+
+"Hm? What? What is it?"
+
+[Weren't we just heading out?|member11]
+---
+:member11
+
+She's crushed. "Oh..."
+
+Cart squeezes her one last time. Then he slips away from her and pulls off his boots with two suction-cuppy sounds. He heads back to the map dome and tosses them wherever. They hit the ground: <i>clunk, clunk.</i>
+
+"You two should get going," he says, and hesitates in the doorway. "But visit again soon. I am lonely."
+
+[You're going back to work again?|member12]
+---
+:member12
+
+"I work a lot."
+
+Cart stands on the threshold of the door to the map room. Invisible anti-gravity fingers riffle through the back of his coat. Slowly, he undoes the buttons down his front (Mynt shields her eyes) and throws himself backwards.
+
+His coat pops open and flutters silently to either side of him, like great white wings, revealing a smooth bare belly and chest. He floats backwards and upwards, away from both of you. His long hair floats out in a weightless blue halo until he reaches back and re-ties his ponytail.
+
+"The limits of the universe will not define themselves."
+
+[Goodbye, Cart.|member13]
+---
+:member13
+
+"Goodbye, `data.playerName`. Goodbye, Mynt. I hope you find your mom."
+
+Mynt peeks out between her fingers and whispers to you: "Is he still naked?"
+
+"Yes, I am."
+
+Well... she keeps her paw over her eyes, then. She runs up to the map dome door, bumping into shit blindly along the way, and waves goodbye so hard she almost falls into the anti-gravity field a second time.
+
+"Byyyyeeee!!!! It was so nice meeting you and smelling your hair!!"
+
+[Goodbye!|member14]
+---
+:member14
+
+The door shuts. You listen to almost-empty tubes of paint making farty squirting noises as he lathers up his feet and paws.
+
+Mynt hugs you, now. "Back to Earth now, right? Back to the meteorite?"
+
+[Let's go.|cartEndMap]
 ---
 :Cum.
 
-Mynt coughs awkwardly.
+Mynt coughs awkwardly. "I'd rather you didn't do that right now."
 
-Cart smiles and looks from one of you to the other, resting his chin on a paw.
-
-"Maybe another time?"
+Cart smiles hopefully and looks from one of you to the other, resting his chin on a paw. "Maybe another time?"
 
 [Okay, tea for now.|Tea, please.]
 [Okay, booze for now.|Booze.]
 ---
-:endCart
-
----
-:cartWatch23
+:cartEndMap
 
 !`
 cartArt.destroy();
 cartTween.destroy();
 cartTween2.destroy();
-specialTitle.destroy();
 resetBackgroundMode(2);
 print("leaving intro");
 

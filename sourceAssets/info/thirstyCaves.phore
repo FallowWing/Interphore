@@ -165,8 +165,17 @@ You think you'll stay here for now. It's a big world out there.
 [Move along.]
 ---
 :introArea
-You wander back over to the pond you were born from. If you jump back in and re-liquidize yourself in all that red engine fluid, you can switch your variables around.
-[Jump in.]
+You wander back over to the pond you were born from. If you jump back in and re-liquidize yourself in all that red fluid, you can switch your variables around.
+!`addChoice("Jump in.", function() {
+	if (data.shapeShifted) {
+		gotoPassage("Jump in.");
+	} else {
+		clear();
+		execAsset("introMod.phore");
+		gotoPassage("introModStart");
+		data.shapeShifted = true;
+	}
+});
 [Move along.]
 ---
 :Jump in.
@@ -175,8 +184,9 @@ data.genitals = "";
 data.hasBoobs = false;
 data.gender = "";
 data.playerName = "";
+data.hasKnot = false;
 `
-You swan dive back into the glowy red fluid and your body disintegrates. It feels kinda harsh and stingy at first, but then it mellows out. Being bodyless is very relaxing.
+You swan dive back into the red fluid and your body disintegrates. It feels kinda harsh and stingy at first, but then it mellows out. Being bodyless is very relaxing.
 [Shapeshift.]
 ---
 :Shapeshift.
@@ -1590,18 +1600,18 @@ execAsset("scratch.phore");
 END_PASSAGES
 
 function initThirstyCaves() {
-	submitNode("Nymphore", "introArea");
+	submitNode("A Pond", "introArea");
 	submitNode("Indigo Pond", "piss");
-	attachNode("Nymphore", "Indigo Pond", TOP);
+	attachNode("A Pond", "Indigo Pond", TOP);
 
 	submitNode("Alcohol Pipeline", "pipeline");
 	attachNode("Indigo Pond", "Alcohol Pipeline", TOP);
 
 	submitNode("Underground Farms", "rox");
-	attachNode("Nymphore", "Underground Farms", LEFT);
+	attachNode("A Pond", "Underground Farms", LEFT);
 
 	submitNode("Heaven", "heaven");
-	attachNode("Nymphore", "Heaven", RIGHT);
+	attachNode("A Pond", "Heaven", RIGHT);
 
 	submitNode("Dev Menu", "devMenu");
 	attachNode("Heaven", "Dev Menu", RIGHT);
@@ -1612,7 +1622,7 @@ function initThirstyCaves() {
 	// attachNode("Cave Stables", "Old Abattoir", BOTTOM);
 
 	// submitNode("Greasy Crevass", "raunch");
-	// attachNode("Nymphore", "Greasy Crevass", LEFT);
+	// attachNode("A Pond", "Greasy Crevass", LEFT);
 
 	// submitNode("Roxelle's Farm", "rox");
 	// attachNode("Greasy Crevass", "Roxelle's Farm", LEFT);
