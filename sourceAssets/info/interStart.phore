@@ -51,6 +51,9 @@ exitButton.onRelease = function() {
 }
 
 var titleBg = addRectImage(gameWidth, 50, 0x2d354c);
+titleBg.onRelease = function() {
+	if (titleBg.alpha != 0) commandSkipped = true;
+}
 titleBg.temp = false;
 titleBg.y = gameHeight/2 - titleBg.height/2;
 titleBg.layer = TITLE_LAYER;
