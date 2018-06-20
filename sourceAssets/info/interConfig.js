@@ -608,6 +608,8 @@ function append(data) {
 			if (i < lines.length-1) newStr += "\n";
 		}
 	});
+
+	newStr = newStr.replace(/%/g, "%%");
 	append_internal(newStr);
 }
 
