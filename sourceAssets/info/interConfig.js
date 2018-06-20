@@ -84,6 +84,7 @@ function newImage() {
 		layer: DEFAULT_LAYER,
 		inInputField: false,
 		setText: function(text) {
+			text = text.replace(/%/g, "%%");
 			img.text = text;
 			setImageText(img, text);
 		},
@@ -608,6 +609,8 @@ function append(data) {
 			if (i < lines.length-1) newStr += "\n";
 		}
 	});
+
+	newStr = newStr.replace(/%/g, "%%"); // We won't need this once mainText is in js
 	append_internal(newStr);
 }
 
