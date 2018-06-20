@@ -344,7 +344,7 @@ function drawText() {
 	wwField.tint = 0xFFFFFFFF;
 	wwField.setWordWrapWidth(wwWidth);
 	wwField.setText("");
-	wwField.setText("This is some test text. This is some test text. This is some test text.");
+	wwField.setText("This is some test text. This is some test text. This is some test text. Loooooooooooooooooooooooooong word.");
 	wwField.x = 100;
 	wwField.y = 100;
 

@@ -8,9 +8,6 @@ font/bitmap/NunitoSans-Italic_26*
 font/bitmap/NunitoSans-Light_30*
 font/bitmap/NunitoSans-Bold_30*
 font/bitmap/NunitoSans-Italic_30*
-font/bitmap/NunitoSans-Light_38*
-font/bitmap/NunitoSans-Bold_38*
-font/bitmap/NunitoSans-Italic_38*
 font/bitmap/OpenSans-Regular_20*
 font/bitmap/OpenSans-Regular_40*
 
