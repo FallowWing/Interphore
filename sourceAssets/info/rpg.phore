@@ -5,8 +5,10 @@ function createRpgChar() {
 		name: "unnamed",
 		hp: 100,
 		maxHp: 100,
+		mp: 100,
+		maxMp: 100,
 		attack: 50,
-		defence: 50,
+		defence: 20,
 		speed: 50,
 		friendly: false,
 		sprite: null,
@@ -78,6 +80,9 @@ function updateRpgBattle() {
 		unit.mpBar.tint = 0xFF0000FF;
 		unit.limitBar.tint = 0xFFFF00FF;
 
+		unit.hpBar.scaleX = unit.hp / unit.maxHp;
+		unit.mpBar.scaleX = unit.mp / unit.maxMp;
+
 		if (unit.statBox.x + unit.statBox.width > gameWidth) unit.statBox.x = unit.sprite.x - unit.statBox.width - 32;
 	});
 }
@@ -129,7 +134,7 @@ function chooseAttack() {
 
 function attack(unit1, unit2) {
 	clearChoices();
-	append(unit1.name + " attacked " + unit2.name+"\n");
+	append(unit1.name + " attacked " + unit2.name);
 	var spr1 = unit1.sprite;
 	var spr2 = unit2.sprite;
 
@@ -141,6 +146,9 @@ function attack(unit1, unit2) {
 		}
 		spr1.y = spr2.y;
 
+		var damage = unit1.attack - unit2.defence;
+		append(", did "+damage+" damage.\n");
+		unit2.hp -= damage;
 		timer(SMALL_DELAY, nextTurn);
 	});
 
