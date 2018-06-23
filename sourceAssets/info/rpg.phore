@@ -15,8 +15,11 @@ function createRpgChar() {
 
 var rpg = null;
 var SMALL_DELAY = 0.5;
+var MICRO_DELAY = 0.25;
 function startRpgBattle(players, enemies) {
 	rpg = {
+		players: players,
+		enemies: enemies,
 		units: [],
 		turnIndex: 0,
 		currentUnit: null
@@ -43,47 +46,79 @@ function startRpgBattle(players, enemies) {
 		unit.sprite = addRectImage(64, 128, 0xFFFFFF);
 	});
 
-	tempUpdateFunctions.push(updateRpgBattle);
+	// tempUpdateFunctions.push(updateRpgBattle);
 	startTurn();
 }
 
-function updateRpgBattle() {
-	var friendlyCount = 0;
-	var enemyCount = 0;
+// function updateRpgBattle() {
+// }
 
-	rpg.units.forEach(function(unit) {
+function resetUnitPositions() {
+	rpg.players.forEach(function(unit, i) {
 		var spr = unit.sprite;
-		if (unit.friendly) {
-			spr.x = 128 + spr.width/2 + friendlyCount*16;
-			spr.y = 128 + friendlyCount*(spr.height-16);
-			unit.sprite.tint = 0xFF0000FF;
-			friendlyCount++;
-		} else {
-			spr.x = gameWidth - 128 - spr.width/2 - enemyCount*16;
-			spr.y = 128 + enemyCount*(spr.height - 16);
-			unit.sprite.tint = 0xFFFF0000;
-			enemyCount++;
-		}
+		spr.x = 128 + spr.width/2 + i*16;
+		spr.y = 128 + i*(spr.height-16);
+		unit.sprite.tint = 0xFF0000FF;
+	});
+
+	rpg.enemies.forEach(function(unit, i) {
+		var spr = unit.sprite;
+		spr.x = gameWidth - 128 - spr.width/2 - i*16;
+		spr.y = 128 + i*(spr.height - 16);
+		unit.sprite.tint = 0xFFFF0000;
 	});
 }
 
 function startTurn() {
-	clearChoices();
+	resetUnitPositions();
 	rpg.currentUnit = rpg.units[rpg.turnIndex];
 
 	if (rpg.currentUnit.friendly) {
-		addChoice("Attack", attack);
-		addChoice("Item", item);
-		addChoice("Skip", skip);
+		showMenu();
 	} else {
 		skip();
 	}
 }
 
-function attack() {
+function showMenu() {
+	clearChoices();
+	addChoice("Attack", chooseAttack);
+	addChoice("Item", item);
+	addChoice("Skip", skip);
+}
+
+function chooseAttack() {
+	clearChoices();
+	rpg.units.forEach(function(unit) {
+		if (!unit.friendly) {
+			addChoice(unit.name, function() { attack(rpg.currentUnit, unit); })
+		}
+	});
+
+	addChoice("Go back", showMenu);
+}
+
+function attack(unit1, unit2) {
+	clearChoices();
+	append(unit1.name + " attacked " + unit2.name+"\n");
+	var spr1 = unit1.sprite;
+	var spr2 = unit2.sprite;
+
+	timer(MICRO_DELAY, function() {
+		if (unit1.friendly) {
+			spr1.x = spr2.x - spr2.width - 16;
+		} else {
+			spr1.x = spr2.x + spr2.width + 16;
+		}
+		spr1.y = spr2.y;
+
+		timer(SMALL_DELAY, nextTurn);
+	});
+
 }
 
 function item() {
+	clearChoices();
 }
 
 function skip() {
