@@ -68,17 +68,17 @@ if (data.genitals === "female" || data.genitals === "male" || data.genitals === 
 queueTitle("Wonderful.");
 queueTitle("And your gender?");
 
-addChoice("He.", function() {
+queueAddChoice("He.", function() {
 	data.gender = "male";
 	gotoPassage("afterGender");
 });
 
-addChoice("She.", function() {
+queueAddChoice("She.", function() {
 	data.gender = "female";
 	gotoPassage("afterGender");
 });
 
-addChoice("They.", function() {
+queueAddChoice("They.", function() {
 	data.gender = "both";
 	gotoPassage("afterGender");
 });
@@ -91,7 +91,9 @@ queueTitle("We already know your name, of course, but what should we call you?")
 queueTitle("Go ahead and start typing in that box.");
 
 
-addInputField();
+queueCall(function() {
+	addInputField();
+});
 
 queueAddChoice("Submit.", function() {
 	gotoPassage("afterName");
