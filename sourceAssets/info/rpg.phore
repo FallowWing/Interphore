@@ -14,6 +14,7 @@ function createRpgChar() {
 }
 
 var rpg = null;
+var SMALL_DELAY = 0.5;
 function startRpgBattle(players, enemies) {
 	rpg = {
 		units: [],
@@ -29,6 +30,10 @@ function startRpgBattle(players, enemies) {
 	enemies.forEach(function(unit) {
 		unit.friendly = false;
 		rpg.units.push(unit);
+	});
+
+	rpg.units.sort(function(a, b) {
+		return b.speed - a.speed;
 	});
 
 	clear();
@@ -82,8 +87,9 @@ function item() {
 }
 
 function skip() {
+	clearChoices();
 	append(rpg.currentUnit.name+" skipped turn.\n");
-	timer(1, nextTurn);
+	timer(SMALL_DELAY, nextTurn);
 }
 
 function nextTurn() {

@@ -373,22 +373,28 @@ Go to the rpg test?
 addChoice("Let's go!", function() {
 	execAsset("rpg.phore");
 	var p1 = createRpgChar();
+	p1.speed = 30;
 	p1.name = "player 1";
 
 	var p2 = createRpgChar();
+	p2.speed = 30;
 	p2.name = "player 2";
 
 	var p3 = createRpgChar();
+	p3.speed = 30;
 	p3.name = "player 3";
 
 	var p4 = createRpgChar();
+	p4.speed = 30;
 	p4.name = "player 4";
 
 	var enemy1 = createRpgChar();
+	enemy1.speed = 20;
 	enemy1.name = "enemy 1";
 
 	var enemy2 = createRpgChar();
 	enemy2.name = "enemy 2";
+	enemy2.speed = 100;
 
 	startRpgBattle([p1, p2, p3, p4], [enemy1, enemy2]);
 });
