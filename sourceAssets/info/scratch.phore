@@ -40,6 +40,7 @@ addChoice("Load a mod", loadMod);
 [Benchmark|benchmark]
 [Tooltip Test|tooltipTest]
 [Word wrap Test|wordWrapTest]
+[Rpg test|rpgTest]
 ---
 :Change Mynt's genitals
 
@@ -365,6 +366,35 @@ addChoice("+10", function() {
 });
 addChoice("Go back", "scratchModStart");
 `
+---
+:rpgTest
+Go to the rpg test?
+!`
+addChoice("Let's go!", function() {
+	execAsset("rpg.phore");
+	var p1 = createRpgChar();
+	p1.name = "player 1";
+
+	var p2 = createRpgChar();
+	p2.name = "player 2";
+
+	var p3 = createRpgChar();
+	p3.name = "player 3";
+
+	var p4 = createRpgChar();
+	p4.name = "player 4";
+
+	var enemy1 = createRpgChar();
+	enemy1.name = "enemy 1";
+
+	var enemy2 = createRpgChar();
+	enemy2.name = "enemy 2";
+
+	startRpgBattle([p1, p2, p3, p4], [enemy1, enemy2]);
+});
+`
+[Go back|scratchModStart]
+
 ---
 :Exit
 `exitMod();`

@@ -12,6 +12,8 @@ font/bitmap/OpenSans-Regular_20*
 font/bitmap/OpenSans-Regular_40*
 
 info/nodeGraph.phore
+info/rpg.phore
+
 info/interStart.phore
 info/interConfig.js
 

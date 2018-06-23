@@ -31,6 +31,11 @@ SCREEN_ORIENTATION := landscape
 all:
 	$(MAKE) defaultAll
 
+fast:
+	cp sourceAssets/info/*.phore bin/assets/info
+	cp sourceAssets/info/*.js bin/assets/info
+	make r
+
 exportAssets:
 	# bash $(CPP_TOOLS)/engine/buildSystem/exportAssets.sh ../writerExportedAssets/img assets/img
 

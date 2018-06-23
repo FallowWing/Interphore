@@ -314,14 +314,11 @@ function getAudioById(id) {
 	}
 }
 
-function clear() {
-	clearFunctions.forEach(function(fn) {
-		fn();
-	});
-	clearFunctions = [];
-	tempUpdateFunctions = [];
-
+function clearText() {
 	setMainText("");
+}
+
+function clearChoices() {
 	choicePage = 0;
 	choicesPerPage = 4;
 	keyboardOpened = false;
@@ -330,16 +327,27 @@ function clear() {
 	inputField.inInputField = false;
 	inputFieldBg.alpha = 0;
 
-	var imagesToRemove = [];
-	for (var i = 0; i < images.length; i++) if (images[i].temp) imagesToRemove.push(images[i]);
-	for (var i = 0; i < imagesToRemove.length; i++) imagesToRemove[i].destroy();
-
 	for (var i = 0; i < choices.length; i++) {
 		choices[i].sprite.destroy();
 		choices[i].textField.destroy();
 	}
 
 	choices = [];
+}
+
+function clear() {
+	clearFunctions.forEach(function(fn) {
+		fn();
+	});
+	clearFunctions = [];
+	tempUpdateFunctions = [];
+
+	clearText();
+	clearChoices();
+
+	var imagesToRemove = [];
+	for (var i = 0; i < images.length; i++) if (images[i].temp) imagesToRemove.push(images[i]);
+	for (var i = 0; i < imagesToRemove.length; i++) imagesToRemove[i].destroy();
 }
 
 function gotoPassage(passageName) {

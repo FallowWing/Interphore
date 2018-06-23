@@ -1,0 +1,93 @@
+function createRpgChar() {
+	var rpgChar;
+
+	rpgChar = {
+		name: "unnamed",
+		attack: 50,
+		defence: 50,
+		speed: 50,
+		friendly: false,
+		sprite: null
+	};
+
+	return rpgChar;
+}
+
+var rpg = null;
+function startRpgBattle(players, enemies) {
+	rpg = {
+		units: [],
+		turnIndex: 0,
+		currentUnit: null
+	};
+
+	players.forEach(function(unit) {
+		unit.friendly = true;
+		rpg.units.push(unit);
+	});
+
+	enemies.forEach(function(unit) {
+		unit.friendly = false;
+		rpg.units.push(unit);
+	});
+
+	clear();
+	append("Battle start!\n");
+
+	rpg.units.forEach(function(unit) {
+		unit.sprite = addRectImage(64, 128, 0xFFFFFF);
+	});
+
+	tempUpdateFunctions.push(updateRpgBattle);
+	startTurn();
+}
+
+function updateRpgBattle() {
+	var friendlyCount = 0;
+	var enemyCount = 0;
+
+	rpg.units.forEach(function(unit) {
+		var spr = unit.sprite;
+		if (unit.friendly) {
+			spr.x = 128 + spr.width/2 + friendlyCount*16;
+			spr.y = 128 + friendlyCount*(spr.height-16);
+			unit.sprite.tint = 0xFF0000FF;
+			friendlyCount++;
+		} else {
+			spr.x = gameWidth - 128 - spr.width/2 - enemyCount*16;
+			spr.y = 128 + enemyCount*(spr.height - 16);
+			unit.sprite.tint = 0xFFFF0000;
+			enemyCount++;
+		}
+	});
+}
+
+function startTurn() {
+	clearChoices();
+	rpg.currentUnit = rpg.units[rpg.turnIndex];
+
+	if (rpg.currentUnit.friendly) {
+		addChoice("Attack", attack);
+		addChoice("Item", item);
+		addChoice("Skip", skip);
+	} else {
+		skip();
+	}
+}
+
+function attack() {
+}
+
+function item() {
+}
+
+function skip() {
+	append(rpg.currentUnit.name+" skipped turn.\n");
+	timer(1, nextTurn);
+}
+
+function nextTurn() {
+	rpg.turnIndex++;
+	if (rpg.turnIndex >= rpg.units.length) rpg.turnIndex = 0;
+	startTurn();
+}
