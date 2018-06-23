@@ -85,7 +85,7 @@ function startTurn() {
 function showMenu() {
 	clearChoices();
 	addChoice("Attack", chooseAttack);
-	addChoice("Item", item);
+	// addChoice("Item", item);
 	addChoice("Skip", skip);
 }
 
