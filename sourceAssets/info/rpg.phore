@@ -9,7 +9,11 @@ function createRpgChar() {
 		defence: 50,
 		speed: 50,
 		friendly: false,
-		sprite: null
+		sprite: null,
+		statBox: null,
+		hpBar: null,
+		mpBar: null,
+		limitBar: null
 	};
 
 	return rpgChar;
@@ -46,14 +50,37 @@ function startRpgBattle(players, enemies) {
 
 	rpg.units.forEach(function(unit) {
 		unit.sprite = addRectImage(64, 128, 0xFFFFFF);
+
+		unit.statBox = addEmptyImage(128, 16);
+
+		unit.hpBar = addRectImage(128, 4, 0xFFFFFF);
+		unit.statBox.addChild(unit.hpBar);
+
+		unit.mpBar = addRectImage(128, 4, 0xFFFFFF);
+		unit.mpBar.y = unit.hpBar.y + unit.hpBar.height;
+		unit.statBox.addChild(unit.mpBar);
+
+		unit.limitBar = addRectImage(128, 4, 0xFFFFFF);
+		unit.limitBar.y = unit.mpBar.y + unit.mpBar.height;
+		unit.statBox.addChild(unit.limitBar);
 	});
 
-	// tempUpdateFunctions.push(updateRpgBattle);
+	tempUpdateFunctions.push(updateRpgBattle);
 	startTurn();
 }
 
-// function updateRpgBattle() {
-// }
+function updateRpgBattle() {
+	rpg.units.forEach(function(unit) {
+		unit.statBox.x = unit.sprite.x + unit.sprite.width + 32;
+		unit.statBox.y = unit.sprite.y;
+
+		unit.hpBar.tint = 0xFF00FF00;
+		unit.mpBar.tint = 0xFF0000FF;
+		unit.limitBar.tint = 0xFFFF00FF;
+
+		if (unit.statBox.x + unit.statBox.width > gameWidth) unit.statBox.x = unit.sprite.x - unit.statBox.width - 32;
+	});
+}
 
 function resetUnitPositions() {
 	rpg.players.forEach(function(unit, i) {
