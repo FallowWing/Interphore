@@ -3,6 +3,8 @@ function createRpgChar() {
 
 	rpgChar = {
 		name: "unnamed",
+		hp: 100,
+		maxHp: 100,
 		attack: 50,
 		defence: 50,
 		speed: 50,
