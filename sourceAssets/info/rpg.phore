@@ -34,6 +34,8 @@ function initRpgBattle() {
 		units: [],
 		turnIndex: 0,
 		currentUnit: null,
+		currentSpell: null,
+		activeSpell: null,
 		spells: []
 	}
 }
@@ -42,10 +44,11 @@ function createRpgSpell() {
 	var spell;
 	spell = {
 		name: "Unnamed spell",
-		singleTarget: true,
+		done: false,
 		damage: 20,
 		execute: function(target) {
 			target.hp -= spell.damage;
+			spell.done = true;
 		}
 	};
 
@@ -105,6 +108,13 @@ function startRpgBattle(players, enemies) {
 }
 
 function updateRpgBattle() {
+	if (rpg.activeSpell) {
+		if (rpg.activeSpell.done) {
+			rpg.activeSpell = null;
+			nextTurn();
+		}
+	}
+
 	rpg.units.forEach(function(unit) {
 		unit.statBox.x = unit.sprite.x + unit.sprite.width + 32;
 		unit.statBox.y = unit.sprite.y;
@@ -154,6 +164,7 @@ function showMenu() {
 	clearChoices();
 	addChoice("Attack", chooseAttack);
 	// addChoice("Item", item);
+	addChoice("Magic", chooseMagic);
 	addChoice("Skip", skip);
 }
 
@@ -191,6 +202,45 @@ function attack(unit1, unit2) {
 		}
 		timer(SMALL_DELAY, nextTurn);
 	});
+}
+
+function chooseMagic() {
+	clearChoices();
+	rpg.currentUnit.spellNames.forEach(function(spellName) {
+		addChoice(spellName, function() {
+			rpg.currentSpell = getSpell(spellName);
+			chooseMagicTarget();
+		});
+	});
+
+	addChoice("Go back", showMenu);
+}
+
+function chooseMagicTarget() {
+	clearChoices();
+	rpg.units.forEach(function(unit) {
+		if (!unit.friendly && !unit.dead) {
+			addChoice(unit.name, function() { 
+				rpg.currentSpell.done = false;
+				rpg.activeSpell = rpg.currentSpell;
+				rpg.activeSpell.execute(unit);
+			})
+		}
+	});
+
+	addChoice("Go back", showMenu);
+}
+
+function getSpell(spellName) {
+	var retSpell = null;
+	rpg.spells.forEach(function(spell) {
+		if (spellName == spell.name) {
+			retSpell = spell;
+			return;
+		}
+	});
+
+	return retSpell;
 }
 
 function item() {
