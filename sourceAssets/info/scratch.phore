@@ -396,6 +396,7 @@ addChoice("Let's go!", function() {
 	enemy2.name = "enemy 2";
 	enemy2.speed = 100;
 
+	initRpgBattle();
 	startRpgBattle([p1, p2, p3, p4], [enemy1, enemy2]);
 });
 `

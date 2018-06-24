@@ -26,14 +26,19 @@ function createRpgChar() {
 var rpg = null;
 var SMALL_DELAY = 0.5;
 var MICRO_DELAY = 0.25;
-function startRpgBattle(players, enemies) {
+function initRpgBattle() {
 	rpg = {
-		players: players,
-		enemies: enemies,
+		players: null,
+		enemies: null,
 		units: [],
 		turnIndex: 0,
 		currentUnit: null
 	}
+}
+
+function startRpgBattle(players, enemies) {
+	rpg.players = players;
+	rpg.enemies = enemies;
 
 	players.forEach(function(unit) {
 		unit.friendly = true;
