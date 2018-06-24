@@ -375,6 +375,7 @@ addChoice("Let's go!", function() {
 	var p1 = createRpgChar();
 	p1.speed = 30;
 	p1.name = "player 1";
+	p1.spellNames.push("Fireball");
 
 	var p2 = createRpgChar();
 	p2.speed = 30;
@@ -397,6 +398,22 @@ addChoice("Let's go!", function() {
 	enemy2.speed = 100;
 
 	initRpgBattle();
+
+	var fireballSpell = createRpgSpell();
+	fireballSpell.name = "Fireball";
+	fireballSpell.execute = function(target) {
+		var targetSpr = target.sprite;
+
+		var spr = addRectImage(64, 64, 0xCC0000);
+		spr.x = targetSpr.x + targetSpr.width/2 - spr.width/2;
+		spr.y = targetSpr.y + targetSpr.height/2 - spr.height/2;
+		tween(spr, 1, {scaleX: 3, scaleY: 3, alpha: 0}, { onComplete: function() {
+			spr.destroy();
+			target.hp -= spell.damage;
+			spell.done = true;
+		}});
+	};
+
 	startRpgBattle([p1, p2, p3, p4], [enemy1, enemy2]);
 });
 `

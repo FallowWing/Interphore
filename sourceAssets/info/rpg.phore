@@ -12,6 +12,7 @@ function createRpgChar() {
 		speed: 50,
 		friendly: false,
 		dead: false,
+		spellNames: [],
 		sprite: null,
 		statBox: null,
 		nameTf: null,
@@ -32,8 +33,24 @@ function initRpgBattle() {
 		enemies: null,
 		units: [],
 		turnIndex: 0,
-		currentUnit: null
+		currentUnit: null,
+		spells: []
 	}
+}
+
+function createRpgSpell() {
+	var spell;
+	spell = {
+		name: "Unnamed spell",
+		singleTarget: true,
+		damage: 20,
+		execute: function(target) {
+			target.hp -= spell.damage;
+		}
+	};
+
+	rpg.spells.push(spell);
+	return spell;
 }
 
 function startRpgBattle(players, enemies) {
