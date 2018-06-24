@@ -11,6 +11,7 @@ function createRpgChar() {
 		defence: 20,
 		speed: 50,
 		friendly: false,
+		dead: false,
 		sprite: null,
 		statBox: null,
 		hpBar: null,
@@ -31,7 +32,7 @@ function startRpgBattle(players, enemies) {
 		units: [],
 		turnIndex: 0,
 		currentUnit: null
-	};
+	}
 
 	players.forEach(function(unit) {
 		unit.friendly = true;
@@ -68,7 +69,9 @@ function startRpgBattle(players, enemies) {
 	});
 
 	tempUpdateFunctions.push(updateRpgBattle);
-	startTurn();
+
+	rpg.turnIndex = -1;
+	nextTurn();
 }
 
 function updateRpgBattle() {
@@ -88,6 +91,10 @@ function updateRpgBattle() {
 }
 
 function resetUnitPositions() {
+	rpg.units.forEach(function(unit) {
+		unit.sprite.rotation = unit.dead ? 90 : 0;
+	});
+
 	rpg.players.forEach(function(unit, i) {
 		var spr = unit.sprite;
 		spr.x = 128 + spr.width/2 + i*16;
@@ -105,7 +112,6 @@ function resetUnitPositions() {
 
 function startTurn() {
 	resetUnitPositions();
-	rpg.currentUnit = rpg.units[rpg.turnIndex];
 
 	if (rpg.currentUnit.friendly) {
 		showMenu();
@@ -124,7 +130,7 @@ function showMenu() {
 function chooseAttack() {
 	clearChoices();
 	rpg.units.forEach(function(unit) {
-		if (!unit.friendly) {
+		if (!unit.friendly && !unit.dead) {
 			addChoice(unit.name, function() { attack(rpg.currentUnit, unit); })
 		}
 	});
@@ -149,9 +155,12 @@ function attack(unit1, unit2) {
 		var damage = unit1.attack - unit2.defence;
 		append(", did "+damage+" damage.\n");
 		unit2.hp -= damage;
+		if (unit2.hp <= 0) {
+			unit2.dead = true;
+			unit2.hp = 0;
+		}
 		timer(SMALL_DELAY, nextTurn);
 	});
-
 }
 
 function item() {
@@ -167,5 +176,12 @@ function skip() {
 function nextTurn() {
 	rpg.turnIndex++;
 	if (rpg.turnIndex >= rpg.units.length) rpg.turnIndex = 0;
+	rpg.currentUnit = rpg.units[rpg.turnIndex];
+
+	if (rpg.currentUnit.dead) {
+		nextTurn();
+		return;
+	}
+
 	startTurn();
 }
