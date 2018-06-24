@@ -14,6 +14,7 @@ function createRpgChar() {
 		dead: false,
 		sprite: null,
 		statBox: null,
+		nameTf: null,
 		hpBar: null,
 		mpBar: null,
 		limitBar: null
@@ -54,9 +55,16 @@ function startRpgBattle(players, enemies) {
 	rpg.units.forEach(function(unit) {
 		unit.sprite = addRectImage(64, 128, 0xFFFFFF);
 
-		unit.statBox = addEmptyImage(128, 16);
+		unit.statBox = addEmptyImage(128, 64);
+
+		unit.nameTf = addEmptyImage(unit.statBox.width, 64);
+		unit.nameTf.tint = 0xFFFFFFFF;
+		unit.nameTf.setFont("NunitoSans-Light_22");
+		unit.nameTf.setText(unit.name);
+		unit.statBox.addChild(unit.nameTf);
 
 		unit.hpBar = addRectImage(128, 4, 0xFFFFFF);
+		unit.hpBar.y = unit.nameTf.y + unit.nameTf.textHeight;
 		unit.statBox.addChild(unit.hpBar);
 
 		unit.mpBar = addRectImage(128, 4, 0xFFFFFF);
