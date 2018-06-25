@@ -381,14 +381,6 @@ addChoice("Let's go!", function() {
 	p2.speed = 30;
 	p2.name = "player 2";
 
-	var p3 = createRpgChar();
-	p3.speed = 30;
-	p3.name = "player 3";
-
-	var p4 = createRpgChar();
-	p4.speed = 30;
-	p4.name = "player 4";
-
 	var enemy1 = createRpgChar();
 	enemy1.speed = 20;
 	enemy1.name = "enemy 1";
@@ -414,7 +406,7 @@ addChoice("Let's go!", function() {
 		}});
 	};
 
-	startRpgBattle([p1, p2, p3, p4], [enemy1, enemy2]);
+	startRpgBattle([p1, p2], [enemy1, enemy2]);
 });
 `
 [Go back|scratchModStart]
