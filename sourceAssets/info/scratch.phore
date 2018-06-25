@@ -401,7 +401,7 @@ addChoice("Let's go!", function() {
 		spr.y = targetSpr.y + targetSpr.height/2 - spr.height/2;
 		tween(spr, 1, {scaleX: 3, scaleY: 3, alpha: 0}, { onComplete: function() {
 			spr.destroy();
-			target.hp -= fireballSpell.damage;
+			doDamage(target, fireballSpell.damage);
 			fireballSpell.done = true;
 		}});
 	};

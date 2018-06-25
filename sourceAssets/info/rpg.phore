@@ -47,7 +47,7 @@ function createRpgSpell() {
 		done: false,
 		damage: 20,
 		execute: function(target) {
-			target.hp -= spell.damage;
+			doDamage(target, spell.damage);
 			spell.done = true;
 		}
 	};
@@ -195,7 +195,7 @@ function attack(unit1, unit2) {
 
 		var damage = unit1.attack - unit2.defence;
 		append(", did "+damage+" damage.\n");
-		unit2.hp -= damage;
+		doDamage(unit2, damage);
 		if (unit2.hp <= 0) {
 			unit2.dead = true;
 			unit2.hp = 0;
@@ -264,4 +264,18 @@ function nextTurn() {
 	}
 
 	startTurn();
+}
+
+function doDamage(unit, amount) {
+	unit.hp -= amount;
+	var tf = addEmptyImage(128, 128);
+	tf.tint = amount > 0 ? 0xFFFF0000 : 0xFF00FF00;
+	tf.setFont("NunitoSans-Light_22");
+	tf.setText((amount > 0 ? "-" : "+") + amount);
+	tf.x = unit.sprite.x;
+	tf.y = unit.sprite.y;
+
+	tween(tf, 2, { y: tf.y - 100, alpha: 0 }, { onComplete: function() {
+		tf.destroy();
+	}});
 }
