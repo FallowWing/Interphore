@@ -401,7 +401,6 @@ addChoice("Let's go!", function() {
 		spr.x = targetSpr.x + targetSpr.width/2 - spr.width/2;
 		spr.y = targetSpr.y + targetSpr.height/2 - spr.height/2;
 		tween(spr, 1, {scaleX: 3, scaleY: 3, alpha: 0}, {onComplete: function() {
-			doDamage(target, fireballSpell.damage);
 			spr.destroy();
 			fireballSpell.done = true;
 		}});
@@ -421,7 +420,7 @@ addChoice("Let's go!", function() {
 				var spr = addRectImage(32, gameHeight, 0xFFFF00);
 				spr.x = targetSpr.x + targetSpr.width/2 - spr.width/2 + rndFloat(-50, 50);
 				spr.y = 0;
-				lightningSpell.doPartialDamage(target, 1/(strikes+2));
+				lightningSpell.doPartialDamage(target, 1/(strikes));
 				tween(spr, 0.5, {alpha: 0}, {onComplete: function() {
 					spr.destroy();
 					if (i == strikesArr.length-1) lightningSpell.done = true;
