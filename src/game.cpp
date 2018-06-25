@@ -181,6 +181,24 @@ void initGame() {
 
 	game->root = createMintSprite();
 	game->root->setupContainer(engine->width, engine->height);
+
+// #ifdef SEMI_FLASH
+// 	const char *modNamePrefix = "modName=";
+
+// 	char autoRunMod[PATH_LIMIT] = {};
+
+// 	char *curUrl = flashGetUrl();
+// 	char *modNamePos = strstr(curUrl, modNamePrefix);
+// 	if (modNamePos) {
+// 		modNamePos += strlen(modNamePrefix);
+// 		strcpy(autoRunMod, modNamePos);
+// 	}
+// 	Free(curUrl);
+
+// 	printf("cur url is %s\n", curUrl);
+// 	printf("auto run mod is %s\n", autoRunMod);
+// 	if (autoRunMod[0] != '\0') runMod((char *)getAsset(autoRunMod)->data);
+// #endif
 }
 
 void deinitGame() {

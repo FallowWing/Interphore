@@ -46,6 +46,7 @@ function createRpgSpell() {
 		name: "Unnamed spell",
 		done: false,
 		damage: 20,
+		cost: 30,
 		damagePercDone: 0,
 		target: null,
 		doPartialDamage: function(target, perc) {
@@ -216,10 +217,13 @@ function attack(unit1, unit2) {
 function chooseMagic() {
 	clearChoices();
 	rpg.currentUnit.spellNames.forEach(function(spellName) {
-		addChoice(spellName, function() {
+		var cost = getSpell(spellName).cost;
+		var magicChoice = addChoice(spellName + "\n" + cost + "mp", function() {
 			rpg.currentSpell = getSpell(spellName);
 			chooseMagicTarget();
 		});
+
+		if (cost > rpg.currentUnit.mp) magicChoice.enabled = false;
 	});
 
 	addChoice("Go back", showMenu);
@@ -235,6 +239,7 @@ function chooseMagicTarget() {
 				rpg.activeSpell.done = false;
 				rpg.activeSpell.damagePercDone = 0;
 				rpg.activeSpell.target = unit;
+				rpg.currentUnit.mp -= rpg.activeSpell.cost;
 				rpg.activeSpell.execute(unit);
 			})
 		}

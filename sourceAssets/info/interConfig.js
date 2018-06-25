@@ -191,7 +191,8 @@ function addChoice(choiceText, result, config) {
 	var choice = {
 		sprite: null,
 		textField: null,
-		result: result
+		result: result,
+		enabled: true
 	};
 
 	var buttonWidth = (gameWidth - nextChoices.width - prevChoices.width)/choicesPerPage;
@@ -203,6 +204,8 @@ function addChoice(choiceText, result, config) {
 		playEffect("audio/ui/hoverChoiceButtons");
 	}
 	spr.onRelease = function() {
+		if (!choice.enabled) return;
+
 		playEffect("audio/ui/bestChoiceClick");
 		if (typeof choice.result === "string") {
 			gotoPassage(choice.result);
@@ -242,6 +245,9 @@ function addChoice(choiceText, result, config) {
 				spr.addChild(icon);
 			});
 		}
+
+		if (config.enabled === undefined) config.enabled = true;
+		choice.enabled = config.enabled;
 	}
 
 	choice.sprite = spr;
@@ -925,6 +931,7 @@ function realUpdate() {
 
 		spr.x = spr.width * choiceIndexOnPage + choicesOff;
 		spr.y = gameHeight - spr.height;
+		spr.alpha = choice.enabled ? 1 : 0.5;
 		if (spr.hovering) spr.y -= 5;
 		if (prevChoices.hovering) prevChoices.y = gameHeight - prevChoices.height - 5
 		else prevChoices.y = gameHeight - prevChoices.height;
