@@ -477,6 +477,7 @@ function tween(src, time, params, config) {
 	if (!config) config = {};
 	if (config.ease === undefined) config.ease = LINEAR;
 	if (config.reversed === undefined) config.reversed = false;
+	if (config.startDelay === undefined) config.startDelay = 0;
 
 	var startParams = {};
 	for (key in params) startParams[key] = src[key];
@@ -485,7 +486,7 @@ function tween(src, time, params, config) {
 	tw = {
 		source: src,
 		totalTime: time,
-		elapsed: 0,
+		elapsed: -config.startDelay,
 		startParams: startParams,
 		params: params,
 		config: config,
@@ -846,6 +847,11 @@ function realUpdate() {
 	tweens.forEach(function(tw) {
 		if (tw.source.exists === false) {
 			tweensToRemove.push(tw);
+			return;
+		}
+
+		if (tw.elapsed < 0) {
+			tw.elapsed += elapsed;
 			return;
 		}
 

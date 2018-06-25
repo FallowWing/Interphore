@@ -46,6 +46,14 @@ function createRpgSpell() {
 		name: "Unnamed spell",
 		done: false,
 		damage: 20,
+		damagePercDone: 0,
+		target: null,
+		doPartialDamage: function(target, perc) {
+			if (Math.abs(perc) <= 0.001) return;
+			if (spell.damagePercDone + perc >= 1) perc = 1 - spell.damagePercDone;
+			doDamage(target, spell.damage * perc);
+			spell.damagePercDone += perc;
+		},
 		execute: function(target) {
 			doDamage(target, spell.damage);
 			spell.done = true;
@@ -110,6 +118,7 @@ function startRpgBattle(players, enemies) {
 function updateRpgBattle() {
 	if (rpg.activeSpell) {
 		if (rpg.activeSpell.done) {
+			rpg.activeSpell.doPartialDamage(rpg.activeSpell.target, 1-rpg.activeSpell.damagePercDone);
 			rpg.activeSpell = null;
 			nextTurn();
 		}
@@ -146,7 +155,7 @@ function resetUnitPositions() {
 		var spr = unit.sprite;
 		spr.x = gameWidth - 128 - spr.width/2 - i*16;
 		spr.y = 128 + i*(spr.height - 16);
-		unit.sprite.tint = 0xFFFF0000;
+		unit.sprite.tint = 0xFFFF6100;
 	});
 }
 
@@ -221,8 +230,11 @@ function chooseMagicTarget() {
 	rpg.units.forEach(function(unit) {
 		if (!unit.friendly && !unit.dead) {
 			addChoice(unit.name, function() { 
-				rpg.currentSpell.done = false;
+				clearChoices();
 				rpg.activeSpell = rpg.currentSpell;
+				rpg.activeSpell.done = false;
+				rpg.activeSpell.damagePercDone = 0;
+				rpg.activeSpell.target = unit;
 				rpg.activeSpell.execute(unit);
 			})
 		}
@@ -272,8 +284,8 @@ function doDamage(unit, amount) {
 	tf.tint = amount > 0 ? 0xFFFF0000 : 0xFF00FF00;
 	tf.setFont("NunitoSans-Light_22");
 	tf.setText((amount > 0 ? "-" : "+") + amount);
-	tf.x = unit.sprite.x;
-	tf.y = unit.sprite.y;
+	tf.x = unit.sprite.x + rndFloat(-20, 20);
+	tf.y = unit.sprite.y + rndFloat(-20, 20);
 
 	tween(tf, 2, { y: tf.y - 100, alpha: 0 }, { onComplete: function() {
 		tf.destroy();
