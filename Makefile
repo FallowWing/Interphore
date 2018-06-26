@@ -49,9 +49,9 @@ shipInter:
 	$(MAKE) resetSite
 	
 	cp res/currentMod.phore bin
-	$(MAKE) boptflash EXTRA_DEFINES="-D SEMI_DEV"
-	$(MAKE) packWindows EXTRA_DEFINES="-D SEMI_DEV"
-	$(MAKE) bandroid EXTRA_DEFINES="-D SEMI_DEV"
+	$(MAKE) boptflash EXTRA_DEFINES="-D SEMI_DEV" SHIPPING=1
+	$(MAKE) packWindows EXTRA_DEFINES="-D SEMI_DEV" SHIPPING=1
+	$(MAKE) bandroid EXTRA_DEFINES="-D SEMI_DEV" SHIPPING=1
 	cp bin/engine.swf $(PARAPHORE_COM_PATH)/interphore/interphore.swf
 	cp bin/$(GAME_NAME).zip $(PARAPHORE_COM_PATH)/interphore/interphore.zip
 	cp bin/engine.apk $(PARAPHORE_COM_PATH)/interphore/interphore.apk

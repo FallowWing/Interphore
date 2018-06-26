@@ -215,6 +215,9 @@ void deinitGame() {
 		Free(passage);
 	}
 
+	deinitJs();
+	Free(game);
+
 	// stb_leakcheck_dumpmem();
 	printf("deinited\n");
 }
@@ -595,7 +598,7 @@ duk_ret_t setFontTag(duk_context *ctx) {
 	const char *fontName = duk_get_string(ctx, -1);
 	const char *tag = duk_get_string(ctx, -2);
 
-	engine->spriteData.tagMap->setString(tag, stringClone(fontName));
+	engine->spriteData.tagMap->setString(tag, fontName);
 
 	return 0;
 }
