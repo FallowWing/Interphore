@@ -3,6 +3,11 @@ Array.prototype.remove = function(x) {
 	if (index != -1) this.splice(index, 1);
 }
 
+function lerp(perc, min, max) {
+	return min + (max - min) * perc;
+}
+
+
 var images = [];
 var audios = [];
 var choices = [];

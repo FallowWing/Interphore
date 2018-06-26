@@ -40,6 +40,97 @@ function initRpgBattle() {
 	}
 }
 
+function initWaylandRpg() {
+
+	var p1 = createRpgChar();
+	p1.speed = 30;
+	p1.name = "player 1";
+	p1.spellNames.push("Fireball");
+	p1.spellNames.push("Loving Bap");
+
+	var p2 = createRpgChar();
+	p2.speed = 30;
+	p2.name = "player 2";
+	p2.spellNames.push("Lightning");
+
+	var enemy1 = createRpgChar();
+	enemy1.speed = 20;
+	enemy1.name = "enemy 1";
+
+	var enemy2 = createRpgChar();
+	enemy2.name = "enemy 2";
+	enemy2.speed = 100;
+
+	var fireballSpell = createRpgSpell();
+	fireballSpell.name = "Fireball";
+	fireballSpell.execute = function(source, target) {
+		var targetSpr = target.sprite;
+
+		var spr = addRectImage(64, 64, 0xCC0000);
+		spr.x = targetSpr.x + targetSpr.width/2 - spr.width/2;
+		spr.y = targetSpr.y + targetSpr.height/2 - spr.height/2;
+		tween(spr, 1, {scaleX: 3, scaleY: 3, alpha: 0}, {onComplete: function() {
+			spr.destroy();
+			fireballSpell.done = true;
+		}});
+	};
+
+	var lightningSpell = createRpgSpell();
+	lightningSpell.name = "Lightning";
+	lightningSpell.execute = function(source, target) {
+		var targetSpr = target.sprite;
+
+		var strikes = 10;
+		var strikesArr = [];
+		for (var i = 0; i < strikes; i++) strikesArr.push(i);
+		strikesArr.forEach(function(i) {
+
+			timer(i * 0.2, function() {
+				var spr = addRectImage(32, gameHeight, 0xFFFF00);
+				spr.x = targetSpr.x + targetSpr.width/2 - spr.width/2 + rndFloat(-50, 50);
+				spr.y = 0;
+				lightningSpell.doPartialDamage(target, 1/(strikes));
+				tween(spr, 0.5, {alpha: 0}, {onComplete: function() {
+					spr.destroy();
+					if (i == strikesArr.length-1) lightningSpell.done = true;
+				}});
+			});
+		});
+	};
+
+	var lovingBap = createRpgSpell();
+	lovingBap.name = "Loving Bap";
+	lovingBap.damage = 9;
+	lovingBap.isAttack = true;
+	lovingBap.execute = function(source, target) {
+		var sourceSpr = source.sprite;
+		var targetSpr = target.sprite;
+
+		sourceSpr.x = lerp(0.85, sourceSpr.x, targetSpr.x);
+		sourceSpr.y = lerp(1, sourceSpr.y, targetSpr.y);
+
+		timer(SMALL_DELAY, function() {
+			lovingBap.done = true;
+		});
+	};
+
+// Bleat Spells:
+// Basic Attacks:
+// Loving Bap: 
+// 9 Damage, Love Element [when implemented]
+
+// Gut Punch:
+// 15 Damage, Abuse Element [when implemented]
+
+// Paunch Slam:
+// 13 Damage, Raunch Element [when implemented]
+
+// Dancing Sweep:
+// 11 Damage, Hypnosis Element [when implemented]
+
+	startRpgBattle([p1, p2], [enemy1, enemy2]);
+}
+
 function createRpgSpell() {
 	var spell;
 	spell = {
@@ -48,6 +139,7 @@ function createRpgSpell() {
 		damage: 20,
 		cost: 30,
 		damagePercDone: 0,
+		isAttack: false,
 		target: null,
 		doPartialDamage: function(target, perc) {
 			if (Math.abs(perc) <= 0.001) return;
@@ -121,6 +213,14 @@ function updateRpgBattle() {
 		if (rpg.activeSpell.done) {
 			rpg.activeSpell.doPartialDamage(rpg.activeSpell.target, 1-rpg.activeSpell.damagePercDone);
 			rpg.activeSpell = null;
+
+			rpg.units.forEach(function(unit) {
+				if (unit.hp <= 0) {
+					unit.dead = true;
+					unit.hp = 0;
+				}
+			});
+
 			nextTurn();
 		}
 	}
@@ -180,50 +280,29 @@ function showMenu() {
 
 function chooseAttack() {
 	clearChoices();
-	rpg.units.forEach(function(unit) {
-		if (!unit.friendly && !unit.dead) {
-			addChoice(unit.name, function() { attack(rpg.currentUnit, unit); })
-		}
+	rpg.currentUnit.spellNames.forEach(function(spellName) {
+		var spell = getSpell(spellName);
+		if (!spell.isAttack) return;
+		var magicChoice = addChoice(spellName, function() {
+			rpg.currentSpell = spell;
+			chooseMagicTarget();
+		});
 	});
 
 	addChoice("Go back", showMenu);
 }
 
-function attack(unit1, unit2) {
-	clearChoices();
-	append(unit1.name + " attacked " + unit2.name);
-	var spr1 = unit1.sprite;
-	var spr2 = unit2.sprite;
-
-	timer(MICRO_DELAY, function() {
-		if (unit1.friendly) {
-			spr1.x = spr2.x - spr2.width - 16;
-		} else {
-			spr1.x = spr2.x + spr2.width + 16;
-		}
-		spr1.y = spr2.y;
-
-		var damage = unit1.attack - unit2.defence;
-		append(", did "+damage+" damage.\n");
-		doDamage(unit2, damage);
-		if (unit2.hp <= 0) {
-			unit2.dead = true;
-			unit2.hp = 0;
-		}
-		timer(SMALL_DELAY, nextTurn);
-	});
-}
-
 function chooseMagic() {
 	clearChoices();
 	rpg.currentUnit.spellNames.forEach(function(spellName) {
-		var cost = getSpell(spellName).cost;
-		var magicChoice = addChoice(spellName + "\n" + cost + "mp", function() {
-			rpg.currentSpell = getSpell(spellName);
+		var spell = getSpell(spellName);
+		if (spell.isAttack) return;
+		var magicChoice = addChoice(spellName + "\n" + spell.cost + "mp", function() {
+			rpg.currentSpell = spell;
 			chooseMagicTarget();
 		});
 
-		if (cost > rpg.currentUnit.mp) magicChoice.enabled = false;
+		if (spell.cost > rpg.currentUnit.mp) magicChoice.enabled = false;
 	});
 
 	addChoice("Go back", showMenu);
@@ -239,8 +318,8 @@ function chooseMagicTarget() {
 				rpg.activeSpell.done = false;
 				rpg.activeSpell.damagePercDone = 0;
 				rpg.activeSpell.target = unit;
-				rpg.currentUnit.mp -= rpg.activeSpell.cost;
-				rpg.activeSpell.execute(unit);
+				if (!rpg.activeSpell.isAttack) rpg.currentUnit.mp -= rpg.activeSpell.cost;
+				rpg.activeSpell.execute(rpg.currentUnit, unit);
 			})
 		}
 	});
