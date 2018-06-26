@@ -25,8 +25,8 @@ function createRpgChar() {
 }
 
 var rpg = null;
-var SMALL_DELAY = 0.5;
 var MICRO_DELAY = 0.25;
+var SMALL_DELAY = 0.5;
 function initRpgBattle() {
 	rpg = {
 		players: null,
@@ -47,6 +47,9 @@ function initWaylandRpg() {
 	p1.name = "player 1";
 	p1.spellNames.push("Fireball");
 	p1.spellNames.push("Loving Bap");
+	p1.spellNames.push("Gut Punch");
+	p1.spellNames.push("Punch Slam");
+	p1.spellNames.push("Dancing Sweep");
 
 	var p2 = createRpgChar();
 	p2.speed = 30;
@@ -114,6 +117,58 @@ function initWaylandRpg() {
 		});
 	};
 
+	var gutPunch = createRpgSpell();
+	gutPunch.name = "Gut Punch";
+	gutPunch.damage = 15;
+	gutPunch.isAttack = true;
+	gutPunch.execute = function(source, target) {
+		var sourceSpr = source.sprite;
+		var targetSpr = target.sprite;
+
+		var endX = lerp(0.65, sourceSpr.x, targetSpr.x);
+		var endY = lerp(0.90, sourceSpr.y, targetSpr.y);
+
+		tween(sourceSpr, 1, {x: endX, y: endY}, {onComplete: function() {
+			tween(sourceSpr, 0.5, {x: targetSpr.x}, {ease: QUART_OUT, startDelay: 0.5, onComplete: function() {
+				gutPunch.done = true;
+			}});
+		}});
+
+
+	};
+
+	var punchSlam = createRpgSpell();
+	punchSlam.name = "Punch Slam";
+	punchSlam.damage = 13;
+	punchSlam.isAttack = true;
+	punchSlam.execute = function(source, target) {
+		var sourceSpr = source.sprite;
+		var targetSpr = target.sprite;
+
+		sourceSpr.x = lerp(0.85, sourceSpr.x, targetSpr.x);
+		sourceSpr.y = lerp(1, sourceSpr.y, targetSpr.y);
+
+		timer(SMALL_DELAY, function() {
+			punchSlam.done = true;
+		});
+	};
+
+	var dancingSweep = createRpgSpell();
+	dancingSweep.name = "Dancing Sweep";
+	dancingSweep.damage = 11;
+	dancingSweep.isAttack = true;
+	dancingSweep.execute = function(source, target) {
+		var sourceSpr = source.sprite;
+		var targetSpr = target.sprite;
+
+		sourceSpr.x = lerp(0.85, sourceSpr.x, targetSpr.x);
+		sourceSpr.y = lerp(1, sourceSpr.y, targetSpr.y);
+
+		timer(SMALL_DELAY, function() {
+			dancingSweep.done = true;
+		});
+	};
+
 // Bleat Spells:
 // Basic Attacks:
 // Loving Bap: 
@@ -176,6 +231,7 @@ function startRpgBattle(players, enemies) {
 	});
 
 	clear();
+	choicesPerPage = 8;
 	append("Battle start!\n");
 
 	rpg.units.forEach(function(unit) {

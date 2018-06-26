@@ -336,7 +336,6 @@ function clearText() {
 
 function clearChoices() {
 	choicePage = 0;
-	choicesPerPage = 4;
 	keyboardOpened = false;
 	exitButton.alpha = exitDisabled ? 0 : 1; //@todo This should probably happen instantly
 	lastInput = inputField.text;
@@ -360,6 +359,7 @@ function clear() {
 
 	clearText();
 	clearChoices();
+	choicesPerPage = 4;
 
 	var imagesToRemove = [];
 	for (var i = 0; i < images.length; i++) if (images[i].temp) imagesToRemove.push(images[i]);
