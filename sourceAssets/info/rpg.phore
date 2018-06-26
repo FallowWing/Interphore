@@ -169,20 +169,6 @@ function initWaylandRpg() {
 		});
 	};
 
-// Bleat Spells:
-// Basic Attacks:
-// Loving Bap: 
-// 9 Damage, Love Element [when implemented]
-
-// Gut Punch:
-// 15 Damage, Abuse Element [when implemented]
-
-// Paunch Slam:
-// 13 Damage, Raunch Element [when implemented]
-
-// Dancing Sweep:
-// 11 Damage, Hypnosis Element [when implemented]
-
 	startRpgBattle([p1, p2], [enemy1, enemy2]);
 }
 
