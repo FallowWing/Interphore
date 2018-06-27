@@ -409,6 +409,8 @@ function chooseTarget() {
 			rpg.activeSpell.target = unit;
 			if (!rpg.activeSpell.isAttack) rpg.currentUnit.mp -= rpg.activeSpell.cost;
 			rpg.activeSpell.damage = computeValue(rpg.currentUnit, rpg.activeSpell.damageType == PHYSICAL_DAMAGE ? ATTACK_MULTI : SPECIAL_ATTACK_MULTI, rpg.activeSpell.baseDamage);
+			rpg.activeSpell.damage = computeValue(unit, rpg.activeSpell.damageType == PHYSICAL_DAMAGE ? DEFENCE_MULTI : SPECIAL_DEFENCE_MULTI, rpg.activeSpell.baseDamage);
+
 			rpg.activeSpell.execute(rpg.currentUnit, unit);
 		});
 	});
@@ -478,12 +480,6 @@ function computeValue(unit, valueType, base) {
 }
 
 function doDamage(unit, amount, damageType) {
-	if (damageType == PHYSICAL_DAMAGE) {
-		amount = computeValue(unit, DEFENCE_MULTI, amount);
-	} else if (damageType == MAGIC_DAMAGE) {
-		amount = computeValue(unit, SPECIAL_DEFENCE_MULTI, amount);
-	}
-
 	unit.hp -= amount;
 
 	var buffsToRemove = [];
