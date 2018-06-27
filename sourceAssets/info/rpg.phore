@@ -108,8 +108,6 @@ function initRpgBattle() {
 				gutPunch.done = true;
 			}});
 		}});
-
-
 	};
 
 	var punchSlam = createRpgSpell();
@@ -186,7 +184,12 @@ function startRpgBattle(players, enemies) {
 	});
 
 	rpg.units.sort(function(a, b) {
-		return b.speed - a.speed;
+		var order = b.speed - a.speed;
+		if (order == 0) {
+			return a.name < b.name ? -1 : 1;
+		} else {
+			return order;
+		}
 	});
 
 	clear();
@@ -300,7 +303,7 @@ function chooseAttack() {
 		if (!spell.isAttack) return;
 		var magicChoice = addChoice(spellName, function() {
 			rpg.currentSpell = spell;
-			chooseMagicTarget();
+			chooseTarget();
 		});
 	});
 
@@ -314,7 +317,7 @@ function chooseMagic() {
 		if (spell.isAttack) return;
 		var magicChoice = addChoice(spellName + "\n" + spell.cost + "mp", function() {
 			rpg.currentSpell = spell;
-			chooseMagicTarget();
+			chooseTarget();
 		});
 
 		if (spell.cost > rpg.currentUnit.mp) magicChoice.enabled = false;
@@ -323,20 +326,28 @@ function chooseMagic() {
 	addChoice("Go back", showMenu);
 }
 
-function chooseMagicTarget() {
+function chooseTarget() {
 	clearChoices();
+
+	var unitChoices = [];
 	rpg.units.forEach(function(unit) {
 		if (!unit.friendly && !unit.dead) {
-			addChoice(unit.name, function() { 
-				clearChoices();
-				rpg.activeSpell = rpg.currentSpell;
-				rpg.activeSpell.done = false;
-				rpg.activeSpell.damagePercDone = 0;
-				rpg.activeSpell.target = unit;
-				if (!rpg.activeSpell.isAttack) rpg.currentUnit.mp -= rpg.activeSpell.cost;
-				rpg.activeSpell.execute(rpg.currentUnit, unit);
-			})
+			unitChoices.push(unit);
 		}
+	});
+
+	unitChoices.sort();
+
+	unitChoices.forEach(function(unit) {
+		addChoice(unit.name, function() { 
+			clearChoices();
+			rpg.activeSpell = rpg.currentSpell;
+			rpg.activeSpell.done = false;
+			rpg.activeSpell.damagePercDone = 0;
+			rpg.activeSpell.target = unit;
+			if (!rpg.activeSpell.isAttack) rpg.currentUnit.mp -= rpg.activeSpell.cost;
+			rpg.activeSpell.execute(rpg.currentUnit, unit);
+		});
 	});
 
 	addChoice("Go back", showMenu);
