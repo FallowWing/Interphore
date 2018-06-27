@@ -321,6 +321,16 @@ function resetUnitPositions() {
 function startTurn() {
 	resetUnitPositions();
 
+	var buffsToRemove = [];
+	rpg.currentUnit.buffs.forEach(function(buff) {
+		buff.turns--;
+		if (buff.turns <= 0) buffsToRemove.push(buff);
+	});
+
+	buffsToRemove.forEach(function(buff) {
+		arrayForceRemove(rpg.currentUnit.buffs, buff);
+	});
+
 	if (rpg.currentUnit.friendly) {
 		showMenu();
 	} else {

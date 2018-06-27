@@ -378,15 +378,19 @@ addChoice("Let's go!", function() {
 	var p1 = createRpgUnit();
 	p1.speed = 30;
 	p1.name = "Bleat";
-	p1.spellNames.push("Fireball");
 	p1.spellNames.push("Loving Bap");
 	p1.spellNames.push("Gut Punch");
 	p1.spellNames.push("Punch Slam");
 	p1.spellNames.push("Dancing Sweep");
+	p1.spellNames.push("Fireball");
 
 	var p2 = createRpgUnit();
 	p2.speed = 30;
 	p2.name = "Rox";
+	p2.spellNames.push("Loving Bap");
+	p2.spellNames.push("Gut Punch");
+	p2.spellNames.push("Punch Slam");
+	p2.spellNames.push("Dancing Sweep");
 	p2.spellNames.push("Lightning");
 	p2.spellNames.push("Marked");
 

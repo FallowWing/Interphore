@@ -1,6 +1,12 @@
-Array.prototype.remove = function(x) {
-	var index = this.indexOf(x);
-	if (index != -1) this.splice(index, 1);
+function arrayRemove(arr, ele) {
+	var index = arr.indexOf(ele);
+	if (index != -1) arr.splice(index, 1);
+}
+
+function arrayForceRemove(arr, ele) {
+	var index = arr.indexOf(ele);
+	if (index == -1) print("Going to fail to remove this element from an array");
+	arr.splice(index, 1);
 }
 
 function lerp(perc, min, max) {
