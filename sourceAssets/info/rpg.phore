@@ -50,6 +50,7 @@ function initRpgBattle() {
 		enemies: null,
 		units: [],
 		turnIndex: 0,
+		unitArrow: null,
 		currentUnit: null,
 		currentSpell: null,
 		activeSpell: null,
@@ -265,6 +266,7 @@ function startRpgBattle(players, enemies) {
 		unit.sprite.tint = 0xFFFF6100;
 	});
 
+	rpg.unitArrow = addRectImage(32, 32, 0xFFFF00);
 
 	tempUpdateFunctions.push(updateRpgBattle);
 
@@ -286,6 +288,12 @@ function updateRpgBattle() {
 
 		if (unit.statBox.x + unit.statBox.width > gameWidth) unit.statBox.x = unit.sprite.x - unit.statBox.width - 32;
 	});
+
+	if (rpg.currentUnit) {
+		var unitSpr = rpg.currentUnit.sprite;
+		rpg.unitArrow.x = unitSpr.x + unitSpr.width/2 - rpg.unitArrow.width/2;
+		rpg.unitArrow.y = unitSpr.y - rpg.unitArrow.height - 20 + Math.sin(time)*20;
+	}
 }
 
 function spellDone() {
