@@ -393,6 +393,7 @@ addChoice("Let's go!", function() {
 	p2.spellNames.push("Dancing Sweep");
 	p2.spellNames.push("Lightning");
 	p2.spellNames.push("Marked");
+	p2.spellNames.push("Healing Pie");
 
 	var enemy1 = createRpgUnit();
 	enemy1.speed = 20;

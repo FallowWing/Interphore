@@ -179,6 +179,27 @@ function initRpgBattle() {
 			spellDone();
 		});
 	};
+
+	var healingPie = createRpgSpell();
+	healingPie.name = "Healing Pie";
+	healingPie.baseDamage = 0;
+	healingPie.targetsEnemies = false;
+	healingPie.targetsAllies = true;
+	healingPie.execute = function(source, target) {
+		var sourceSpr = source.sprite;
+		var targetSpr = target.sprite;
+
+		sourceSpr.x = gameWidth/2 - sourceSpr.width/2;
+		sourceSpr.y = gameHeight/2 - sourceSpr.height/2;
+
+		sourceSpr.x = lerp(0.85, sourceSpr.x, targetSpr.x);
+		sourceSpr.y = lerp(0.85, sourceSpr.y, targetSpr.y);
+
+		timer(SMALL_DELAY, function() {
+			doDamage(target, -30);
+			spellDone();
+		});
+	};
 }
 
 function createBuff() {
@@ -198,11 +219,14 @@ function createRpgSpell() {
 		baseDamage: 20,
 		cost: 30,
 		damageType: MAGIC_DAMAGE,
+		targetsAllies: false,
+		targetsEnemies: true,
+		targetsDead: false,
 		isAttack: false,
 		doPartialDamage: function(target, perc) {
 			if (Math.abs(perc) <= 0.001) return;
 			if (spell.damagePercDone + perc >= 1) perc = 1 - spell.damagePercDone;
-			if (spell.baseDamage != 0) doDamage(target, spell.damage * perc, spell.damageType);
+			if (spell.baseDamage != 0) doDamage(target, spell.damage * perc);
 			spell.damagePercDone += perc;
 		},
 		execute: function(source, target) {
@@ -314,13 +338,6 @@ function spellDone() {
 	rpg.activeSpell.doPartialDamage(rpg.activeSpell.target, 1-rpg.activeSpell.damagePercDone);
 	rpg.activeSpell = null;
 
-	rpg.units.forEach(function(unit) {
-		if (unit.hp <= 0) {
-			unit.dead = true;
-			unit.hp = 0;
-		}
-	});
-
 	nextTurn();
 }
 
@@ -392,7 +409,7 @@ function chooseTarget() {
 
 	var unitChoices = [];
 	rpg.units.forEach(function(unit) {
-		if (!unit.friendly && !unit.dead) {
+		if ((rpg.currentSpell.targetsAllies && unit.friendly) || (rpg.currentSpell.targetsEnemies && !unit.friendly) || (rpg.currentSpell.targetsDead && unit.dead)) {
 			unitChoices.push(unit);
 		}
 	});
@@ -408,8 +425,9 @@ function chooseTarget() {
 			rpg.activeSpell.damagePercDone = 0;
 			rpg.activeSpell.target = unit;
 			if (!rpg.activeSpell.isAttack) rpg.currentUnit.mp -= rpg.activeSpell.cost;
-			rpg.activeSpell.damage = computeValue(rpg.currentUnit, rpg.activeSpell.damageType == PHYSICAL_DAMAGE ? ATTACK_MULTI : SPECIAL_ATTACK_MULTI, rpg.activeSpell.baseDamage);
-			rpg.activeSpell.damage = computeValue(unit, rpg.activeSpell.damageType == PHYSICAL_DAMAGE ? DEFENCE_MULTI : SPECIAL_DEFENCE_MULTI, rpg.activeSpell.baseDamage);
+			rpg.activeSpell.damage = rpg.activeSpell.baseDamage
+			rpg.activeSpell.damage = computeValue(rpg.currentUnit, rpg.activeSpell.damageType == PHYSICAL_DAMAGE ? ATTACK_MULTI : SPECIAL_ATTACK_MULTI, rpg.activeSpell.damage);
+			rpg.activeSpell.damage = computeValue(unit, rpg.activeSpell.damageType == PHYSICAL_DAMAGE ? DEFENCE_MULTI : SPECIAL_DEFENCE_MULTI, rpg.activeSpell.damage);
 
 			rpg.activeSpell.execute(rpg.currentUnit, unit);
 		});
@@ -479,21 +497,31 @@ function computeValue(unit, valueType, base) {
 	return base;
 }
 
-function doDamage(unit, amount, damageType) {
+function doDamage(unit, amount) {
 	unit.hp -= amount;
+	if (unit.hp < 0) unit.hp = 0;
+	if (unit.hp > unit.maxHp) unit.hp = unit.maxHp;
+	if (unit.hp == 0) unit.dead = true;
 
-	var buffsToRemove = [];
-	unit.buffs.forEach(function(buff) {
-		if (buff.removeWhenHit) buffsToRemove.push(buff);
-	});
-	buffsToRemove.forEach(function(buff) { 
-		arrayForceRemove(unit.buffs, buff);
-	});
+	if (amount > 0) {
+		var buffsToRemove = [];
+		unit.buffs.forEach(function(buff) {
+			if (buff.removeWhenHit) buffsToRemove.push(buff);
+		});
+		buffsToRemove.forEach(function(buff) { 
+			arrayForceRemove(unit.buffs, buff);
+		});
+	}
 
 	var tf = addEmptyImage(128, 128);
 	tf.tint = amount > 0 ? 0xFFFF0000 : 0xFF00FF00;
 	tf.setFont("NunitoSans-Light_22");
-	tf.setText((amount > 0 ? "-" : "+") + amount);
+	if (amount > 0) {
+		tf.setText("-" + amount);
+	} else {
+		tf.setText("+" + (-amount));
+	}
+
 	tf.x = unit.sprite.x + rndFloat(-20, 20);
 	tf.y = unit.sprite.y + rndFloat(-20, 20);
 
