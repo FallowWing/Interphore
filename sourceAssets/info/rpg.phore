@@ -7,9 +7,11 @@ function createRpgUnit() {
 		maxHp: 100,
 		mp: 100,
 		maxMp: 100,
-		attack: 50,
-		defence: 20,
-		speed: 50,
+		attack: 10,
+		defence: 10,
+		speed: 5,
+		specialAttack: 10,
+		specialDefence: 10,
 		friendly: false,
 		dead: false,
 		spellNames: [],
@@ -32,7 +34,15 @@ var rpg = null;
 var MICRO_DELAY = 0.25;
 var SMALL_DELAY = 0.5;
 
-var HALF_DEFENCE = 1;
+var MAGIC_DAMAGE = 1;
+var PHYSICAL_DAMAGE = 2;
+
+var ATTACK_MULTI = 3;
+var DEFENCE_MULTI = 4;
+var SPECIAL_ATTACK_MULTI = 5;
+var SPECIAL_DEFENCE_MULTI = 6;
+
+var HALF_DEFENCE = 7;
 
 function initRpgBattle() {
 	rpg = {
@@ -55,8 +65,8 @@ function initRpgBattle() {
 		spr.x = targetSpr.x + targetSpr.width/2 - spr.width/2;
 		spr.y = targetSpr.y + targetSpr.height/2 - spr.height/2;
 		tween(spr, 1, {scaleX: 3, scaleY: 3, alpha: 0}, {onComplete: function() {
-			spr.destroy();
 			spellDone();
+			spr.destroy();
 		}});
 	};
 
@@ -85,7 +95,7 @@ function initRpgBattle() {
 
 	var lovingBap = createRpgSpell();
 	lovingBap.name = "Loving Bap";
-	lovingBap.damage = 9;
+	lovingBap.baseDamage = 9;
 	lovingBap.isAttack = true;
 	lovingBap.execute = function(source, target) {
 		var sourceSpr = source.sprite;
@@ -101,7 +111,7 @@ function initRpgBattle() {
 
 	var gutPunch = createRpgSpell();
 	gutPunch.name = "Gut Punch";
-	gutPunch.damage = 15;
+	gutPunch.baseDamage = 15;
 	gutPunch.isAttack = true;
 	gutPunch.execute = function(source, target) {
 		var sourceSpr = source.sprite;
@@ -119,7 +129,7 @@ function initRpgBattle() {
 
 	var punchSlam = createRpgSpell();
 	punchSlam.name = "Punch Slam";
-	punchSlam.damage = 13;
+	punchSlam.baseDamage = 13;
 	punchSlam.isAttack = true;
 	punchSlam.execute = function(source, target) {
 		var sourceSpr = source.sprite;
@@ -135,7 +145,7 @@ function initRpgBattle() {
 
 	var dancingSweep = createRpgSpell();
 	dancingSweep.name = "Dancing Sweep";
-	dancingSweep.damage = 11;
+	dancingSweep.baseDamage = 11;
 	dancingSweep.isAttack = true;
 	dancingSweep.execute = function(source, target) {
 		var sourceSpr = source.sprite;
@@ -151,7 +161,7 @@ function initRpgBattle() {
 
 	var marked = createRpgSpell();
 	marked.name = "Marked";
-	marked.damage = 0;
+	marked.baseDamage = 0;
 	marked.execute = function(source, target) {
 		var sourceSpr = source.sprite;
 		var targetSpr = target.sprite;
@@ -170,21 +180,22 @@ function createRpgSpell() {
 	var spell;
 	spell = {
 		name: "Unnamed spell",
-		done: false,
-		damage: 20,
+		baseDamage: 20,
 		cost: 30,
-		damagePercDone: 0,
+		damageType: MAGIC_DAMAGE,
 		isAttack: false,
-		target: null,
 		doPartialDamage: function(target, perc) {
 			if (Math.abs(perc) <= 0.001) return;
 			if (spell.damagePercDone + perc >= 1) perc = 1 - spell.damagePercDone;
-			doDamage(target, spell.damage * perc);
+			doDamage(target, spell.damage * perc, spell.damageType);
 			spell.damagePercDone += perc;
 		},
 		execute: function(source, target) {
 			spellDone();
-		}
+		},
+		damage: 0,
+		damagePercDone: 0,
+		target: null,
 	};
 
 	rpg.spells.push(spell);
@@ -357,7 +368,9 @@ function chooseTarget() {
 		}
 	});
 
-	unitChoices.sort();
+	unitChoices.sort(function(a, b) {
+			return a.name < b.name ? -1 : 1;
+	});
 
 	unitChoices.forEach(function(unit) {
 		addChoice(unit.name, function() { 
@@ -366,6 +379,7 @@ function chooseTarget() {
 			rpg.activeSpell.damagePercDone = 0;
 			rpg.activeSpell.target = unit;
 			if (!rpg.activeSpell.isAttack) rpg.currentUnit.mp -= rpg.activeSpell.cost;
+			rpg.activeSpell.damage = rpg.activeSpell.baseDamage; //@incomplete Compute attack here
 			rpg.activeSpell.execute(rpg.currentUnit, unit);
 		});
 	});
@@ -408,7 +422,39 @@ function nextTurn() {
 	startTurn();
 }
 
-function doDamage(unit, amount) {
+function computeValue(unit, valueType, base) {
+	var ua = unit.attack;
+	var ud = unit.defence;
+	var usa = unit.specialAttack;
+	var usd = unit.specialDefence;
+
+	unit.buffs.forEach(function(buff) {
+		if (buff.type == HALF_DEFENCE && (valueType == DEFENCE_MULTI || valueType == SPECIAL_DEFENCE_MULTI)) {
+			ud /= 2;
+			usd /= 2;
+		}
+	});
+
+	if (valueType == ATTACK_MULTI) {
+		base += ua;
+	} else if (valueType == DEFENCE_MULTI) {
+		base -= ud;
+	} else if (valueType == SPECIAL_ATTACK_MULTI) {
+		base += usa;
+	} else if (valueType == SPECIAL_DEFENCE_MULTI) {
+		base -= usd;
+	}
+
+	return base;
+}
+
+function doDamage(unit, amount, damageType) {
+	if (damageType == PHYSICAL_DAMAGE) {
+		amount = computeValue(unit, DEFENCE_MULTI, amount);
+	} else if (damageType == MAGIC_DAMAGE) {
+		amount = computeValue(unit, SPECIAL_DEFENCE_MULTI, amount);
+	}
+
 	unit.hp -= amount;
 	var tf = addEmptyImage(128, 128);
 	tf.tint = amount > 0 ? 0xFFFF0000 : 0xFF00FF00;
