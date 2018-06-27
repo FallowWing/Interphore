@@ -379,7 +379,7 @@ function chooseTarget() {
 			rpg.activeSpell.damagePercDone = 0;
 			rpg.activeSpell.target = unit;
 			if (!rpg.activeSpell.isAttack) rpg.currentUnit.mp -= rpg.activeSpell.cost;
-			rpg.activeSpell.damage = rpg.activeSpell.baseDamage; //@incomplete Compute attack here
+			rpg.activeSpell.damage = computeValue(rpg.currentUnit, rpg.activeSpell.damageType == PHYSICAL_DAMAGE ? ATTACK_MULTI : SPECIAL_ATTACK_MULTI, rpg.activeSpell.baseDamage);
 			rpg.activeSpell.execute(rpg.currentUnit, unit);
 		});
 	});
