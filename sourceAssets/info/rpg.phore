@@ -171,10 +171,24 @@ function initRpgBattle() {
 		sourceSpr.y = lerp(1, sourceSpr.y, targetSpr.y);
 
 		timer(SMALL_DELAY, function() {
-			target.buffs.push({type: HALF_DEFENCE, turns: 2});
+			var buff = createBuff();
+			buff.type = HALF_DEFENCE;
+			buff.turns = 999;
+			buff.removeWhenHit = true;
+			target.buffs.push(buff);
 			spellDone();
 		});
 	};
+}
+
+function createBuff() {
+	var buff;
+	buff = {
+		type: null,
+		turns: 1,
+		removeWhenHit: false
+	};
+	return buff;
 }
 
 function createRpgSpell() {
@@ -188,7 +202,7 @@ function createRpgSpell() {
 		doPartialDamage: function(target, perc) {
 			if (Math.abs(perc) <= 0.001) return;
 			if (spell.damagePercDone + perc >= 1) perc = 1 - spell.damagePercDone;
-			doDamage(target, spell.damage * perc, spell.damageType);
+			if (spell.baseDamage != 0) doDamage(target, spell.damage * perc, spell.damageType);
 			spell.damagePercDone += perc;
 		},
 		execute: function(source, target) {
@@ -326,10 +340,7 @@ function startTurn() {
 		buff.turns--;
 		if (buff.turns <= 0) buffsToRemove.push(buff);
 	});
-
-	buffsToRemove.forEach(function(buff) {
-		arrayForceRemove(rpg.currentUnit.buffs, buff);
-	});
+	buffsToRemove.forEach(function(buff) { arrayForceRemove(rpg.currentUnit.buffs, buff); });
 
 	if (rpg.currentUnit.friendly) {
 		showMenu();
@@ -474,6 +485,15 @@ function doDamage(unit, amount, damageType) {
 	}
 
 	unit.hp -= amount;
+
+	var buffsToRemove = [];
+	unit.buffs.forEach(function(buff) {
+		if (buff.removeWhenHit) buffsToRemove.push(buff);
+	});
+	buffsToRemove.forEach(function(buff) { 
+		arrayForceRemove(unit.buffs, buff);
+	});
+
 	var tf = addEmptyImage(128, 128);
 	tf.tint = amount > 0 ? 0xFFFF0000 : 0xFF00FF00;
 	tf.setFont("NunitoSans-Light_22");
