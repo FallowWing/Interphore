@@ -375,25 +375,26 @@ addChoice("Let's go!", function() {
 
 	initRpgBattle();
 
-	var p1 = createRpgChar();
+	var p1 = createRpgUnit();
 	p1.speed = 30;
-	p1.name = "player 1";
+	p1.name = "Bleat";
 	p1.spellNames.push("Fireball");
 	p1.spellNames.push("Loving Bap");
 	p1.spellNames.push("Gut Punch");
 	p1.spellNames.push("Punch Slam");
 	p1.spellNames.push("Dancing Sweep");
 
-	var p2 = createRpgChar();
+	var p2 = createRpgUnit();
 	p2.speed = 30;
-	p2.name = "player 2";
+	p2.name = "Rox";
 	p2.spellNames.push("Lightning");
+	p2.spellNames.push("Marked");
 
-	var enemy1 = createRpgChar();
+	var enemy1 = createRpgUnit();
 	enemy1.speed = 20;
 	enemy1.name = "enemy 1";
 
-	var enemy2 = createRpgChar();
+	var enemy2 = createRpgUnit();
 	enemy2.name = "enemy 2";
 	enemy2.speed = 100;
 

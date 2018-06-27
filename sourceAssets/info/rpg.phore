@@ -1,7 +1,7 @@
-function createRpgChar() {
-	var rpgChar;
+function createRpgUnit() {
+	var unit;
 
-	rpgChar = {
+	unit = {
 		name: "unnamed",
 		hp: 100,
 		maxHp: 100,
@@ -13,6 +13,10 @@ function createRpgChar() {
 		friendly: false,
 		dead: false,
 		spellNames: [],
+		buffs: [],
+		/// Temp:
+		originX: 0,
+		originY: 0,
 		sprite: null,
 		statBox: null,
 		nameTf: null,
@@ -21,12 +25,15 @@ function createRpgChar() {
 		limitBar: null
 	};
 
-	return rpgChar;
+	return unit;
 }
 
 var rpg = null;
 var MICRO_DELAY = 0.25;
 var SMALL_DELAY = 0.5;
+
+var HALF_DEFENCE = 1;
+
 function initRpgBattle() {
 	rpg = {
 		players: null,
@@ -49,7 +56,7 @@ function initRpgBattle() {
 		spr.y = targetSpr.y + targetSpr.height/2 - spr.height/2;
 		tween(spr, 1, {scaleX: 3, scaleY: 3, alpha: 0}, {onComplete: function() {
 			spr.destroy();
-			fireballSpell.done = true;
+			spellDone();
 		}});
 	};
 
@@ -70,7 +77,7 @@ function initRpgBattle() {
 				lightningSpell.doPartialDamage(target, 1/(strikes));
 				tween(spr, 0.5, {alpha: 0}, {onComplete: function() {
 					spr.destroy();
-					if (i == strikesArr.length-1) lightningSpell.done = true;
+					if (i == strikesArr.length-1) spellDone();
 				}});
 			});
 		});
@@ -88,7 +95,7 @@ function initRpgBattle() {
 		sourceSpr.y = lerp(1, sourceSpr.y, targetSpr.y);
 
 		timer(SMALL_DELAY, function() {
-			lovingBap.done = true;
+			spellDone();
 		});
 	};
 
@@ -105,7 +112,7 @@ function initRpgBattle() {
 
 		tween(sourceSpr, 1, {x: endX, y: endY}, {onComplete: function() {
 			tween(sourceSpr, 0.5, {x: targetSpr.x}, {ease: QUART_OUT, startDelay: 0.5, onComplete: function() {
-				gutPunch.done = true;
+				spellDone();
 			}});
 		}});
 	};
@@ -122,7 +129,7 @@ function initRpgBattle() {
 		sourceSpr.y = lerp(1, sourceSpr.y, targetSpr.y);
 
 		timer(SMALL_DELAY, function() {
-			punchSlam.done = true;
+			spellDone();
 		});
 	};
 
@@ -138,7 +145,23 @@ function initRpgBattle() {
 		sourceSpr.y = lerp(1, sourceSpr.y, targetSpr.y);
 
 		timer(SMALL_DELAY, function() {
-			dancingSweep.done = true;
+			spellDone();
+		});
+	};
+
+	var marked = createRpgSpell();
+	marked.name = "Marked";
+	marked.damage = 0;
+	marked.execute = function(source, target) {
+		var sourceSpr = source.sprite;
+		var targetSpr = target.sprite;
+
+		sourceSpr.x = lerp(0.85, sourceSpr.x, targetSpr.x);
+		sourceSpr.y = lerp(1, sourceSpr.y, targetSpr.y);
+
+		timer(SMALL_DELAY, function() {
+			target.buffs.push({type: HALF_DEFENCE, turns: 2});
+			spellDone();
 		});
 	};
 }
@@ -159,9 +182,8 @@ function createRpgSpell() {
 			doDamage(target, spell.damage * perc);
 			spell.damagePercDone += perc;
 		},
-		execute: function(target) {
-			doDamage(target, spell.damage);
-			spell.done = true;
+		execute: function(source, target) {
+			spellDone();
 		}
 	};
 
@@ -174,12 +196,10 @@ function startRpgBattle(players, enemies) {
 	rpg.enemies = enemies;
 
 	players.forEach(function(unit) {
-		unit.friendly = true;
 		rpg.units.push(unit);
 	});
 
 	enemies.forEach(function(unit) {
-		unit.friendly = false;
 		rpg.units.push(unit);
 	});
 
@@ -220,6 +240,21 @@ function startRpgBattle(players, enemies) {
 		unit.statBox.addChild(unit.limitBar);
 	});
 
+	players.forEach(function(unit, i) {
+		unit.friendly = true;
+		unit.originX = 128 + unit.sprite.width/2 + i*16;
+		unit.originY = 128 + i*(unit.sprite.height-16);
+		unit.sprite.tint = 0xFF0000FF;
+	});
+
+	enemies.forEach(function(unit, i) {
+		unit.friendly = false;
+		unit.originX = gameWidth - 128 - unit.sprite.width/2 - i*16;
+		unit.originY = 128 + i*(unit.sprite.height - 16);
+		unit.sprite.tint = 0xFFFF6100;
+	});
+
+
 	tempUpdateFunctions.push(updateRpgBattle);
 
 	rpg.turnIndex = -1;
@@ -227,22 +262,6 @@ function startRpgBattle(players, enemies) {
 }
 
 function updateRpgBattle() {
-	if (rpg.activeSpell) {
-		if (rpg.activeSpell.done) {
-			rpg.activeSpell.doPartialDamage(rpg.activeSpell.target, 1-rpg.activeSpell.damagePercDone);
-			rpg.activeSpell = null;
-
-			rpg.units.forEach(function(unit) {
-				if (unit.hp <= 0) {
-					unit.dead = true;
-					unit.hp = 0;
-				}
-			});
-
-			nextTurn();
-		}
-	}
-
 	rpg.units.forEach(function(unit) {
 		unit.statBox.x = unit.sprite.x + unit.sprite.width + 32;
 		unit.statBox.y = unit.sprite.y;
@@ -258,23 +277,25 @@ function updateRpgBattle() {
 	});
 }
 
+function spellDone() {
+	rpg.activeSpell.doPartialDamage(rpg.activeSpell.target, 1-rpg.activeSpell.damagePercDone);
+	rpg.activeSpell = null;
+
+	rpg.units.forEach(function(unit) {
+		if (unit.hp <= 0) {
+			unit.dead = true;
+			unit.hp = 0;
+		}
+	});
+
+	nextTurn();
+}
+
 function resetUnitPositions() {
 	rpg.units.forEach(function(unit) {
 		unit.sprite.rotation = unit.dead ? 90 : 0;
-	});
-
-	rpg.players.forEach(function(unit, i) {
-		var spr = unit.sprite;
-		spr.x = 128 + spr.width/2 + i*16;
-		spr.y = 128 + i*(spr.height-16);
-		unit.sprite.tint = 0xFF0000FF;
-	});
-
-	rpg.enemies.forEach(function(unit, i) {
-		var spr = unit.sprite;
-		spr.x = gameWidth - 128 - spr.width/2 - i*16;
-		spr.y = 128 + i*(spr.height - 16);
-		unit.sprite.tint = 0xFFFF6100;
+		unit.sprite.x = unit.originX;
+		unit.sprite.y = unit.originY;
 	});
 }
 
@@ -342,7 +363,6 @@ function chooseTarget() {
 		addChoice(unit.name, function() { 
 			clearChoices();
 			rpg.activeSpell = rpg.currentSpell;
-			rpg.activeSpell.done = false;
 			rpg.activeSpell.damagePercDone = 0;
 			rpg.activeSpell.target = unit;
 			if (!rpg.activeSpell.isAttack) rpg.currentUnit.mp -= rpg.activeSpell.cost;

@@ -871,6 +871,13 @@ function realUpdate() {
 		perc = tweenEase(perc, tw.config.ease);
 		perc = round(perc * 1000) / 1000;
 
+		for (key in tw.params) {
+			var min = tw.startParams[key];
+			var max = tw.params[key];
+			tw.source[key] = min + (max - min) * perc;
+		}
+		tw.elapsed += elapsed;
+
 		if ((perc >= 1 && !tw.config.reversed) || (perc <= 0 && tw.config.reversed)) {
 			if (tw.config.type == LOOPING) {
 				tw.elapsed = 0;
@@ -881,13 +888,6 @@ function realUpdate() {
 				if (tw.config.onComplete) tw.config.onComplete();
 				tweensToRemove.push(tw);
 			}
-		}
-		tw.elapsed += elapsed;
-
-		for (key in tw.params) {
-			var min = tw.startParams[key];
-			var max = tw.params[key];
-			tw.source[key] = min + (max - min) * perc;
 		}
 	});
 
