@@ -37,32 +37,7 @@ function initRpgBattle() {
 		currentSpell: null,
 		activeSpell: null,
 		spells: []
-	}
-}
-
-function initWaylandRpg() {
-
-	var p1 = createRpgChar();
-	p1.speed = 30;
-	p1.name = "player 1";
-	p1.spellNames.push("Fireball");
-	p1.spellNames.push("Loving Bap");
-	p1.spellNames.push("Gut Punch");
-	p1.spellNames.push("Punch Slam");
-	p1.spellNames.push("Dancing Sweep");
-
-	var p2 = createRpgChar();
-	p2.speed = 30;
-	p2.name = "player 2";
-	p2.spellNames.push("Lightning");
-
-	var enemy1 = createRpgChar();
-	enemy1.speed = 20;
-	enemy1.name = "enemy 1";
-
-	var enemy2 = createRpgChar();
-	enemy2.name = "enemy 2";
-	enemy2.speed = 100;
+	};
 
 	var fireballSpell = createRpgSpell();
 	fireballSpell.name = "Fireball";
@@ -168,8 +143,6 @@ function initWaylandRpg() {
 			dancingSweep.done = true;
 		});
 	};
-
-	startRpgBattle([p1, p2], [enemy1, enemy2]);
 }
 
 function createRpgSpell() {
