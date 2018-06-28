@@ -1,36 +1,3 @@
-function createUnit() {
-	var unit;
-
-	unit = {
-		name: "unnamed",
-		hp: 100,
-		maxHp: 100,
-		mp: 100,
-		maxMp: 100,
-		attack: 10,
-		defence: 10,
-		speed: 5,
-		specialAttack: 10,
-		specialDefence: 10,
-		friendly: false,
-		dead: false,
-		spellNames: [],
-		ai: "Skipper",
-		buffTrackers: [],
-		/// Temp:
-		originX: 0,
-		originY: 0,
-		sprite: null,
-		statBox: null,
-		nameTf: null,
-		hpBar: null,
-		mpBar: null,
-		limitBar: null
-	};
-
-	return unit;
-}
-
 var rpg = null;
 var MICRO_DELAY = 0.25;
 var SMALL_DELAY = 0.5;
@@ -215,6 +182,39 @@ function initRpgBattle() {
 	}
 }
 
+function createUnit() {
+	var unit;
+
+	unit = {
+		name: "unnamed",
+		hp: 100,
+		maxHp: 100,
+		mp: 100,
+		maxMp: 100,
+		attack: 10,
+		defence: 10,
+		speed: 5,
+		specialAttack: 10,
+		specialDefence: 10,
+		friendly: false,
+		dead: false,
+		spellNames: [],
+		ai: "Skipper",
+		buffTrackers: [],
+		/// Temp:
+		originX: 0,
+		originY: 0,
+		sprite: null,
+		statBox: null,
+		nameTf: null,
+		hpBar: null,
+		mpBar: null,
+		limitBar: null
+	};
+
+	return unit;
+}
+
 function createBuff() {
 	var buff;
 	buff = {
@@ -391,64 +391,71 @@ function startTurn() {
 
 function showMenu() {
 	clearChoices();
+
+	var chooseAttack = function() {
+		clearChoices();
+		rpg.currentUnit.spellNames.forEach(function(spellName) {
+			var spell = getSpell(spellName);
+			if (!spell.isAttack) return;
+			var magicChoice = addChoice(spellName, function() {
+				rpg.currentSpell = spell;
+				chooseTarget();
+			});
+		});
+
+		addChoice("Go back", showMenu);
+	}
+
+	var chooseMagic = function() {
+		clearChoices();
+		rpg.currentUnit.spellNames.forEach(function(spellName) {
+			var spell = getSpell(spellName);
+			if (spell.isAttack) return;
+			var magicChoice = addChoice(spellName + "\n" + spell.cost + "mp", function() {
+				rpg.currentSpell = spell;
+				chooseTarget();
+			});
+
+			if (spell.cost > rpg.currentUnit.mp) magicChoice.enabled = false;
+		});
+
+		addChoice("Go back", showMenu);
+	}
+
+	var chooseTarget = function() {
+		clearChoices();
+
+		var unitChoices = [];
+		rpg.units.forEach(function(unit) {
+			if ((rpg.currentSpell.targetsAllies && unit.friendly) || (rpg.currentSpell.targetsEnemies && !unit.friendly) || (rpg.currentSpell.targetsDead && unit.dead)) {
+				unitChoices.push(unit);
+			}
+		});
+
+		unitChoices.sort(function(a, b) {
+			return a.name < b.name ? -1 : 1;
+		});
+
+		unitChoices.forEach(function(unit) {
+			addChoice(unit.name, function() { 
+				clearChoices();
+				castSpell(rpg.currentSpell.name, unit);
+			});
+		});
+
+		addChoice("Go back", showMenu);
+	}
+
 	addChoice("Attack", chooseAttack);
 	// addChoice("Item", item);
 	addChoice("Magic", chooseMagic);
 	addChoice("Skip", skip);
 }
 
-function chooseAttack() {
+function skip() {
 	clearChoices();
-	rpg.currentUnit.spellNames.forEach(function(spellName) {
-		var spell = getSpell(spellName);
-		if (!spell.isAttack) return;
-		var magicChoice = addChoice(spellName, function() {
-			rpg.currentSpell = spell;
-			chooseTarget();
-		});
-	});
-
-	addChoice("Go back", showMenu);
-}
-
-function chooseMagic() {
-	clearChoices();
-	rpg.currentUnit.spellNames.forEach(function(spellName) {
-		var spell = getSpell(spellName);
-		if (spell.isAttack) return;
-		var magicChoice = addChoice(spellName + "\n" + spell.cost + "mp", function() {
-			rpg.currentSpell = spell;
-			chooseTarget();
-		});
-
-		if (spell.cost > rpg.currentUnit.mp) magicChoice.enabled = false;
-	});
-
-	addChoice("Go back", showMenu);
-}
-
-function chooseTarget() {
-	clearChoices();
-
-	var unitChoices = [];
-	rpg.units.forEach(function(unit) {
-		if ((rpg.currentSpell.targetsAllies && unit.friendly) || (rpg.currentSpell.targetsEnemies && !unit.friendly) || (rpg.currentSpell.targetsDead && unit.dead)) {
-			unitChoices.push(unit);
-		}
-	});
-
-	unitChoices.sort(function(a, b) {
-			return a.name < b.name ? -1 : 1;
-	});
-
-	unitChoices.forEach(function(unit) {
-		addChoice(unit.name, function() { 
-			clearChoices();
-			castSpell(rpg.currentSpell.name, unit);
-		});
-	});
-
-	addChoice("Go back", showMenu);
+	append(rpg.currentUnit.name+" skipped turn.\n");
+	timer(SMALL_DELAY, nextTurn);
 }
 
 function castSpell(spellName, target) {
@@ -464,40 +471,6 @@ function castSpell(spellName, target) {
 	}
 
 	rpg.currentSpell.execute(rpg.currentUnit, target);
-}
-
-function getSpell(spellName) {
-	var retSpell = null;
-	rpg.spells.forEach(function(spell) {
-		if (spellName == spell.name) {
-			retSpell = spell;
-			return;
-		}
-	});
-
-	return retSpell;
-}
-
-function getAi(aiName) {
-	var retAi = null;
-	rpg.ais.forEach(function(ai) {
-		if (aiName == ai.name) {
-			retAi = ai;
-			return;
-		}
-	});
-
-	return retAi;
-}
-
-function item() {
-	clearChoices();
-}
-
-function skip() {
-	clearChoices();
-	append(rpg.currentUnit.name+" skipped turn.\n");
-	timer(SMALL_DELAY, nextTurn);
 }
 
 function nextTurn() {
@@ -548,24 +521,28 @@ function doDamage(unit, amount) {
 	}});
 }
 
-function applyBuff(buffName, unit) {
-	rpg.buffs.forEach(function(buff) {
-		if (buff.name == buffName) {
-			var buffTracker = {
-				name: buff.name,
-				turns: buff.lastingTurns,
-				remove: false
-			};
-
-			unit.buffTrackers.push(buffTracker);
+function getSpell(spellName) {
+	var retSpell = null;
+	rpg.spells.forEach(function(spell) {
+		if (spellName == spell.name) {
+			retSpell = spell;
+			return;
 		}
 	});
+
+	return retSpell;
 }
 
-function removeBuff(buffName, unit) {
-	unit.buffTrackers.forEach(function(buffTracker) {
-		if (buffTracker.name == buffName) buffTracker.remove = true;
+function getAi(aiName) {
+	var retAi = null;
+	rpg.ais.forEach(function(ai) {
+		if (aiName == ai.name) {
+			retAi = ai;
+			return;
+		}
 	});
+
+	return retAi;
 }
 
 function getBuff(buffName) {
@@ -589,4 +566,24 @@ function getBuffs(unit) {
 	});
 
 	return buffs;
+}
+
+function applyBuff(buffName, unit) {
+	rpg.buffs.forEach(function(buff) {
+		if (buff.name == buffName) {
+			var buffTracker = {
+				name: buff.name,
+				turns: buff.lastingTurns,
+				remove: false
+			};
+
+			unit.buffTrackers.push(buffTracker);
+		}
+	});
+}
+
+function removeBuff(buffName, unit) {
+	unit.buffTrackers.forEach(function(buffTracker) {
+		if (buffTracker.name == buffName) buffTracker.remove = true;
+	});
 }
