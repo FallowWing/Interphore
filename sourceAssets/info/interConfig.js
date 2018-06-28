@@ -13,6 +13,12 @@ function lerp(perc, min, max) {
 	return min + (max - min) * perc;
 }
 
+function clamp(value, min, max) {
+	if (value > max) value = max;
+	if (value < min) value = min;
+	return value;
+}
+
 
 var images = [];
 var audios = [];

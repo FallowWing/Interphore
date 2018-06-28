@@ -353,6 +353,12 @@ function startRpgBattle(players, enemies) {
 
 function updateRpgBattle() {
 	rpg.units.forEach(function(unit) {
+		unit.hp = clamp(unit.hp, 0, unit.maxHp);
+		unit.mp = clamp(unit.mp, 0, unit.maxMp);
+		unit.limit = clamp(unit.limit, 0, 100);
+
+		if (unit.hp == 0) unit.dead = true;
+
 		unit.statBox.x = unit.sprite.x + unit.sprite.width + 32;
 		unit.statBox.y = unit.sprite.y;
 
@@ -472,12 +478,18 @@ function castSpell(spellName, target) {
 	rpg.currentSpell = getSpell(spellName);
 	rpg.currentSpell.damagePercDone = 0;
 	rpg.currentSpell.target = target;
-	if (!rpg.currentSpell.isAttack) rpg.currentUnit.mp -= rpg.currentSpell.cost;
 	rpg.currentSpell.damage = rpg.currentSpell.baseDamage;
 
 	if (rpg.currentSpell.isAttack) {
 		rpg.currentSpell.damage += rpg.currentUnit.attack;
 		rpg.currentSpell.damage -= target.defence;
+	}
+
+	if (rpg.currentSpell.isAttack) {
+		rpg.currentSpell.limit += rpg.currentSpell.damage;
+	} else {
+		rpg.currentUnit.mp -= rpg.currentSpell.cost;
+		rpg.currentSpell.limit += rpg.currentSpell.cost;
 	}
 
 	rpg.currentSpell.execute(rpg.currentUnit, target);
@@ -510,9 +522,6 @@ function doDamage(unit, amount) {
 	});
 
 	unit.hp -= amount;
-	if (unit.hp < 0) unit.hp = 0;
-	if (unit.hp > unit.maxHp) unit.hp = unit.maxHp;
-	if (unit.hp == 0) unit.dead = true;
 
 	var tf = addEmptyImage(128, 128);
 	tf.tint = amount > 0 ? 0xFFFF0000 : 0xFF00FF00;
