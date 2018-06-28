@@ -462,8 +462,11 @@ function castSpell(spellName, target) {
 	rpg.currentSpell.target = target;
 	if (!rpg.currentSpell.isAttack) rpg.currentUnit.mp -= rpg.currentSpell.cost;
 	rpg.currentSpell.damage = rpg.currentSpell.baseDamage;
-	rpg.currentSpell.damage = computeValue(rpg.currentUnit, rpg.currentSpell.damageType == PHYSICAL_DAMAGE ? ATTACK_MULTI : SPECIAL_ATTACK_MULTI, rpg.currentSpell.damage);
-	rpg.currentSpell.damage = computeValue(target, rpg.currentSpell.damageType == PHYSICAL_DAMAGE ? DEFENCE_MULTI : SPECIAL_DEFENCE_MULTI, rpg.currentSpell.damage);
+
+	if (rpg.currentSpell.isAttack) {
+		rpg.currentSpell.damage += rpg.currentUnit.attack;
+		rpg.currentSpell.damage -= target.defence;
+	}
 
 	rpg.currentSpell.execute(rpg.currentUnit, target);
 }
@@ -513,32 +516,6 @@ function nextTurn() {
 	}
 
 	startTurn();
-}
-
-function computeValue(unit, valueType, base) {
-	var ua = unit.attack;
-	var ud = unit.defence;
-	var usa = unit.specialAttack;
-	var usd = unit.specialDefence;
-
-	unit.buffs.forEach(function(buff) {
-		if (buff.type == HALF_DEFENCE && (valueType == DEFENCE_MULTI || valueType == SPECIAL_DEFENCE_MULTI)) {
-			ud /= 2;
-			usd /= 2;
-		}
-	});
-
-	if (valueType == ATTACK_MULTI) {
-		base += ua;
-	} else if (valueType == DEFENCE_MULTI) {
-		base -= ud;
-	} else if (valueType == SPECIAL_ATTACK_MULTI) {
-		base += usa;
-	} else if (valueType == SPECIAL_DEFENCE_MULTI) {
-		base -= usd;
-	}
-
-	return base;
 }
 
 function doDamage(unit, amount) {
