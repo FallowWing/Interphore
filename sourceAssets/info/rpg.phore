@@ -214,12 +214,12 @@ function initRpgBattle() {
 		for (var i = 0; i < strikes; i++) strikesArr.push(i);
 		strikesArr.forEach(function(i) {
 
-			timer(i * 0.2, function() {
+			timer(i * 0.4, function() {
 				var spr = addRectImage(32, 32, 0xAAAA00);
 				spr.x = targetSpr.x + targetSpr.width/2 - spr.width/2 + rndFloat(-50, 50);
 				spr.y = targetSpr.y + targetSpr.height/2 - spr.height/2 + rndFloat(-50, 50);
 				goldenRay.doPartialDamage(target, 1/strikes);
-				tween(spr, 0.5, {y: spr.y - rndFloat(20, 60), alpha: 0}, {onComplete: function() {
+				tween(spr, 1, {y: spr.y - rndFloat(20, 60), alpha: 0}, {onComplete: function() {
 					spr.destroy();
 					if (i == strikesArr.length-1) spellDone();
 				}});
@@ -282,7 +282,7 @@ function initRpgBattle() {
 				spr.x = targetSpr.x + targetSpr.width/2 - spr.width/2 + rndFloat(-50, 50);
 				spr.y = targetSpr.y + targetSpr.height/2 - spr.height/2 + rndFloat(-50, 50);
 				glowingBile.doPartialDamage(target, 1/strikes);
-				tween(spr, 0.5, {y: spr.y - rndFloat(20, 60), alpha: 0}, {onComplete: function() {
+				tween(spr, 1, {y: spr.y - rndFloat(20, 60), alpha: 0}, {onComplete: function() {
 					spr.destroy();
 					if (i == strikesArr.length-1) spellDone();
 				}});
@@ -291,9 +291,11 @@ function initRpgBattle() {
 	};
 
 	var chaseTail = createSpell();
-	chaseTail.name = "chaseTail";
+	chaseTail.name = "Chase Tail";
 	chaseTail.baseDamage = 0;
 	chaseTail.affinities = ["Love"];
+	chaseTail.targetsAllies = true;
+	chaseTail.targetsEnemies = false;
 	chaseTail.execute = function(source, target) {
 		var sourceSpr = source.sprite;
 		var targetSpr = target.sprite;
@@ -479,15 +481,15 @@ function startRpgBattle(players, enemies) {
 
 	players.forEach(function(unit, i) {
 		unit.friendly = true;
-		unit.originX = 128 + unit.sprite.width/2 + i*16;
-		unit.originY = 128 + i*(unit.sprite.height-16);
+		unit.originX = 32 + i*70;
+		unit.originY = 128 + i*(unit.sprite.height - 55);
 		unit.sprite.tint = 0xFF0000FF;
 	});
 
 	enemies.forEach(function(unit, i) {
 		unit.friendly = false;
-		unit.originX = gameWidth - 128 - unit.sprite.width/2 - i*16;
-		unit.originY = 128 + i*(unit.sprite.height - 16);
+		unit.originX = gameWidth - unit.sprite.width - 32 - i*70;
+		unit.originY = 128 + i*(unit.sprite.height - 55);
 		unit.sprite.tint = 0xFFFF6100;
 	});
 

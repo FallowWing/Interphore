@@ -381,9 +381,9 @@ bleat.spellNames = [
 	"Gut Punch",
 	"Paunch Slam",
 	"Dancing Sweep",
-	"Swamp Fire",
 	"Healing Pie",
-	"Glowing Bile"
+	"Static Jolt",
+	"Swamp Fire"
 ];
 
 var rox = createUnit();
@@ -394,11 +394,49 @@ rox.spellNames = [
 	"Gut Punch",
 	"Paunch Slam",
 	"Dancing Sweep",
-	"Static Jolt",
-	"Marked",
-	"Healing Pie"
+	"Healing Pie",
+	"Golden Ray",
+	"Marked"
 ];
 rox.affinities = ["Love", "Foodplay", "Scat", "Raunch", "Electrostim"];
+
+var sapSlime = createUnit();
+sapSlime.name = "Sap Slime";
+sapSlime.speed = 25;
+sapSlime.spellNames = [
+	"Sappy Slappy",
+	"Xylem Flow",
+	"Phloem Pressure"
+];
+
+var glowingFuckmeat = createUnit();
+glowingFuckmeat.name = "Glowing Fuckmeat";
+glowingFuckmeat.speed = 25;
+glowingFuckmeat.spellNames = [
+	"Claw",
+	"Glowing Bile",
+	"Chase Tail"
+];
+
+var glowingFuckmeat = createUnit();
+glowingFuckmeat.name = "Glowing Fuckmeat";
+glowingFuckmeat.speed = 25;
+glowingFuckmeat.spellNames = [
+	"Glowing Bile",
+	"Chase Tail"
+];
+
+var glowingSapsoakedFuckmeat = createUnit();
+glowingSapsoakedFuckmeat.name = "Glowing Sapsoaked Fuckmeat";
+glowingSapsoakedFuckmeat.speed = 25;
+glowingSapsoakedFuckmeat.spellNames = [
+	"Sappy Slappy",
+	"Claw",
+	"Xylem Flow",
+	"Phloem Pressure",
+	"Glowing Bile",
+	"Chase Tail"
+];
 
 var enemy1 = createUnit();
 enemy1.name = "enemy 1";
@@ -410,7 +448,7 @@ enemy2.name = "enemy 2";
 enemy2.ai = "Skipper";
 enemy2.speed = 100;
 
-startRpgBattle([bleat, rox], [enemy1, enemy2]);
+startRpgBattle([bleat, rox, sapSlime, glowingFuckmeat, glowingSapsoakedFuckmeat], [enemy1, enemy2]);
 `
 
 ---
