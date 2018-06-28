@@ -54,7 +54,6 @@ function initRpgBattle() {
 		unitArrow: null,
 		currentUnit: null,
 		currentSpell: null,
-		activeSpell: null,
 		spells: [],
 		ais: []
 	};
@@ -210,6 +209,12 @@ function initRpgBattle() {
 	skipperAi.execute = function() {
 		skip();
 	};
+
+	var simpleAi = createRpgAI();
+	simpleAi.name = "Simple";
+	simpleAi.execute = function() {
+		castSpell("Loving Bap", rpg.players[0]);
+	};
 }
 
 function createBuff() {
@@ -358,8 +363,8 @@ function updateRpgBattle() {
 }
 
 function spellDone() {
-	rpg.activeSpell.doPartialDamage(rpg.activeSpell.target, 1-rpg.activeSpell.damagePercDone);
-	rpg.activeSpell = null;
+	rpg.currentSpell.doPartialDamage(rpg.currentSpell.target, 1-rpg.currentSpell.damagePercDone);
+	rpg.currentSpell = null;
 
 	nextTurn();
 }
@@ -444,19 +449,23 @@ function chooseTarget() {
 	unitChoices.forEach(function(unit) {
 		addChoice(unit.name, function() { 
 			clearChoices();
-			rpg.activeSpell = rpg.currentSpell;
-			rpg.activeSpell.damagePercDone = 0;
-			rpg.activeSpell.target = unit;
-			if (!rpg.activeSpell.isAttack) rpg.currentUnit.mp -= rpg.activeSpell.cost;
-			rpg.activeSpell.damage = rpg.activeSpell.baseDamage
-			rpg.activeSpell.damage = computeValue(rpg.currentUnit, rpg.activeSpell.damageType == PHYSICAL_DAMAGE ? ATTACK_MULTI : SPECIAL_ATTACK_MULTI, rpg.activeSpell.damage);
-			rpg.activeSpell.damage = computeValue(unit, rpg.activeSpell.damageType == PHYSICAL_DAMAGE ? DEFENCE_MULTI : SPECIAL_DEFENCE_MULTI, rpg.activeSpell.damage);
-
-			rpg.activeSpell.execute(rpg.currentUnit, unit);
+			castSpell(rpg.currentSpell.name, unit);
 		});
 	});
 
 	addChoice("Go back", showMenu);
+}
+
+function castSpell(spellName, target) {
+	rpg.currentSpell = getSpell(spellName);
+	rpg.currentSpell.damagePercDone = 0;
+	rpg.currentSpell.target = target;
+	if (!rpg.currentSpell.isAttack) rpg.currentUnit.mp -= rpg.currentSpell.cost;
+	rpg.currentSpell.damage = rpg.currentSpell.baseDamage;
+	rpg.currentSpell.damage = computeValue(rpg.currentUnit, rpg.currentSpell.damageType == PHYSICAL_DAMAGE ? ATTACK_MULTI : SPECIAL_ATTACK_MULTI, rpg.currentSpell.damage);
+	rpg.currentSpell.damage = computeValue(target, rpg.currentSpell.damageType == PHYSICAL_DAMAGE ? DEFENCE_MULTI : SPECIAL_DEFENCE_MULTI, rpg.currentSpell.damage);
+
+	rpg.currentSpell.execute(rpg.currentUnit, target);
 }
 
 function getSpell(spellName) {

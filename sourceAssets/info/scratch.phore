@@ -396,11 +396,13 @@ addChoice("Let's go!", function() {
 	p2.spellNames.push("Healing Pie");
 
 	var enemy1 = createRpgUnit();
-	enemy1.speed = 20;
 	enemy1.name = "enemy 1";
+	enemy1.ai = "Simple";
+	enemy1.speed = 20;
 
 	var enemy2 = createRpgUnit();
 	enemy2.name = "enemy 2";
+	enemy2.ai = "Skipper";
 	enemy2.speed = 100;
 
 	startRpgBattle([p1, p2], [enemy1, enemy2]);
