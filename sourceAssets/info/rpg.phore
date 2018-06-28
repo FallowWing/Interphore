@@ -16,6 +16,7 @@ function createRpgUnit() {
 		dead: false,
 		spellNames: [],
 		buffs: [],
+		ai: "Skipper",
 		/// Temp:
 		originX: 0,
 		originY: 0,
@@ -54,9 +55,11 @@ function initRpgBattle() {
 		currentUnit: null,
 		currentSpell: null,
 		activeSpell: null,
-		spells: []
+		spells: [],
+		ais: []
 	};
 
+	/// Spells
 	var fireballSpell = createRpgSpell();
 	fireballSpell.name = "Fireball";
 	fireballSpell.execute = function(source, target) {
@@ -200,6 +203,13 @@ function initRpgBattle() {
 			spellDone();
 		});
 	};
+
+	/// AIs
+	var skipperAi = createRpgAI();
+	skipperAi.name = "Skipper";
+	skipperAi.execute = function() {
+		skip();
+	};
 }
 
 function createBuff() {
@@ -239,6 +249,19 @@ function createRpgSpell() {
 
 	rpg.spells.push(spell);
 	return spell;
+}
+
+function createRpgAI() {
+	var ai;
+	ai = {
+		name: "Unnamed AI",
+		execute: function() {
+			skip();
+		}
+	};
+
+	rpg.ais.push(ai);
+	return ai;
 }
 
 function startRpgBattle(players, enemies) {
@@ -362,7 +385,7 @@ function startTurn() {
 	if (rpg.currentUnit.friendly) {
 		showMenu();
 	} else {
-		skip();
+		getAi(rpg.currentUnit.ai).execute();
 	}
 }
 
@@ -446,6 +469,18 @@ function getSpell(spellName) {
 	});
 
 	return retSpell;
+}
+
+function getAi(aiName) {
+	var retAi = null;
+	rpg.ais.forEach(function(ai) {
+		if (aiName == ai.name) {
+			retAi = ai;
+			return;
+		}
+	});
+
+	return retAi;
 }
 
 function item() {
