@@ -364,7 +364,7 @@ function updateRpgBattle() {
 
 		unit.hpBar.tint = 0xFF00FF00;
 		unit.mpBar.tint = 0xFF0000FF;
-		unit.limitBar.tint = 0xFFFF00FF;
+		unit.limitBar.tint = 0xFFFFFF00;
 
 		unit.hpBar.scaleX = unit.hp / unit.maxHp;
 		unit.mpBar.scaleX = unit.mp / unit.maxMp;
@@ -485,11 +485,13 @@ function castSpell(spellName, target) {
 		rpg.currentSpell.damage -= target.defence;
 	}
 
+	var hasAffinity = arrayContainsAny(rpg.currentUnit.affinities, rpg.currentSpell.affinities);
+
 	if (rpg.currentSpell.isAttack) {
-		rpg.currentSpell.limit += rpg.currentSpell.damage;
+		if (hasAffinity) rpg.currentUnit.limit += rpg.currentSpell.damage;
 	} else {
 		rpg.currentUnit.mp -= rpg.currentSpell.cost;
-		rpg.currentSpell.limit += rpg.currentSpell.cost;
+		if (hasAffinity) rpg.currentUnit.limit += rpg.currentSpell.cost;
 	}
 
 	rpg.currentSpell.execute(rpg.currentUnit, target);

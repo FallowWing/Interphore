@@ -9,6 +9,16 @@ function arrayForceRemove(arr, ele) {
 	arr.splice(index, 1);
 }
 
+function arrayContainsAny(haystack, needles) {
+	for (var i = 0; i < haystack.length; i++) {
+		for (var j = 0; j < needles.length; j++) {
+			if (haystack[i] == needles[j]) return true;
+		}
+	}
+
+	return false;
+}
+
 function lerp(perc, min, max) {
 	return min + (max - min) * perc;
 }
