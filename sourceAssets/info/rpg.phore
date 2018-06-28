@@ -1,4 +1,4 @@
-function createRpgUnit() {
+function createUnit() {
 	var unit;
 
 	unit = {
@@ -15,7 +15,6 @@ function createRpgUnit() {
 		friendly: false,
 		dead: false,
 		spellNames: [],
-		buffs: [],
 		ai: "Skipper",
 		/// Temp:
 		originX: 0,
@@ -59,7 +58,7 @@ function initRpgBattle() {
 	};
 
 	/// Spells
-	var fireballSpell = createRpgSpell();
+	var fireballSpell = createSpell();
 	fireballSpell.name = "Fireball";
 	fireballSpell.execute = function(source, target) {
 		var targetSpr = target.sprite;
@@ -73,7 +72,7 @@ function initRpgBattle() {
 		}});
 	};
 
-	var lightningSpell = createRpgSpell();
+	var lightningSpell = createSpell();
 	lightningSpell.name = "Lightning";
 	lightningSpell.execute = function(source, target) {
 		var targetSpr = target.sprite;
@@ -96,7 +95,7 @@ function initRpgBattle() {
 		});
 	};
 
-	var lovingBap = createRpgSpell();
+	var lovingBap = createSpell();
 	lovingBap.name = "Loving Bap";
 	lovingBap.baseDamage = 9;
 	lovingBap.isAttack = true;
@@ -112,7 +111,7 @@ function initRpgBattle() {
 		});
 	};
 
-	var gutPunch = createRpgSpell();
+	var gutPunch = createSpell();
 	gutPunch.name = "Gut Punch";
 	gutPunch.baseDamage = 15;
 	gutPunch.isAttack = true;
@@ -130,7 +129,7 @@ function initRpgBattle() {
 		}});
 	};
 
-	var punchSlam = createRpgSpell();
+	var punchSlam = createSpell();
 	punchSlam.name = "Punch Slam";
 	punchSlam.baseDamage = 13;
 	punchSlam.isAttack = true;
@@ -146,7 +145,7 @@ function initRpgBattle() {
 		});
 	};
 
-	var dancingSweep = createRpgSpell();
+	var dancingSweep = createSpell();
 	dancingSweep.name = "Dancing Sweep";
 	dancingSweep.baseDamage = 11;
 	dancingSweep.isAttack = true;
@@ -162,7 +161,7 @@ function initRpgBattle() {
 		});
 	};
 
-	var marked = createRpgSpell();
+	var marked = createSpell();
 	marked.name = "Marked";
 	marked.baseDamage = 0;
 	marked.execute = function(source, target) {
@@ -173,16 +172,12 @@ function initRpgBattle() {
 		sourceSpr.y = lerp(1, sourceSpr.y, targetSpr.y);
 
 		timer(SMALL_DELAY, function() {
-			var buff = createBuff();
-			buff.type = HALF_DEFENCE;
-			buff.turns = 999;
-			buff.removeWhenHit = true;
-			target.buffs.push(buff);
+			// Add buff
 			spellDone();
 		});
 	};
 
-	var healingPie = createRpgSpell();
+	var healingPie = createSpell();
 	healingPie.name = "Healing Pie";
 	healingPie.baseDamage = 0;
 	healingPie.targetsEnemies = false;
@@ -204,13 +199,13 @@ function initRpgBattle() {
 	};
 
 	/// AIs
-	var skipperAi = createRpgAI();
+	var skipperAi = createAi();
 	skipperAi.name = "Skipper";
 	skipperAi.execute = function() {
 		skip();
 	};
 
-	var simpleAi = createRpgAI();
+	var simpleAi = createAi();
 	simpleAi.name = "Simple";
 	simpleAi.execute = function() {
 		castSpell("Loving Bap", rpg.players[0]);
@@ -218,16 +213,9 @@ function initRpgBattle() {
 }
 
 function createBuff() {
-	var buff;
-	buff = {
-		type: null,
-		turns: 1,
-		removeWhenHit: false
-	};
-	return buff;
 }
 
-function createRpgSpell() {
+function createSpell() {
 	var spell;
 	spell = {
 		name: "Unnamed spell",
@@ -256,7 +244,7 @@ function createRpgSpell() {
 	return spell;
 }
 
-function createRpgAI() {
+function createAi() {
 	var ai;
 	ai = {
 		name: "Unnamed AI",
@@ -379,13 +367,6 @@ function resetUnitPositions() {
 
 function startTurn() {
 	resetUnitPositions();
-
-	var buffsToRemove = [];
-	rpg.currentUnit.buffs.forEach(function(buff) {
-		buff.turns--;
-		if (buff.turns <= 0) buffsToRemove.push(buff);
-	});
-	buffsToRemove.forEach(function(buff) { arrayForceRemove(rpg.currentUnit.buffs, buff); });
 
 	if (rpg.currentUnit.friendly) {
 		showMenu();
@@ -523,16 +504,6 @@ function doDamage(unit, amount) {
 	if (unit.hp < 0) unit.hp = 0;
 	if (unit.hp > unit.maxHp) unit.hp = unit.maxHp;
 	if (unit.hp == 0) unit.dead = true;
-
-	if (amount > 0) {
-		var buffsToRemove = [];
-		unit.buffs.forEach(function(buff) {
-			if (buff.removeWhenHit) buffsToRemove.push(buff);
-		});
-		buffsToRemove.forEach(function(buff) { 
-			arrayForceRemove(unit.buffs, buff);
-		});
-	}
 
 	var tf = addEmptyImage(128, 128);
 	tf.tint = amount > 0 ? 0xFFFF0000 : 0xFF00FF00;

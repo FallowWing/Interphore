@@ -375,7 +375,7 @@ addChoice("Let's go!", function() {
 
 	initRpgBattle();
 
-	var p1 = createRpgUnit();
+	var p1 = createUnit();
 	p1.speed = 30;
 	p1.name = "Bleat";
 	p1.spellNames.push("Loving Bap");
@@ -384,7 +384,7 @@ addChoice("Let's go!", function() {
 	p1.spellNames.push("Dancing Sweep");
 	p1.spellNames.push("Fireball");
 
-	var p2 = createRpgUnit();
+	var p2 = createUnit();
 	p2.speed = 30;
 	p2.name = "Rox";
 	p2.spellNames.push("Loving Bap");
@@ -395,12 +395,12 @@ addChoice("Let's go!", function() {
 	p2.spellNames.push("Marked");
 	p2.spellNames.push("Healing Pie");
 
-	var enemy1 = createRpgUnit();
+	var enemy1 = createUnit();
 	enemy1.name = "enemy 1";
 	enemy1.ai = "Simple";
 	enemy1.speed = 20;
 
-	var enemy2 = createRpgUnit();
+	var enemy2 = createUnit();
 	enemy2.name = "enemy 2";
 	enemy2.ai = "Skipper";
 	enemy2.speed = 100;
