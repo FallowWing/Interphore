@@ -16,6 +16,7 @@ function createUnit() {
 		dead: false,
 		spellNames: [],
 		ai: "Skipper",
+		buffTrackers: [],
 		/// Temp:
 		originX: 0,
 		originY: 0,
@@ -54,6 +55,7 @@ function initRpgBattle() {
 		currentUnit: null,
 		currentSpell: null,
 		spells: [],
+		buffs: [],
 		ais: []
 	};
 
@@ -172,7 +174,7 @@ function initRpgBattle() {
 		sourceSpr.y = lerp(1, sourceSpr.y, targetSpr.y);
 
 		timer(SMALL_DELAY, function() {
-			// Add buff
+			applyBuff("Marked", target);
 			spellDone();
 		});
 	};
@@ -210,9 +212,28 @@ function initRpgBattle() {
 	simpleAi.execute = function() {
 		castSpell("Loving Bap", rpg.players[0]);
 	};
+
+	/// Buffs
+	var markedBuff = createBuff();
+	markedBuff.name = "Marked";
+	markedBuff.executeDamaged = function(unit, damage) {
+		removeBuff("Marked", unit);
+		return damage*2;
+	}
 }
 
 function createBuff() {
+	var buff;
+	buff = {
+		name: "Unnamed buff",
+		lastingTurns: 999,
+		executeDamaged: function(unit, damage) {
+			return damage;
+		}
+	};
+
+	rpg.buffs.push(buff);
+	return buff;
 }
 
 function createSpell() {
@@ -487,6 +508,13 @@ function skip() {
 }
 
 function nextTurn() {
+	if (rpg.currentUnit) {
+		for (var i = rpg.currentUnit.buffTrackers.length-1; i > 0; i--) {
+			var tracker = rpg.currentUnit.buffTrackers[i];
+			if (tracker.remove) arrayForceRemove(rpg.currentUnit.buffTrackers, tracker);
+		}
+	}
+
 	rpg.turnIndex++;
 	if (rpg.turnIndex >= rpg.units.length) rpg.turnIndex = 0;
 	rpg.currentUnit = rpg.units[rpg.turnIndex];
@@ -500,6 +528,11 @@ function nextTurn() {
 }
 
 function doDamage(unit, amount) {
+	var buffs = getBuffs(unit);
+	buffs.forEach(function(buff) {
+		amount = buff.executeDamaged(unit, amount);
+	});
+
 	unit.hp -= amount;
 	if (unit.hp < 0) unit.hp = 0;
 	if (unit.hp > unit.maxHp) unit.hp = unit.maxHp;
@@ -520,4 +553,47 @@ function doDamage(unit, amount) {
 	tween(tf, 2, { y: tf.y - 100, alpha: 0 }, { onComplete: function() {
 		tf.destroy();
 	}});
+}
+
+function applyBuff(buffName, unit) {
+	rpg.buffs.forEach(function(buff) {
+		if (buff.name == buffName) {
+			var buffTracker = {
+				name: buff.name,
+				turns: buff.lastingTurns,
+				remove: false
+			};
+
+			unit.buffTrackers.push(buffTracker);
+		}
+	});
+}
+
+function removeBuff(buffName, unit) {
+	unit.buffTrackers.forEach(function(buffTracker) {
+		if (buffTracker.name == buffName) buffTracker.remove = true;
+	});
+}
+
+function getBuff(buffName) {
+	var retBuff = null;
+	rpg.buffs.forEach(function(buff) {
+		if (buffName == buff.name) {
+			retBuff = buff;
+			return;
+		}
+	});
+
+	return retBuff;
+}
+
+function getBuffs(unit) {
+	var buffs = [];
+
+	unit.buffTrackers.forEach(function(buffTracker) {
+		if (buffTracker.remove) return;
+		buffs.push(getBuff(buffTracker.name));
+	});
+
+	return buffs;
 }
