@@ -61,6 +61,7 @@ function initRpgBattle() {
 	lovingBap.name = "Loving Bap";
 	lovingBap.baseDamage = 9;
 	lovingBap.isAttack = true;
+	lovingBap.affinities = ["Love"];
 	lovingBap.execute = function(source, target) {
 		var sourceSpr = source.sprite;
 		var targetSpr = target.sprite;
@@ -77,6 +78,7 @@ function initRpgBattle() {
 	gutPunch.name = "Gut Punch";
 	gutPunch.baseDamage = 15;
 	gutPunch.isAttack = true;
+	gutPunch.affinities = ["Abuse"];
 	gutPunch.execute = function(source, target) {
 		var sourceSpr = source.sprite;
 		var targetSpr = target.sprite;
@@ -91,11 +93,12 @@ function initRpgBattle() {
 		}});
 	};
 
-	var punchSlam = createSpell();
-	punchSlam.name = "Punch Slam";
-	punchSlam.baseDamage = 13;
-	punchSlam.isAttack = true;
-	punchSlam.execute = function(source, target) {
+	var paunchSlam = createSpell();
+	paunchSlam.name = "Paunch Slam";
+	paunchSlam.baseDamage = 13;
+	paunchSlam.isAttack = true;
+	paunchSlam.affinities = ["Raunch"];
+	paunchSlam.execute = function(source, target) {
 		var sourceSpr = source.sprite;
 		var targetSpr = target.sprite;
 
@@ -111,6 +114,7 @@ function initRpgBattle() {
 	dancingSweep.name = "Dancing Sweep";
 	dancingSweep.baseDamage = 11;
 	dancingSweep.isAttack = true;
+	dancingSweep.affinities = ["Hypnosis"];
 	dancingSweep.execute = function(source, target) {
 		var sourceSpr = source.sprite;
 		var targetSpr = target.sprite;
@@ -126,6 +130,7 @@ function initRpgBattle() {
 	var marked = createSpell();
 	marked.name = "Marked";
 	marked.baseDamage = 0;
+	marked.affinities = ["Raunch"];
 	marked.execute = function(source, target) {
 		var sourceSpr = source.sprite;
 		var targetSpr = target.sprite;
@@ -144,6 +149,7 @@ function initRpgBattle() {
 	healingPie.baseDamage = 0;
 	healingPie.targetsEnemies = false;
 	healingPie.targetsAllies = true;
+	healingPie.affinities = ["Foodplay"];
 	healingPie.execute = function(source, target) {
 		var sourceSpr = source.sprite;
 		var targetSpr = target.sprite;
@@ -191,6 +197,7 @@ function createUnit() {
 		maxHp: 100,
 		mp: 100,
 		maxMp: 100,
+		limit: 0,
 		attack: 10,
 		defence: 10,
 		speed: 5,
@@ -201,6 +208,7 @@ function createUnit() {
 		spellNames: [],
 		ai: "Skipper",
 		buffTrackers: [],
+		affinities: [],
 		/// Temp:
 		originX: 0,
 		originY: 0,
@@ -240,6 +248,7 @@ function createSpell() {
 		targetsEnemies: true,
 		targetsDead: false,
 		isAttack: false,
+		affinities: [],
 		doPartialDamage: function(target, perc) {
 			if (Math.abs(perc) <= 0.001) return;
 			if (spell.damagePercDone + perc >= 1) perc = 1 - spell.damagePercDone;
@@ -353,6 +362,7 @@ function updateRpgBattle() {
 
 		unit.hpBar.scaleX = unit.hp / unit.maxHp;
 		unit.mpBar.scaleX = unit.mp / unit.maxMp;
+		unit.limitBar.scaleX = unit.limit / 100;
 
 		if (unit.statBox.x + unit.statBox.width > gameWidth) unit.statBox.x = unit.sprite.x - unit.statBox.width - 32;
 	});
