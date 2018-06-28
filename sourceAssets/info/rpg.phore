@@ -38,13 +38,6 @@ var SMALL_DELAY = 0.5;
 var MAGIC_DAMAGE = 1;
 var PHYSICAL_DAMAGE = 2;
 
-var ATTACK_MULTI = 3;
-var DEFENCE_MULTI = 4;
-var SPECIAL_ATTACK_MULTI = 5;
-var SPECIAL_DEFENCE_MULTI = 6;
-
-var HALF_DEFENCE = 7;
-
 function initRpgBattle() {
 	rpg = {
 		players: null,
