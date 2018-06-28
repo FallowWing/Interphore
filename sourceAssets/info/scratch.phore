@@ -373,26 +373,32 @@ execAsset("rpg.phore");
 
 initRpgBattle();
 
-var p1 = createUnit();
-p1.speed = 30;
-p1.name = "Bleat";
-p1.spellNames.push("Loving Bap");
-p1.spellNames.push("Gut Punch");
-p1.spellNames.push("Paunch Slam");
-p1.spellNames.push("Dancing Sweep");
-p1.spellNames.push("Fireball");
+var bleat = createUnit();
+bleat.speed = 30;
+bleat.name = "Bleat";
+bleat.spellNames = [
+	"Loving Bap",
+	"Gut Punch",
+	"Paunch Slam",
+	"Dancing Sweep",
+	"Swamp Fire",
+	"Healing Pie",
+	"Glowing Bile"
+];
 
-var p2 = createUnit();
-p2.speed = 30;
-p2.name = "Rox";
-p2.spellNames.push("Loving Bap");
-p2.spellNames.push("Gut Punch");
-p2.spellNames.push("Paunch Slam");
-p2.spellNames.push("Dancing Sweep");
-p2.spellNames.push("Lightning");
-p2.spellNames.push("Marked");
-p2.spellNames.push("Healing Pie");
-p2.affinities = ["Love", "Foodplay", "Scat", "Raunch", "Electrostim"];
+var rox = createUnit();
+rox.speed = 30;
+rox.name = "Rox";
+rox.spellNames = [
+	"Loving Bap",
+	"Gut Punch",
+	"Paunch Slam",
+	"Dancing Sweep",
+	"Static Jolt",
+	"Marked",
+	"Healing Pie"
+];
+rox.affinities = ["Love", "Foodplay", "Scat", "Raunch", "Electrostim"];
 
 var enemy1 = createUnit();
 enemy1.name = "enemy 1";
@@ -404,7 +410,7 @@ enemy2.name = "enemy 2";
 enemy2.ai = "Skipper";
 enemy2.speed = 100;
 
-startRpgBattle([p1, p2], [enemy1, enemy2]);
+startRpgBattle([bleat, rox], [enemy1, enemy2]);
 `
 
 ---
