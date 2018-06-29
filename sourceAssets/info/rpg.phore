@@ -338,6 +338,21 @@ function initRpgBattle() {
 	}
 }
 
+function deinitRpgBattle() {
+	rpg.units.forEach(function(unit) {
+		unit.sprite = null;
+		unit.statBox = null;
+		unit.nameTf = null;
+		unit.hpBar = null;
+		unit.mpBar = null;
+		unit.limitBar = null;
+
+		unit.buffTrackers.forEach(function(buffTracker) {
+			buffTrackers.icon = null;
+		});
+	});
+}
+
 function createUnit() {
 	var unit;
 
@@ -377,6 +392,7 @@ function createBuff() {
 	var buff;
 	buff = {
 		name: "Unnamed buff",
+		iconName: "Abuse.png",
 		lastingTurns: 999,
 		executeDamaged: function(unit, damage) {
 			return damage;
@@ -745,7 +761,9 @@ function applyBuff(buffName, unit) {
 			var buffTracker = {
 				name: buff.name,
 				turns: buff.lastingTurns,
-				remove: false
+				remove: false,
+				/// Temp:
+				icon: addImage(buff.iconName)
 			};
 
 			unit.buffTrackers.push(buffTracker);
@@ -757,6 +775,7 @@ function removeBuff(buffName, unit) {
 	unit.buffTrackers.some(function(buffTracker) {
 		if (buffTracker.name == buffName) {
 			buffTracker.remove = true;
+			buffTrackers.icon.destroy();
 			return true;
 		}
 	});
