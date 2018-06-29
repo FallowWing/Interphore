@@ -775,7 +775,7 @@ function removeBuff(buffName, unit) {
 	unit.buffTrackers.some(function(buffTracker) {
 		if (buffTracker.name == buffName) {
 			buffTracker.remove = true;
-			buffTrackers.icon.destroy();
+			buffTracker.icon.destroy();
 			return true;
 		}
 	});
