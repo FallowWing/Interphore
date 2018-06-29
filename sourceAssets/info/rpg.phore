@@ -665,7 +665,6 @@ function showMenu() {
 
 function skip() {
 	clearChoices();
-	append(rpg.currentUnit.name+" skipped turn.\n");
 	timer(SMALL_DELAY, nextTurn);
 }
 

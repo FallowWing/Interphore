@@ -445,7 +445,7 @@ enemy1.speed = 20;
 
 var enemy2 = createUnit();
 enemy2.name = "enemy 2";
-enemy2.ai = "Skipper";
+enemy2.ai = "Simple";
 enemy2.speed = 100;
 
 startRpgBattle([bleat, rox, sapSlime, glowingFuckmeat, glowingSapsoakedFuckmeat], [enemy1, enemy2]);
