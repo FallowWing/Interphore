@@ -758,25 +758,42 @@ function getBuffs(unit) {
 function applyBuff(buffName, unit) {
 	rpg.buffs.forEach(function(buff) {
 		if (buff.name == buffName) {
+			var icon = addImage(buff.iconName);
+			unit.statBox.addChild(icon);
+
 			var buffTracker = {
 				name: buff.name,
 				turns: buff.lastingTurns,
 				remove: false,
 				/// Temp:
-				icon: addImage(buff.iconName)
+				icon: icon
 			};
 
 			unit.buffTrackers.push(buffTracker);
 		}
 	});
+
+	updateBuffPosition(unit);
 }
 
 function removeBuff(buffName, unit) {
 	unit.buffTrackers.some(function(buffTracker) {
-		if (buffTracker.name == buffName) {
+		if (buffTracker.name == buffName && !buffTracker.remove) {
 			buffTracker.remove = true;
 			buffTracker.icon.destroy();
 			return true;
 		}
+	});
+
+	updateBuffPosition(unit);
+}
+
+function updateBuffPosition(unit) {
+	var xpos = 0;
+	unit.buffTrackers.forEach(function(buffTracker) {
+		if (buffTracker.remove) return;
+		buffTracker.icon.x = xpos;
+		buffTracker.icon.y = unit.limitBar.y + unit.limitBar.height;
+		xpos += buffTracker.icon.width;
 	});
 }
