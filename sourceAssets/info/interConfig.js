@@ -771,6 +771,9 @@ function realUpdate() {
 
 		tooltipTf.x = mouseX;
 		tooltipTf.y = mouseY;
+
+		if (tooltipTf.x + tooltipBg.x + tooltipBg.width > gameWidth) tooltipTf.x -= tooltipBg.width;
+		if (tooltipTf.y + tooltipBg.y + tooltipBg.height > gameHeight) tooltipTf.y -= tooltipBg.height;
 	} else {
 		tooltipTf.alpha -= 0.05;
 	}
