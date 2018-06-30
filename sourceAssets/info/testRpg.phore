@@ -2,6 +2,14 @@ execAsset("rpg.phore");
 
 initRpgBattle();
 
+function moveSpriteInFrontOf(source, dest) {
+	source.x = gameWidth/2 - source.width/2;
+	source.y = gameHeight/2 - source.height/2;
+
+	source.x = lerp(0.85, source.x, dest.x);
+	source.y = lerp(1, source.y, dest.y);
+}
+
 /// Spells
 var fireball = createSpell();
 fireball.name = "Fireball";
@@ -151,6 +159,22 @@ barrier.execute = function(source, target) {
 	});
 };
 
+var slam = createSpell();
+slam.name = "Slam";
+slam.info = "Gives enemies a chance to lose their next turn.";
+slam.baseDamage = 0;
+slam.execute = function(source, target) {
+	var sourceSpr = source.sprite;
+	var targetSpr = target.sprite;
+
+	moveSpriteInFrontOf(sourceSpr, targetSpr);
+
+	timer(0.5, function() {
+		applyBuff("Slammed", target);
+		spellDone();
+	});
+};
+
 /// AIs
 var skipperAi = createAi();
 skipperAi.name = "Skipper";
@@ -192,6 +216,18 @@ poisoned.executeStartOfTrun = function(unit) {
 	doDamage(unit, 3);
 }
 
+var slammed = createBuff();
+slammed.name = "Slammed";
+slammed.iconName = "Gore.png";
+slammed.info = "Could lose their next turn";
+slammed.lastingTurns = 999;
+slammed.executeStartOfTrun = function(unit) {
+	removeBuff("Slammed", unit);
+
+	if (rnd() > 0.5) {
+		return true;
+	}
+}
 
 /// Units
 var p1 = createUnit();
@@ -201,7 +237,8 @@ p1.spellNames = [
 	"Gut Punch",
 	"Fireball",
 	"Marked",
-	"Barrier"
+	"Barrier",
+	"Slam"
 ];
 p1.affinities = ["Fire"];
 
@@ -212,7 +249,8 @@ p2.spellNames = [
 	"Gut Punch",
 	"Lightning",
 	"Poison",
-	"Heal"
+	"Heal",
+	"Slam"
 ];
 p2.affinities = ["Electric"];
 
