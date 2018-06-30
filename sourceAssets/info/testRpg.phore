@@ -67,7 +67,8 @@ gutPunch.execute = function(source, target) {
 
 	tween(sourceSpr, 1, {x: endX, y: endY}, {onComplete: function() {
 		tween(sourceSpr, 0.5, {x: targetSpr.x}, {ease: QUART_OUT, startDelay: 0.5, onComplete: function() {
-			spellDone();
+			gutPunch.doPartialDamage(target, 1);
+			tween(sourceSpr, 1.5, {x: source.originX, y: source.originY}, {ease: QUART_OUT, startDelay: 0.1, onComplete: spellDone});
 		}});
 	}});
 };
@@ -84,7 +85,7 @@ marked.execute = function(source, target) {
 	sourceSpr.x = lerp(0.85, sourceSpr.x, targetSpr.x);
 	sourceSpr.y = lerp(1, sourceSpr.y, targetSpr.y);
 
-	timer(0.5, function() {
+	timer(2, function() {
 		applyBuff("Marked", target);
 		spellDone();
 	});
@@ -106,7 +107,7 @@ heal.execute = function(source, target) {
 	sourceSpr.x = lerp(0.85, sourceSpr.x, targetSpr.x);
 	sourceSpr.y = lerp(0.85, sourceSpr.y, targetSpr.y);
 
-	timer(0.5, function() {
+	timer(2, function() {
 		doDamage(target, -30);
 		spellDone();
 	});
@@ -124,7 +125,7 @@ poison.execute = function(source, target) {
 	for (var i = 0; i < strikes; i++) strikesArr.push(i);
 	strikesArr.forEach(function(i) {
 
-		timer(i * 0.5, function() {
+		timer(i * 0.75, function() {
 			var spr = addRectImage(32, 32, 0xAAAA00);
 			spr.x = targetSpr.x + targetSpr.width/2 - spr.width/2 + rndFloat(-50, 50);
 			spr.y = targetSpr.y + targetSpr.height/2 - spr.height/2 + rndFloat(-50, 50);
@@ -153,7 +154,7 @@ barrier.execute = function(source, target) {
 	sourceSpr.x = lerp(0.85, sourceSpr.x, targetSpr.x);
 	sourceSpr.y = lerp(1, sourceSpr.y, targetSpr.y);
 
-	timer(0.5, function() {
+	timer(2, function() {
 		applyBuff("Sheilded", target);
 		spellDone();
 	});
@@ -169,7 +170,7 @@ slam.execute = function(source, target) {
 
 	moveSpriteInFrontOf(sourceSpr, targetSpr);
 
-	timer(0.5, function() {
+	timer(2, function() {
 		applyBuff("Slammed", target);
 		spellDone();
 	});
@@ -225,7 +226,7 @@ slammed.executeStartOfTrun = function(unit) {
 	removeBuff("Slammed", unit);
 
 	if (rnd() > 0.5) {
-		return true;
+		unit.skipsNextTurn = true;
 	}
 }
 
@@ -249,8 +250,7 @@ p2.spellNames = [
 	"Gut Punch",
 	"Lightning",
 	"Poison",
-	"Heal",
-	"Slam"
+	"Heal"
 ];
 p2.affinities = ["Electric"];
 

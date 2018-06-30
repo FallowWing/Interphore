@@ -52,6 +52,7 @@ function createUnit() {
 		specialDefence: 10,
 		friendly: false,
 		dead: false,
+		skipsNextTurn: false,
 		spellNames: [],
 		ai: "Skipper",
 		buffTrackers: [],
@@ -79,6 +80,9 @@ function createBuff() {
 		lastingTurns: 999,
 		executeDamaged: function(unit, damage) {
 			return damage;
+		}
+		executeStartOfTrun: function(unit) {
+			return false;
 		}
 	};
 
@@ -231,10 +235,13 @@ function updateRpgBattle() {
 }
 
 function spellDone() {
-	rpg.currentSpell.doPartialDamage(rpg.currentSpell.target, 1-rpg.currentSpell.damagePercDone);
+	if (rpg.currentSpell.baseDamage != 0) rpg.currentSpell.doPartialDamage(rpg.currentSpell.target, 1-rpg.currentSpell.damagePercDone);
 	rpg.currentSpell = null;
 
 	nextTurn();
+}
+
+function buffDone() {
 }
 
 function resetUnitPositions() {
@@ -248,11 +255,9 @@ function resetUnitPositions() {
 function startTurn() {
 	resetUnitPositions();
 
-	var skipTurn = false;
 	var buffs = getBuffs(rpg.currentUnit);
 	buffs.forEach(function(buff) {
-		var buffRet = buff.executeStartOfTrun(rpg.currentUnit);
-		if (buffRet === true) skipTurn = true;
+		buff.executeStartOfTrun(rpg.currentUnit);
 	});
 
 	rpg.currentUnit.buffTrackers.forEach(function(buffTracker) {
@@ -261,7 +266,12 @@ function startTurn() {
 		if (buffTracker.turns <= 0) removeBuff(buffTracker.name, rpg.currentUnit);
 	});
 
-	if (skipTurn) {
+	timer(0.5, takeTurn);
+}
+
+function takeTurn() {
+	if (rpg.currentUnit.skipsNextTurn) {
+		rpg.currentUnit.skipsNextTurn = false;
 		skip();
 		return;
 	}
