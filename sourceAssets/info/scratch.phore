@@ -369,7 +369,13 @@ addChoice("Go back", "scratchModStart");
 ---
 :rpgTest
 !`
-execAsset("magiDemo.phore");
+addChoice("Basic rpg", function() {
+	execAsset("testRpg.phore");
+});
+
+addChoice("Magi demo", function() {
+	execAsset("magiDemo.phore");
+});
 `
 
 ---
