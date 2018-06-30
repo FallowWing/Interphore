@@ -64,7 +64,6 @@ gutPunch.execute = function(source, target) {
 	}});
 };
 
-
 var marked = createSpell();
 marked.name = "Marked";
 marked.info = "Mark an enemy to take more damage";
@@ -126,7 +125,7 @@ poison.execute = function(source, target) {
 				spr.destroy();
 				if (i == strikesArr.length-1) {
 					spellDone();
-					//@incomplete debuff
+					applyBuff("Poisoned", target);
 				}
 			}});
 		});
@@ -175,14 +174,24 @@ markedBuff.executeDamaged = function(unit, damage) {
 	return damage*2;
 }
 
-var chaseTailBuff = createBuff();
-chaseTailBuff.name = "Sheilded";
-chaseTailBuff.iconName = "Love.png";
-chaseTailBuff.info = "Will take half damage from the next attack";
-chaseTailBuff.executeDamaged = function(unit, damage) {
+var shielded = createBuff();
+shielded.name = "Sheilded";
+shielded.iconName = "Love.png";
+shielded.info = "Will take half damage from the next attack";
+shielded.executeDamaged = function(unit, damage) {
 	removeBuff("Sheilded", unit);
 	return damage*0.5;
 }
+
+var poisoned = createBuff();
+poisoned.name = "Poisoned";
+poisoned.iconName = "Blood.png";
+poisoned.info = "Will take damage at the start of their turn";
+poisoned.lastingTurns = 2;
+poisoned.executeStartOfTrun = function(unit) {
+	doDamage(unit, 3);
+}
+
 
 /// Units
 var p1 = createUnit();

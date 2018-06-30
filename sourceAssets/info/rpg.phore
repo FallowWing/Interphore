@@ -248,6 +248,24 @@ function resetUnitPositions() {
 function startTurn() {
 	resetUnitPositions();
 
+	var skipTurn = false;
+	var buffs = getBuffs(rpg.currentUnit);
+	buffs.forEach(function(buff) {
+		var buffRet = buff.executeStartOfTrun(rpg.currentUnit);
+		if (buffRet === true) skipTurn = true;
+	});
+
+	rpg.currentUnit.buffTrackers.forEach(function(buffTracker) {
+		if (buffTracker.remove) return;
+		buffTracker.turns--;
+		if (buffTracker.turns <= 0) removeBuff(buffTracker.name, rpg.currentUnit);
+	});
+
+	if (skipTurn) {
+		skip();
+		return;
+	}
+
 	if (rpg.currentUnit.friendly) {
 		showMenu();
 	} else {
