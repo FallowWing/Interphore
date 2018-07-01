@@ -583,3 +583,22 @@ function updateBuffPosition(unit) {
 		xpos += buffTracker.icon.width;
 	});
 }
+
+function hasBuff(buffName, unit) {
+	var doesHave = false;
+	unit.buffTrackers.forEach(function(buffTracker) {
+		if (buffTracker.remove) return;
+		if (buffTracker.name == buffName) doesHave = true;
+	});
+
+		return doesHave;
+}
+
+function getRandomPlayer() {
+	var livingPlayers = [];
+	rpg.players.forEach(function(player) {
+		if (!player.dead) livingPlayers.push(player);
+	});
+
+	return livingPlayers[rndInt(0, livingPlayers.length-1)];
+}

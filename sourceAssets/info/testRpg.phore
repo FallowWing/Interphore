@@ -162,7 +162,7 @@ barrier.execute = function(source, target) {
 
 var slam = createSpell();
 slam.name = "Slam";
-slam.info = "Gives enemies a chance to lose their next turn.";
+slam.info = "Makes an enemy lose their next turn";
 slam.baseDamage = 0;
 slam.execute = function(source, target) {
 	var sourceSpr = source.sprite;
@@ -172,6 +172,22 @@ slam.execute = function(source, target) {
 
 	timer(2, function() {
 		applyBuff("Slammed", target);
+		actionDone();
+	});
+};
+
+var pushSpell = createSpell();
+pushSpell.name = "Push";
+pushSpell.info = "Gives enemies a chance to lose their next turn.";
+pushSpell.baseDamage = 0;
+pushSpell.execute = function(source, target) {
+	var sourceSpr = source.sprite;
+	var targetSpr = target.sprite;
+
+	moveSpriteInFrontOf(sourceSpr, targetSpr);
+
+	timer(2, function() {
+		applyBuff("Pushed", target);
 		actionDone();
 	});
 };
@@ -191,8 +207,18 @@ simpleAi.execute = function(unit) {
 	actionDone();
 };
 
-// var stunner = createAi()
+var stunnerAi = createAi()
+stunnerAi.name = "Stunner";
+stunnerAi.execute = function(unit) {
+	var chosenTarget = getRandomPlayer();
+	rpg.players.forEach(function(player) {
+		if (!hasBuff("Slammed", player) && !hasBuff("Pushed", player)) chosenTarget = player;
+	});
 
+	if (rnd() > 0.5) castSpell("Slam", unit, chosenTarget);
+	else castSpell("Push", unit, chosenTarget);
+	actionDone();
+};
 
 /// Buffs
 var markedBuff = createBuff();
@@ -225,7 +251,7 @@ poisoned.executeStartOfTrun = function(unit) {
 
 var pushed = createBuff();
 pushed.name = "Pushed";
-pushed.iconName = "Gore.png";
+pushed.iconName = "Abuse.png";
 pushed.info = "Could lose their next turn";
 pushed.lastingTurns = 999;
 pushed.executeStartOfTrun = function(unit) {
@@ -275,12 +301,12 @@ p2.affinities = ["Electric"];
 
 var enemy1 = createUnit();
 enemy1.name = "enemy 1";
-enemy1.ai = "Simple";
+enemy1.ai = "Stunner";
 enemy1.speed = 20;
 
 var enemy2 = createUnit();
 enemy2.name = "enemy 2";
-enemy2.ai = "Simple";
+enemy2.ai = "Stunner";
 enemy2.speed = 100;
 
 startRpgBattle([p1, p2], [enemy1, enemy2]);
