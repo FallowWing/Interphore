@@ -89,7 +89,7 @@ function createBuff() {
 			return damage;
 		},
 		executeStartOfTrun: function(unit) {
-			return false;
+			actionDone();
 		}
 	};
 
