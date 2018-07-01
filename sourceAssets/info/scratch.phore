@@ -7,8 +7,6 @@ music.name = "music";
 
 setBackground(0, "img/writer/mainBg");
 setBackground(1, "");
-streamAsset("coin.png", "https://i.imgur.com/mmt2kcc.png");
-streamAsset("test1.png", "https://upload.wikimedia.org/wikipedia/commons/d/dc/Large_Drive-In_EMC_Test_Chamber.png");
 choicesPerPage = 6;
 `
 WIP Dev Menu
@@ -173,7 +171,16 @@ addChoice("Back", function() {
 `
 ---
 :imageTest
-Here's some images
+!`
+streamAsset("coin.png", "https://i.imgur.com/mmt2kcc.png");
+streamAsset("test1.png", "https://upload.wikimedia.org/wikipedia/commons/d/dc/Large_Drive-In_EMC_Test_Chamber.png");
+
+whenDoneStreaming(function() {
+	gotoPassage("realImageTest");
+});
+`
+---
+:realImageTest
 !`
 var img = addRectImage(265, 128, 0xFF0000);
 img.x = 800;
