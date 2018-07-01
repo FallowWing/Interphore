@@ -369,86 +369,13 @@ addChoice("Go back", "scratchModStart");
 ---
 :rpgTest
 !`
-execAsset("rpg.phore");
+addChoice("Basic rpg", function() {
+	execAsset("testRpg.phore");
+});
 
-initRpgBattle();
-
-var bleat = createUnit();
-bleat.speed = 30;
-bleat.name = "Bleat";
-bleat.spellNames = [
-	"Loving Bap",
-	"Gut Punch",
-	"Paunch Slam",
-	"Dancing Sweep",
-	"Healing Pie",
-	"Static Jolt",
-	"Swamp Fire"
-];
-
-var rox = createUnit();
-rox.speed = 30;
-rox.name = "Rox";
-rox.spellNames = [
-	"Loving Bap",
-	"Gut Punch",
-	"Paunch Slam",
-	"Dancing Sweep",
-	"Healing Pie",
-	"Golden Ray",
-	"Marked"
-];
-rox.affinities = ["Love", "Foodplay", "Scat", "Raunch", "Electrostim"];
-
-var sapSlime = createUnit();
-sapSlime.name = "Sap Slime";
-sapSlime.speed = 25;
-sapSlime.spellNames = [
-	"Sappy Slappy",
-	"Xylem Flow",
-	"Phloem Pressure"
-];
-
-var glowingFuckmeat = createUnit();
-glowingFuckmeat.name = "Glowing Fuckmeat";
-glowingFuckmeat.speed = 25;
-glowingFuckmeat.spellNames = [
-	"Claw",
-	"Glowing Bile",
-	"Chase Tail"
-];
-
-var glowingFuckmeat = createUnit();
-glowingFuckmeat.name = "Glowing Fuckmeat";
-glowingFuckmeat.speed = 25;
-glowingFuckmeat.spellNames = [
-	"Glowing Bile",
-	"Chase Tail"
-];
-
-var glowingSapsoakedFuckmeat = createUnit();
-glowingSapsoakedFuckmeat.name = "Glowing Sapsoaked Fuckmeat";
-glowingSapsoakedFuckmeat.speed = 25;
-glowingSapsoakedFuckmeat.spellNames = [
-	"Sappy Slappy",
-	"Claw",
-	"Xylem Flow",
-	"Phloem Pressure",
-	"Glowing Bile",
-	"Chase Tail"
-];
-
-var enemy1 = createUnit();
-enemy1.name = "enemy 1";
-enemy1.ai = "Simple";
-enemy1.speed = 20;
-
-var enemy2 = createUnit();
-enemy2.name = "enemy 2";
-enemy2.ai = "Simple";
-enemy2.speed = 100;
-
-startRpgBattle([bleat, rox, sapSlime, glowingFuckmeat, glowingSapsoakedFuckmeat], [enemy1, enemy2]);
+// addChoice("Magi demo", function() {
+// 	execAsset("magiDemo.phore");
+// });
 `
 
 ---

@@ -5,6 +5,11 @@ var SMALL_DELAY = 0.5;
 var MAGIC_DAMAGE = 1;
 var PHYSICAL_DAMAGE = 2;
 
+var CAST_ACTION = 3;
+var START_OF_TURN_BUFF_ACTION = 4;
+var AI_CHOICE_ACTION = 5;
+var END_TURN_ACTION = 6;
+
 function initRpgBattle() {
 	rpg = {
 		players: null,
@@ -14,348 +19,12 @@ function initRpgBattle() {
 		unitArrow: null,
 		currentUnit: null,
 		currentSpell: null,
+		currentAction: null,
 		spells: [],
 		buffs: [],
-		ais: []
+		ais: [],
+		actionList: []
 	};
-
-	/// Spells
-	var swampFire = createSpell();
-	swampFire.name = "Swamp Fire";
-	swampFire.info = "Throws a fireball";
-	swampFire.baseDamage = 20;
-	swampFire.affinities = ["Drug"];
-	swampFire.execute = function(source, target) {
-		var targetSpr = target.sprite;
-
-		var spr = addRectImage(64, 64, 0xCC0000);
-		spr.x = targetSpr.x + targetSpr.width/2 - spr.width/2;
-		spr.y = targetSpr.y + targetSpr.height/2 - spr.height/2;
-		tween(spr, 1, {scaleX: 3, scaleY: 3, alpha: 0}, {onComplete: function() {
-			spr.destroy();
-			spellDone();
-		}});
-	};
-
-	var staticJolt = createSpell();
-	staticJolt.name = "Static Jolt";
-	staticJolt.info = "Hit an enemy with many lightning bolts";
-	staticJolt.affinities = ["Electrostim"];
-	staticJolt.execute = function(source, target) {
-		var targetSpr = target.sprite;
-
-		var strikes = 10;
-		var strikesArr = [];
-		for (var i = 0; i < strikes; i++) strikesArr.push(i);
-		strikesArr.forEach(function(i) {
-
-			timer(i * 0.2, function() {
-				var spr = addRectImage(32, gameHeight, 0xFFFF00);
-				spr.x = targetSpr.x + targetSpr.width/2 - spr.width/2 + rndFloat(-50, 50);
-				spr.y = 0;
-				staticJolt.doPartialDamage(target, 1/(strikes));
-				tween(spr, 0.5, {alpha: 0}, {onComplete: function() {
-					spr.destroy();
-					if (i == strikesArr.length-1) spellDone();
-				}});
-			});
-		});
-	};
-
-	var lovingBap = createSpell();
-	lovingBap.name = "Loving Bap";
-	lovingBap.info = "A generic attack";
-	lovingBap.baseDamage = 9;
-	lovingBap.isAttack = true;
-	lovingBap.affinities = ["Love"];
-	lovingBap.execute = function(source, target) {
-		var sourceSpr = source.sprite;
-		var targetSpr = target.sprite;
-
-		sourceSpr.x = lerp(0.85, sourceSpr.x, targetSpr.x);
-		sourceSpr.y = lerp(1, sourceSpr.y, targetSpr.y);
-
-		timer(SMALL_DELAY, function() {
-			spellDone();
-		});
-	};
-
-	var gutPunch = createSpell();
-	gutPunch.name = "Gut Punch";
-	gutPunch.info = "A strong generic attack, with a unique animation";
-	gutPunch.baseDamage = 15;
-	gutPunch.isAttack = true;
-	gutPunch.affinities = ["Abuse"];
-	gutPunch.execute = function(source, target) {
-		var sourceSpr = source.sprite;
-		var targetSpr = target.sprite;
-
-		var endX = lerp(0.65, sourceSpr.x, targetSpr.x);
-		var endY = lerp(0.90, sourceSpr.y, targetSpr.y);
-
-		tween(sourceSpr, 1, {x: endX, y: endY}, {onComplete: function() {
-			tween(sourceSpr, 0.5, {x: targetSpr.x}, {ease: QUART_OUT, startDelay: 0.5, onComplete: function() {
-				spellDone();
-			}});
-		}});
-	};
-
-	var paunchSlam = createSpell();
-	paunchSlam.name = "Paunch Slam";
-	paunchSlam.info = "A generic attack";
-	paunchSlam.baseDamage = 13;
-	paunchSlam.isAttack = true;
-	paunchSlam.affinities = ["Raunch"];
-	paunchSlam.execute = function(source, target) {
-		var sourceSpr = source.sprite;
-		var targetSpr = target.sprite;
-
-		sourceSpr.x = lerp(0.85, sourceSpr.x, targetSpr.x);
-		sourceSpr.y = lerp(1, sourceSpr.y, targetSpr.y);
-
-		timer(SMALL_DELAY, function() {
-			spellDone();
-		});
-	};
-
-	var dancingSweep = createSpell();
-	dancingSweep.name = "Dancing Sweep";
-	dancingSweep.info = "A generic attack";
-	dancingSweep.baseDamage = 11;
-	dancingSweep.isAttack = true;
-	dancingSweep.affinities = ["Hypnosis"];
-	dancingSweep.execute = function(source, target) {
-		var sourceSpr = source.sprite;
-		var targetSpr = target.sprite;
-
-		sourceSpr.x = lerp(0.85, sourceSpr.x, targetSpr.x);
-		sourceSpr.y = lerp(1, sourceSpr.y, targetSpr.y);
-
-		timer(SMALL_DELAY, function() {
-			spellDone();
-		});
-	};
-
-	var sappySlappy = createSpell();
-	sappySlappy.name = "Sappy Slappy";
-	sappySlappy.info = "A generic attack";
-	sappySlappy.baseDamage = 8;
-	sappySlappy.isAttack = true;
-	sappySlappy.affinities = ["Tentacle"];
-	sappySlappy.execute = function(source, target) {
-		var sourceSpr = source.sprite;
-		var targetSpr = target.sprite;
-
-		sourceSpr.x = lerp(0.85, sourceSpr.x, targetSpr.x);
-		sourceSpr.y = lerp(1, sourceSpr.y, targetSpr.y);
-
-		timer(SMALL_DELAY, function() {
-			spellDone();
-		});
-	};
-
-	var claw = createSpell();
-	claw.name = "Claw";
-	claw.info = "A generic attack";
-	claw.baseDamage = 10;
-	claw.isAttack = true;
-	claw.affinities = ["Abuse"];
-	claw.execute = function(source, target) {
-		var sourceSpr = source.sprite;
-		var targetSpr = target.sprite;
-
-		sourceSpr.x = lerp(0.85, sourceSpr.x, targetSpr.x);
-		sourceSpr.y = lerp(1, sourceSpr.y, targetSpr.y);
-
-		timer(SMALL_DELAY, function() {
-			spellDone();
-		});
-	};
-
-	var marked = createSpell();
-	marked.name = "Marked";
-	marked.info = "Mark an enemy to take more damage";
-	marked.baseDamage = 0;
-	marked.affinities = ["Raunch"];
-	marked.execute = function(source, target) {
-		var sourceSpr = source.sprite;
-		var targetSpr = target.sprite;
-
-		sourceSpr.x = lerp(0.85, sourceSpr.x, targetSpr.x);
-		sourceSpr.y = lerp(1, sourceSpr.y, targetSpr.y);
-
-		timer(SMALL_DELAY, function() {
-			applyBuff("Marked", target);
-			spellDone();
-		});
-	};
-
-	var healingPie = createSpell();
-	healingPie.name = "Healing Pie";
-	healingPie.info = "Heal an ally";
-	healingPie.baseDamage = 0;
-	healingPie.targetsEnemies = false;
-	healingPie.targetsAllies = true;
-	healingPie.affinities = ["Foodplay"];
-	healingPie.execute = function(source, target) {
-		var sourceSpr = source.sprite;
-		var targetSpr = target.sprite;
-
-		sourceSpr.x = gameWidth/2 - sourceSpr.width/2;
-		sourceSpr.y = gameHeight/2 - sourceSpr.height/2;
-
-		sourceSpr.x = lerp(0.85, sourceSpr.x, targetSpr.x);
-		sourceSpr.y = lerp(0.85, sourceSpr.y, targetSpr.y);
-
-		timer(SMALL_DELAY, function() {
-			doDamage(target, -30);
-			spellDone();
-		});
-	};
-
-	var goldenRay = createSpell();
-	goldenRay.name = "Golden Ray";
-	goldenRay.info = "Hits an enemy twice";
-	goldenRay.affinities = ["Piss"];
-	goldenRay.baseDamage = 20;
-	goldenRay.execute = function(source, target) {
-		var targetSpr = target.sprite;
-
-		var strikes = 2;
-		var strikesArr = [];
-		for (var i = 0; i < strikes; i++) strikesArr.push(i);
-		strikesArr.forEach(function(i) {
-
-			timer(i * 0.4, function() {
-				var spr = addRectImage(32, 32, 0xAAAA00);
-				spr.x = targetSpr.x + targetSpr.width/2 - spr.width/2 + rndFloat(-50, 50);
-				spr.y = targetSpr.y + targetSpr.height/2 - spr.height/2 + rndFloat(-50, 50);
-				goldenRay.doPartialDamage(target, 1/strikes);
-				tween(spr, 1, {y: spr.y - rndFloat(20, 60), alpha: 0}, {onComplete: function() {
-					spr.destroy();
-					if (i == strikesArr.length-1) spellDone();
-				}});
-			});
-		});
-	};
-
-	var xylemFlow = createSpell();
-	xylemFlow.name = "Xylem Flow";
-	xylemFlow.info = "A generic attack";
-	xylemFlow.baseDamage = 0;
-	xylemFlow.targetsEnemies = false;
-	xylemFlow.targetsAllies = true;
-	xylemFlow.affinities = ["Foodplay"];
-	xylemFlow.execute = function(source, target) {
-		var sourceSpr = source.sprite;
-		var targetSpr = target.sprite;
-
-		sourceSpr.x = gameWidth/2 - sourceSpr.width/2;
-		sourceSpr.y = gameHeight/2 - sourceSpr.height/2;
-
-		sourceSpr.x = lerp(0.85, sourceSpr.x, targetSpr.x);
-		sourceSpr.y = lerp(0.85, sourceSpr.y, targetSpr.y);
-
-		timer(SMALL_DELAY, function() {
-			doDamage(target, -30);
-			spellDone();
-		});
-	};
-
-	var phloemPressure = createSpell();
-	phloemPressure.name = "Phloem Pressure";
-	phloemPressure.baseDamage = 20;
-	phloemPressure.info = "A generic fireball-like attack";
-	phloemPressure.affinities = ["Electrostim"];
-	phloemPressure.execute = function(source, target) {
-		var targetSpr = target.sprite;
-
-		var spr = addRectImage(64, 64, 0xCC0000);
-		spr.x = targetSpr.x + targetSpr.width/2 - spr.width/2;
-		spr.y = targetSpr.y + targetSpr.height/2 - spr.height/2;
-		tween(spr, 1, {scaleX: 3, scaleY: 3, alpha: 0}, {onComplete: function() {
-			spr.destroy();
-			spellDone();
-		}});
-	};
-
-	var glowingBile = createSpell();
-	glowingBile.name = "Glowing Bile";
-	glowingBile.info = "A weak multihitting attack";
-	glowingBile.affinities = ["Trash"];
-	glowingBile.baseDamage = 12;
-	glowingBile.execute = function(source, target) {
-		var targetSpr = target.sprite;
-
-		var strikes = 4;
-		var strikesArr = [];
-		for (var i = 0; i < strikes; i++) strikesArr.push(i);
-		strikesArr.forEach(function(i) {
-
-			timer(i * 0.2, function() {
-				var spr = addRectImage(32, 32, 0x00AA00);
-				spr.x = targetSpr.x + targetSpr.width/2 - spr.width/2 + rndFloat(-50, 50);
-				spr.y = targetSpr.y + targetSpr.height/2 - spr.height/2 + rndFloat(-50, 50);
-				glowingBile.doPartialDamage(target, 1/strikes);
-				tween(spr, 1, {y: spr.y - rndFloat(20, 60), alpha: 0}, {onComplete: function() {
-					spr.destroy();
-					if (i == strikesArr.length-1) spellDone();
-				}});
-			});
-		});
-	};
-
-	var chaseTail = createSpell();
-	chaseTail.name = "Chase Tail";
-	chaseTail.info = "Buffs and ally for the next hit";
-	chaseTail.baseDamage = 0;
-	chaseTail.affinities = ["Love"];
-	chaseTail.targetsAllies = true;
-	chaseTail.targetsEnemies = false;
-	chaseTail.execute = function(source, target) {
-		var sourceSpr = source.sprite;
-		var targetSpr = target.sprite;
-
-		sourceSpr.x = lerp(0.85, sourceSpr.x, targetSpr.x);
-		sourceSpr.y = lerp(1, sourceSpr.y, targetSpr.y);
-
-		timer(SMALL_DELAY, function() {
-			applyBuff("Chase Tail", target);
-			spellDone();
-		});
-	};
-
-	/// AIs
-	var skipperAi = createAi();
-	skipperAi.name = "Skipper";
-	skipperAi.execute = function() {
-		skip();
-	};
-
-	var simpleAi = createAi();
-	simpleAi.name = "Simple";
-	simpleAi.execute = function() {
-		castSpell("Loving Bap", rpg.players[0]);
-	};
-
-	/// Buffs
-	var markedBuff = createBuff();
-	markedBuff.name = "Marked";
-	markedBuff.iconName = "Snuff.png";
-	markedBuff.info = "Will take double damage from the next attack";
-	markedBuff.executeDamaged = function(unit, damage) {
-		removeBuff("Marked", unit);
-		return damage*2;
-	}
-
-	var chaseTailBuff = createBuff();
-	chaseTailBuff.name = "Chase Tail";
-	chaseTailBuff.iconName = "Love.png";
-	chaseTailBuff.info = "Will take half damage from the next attack";
-	chaseTailBuff.executeDamaged = function(unit, damage) {
-		removeBuff("Chase Tail", unit);
-		return damage*0.5;
-	}
 }
 
 function deinitRpgBattle() {
@@ -390,8 +59,9 @@ function createUnit() {
 		specialDefence: 10,
 		friendly: false,
 		dead: false,
+		skipsNextTurn: false,
 		spellNames: [],
-		ai: "Skipper",
+		ai: "none",
 		buffTrackers: [],
 		affinities: [],
 		/// Temp:
@@ -417,6 +87,9 @@ function createBuff() {
 		lastingTurns: 999,
 		executeDamaged: function(unit, damage) {
 			return damage;
+		},
+		executeStartOfTrun: function(unit) {
+			actionDone();
 		}
 	};
 
@@ -448,7 +121,8 @@ function createSpell() {
 		},
 		damage: 0,
 		damagePercDone: 0,
-		target: null,
+		source: null,
+		target: null
 	};
 
 	rpg.spells.push(spell);
@@ -466,6 +140,19 @@ function createAi() {
 
 	rpg.ais.push(ai);
 	return ai;
+}
+
+function createAction() {
+	var action = {
+		type: 0,
+		source: null,
+		target: null,
+		spellName: "none",
+		buffName: "none"
+	};
+
+	rpg.actionList.push(action);
+	return action;
 }
 
 function startRpgBattle(players, enemies) {
@@ -540,6 +227,49 @@ function startRpgBattle(players, enemies) {
 }
 
 function updateRpgBattle() {
+	if (!rpg.currentAction && rpg.actionList.length > 0) {
+		var action = rpg.actionList.shift();
+		rpg.currentAction = action;
+		print("Executing action "+action.type);
+
+		if (action.type == CAST_ACTION) {
+			var spell = getSpell(action.spellName);
+			rpg.currentSpell = spell;
+			spell.damagePercDone = 0;
+			spell.source = action.source;
+			spell.target = action.target;
+			spell.damage = spell.baseDamage;
+
+			if (spell.isAttack) {
+				spell.damage += spell.source.attack;
+				spell.damage -= spell.target.defence;
+			}
+
+			var hasAffinity = arrayContainsAny(spell.source.affinities, spell.affinities);
+
+			if (spell.isAttack) {
+				if (hasAffinity) spell.source.limit += spell.damage;
+			} else {
+				spell.source.mp -= spell.cost;
+				if (hasAffinity) spell.source.limit += spell.cost;
+			}
+
+			spell.execute(spell.source, action.target);
+		} else if (action.type == START_OF_TURN_BUFF_ACTION) {
+			getBuff(action.buffName).executeStartOfTrun(action.source);
+		} else if (action.type == AI_CHOICE_ACTION) {
+			getAi(action.source.ai).execute(action.source);
+			var action = createAction();
+			action.type = END_TURN_ACTION;
+			action.source = action.source;
+		} else if (action.type == END_TURN_ACTION) {
+			nextTurn();
+			actionDone();
+		} else if (action.type == 0) {
+			msg("Invalid action");
+		}
+	}
+
 	rpg.units.forEach(function(unit) {
 		unit.hp = clamp(unit.hp, 0, unit.maxHp);
 		unit.mp = clamp(unit.mp, 0, unit.maxMp);
@@ -547,7 +277,11 @@ function updateRpgBattle() {
 
 		if (unit.hp == 0) unit.dead = true;
 
-		unit.statBox.x = unit.sprite.x + unit.sprite.width + 32;
+		if (unit.sprite.x + unit.sprite.width/2 < gameWidth/2) {
+			unit.statBox.x = unit.sprite.x + unit.sprite.width + 32;
+		} else {
+			unit.statBox.x = unit.sprite.x - unit.statBox.width - 32;
+		}
 		unit.statBox.y = unit.sprite.y;
 
 		unit.hpBar.tint = 0xFF00FF00;
@@ -557,8 +291,6 @@ function updateRpgBattle() {
 		unit.hpBar.scaleX = unit.hp / unit.maxHp;
 		unit.mpBar.scaleX = unit.mp / unit.maxMp;
 		unit.limitBar.scaleX = unit.limit / 100;
-
-		if (unit.statBox.x + unit.statBox.width > gameWidth) unit.statBox.x = unit.sprite.x - unit.statBox.width - 32;
 	});
 
 	if (rpg.currentUnit) {
@@ -568,11 +300,19 @@ function updateRpgBattle() {
 	}
 }
 
-function spellDone() {
-	rpg.currentSpell.doPartialDamage(rpg.currentSpell.target, 1-rpg.currentSpell.damagePercDone);
-	rpg.currentSpell = null;
+function actionDone() {
+	var action = rpg.currentAction;
+	if (!action) {
+		print("Called actionDone with no currentAction");
+		return;
+	}
+	if (action.type == CAST_ACTION) {
+		if (rpg.currentSpell.baseDamage != 0) {
+			rpg.currentSpell.doPartialDamage(action.target, 1-rpg.currentSpell.damagePercDone);
+		}
+	}
 
-	nextTurn();
+	rpg.currentAction = null;
 }
 
 function resetUnitPositions() {
@@ -586,10 +326,36 @@ function resetUnitPositions() {
 function startTurn() {
 	resetUnitPositions();
 
-	if (rpg.currentUnit.friendly) {
+	var buffs = getBuffs(rpg.currentUnit);
+	buffs.forEach(function(buff) {
+		var action = createAction();
+		action.type = START_OF_TURN_BUFF_ACTION;
+		action.buffName = buff.name;
+		action.source = rpg.currentUnit;
+	});
+
+	rpg.currentUnit.buffTrackers.forEach(function(buffTracker) {
+		if (buffTracker.remove) return;
+		buffTracker.turns--;
+		if (buffTracker.turns <= 0) removeBuff(buffTracker.name, rpg.currentUnit);
+	});
+
+	timer(0.5, takeTurn);
+}
+
+function takeTurn() {
+	if (rpg.currentUnit.skipsNextTurn) {
+		rpg.currentUnit.skipsNextTurn = false;
+		skip();
+		return;
+	}
+
+	if (rpg.currentUnit.ai == "none") {
 		showMenu();
 	} else {
-		getAi(rpg.currentUnit.ai).execute();
+		var action = createAction();
+		action.type = AI_CHOICE_ACTION;
+		action.source = rpg.currentUnit;
 	}
 }
 
@@ -650,7 +416,11 @@ function showMenu() {
 		unitChoices.forEach(function(unit) {
 			addChoice(unit.name, function() { 
 				clearChoices();
-				castSpell(rpg.currentSpell.name, unit);
+				castSpell(rpg.currentSpell.name, rpg.currentUnit, unit);
+
+				var action = createAction();
+				action.type = END_TURN_ACTION;
+				action.source = action.source;
 			});
 		});
 
@@ -665,30 +435,17 @@ function showMenu() {
 
 function skip() {
 	clearChoices();
-	timer(SMALL_DELAY, nextTurn);
+	var action = createAction();
+	action.type = END_TURN_ACTION;
+	action.source = rpg.currentUnit;
 }
 
-function castSpell(spellName, target) {
-	rpg.currentSpell = getSpell(spellName);
-	rpg.currentSpell.damagePercDone = 0;
-	rpg.currentSpell.target = target;
-	rpg.currentSpell.damage = rpg.currentSpell.baseDamage;
-
-	if (rpg.currentSpell.isAttack) {
-		rpg.currentSpell.damage += rpg.currentUnit.attack;
-		rpg.currentSpell.damage -= target.defence;
-	}
-
-	var hasAffinity = arrayContainsAny(rpg.currentUnit.affinities, rpg.currentSpell.affinities);
-
-	if (rpg.currentSpell.isAttack) {
-		if (hasAffinity) rpg.currentUnit.limit += rpg.currentSpell.damage;
-	} else {
-		rpg.currentUnit.mp -= rpg.currentSpell.cost;
-		if (hasAffinity) rpg.currentUnit.limit += rpg.currentSpell.cost;
-	}
-
-	rpg.currentSpell.execute(rpg.currentUnit, target);
+function castSpell(spellName, source, target) {
+	var action = createAction();
+	action.type = CAST_ACTION;
+	action.spellName = spellName;
+	action.source = source;
+	action.target = target;
 }
 
 function nextTurn() {
@@ -827,4 +584,23 @@ function updateBuffPosition(unit) {
 		buffTracker.icon.y = unit.limitBar.y + unit.limitBar.height;
 		xpos += buffTracker.icon.width;
 	});
+}
+
+function hasBuff(buffName, unit) {
+	var doesHave = false;
+	unit.buffTrackers.forEach(function(buffTracker) {
+		if (buffTracker.remove) return;
+		if (buffTracker.name == buffName) doesHave = true;
+	});
+
+		return doesHave;
+}
+
+function getRandomPlayer() {
+	var livingPlayers = [];
+	rpg.players.forEach(function(player) {
+		if (!player.dead) livingPlayers.push(player);
+	});
+
+	return livingPlayers[rndInt(0, livingPlayers.length-1)];
 }
