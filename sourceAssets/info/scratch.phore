@@ -21,7 +21,7 @@ addChoice("Load a mod", loadMod);
 [Cart Intro|cartIntro]
 [Wendy's Apartment|wendyApt]
 [LLL]
-[Change Mynt's genitals]
+[Change Mynt|Change Mynt's genitals]
 [Hub|thirstyCaves]
 [Red Pond|introModOriginal]
 [Background Test|backgroundTest]
