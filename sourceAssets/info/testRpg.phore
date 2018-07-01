@@ -24,7 +24,7 @@ fireball.execute = function(source, target) {
 	spr.y = targetSpr.y + targetSpr.height/2 - spr.height/2;
 	tween(spr, 1, {scaleX: 3, scaleY: 3, alpha: 0}, {onComplete: function() {
 		spr.destroy();
-		spellDone();
+		actionDone();
 	}});
 };
 
@@ -47,7 +47,7 @@ lightning.execute = function(source, target) {
 			lightning.doPartialDamage(target, 1/(strikes));
 			tween(spr, 0.5, {alpha: 0}, {onComplete: function() {
 				spr.destroy();
-				if (i == strikesArr.length-1) spellDone();
+				if (i == strikesArr.length-1) actionDone();
 			}});
 		});
 	});
@@ -68,7 +68,7 @@ gutPunch.execute = function(source, target) {
 	tween(sourceSpr, 1, {x: endX, y: endY}, {onComplete: function() {
 		tween(sourceSpr, 0.5, {x: targetSpr.x}, {ease: QUART_OUT, startDelay: 0.5, onComplete: function() {
 			gutPunch.doPartialDamage(target, 1);
-			tween(sourceSpr, 1.5, {x: source.originX, y: source.originY}, {ease: QUART_OUT, startDelay: 0.1, onComplete: spellDone});
+			tween(sourceSpr, 1.5, {x: source.originX, y: source.originY}, {ease: QUART_OUT, startDelay: 0.1, onComplete: actionDone});
 		}});
 	}});
 };
@@ -87,7 +87,7 @@ marked.execute = function(source, target) {
 
 	timer(2, function() {
 		applyBuff("Marked", target);
-		spellDone();
+		actionDone();
 	});
 };
 
@@ -109,7 +109,7 @@ heal.execute = function(source, target) {
 
 	timer(2, function() {
 		doDamage(target, -30);
-		spellDone();
+		actionDone();
 	});
 };
 
@@ -133,7 +133,7 @@ poison.execute = function(source, target) {
 			tween(spr, 1, {y: spr.y - rndFloat(20, 60), alpha: 0}, {onComplete: function() {
 				spr.destroy();
 				if (i == strikesArr.length-1) {
-					spellDone();
+					actionDone();
 					applyBuff("Poisoned", target);
 				}
 			}});
@@ -156,7 +156,7 @@ barrier.execute = function(source, target) {
 
 	timer(2, function() {
 		applyBuff("Sheilded", target);
-		spellDone();
+		actionDone();
 	});
 };
 
@@ -172,21 +172,23 @@ slam.execute = function(source, target) {
 
 	timer(2, function() {
 		applyBuff("Slammed", target);
-		spellDone();
+		actionDone();
 	});
 };
 
 /// AIs
 var skipperAi = createAi();
 skipperAi.name = "Skipper";
-skipperAi.execute = function() {
+skipperAi.execute = function(unit) {
 	skip();
+	actionDone();
 };
 
 var simpleAi = createAi();
 simpleAi.name = "Simple";
-simpleAi.execute = function() {
-	castSpell("Gut Punch", rpg.players[0]);
+simpleAi.execute = function(unit) {
+	castSpell("Gut Punch", unit, rpg.players[0]);
+	actionDone();
 };
 
 /// Buffs
@@ -214,7 +216,8 @@ poisoned.iconName = "Blood.png";
 poisoned.info = "Will take damage at the start of their turn";
 poisoned.lastingTurns = 2;
 poisoned.executeStartOfTrun = function(unit) {
-	doDamage(unit, 3);
+	doDamage(unit, 5);
+	actionDone();
 }
 
 var slammed = createBuff();

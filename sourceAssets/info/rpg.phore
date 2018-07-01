@@ -5,6 +5,11 @@ var SMALL_DELAY = 0.5;
 var MAGIC_DAMAGE = 1;
 var PHYSICAL_DAMAGE = 2;
 
+var CAST_ACTION = 3;
+var START_OF_TURN_BUFF_ACTION = 4;
+var AI_CHOICE_ACTION = 5;
+var END_TURN_ACTION = 6;
+
 function initRpgBattle() {
 	rpg = {
 		players: null,
@@ -14,9 +19,11 @@ function initRpgBattle() {
 		unitArrow: null,
 		currentUnit: null,
 		currentSpell: null,
+		currentAction: null,
 		spells: [],
 		buffs: [],
-		ais: []
+		ais: [],
+		actionList: []
 	};
 }
 
@@ -80,7 +87,7 @@ function createBuff() {
 		lastingTurns: 999,
 		executeDamaged: function(unit, damage) {
 			return damage;
-		}
+		},
 		executeStartOfTrun: function(unit) {
 			return false;
 		}
@@ -114,7 +121,8 @@ function createSpell() {
 		},
 		damage: 0,
 		damagePercDone: 0,
-		target: null,
+		source: null,
+		target: null
 	};
 
 	rpg.spells.push(spell);
@@ -132,6 +140,19 @@ function createAi() {
 
 	rpg.ais.push(ai);
 	return ai;
+}
+
+function createAction() {
+	var action = {
+		type: 0,
+		source: null,
+		target: null,
+		spellName: "none",
+		buffName: "none"
+	};
+
+	rpg.actionList.push(action);
+	return action;
 }
 
 function startRpgBattle(players, enemies) {
@@ -206,6 +227,49 @@ function startRpgBattle(players, enemies) {
 }
 
 function updateRpgBattle() {
+	if (!rpg.currentAction && rpg.actionList.length > 0) {
+		var action = rpg.actionList.shift();
+		rpg.currentAction = action;
+		print("Executing action "+action.type);
+
+		if (action.type == CAST_ACTION) {
+			var spell = getSpell(action.spellName);
+			rpg.currentSpell = spell;
+			spell.damagePercDone = 0;
+			spell.source = action.source;
+			spell.target = action.target;
+			spell.damage = spell.baseDamage;
+
+			if (spell.isAttack) {
+				spell.damage += spell.source.attack;
+				spell.damage -= spell.target.defence;
+			}
+
+			var hasAffinity = arrayContainsAny(spell.source.affinities, spell.affinities);
+
+			if (spell.isAttack) {
+				if (hasAffinity) spell.source.limit += spell.damage;
+			} else {
+				spell.source.mp -= spell.cost;
+				if (hasAffinity) spell.source.limit += spell.cost;
+			}
+
+			spell.execute(spell.source, action.target);
+		} else if (action.type == START_OF_TURN_BUFF_ACTION) {
+			getBuff(action.buffName).executeStartOfTrun(action.source);
+		} else if (action.type == AI_CHOICE_ACTION) {
+			getAi(action.source.ai).execute(action.source);
+			var action = createAction();
+			action.type = END_TURN_ACTION;
+			action.source = action.source;
+		} else if (action.type == END_TURN_ACTION) {
+			nextTurn();
+			actionDone();
+		} else if (action.type == 0) {
+			msg("Invalid action");
+		}
+	}
+
 	rpg.units.forEach(function(unit) {
 		unit.hp = clamp(unit.hp, 0, unit.maxHp);
 		unit.mp = clamp(unit.mp, 0, unit.maxMp);
@@ -234,14 +298,19 @@ function updateRpgBattle() {
 	}
 }
 
-function spellDone() {
-	if (rpg.currentSpell.baseDamage != 0) rpg.currentSpell.doPartialDamage(rpg.currentSpell.target, 1-rpg.currentSpell.damagePercDone);
-	rpg.currentSpell = null;
+function actionDone() {
+	var action = rpg.currentAction;
+	if (!action) {
+		print("Called actionDone with no currentAction");
+		return;
+	}
+	if (action.type == CAST_ACTION) {
+		if (rpg.currentSpell.baseDamage != 0) {
+			rpg.currentSpell.doPartialDamage(action.target, 1-rpg.currentSpell.damagePercDone);
+		}
+	}
 
-	nextTurn();
-}
-
-function buffDone() {
+	rpg.currentAction = null;
 }
 
 function resetUnitPositions() {
@@ -257,7 +326,10 @@ function startTurn() {
 
 	var buffs = getBuffs(rpg.currentUnit);
 	buffs.forEach(function(buff) {
-		buff.executeStartOfTrun(rpg.currentUnit);
+		var action = createAction();
+		action.type = START_OF_TURN_BUFF_ACTION;
+		action.buffName = buff.name;
+		action.source = rpg.currentUnit;
 	});
 
 	rpg.currentUnit.buffTrackers.forEach(function(buffTracker) {
@@ -279,7 +351,9 @@ function takeTurn() {
 	if (rpg.currentUnit.friendly) {
 		showMenu();
 	} else {
-		getAi(rpg.currentUnit.ai).execute();
+		var action = createAction();
+		action.type = AI_CHOICE_ACTION;
+		action.source = rpg.currentUnit;
 	}
 }
 
@@ -340,7 +414,11 @@ function showMenu() {
 		unitChoices.forEach(function(unit) {
 			addChoice(unit.name, function() { 
 				clearChoices();
-				castSpell(rpg.currentSpell.name, unit);
+				castSpell(rpg.currentSpell.name, rpg.currentUnit, unit);
+
+				var action = createAction();
+				action.type = END_TURN_ACTION;
+				action.source = action.source;
 			});
 		});
 
@@ -358,27 +436,12 @@ function skip() {
 	timer(SMALL_DELAY, nextTurn);
 }
 
-function castSpell(spellName, target) {
-	rpg.currentSpell = getSpell(spellName);
-	rpg.currentSpell.damagePercDone = 0;
-	rpg.currentSpell.target = target;
-	rpg.currentSpell.damage = rpg.currentSpell.baseDamage;
-
-	if (rpg.currentSpell.isAttack) {
-		rpg.currentSpell.damage += rpg.currentUnit.attack;
-		rpg.currentSpell.damage -= target.defence;
-	}
-
-	var hasAffinity = arrayContainsAny(rpg.currentUnit.affinities, rpg.currentSpell.affinities);
-
-	if (rpg.currentSpell.isAttack) {
-		if (hasAffinity) rpg.currentUnit.limit += rpg.currentSpell.damage;
-	} else {
-		rpg.currentUnit.mp -= rpg.currentSpell.cost;
-		if (hasAffinity) rpg.currentUnit.limit += rpg.currentSpell.cost;
-	}
-
-	rpg.currentSpell.execute(rpg.currentUnit, target);
+function castSpell(spellName, source, target) {
+	var action = createAction();
+	action.type = CAST_ACTION;
+	action.spellName = spellName;
+	action.source = source;
+	action.target = target;
 }
 
 function nextTurn() {
