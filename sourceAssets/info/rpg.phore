@@ -433,7 +433,9 @@ function showMenu() {
 
 function skip() {
 	clearChoices();
-	timer(SMALL_DELAY, nextTurn);
+	var action = createAction();
+	action.type = END_TURN_ACTION;
+	action.source = rpg.currentUnit;
 }
 
 function castSpell(spellName, source, target) {

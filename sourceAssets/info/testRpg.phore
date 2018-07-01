@@ -233,6 +233,16 @@ slammed.executeStartOfTrun = function(unit) {
 	}
 }
 
+var slammed = createBuff();
+slammed.name = "Slammed";
+slammed.iconName = "Gore.png";
+slammed.info = "Will lose their next trun";
+slammed.lastingTurns = 999;
+slammed.executeStartOfTrun = function(unit) {
+	removeBuff("Slammed", unit);
+	unit.skipsNextTurn = true;
+}
+
 /// Units
 var p1 = createUnit();
 p1.speed = 30;
