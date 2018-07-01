@@ -277,7 +277,11 @@ function updateRpgBattle() {
 
 		if (unit.hp == 0) unit.dead = true;
 
-		unit.statBox.x = unit.sprite.x + unit.sprite.width + 32;
+		if (unit.sprite.x + unit.sprite.width/2 < gameWidth/2) {
+			unit.statBox.x = unit.sprite.x + unit.sprite.width + 32;
+		} else {
+			unit.statBox.x = unit.sprite.x - unit.statBox.width - 32;
+		}
 		unit.statBox.y = unit.sprite.y;
 
 		unit.hpBar.tint = 0xFF00FF00;
@@ -287,8 +291,6 @@ function updateRpgBattle() {
 		unit.hpBar.scaleX = unit.hp / unit.maxHp;
 		unit.mpBar.scaleX = unit.mp / unit.maxMp;
 		unit.limitBar.scaleX = unit.limit / 100;
-
-		if (unit.statBox.x + unit.statBox.width > gameWidth) unit.statBox.x = unit.sprite.x - unit.statBox.width - 32;
 	});
 
 	if (rpg.currentUnit) {
