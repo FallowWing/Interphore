@@ -61,7 +61,7 @@ function createUnit() {
 		dead: false,
 		skipsNextTurn: false,
 		spellNames: [],
-		ai: "Skipper",
+		ai: "none",
 		buffTrackers: [],
 		affinities: [],
 		/// Temp:
@@ -348,7 +348,7 @@ function takeTurn() {
 		return;
 	}
 
-	if (rpg.currentUnit.friendly) {
+	if (rpg.currentUnit.ai == "none") {
 		showMenu();
 	} else {
 		var action = createAction();

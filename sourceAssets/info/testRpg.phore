@@ -191,6 +191,9 @@ simpleAi.execute = function(unit) {
 	actionDone();
 };
 
+// var stunner = createAi()
+
+
 /// Buffs
 var markedBuff = createBuff();
 markedBuff.name = "Marked";
@@ -220,17 +223,19 @@ poisoned.executeStartOfTrun = function(unit) {
 	actionDone();
 }
 
-var slammed = createBuff();
-slammed.name = "Slammed";
-slammed.iconName = "Gore.png";
-slammed.info = "Could lose their next turn";
-slammed.lastingTurns = 999;
-slammed.executeStartOfTrun = function(unit) {
-	removeBuff("Slammed", unit);
+var pushed = createBuff();
+pushed.name = "Pushed";
+pushed.iconName = "Gore.png";
+pushed.info = "Could lose their next turn";
+pushed.lastingTurns = 999;
+pushed.executeStartOfTrun = function(unit) {
+	removeBuff("Pushed", unit);
 
 	if (rnd() > 0.5) {
 		unit.skipsNextTurn = true;
 	}
+
+	actionDone();
 }
 
 var slammed = createBuff();
@@ -241,6 +246,7 @@ slammed.lastingTurns = 999;
 slammed.executeStartOfTrun = function(unit) {
 	removeBuff("Slammed", unit);
 	unit.skipsNextTurn = true;
+	actionDone();
 }
 
 /// Units
