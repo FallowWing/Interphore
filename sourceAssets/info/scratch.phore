@@ -162,15 +162,8 @@ addChoice("Enable", function() {
 Let's test some titles!
 !`
 addChoice("Go for it", function() {
-	queueTitle("Hm?");
-	queueTitle("Archie, is that you?");
-	queueTitle("Oh, no. He's still in Heaven.");
-	queueTitle("You must be the last of his following.");
-	queueTitle("Forgive me. Your beard... you just look a lot like him.");
-	queueTitle("We've been waiting for you so long, up here. I should know better.");
-	queueTitle("Let's see...");
-	queueTitle("Welcome to the Interphore.");
-	queueTitle("Describe your genitals to us.");
+	queueTitle("Hello");
+	queueTitle("Can you hear me?");
 });
 
 addChoice("Back", function() {
