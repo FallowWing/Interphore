@@ -373,9 +373,9 @@ addChoice("Basic rpg", function() {
 	execAsset("testRpg.phore");
 });
 
-addChoice("Magi demo", function() {
-	execAsset("magiDemo.phore");
-});
+// addChoice("Magi demo", function() {
+// 	execAsset("magiDemo.phore");
+// });
 `
 
 ---
