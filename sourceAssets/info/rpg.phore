@@ -20,6 +20,7 @@ function initRpgBattle() {
 		currentUnit: null,
 		currentSpell: null,
 		currentAction: null,
+		endAfterActions: false,
 		spells: [],
 		buffs: [],
 		ais: [],
@@ -259,9 +260,7 @@ function updateRpgBattle() {
 			getBuff(action.buffName).executeStartOfTrun(action.source);
 		} else if (action.type == AI_CHOICE_ACTION) {
 			getAi(action.source.ai).execute(action.source);
-			var action = createAction();
-			action.type = END_TURN_ACTION;
-			action.source = action.source;
+			rpg.endAfterActions = true;
 		} else if (action.type == END_TURN_ACTION) {
 			nextTurn();
 			actionDone();
@@ -313,6 +312,13 @@ function actionDone() {
 	}
 
 	rpg.currentAction = null;
+
+	if (rpg.endAfterActions) {
+		rpg.endAfterActions = false;
+		var action = createAction();
+		action.type = END_TURN_ACTION;
+		action.source = rpg.currentUnit;
+	}
 }
 
 function resetUnitPositions() {
@@ -417,10 +423,7 @@ function showMenu() {
 			addChoice(unit.name, function() { 
 				clearChoices();
 				castSpell(rpg.currentSpell.name, rpg.currentUnit, unit);
-
-				var action = createAction();
-				action.type = END_TURN_ACTION;
-				action.source = action.source;
+				rpg.endAfterActions = true;
 			});
 		});
 
