@@ -229,11 +229,41 @@ magicSpear.info = "The spell that \"Awear\" casts";
 magicSpear.baseDamage = 10;
 magicSpear.execute = function(source, target) {
 	stepTowards(source, target, function() {
+		var sourceSpr = source.sprite;
+		var targetSpr = target.sprite;
+		var targetCenterX = targetSpr.x + targetSpr.width/2;
+		var targetCenterY = targetSpr.y + targetSpr.height/2;
+
 		var shine = addRectImage(128, 128, 0xCCCCCC);
 		shine.centerPivot = true;
-		tween(shine, 2, {rotation: 360}, {onComplete: function() {
-			moveBack(source, actionDone);
+		shine.alpha = 0.5;
+		shine.x = sourceSpr.x + sourceSpr.width/2 - shine.width/2;
+		shine.y = sourceSpr.y + sourceSpr.height/2 - shine.height/2;
+		shine.x = lerp(0.2, shine.x, targetCenterX);
+		shine.y = lerp(0.2, shine.y, targetCenterY);
+
+		var shot = addRectImage(32, 32, 0xFFFFFF);
+		shot.centerPivot = true;
+		shot.x = shine.x + shine.width/2 - shot.width/2;
+		shot.y = shine.y + shine.height/2 - shot.height/2;
+
+		tween(shot, 2, {rotation: 360}, {type: LOOPING});
+		tween(shine, 2, {rotation: 360}, {type: LOOPING});
+
+		timer(0.5, function() {
+			moveBack(source);
+		});
+
+		tween(shot, 0.2, {x: targetCenterX - shot.width/2, y: targetCenterY - shot.height/2}, {startDelay: 1, onComplete: function() {
+			shot.destroy();
+			actionDone();
 		}});
+
+		timer(2, function() {
+			tween(shine, 1, {alpha: 0, scaleX: 0.5, scaleY: 0.5}, {onComplete: function() {
+				shine.destroy();
+			}});
+		});
 	});
 };
 
