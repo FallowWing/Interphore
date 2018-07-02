@@ -10,6 +10,26 @@ function stepTowards(source, target, onComplete, dur) {
 	tween(sourceSpr, dur, {x: lerp(0.2, sourceSpr.x, targetSpr.x), y: lerp(0.2, sourceSpr.y, targetSpr.y)}, {onComplete: onComplete});
 }
 
+function moveUpTo(source, target, onComplete, dur) {
+	if (dur == undefined) dur = 0.5;
+	var sourceSpr = source.sprite;
+	var targetSpr = target.sprite;
+
+	var endX = gameWidth/2 - sourceSpr.width/2;
+	var endY = gameHeight/2 - sourceSpr.height/2;
+	endX = lerp(0.85, endX, targetSpr.x);
+	endY = lerp(1, endY, targetSpr.y);
+
+	tween(sourceSpr, dur, {x: endX, y: endY}, {onComplete: onComplete});
+}
+
+function moveBack(source, onComplete, dur) {
+	if (dur == undefined) dur = 0.4;
+	var sourceSpr = source.sprite;
+
+	tween(sourceSpr, dur, {x: source.originX, y: source.originY}, {onComplete: onComplete});
+}
+
 function moveUnitInFrontOf(source, dest) {
 	var sourceSpr = source.sprite;
 	var destSpr = dest.sprite;
@@ -28,15 +48,15 @@ fireball.info = "Throws a fireball";
 fireball.baseDamage = 20;
 fireball.affinities = ["Fire"];
 fireball.execute = function(source, target) {
-	var targetSpr = target.sprite;
-
 	stepTowards(source, target, function() {
+		var targetSpr = target.sprite;
 		var spr = addRectImage(64, 64, 0xCC0000);
 		spr.x = targetSpr.x + targetSpr.width/2 - spr.width/2;
 		spr.y = targetSpr.y + targetSpr.height/2 - spr.height/2;
 		tween(spr, 1, {scaleX: 3, scaleY: 3, alpha: 0}, {onComplete: function() {
 			spr.destroy();
-			tween(source.sprite, 0.2, {x: source.originX, y: source.originY}, {onComplete: actionDone});
+			fireball.doPartialDamage(target, 1);
+			moveBack(source, actionDone);
 		}});
 	});
 };
@@ -46,26 +66,24 @@ lightning.name = "Lightning";
 lightning.info = "Hit an enemy with many lightning bolts";
 lightning.affinities = ["Electric"];
 lightning.execute = function(source, target) {
-	var targetSpr = target.sprite;
 
-	// stepTowards(source, target);
+	stepTowards(source, target, function() {
+		var targetSpr = target.sprite;
+		var strikes = 10;
+		var strikesArr = [];
+		for (var i = 0; i < strikes; i++) strikesArr.push(i);
+		strikesArr.forEach(function(i) {
 
-	var strikes = 10;
-	var strikesArr = [];
-	for (var i = 0; i < strikes; i++) strikesArr.push(i);
-	strikesArr.forEach(function(i) {
-
-		timer(i * 0.2, function() {
-			var spr = addRectImage(32, gameHeight, 0xFFFF00);
-			spr.x = targetSpr.x + targetSpr.width/2 - spr.width/2 + rndFloat(-50, 50);
-			spr.y = 0;
-			lightning.doPartialDamage(target, 1/(strikes));
-			tween(spr, 0.5, {alpha: 0}, {onComplete: function() {
-				spr.destroy();
-				if (i == strikesArr.length-1) {
-					tween(source.sprite, 0.2, {x: source.originX, y: source.originY}, {onComplete: actionDone});
-				}
-			}});
+			timer(i * 0.2, function() {
+				var spr = addRectImage(32, gameHeight, 0xFFFF00);
+				spr.x = targetSpr.x + targetSpr.width/2 - spr.width/2 + rndFloat(-50, 50);
+				spr.y = 0;
+				lightning.doPartialDamage(target, 1/(strikes));
+				tween(spr, 0.5, {alpha: 0}, {onComplete: function() {
+					spr.destroy();
+					if (i == strikesArr.length-1) moveBack(source, actionDone);
+				}});
+			});
 		});
 	});
 };
@@ -85,7 +103,7 @@ gutPunch.execute = function(source, target) {
 	tween(sourceSpr, 1, {x: endX, y: endY}, {onComplete: function() {
 		tween(sourceSpr, 0.5, {x: targetSpr.x}, {ease: QUART_OUT, startDelay: 0.5, onComplete: function() {
 			gutPunch.doPartialDamage(target, 1);
-			tween(sourceSpr, 1.5, {x: source.originX, y: source.originY}, {ease: QUART_OUT, startDelay: 0.1, onComplete: actionDone});
+			moveBack(source, actionDone);
 		}});
 	}});
 };
@@ -96,15 +114,11 @@ marked.info = "Mark an enemy to take more damage";
 marked.baseDamage = 0;
 marked.affinities = ["Raunch"];
 marked.execute = function(source, target) {
-	var sourceSpr = source.sprite;
-	var targetSpr = target.sprite;
-
-	sourceSpr.x = lerp(0.85, sourceSpr.x, targetSpr.x);
-	sourceSpr.y = lerp(1, sourceSpr.y, targetSpr.y);
-
-	timer(1, function() {
-		applyBuff("Marked", target);
-		actionDone();
+	moveUpTo(source, target, function() {
+		timer(1, function() {
+			applyBuff("Marked", target);
+			moveBack(source, actionDone);
+		});
 	});
 };
 
@@ -115,18 +129,11 @@ heal.baseDamage = 0;
 heal.targetsEnemies = false;
 heal.targetsAllies = true;
 heal.execute = function(source, target) {
-	var sourceSpr = source.sprite;
-	var targetSpr = target.sprite;
-
-	sourceSpr.x = gameWidth/2 - sourceSpr.width/2;
-	sourceSpr.y = gameHeight/2 - sourceSpr.height/2;
-
-	sourceSpr.x = lerp(0.85, sourceSpr.x, targetSpr.x);
-	sourceSpr.y = lerp(0.85, sourceSpr.y, targetSpr.y);
-
-	timer(2, function() {
-		doDamage(target, -30);
-		actionDone();
+	moveUpTo(source, target, function() {
+		timer(1, function() {
+			doDamage(target, -30);
+			moveBack(source, actionDone);
+		});
 	});
 };
 
@@ -135,25 +142,27 @@ poison.name = "Poison";
 poison.info = "Hits an enemy twice, then poisons them";
 poison.baseDamage = 6;
 poison.execute = function(source, target) {
-	var targetSpr = target.sprite;
+	stepTowards(source, target, function() {
+		var targetSpr = target.sprite;
 
-	var strikes = 2;
-	var strikesArr = [];
-	for (var i = 0; i < strikes; i++) strikesArr.push(i);
-	strikesArr.forEach(function(i) {
+		var strikes = 2;
+		var strikesArr = [];
+		for (var i = 0; i < strikes; i++) strikesArr.push(i);
+		strikesArr.forEach(function(i) {
 
-		timer(i * 0.75, function() {
-			var spr = addRectImage(32, 32, 0xAAAA00);
-			spr.x = targetSpr.x + targetSpr.width/2 - spr.width/2 + rndFloat(-50, 50);
-			spr.y = targetSpr.y + targetSpr.height/2 - spr.height/2 + rndFloat(-50, 50);
-			poison.doPartialDamage(target, 1/strikes);
-			tween(spr, 1, {y: spr.y - rndFloat(20, 60), alpha: 0}, {onComplete: function() {
-				spr.destroy();
-				if (i == strikesArr.length-1) {
-					actionDone();
-					applyBuff("Poisoned", target);
-				}
-			}});
+			timer(i * 0.75, function() {
+				var spr = addRectImage(32, 32, 0xAAAA00);
+				spr.x = targetSpr.x + targetSpr.width/2 - spr.width/2 + rndFloat(-50, 50);
+				spr.y = targetSpr.y + targetSpr.height/2 - spr.height/2 + rndFloat(-50, 50);
+				poison.doPartialDamage(target, 1/strikes);
+				tween(spr, 1, {y: spr.y - rndFloat(20, 60), alpha: 0}, {onComplete: function() {
+					spr.destroy();
+					if (i == strikesArr.length-1) {
+						moveBack(source, actionDone);
+						applyBuff("Poisoned", target);
+					}
+				}});
+			});
 		});
 	});
 };
@@ -165,15 +174,11 @@ barrier.baseDamage = 0;
 barrier.targetsAllies = true;
 barrier.targetsEnemies = false;
 barrier.execute = function(source, target) {
-	var sourceSpr = source.sprite;
-	var targetSpr = target.sprite;
-
-	sourceSpr.x = lerp(0.85, sourceSpr.x, targetSpr.x);
-	sourceSpr.y = lerp(1, sourceSpr.y, targetSpr.y);
-
-	timer(1, function() {
-		applyBuff("Sheilded", target);
-		actionDone();
+	moveUpTo(source, target, function() {
+		timer(1, function() {
+			applyBuff("Sheilded", target);
+			moveBack(source, actionDone);
+		});
 	});
 };
 
@@ -182,11 +187,11 @@ slam.name = "Slam";
 slam.info = "Makes an enemy lose their next turn";
 slam.baseDamage = 0;
 slam.execute = function(source, target) {
-	moveUnitInFrontOf(source, target);
-
-	timer(1, function() {
-		applyBuff("Slammed", target);
-		tween(source.sprite, 0.2, {x: source.originX, y: source.originY}, {onComplete: actionDone});
+	moveUpTo(source, target, function() {
+		timer(0.2, function() {
+			applyBuff("Slammed", target);
+			moveBack(source, actionDone);
+		});
 	});
 };
 
@@ -195,14 +200,11 @@ pushSpell.name = "Push";
 pushSpell.info = "Gives enemies a chance to lose their next turn";
 pushSpell.baseDamage = 0;
 pushSpell.execute = function(source, target) {
-	var sourceSpr = source.sprite;
-	var targetSpr = target.sprite;
-
-	moveUnitInFrontOf(source, target);
-
-	timer(1, function() {
-		applyBuff("Pushed", target);
-		actionDone();
+	moveUpTo(source, target, function() {
+		timer(0.2, function() {
+			applyBuff("Pushed", target);
+			moveBack(source, actionDone);
+		});
 	});
 };
 
@@ -213,14 +215,11 @@ openMind.baseDamage = 0;
 openMind.targetsEnemies = false;
 openMind.targetsAllies = true;
 openMind.execute = function(source, target) {
-	var sourceSpr = source.sprite;
-	var targetSpr = target.sprite;
-
-	moveUnitInFrontOf(source, target);
-
-	timer(1, function() {
-		applyBuff("Aware", target);
-		actionDone();
+	moveUpTo(source, target, function() {
+		timer(1, function() {
+			applyBuff("Aware", target);
+			moveBack(source, actionDone);
+		});
 	});
 };
 
