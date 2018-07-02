@@ -223,6 +223,20 @@ openMind.execute = function(source, target) {
 	});
 };
 
+var magicSpear = createSpell();
+magicSpear.name = "Magic Spear";
+magicSpear.info = "The spell that \"Awear\" casts";
+magicSpear.baseDamage = 10;
+magicSpear.execute = function(source, target) {
+	stepTowards(source, target, function() {
+		var shine = addRectImage(128, 128, 0xCCCCCC);
+		shine.centerPivot = true;
+		tween(shine, 2, {rotation: 360}, {onComplete: function() {
+			moveBack(source, actionDone);
+		}});
+	});
+};
+
 /// AIs
 var skipperAi = createAi();
 skipperAi.name = "Skipper";
@@ -315,7 +329,7 @@ aware.iconName = "Drugs.png";
 aware.info = "Has a high chance to counter";
 aware.lastingTurns = 3;
 aware.executeAttacked = function(unit, spell) {
-	castSpell("Gut Punch", unit, spell.source);
+	if (rnd() > 0.5) castSpell("Magic Spear", unit, spell.source);
 }
 
 /// Units

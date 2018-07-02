@@ -135,7 +135,7 @@ void initGame() {
 	addJsFunction("addRectImage_internal", addRectImage, 3);
 	addJsFunction("add9SliceImage_internal", add9SliceImage, 7);
 	addJsFunction("addEmptyImage_internal", addEmptyImage, 2);
-	addJsFunction("setImageProps", setImageProps, 10);
+	addJsFunction("setImageProps", setImageProps, 11);
 	addJsFunction("setImageText_internal", setImageText, 2);
 	addJsFunction("getImageSize", getImageSize, 2);
 	addJsFunction("getTextSize", getTextSize, 2);
@@ -737,16 +737,17 @@ duk_ret_t addEmptyImage(duk_context *ctx) {
 }
 
 duk_ret_t setImageProps(duk_context *ctx) {
-	int smoothing = duk_get_boolean(ctx, -1);
-	int layer = duk_get_int(ctx, -2);
-	int tint = duk_get_uint(ctx, -3);
-	double rotation = duk_get_number(ctx, -4);
-	double alpha = duk_get_number(ctx, -5);
-	double scaleY = duk_get_number(ctx, -6);
-	double scaleX = duk_get_number(ctx, -7);
-	double y = duk_get_number(ctx, -8);
-	double x = duk_get_number(ctx, -9);
-	int id = duk_get_number(ctx, -10);
+	int centerPivot = duk_get_boolean(ctx, -1);
+	int smoothing = duk_get_boolean(ctx, -2);
+	int layer = duk_get_int(ctx, -3);
+	int tint = duk_get_uint(ctx, -4);
+	double rotation = duk_get_number(ctx, -5);
+	double alpha = duk_get_number(ctx, -6);
+	double scaleY = duk_get_number(ctx, -7);
+	double scaleX = duk_get_number(ctx, -8);
+	double y = duk_get_number(ctx, -9);
+	double x = duk_get_number(ctx, -10);
+	int id = duk_get_number(ctx, -11);
 
 	MintSprite *img = game->images[id];
 	if (!img) return 0;
@@ -760,6 +761,7 @@ duk_ret_t setImageProps(duk_context *ctx) {
 	img->tint = tint;
 	img->layer = layer;
 	img->smoothing = smoothing;
+	img->centerPivot = centerPivot;
 
 	return 0;
 }

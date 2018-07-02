@@ -109,6 +109,7 @@ function newImage() {
 		scaleX: 1,
 		scaleY: 1,
 		smoothing: false,
+		centerPivot: false,
 
 		text: "", //@cleanup Consider removing this
 		textWidth: 0,
@@ -1004,7 +1005,7 @@ function realUpdate() {
 			}
 		}
 
-		setImageProps(img.id, img.x, img.y, img.scaleX, img.scaleY, img.alpha, img.rotation, img.tint, img.layer, img.smoothing);
+		setImageProps(img.id, img.x, img.y, img.scaleX, img.scaleY, img.alpha, img.rotation, img.tint, img.layer, img.smoothing, img.centerPivot);
 	});
 
 	/// Audios
