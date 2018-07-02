@@ -2,12 +2,23 @@ execAsset("rpg.phore");
 
 initRpgBattle();
 
-function moveSpriteInFrontOf(source, dest) {
-	source.x = gameWidth/2 - source.width/2;
-	source.y = gameHeight/2 - source.height/2;
+function stepTowards(source, target, onComplete, dur) {
+	if (dur == undefined) dur = 0.2;
+	var sourceSpr = source.sprite;
+	var targetSpr = target.sprite;
 
-	source.x = lerp(0.85, source.x, dest.x);
-	source.y = lerp(1, source.y, dest.y);
+	tween(sourceSpr, dur, {x: lerp(0.2, sourceSpr.x, targetSpr.x), y: lerp(0.2, sourceSpr.y, targetSpr.y)}, {onComplete: onComplete});
+}
+
+function moveUnitInFrontOf(source, dest) {
+	var sourceSpr = source.sprite;
+	var destSpr = dest.sprite;
+
+	sourceSpr.x = gameWidth/2 - sourceSpr.width/2;
+	sourceSpr.y = gameHeight/2 - sourceSpr.height/2;
+
+	sourceSpr.x = lerp(0.85, sourceSpr.x, destSpr.x);
+	sourceSpr.y = lerp(1, sourceSpr.y, destSpr.y);
 }
 
 /// Spells
@@ -19,13 +30,15 @@ fireball.affinities = ["Fire"];
 fireball.execute = function(source, target) {
 	var targetSpr = target.sprite;
 
-	var spr = addRectImage(64, 64, 0xCC0000);
-	spr.x = targetSpr.x + targetSpr.width/2 - spr.width/2;
-	spr.y = targetSpr.y + targetSpr.height/2 - spr.height/2;
-	tween(spr, 1, {scaleX: 3, scaleY: 3, alpha: 0}, {onComplete: function() {
-		spr.destroy();
-		actionDone();
-	}});
+	stepTowards(source, target, function() {
+		var spr = addRectImage(64, 64, 0xCC0000);
+		spr.x = targetSpr.x + targetSpr.width/2 - spr.width/2;
+		spr.y = targetSpr.y + targetSpr.height/2 - spr.height/2;
+		tween(spr, 1, {scaleX: 3, scaleY: 3, alpha: 0}, {onComplete: function() {
+			spr.destroy();
+			tween(source.sprite, 0.2, {x: source.originX, y: source.originY}, {onComplete: actionDone});
+		}});
+	});
 };
 
 var lightning = createSpell();
@@ -34,6 +47,8 @@ lightning.info = "Hit an enemy with many lightning bolts";
 lightning.affinities = ["Electric"];
 lightning.execute = function(source, target) {
 	var targetSpr = target.sprite;
+
+	// stepTowards(source, target);
 
 	var strikes = 10;
 	var strikesArr = [];
@@ -47,7 +62,9 @@ lightning.execute = function(source, target) {
 			lightning.doPartialDamage(target, 1/(strikes));
 			tween(spr, 0.5, {alpha: 0}, {onComplete: function() {
 				spr.destroy();
-				if (i == strikesArr.length-1) actionDone();
+				if (i == strikesArr.length-1) {
+					tween(source.sprite, 0.2, {x: source.originX, y: source.originY}, {onComplete: actionDone});
+				}
 			}});
 		});
 	});
@@ -85,7 +102,7 @@ marked.execute = function(source, target) {
 	sourceSpr.x = lerp(0.85, sourceSpr.x, targetSpr.x);
 	sourceSpr.y = lerp(1, sourceSpr.y, targetSpr.y);
 
-	timer(2, function() {
+	timer(1, function() {
 		applyBuff("Marked", target);
 		actionDone();
 	});
@@ -154,7 +171,7 @@ barrier.execute = function(source, target) {
 	sourceSpr.x = lerp(0.85, sourceSpr.x, targetSpr.x);
 	sourceSpr.y = lerp(1, sourceSpr.y, targetSpr.y);
 
-	timer(2, function() {
+	timer(1, function() {
 		applyBuff("Sheilded", target);
 		actionDone();
 	});
@@ -165,29 +182,44 @@ slam.name = "Slam";
 slam.info = "Makes an enemy lose their next turn";
 slam.baseDamage = 0;
 slam.execute = function(source, target) {
-	var sourceSpr = source.sprite;
-	var targetSpr = target.sprite;
+	moveUnitInFrontOf(source, target);
 
-	moveSpriteInFrontOf(sourceSpr, targetSpr);
-
-	timer(2, function() {
+	timer(1, function() {
 		applyBuff("Slammed", target);
-		actionDone();
+		tween(source.sprite, 0.2, {x: source.originX, y: source.originY}, {onComplete: actionDone});
 	});
 };
 
 var pushSpell = createSpell();
 pushSpell.name = "Push";
-pushSpell.info = "Gives enemies a chance to lose their next turn.";
+pushSpell.info = "Gives enemies a chance to lose their next turn";
 pushSpell.baseDamage = 0;
 pushSpell.execute = function(source, target) {
 	var sourceSpr = source.sprite;
 	var targetSpr = target.sprite;
 
-	moveSpriteInFrontOf(sourceSpr, targetSpr);
+	moveUnitInFrontOf(source, target);
 
-	timer(2, function() {
+	timer(1, function() {
 		applyBuff("Pushed", target);
+		actionDone();
+	});
+};
+
+var openMind = createSpell();
+openMind.name = "Open Mind";
+openMind.info = "Gives an ally a high chance to counter attacks";
+openMind.baseDamage = 0;
+openMind.targetsEnemies = false;
+openMind.targetsAllies = true;
+openMind.execute = function(source, target) {
+	var sourceSpr = source.sprite;
+	var targetSpr = target.sprite;
+
+	moveUnitInFrontOf(source, target);
+
+	timer(1, function() {
+		applyBuff("Aware", target);
 		actionDone();
 	});
 };
@@ -228,7 +260,7 @@ var markedBuff = createBuff();
 markedBuff.name = "Marked";
 markedBuff.iconName = "Snuff.png";
 markedBuff.info = "Will take double damage from the next attack";
-markedBuff.executeDamaged = function(unit, damage) {
+markedBuff.executeDamaged = function(unit, damage, spell) {
 	removeBuff("Marked", unit);
 	return damage*2;
 }
@@ -237,7 +269,7 @@ var shielded = createBuff();
 shielded.name = "Sheilded";
 shielded.iconName = "Love.png";
 shielded.info = "Will take half damage from the next attack";
-shielded.executeDamaged = function(unit, damage) {
+shielded.executeDamaged = function(unit, damage, spell) {
 	removeBuff("Sheilded", unit);
 	return damage*0.5;
 }
@@ -278,6 +310,15 @@ slammed.executeStartOfTrun = function(unit) {
 	actionDone();
 }
 
+var aware = createBuff();
+aware.name = "Aware";
+aware.iconName = "Drugs.png";
+aware.info = "Has a high chance to counter";
+aware.lastingTurns = 3;
+aware.executeAttacked = function(unit, spell) {
+	castSpell("Gut Punch", unit, spell.source);
+}
+
 /// Units
 var p1 = createUnit();
 p1.speed = 30;
@@ -298,7 +339,8 @@ p2.spellNames = [
 	"Gut Punch",
 	"Lightning",
 	"Poison",
-	"Heal"
+	"Heal",
+	"Open Mind"
 ];
 p2.affinities = ["Electric"];
 

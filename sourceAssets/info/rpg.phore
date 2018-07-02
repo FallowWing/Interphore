@@ -86,8 +86,10 @@ function createBuff() {
 		iconName: "Abuse.png",
 		info: "No info",
 		lastingTurns: 999,
-		executeDamaged: function(unit, damage) {
+		executeDamaged: function(unit, damage, spell) {
 			return damage;
+		},
+		executeAttacked: function(unit, spell) {
 		},
 		executeStartOfTrun: function(unit) {
 			actionDone();
@@ -231,9 +233,10 @@ function updateRpgBattle() {
 	if (!rpg.currentAction && rpg.actionList.length > 0) {
 		var action = rpg.actionList.shift();
 		rpg.currentAction = action;
-		print("Executing action "+action.type);
 
 		if (action.type == CAST_ACTION) {
+			print(action.source.name+" is casting "+action.spellName+" on "+action.target.name);
+
 			var spell = getSpell(action.spellName);
 			rpg.currentSpell = spell;
 			spell.damagePercDone = 0;
@@ -256,12 +259,21 @@ function updateRpgBattle() {
 			}
 
 			spell.execute(spell.source, action.target);
+
+			var buffs = getBuffs(action.target);
+			buffs.forEach(function(buff) {
+				buff.executeAttacked(spell.target, spell);
+			});
+
 		} else if (action.type == START_OF_TURN_BUFF_ACTION) {
+			print("Start turn buff "+action.buffName+" procing on "+action.source.name);
 			getBuff(action.buffName).executeStartOfTrun(action.source);
 		} else if (action.type == AI_CHOICE_ACTION) {
+			print(action.source.name+" taking AI turn with "+action.source.ai);
 			getAi(action.source.ai).execute(action.source);
 			rpg.endAfterActions = true;
 		} else if (action.type == END_TURN_ACTION) {
+			print(action.source.name+" ending turn");
 			nextTurn();
 			actionDone();
 		} else if (action.type == 0) {
@@ -307,6 +319,7 @@ function actionDone() {
 	}
 	if (action.type == CAST_ACTION) {
 		if (rpg.currentSpell.baseDamage != 0) {
+			// print("Spell "+rpg.currentSpell.name+" only did "+rpg.currentSpell.damagePercDone+" so we'll do the rest of: "+rpg.currentSpell.damage+" perc of: "+ (1-rpg.currentSpell.damagePercDone));
 			rpg.currentSpell.doPartialDamage(action.target, 1-rpg.currentSpell.damagePercDone);
 		}
 	}
@@ -474,7 +487,7 @@ function nextTurn() {
 function doDamage(unit, amount) {
 	var buffs = getBuffs(unit);
 	buffs.forEach(function(buff) {
-		amount = buff.executeDamaged(unit, amount);
+		amount = buff.executeDamaged(unit, amount, rpg.currentSpell);
 	});
 
 	unit.hp -= amount;
@@ -505,7 +518,7 @@ function getSpell(spellName) {
 		}
 	});
 
-	return retSpell;
+	return Object.assign(retSpell);
 }
 
 function getAi(aiName) {
