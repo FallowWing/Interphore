@@ -10,6 +10,10 @@ var START_OF_TURN_BUFF_ACTION = 4;
 var AI_CHOICE_ACTION = 5;
 var END_TURN_ACTION = 6;
 
+var ATTACK_PICKED = 7;
+var MAGIC_PICKED = 8;
+var ITEM_PICKED = 9;
+
 function initRpgBattle() {
 	rpg = {
 		players: null,
@@ -21,6 +25,7 @@ function initRpgBattle() {
 		currentSpell: null,
 		currentAction: null,
 		endAfterActions: false,
+		pickedType: 0,
 		spells: [],
 		buffs: [],
 		ais: [],
@@ -151,7 +156,8 @@ function createAction() {
 		source: null,
 		target: null,
 		spellName: "none",
-		buffName: "none"
+		buffName: "none",
+		usedAsItem: false
 	};
 
 	rpg.actionList.push(action);
@@ -257,6 +263,8 @@ function updateRpgBattle() {
 				spell.source.mp -= spell.cost;
 				if (hasAffinity) spell.source.limit += spell.cost;
 			}
+
+			if (action.usedAsItem) arrayForceRemove(spell.source.itemNames, spell.name);
 
 			spell.execute(spell.source, action.target);
 
@@ -381,14 +389,30 @@ function takeTurn() {
 function showMenu() {
 	clearChoices();
 
-	var chooseAttack = function() {
+	var listChoices = function(onChoose) {
 		clearChoices();
-		rpg.currentUnit.spellNames.forEach(function(spellName) {
+		var arrayToSearch = rpg.currentUnit.spellNames;
+		if (rpg.pickedType == ITEM_PICKED) arrayToSearch = rpg.currentUnit.itemNames;
+		var seen = [];
+
+		arrayToSearch.forEach(function(spellName) {
 			var spell = getSpell(spellName);
-			if (!spell.isAttack) return;
-			var magicChoice = addChoice(spellName, function() {
+
+			if (rpg.pickedType == ITEM_PICKED) {
+				if (arrayContains(seen, spellName)) return;
+				seen.push(spellName);
+			}
+
+			if (rpg.pickedType == ATTACK_PICKED && !spell.isAttack) return;
+			if (rpg.pickedType == MAGIC_PICKED && spell.isAttack) return;
+
+			var buttonText = spellName;
+			if (rpg.pickedType == MAGIC_PICKED) buttonText += "\n"+spell.cost+"mp";
+			if (rpg.pickedType == ITEM_PICKED) buttonText += "\nx"+arrayCount(arrayToSearch, spellName);
+
+			var magicChoice = addChoice(buttonText, function() {
 				rpg.currentSpell = spell;
-				chooseTarget();
+				onChoose();
 			});
 
 			magicChoice.sprite.whileHovering = function() {
@@ -399,23 +423,19 @@ function showMenu() {
 		addChoice("Go back", showMenu);
 	}
 
+	var chooseAttack = function() {
+		rpg.pickedType = ATTACK_PICKED;
+		listChoices(chooseTarget);
+	}
+
 	var chooseMagic = function() {
-		clearChoices();
-		rpg.currentUnit.spellNames.forEach(function(spellName) {
-			var spell = getSpell(spellName);
-			if (spell.isAttack) return;
-			var magicChoice = addChoice(spellName + "\n" + spell.cost + "mp", function() {
-				rpg.currentSpell = spell;
-				chooseTarget();
-			});
+		rpg.pickedType = MAGIC_PICKED;
+		listChoices(chooseTarget);
+	}
 
-			if (spell.cost > rpg.currentUnit.mp) magicChoice.enabled = false;
-			magicChoice.sprite.whileHovering = function() {
-				showTooltip(spell.info);
-			}
-		});
-
-		addChoice("Go back", showMenu);
+	var chooseItem = function() {
+		rpg.pickedType = ITEM_PICKED;
+		listChoices(chooseTarget);
 	}
 
 	var chooseTarget = function() {
@@ -435,7 +455,8 @@ function showMenu() {
 		unitChoices.forEach(function(unit) {
 			addChoice(unit.name, function() { 
 				clearChoices();
-				castSpell(rpg.currentSpell.name, rpg.currentUnit, unit);
+				var action = castSpell(rpg.currentSpell.name, rpg.currentUnit, unit);
+				action.usedAsItem = true;
 				rpg.endAfterActions = true;
 			});
 		});
@@ -444,8 +465,8 @@ function showMenu() {
 	}
 
 	addChoice("Attack", chooseAttack);
-	// addChoice("Item", item);
 	addChoice("Magic", chooseMagic);
+	addChoice("Item", chooseItem);
 	addChoice("Skip", skip);
 }
 
@@ -462,6 +483,7 @@ function castSpell(spellName, source, target) {
 	action.spellName = spellName;
 	action.source = source;
 	action.target = target;
+	return action;
 }
 
 function nextTurn() {

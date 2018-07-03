@@ -1,6 +1,20 @@
+function arrayContains(arr, ele) {
+	var index = arr.indexOf(ele);
+	return index != -1;
+}
+
 function arrayRemove(arr, ele) {
 	var index = arr.indexOf(ele);
 	if (index != -1) arr.splice(index, 1);
+}
+
+function arrayCount(arr, ele) {
+	var count = 0;
+	arr.forEach(function(element) {
+		if (element == ele) count++;
+	});
+
+	return count;
 }
 
 function arrayForceRemove(arr, ele) {

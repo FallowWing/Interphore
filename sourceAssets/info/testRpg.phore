@@ -373,6 +373,10 @@ p1.spellNames = [
 	"Barrier",
 	"Slam"
 ];
+p1.itemNames = [
+	"Heal",
+	"Heal"
+];
 p1.affinities = ["Fire"];
 
 var p2 = createUnit();
@@ -385,21 +389,25 @@ p2.spellNames = [
 	"Heal",
 	"Open Mind"
 ];
+p2.itemNames = [
+	"Heal",
+	"Heal"
+];
 p2.affinities = ["Electric"];
 
 var enemy1 = createUnit();
 enemy1.name = "enemy 1";
-enemy1.ai = "Stunner";
+enemy1.ai = "Simple";
 enemy1.speed = 10;
 
 var enemy2 = createUnit();
 enemy2.name = "enemy 2";
-enemy2.ai = "Stunner";
+enemy2.ai = "Simple";
 enemy2.speed = 15;
 
 var enemy3 = createUnit();
 enemy3.name = "enemy 3";
-enemy3.ai = "Stunner";
+enemy3.ai = "Simple";
 enemy3.speed = 20;
 
 startRpgBattle([p1, p2], [enemy1, enemy2, enemy3]);
