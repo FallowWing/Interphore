@@ -200,6 +200,7 @@ function startRpgBattle(players, enemies, whenDone) {
 
 	rpg.units.forEach(function(unit) {
 		unit.sprite = addRectImage(64, 128, 0xFFFFFF);
+		unit.sprite.centerPivot = true;
 
 		unit.statBox = addEmptyImage(128, 64);
 
@@ -241,6 +242,10 @@ function startRpgBattle(players, enemies, whenDone) {
 	tempUpdateFunctions.push(updateRpgBattle);
 
 	rpg.turnIndex = -1;
+
+	rpg.units.forEach(function(unit) {
+		resetUnitPosition(unit);
+	});
 	nextTurn();
 }
 
@@ -304,8 +309,6 @@ function updateRpgBattle() {
 		unit.mp = clamp(unit.mp, 0, unit.maxMp);
 		unit.limit = clamp(unit.limit, 0, 100);
 
-		if (unit.hp == 0) unit.dead = true;
-
 		if (unit.sprite.x + unit.sprite.width/2 < gameWidth/2) {
 			unit.statBox.x = unit.sprite.x + unit.sprite.width + 32;
 		} else {
@@ -352,17 +355,12 @@ function actionDone() {
 	}
 }
 
-function resetUnitPositions() {
-	rpg.units.forEach(function(unit) {
-		unit.sprite.rotation = unit.dead ? 90 : 0;
-		unit.sprite.x = unit.originX;
-		unit.sprite.y = unit.originY;
-	});
+function resetUnitPosition(unit) {
+	unit.sprite.x = unit.originX;
+	unit.sprite.y = unit.originY;
 }
 
 function startTurn() {
-	resetUnitPositions();
-
 	var buffs = getBuffs(rpg.currentUnit);
 	buffs.forEach(function(buff) {
 		var action = createAction();
@@ -546,6 +544,10 @@ function doDamage(unit, amount) {
 	});
 
 	unit.hp -= amount;
+	if (unit.hp <= 0) {
+		unit.dead = true;
+		tween(unit.sprite, 0.5, {rotation: 90});
+	}
 
 	var tf = addEmptyImage(128, 128);
 	tf.tint = amount > 0 ? 0xFFFF0000 : 0xFF00FF00;
