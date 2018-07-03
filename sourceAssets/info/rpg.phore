@@ -47,7 +47,7 @@ function deinitRpgBattle(won) {
 		unit.limitBar = null;
 
 		unit.buffTrackers.forEach(function(buffTracker) {
-			buffTrackers.icon = null;
+			buffTracker.icon = null;
 		});
 	});
 
