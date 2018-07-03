@@ -453,9 +453,11 @@ function showMenu() {
 
 		var unitChoices = [];
 		rpg.units.forEach(function(unit) {
-			if ((rpg.currentSpell.targetsAllies && unit.friendly) || (rpg.currentSpell.targetsEnemies && !unit.friendly) || (rpg.currentSpell.targetsDead && unit.dead)) {
-				unitChoices.push(unit);
-			}
+			var addUnit = true;
+			if (unit.dead && !rpg.currentSpell.targetsDead) addUnit = false;
+			if (unit.friendly && !rpg.currentSpell.targetsAllies) addUnit = false;
+			if (!unit.friendly && !rpg.currentSpell.targetsEnemies) addUnit = false;
+			if (addUnit) unitChoices.push(unit);
 		});
 
 		unitChoices.sort(function(a, b) {
