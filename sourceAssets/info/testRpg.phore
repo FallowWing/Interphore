@@ -2,6 +2,11 @@ execAsset("rpg.phore");
 
 initRpgBattle();
 
+function centerSpriteOnSprite(stays, moves) {
+	moves.x = stays.x + stays.width/2 - moves.width/2;
+	moves.y = stays.y + stays.height/2 - moves.height/2;
+}
+
 function stepTowards(source, target, onComplete, dur) {
 	if (dur == undefined) dur = 0.2;
 	var sourceSpr = source.sprite;
@@ -267,6 +272,40 @@ magicSpear.execute = function(source, target) {
 	});
 };
 
+var healthPotion = createSpell();
+healthPotion.name = "Health Potion";
+healthPotion.info = "Heal an ally";
+healthPotion.baseDamage = 0;
+healthPotion.targetsEnemies = false;
+healthPotion.targetsAllies = true;
+healthPotion.execute = function(source, target) {
+	moveUpTo(source, target, function() {
+		var vial = addRectImage(16, 32, 0x700000);
+		vial.centerPivot = true;
+		centerSpriteOnSprite(source.sprite, vial);
+
+		var targetSpr = target.sprite;
+		tween(vial, 1.5, {rotation: 360}, {type: LOOPING});
+		tween(vial, 0.5, {y: vial.y - 40}, {type: PINGPONG_ONCE});
+		tween(vial, 1, {x: targetSpr.x + targetSpr.width/2 - vial.width/2}, {onComplete: function() {
+			vial.destroy();
+			actionDone();
+
+			var splash = addRectImage(32, 32, 0xBB0000);
+			centerSpriteOnSprite(targetSpr, splash);
+			tween(splash, 1, {alpha: 0, scaleX: 1.3, scaleY: 1.3}, {onComplete: function() {
+				splash.destroy();
+			}});
+		}});
+
+		timer(1, function() {
+			doDamage(target, -30);
+			moveBack(source, actionDone);
+		});
+
+	});
+};
+
 /// AIs
 var skipperAi = createAi();
 skipperAi.name = "Skipper";
@@ -374,8 +413,8 @@ p1.spellNames = [
 	"Slam"
 ];
 p1.itemNames = [
-	"Heal",
-	"Heal"
+	"Health Potion",
+	"Health Potion"
 ];
 p1.affinities = ["Fire"];
 players.push(p1);
@@ -391,8 +430,8 @@ p2.spellNames = [
 	"Open Mind"
 ];
 p2.itemNames = [
-	"Heal",
-	"Heal"
+	"Health Potion",
+	"Health Potion"
 ];
 p2.affinities = ["Electric"];
 players.push(p2);

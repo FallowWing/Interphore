@@ -107,6 +107,7 @@ var CENTERED = 7;
 
 var LOOPING = 8;
 var PINGPONG = 9;
+var PINGPONG_ONCE = 10;
 
 function newImage() {
 	var img;
@@ -924,6 +925,10 @@ function realUpdate() {
 			} else if (tw.config.type == PINGPONG) {
 				tw.elapsed = 0;
 				tw.config.reversed = !tw.config.reversed;
+			} else if (tw.config.type == PINGPONG_ONCE) {
+				tw.elapsed = 0;
+				tw.config.reversed = !tw.config.reversed;
+				tw.config.type = null;
 			} else {
 				if (tw.config.onComplete) tw.config.onComplete();
 				tweensToRemove.push(tw);
