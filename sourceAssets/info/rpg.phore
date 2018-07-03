@@ -123,6 +123,7 @@ function createSpell() {
 		targetsAllies: false,
 		targetsEnemies: true,
 		targetsDead: false,
+		targetsNone: false,
 		isAttack: false,
 		affinities: [],
 		doPartialDamage: function(target, perc) {
@@ -273,7 +274,7 @@ function updateRpgBattle() {
 
 			if (spell.isAttack) {
 				if (hasAffinity) spell.source.limit += spell.damage;
-			} else {
+			} else if (!action.usedAsItem) { // Must be magic
 				spell.source.mp -= spell.cost;
 				if (hasAffinity) spell.source.limit += spell.cost;
 			}
@@ -449,6 +450,13 @@ function showMenu() {
 	var chooseTarget = function() {
 		clearChoices();
 
+		if (rpg.currentSpell.targetsNone) {
+			var action = castSpell(rpg.currentSpell.name, rpg.currentUnit, rpg.units[0]);
+			if (rpg.pickedType == ITEM_PICKED) action.usedAsItem = true;
+			rpg.endAfterActions = true;
+			return;
+		}
+
 		var unitChoices = [];
 		rpg.units.forEach(function(unit) {
 			var addUnit = true;
@@ -466,7 +474,7 @@ function showMenu() {
 			addChoice(unit.name, function() { 
 				clearChoices();
 				var action = castSpell(rpg.currentSpell.name, rpg.currentUnit, unit);
-				action.usedAsItem = true;
+				if (rpg.pickedType == ITEM_PICKED) action.usedAsItem = true;
 				rpg.endAfterActions = true;
 			});
 		});
@@ -657,6 +665,10 @@ function updateBuffPosition(unit) {
 		buffTracker.icon.y = unit.limitBar.y + unit.limitBar.height;
 		xpos += buffTracker.icon.width;
 	});
+}
+
+function giveItem(itemName, unit) {
+	unit.itemNames.push(itemName);
 }
 
 function hasBuff(buffName, unit) {

@@ -136,7 +136,7 @@ heal.targetsAllies = true;
 heal.execute = function(source, target) {
 	moveUpTo(source, target, function() {
 		timer(1, function() {
-			doDamage(target, -30);
+			doDamage(target, -10);
 			moveBack(source, actionDone);
 		});
 	});
@@ -306,6 +306,30 @@ healthPotion.execute = function(source, target) {
 	});
 };
 
+var dream = createSpell();
+dream.name = "Dream";
+dream.info = "Think about why you're here right now";
+dream.baseDamage = 0;
+dream.targetsNone = true;
+dream.execute = function(source, target) {
+	msg("You can feel the empty space in your inventory get smaller and smaller!");
+	timer(2, actionDone);
+	giveItem("Last Dream", source);
+};
+
+var lastDream = createSpell();
+lastDream.name = "Last Dream";
+lastDream.info = "The goal of \"Determination.\"";
+lastDream.baseDamage = 0;
+lastDream.targetsEnemies = false;
+lastDream.targetsAllies = true;
+lastDream.execute = function(source, target) {
+	moveUpTo(source, target, function() {
+		doDamage(target, -30);
+		moveBack(source, actionDone);
+	});
+};
+
 /// AIs
 var skipperAi = createAi();
 skipperAi.name = "Skipper";
@@ -427,7 +451,8 @@ p2.spellNames = [
 	"Lightning",
 	"Poison",
 	"Heal",
-	"Open Mind"
+	"Open Mind",
+	"Dream"
 ];
 p2.itemNames = [
 	"Health Potion",
