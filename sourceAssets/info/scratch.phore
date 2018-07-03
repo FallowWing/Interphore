@@ -175,6 +175,7 @@ addChoice("Back", function() {
 streamAsset("coin.png", "https://i.imgur.com/mmt2kcc.png");
 streamAsset("test1.png", "https://upload.wikimedia.org/wikipedia/commons/d/dc/Large_Drive-In_EMC_Test_Chamber.png");
 
+msg("Images loading...");
 whenDoneStreaming(function() {
 	gotoPassage("realImageTest");
 });
@@ -372,6 +373,8 @@ addChoice("Go back", "scratchModStart");
 addChoice("Basic rpg", function() {
 	execAsset("testRpg.phore");
 });
+
+addChoice("Go back", "scratchModStart");
 
 // addChoice("Magi demo", function() {
 // 	execAsset("magiDemo.phore");

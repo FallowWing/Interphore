@@ -278,7 +278,7 @@ skipperAi.execute = function(unit) {
 var simpleAi = createAi();
 simpleAi.name = "Simple";
 simpleAi.execute = function(unit) {
-	castSpell("Gut Punch", unit, rpg.players[0]);
+	castSpell("Gut Punch", unit, getRandomPlayer());
 	actionDone();
 };
 
@@ -410,4 +410,6 @@ enemy3.name = "enemy 3";
 enemy3.ai = "Simple";
 enemy3.speed = 20;
 
-startRpgBattle([p1, p2], [enemy1, enemy2, enemy3]);
+startRpgBattle([p1, p2], [enemy1, enemy2, enemy3], function() {
+	gotoPassage("rpgTest");
+});

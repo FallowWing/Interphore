@@ -16,8 +16,10 @@ var ITEM_PICKED = 9;
 
 function initRpgBattle() {
 	rpg = {
+		playing: false,
 		players: null,
 		enemies: null,
+		whenDone: null,
 		units: [],
 		turnIndex: 0,
 		unitArrow: null,
@@ -33,7 +35,9 @@ function initRpgBattle() {
 	};
 }
 
-function deinitRpgBattle() {
+function deinitRpgBattle(won) {
+	rpg.playing = false;
+
 	rpg.units.forEach(function(unit) {
 		unit.sprite = null;
 		unit.statBox = null;
@@ -46,6 +50,9 @@ function deinitRpgBattle() {
 			buffTrackers.icon = null;
 		});
 	});
+
+	clear();
+	rpg.whenDone();
 }
 
 function createUnit() {
@@ -53,8 +60,8 @@ function createUnit() {
 
 	unit = {
 		name: "unnamed",
-		hp: 100,
-		maxHp: 100,
+		hp: 20,
+		maxHp: 20,
 		mp: 100,
 		maxMp: 100,
 		limit: 0,
@@ -164,9 +171,11 @@ function createAction() {
 	return action;
 }
 
-function startRpgBattle(players, enemies) {
+function startRpgBattle(players, enemies, whenDone) {
+	rpg.playing = true;
 	rpg.players = players;
 	rpg.enemies = enemies;
+	rpg.whenDone = whenDone;
 
 	players.forEach(function(unit) {
 		rpg.units.push(unit);
@@ -283,6 +292,7 @@ function updateRpgBattle() {
 		} else if (action.type == END_TURN_ACTION) {
 			print(action.source.name+" ending turn");
 			nextTurn();
+			if (!rpg.playing) return;
 			actionDone();
 		} else if (action.type == 0) {
 			msg("Invalid action");
@@ -492,6 +502,27 @@ function nextTurn() {
 			var tracker = rpg.currentUnit.buffTrackers[i];
 			if (tracker.remove) arrayForceRemove(rpg.currentUnit.buffTrackers, tracker);
 		}
+	}
+
+	var playersAlive = 0;
+	var enemiesAlive = 0;
+
+	rpg.players.forEach(function(player) {
+		if (!player.dead) playersAlive++;
+	});
+
+	rpg.enemies.forEach(function(enemy) {
+		if (!enemy.dead) enemiesAlive++;
+	});
+
+	if (playersAlive == 0) {
+		deinitRpgBattle(true);
+		return;
+	}
+
+	if (enemiesAlive == 0) {
+		deinitRpgBattle(false);
+		return;
 	}
 
 	rpg.turnIndex++;
