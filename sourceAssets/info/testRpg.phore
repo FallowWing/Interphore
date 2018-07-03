@@ -271,7 +271,6 @@ magicSpear.execute = function(source, target) {
 var skipperAi = createAi();
 skipperAi.name = "Skipper";
 skipperAi.execute = function(unit) {
-	skip();
 	actionDone();
 };
 
@@ -363,6 +362,7 @@ aware.executeAttacked = function(unit, spell) {
 }
 
 /// Units
+var players = [];
 var p1 = createUnit();
 p1.speed = 30;
 p1.name = "Player 1";
@@ -378,6 +378,7 @@ p1.itemNames = [
 	"Heal"
 ];
 p1.affinities = ["Fire"];
+players.push(p1);
 
 var p2 = createUnit();
 p2.speed = 30;
@@ -394,22 +395,45 @@ p2.itemNames = [
 	"Heal"
 ];
 p2.affinities = ["Electric"];
+players.push(p2);
 
+var enemies = [];
 var enemy1 = createUnit();
 enemy1.name = "enemy 1";
 enemy1.ai = "Simple";
 enemy1.speed = 10;
+enemies.push(enemy1);
 
 var enemy2 = createUnit();
 enemy2.name = "enemy 2";
 enemy2.ai = "Simple";
 enemy2.speed = 15;
+enemies.push(enemy2);
 
 var enemy3 = createUnit();
 enemy3.name = "enemy 3";
 enemy3.ai = "Simple";
 enemy3.speed = 20;
+enemies.push(enemy3);
 
-startRpgBattle([p1, p2], [enemy1, enemy2, enemy3], function() {
+if (data.testRpgSetting == "noAi") {
+	enemies.forEach(function(enemy) {
+		enemy.ai = "Skipper";
+	});
+}
+
+if (data.testRpgSetting == "simpleAi") {
+	enemies.forEach(function(enemy) {
+		enemy.ai = "Simple";
+	});
+}
+
+if (data.testRpgSetting == "hardAi") {
+	enemies.forEach(function(enemy) {
+		enemy.ai = "Stunner";
+	});
+}
+
+startRpgBattle(players, enemies, function() {
 	gotoPassage("rpgTest");
 });

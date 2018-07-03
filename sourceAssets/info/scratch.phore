@@ -370,7 +370,18 @@ addChoice("Go back", "scratchModStart");
 ---
 :rpgTest
 !`
-addChoice("Basic rpg", function() {
+addChoice("No AI", function() {
+	data.testRpgSetting = "noAi";
+	execAsset("testRpg.phore");
+});
+
+addChoice("Simple AI", function() {
+	data.testRpgSetting = "simpleAi";
+	execAsset("testRpg.phore");
+});
+
+addChoice("Hard AI", function() {
+	data.testRpgSetting = "hardAi";
 	execAsset("testRpg.phore");
 });
 

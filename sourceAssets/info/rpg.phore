@@ -304,6 +304,13 @@ function updateRpgBattle() {
 		}
 	}
 
+	if (rpg.endAfterActions) {
+		rpg.endAfterActions = false;
+		var action = createAction();
+		action.type = END_TURN_ACTION;
+		action.source = rpg.currentUnit;
+	}
+
 	rpg.units.forEach(function(unit) {
 		unit.hp = clamp(unit.hp, 0, unit.maxHp);
 		unit.mp = clamp(unit.mp, 0, unit.maxMp);
@@ -346,13 +353,6 @@ function actionDone() {
 	}
 
 	rpg.currentAction = null;
-
-	if (rpg.endAfterActions) {
-		rpg.endAfterActions = false;
-		var action = createAction();
-		action.type = END_TURN_ACTION;
-		action.source = rpg.currentUnit;
-	}
 }
 
 function resetUnitPosition(unit) {
