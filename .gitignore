@@ -11,3 +11,4 @@ log
 *.tmx.*
 Makefile.secret
 ld.exe.stackdump
+errors.err
