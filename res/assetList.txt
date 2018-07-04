@@ -14,6 +14,7 @@ font/bitmap/OpenSans-Regular_40*
 info/magiDemo.phore
 
 info/nodeGraph.phore
+info/mods.phore
 info/rpg.phore
 
 info/interStart.phore

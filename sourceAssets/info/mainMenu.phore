@@ -9,6 +9,8 @@ welcome
 ---
 :Title Screen
 !`
+execAsset("mods.phore");
+
 var container = addEmptyImage(1, 1);
 container.scaleX = gameWidth/desiredWidth;
 container.scaleY = gameHeight/desiredHeight;
@@ -96,11 +98,11 @@ container.addChild(modRect);
 modRect.onRelease = function() {
 	playEffect("audio/ui/newChoiceClick");
 	getAudio("music").destroy();
-	loadMod();
+	gotoPassage("modsStart");
 }
 
 var modText = addEmptyImage(buttonWidth, buttonHeight);
-modText.setText("Load Mod");
+modText.setText("Mods");
 modText.tint = 0xFF00a6fc;
 modText.x = buttonTextLeftPad;
 modText.y = modRect.height/2 - modText.textHeight/2;

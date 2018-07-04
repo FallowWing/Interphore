@@ -13,9 +13,7 @@ WIP Dev Menu
 
 Make sure you play through the intro or go to Hub and visit Red Pond to set your player variables
 
-!`
-addChoice("Load a mod", loadMod);
-`
+[Mods|modsStart]
 [Cart Intro|cartIntro]
 [Wendy's Apartment|wendyApt]
 [LLL]

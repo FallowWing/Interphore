@@ -1,0 +1,16 @@
+START_PASSAGES
+:modsStart
+Welcome to the mod page.
+!`
+addChoice("Load a mod", loadMod);
+addChoice("See completed mods", "Completed Mods");
+
+addChoice("Back to extras", function() {
+	execAsset("scratch.phore");
+});
+`
+---
+:Completed Mods
+None yet sorry!
+[Go back|modsStart]
+END_PASSAGES
