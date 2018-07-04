@@ -50,6 +50,10 @@ exitButton.onRelease = function() {
 	gotoMap(false);
 }
 
+function exitMod() {
+	gotoMap(true);
+}
+
 var titleBg = addRectImage(gameWidth, 50, 0x2d354c);
 titleBg.onRelease = function() {
 	if (titleBg.alpha != 0) commandSkipped = true;
