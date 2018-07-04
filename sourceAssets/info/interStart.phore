@@ -51,7 +51,7 @@ exitButton.onRelease = function() {
 }
 
 function exitMod() {
-	gotoMap(true);
+	gotoPassage("modsStart");
 }
 
 var titleBg = addRectImage(gameWidth, 50, 0x2d354c);
