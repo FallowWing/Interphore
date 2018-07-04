@@ -1181,7 +1181,7 @@ To be continued in the next version of Interphore.
 
 !`addChoice("[Dev Menu]", function() {
 	clear();
-	execAsset("scratch.phore");
+	gotoPassage("scratchModStart");
 	data.unlockedDev = true;
 });`
 

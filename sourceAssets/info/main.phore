@@ -1,3 +1,6 @@
-execAsset("mainMenu.phore");
 execAsset("introModMynt.phore");
+execAsset("scratch.phore");
+execAsset("mods.phore");
+execAsset("nodeGraph.phore");
 execAsset("utils.phore");
+execAsset("mainMenu.phore");

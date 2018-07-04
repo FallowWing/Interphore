@@ -394,5 +394,3 @@ addChoice("Go back", "scratchModStart");
 :Exit
 `exitMod();`
 END_PASSAGES
-
-gotoPassage("scratchModStart");

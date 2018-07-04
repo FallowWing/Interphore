@@ -9,8 +9,6 @@ welcome
 ---
 :Title Screen
 !`
-execAsset("mods.phore");
-
 var container = addEmptyImage(1, 1);
 container.scaleX = gameWidth/desiredWidth;
 container.scaleY = gameHeight/desiredHeight;
@@ -116,7 +114,7 @@ extraRect.onRelease = function() {
 	playEffect("audio/ui/newChoiceClick");
 	clearNodes();
 	getAudio("music").destroy();
-	execAsset("scratch.phore");
+	gotoPassage("scratchModStart");
 }
 
 var extraText = addEmptyImage(buttonWidth, buttonHeight);
@@ -250,7 +248,7 @@ clearNodes();`
 !`
 clearNodes();
 getAudio("music").destroy();
-execAsset("scratch.phore");
+gotoPassage("scratchModStart");
 // gotoBrowser();
 `
 ---
