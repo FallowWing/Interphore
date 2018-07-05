@@ -60,16 +60,15 @@ function createUnit() {
 
 	unit = {
 		name: "unnamed",
-		hp: 30,
-		maxHp: 30,
-		mp: 100,
-		maxMp: 100,
+		hp: 999,
+		maxHp: 999,
+		mp: 999,
+		maxMp: 999,
 		limit: 0,
 		attack: 10,
 		defence: 10,
 		speed: 5,
 		specialAttack: 10,
-		specialDefence: 10,
 		friendly: false,
 		dead: false,
 		skipsNextTurn: false,
@@ -117,8 +116,8 @@ function createSpell() {
 	spell = {
 		name: "Unnamed spell",
 		info: "No spell info",
-		baseDamage: 20,
-		cost: 30,
+		baseDamage: 300,
+		cost: 50,
 		damageType: MAGIC_DAMAGE,
 		targetsAllies: false,
 		targetsEnemies: true,
@@ -287,11 +286,12 @@ function updateRpgBattle() {
 
 			spell.execute(spell.source, action.target);
 
-			var buffs = getBuffs(action.target);
-			buffs.forEach(function(buff) {
-				buff.executeAttacked(spell.target, spell);
-			});
-
+			if (spell.damage > 0) {
+				var buffs = getBuffs(action.target);
+				buffs.forEach(function(buff) {
+					buff.executeAttacked(spell.target, spell);
+				});
+			}
 		} else if (action.type == START_OF_TURN_BUFF_ACTION) {
 			print("Start turn buff "+action.buffName+" procing on "+action.source.name);
 			getBuff(action.buffName).executeStartOfTrun(action.source);

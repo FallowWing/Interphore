@@ -50,7 +50,8 @@ function moveUnitInFrontOf(source, dest) {
 var fireball = createSpell();
 fireball.name = "Fireball";
 fireball.info = "Throws a fireball";
-fireball.baseDamage = 20;
+fireball.baseDamage = 1200;
+fireball.cost = 70;
 fireball.affinities = ["Fire"];
 fireball.execute = function(source, target) {
 	stepTowards(source, target, function() {
@@ -69,6 +70,8 @@ fireball.execute = function(source, target) {
 var lightning = createSpell();
 lightning.name = "Lightning";
 lightning.info = "Hit an enemy with many lightning bolts";
+lightning.baseDamage = 1000;
+lightning.cost = 50;
 lightning.affinities = ["Electric"];
 lightning.execute = function(source, target) {
 
@@ -96,7 +99,7 @@ lightning.execute = function(source, target) {
 var gutPunch = createSpell();
 gutPunch.name = "Gut Punch";
 gutPunch.info = "A strong generic attack";
-gutPunch.baseDamage = 15;
+gutPunch.baseDamage = 500;
 gutPunch.isAttack = true;
 gutPunch.execute = function(source, target) {
 	var sourceSpr = source.sprite;
@@ -117,6 +120,7 @@ var marked = createSpell();
 marked.name = "Marked";
 marked.info = "Mark an enemy to take more damage";
 marked.baseDamage = 0;
+marked.cost = 30;
 marked.affinities = ["Raunch"];
 marked.execute = function(source, target) {
 	moveUpTo(source, target, function() {
@@ -131,12 +135,29 @@ var heal = createSpell();
 heal.name = "Heal";
 heal.info = "Heal an ally";
 heal.baseDamage = 0;
+heal.cost = 50;
 heal.targetsEnemies = false;
 heal.targetsAllies = true;
 heal.execute = function(source, target) {
 	moveUpTo(source, target, function() {
 		timer(1, function() {
-			doDamage(target, -10);
+			doDamage(target, -500);
+			moveBack(source, actionDone);
+		});
+	});
+};
+
+var rejuvenate = createSpell();
+rejuvenate.name = "Rejuvenate";
+rejuvenate.info = "Heal an ally over multiple turns";
+rejuvenate.baseDamage = 0;
+rejuvenate.cost = 70;
+rejuvenate.targetsEnemies = false;
+rejuvenate.targetsAllies = true;
+rejuvenate.execute = function(source, target) {
+	moveUpTo(source, target, function() {
+		timer(1, function() {
+			applyBuff("Rejuvenating", target);
 			moveBack(source, actionDone);
 		});
 	});
@@ -145,7 +166,8 @@ heal.execute = function(source, target) {
 var poison = createSpell();
 poison.name = "Poison";
 poison.info = "Hits an enemy twice, then poisons them";
-poison.baseDamage = 6;
+poison.baseDamage = 100;
+poison.cost = 30;
 poison.execute = function(source, target) {
 	stepTowards(source, target, function() {
 		var targetSpr = target.sprite;
@@ -215,6 +237,7 @@ pushSpell.execute = function(source, target) {
 
 var openMind = createSpell();
 openMind.name = "Open Mind";
+openMind.cost = 80;
 openMind.info = "Gives an ally a high chance to counter attacks";
 openMind.baseDamage = 0;
 openMind.targetsEnemies = false;
@@ -231,7 +254,7 @@ openMind.execute = function(source, target) {
 var magicSpear = createSpell();
 magicSpear.name = "Magic Spear";
 magicSpear.info = "The spell that \"Awear\" casts";
-magicSpear.baseDamage = 10;
+magicSpear.baseDamage = 300;
 magicSpear.execute = function(source, target) {
 	stepTowards(source, target, function() {
 		var sourceSpr = source.sprite;
@@ -299,7 +322,7 @@ healthPotion.execute = function(source, target) {
 		}});
 
 		timer(1, function() {
-			doDamage(target, -20);
+			doDamage(target, -700);
 			moveBack(source, actionDone);
 		});
 
@@ -310,6 +333,7 @@ var dream = createSpell();
 dream.name = "Dream";
 dream.info = "Think about why you're here right now";
 dream.baseDamage = 0;
+dream.cost = 50;
 dream.targetsNone = true;
 dream.execute = function(source, target) {
 	msg("You can feel the empty space in your inventory get smaller and smaller!");
@@ -334,6 +358,7 @@ var shieldSpell = createSpell();
 shieldSpell.name = "Shield";
 shieldSpell.info = "Gives an ally a small shield";
 shieldSpell.baseDamage = 0;
+shieldSpell.cost = 20;
 shieldSpell.targetsEnemies = false;
 shieldSpell.targetsAllies = true;
 shieldSpell.execute = function(source, target) {
@@ -348,7 +373,8 @@ shieldSpell.execute = function(source, target) {
 var hardSlam = createSpell();
 hardSlam.name = "Hard Slam";
 hardSlam.info = "Stuns people hard";
-hardSlam.baseDamage = 20;
+hardSlam.baseDamage = 333;
+hardSlam.cost = 100;
 hardSlam.execute = function(source, target) {
 	moveUpTo(source, target, function() {
 		timer(0.2, function() {
@@ -358,6 +384,89 @@ hardSlam.execute = function(source, target) {
 		});
 	});
 };
+
+/// Buffs
+var markedBuff = createBuff();
+markedBuff.name = "Marked";
+markedBuff.iconName = "Snuff.png";
+markedBuff.info = "Will take double damage from the next attack";
+markedBuff.executeDamaged = function(unit, damage, spell) {
+	removeBuff("Marked", unit);
+	return damage*2;
+}
+
+var shielded = createBuff();
+shielded.name = "Shielded";
+shielded.iconName = "Love.png";
+shielded.info = "Will take half damage from the next attack";
+shielded.executeDamaged = function(unit, damage, spell) {
+	removeBuff("Shielded", unit);
+	return damage*0.5;
+}
+
+var poisoned = createBuff();
+poisoned.name = "Poisoned";
+poisoned.iconName = "Blood.png";
+poisoned.info = "Will take damage at the start of their turn";
+poisoned.lastingTurns = 2;
+poisoned.executeStartOfTrun = function(unit) {
+	doDamage(unit, 150);
+	actionDone();
+}
+
+var pushed = createBuff();
+pushed.name = "Pushed";
+pushed.iconName = "Abuse.png";
+pushed.info = "Could lose their next turn";
+pushed.lastingTurns = 999;
+pushed.executeStartOfTrun = function(unit) {
+	removeBuff("Pushed", unit);
+
+	if (rnd() > 0.5) {
+		unit.skipsNextTurn = true;
+	}
+
+	actionDone();
+}
+
+var slammed = createBuff();
+slammed.name = "Slammed";
+slammed.iconName = "Gore.png";
+slammed.info = "Will lose their next trun";
+slammed.lastingTurns = 999;
+slammed.executeStartOfTrun = function(unit) {
+	removeBuff("Slammed", unit);
+	unit.skipsNextTurn = true;
+	actionDone();
+}
+
+var aware = createBuff();
+aware.name = "Aware";
+aware.iconName = "Drugs.png";
+aware.info = "Has a high chance to counter";
+aware.lastingTurns = 3;
+aware.executeAttacked = function(unit, spell) {
+	if (rnd() > 0.5) castSpell("Magic Spear", unit, spell.source);
+}
+
+var lightShield = createBuff();
+lightShield.name = "Light Shield";
+lightShield.iconName = "Art.png";
+lightShield.info = "Takes 10% less damage";
+lightShield.lastingTurns = 3;
+lightShield.executeDamaged = function(unit, damage, spell) {
+	return damage*0.90;
+}
+
+var rejuvenating = createBuff();
+rejuvenating.name = "Rejuvenating";
+rejuvenating.iconName = "Drugs.png";
+rejuvenating.info = "Healing...";
+rejuvenating.lastingTurns = 5;
+rejuvenating.executeStartOfTrun = function(unit) {
+	doDamage(unit, -200);
+	actionDone();
+}
 
 /// AIs
 var skipperAi = createAi();
@@ -412,79 +521,6 @@ shielderAi.execute = function(unit) {
 	actionDone();
 };
 
-/// Buffs
-var markedBuff = createBuff();
-markedBuff.name = "Marked";
-markedBuff.iconName = "Snuff.png";
-markedBuff.info = "Will take double damage from the next attack";
-markedBuff.executeDamaged = function(unit, damage, spell) {
-	removeBuff("Marked", unit);
-	return damage*2;
-}
-
-var shielded = createBuff();
-shielded.name = "Shielded";
-shielded.iconName = "Love.png";
-shielded.info = "Will take half damage from the next attack";
-shielded.executeDamaged = function(unit, damage, spell) {
-	removeBuff("Shielded", unit);
-	return damage*0.5;
-}
-
-var poisoned = createBuff();
-poisoned.name = "Poisoned";
-poisoned.iconName = "Blood.png";
-poisoned.info = "Will take damage at the start of their turn";
-poisoned.lastingTurns = 2;
-poisoned.executeStartOfTrun = function(unit) {
-	doDamage(unit, 5);
-	actionDone();
-}
-
-var pushed = createBuff();
-pushed.name = "Pushed";
-pushed.iconName = "Abuse.png";
-pushed.info = "Could lose their next turn";
-pushed.lastingTurns = 999;
-pushed.executeStartOfTrun = function(unit) {
-	removeBuff("Pushed", unit);
-
-	if (rnd() > 0.5) {
-		unit.skipsNextTurn = true;
-	}
-
-	actionDone();
-}
-
-var slammed = createBuff();
-slammed.name = "Slammed";
-slammed.iconName = "Gore.png";
-slammed.info = "Will lose their next trun";
-slammed.lastingTurns = 999;
-slammed.executeStartOfTrun = function(unit) {
-	removeBuff("Slammed", unit);
-	unit.skipsNextTurn = true;
-	actionDone();
-}
-
-var aware = createBuff();
-aware.name = "Aware";
-aware.iconName = "Drugs.png";
-aware.info = "Has a high chance to counter";
-aware.lastingTurns = 3;
-aware.executeAttacked = function(unit, spell) {
-	if (rnd() > 0.5) castSpell("Magic Spear", unit, spell.source);
-}
-
-var lightShield = createBuff();
-lightShield.name = "Light Shield";
-lightShield.iconName = "Art.png";
-lightShield.info = "Takes 10% less damage";
-lightShield.lastingTurns = 3;
-lightShield.executeDamaged = function(unit, damage, spell) {
-	return damage*0.90;
-}
-
 /// Units
 var players = [];
 var p1 = createUnit();
@@ -495,7 +531,6 @@ p1.spellNames = [
 	"Fireball",
 	"Marked",
 	"Barrier",
-	"Slam"
 ];
 p1.itemNames = [
 	"Health Potion",
@@ -512,6 +547,7 @@ p2.spellNames = [
 	"Lightning",
 	"Poison",
 	"Heal",
+	"Rejuvenate",
 	"Open Mind",
 	"Dream"
 ];
@@ -521,104 +557,95 @@ p2.affinities = ["Electric"];
 players.push(p2);
 
 var enemies = [];
-var enemy1 = createUnit();
-enemy1.name = "enemy 1";
-enemy1.ai = "Simple";
-enemy1.speed = 10;
-enemies.push(enemy1);
-
-var enemy2 = createUnit();
-enemy2.name = "enemy 2";
-enemy2.ai = "Simple";
-enemy2.speed = 15;
-enemies.push(enemy2);
-
-var enemy3 = createUnit();
-enemy3.name = "enemy 3";
-enemy3.ai = "Simple";
-enemy3.speed = 20;
-enemies.push(enemy3);
 
 if (data.testRpgSetting == "noAi") {
-	var enemies = [];
 	var enemy1 = createUnit();
 	enemy1.name = "enemy 1";
+	enemy1.hp = enemy1.maxHp = 5000;
 	enemy1.ai = "Skipper";
 	enemy1.speed = 10;
 	enemies.push(enemy1);
 
 	var enemy2 = createUnit();
 	enemy2.name = "enemy 2";
+	enemy2.hp = enemy2.maxHp = 5000;
 	enemy2.ai = "Skipper";
 	enemy2.speed = 15;
 	enemies.push(enemy2);
 
 	var enemy3 = createUnit();
 	enemy3.name = "enemy 3";
+	enemy3.hp = enemy3.maxHp = 5000;
 	enemy3.ai = "Skipper";
 	enemy3.speed = 20;
 	enemies.push(enemy3);
 }
 
 if (data.testRpgSetting == "simpleAi") {
-	var enemies = [];
 	var enemy1 = createUnit();
 	enemy1.name = "enemy 1";
+	enemy1.hp = enemy1.maxHp = 5000;
 	enemy1.ai = "Simple";
 	enemy1.speed = 10;
 	enemies.push(enemy1);
 
 	var enemy2 = createUnit();
 	enemy2.name = "enemy 2";
+	enemy2.hp = enemy2.maxHp = 5000;
 	enemy2.ai = "Simple";
 	enemy2.speed = 15;
 	enemies.push(enemy2);
 
 	var enemy3 = createUnit();
 	enemy3.name = "enemy 3";
+	enemy3.hp = enemy3.maxHp = 5000;
 	enemy3.ai = "Simple";
 	enemy3.speed = 20;
 	enemies.push(enemy3);
 }
 
 if (data.testRpgSetting == "hardAi") {
-	var enemies = [];
 	var enemy1 = createUnit();
 	enemy1.name = "enemy 1";
+	enemy1.hp = enemy1.maxHp = 5000;
 	enemy1.ai = "Stunner";
 	enemy1.speed = 10;
 	enemies.push(enemy1);
 
 	var enemy2 = createUnit();
 	enemy2.name = "enemy 2";
+	enemy2.hp = enemy2.maxHp = 5000;
 	enemy2.ai = "Stunner";
 	enemy2.speed = 15;
 	enemies.push(enemy2);
 
 	var enemy3 = createUnit();
 	enemy3.name = "enemy 3";
+	enemy3.hp = enemy3.maxHp = 5000;
 	enemy3.ai = "Stunner";
 	enemy3.speed = 20;
 	enemies.push(enemy3);
 }
 
 if (data.testRpgSetting == "rpgShields") {
-	var enemies = [];
 	var enemy1 = createUnit();
 	enemy1.name = "enemy 1";
 	enemy1.ai = "Shielder";
+	enemy1.hp = enemy1.maxHp = 3000;
 	enemy1.speed = 10;
 	enemies.push(enemy1);
 
 	var enemy2 = createUnit();
 	enemy2.name = "enemy 2";
 	enemy2.ai = "Shielder";
+	enemy2.hp = enemy2.maxHp = 3000;
 	enemy2.speed = 15;
 	enemies.push(enemy2);
 
 	var enemy3 = createUnit();
 	enemy3.name = "enemy 3";
 	enemy3.ai = "Hard Stunner";
+	enemy3.hp = enemy3.maxHp = 7000;
 	enemy3.speed = 20;
 	enemies.push(enemy3);
 }
