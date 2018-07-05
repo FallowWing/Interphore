@@ -383,6 +383,13 @@ addChoice("Hard AI", function() {
 	execAsset("testRpg.phore");
 });
 
+if (internal) {
+	addChoice("Shields", function() {
+		data.testRpgSetting = "rpgShields";
+		execAsset("testRpg.phore");
+	});
+}
+
 addChoice("Go back", "scratchModStart");
 
 // addChoice("Magi demo", function() {

@@ -583,6 +583,10 @@ function getSpell(spellName) {
 		}
 	});
 
+	if (retSpell == null) {
+		print("Failed to get spell named: "+spellName);
+		return null;
+	}
 	return Object.assign(retSpell);
 }
 
@@ -688,4 +692,13 @@ function getRandomPlayer() {
 	});
 
 	return livingPlayers[rndInt(0, livingPlayers.length-1)];
+}
+
+function getRandomEnemy() {
+	var livingEnemies = [];
+	rpg.enemies.forEach(function(enemy) {
+		if (!enemy.dead) livingEnemies.push(enemy);
+	});
+
+	return livingEnemies[rndInt(0, livingEnemies.length-1)];
 }

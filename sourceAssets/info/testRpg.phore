@@ -181,7 +181,7 @@ barrier.targetsEnemies = false;
 barrier.execute = function(source, target) {
 	moveUpTo(source, target, function() {
 		timer(1, function() {
-			applyBuff("Sheilded", target);
+			applyBuff("Shielded", target);
 			moveBack(source, actionDone);
 		});
 	});
@@ -330,6 +330,21 @@ lastDream.execute = function(source, target) {
 	});
 };
 
+var shieldSpell = createSpell();
+shieldSpell.name = "Shield";
+shieldSpell.info = "Gives an ally a small shield";
+shieldSpell.baseDamage = 0;
+shieldSpell.targetsEnemies = false;
+shieldSpell.targetsAllies = true;
+shieldSpell.execute = function(source, target) {
+	moveUpTo(source, target, function() {
+		timer(1, function() {
+			applyBuff("Light Shield", target);
+			moveBack(source, actionDone);
+		});
+	});
+};
+
 /// AIs
 var skipperAi = createAi();
 skipperAi.name = "Skipper";
@@ -360,6 +375,22 @@ stunnerAi.execute = function(unit) {
 	actionDone();
 };
 
+var shielderAi = createAi()
+shielderAi.name = "Shielder";
+shielderAi.execute = function(unit) {
+	var toShield = null;
+	rpg.enemies.forEach(function(enemy) {
+		if (!hasBuff("Light Shield", enemy)) toShield = enemy;
+	});
+
+	if (toShield) {
+		castSpell("Shield", unit, toShield);
+	} else {
+		castSpell("Shield", unit, getRandomEnemy());
+	}
+	actionDone();
+};
+
 /// Buffs
 var markedBuff = createBuff();
 markedBuff.name = "Marked";
@@ -371,11 +402,11 @@ markedBuff.executeDamaged = function(unit, damage, spell) {
 }
 
 var shielded = createBuff();
-shielded.name = "Sheilded";
+shielded.name = "Shielded";
 shielded.iconName = "Love.png";
 shielded.info = "Will take half damage from the next attack";
 shielded.executeDamaged = function(unit, damage, spell) {
-	removeBuff("Sheilded", unit);
+	removeBuff("Shielded", unit);
 	return damage*0.5;
 }
 
@@ -422,6 +453,15 @@ aware.info = "Has a high chance to counter";
 aware.lastingTurns = 3;
 aware.executeAttacked = function(unit, spell) {
 	if (rnd() > 0.5) castSpell("Magic Spear", unit, spell.source);
+}
+
+var lightShield = createBuff();
+lightShield.name = "Light Shield";
+lightShield.iconName = "Art.png";
+lightShield.info = "Takes 10% less damage";
+lightShield.lastingTurns = 3;
+lightShield.executeDamaged = function(unit, damage, spell) {
+	return damage*0.90;
 }
 
 /// Units
@@ -539,7 +579,27 @@ if (data.testRpgSetting == "hardAi") {
 	enemy3.ai = "Stunner";
 	enemy3.speed = 20;
 	enemies.push(enemy3);
+}
 
+if (data.testRpgSetting == "rpgShields") {
+	var enemies = [];
+	var enemy1 = createUnit();
+	enemy1.name = "enemy 1";
+	enemy1.ai = "Shielder";
+	enemy1.speed = 10;
+	enemies.push(enemy1);
+
+	var enemy2 = createUnit();
+	enemy2.name = "enemy 2";
+	enemy2.ai = "Shielder";
+	enemy2.speed = 15;
+	enemies.push(enemy2);
+
+	var enemy3 = createUnit();
+	enemy3.name = "enemy 3";
+	enemy3.ai = "Shielder";
+	enemy3.speed = 20;
+	enemies.push(enemy3);
 }
 
 startRpgBattle(players, enemies, function() {

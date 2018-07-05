@@ -173,12 +173,12 @@ void initGame() {
 	runJs(initCode);
 
 	// char *tempCode = (char *)getAsset("info/basic.phore")->data;
-#ifdef FAST_SCRATCH
-	char *tempCode = (char *)getAsset("info/scratch.phore")->data;
-#else
 	char *tempCode = (char *)getAsset("info/main.phore")->data;
-#endif
 	runMod(tempCode);
+
+#ifdef FAST_SCRATCH
+	runJs("gotoPassage(\"scratchModStart\");");
+#endif
 
 	game->root = createMintSprite();
 	game->root->setupContainer(engine->width, engine->height);
