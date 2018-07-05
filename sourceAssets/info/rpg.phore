@@ -127,6 +127,10 @@ function createSpell() {
 		isAttack: false,
 		affinities: [],
 		doPartialDamage: function(target, perc) {
+			if (typeof target === "number") {
+				print("-------------------- ERROR: Called doPartialDamage with bad args");
+				return;
+			}
 			if (Math.abs(perc) <= 0.001) return;
 			if (spell.damagePercDone + perc >= 1) perc = 1 - spell.damagePercDone;
 			if (spell.baseDamage != 0) doDamage(target, spell.damage * perc);

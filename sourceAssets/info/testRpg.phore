@@ -345,6 +345,20 @@ shieldSpell.execute = function(source, target) {
 	});
 };
 
+var hardSlam = createSpell();
+hardSlam.name = "Hard Slam";
+hardSlam.info = "Stuns people hard";
+hardSlam.baseDamage = 20;
+hardSlam.execute = function(source, target) {
+	moveUpTo(source, target, function() {
+		timer(0.2, function() {
+			hardSlam.doPartialDamage(target, 1);
+			applyBuff("Slammed", target);
+			moveBack(source, actionDone);
+		});
+	});
+};
+
 /// AIs
 var skipperAi = createAi();
 skipperAi.name = "Skipper";
@@ -372,6 +386,13 @@ stunnerAi.execute = function(unit) {
 	} else {
 		castSpell("Poison", unit, getRandomPlayer());
 	}
+	actionDone();
+};
+
+var hardStunnerAi = createAi()
+hardStunnerAi.name = "Hard Stunner";
+hardStunnerAi.execute = function(unit) {
+	castSpell("Hard Slam", unit, getRandomPlayer());
 	actionDone();
 };
 
@@ -597,7 +618,7 @@ if (data.testRpgSetting == "rpgShields") {
 
 	var enemy3 = createUnit();
 	enemy3.name = "enemy 3";
-	enemy3.ai = "Shielder";
+	enemy3.ai = "Hard Stunner";
 	enemy3.speed = 20;
 	enemies.push(enemy3);
 }
