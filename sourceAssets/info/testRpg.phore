@@ -479,21 +479,67 @@ enemy3.speed = 20;
 enemies.push(enemy3);
 
 if (data.testRpgSetting == "noAi") {
-	enemies.forEach(function(enemy) {
-		enemy.ai = "Skipper";
-	});
+	var enemies = [];
+	var enemy1 = createUnit();
+	enemy1.name = "enemy 1";
+	enemy1.ai = "Skipper";
+	enemy1.speed = 10;
+	enemies.push(enemy1);
+
+	var enemy2 = createUnit();
+	enemy2.name = "enemy 2";
+	enemy2.ai = "Skipper";
+	enemy2.speed = 15;
+	enemies.push(enemy2);
+
+	var enemy3 = createUnit();
+	enemy3.name = "enemy 3";
+	enemy3.ai = "Skipper";
+	enemy3.speed = 20;
+	enemies.push(enemy3);
 }
 
 if (data.testRpgSetting == "simpleAi") {
-	enemies.forEach(function(enemy) {
-		enemy.ai = "Simple";
-	});
+	var enemies = [];
+	var enemy1 = createUnit();
+	enemy1.name = "enemy 1";
+	enemy1.ai = "Simple";
+	enemy1.speed = 10;
+	enemies.push(enemy1);
+
+	var enemy2 = createUnit();
+	enemy2.name = "enemy 2";
+	enemy2.ai = "Simple";
+	enemy2.speed = 15;
+	enemies.push(enemy2);
+
+	var enemy3 = createUnit();
+	enemy3.name = "enemy 3";
+	enemy3.ai = "Simple";
+	enemy3.speed = 20;
+	enemies.push(enemy3);
 }
 
 if (data.testRpgSetting == "hardAi") {
-	enemies.forEach(function(enemy) {
-		enemy.ai = "Stunner";
-	});
+	var enemies = [];
+	var enemy1 = createUnit();
+	enemy1.name = "enemy 1";
+	enemy1.ai = "Stunner";
+	enemy1.speed = 10;
+	enemies.push(enemy1);
+
+	var enemy2 = createUnit();
+	enemy2.name = "enemy 2";
+	enemy2.ai = "Stunner";
+	enemy2.speed = 15;
+	enemies.push(enemy2);
+
+	var enemy3 = createUnit();
+	enemy3.name = "enemy 3";
+	enemy3.ai = "Stunner";
+	enemy3.speed = 20;
+	enemies.push(enemy3);
+
 }
 
 startRpgBattle(players, enemies, function() {
