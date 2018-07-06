@@ -649,6 +649,10 @@ function msg(str, config) {
 	return message;
 }
 
+function rawAppend(data) {
+	append_internal(data);
+}
+
 function append(data) {
 	if (typeof data !== "string") data = String(data);
 	var newStr = "";
@@ -674,7 +678,7 @@ function append(data) {
 	});
 
 	newStr = newStr.replace(/%/g, "%%"); // We won't need this once mainText is in js
-	append_internal(newStr);
+	rawAppend(newStr);
 }
 
 function submitPassage(str) {
