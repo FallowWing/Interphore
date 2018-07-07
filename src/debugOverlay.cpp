@@ -21,8 +21,9 @@ void DebugOverlay::update() {
 		if (!dgb->info) {
 			dgb->info = createMintSprite();
 			dgb->info->setupEmpty(1024, 512);
-			dgb->info->layer = dgb->bottomLayer;
 		}
+		dgb->info->layer = dgb->bottomLayer;
+		dgb->info->tint = 0xFFFFFFFF;
 
 		char buildDateChar[32] = {};
 		getBuildDate(buildDateChar);
