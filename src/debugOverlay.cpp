@@ -20,10 +20,13 @@ void DebugOverlay::update() {
 	if (dgb->active) {
 		if (!dgb->info) {
 			dgb->info = createMintSprite();
-			dgb->info->setupEmpty(512, 512);
+			dgb->info->setupEmpty(1024, 512);
 			dgb->info->layer = dgb->bottomLayer;
 		}
-			dgb->info->setText("Build %d\nActive Sprite: %d", engine->commitCount, engine->activeSprites);
+
+		char buildDateChar[32] = {};
+		getBuildDate(buildDateChar);
+		dgb->info->setText("Built %s UTC\nActive Sprite: %d", buildDateChar, engine->activeSprites);
 	}
 	if (!dgb->active) {
 		if (dgb->info) {
