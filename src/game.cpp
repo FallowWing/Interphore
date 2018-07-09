@@ -538,6 +538,9 @@ duk_ret_t loadGame(duk_context *ctx) {
 	return 0;
 }
 
+
+
+
 void gameLoaded(char *data) {
 	// printf("Loaded: %s\n", data);
 
@@ -545,7 +548,7 @@ void gameLoaded(char *data) {
 		msg("Game loaded!");
 		char *buf = (char *)Malloc(strlen(data) + 1024);
 		sprintf(buf, "checkpointStr = '%s'; data = JSON.parse(checkpointStr);", data);
-		// printf("Running: %s\n", jsCommand);
+		// printf("Running: %s\n", buf);
 		runJs(buf);
 		Free(buf);
 	} else {
