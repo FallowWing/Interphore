@@ -258,7 +258,7 @@ function startRpgBattle(players, enemies, whenDone) {
 function updateRpgBattle() {
 	if (keyJustPressed("`".charCodeAt(0))) {
 		if (!rpg.actionListText) {
-			rpg.actionListText = addEmptyImage(256, 1024);
+			rpg.actionListText = addEmptyImage(512, 1024);
 			rpg.actionListText.setFont("NunitoSans-Light_22");
 		} else {
 			rpg.actionListText.destroy();
@@ -268,22 +268,24 @@ function updateRpgBattle() {
 
 	var actionStr = "";
 	function pushActionText(action) {
-		if (action.type == CAST_ACTION)                actionStr += "Spell cast: "+action.spellName;
-		if (action.type == START_OF_TURN_BUFF_ACTION)  actionStr += "Start of turn buff: "+action.buffName;
-		if (action.type == AI_CHOICE_ACTION)           actionStr += "Ai choice: "+action.source.name;
-		if (action.type == END_TURN_ACTION)            actionStr += "End turn: "+action.source.name;
+		var newText = "";
+		if (action.type == CAST_ACTION)                     newText += "Spell cast: "+action.spellName;
+		else if (action.type == START_OF_TURN_BUFF_ACTION)  newText += "Start of turn buff: "+action.buffName;
+		else if (action.type == AI_CHOICE_ACTION)           newText += "Ai choice: "+action.source.name;
+		else if (action.type == END_TURN_ACTION)            newText += "End turn: "+action.source.name;
+		else                                                newText += "Unknowned action type "+action.type;
+
+		actionStr += newText + "\n";
 	}
 
 	rpg.pastActionList.forEach(function(pastAction) {
 		pushActionText(pastAction);
-		actionStr += "\n";
 	});
 
-	if (rpg.currentAction) actionStr += "=> "+pushActionText(rpg.currentAction);
+	if (rpg.currentAction) actionStr += "^^^^\n";
 
 	rpg.actionList.forEach(function(futureAction) {
 		pushActionText(futureAction);
-		actionStr += "\n";
 	});
 
 	if (rpg.actionListText) {
@@ -301,9 +303,7 @@ function updateRpgBattle() {
 		if (rpg.pastActionList.length > 5) rpg.pastActionList.shift();
 
 		if (action.type == CAST_ACTION) {
-			print(action.source.name+" is casting "+action.spellName+" on "+action.target.name);
-
-			var spell = getSpell(action.spellName);
+			var spell =             getSpell(action.spellName);
 			rpg.currentSpell =      spell;
 			spell.damagePercDone =  0;
 			spell.source =          action.source;
