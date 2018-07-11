@@ -368,6 +368,8 @@ addChoice("Go back", "scratchModStart");
 ---
 :rpgTest
 !`
+choicesPerPage = 8;
+
 addChoice("No AI", function() {
 	data.testRpgSetting = "noAi";
 	execAsset("testRpg.phore");
@@ -386,6 +388,11 @@ addChoice("Hard AI", function() {
 if (internal) {
 	addChoice("Shields", function() {
 		data.testRpgSetting = "rpgShields";
+		execAsset("testRpg.phore");
+	});
+
+	addChoice("Porcupines", function() {
+		data.testRpgSetting = "rpgPorcupines";
 		execAsset("testRpg.phore");
 	});
 }

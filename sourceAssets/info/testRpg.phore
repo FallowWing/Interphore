@@ -650,6 +650,60 @@ if (data.testRpgSetting == "rpgShields") {
 	enemies.push(enemy3);
 }
 
+/*
+Porcupines
+HP: 5000
+Speed: Slower than player
+Spell Pool:
+
+Bristleback — Passive (or buff, depending on how you implement it)
+When attacked, deal 300 damage to the attacker. 50% chance to block all damage.
+
+Lil Nibble — Phys attack
+Deal 200 damage three times.
+
+Glimmering Quills — Buff Spell
+Gain "Taunt: Opponent spells and physical attacks must target this." for 2 turns.
+
+Quill Spray — AoE Spell
+Deal 250 damage to all enemies.
+
+Behaviour:
+
+Default: Lil Nibble a random enemy.
+
+If no other allies have Taunt && both other allies have lower health than this porcupine, use Glimmering Quills.
+
+If both enemies are alive and below half health, use Quill Spray.
+
+If only one enemy is low, use Lil Nibble targeting the enemy with the highest health.
+
+If Bristleback is a buff and this porcupine doesn't have it equipped, re-cast Bristleback on itself.
+*/
+
+if (data.testRpgSetting == "rpgPorcupines") {
+	var enemy1 = createUnit();
+	enemy1.name = "enemy 1";
+	enemy1.ai = "Shielder";
+	enemy1.hp = enemy1.maxHp = 3000;
+	enemy1.speed = 10;
+	enemies.push(enemy1);
+
+	var enemy2 = createUnit();
+	enemy2.name = "enemy 2";
+	enemy2.ai = "Shielder";
+	enemy2.hp = enemy2.maxHp = 3000;
+	enemy2.speed = 15;
+	enemies.push(enemy2);
+
+	var enemy3 = createUnit();
+	enemy3.name = "enemy 3";
+	enemy3.ai = "Hard Stunner";
+	enemy3.hp = enemy3.maxHp = 7000;
+	enemy3.speed = 20;
+	enemies.push(enemy3);
+}
+
 startRpgBattle(players, enemies, function() {
 	gotoPassage("rpgTest");
 });

@@ -747,6 +747,10 @@ function showTooltip(str) {
 	tooltipShowing = true;
 }
 
+function keyJustPressed(keyCode) {
+	return keys[keyCode] == KEY_JUST_PRESSED;
+}
+
 function __update() {
 	try {
 		realUpdate();

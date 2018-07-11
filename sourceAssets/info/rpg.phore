@@ -31,7 +31,9 @@ function initRpgBattle() {
 		spells: [],
 		buffs: [],
 		ais: [],
-		actionList: []
+		actionList: [],
+		pastActionList: [],
+		actionListText: null
 	};
 }
 
@@ -254,19 +256,59 @@ function startRpgBattle(players, enemies, whenDone) {
 }
 
 function updateRpgBattle() {
+	if (keyJustPressed("`".charCodeAt(0))) {
+		if (!rpg.actionListText) {
+			rpg.actionListText = addEmptyImage(256, 1024);
+			rpg.actionListText.setFont("NunitoSans-Light_22");
+		} else {
+			rpg.actionListText.destroy();
+			rpg.actionListText = null;
+		}
+	}
+
+	var actionStr = "";
+	function pushActionText(action) {
+		if (action.type == CAST_ACTION)                actionStr += "Spell cast: "+action.spellName;
+		if (action.type == START_OF_TURN_BUFF_ACTION)  actionStr += "Start of turn buff: "+action.buffName;
+		if (action.type == AI_CHOICE_ACTION)           actionStr += "Ai choice: "+action.source.name;
+		if (action.type == END_TURN_ACTION)            actionStr += "End turn: "+action.source.name;
+	}
+
+	rpg.pastActionList.forEach(function(pastAction) {
+		pushActionText(pastAction);
+		actionStr += "\n";
+	});
+
+	if (rpg.currentAction) actionStr += "=> "+pushActionText(rpg.currentAction);
+
+	rpg.actionList.forEach(function(futureAction) {
+		pushActionText(futureAction);
+		actionStr += "\n";
+	});
+
+	if (rpg.actionListText) {
+		rpg.actionListText.setText(actionStr);
+		rpg.actionListText.tint = 0xFFFFFFFF;
+		rpg.actionListText.x = gameWidth/2 - rpg.actionListText.textWidth/2;
+		rpg.actionListText.y = gameHeight/2 - rpg.actionListText.textHeight/2;
+	}
+
 	if (!rpg.currentAction && rpg.actionList.length > 0) {
 		var action = rpg.actionList.shift();
 		rpg.currentAction = action;
+
+		rpg.pastActionList.push(action);
+		if (rpg.pastActionList.length > 5) rpg.pastActionList.shift();
 
 		if (action.type == CAST_ACTION) {
 			print(action.source.name+" is casting "+action.spellName+" on "+action.target.name);
 
 			var spell = getSpell(action.spellName);
-			rpg.currentSpell = spell;
-			spell.damagePercDone = 0;
-			spell.source = action.source;
-			spell.target = action.target;
-			spell.damage = spell.baseDamage;
+			rpg.currentSpell =      spell;
+			spell.damagePercDone =  0;
+			spell.source =          action.source;
+			spell.target =          action.target;
+			spell.damage =          spell.baseDamage;
 
 			if (spell.isAttack) {
 				spell.damage += spell.source.attack;
