@@ -501,6 +501,24 @@ rejuvenating.executeStartOfTrun = function(unit) {
 	actionDone();
 }
 
+var bristleback = createBuff();
+bristleback.name = "Bristleback";
+bristleback.iconName = "Snuff.png";
+bristleback.info = "Does a lot of damage when attacked";
+bristleback.lastingTurns = 9999;
+bristleback.executeDamaged = function(unit, damage, spell) {
+	var quills = addRectImage(32, 32, 0x351900);
+	quills.centerPivot = true;
+	centerSpriteOnSprite(unit.sprite, quills);
+	tween(quills, 0.5, {scaleX: 50, scaleY: 50, alpha: 0}, {onComplete: function() {
+		quills.destroy();
+		rpg.players.forEach(function(player) {
+			doDamage(player, 300);
+		});
+	}});
+	return damage;
+}
+
 /// Ais
 var skipperAi = createAi();
 skipperAi.name = "Skipper";
@@ -556,6 +574,9 @@ shielderAi.execute = function(unit) {
 
 var porcupine = createAi()
 porcupine.name = "Porcupine";
+porcupine.executeSpawned = function(unit) {
+	applyBuff("Bristleback", unit);
+}
 porcupine.execute = function(unit) {
 	var bothLow = true;
 	var highPlayer = null;

@@ -155,8 +155,10 @@ function createAi() {
 	var ai;
 	ai = {
 		name: "Unnamed AI",
-		execute: function() {
+		execute: function(unit) {
 			skip();
+		},
+		executeSpawned: function(unit) {
 		}
 	};
 
@@ -252,6 +254,9 @@ function startRpgBattle(players, enemies, whenDone) {
 
 	rpg.units.forEach(function(unit) {
 		resetUnitPosition(unit);
+
+		var ai = getAi(unit.ai);
+		if (ai) ai.executeSpawned(unit);
 	});
 	nextTurn();
 }
