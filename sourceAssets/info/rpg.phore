@@ -126,6 +126,7 @@ function createSpell() {
 		targetsDead: false,
 		targetsNone: false,
 		isAttack: false,
+		ignoreExtraDamage: false,
 		affinities: [],
 		doPartialDamage: function(target, perc) {
 			if (typeof target === "number") {
@@ -296,6 +297,13 @@ function updateRpgBattle() {
 	}
 
 	if (!rpg.currentAction && rpg.actionList.length > 0) {
+		rpg.units.forEach(function(unit) {
+			if (unit.hp <= 0) {
+				unit.dead = true;
+				tween(unit.sprite, 0.5, {rotation: 90});
+			}
+		});
+
 		var action = rpg.actionList.shift();
 		rpg.currentAction = action;
 
@@ -395,7 +403,7 @@ function actionDone() {
 	if (action.type == CAST_ACTION) {
 		if (rpg.currentSpell.baseDamage != 0) {
 			// print("Spell "+rpg.currentSpell.name+" only did "+rpg.currentSpell.damagePercDone+" so we'll do the rest of: "+rpg.currentSpell.damage+" perc of: "+ (1-rpg.currentSpell.damagePercDone));
-			rpg.currentSpell.doPartialDamage(action.target, 1-rpg.currentSpell.damagePercDone);
+			if (!rpg.currentSpell.ignoreExtraDamage) rpg.currentSpell.doPartialDamage(action.target, 1-rpg.currentSpell.damagePercDone);
 		}
 	}
 
@@ -598,10 +606,6 @@ function doDamage(unit, amount) {
 	});
 
 	unit.hp -= amount;
-	if (unit.hp <= 0) {
-		unit.dead = true;
-		tween(unit.sprite, 0.5, {rotation: 90});
-	}
 
 	var tf = addEmptyImage(128, 128);
 	tf.tint = amount > 0 ? 0xFFFF0000 : 0xFF00FF00;

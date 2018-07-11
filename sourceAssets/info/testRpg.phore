@@ -385,6 +385,39 @@ hardSlam.execute = function(source, target) {
 	});
 };
 
+var quillSpray = createSpell();
+quillSpray.name = "Quill Spray";
+quillSpray.info = "none";
+quillSpray.baseDamage = 250;
+quillSpray.cost = 20;
+quillSpray.ignoreExtraDamage = true;
+quillSpray.execute = function(source, target) {
+	stepTowards(source, target, function() {
+		var quills = addRectImage(32, 32, 0x351900);
+		quills.centerPivot = true;
+		centerSpriteOnSprite(source.sprite, quills);
+		tween(quills, 0.5, {scaleX: 50, scaleY: 50, alpha: 0}, {onComplete: function() {
+			quills.destroy();
+			rpg.players.forEach(function(player) {
+				doDamage(player, quillSpray.damage);
+			});
+			moveBack(source, actionDone);
+		}});
+	});
+};
+
+var lilNibble = createSpell();
+lilNibble.name = "Lil Nibble";
+lilNibble.info = "none";
+lilNibble.baseDamage = 200;
+lilNibble.cost = 20;
+lilNibble.execute = function(source, target) {
+	moveUpTo(source, target, function() {
+		lilNibble.doPartialDamage(target, lilNibble.damage);
+		moveBack(source, actionDone);
+	});
+};
+
 /// Buffs
 var markedBuff = createBuff();
 markedBuff.name = "Marked";
@@ -468,7 +501,7 @@ rejuvenating.executeStartOfTrun = function(unit) {
 	actionDone();
 }
 
-/// AIs
+/// Ais
 var skipperAi = createAi();
 skipperAi.name = "Skipper";
 skipperAi.execute = function(unit) {
@@ -517,6 +550,28 @@ shielderAi.execute = function(unit) {
 		castSpell("Shield", unit, toShield);
 	} else {
 		castSpell("Shield", unit, getRandomEnemy());
+	}
+	actionDone();
+};
+
+var porcupine = createAi()
+porcupine.name = "Porcupine";
+porcupine.execute = function(unit) {
+	var bothLow = true;
+	var highPlayer = null;
+	rpg.players.forEach(function(player) {
+		if (player.hp / player.maxHp > 0.5) {
+			bothLow = false;
+			highPlayer = player;
+		}
+	});
+
+	if (bothLow) {
+		castSpell("Quill Spray", unit, rpg.players[0]);
+	} else if (highPlayer) {
+		castSpell("Lil Nibble", unit, highPlayer);
+	} else {
+		castSpell("Lil Nibble", unit, getRandomPlayer());
 	}
 	actionDone();
 };
@@ -684,23 +739,23 @@ If Bristleback is a buff and this porcupine doesn't have it equipped, re-cast Br
 if (data.testRpgSetting == "rpgPorcupines") {
 	var enemy1 = createUnit();
 	enemy1.name = "enemy 1";
-	enemy1.ai = "Shielder";
-	enemy1.hp = enemy1.maxHp = 3000;
+	enemy1.ai = "Porcupine";
+	enemy1.hp = enemy1.maxHp = 5000;
 	enemy1.speed = 10;
 	enemies.push(enemy1);
 
 	var enemy2 = createUnit();
 	enemy2.name = "enemy 2";
-	enemy2.ai = "Shielder";
-	enemy2.hp = enemy2.maxHp = 3000;
-	enemy2.speed = 15;
+	enemy2.ai = "Porcupine";
+	enemy2.hp = enemy2.maxHp = 5000;
+	enemy2.speed = 10;
 	enemies.push(enemy2);
 
 	var enemy3 = createUnit();
 	enemy3.name = "enemy 3";
-	enemy3.ai = "Hard Stunner";
-	enemy3.hp = enemy3.maxHp = 7000;
-	enemy3.speed = 20;
+	enemy3.ai = "Porcupine";
+	enemy3.hp = enemy3.maxHp = 5000;
+	enemy3.speed = 10;
 	enemies.push(enemy3);
 }
 
