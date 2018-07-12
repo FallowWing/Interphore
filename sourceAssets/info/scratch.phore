@@ -395,6 +395,11 @@ if (internal) {
 		data.testRpgSetting = "rpgPorcupines";
 		execAsset("testRpg.phore");
 	});
+
+	addChoice("Spawners", function() {
+		data.testRpgSetting = "rpgSpawners";
+		execAsset("testRpg.phore");
+	});
 }
 
 addChoice("Go back", "scratchModStart");

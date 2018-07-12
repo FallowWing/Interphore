@@ -104,6 +104,9 @@ function createBuff() {
 		},
 		executeAttacked: function(unit, spell) {
 		},
+		executeAttacking: function(unit, damage, spell) {
+			return damage
+		},
 		executeStartOfTrun: function(unit) {
 			actionDone();
 		}
@@ -298,6 +301,11 @@ function updateRpgBattle() {
 			}
 
 			if (action.usedAsItem) arrayForceRemove(spell.source.itemNames, spell.name);
+
+			var buffs = getBuffs(action.source);
+			buffs.forEach(function(buff) {
+				spell.damage = buff.executeAttacking(spell.target, spell.damage, spell);
+			});
 
 			spell.execute(spell.source, action.target);
 

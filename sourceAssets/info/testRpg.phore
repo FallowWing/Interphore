@@ -46,7 +46,7 @@ function moveUnitInFrontOf(source, dest) {
 	sourceSpr.y = lerp(1, sourceSpr.y, destSpr.y);
 }
 
-/// Spells
+/// Player Spells
 var fireball = createSpell();
 fireball.name = "Fireball";
 fireball.info = "Throws a fireball";
@@ -209,32 +209,6 @@ barrier.execute = function(source, target) {
 	});
 };
 
-var slam = createSpell();
-slam.name = "Slam";
-slam.info = "Makes an enemy lose their next turn";
-slam.baseDamage = 0;
-slam.execute = function(source, target) {
-	moveUpTo(source, target, function() {
-		timer(0.2, function() {
-			applyBuff("Slammed", target);
-			moveBack(source, actionDone);
-		});
-	});
-};
-
-var pushSpell = createSpell();
-pushSpell.name = "Push";
-pushSpell.info = "Gives enemies a chance to lose their next turn";
-pushSpell.baseDamage = 0;
-pushSpell.execute = function(source, target) {
-	moveUpTo(source, target, function() {
-		timer(0.2, function() {
-			applyBuff("Pushed", target);
-			moveBack(source, actionDone);
-		});
-	});
-};
-
 var openMind = createSpell();
 openMind.name = "Open Mind";
 openMind.cost = 80;
@@ -354,6 +328,39 @@ lastDream.execute = function(source, target) {
 	});
 };
 
+var giveSoul = createSpell();
+giveSoul.name = "Give Soul";
+giveSoul.info = "Give your health to your ally";
+giveSoul.baseDamage = 0;
+giveSoul.cost = 50;
+giveSoul.targetsNone = true;
+giveSoul.execute = function(source, target) {
+	var drops = [];
+	forRange(0, 50, function(i) {
+		var drop = addRectImage(16, 16, 0xBB0000);
+		centerSpriteOnSprite(source.sprite, drop);
+		drop.x += rndFloat(-20, 20);
+		drop.y += rndFloat(-20, 20);
+		drop.alpha = 0;
+
+		tween(drop, 1, {alpha: 1}, {startDelay: rndFloat(0, 1), onComplete: function() {
+			var allySpr = rpg.players[1].sprite;
+			tween(drop, 0.5, {x: allySpr.x + allySpr.width/2, y: allySpr.y + allySpr.height/2}, {onComplete: function() {
+				drop.destroy();
+			}});
+		}});
+	});
+
+	timer(2, function() {
+		var ally = rpg.players[1];
+		ally.dead = false;
+		ally.hp += source.hp-1;
+		source.hp = 1;
+		moveBack(source, actionDone);
+	});
+};
+
+/// Enemy spells
 var shieldSpell = createSpell();
 shieldSpell.name = "Shield";
 shieldSpell.info = "Gives an ally a small shield";
@@ -365,6 +372,32 @@ shieldSpell.execute = function(source, target) {
 	moveUpTo(source, target, function() {
 		timer(1, function() {
 			applyBuff("Light Shield", target);
+			moveBack(source, actionDone);
+		});
+	});
+};
+
+var slam = createSpell();
+slam.name = "Slam";
+slam.info = "Makes an enemy lose their next turn";
+slam.baseDamage = 0;
+slam.execute = function(source, target) {
+	moveUpTo(source, target, function() {
+		timer(0.2, function() {
+			applyBuff("Slammed", target);
+			moveBack(source, actionDone);
+		});
+	});
+};
+
+var pushSpell = createSpell();
+pushSpell.name = "Push";
+pushSpell.info = "Gives enemies a chance to lose their next turn";
+pushSpell.baseDamage = 0;
+pushSpell.execute = function(source, target) {
+	moveUpTo(source, target, function() {
+		timer(0.2, function() {
+			applyBuff("Pushed", target);
 			moveBack(source, actionDone);
 		});
 	});
@@ -418,34 +451,15 @@ lilNibble.execute = function(source, target) {
 	});
 };
 
-var giveSoul = createSpell();
-giveSoul.name = "Give Soul";
-giveSoul.info = "Give your health to your ally";
-giveSoul.baseDamage = 0;
-giveSoul.cost = 50;
-giveSoul.targetsNone = true;
-giveSoul.execute = function(source, target) {
-	var drops = [];
-	forRange(0, 50, function(i) {
-		var drop = addRectImage(16, 16, 0xBB0000);
-		centerSpriteOnSprite(source.sprite, drop);
-		drop.x += rndFloat(-20, 20);
-		drop.y += rndFloat(-20, 20);
-		drop.alpha = 0;
-
-		tween(drop, 1, {alpha: 1}, {startDelay: rndFloat(0, 1), onComplete: function() {
-			var allySpr = rpg.players[1].sprite;
-			tween(drop, 0.5, {x: allySpr.x + allySpr.width/2, y: allySpr.y + allySpr.height/2}, {onComplete: function() {
-				drop.destroy();
-			}});
-		}});
-	});
-
-	timer(2, function() {
-		var ally = rpg.players[1];
-		ally.dead = false;
-		ally.hp += source.hp-1;
-		source.hp = 1;
+var kickSand = createSpell();
+kickSand.name = "Kick Sand";
+kickSand.info = "none";
+kickSand.baseDamage = 100;
+kickSand.cost = 20;
+kickSand.execute = function(source, target) {
+	moveUpTo(source, target, function() {
+		kickSand.doPartialDamage(target, lilNibble.damage);
+		applyBuff("Blind", target);
 		moveBack(source, actionDone);
 	});
 };
@@ -551,6 +565,17 @@ bristleback.executeDamaged = function(unit, damage, spell) {
 	return damage;
 }
 
+var blind = createBuff();
+blind.name = "Blind";
+blind.iconName = "Trash.png";
+blind.info = "Has a 50% chance of missing";
+blind.lastingTurns = 2;
+blind.executeAttacking = function(unit, damage, spell) {
+	if (rnd() > 0.5) return 0;
+
+	return damage;
+}
+
 /// Ais
 var skipperAi = createAi();
 skipperAi.name = "Skipper";
@@ -623,6 +648,16 @@ porcupine.execute = function(unit) {
 		castSpell("Lil Nibble", unit, highPlayer);
 	} else {
 		castSpell("Lil Nibble", unit, getRandomPlayer());
+	}
+	actionDone();
+};
+
+var spawner = createAi()
+spawner.name = "Spawner";
+spawner.execute = function(unit) {
+	if (unit.hp / unit.maxHp > 0.5) {
+		castSpell("Kick Sand", unit, getRandomPlayer());
+	} else {
 	}
 	actionDone();
 };
@@ -757,37 +792,6 @@ if (data.testRpgSetting == "rpgShields") {
 	enemies.push(enemy3);
 }
 
-/*
-Porcupines
-HP: 5000
-Speed: Slower than player
-Spell Pool:
-
-Bristleback — Passive (or buff, depending on how you implement it)
-When attacked, deal 300 damage to the attacker. 50% chance to block all damage.
-
-Lil Nibble — Phys attack
-Deal 200 damage three times.
-
-Glimmering Quills — Buff Spell
-Gain "Taunt: Opponent spells and physical attacks must target this." for 2 turns.
-
-Quill Spray — AoE Spell
-Deal 250 damage to all enemies.
-
-Behaviour:
-
-Default: Lil Nibble a random enemy.
-
-If no other allies have Taunt && both other allies have lower health than this porcupine, use Glimmering Quills.
-
-If both enemies are alive and below half health, use Quill Spray.
-
-If only one enemy is low, use Lil Nibble targeting the enemy with the highest health.
-
-If Bristleback is a buff and this porcupine doesn't have it equipped, re-cast Bristleback on itself.
-*/
-
 if (data.testRpgSetting == "rpgPorcupines") {
 	var enemy1 = createUnit();
 	enemy1.name = "enemy 1";
@@ -809,6 +813,22 @@ if (data.testRpgSetting == "rpgPorcupines") {
 	enemy3.hp = enemy3.maxHp = 5000;
 	enemy3.speed = 10;
 	enemies.push(enemy3);
+}
+
+if (data.testRpgSetting == "rpgSpawners") {
+	var enemy1 = createUnit();
+	enemy1.name = "enemy 1";
+	enemy1.ai = "Spawner";
+	enemy1.hp = enemy1.maxHp = 10000;
+	enemy1.speed = 10;
+	enemies.push(enemy1);
+
+	var enemy2 = createUnit();
+	enemy2.name = "enemy 2";
+	enemy2.ai = "Spawner";
+	enemy2.hp = enemy2.maxHp = 10000;
+	enemy2.speed = 10;
+	enemies.push(enemy2);
 }
 
 startRpgBattle(players, enemies, function() {
