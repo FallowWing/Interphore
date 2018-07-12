@@ -703,7 +703,11 @@ function applyBuff(buffName, unit) {
 			buffTracker.icon = addImage(buff.iconName);
 			buffTracker.icon.centerPivot = true;
 			buffTracker.icon.whileHovering = function() {
-				showTooltip(buff.info + "\n" + buffTracker.turns + " more turns");
+				if (buffTracker.turns > 500) {
+					showTooltip(buff.info);
+				} else {
+					showTooltip(buff.info + "\n" + buffTracker.turns + " more turns");
+				}
 			};
 
 			buffTracker.icon.alpha = 0;

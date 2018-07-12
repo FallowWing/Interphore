@@ -498,7 +498,7 @@ var pushed = createBuff();
 pushed.name = "Pushed";
 pushed.iconName = "Abuse.png";
 pushed.info = "Could lose their next turn";
-pushed.lastingTurns = 9999;
+pushed.lastingTurns = 999;
 pushed.executeStartOfTrun = function(unit) {
 	removeBuff("Pushed", unit);
 
@@ -513,7 +513,7 @@ var slammed = createBuff();
 slammed.name = "Slammed";
 slammed.iconName = "Gore.png";
 slammed.info = "Will lose their next trun";
-slammed.lastingTurns = 9999;
+slammed.lastingTurns = 999;
 slammed.executeStartOfTrun = function(unit) {
 	removeBuff("Slammed", unit);
 	unit.skipsNextTurn = true;
@@ -552,7 +552,7 @@ var bristleback = createBuff();
 bristleback.name = "Bristleback";
 bristleback.iconName = "Snuff.png";
 bristleback.info = "Does a lot of damage when attacked";
-bristleback.lastingTurns = 9999;
+bristleback.lastingTurns = 999;
 bristleback.executeDamaged = function(unit, damage, spell) {
 	var quills = addRectImage(32, 32, 0x351900);
 	quills.centerPivot = true;
@@ -581,7 +581,7 @@ var spawning = createBuff();
 spawning.name = "Spawning";
 spawning.iconName = "Abuse.png";
 spawning.info = "Will spawn a unit";
-spawning.lastingTurns = 9999;
+spawning.lastingTurns = 999;
 spawning.executeStartOfTrun = function(unit) {
 	var newEnemy = createUnit();
 	newEnemy.name = "Weak Porcupine";
@@ -674,10 +674,31 @@ porcupine.execute = function(unit) {
 var spawner = createAi()
 spawner.name = "Spawner";
 spawner.execute = function(unit) {
-	if (unit.hp / unit.maxHp < 0.5 && !hasBuff("Spawning", unit)) {
+	if (hasBuff("Marked", unit)) {
+		var spr = addRectImage(256, 256, 0xFFFF00);
+		centerSpriteOnSprite(unit.sprite, spr);
+		spr.alpha = 0.5;
+		spr.centerPivot = true; 
+		tween(spr, 3, {alpha: 0, rotation: 360, scaleX: 0, scaleY: 0}, {onComplete: function() {
+			spr.destroy();
+		}});
+		removeBuff("Marked", unit);
+		timer(2, actionDone);
+		return;
+	}
+
+	if (unit.hp / unit.maxHp < 0.75 && !hasBuff("Spawning", unit)) {
 		applyBuff("Spawning", unit);
 	} else {
-		castSpell("Kick Sand", unit, getRandomPlayer());
+		var unitToBlind = null;
+		rpg.players.forEach(function(unit) {
+			if (!hasBuff("Blind", unit)) unitToBlind = unit;
+		});
+		if (unitToBlind) {
+			castSpell("Kick Sand", unit, unitToBlind);
+		} else {
+			castSpell("Poison", unit, getRandomPlayer());
+		}
 	}
 	actionDone();
 };
@@ -839,14 +860,14 @@ if (data.testRpgSetting == "rpgSpawners") {
 	var enemy1 = createUnit();
 	enemy1.name = "enemy 1";
 	enemy1.ai = "Spawner";
-	enemy1.hp = enemy1.maxHp = 4000;
+	enemy1.hp = enemy1.maxHp = 5000;
 	enemy1.speed = 10;
 	enemies.push(enemy1);
 
 	var enemy2 = createUnit();
 	enemy2.name = "enemy 2";
 	enemy2.ai = "Spawner";
-	enemy2.hp = enemy2.maxHp = 4000;
+	enemy2.hp = enemy2.maxHp = 5000;
 	enemy2.speed = 10;
 	enemies.push(enemy2);
 }
