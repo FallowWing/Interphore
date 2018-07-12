@@ -418,6 +418,26 @@ lilNibble.execute = function(source, target) {
 	});
 };
 
+var giveSoul = createSpell();
+giveSoul.name = "Give Soul";
+giveSoul.info = "Give your health to your ally";
+giveSoul.baseDamage = 0;
+giveSoul.cost = 50;
+giveSoul.targetsEnemies = false;
+giveSoul.targetsAllies = true;
+giveSoul.targetsDead = true;
+giveSoul.execute = function(source, target) {
+	stepTowards(source, target, function() {
+		timer(1, function() {
+			var ally = rpg.players[1];
+			ally.dead = false;
+			ally.hp += source.hp-1;
+			source.hp = 1;
+			moveBack(source, actionDone);
+		});
+	});
+};
+
 /// Buffs
 var markedBuff = createBuff();
 markedBuff.name = "Marked";
@@ -581,10 +601,8 @@ porcupine.execute = function(unit) {
 	var bothLow = true;
 	var highPlayer = null;
 	rpg.players.forEach(function(player) {
-		if (player.hp / player.maxHp > 0.5) {
-			bothLow = false;
-			highPlayer = player;
-		}
+		if (!highPlayer || player.hp > highPlayer.hp) highPlayer = player;
+		if (player.hp / player.maxHp > 0.5) bothLow = false;
 	});
 
 	if (bothLow) {
@@ -607,6 +625,7 @@ p1.spellNames = [
 	"Fireball",
 	"Marked",
 	"Barrier",
+	"Give Soul",
 ];
 p1.itemNames = [
 	"Health Potion",
