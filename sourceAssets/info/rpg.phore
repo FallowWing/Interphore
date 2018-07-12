@@ -205,11 +205,6 @@ function startRpgBattle(players, enemies, whenDone) {
 
 	tempUpdateFunctions.push(updateRpgBattle);
 
-	rpg.units.forEach(function(unit) {
-		var ai = getAi(unit.ai);
-		if (ai) ai.executeSpawned(unit);
-	});
-
 	nextTurn();
 }
 
@@ -403,6 +398,9 @@ function addUnit(unit) {
 	});
 
 	resetUnitPosition(unit);
+
+	var ai = getAi(unit.ai);
+	if (ai) ai.executeSpawned(unit);
 }
 
 

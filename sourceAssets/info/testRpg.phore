@@ -460,6 +460,7 @@ kickSand.execute = function(source, target) {
 	moveUpTo(source, target, function() {
 		kickSand.doPartialDamage(target, lilNibble.damage);
 		applyBuff("Blind", target);
+		kickSand.doPartialDamage(1);
 		moveBack(source, actionDone);
 	});
 };
@@ -582,7 +583,14 @@ spawning.iconName = "Abuse.png";
 spawning.info = "Will spawn a unit";
 spawning.lastingTurns = 9999;
 spawning.executeStartOfTrun = function(unit) {
-	doDamage(unit, 150);
+	var newEnemy = createUnit();
+	newEnemy.name = "Porcupine";
+	newEnemy.hp = newEnemy.maxHp = 1000;
+	newEnemy.ai = "Porcupine";
+	newEnemy.speed = 10;
+	newEnemy.friendly = false;
+	addUnit(newEnemy);
+
 	actionDone();
 }
 
@@ -831,14 +839,14 @@ if (data.testRpgSetting == "rpgSpawners") {
 	var enemy1 = createUnit();
 	enemy1.name = "enemy 1";
 	enemy1.ai = "Spawner";
-	enemy1.hp = enemy1.maxHp = 10000;
+	enemy1.hp = enemy1.maxHp = 4000;
 	enemy1.speed = 10;
 	enemies.push(enemy1);
 
 	var enemy2 = createUnit();
 	enemy2.name = "enemy 2";
 	enemy2.ai = "Spawner";
-	enemy2.hp = enemy2.maxHp = 10000;
+	enemy2.hp = enemy2.maxHp = 4000;
 	enemy2.speed = 10;
 	enemies.push(enemy2);
 }
