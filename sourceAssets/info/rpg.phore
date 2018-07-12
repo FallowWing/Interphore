@@ -336,8 +336,8 @@ function updateRpgBattle() {
 		unit.mpBar.tint = 0xFF0000FF;
 		unit.limitBar.tint = 0xFFFFFF00;
 
-		unit.hpBar.scaleX = unit.hp / unit.maxHp;
-		unit.mpBar.scaleX = unit.mp / unit.maxMp;
+		unit.hpBar.scaleX += (unit.hp / unit.maxHp - unit.hpBar.scaleX) / 20;
+		unit.mpBar.scaleX += (unit.mp / unit.maxMp - unit.mpBar.scaleX) / 20;
 		unit.limitBar.scaleX = unit.limit / 100;
 	});
 
@@ -701,9 +701,17 @@ function applyBuff(buffName, unit) {
 			};
 
 			buffTracker.icon = addImage(buff.iconName);
+			buffTracker.icon.centerPivot = true;
 			buffTracker.icon.whileHovering = function() {
 				showTooltip(buff.info + "\n" + buffTracker.turns + " more turns");
 			};
+
+			buffTracker.icon.alpha = 0;
+			buffTracker.icon.scaleX = 10;
+			buffTracker.icon.scaleY = 10;
+			buffTracker.icon.rotation = 15;
+			tween(buffTracker.icon, 0.25, {alpha: 1, scaleX: 1, scaleY: 1, rotation: 0});
+
 			unit.statBox.addChild(buffTracker.icon);
 
 
