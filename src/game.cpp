@@ -71,6 +71,7 @@ duk_ret_t interTweenEase(duk_context *ctx);
 duk_ret_t setFontTag(duk_context *ctx);
 duk_ret_t streamEmbeddedTexture(duk_context *ctx);
 duk_ret_t openSoftwareKeyboard(duk_context *ctx);
+duk_ret_t interRnd(duk_context *ctx);
 
 /// Images
 duk_ret_t addImage(duk_context *ctx);
@@ -129,6 +130,7 @@ void initGame() {
 	addJsFunction("setFontTag", setFontTag, 2);
 	addJsFunction("streamEmbeddedTexture", streamEmbeddedTexture, 1);
 	addJsFunction("openSoftwareKeyboard", openSoftwareKeyboard, 0);
+	addJsFunction("rnd_internal", interRnd, 0);
 
 	addJsFunction("addImage_internal", addImage, 1);
 	addJsFunction("addCanvasImage_internal", addCanvasImage, 3);
@@ -622,6 +624,12 @@ duk_ret_t openSoftwareKeyboard(duk_context *ctx) {
 
 	return 0;
 }
+
+duk_ret_t interRnd(duk_context *ctx) {
+	duk_push_number(ctx, rnd());
+	return 1;
+}
+
 
 //
 //

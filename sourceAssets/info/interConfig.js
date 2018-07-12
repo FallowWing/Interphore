@@ -435,7 +435,7 @@ function timer(delay, onComplete, loopCount) {
 	return tim;
 }
 
-function rnd() { return Math.random(); }
+function rnd() { return rnd_internal(); }
 function rndInt(min, max) { return round(rndFloat(min, max)); }
 function rndFloat(min, max) { return min + rnd() * (max - min); }
 function floor(num) { return Math.floor(num); }
