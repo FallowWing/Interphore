@@ -497,7 +497,7 @@ var pushed = createBuff();
 pushed.name = "Pushed";
 pushed.iconName = "Abuse.png";
 pushed.info = "Could lose their next turn";
-pushed.lastingTurns = 999;
+pushed.lastingTurns = 9999;
 pushed.executeStartOfTrun = function(unit) {
 	removeBuff("Pushed", unit);
 
@@ -512,7 +512,7 @@ var slammed = createBuff();
 slammed.name = "Slammed";
 slammed.iconName = "Gore.png";
 slammed.info = "Will lose their next trun";
-slammed.lastingTurns = 999;
+slammed.lastingTurns = 9999;
 slammed.executeStartOfTrun = function(unit) {
 	removeBuff("Slammed", unit);
 	unit.skipsNextTurn = true;
@@ -575,6 +575,17 @@ blind.executeAttacking = function(unit, damage, spell) {
 
 	return damage;
 }
+
+var spawning = createBuff();
+spawning.name = "Spawning";
+spawning.iconName = "Abuse.png";
+spawning.info = "Will spawn a unit";
+spawning.lastingTurns = 9999;
+spawning.executeStartOfTrun = function(unit) {
+	doDamage(unit, 150);
+	actionDone();
+}
+
 
 /// Ais
 var skipperAi = createAi();
@@ -655,9 +666,10 @@ porcupine.execute = function(unit) {
 var spawner = createAi()
 spawner.name = "Spawner";
 spawner.execute = function(unit) {
-	if (unit.hp / unit.maxHp > 0.5) {
-		castSpell("Kick Sand", unit, getRandomPlayer());
+	if (unit.hp / unit.maxHp < 0.5 && !hasBuff("Spawning", unit)) {
+		applyBuff("Spawning", unit);
 	} else {
+		castSpell("Kick Sand", unit, getRandomPlayer());
 	}
 	actionDone();
 };

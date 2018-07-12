@@ -201,22 +201,11 @@ function startRpgBattle(players, enemies, whenDone) {
 		addUnit(unit);
 	});
 
-	rpg.units.sort(function(a, b) {
-		var order = b.speed - a.speed;
-		if (order == 0) {
-			return a.name < b.name ? -1 : 1;
-		} else {
-			return order;
-		}
-	});
-
 	rpg.unitArrow = addRectImage(32, 32, 0xFFFF00);
 
 	tempUpdateFunctions.push(updateRpgBattle);
 
 	rpg.units.forEach(function(unit) {
-		resetUnitPosition(unit);
-
 		var ai = getAi(unit.ai);
 		if (ai) ai.executeSpawned(unit);
 	});
@@ -403,6 +392,17 @@ function addUnit(unit) {
 	}
 
 	rpg.units.push(unit);
+
+	rpg.units.sort(function(a, b) {
+		var order = b.speed - a.speed;
+		if (order == 0) {
+			return a.name < b.name ? -1 : 1;
+		} else {
+			return order;
+		}
+	});
+
+	resetUnitPosition(unit);
 }
 
 
