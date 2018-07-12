@@ -423,18 +423,30 @@ giveSoul.name = "Give Soul";
 giveSoul.info = "Give your health to your ally";
 giveSoul.baseDamage = 0;
 giveSoul.cost = 50;
-giveSoul.targetsEnemies = false;
-giveSoul.targetsAllies = true;
-giveSoul.targetsDead = true;
+giveSoul.targetsNone = true;
 giveSoul.execute = function(source, target) {
-	stepTowards(source, target, function() {
-		timer(1, function() {
-			var ally = rpg.players[1];
-			ally.dead = false;
-			ally.hp += source.hp-1;
-			source.hp = 1;
-			moveBack(source, actionDone);
-		});
+	var drops = [];
+	forRange(0, 50, function(i) {
+		var drop = addRectImage(16, 16, 0xBB0000);
+		centerSpriteOnSprite(source.sprite, drop);
+		drop.x += rndFloat(-20, 20);
+		drop.y += rndFloat(-20, 20);
+		drop.alpha = 0;
+
+		tween(drop, 1, {alpha: 1}, {startDelay: rndFloat(0, 1), onComplete: function() {
+			var allySpr = rpg.players[1].sprite;
+			tween(drop, 0.5, {x: allySpr.x + allySpr.width/2, y: allySpr.y + allySpr.height/2}, {onComplete: function() {
+				drop.destroy();
+			}});
+		}});
+	});
+
+	timer(2, function() {
+		var ally = rpg.players[1];
+		ally.dead = false;
+		ally.hp += source.hp-1;
+		source.hp = 1;
+		moveBack(source, actionDone);
 	});
 };
 

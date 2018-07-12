@@ -33,6 +33,13 @@ function arrayContainsAny(haystack, needles) {
 	return false;
 }
 
+function forRange(start, end, fn) {
+	var arr = [];
+	for (var i = start; i < end; i++) arr.push(i);
+
+	arr.forEach(fn);
+}
+
 function lerp(perc, min, max) {
 	return min + (max - min) * perc;
 }
