@@ -368,6 +368,7 @@ addChoice("Go back", "scratchModStart");
 ---
 :rpgTest
 !`
+disableExit();
 choicesPerPage = 8;
 
 addChoice("No AI", function() {
@@ -402,7 +403,7 @@ if (internal) {
 	});
 }
 
-addChoice("Go back", "scratchModStart");
+// addChoice("Go back", "scratchModStart");
 
 // addChoice("Magi demo", function() {
 // 	execAsset("magiDemo.phore");

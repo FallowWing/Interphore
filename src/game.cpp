@@ -182,6 +182,11 @@ void initGame() {
 	runJs("gotoPassage(\"scratchModStart\");");
 #endif
 
+#ifdef FORCE_RPG
+	runJs("gotoPassage(\"scratchModStart\");");
+	runJs("gotoPassage(\"rpgTest\");");
+#endif
+
 	game->root = createMintSprite();
 	game->root->setupContainer(engine->width, engine->height);
 

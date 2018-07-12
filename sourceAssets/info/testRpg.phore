@@ -151,7 +151,7 @@ var rejuvenate = createSpell();
 rejuvenate.name = "Rejuvenate";
 rejuvenate.info = "Heal an ally over multiple turns";
 rejuvenate.baseDamage = 0;
-rejuvenate.cost = 70;
+rejuvenate.cost = 200;
 rejuvenate.targetsEnemies = false;
 rejuvenate.targetsAllies = true;
 rejuvenate.execute = function(source, target) {
@@ -542,7 +542,7 @@ var rejuvenating = createBuff();
 rejuvenating.name = "Rejuvenating";
 rejuvenating.iconName = "Drugs.png";
 rejuvenating.info = "Healing...";
-rejuvenating.lastingTurns = 3;
+rejuvenating.lastingTurns = 5;
 rejuvenating.executeStartOfTrun = function(unit) {
 	doDamage(unit, -200);
 	actionDone();
@@ -560,7 +560,7 @@ bristleback.executeDamaged = function(unit, damage, spell) {
 	tween(quills, 0.5, {scaleX: 50, scaleY: 50, alpha: 0}, {onComplete: function() {
 		quills.destroy();
 		rpg.players.forEach(function(player) {
-			doDamage(player, 300);
+			doDamage(player, 200);
 		});
 	}});
 	return damage;
