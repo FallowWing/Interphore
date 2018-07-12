@@ -217,6 +217,7 @@ function startRpgBattle(players, enemies, whenDone) {
 		var ai = getAi(unit.ai);
 		if (ai) ai.executeSpawned(unit);
 	});
+
 	nextTurn();
 }
 
@@ -685,19 +686,20 @@ function getBuffs(unit) {
 function applyBuff(buffName, unit) {
 	rpg.buffs.forEach(function(buff) {
 		if (buff.name == buffName) {
-			var icon = addImage(buff.iconName);
-			icon.whileHovering = function() {
-				showTooltip(buff.info);
-			};
-			unit.statBox.addChild(icon);
-
 			var buffTracker = {
 				name: buff.name,
 				turns: buff.lastingTurns,
 				remove: false,
 				/// Temp:
-				icon: icon
+				icon: null
 			};
+
+			buffTracker.icon = addImage(buff.iconName);
+			buffTracker.icon.whileHovering = function() {
+				showTooltip(buff.info + "\n" + buffTracker.turns + " more turns");
+			};
+			unit.statBox.addChild(buffTracker.icon);
+
 
 			unit.buffTrackers.push(buffTracker);
 		}

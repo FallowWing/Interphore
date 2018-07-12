@@ -495,7 +495,7 @@ var rejuvenating = createBuff();
 rejuvenating.name = "Rejuvenating";
 rejuvenating.iconName = "Drugs.png";
 rejuvenating.info = "Healing...";
-rejuvenating.lastingTurns = 5;
+rejuvenating.lastingTurns = 3;
 rejuvenating.executeStartOfTrun = function(unit) {
 	doDamage(unit, -200);
 	actionDone();
