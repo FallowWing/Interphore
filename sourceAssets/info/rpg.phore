@@ -17,8 +17,8 @@ var ITEM_PICKED = 9;
 function initRpgBattle() {
 	rpg = {
 		playing: false,
-		players: null,
-		enemies: null,
+		players: [],
+		enemies: [],
 		whenDone: null,
 		units: [],
 		cycle: [],
@@ -182,16 +182,20 @@ function createAction() {
 
 function startRpgBattle(players, enemies, whenDone) {
 	rpg.playing = true;
-	rpg.players = players;
-	rpg.enemies = enemies;
 	rpg.whenDone = whenDone;
 
+	clear();
+	choicesPerPage = 8;
+	append("Battle start!\n");
+
 	players.forEach(function(unit) {
-		rpg.units.push(unit);
+		unit.friendly = true;
+		addUnit(unit);
 	});
 
 	enemies.forEach(function(unit) {
-		rpg.units.push(unit);
+		unit.friendly = false;
+		addUnit(unit);
 	});
 
 	rpg.units.sort(function(a, b) {
@@ -201,49 +205,6 @@ function startRpgBattle(players, enemies, whenDone) {
 		} else {
 			return order;
 		}
-	});
-
-	clear();
-	choicesPerPage = 8;
-	append("Battle start!\n");
-
-	rpg.units.forEach(function(unit) {
-		unit.sprite = addRectImage(64, 128, 0xFFFFFF);
-		unit.sprite.centerPivot = true;
-
-		unit.statBox = addEmptyImage(128, 64);
-
-		unit.nameTf = addEmptyImage(unit.statBox.width, 64);
-		unit.nameTf.tint = 0xFFFFFFFF;
-		unit.nameTf.setFont("NunitoSans-Light_22");
-		unit.nameTf.setText(unit.name);
-		unit.statBox.addChild(unit.nameTf);
-
-		unit.hpBar = addRectImage(128, 4, 0xFFFFFF);
-		unit.hpBar.y = unit.nameTf.y + unit.nameTf.textHeight;
-		unit.statBox.addChild(unit.hpBar);
-
-		unit.mpBar = addRectImage(128, 4, 0xFFFFFF);
-		unit.mpBar.y = unit.hpBar.y + unit.hpBar.height;
-		unit.statBox.addChild(unit.mpBar);
-
-		unit.limitBar = addRectImage(128, 4, 0xFFFFFF);
-		unit.limitBar.y = unit.mpBar.y + unit.mpBar.height;
-		unit.statBox.addChild(unit.limitBar);
-	});
-
-	players.forEach(function(unit, i) {
-		unit.friendly = true;
-		unit.originX = 32 + i*70;
-		unit.originY = 128 + i*(unit.sprite.height - 55);
-		unit.sprite.tint = 0xFF0000FF;
-	});
-
-	enemies.forEach(function(unit, i) {
-		unit.friendly = false;
-		unit.originX = gameWidth - unit.sprite.width - 32 - i*70;
-		unit.originY = 128 + i*(unit.sprite.height - 55);
-		unit.sprite.tint = 0xFFFF6100;
 	});
 
 	rpg.unitArrow = addRectImage(32, 32, 0xFFFF00);
@@ -393,6 +354,48 @@ function updateRpgBattle() {
 		rpg.unitArrow.y = unitSpr.y - rpg.unitArrow.height - 20 + Math.sin(time)*20;
 	}
 }
+
+function addUnit(unit) {
+	unit.sprite = addRectImage(64, 128, 0xFFFFFF);
+	unit.sprite.centerPivot = true;
+
+	unit.statBox = addEmptyImage(128, 64);
+
+	unit.nameTf = addEmptyImage(unit.statBox.width, 64);
+	unit.nameTf.tint = 0xFFFFFFFF;
+	unit.nameTf.setFont("NunitoSans-Light_22");
+	unit.nameTf.setText(unit.name);
+	unit.statBox.addChild(unit.nameTf);
+
+	unit.hpBar = addRectImage(128, 4, 0xFFFFFF);
+	unit.hpBar.y = unit.nameTf.y + unit.nameTf.textHeight;
+	unit.statBox.addChild(unit.hpBar);
+
+	unit.mpBar = addRectImage(128, 4, 0xFFFFFF);
+	unit.mpBar.y = unit.hpBar.y + unit.hpBar.height;
+	unit.statBox.addChild(unit.mpBar);
+
+	unit.limitBar = addRectImage(128, 4, 0xFFFFFF);
+	unit.limitBar.y = unit.mpBar.y + unit.mpBar.height;
+	unit.statBox.addChild(unit.limitBar);
+
+	if (unit.friendly) {
+		unit.originX = 32 + rpg.players.length*70;
+		unit.originY = 128 + rpg.players.length*(unit.sprite.height - 55);
+		unit.sprite.tint = 0xFF0000FF;
+
+		rpg.players.push(unit);
+	} else {
+		unit.originX = gameWidth - unit.sprite.width - 32 - rpg.enemies.length*70;
+		unit.originY = 128 + rpg.enemies.length*(unit.sprite.height - 55);
+		unit.sprite.tint = 0xFFFF6100;
+
+		rpg.enemies.push(unit);
+	}
+
+	rpg.units.push(unit);
+}
+
 
 function actionDone() {
 	var action = rpg.currentAction;
