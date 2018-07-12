@@ -275,9 +275,9 @@ function updateRpgBattle() {
 	var actionStr = "";
 	function pushActionText(action) {
 		var newText = "";
-		if (action.type == CAST_ACTION)                     newText += "Spell cast: "+action.spellName;
-		else if (action.type == START_OF_TURN_BUFF_ACTION)  newText += "Start of turn buff: "+action.buffName;
-		else if (action.type == AI_CHOICE_ACTION)           newText += "Ai choice: "+action.source.name;
+		if (action.type == CAST_ACTION)                     newText += "Spell cast: "+action.spellName+" "+action.source.name+"->"+action.target.name;
+		else if (action.type == START_OF_TURN_BUFF_ACTION)  newText += "Turn start buff: "+action.buffName+" on "+action.source.name;
+		else if (action.type == AI_CHOICE_ACTION)           newText += "Ai turn: "+action.source.name+" with AI "+action.source.ai;
 		else if (action.type == END_TURN_ACTION)            newText += "End turn: "+action.source.name;
 		else                                                newText += "Unknowned action type "+action.type;
 
@@ -348,14 +348,11 @@ function updateRpgBattle() {
 				});
 			}
 		} else if (action.type == START_OF_TURN_BUFF_ACTION) {
-			print("Start turn buff "+action.buffName+" procing on "+action.source.name);
 			getBuff(action.buffName).executeStartOfTrun(action.source);
 		} else if (action.type == AI_CHOICE_ACTION) {
-			print(action.source.name+" taking AI turn with "+action.source.ai);
 			getAi(action.source.ai).execute(action.source);
 			rpg.endAfterActions = true;
 		} else if (action.type == END_TURN_ACTION) {
-			print(action.source.name+" ending turn");
 			nextTurn();
 			if (!rpg.playing) return;
 			actionDone();
