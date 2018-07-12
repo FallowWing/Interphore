@@ -584,7 +584,7 @@ spawning.info = "Will spawn a unit";
 spawning.lastingTurns = 9999;
 spawning.executeStartOfTrun = function(unit) {
 	var newEnemy = createUnit();
-	newEnemy.name = "Porcupine";
+	newEnemy.name = "Weak Porcupine";
 	newEnemy.hp = newEnemy.maxHp = 1000;
 	newEnemy.ai = "Porcupine";
 	newEnemy.speed = 10;
