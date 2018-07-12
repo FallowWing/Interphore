@@ -21,7 +21,7 @@ function initRpgBattle() {
 		enemies: null,
 		whenDone: null,
 		units: [],
-		turnIndex: 0,
+		cycle: [],
 		unitArrow: null,
 		currentUnit: null,
 		currentSpell: null,
@@ -249,8 +249,6 @@ function startRpgBattle(players, enemies, whenDone) {
 	rpg.unitArrow = addRectImage(32, 32, 0xFFFF00);
 
 	tempUpdateFunctions.push(updateRpgBattle);
-
-	rpg.turnIndex = -1;
 
 	rpg.units.forEach(function(unit) {
 		resetUnitPosition(unit);
@@ -589,9 +587,13 @@ function nextTurn() {
 		return;
 	}
 
-	rpg.turnIndex++;
-	if (rpg.turnIndex >= rpg.units.length) rpg.turnIndex = 0;
-	rpg.currentUnit = rpg.units[rpg.turnIndex];
+	if (rpg.cycle.length == 0) {
+		rpg.units.forEach(function(unit) {
+			rpg.cycle.push(unit);
+		});
+	}
+
+	rpg.currentUnit = rpg.cycle.shift();
 
 	if (rpg.currentUnit.dead) {
 		nextTurn();
