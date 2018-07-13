@@ -54,6 +54,8 @@ fireball.baseDamage = 1200;
 fireball.cost = 70;
 fireball.affinities = ["Fire"];
 fireball.execute = function(source, target) {
+	var spell = this;
+
 	stepTowards(source, target, function() {
 		var targetSpr = target.sprite;
 		var spr = addRectImage(64, 64, 0xCC0000);
@@ -61,7 +63,7 @@ fireball.execute = function(source, target) {
 		spr.y = targetSpr.y + targetSpr.height/2 - spr.height/2;
 		tween(spr, 1, {scaleX: 3, scaleY: 3, alpha: 0}, {onComplete: function() {
 			spr.destroy();
-			fireball.doPartialDamage(target, 1);
+			spell.doPartialDamage(target, 1);
 			moveBack(source, actionDone);
 		}});
 	});
@@ -74,6 +76,7 @@ lightning.baseDamage = 1000;
 lightning.cost = 50;
 lightning.affinities = ["Electric"];
 lightning.execute = function(source, target) {
+	var spell = this;
 
 	stepTowards(source, target, function() {
 		var targetSpr = target.sprite;
@@ -86,7 +89,7 @@ lightning.execute = function(source, target) {
 				var spr = addRectImage(32, gameHeight, 0xFFFF00);
 				spr.x = targetSpr.x + targetSpr.width/2 - spr.width/2 + rndFloat(-50, 50);
 				spr.y = 0;
-				lightning.doPartialDamage(target, 1/(strikes));
+				spell.doPartialDamage(target, 1/(strikes));
 				tween(spr, 0.5, {alpha: 0}, {onComplete: function() {
 					spr.destroy();
 					if (i == strikesArr.length-1) moveBack(source, actionDone);
@@ -102,6 +105,7 @@ gutPunch.info = "A strong generic attack";
 gutPunch.baseDamage = 500;
 gutPunch.isAttack = true;
 gutPunch.execute = function(source, target) {
+	var spell = this;
 	var sourceSpr = source.sprite;
 	var targetSpr = target.sprite;
 
@@ -110,7 +114,7 @@ gutPunch.execute = function(source, target) {
 
 	tween(sourceSpr, 1, {x: endX, y: endY}, {onComplete: function() {
 		tween(sourceSpr, 0.5, {x: targetSpr.x}, {ease: QUART_OUT, startDelay: 0.5, onComplete: function() {
-			gutPunch.doPartialDamage(target, 1);
+			spell.doPartialDamage(target, 1);
 			moveBack(source, actionDone);
 		}});
 	}});
@@ -169,6 +173,7 @@ poison.info = "Hits an enemy twice, then poisons them";
 poison.baseDamage = 100;
 poison.cost = 30;
 poison.execute = function(source, target) {
+	var spell = this;
 	stepTowards(source, target, function() {
 		var targetSpr = target.sprite;
 
@@ -181,7 +186,7 @@ poison.execute = function(source, target) {
 				var spr = addRectImage(32, 32, 0xAAAA00);
 				spr.x = targetSpr.x + targetSpr.width/2 - spr.width/2 + rndFloat(-50, 50);
 				spr.y = targetSpr.y + targetSpr.height/2 - spr.height/2 + rndFloat(-50, 50);
-				poison.doPartialDamage(target, 1/strikes);
+				spell.doPartialDamage(target, 1/strikes);
 				tween(spr, 1, {y: spr.y - rndFloat(20, 60), alpha: 0}, {onComplete: function() {
 					spr.destroy();
 					if (i == strikesArr.length-1) {
@@ -409,9 +414,10 @@ hardSlam.info = "Stuns people hard";
 hardSlam.baseDamage = 333;
 hardSlam.cost = 100;
 hardSlam.execute = function(source, target) {
+	var spell = this;
 	moveUpTo(source, target, function() {
 		timer(0.2, function() {
-			hardSlam.doPartialDamage(target, 1);
+			spell.doPartialDamage(target, 1);
 			applyBuff("Slammed", target);
 			moveBack(source, actionDone);
 		});
@@ -445,8 +451,9 @@ lilNibble.info = "none";
 lilNibble.baseDamage = 200;
 lilNibble.cost = 20;
 lilNibble.execute = function(source, target) {
+	var spell = this;
 	moveUpTo(source, target, function() {
-		lilNibble.doPartialDamage(target, lilNibble.damage);
+		spell.doPartialDamage(target, lilNibble.damage);
 		moveBack(source, actionDone);
 	});
 };
@@ -457,10 +464,10 @@ kickSand.info = "none";
 kickSand.baseDamage = 100;
 kickSand.cost = 20;
 kickSand.execute = function(source, target) {
+	var spell = this;
 	moveUpTo(source, target, function() {
-		kickSand.doPartialDamage(target, lilNibble.damage);
 		applyBuff("Blind", target);
-		kickSand.doPartialDamage(1);
+		spell.doPartialDamage(1);
 		moveBack(source, actionDone);
 	});
 };

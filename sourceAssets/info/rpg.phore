@@ -137,9 +137,9 @@ function createSpell() {
 				return;
 			}
 			if (Math.abs(perc) <= 0.001) return;
-			if (spell.damagePercDone + perc >= 1) perc = 1 - spell.damagePercDone;
-			if (spell.baseDamage != 0) doDamage(target, spell.damage * perc);
-			spell.damagePercDone += perc;
+			if (this.damagePercDone + perc >= 1) perc = 1 - this.damagePercDone;
+			if (this.baseDamage != 0) doDamage(target, this.damage * perc);
+			this.damagePercDone += perc;
 		},
 		execute: function(source, target) {
 			spellDone();
@@ -641,17 +641,16 @@ function doDamage(unit, amount) {
 function getSpell(spellName) {
 	var retSpell = null;
 	rpg.spells.forEach(function(spell) {
-		if (spellName == spell.name) {
-			retSpell = spell;
-			return;
-		}
+		if (spellName == spell.name) retSpell = spell;
 	});
 
 	if (retSpell == null) {
 		print("Failed to get spell named: "+spellName);
 		return null;
 	}
-	return Object.assign(retSpell);
+
+	var newSpell = Object.create(retSpell);
+	return newSpell;
 }
 
 function getAi(aiName) {
