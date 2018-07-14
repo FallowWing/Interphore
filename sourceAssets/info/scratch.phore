@@ -401,6 +401,11 @@ if (internal) {
 		data.testRpgSetting = "rpgSpawners";
 		execAsset("testRpg.phore");
 	});
+
+	addChoice("Exploders", function() {
+		data.testRpgSetting = "rpgExploders";
+		execAsset("testRpg.phore");
+	});
 }
 
 // addChoice("Go back", "scratchModStart");

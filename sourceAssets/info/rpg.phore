@@ -121,7 +121,7 @@ function createSpell() {
 	spell = {
 		name: "Unnamed spell",
 		info: "No spell info",
-		baseDamage: 300,
+		baseDamage: 0,
 		cost: 50,
 		damageType: MAGIC_DAMAGE,
 		targetsAllies: false,
