@@ -479,14 +479,20 @@ function showMenu() {
 			if (rpg.pickedType == ATTACK_PICKED && !spell.isAttack) return;
 			if (rpg.pickedType == MAGIC_PICKED && spell.isAttack) return;
 
+			var canAfford = true;
 			var buttonText = spellName;
-			if (rpg.pickedType == MAGIC_PICKED) buttonText += "\n"+spell.cost+"mp";
+			if (rpg.pickedType == MAGIC_PICKED) {
+				buttonText += "\n"+spell.cost+"mp";
+				if (rpg.currentUnit.mp < spell.cost) canAfford = false;
+			}
 			if (rpg.pickedType == ITEM_PICKED) buttonText += "\nx"+arrayCount(arrayToSearch, spellName);
 
 			var magicChoice = addChoice(buttonText, function() {
 				rpg.currentSpell = spell;
 				onChoose();
 			});
+
+			magicChoice.enabled = canAfford;
 
 			magicChoice.sprite.whileHovering = function() {
 				showTooltip(spell.info);
