@@ -506,7 +506,7 @@ smoke.execute = function(source, target) {
 			smoke.destroy();
 			getMyOpponents(source).forEach(function(opp) {
 				if (rnd() > 0.15) {
-					doDamage(opp, 400);
+					doDamage(opp, 100);
 				} else {
 					doDamage(opp, 1);
 				}
@@ -529,7 +529,7 @@ fuseSpark.execute = function(source, target) {
 		tween(explosion, 0.5, {scaleX: 50, scaleY: 50, alpha: 0}, {onComplete: function() {
 			explosion.destroy();
 			getMyOpponents(source).forEach(function(opp) {
-				doDamage(opp, 100);
+				doDamage(opp, 20);
 			});
 			applyBuff("Burn", source);
 			moveBack(source, actionDone);
