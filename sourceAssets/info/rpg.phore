@@ -757,6 +757,12 @@ function giveItem(itemName, unit) {
 	unit.itemNames.push(itemName);
 }
 
+function reviveUnit(unit) {
+	if (!unit.dead) return;
+	unit.dead = false;
+	tween(unit.sprite, 0.5, {rotation: 0});
+}
+
 function hasBuff(buffName, unit) {
 	var doesHave = false;
 	unit.buffTrackers.forEach(function(buffTracker) {
@@ -767,43 +773,49 @@ function hasBuff(buffName, unit) {
 		return doesHave;
 }
 
-function getEnemies() {
+function getEnemies(includeDead) {
+	if (includeDead == undefined) includeDead = false;
+
 	var livingEnemies = [];
 	rpg.enemies.forEach(function(enemy) {
-		if (!enemy.dead) livingEnemies.push(enemy);
+		if (enemy.dead && !includeDead) return;
+			livingEnemies.push(enemy);
 	});
 
 	return livingEnemies;
 
 }
 
-function getPlayers() {
+function getPlayers(includeDead) {
+	if (includeDead == undefined) includeDead = false;
+
 	var livingPlayers = [];
 	rpg.players.forEach(function(player) {
-		if (!player.dead) livingPlayers.push(player);
+		if (player.dead && !includeDead) return;
+		livingPlayers.push(player);
 	});
 
 	return livingPlayers;
 }
 
-function getMyOpponents(unit) {
+function getMyOpponents(unit, includeDead) {
 	if (unit.friendly) {
-		arr = getEnemies();
+		arr = getEnemies(includeDead);
 	} else {
-		arr = getPlayers();
+		arr = getPlayers(includeDead);
 	}
 
 	return arr;
 }
 
-function getMyAllies(unit, exclusive) {
+function getMyAllies(unit, exclusive, includeDead) {
 	if (exclusive === undefined) exclusive = false;
 
 	var arr = null;
 	if (unit.friendly) {
-		arr = getPlayers();
+		arr = getPlayers(includeDead);
 	} else {
-		arr = getEnemies();
+		arr = getEnemies(includeDead);
 	}
 
 	if (exclusive) arrayForceRemove(arr, unit);
@@ -811,12 +823,12 @@ function getMyAllies(unit, exclusive) {
 	return arr;
 }
 
-function getMyRandomOpponent(unit) {
-	var arr = getMyOpponents(unit);
+function getMyRandomOpponent(unit, includeDead) {
+	var arr = getMyOpponents(unit, includeDead);
 	return arr[rndInt(0, arr.length-1)];
 }
 
-function getMyRandomAlly(unit, exclusive) {
-	var arr = getMyAllies(unit, exclusive);
+function getMyRandomAlly(unit, exclusive, includeDead) {
+	var arr = getMyAllies(unit, exclusive, includeDead);
 	return arr[rndInt(0, arr.length-1)];
 }

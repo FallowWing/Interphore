@@ -342,7 +342,7 @@ giveSoul.cost = 50;
 giveSoul.targetsNone = true;
 giveSoul.execute = function(source, target) {
 	var drops = [];
-	var ally = getMyAllies(source, true)[0];
+	var ally = getMyAllies(source, true, true)[0];
 	forRange(0, 50, function(i) {
 		var drop = addRectImage(16, 16, 0xBB0000);
 		centerSpriteOnSprite(source.sprite, drop);
@@ -359,7 +359,7 @@ giveSoul.execute = function(source, target) {
 	});
 
 	timer(2, function() {
-		ally.dead = false;
+		reviveUnit(ally);
 		ally.hp += source.hp-1;
 		source.hp = 1;
 		moveBack(source, actionDone);
