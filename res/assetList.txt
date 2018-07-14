@@ -11,6 +11,8 @@ font/bitmap/NunitoSans-Italic_30*
 font/bitmap/OpenSans-Regular_20*
 font/bitmap/OpenSans-Regular_40*
 
+info/replay/*
+
 info/magiDemo.phore
 
 info/nodeGraph.phore
