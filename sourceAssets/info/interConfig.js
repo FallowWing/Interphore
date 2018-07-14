@@ -33,6 +33,13 @@ function arrayContainsAny(haystack, needles) {
 	return false;
 }
 
+function forRange(start, end, fn) {
+	var arr = [];
+	for (var i = start; i < end; i++) arr.push(i);
+
+	arr.forEach(fn);
+}
+
 function lerp(perc, min, max) {
 	return min + (max - min) * perc;
 }
@@ -428,7 +435,7 @@ function timer(delay, onComplete, loopCount) {
 	return tim;
 }
 
-function rnd() { return Math.random(); }
+function rnd() { return rnd_internal(); }
 function rndInt(min, max) { return round(rndFloat(min, max)); }
 function rndFloat(min, max) { return min + rnd() * (max - min); }
 function floor(num) { return Math.floor(num); }
@@ -649,6 +656,10 @@ function msg(str, config) {
 	return message;
 }
 
+function rawAppend(data) {
+	append_internal(data);
+}
+
 function append(data) {
 	if (typeof data !== "string") data = String(data);
 	var newStr = "";
@@ -674,7 +685,7 @@ function append(data) {
 	});
 
 	newStr = newStr.replace(/%/g, "%%"); // We won't need this once mainText is in js
-	append_internal(newStr);
+	rawAppend(newStr);
 }
 
 function submitPassage(str) {
@@ -741,6 +752,10 @@ function showTooltip(str) {
 	}
 
 	tooltipShowing = true;
+}
+
+function keyJustPressed(keyCode) {
+	return keys[keyCode] == KEY_JUST_PRESSED;
 }
 
 function __update() {

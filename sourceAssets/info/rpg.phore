@@ -17,11 +17,11 @@ var ITEM_PICKED = 9;
 function initRpgBattle() {
 	rpg = {
 		playing: false,
-		players: null,
-		enemies: null,
+		players: [],
+		enemies: [],
 		whenDone: null,
 		units: [],
-		turnIndex: 0,
+		cycle: [],
 		unitArrow: null,
 		currentUnit: null,
 		currentSpell: null,
@@ -31,7 +31,9 @@ function initRpgBattle() {
 		spells: [],
 		buffs: [],
 		ais: [],
-		actionList: []
+		actionList: [],
+		pastActionList: [],
+		actionListText: null
 	};
 }
 
@@ -102,6 +104,9 @@ function createBuff() {
 		},
 		executeAttacked: function(unit, spell) {
 		},
+		executeAttacking: function(unit, damage, spell) {
+			return damage
+		},
 		executeStartOfTrun: function(unit) {
 			actionDone();
 		}
@@ -116,7 +121,7 @@ function createSpell() {
 	spell = {
 		name: "Unnamed spell",
 		info: "No spell info",
-		baseDamage: 300,
+		baseDamage: 0,
 		cost: 50,
 		damageType: MAGIC_DAMAGE,
 		targetsAllies: false,
@@ -124,6 +129,7 @@ function createSpell() {
 		targetsDead: false,
 		targetsNone: false,
 		isAttack: false,
+		ignoreExtraDamage: false,
 		affinities: [],
 		doPartialDamage: function(target, perc) {
 			if (typeof target === "number") {
@@ -131,9 +137,9 @@ function createSpell() {
 				return;
 			}
 			if (Math.abs(perc) <= 0.001) return;
-			if (spell.damagePercDone + perc >= 1) perc = 1 - spell.damagePercDone;
-			if (spell.baseDamage != 0) doDamage(target, spell.damage * perc);
-			spell.damagePercDone += perc;
+			if (this.damagePercDone + perc >= 1) perc = 1 - this.damagePercDone;
+			if (this.baseDamage != 0) doDamage(target, this.damage * perc);
+			this.damagePercDone += perc;
 		},
 		execute: function(source, target) {
 			spellDone();
@@ -152,8 +158,10 @@ function createAi() {
 	var ai;
 	ai = {
 		name: "Unnamed AI",
-		execute: function() {
+		execute: function(unit) {
 			skip();
+		},
+		executeSpawned: function(unit) {
 		}
 	};
 
@@ -177,96 +185,90 @@ function createAction() {
 
 function startRpgBattle(players, enemies, whenDone) {
 	rpg.playing = true;
-	rpg.players = players;
-	rpg.enemies = enemies;
 	rpg.whenDone = whenDone;
-
-	players.forEach(function(unit) {
-		rpg.units.push(unit);
-	});
-
-	enemies.forEach(function(unit) {
-		rpg.units.push(unit);
-	});
-
-	rpg.units.sort(function(a, b) {
-		var order = b.speed - a.speed;
-		if (order == 0) {
-			return a.name < b.name ? -1 : 1;
-		} else {
-			return order;
-		}
-	});
 
 	clear();
 	choicesPerPage = 8;
 	append("Battle start!\n");
 
-	rpg.units.forEach(function(unit) {
-		unit.sprite = addRectImage(64, 128, 0xFFFFFF);
-		unit.sprite.centerPivot = true;
-
-		unit.statBox = addEmptyImage(128, 64);
-
-		unit.nameTf = addEmptyImage(unit.statBox.width, 64);
-		unit.nameTf.tint = 0xFFFFFFFF;
-		unit.nameTf.setFont("NunitoSans-Light_22");
-		unit.nameTf.setText(unit.name);
-		unit.statBox.addChild(unit.nameTf);
-
-		unit.hpBar = addRectImage(128, 4, 0xFFFFFF);
-		unit.hpBar.y = unit.nameTf.y + unit.nameTf.textHeight;
-		unit.statBox.addChild(unit.hpBar);
-
-		unit.mpBar = addRectImage(128, 4, 0xFFFFFF);
-		unit.mpBar.y = unit.hpBar.y + unit.hpBar.height;
-		unit.statBox.addChild(unit.mpBar);
-
-		unit.limitBar = addRectImage(128, 4, 0xFFFFFF);
-		unit.limitBar.y = unit.mpBar.y + unit.mpBar.height;
-		unit.statBox.addChild(unit.limitBar);
-	});
-
-	players.forEach(function(unit, i) {
+	players.forEach(function(unit) {
 		unit.friendly = true;
-		unit.originX = 32 + i*70;
-		unit.originY = 128 + i*(unit.sprite.height - 55);
-		unit.sprite.tint = 0xFF0000FF;
+		addUnit(unit);
 	});
 
-	enemies.forEach(function(unit, i) {
+	enemies.forEach(function(unit) {
 		unit.friendly = false;
-		unit.originX = gameWidth - unit.sprite.width - 32 - i*70;
-		unit.originY = 128 + i*(unit.sprite.height - 55);
-		unit.sprite.tint = 0xFFFF6100;
+		addUnit(unit);
 	});
 
 	rpg.unitArrow = addRectImage(32, 32, 0xFFFF00);
 
 	tempUpdateFunctions.push(updateRpgBattle);
 
-	rpg.turnIndex = -1;
-
-	rpg.units.forEach(function(unit) {
-		resetUnitPosition(unit);
-	});
 	nextTurn();
 }
 
 function updateRpgBattle() {
+	if (keyJustPressed("`".charCodeAt(0))) {
+		if (!rpg.actionListText) {
+			rpg.actionListText = addEmptyImage(512, 1024);
+			rpg.actionListText.setFont("NunitoSans-Light_22");
+		} else {
+			rpg.actionListText.destroy();
+			rpg.actionListText = null;
+		}
+	}
+
+	var actionStr = "";
+	function pushActionText(action) {
+		var newText = "";
+		if (action.type == CAST_ACTION)                     newText += "Spell cast: "+action.spellName+" "+action.source.name+"->"+action.target.name;
+		else if (action.type == START_OF_TURN_BUFF_ACTION)  newText += "Turn start buff: "+action.buffName+" on "+action.source.name;
+		else if (action.type == AI_CHOICE_ACTION)           newText += "Ai turn: "+action.source.name+" with AI "+action.source.ai;
+		else if (action.type == END_TURN_ACTION)            newText += "End turn: "+action.source.name;
+		else                                                newText += "Unknowned action type "+action.type;
+
+		actionStr += newText + "\n";
+	}
+
+	rpg.pastActionList.forEach(function(pastAction) {
+		pushActionText(pastAction);
+	});
+
+	if (rpg.currentAction) actionStr += "^^^^\n";
+
+	rpg.actionList.forEach(function(futureAction) {
+		pushActionText(futureAction);
+	});
+
+	if (rpg.actionListText) {
+		rpg.actionListText.setText(actionStr);
+		rpg.actionListText.tint = 0xFFFFFFFF;
+		rpg.actionListText.x = gameWidth/2 - rpg.actionListText.textWidth/2;
+		rpg.actionListText.y = gameHeight/2 - rpg.actionListText.textHeight/2;
+	}
+
 	if (!rpg.currentAction && rpg.actionList.length > 0) {
+		rpg.units.forEach(function(unit) {
+			if (unit.hp <= 0) {
+				unit.dead = true;
+				tween(unit.sprite, 0.5, {rotation: 90});
+			}
+		});
+
 		var action = rpg.actionList.shift();
 		rpg.currentAction = action;
 
-		if (action.type == CAST_ACTION) {
-			print(action.source.name+" is casting "+action.spellName+" on "+action.target.name);
+		rpg.pastActionList.push(action);
+		if (rpg.pastActionList.length > 5) rpg.pastActionList.shift();
 
-			var spell = getSpell(action.spellName);
-			rpg.currentSpell = spell;
-			spell.damagePercDone = 0;
-			spell.source = action.source;
-			spell.target = action.target;
-			spell.damage = spell.baseDamage;
+		if (action.type == CAST_ACTION) {
+			var spell =             getSpell(action.spellName);
+			rpg.currentSpell =      spell;
+			spell.damagePercDone =  0;
+			spell.source =          action.source;
+			spell.target =          action.target;
+			spell.damage =          spell.baseDamage;
 
 			if (spell.isAttack) {
 				spell.damage += spell.source.attack;
@@ -284,6 +286,11 @@ function updateRpgBattle() {
 
 			if (action.usedAsItem) arrayForceRemove(spell.source.itemNames, spell.name);
 
+			var buffs = getBuffs(action.source);
+			buffs.forEach(function(buff) {
+				spell.damage = buff.executeAttacking(spell.target, spell.damage, spell);
+			});
+
 			spell.execute(spell.source, action.target);
 
 			if (spell.damage > 0) {
@@ -293,14 +300,11 @@ function updateRpgBattle() {
 				});
 			}
 		} else if (action.type == START_OF_TURN_BUFF_ACTION) {
-			print("Start turn buff "+action.buffName+" procing on "+action.source.name);
 			getBuff(action.buffName).executeStartOfTrun(action.source);
 		} else if (action.type == AI_CHOICE_ACTION) {
-			print(action.source.name+" taking AI turn with "+action.source.ai);
 			getAi(action.source.ai).execute(action.source);
 			rpg.endAfterActions = true;
 		} else if (action.type == END_TURN_ACTION) {
-			print(action.source.name+" ending turn");
 			nextTurn();
 			if (!rpg.playing) return;
 			actionDone();
@@ -332,8 +336,8 @@ function updateRpgBattle() {
 		unit.mpBar.tint = 0xFF0000FF;
 		unit.limitBar.tint = 0xFFFFFF00;
 
-		unit.hpBar.scaleX = unit.hp / unit.maxHp;
-		unit.mpBar.scaleX = unit.mp / unit.maxMp;
+		unit.hpBar.scaleX += (unit.hp / unit.maxHp - unit.hpBar.scaleX) / 20;
+		unit.mpBar.scaleX += (unit.mp / unit.maxMp - unit.mpBar.scaleX) / 20;
 		unit.limitBar.scaleX = unit.limit / 100;
 	});
 
@@ -344,6 +348,62 @@ function updateRpgBattle() {
 	}
 }
 
+function addUnit(unit) {
+	unit.sprite = addRectImage(64, 128, 0xFFFFFF);
+	unit.sprite.centerPivot = true;
+
+	unit.statBox = addEmptyImage(128, 64);
+
+	unit.nameTf = addEmptyImage(unit.statBox.width, 64);
+	unit.nameTf.tint = 0xFFFFFFFF;
+	unit.nameTf.setFont("NunitoSans-Light_22");
+	unit.nameTf.setText(unit.name);
+	unit.statBox.addChild(unit.nameTf);
+
+	unit.hpBar = addRectImage(128, 4, 0xFFFFFF);
+	unit.hpBar.y = unit.nameTf.y + unit.nameTf.textHeight;
+	unit.statBox.addChild(unit.hpBar);
+
+	unit.mpBar = addRectImage(128, 4, 0xFFFFFF);
+	unit.mpBar.y = unit.hpBar.y + unit.hpBar.height;
+	unit.statBox.addChild(unit.mpBar);
+
+	unit.limitBar = addRectImage(128, 4, 0xFFFFFF);
+	unit.limitBar.y = unit.mpBar.y + unit.mpBar.height;
+	unit.statBox.addChild(unit.limitBar);
+
+	if (unit.friendly) {
+		unit.originX = 32 + rpg.players.length*70;
+		unit.originY = 128 + rpg.players.length*(unit.sprite.height - 55);
+		unit.sprite.tint = 0xFF0000FF;
+
+		rpg.players.push(unit);
+	} else {
+		unit.originX = gameWidth - unit.sprite.width - 32 - rpg.enemies.length*70;
+		unit.originY = 128 + rpg.enemies.length*(unit.sprite.height - 55);
+		unit.sprite.tint = 0xFFFF6100;
+
+		rpg.enemies.push(unit);
+	}
+
+	rpg.units.push(unit);
+
+	rpg.units.sort(function(a, b) {
+		var order = b.speed - a.speed;
+		if (order == 0) {
+			return a.name < b.name ? -1 : 1;
+		} else {
+			return order;
+		}
+	});
+
+	resetUnitPosition(unit);
+
+	var ai = getAi(unit.ai);
+	if (ai) ai.executeSpawned(unit);
+}
+
+
 function actionDone() {
 	var action = rpg.currentAction;
 	if (!action) {
@@ -353,7 +413,7 @@ function actionDone() {
 	if (action.type == CAST_ACTION) {
 		if (rpg.currentSpell.baseDamage != 0) {
 			// print("Spell "+rpg.currentSpell.name+" only did "+rpg.currentSpell.damagePercDone+" so we'll do the rest of: "+rpg.currentSpell.damage+" perc of: "+ (1-rpg.currentSpell.damagePercDone));
-			rpg.currentSpell.doPartialDamage(action.target, 1-rpg.currentSpell.damagePercDone);
+			if (!rpg.currentSpell.ignoreExtraDamage) rpg.currentSpell.doPartialDamage(action.target, 1-rpg.currentSpell.damagePercDone);
 		}
 	}
 
@@ -419,14 +479,20 @@ function showMenu() {
 			if (rpg.pickedType == ATTACK_PICKED && !spell.isAttack) return;
 			if (rpg.pickedType == MAGIC_PICKED && spell.isAttack) return;
 
+			var canAfford = true;
 			var buttonText = spellName;
-			if (rpg.pickedType == MAGIC_PICKED) buttonText += "\n"+spell.cost+"mp";
+			if (rpg.pickedType == MAGIC_PICKED) {
+				buttonText += "\n"+spell.cost+"mp";
+				if (rpg.currentUnit.mp < spell.cost) canAfford = false;
+			}
 			if (rpg.pickedType == ITEM_PICKED) buttonText += "\nx"+arrayCount(arrayToSearch, spellName);
 
 			var magicChoice = addChoice(buttonText, function() {
 				rpg.currentSpell = spell;
 				onChoose();
 			});
+
+			magicChoice.enabled = canAfford;
 
 			magicChoice.sprite.whileHovering = function() {
 				showTooltip(spell.info);
@@ -537,9 +603,13 @@ function nextTurn() {
 		return;
 	}
 
-	rpg.turnIndex++;
-	if (rpg.turnIndex >= rpg.units.length) rpg.turnIndex = 0;
-	rpg.currentUnit = rpg.units[rpg.turnIndex];
+	if (rpg.cycle.length == 0) {
+		rpg.units.forEach(function(unit) {
+			rpg.cycle.push(unit);
+		});
+	}
+
+	rpg.currentUnit = rpg.cycle.shift();
 
 	if (rpg.currentUnit.dead) {
 		nextTurn();
@@ -556,10 +626,6 @@ function doDamage(unit, amount) {
 	});
 
 	unit.hp -= amount;
-	if (unit.hp <= 0) {
-		unit.dead = true;
-		tween(unit.sprite, 0.5, {rotation: 90});
-	}
 
 	var tf = addEmptyImage(128, 128);
 	tf.tint = amount > 0 ? 0xFFFF0000 : 0xFF00FF00;
@@ -581,17 +647,16 @@ function doDamage(unit, amount) {
 function getSpell(spellName) {
 	var retSpell = null;
 	rpg.spells.forEach(function(spell) {
-		if (spellName == spell.name) {
-			retSpell = spell;
-			return;
-		}
+		if (spellName == spell.name) retSpell = spell;
 	});
 
 	if (retSpell == null) {
 		print("Failed to get spell named: "+spellName);
 		return null;
 	}
-	return Object.assign(retSpell);
+
+	var newSpell = Object.create(retSpell);
+	return newSpell;
 }
 
 function getAi(aiName) {
@@ -632,19 +697,32 @@ function getBuffs(unit) {
 function applyBuff(buffName, unit) {
 	rpg.buffs.forEach(function(buff) {
 		if (buff.name == buffName) {
-			var icon = addImage(buff.iconName);
-			icon.whileHovering = function() {
-				showTooltip(buff.info);
-			};
-			unit.statBox.addChild(icon);
-
 			var buffTracker = {
 				name: buff.name,
 				turns: buff.lastingTurns,
 				remove: false,
 				/// Temp:
-				icon: icon
+				icon: null
 			};
+
+			buffTracker.icon = addImage(buff.iconName);
+			buffTracker.icon.centerPivot = true;
+			buffTracker.icon.whileHovering = function() {
+				if (buffTracker.turns > 500) {
+					showTooltip(buff.info);
+				} else {
+					showTooltip(buff.info + "\n" + buffTracker.turns + " more turns");
+				}
+			};
+
+			buffTracker.icon.alpha = 0;
+			buffTracker.icon.scaleX = 10;
+			buffTracker.icon.scaleY = 10;
+			buffTracker.icon.rotation = 15;
+			tween(buffTracker.icon, 0.25, {alpha: 1, scaleX: 1, scaleY: 1, rotation: 0});
+
+			unit.statBox.addChild(buffTracker.icon);
+
 
 			unit.buffTrackers.push(buffTracker);
 		}
@@ -679,6 +757,12 @@ function giveItem(itemName, unit) {
 	unit.itemNames.push(itemName);
 }
 
+function reviveUnit(unit) {
+	if (!unit.dead) return;
+	unit.dead = false;
+	tween(unit.sprite, 0.5, {rotation: 0});
+}
+
 function hasBuff(buffName, unit) {
 	var doesHave = false;
 	unit.buffTrackers.forEach(function(buffTracker) {
@@ -689,20 +773,62 @@ function hasBuff(buffName, unit) {
 		return doesHave;
 }
 
-function getRandomPlayer() {
-	var livingPlayers = [];
-	rpg.players.forEach(function(player) {
-		if (!player.dead) livingPlayers.push(player);
-	});
+function getEnemies(includeDead) {
+	if (includeDead == undefined) includeDead = false;
 
-	return livingPlayers[rndInt(0, livingPlayers.length-1)];
-}
-
-function getRandomEnemy() {
 	var livingEnemies = [];
 	rpg.enemies.forEach(function(enemy) {
-		if (!enemy.dead) livingEnemies.push(enemy);
+		if (enemy.dead && !includeDead) return;
+			livingEnemies.push(enemy);
 	});
 
-	return livingEnemies[rndInt(0, livingEnemies.length-1)];
+	return livingEnemies;
+
+}
+
+function getPlayers(includeDead) {
+	if (includeDead == undefined) includeDead = false;
+
+	var livingPlayers = [];
+	rpg.players.forEach(function(player) {
+		if (player.dead && !includeDead) return;
+		livingPlayers.push(player);
+	});
+
+	return livingPlayers;
+}
+
+function getMyOpponents(unit, includeDead) {
+	if (unit.friendly) {
+		arr = getEnemies(includeDead);
+	} else {
+		arr = getPlayers(includeDead);
+	}
+
+	return arr;
+}
+
+function getMyAllies(unit, exclusive, includeDead) {
+	if (exclusive === undefined) exclusive = false;
+
+	var arr = null;
+	if (unit.friendly) {
+		arr = getPlayers(includeDead);
+	} else {
+		arr = getEnemies(includeDead);
+	}
+
+	if (exclusive) arrayForceRemove(arr, unit);
+
+	return arr;
+}
+
+function getMyRandomOpponent(unit, includeDead) {
+	var arr = getMyOpponents(unit, includeDead);
+	return arr[rndInt(0, arr.length-1)];
+}
+
+function getMyRandomAlly(unit, exclusive, includeDead) {
+	var arr = getMyAllies(unit, exclusive, includeDead);
+	return arr[rndInt(0, arr.length-1)];
 }

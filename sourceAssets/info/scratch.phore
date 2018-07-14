@@ -368,6 +368,9 @@ addChoice("Go back", "scratchModStart");
 ---
 :rpgTest
 !`
+disableExit();
+choicesPerPage = 8;
+
 addChoice("No AI", function() {
 	data.testRpgSetting = "noAi";
 	execAsset("testRpg.phore");
@@ -388,9 +391,24 @@ if (internal) {
 		data.testRpgSetting = "rpgShields";
 		execAsset("testRpg.phore");
 	});
+
+	addChoice("Porcupines", function() {
+		data.testRpgSetting = "rpgPorcupines";
+		execAsset("testRpg.phore");
+	});
+
+	addChoice("Spawners", function() {
+		data.testRpgSetting = "rpgSpawners";
+		execAsset("testRpg.phore");
+	});
+
+	addChoice("Exploders", function() {
+		data.testRpgSetting = "rpgExploders";
+		execAsset("testRpg.phore");
+	});
 }
 
-addChoice("Go back", "scratchModStart");
+// addChoice("Go back", "scratchModStart");
 
 // addChoice("Magi demo", function() {
 // 	execAsset("magiDemo.phore");

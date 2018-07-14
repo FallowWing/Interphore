@@ -46,7 +46,8 @@ function moveUnitInFrontOf(source, dest) {
 	sourceSpr.y = lerp(1, sourceSpr.y, destSpr.y);
 }
 
-/// Spells
+
+/// Player Spells
 var fireball = createSpell();
 fireball.name = "Fireball";
 fireball.info = "Throws a fireball";
@@ -54,6 +55,8 @@ fireball.baseDamage = 1200;
 fireball.cost = 70;
 fireball.affinities = ["Fire"];
 fireball.execute = function(source, target) {
+	var spell = this;
+
 	stepTowards(source, target, function() {
 		var targetSpr = target.sprite;
 		var spr = addRectImage(64, 64, 0xCC0000);
@@ -61,7 +64,7 @@ fireball.execute = function(source, target) {
 		spr.y = targetSpr.y + targetSpr.height/2 - spr.height/2;
 		tween(spr, 1, {scaleX: 3, scaleY: 3, alpha: 0}, {onComplete: function() {
 			spr.destroy();
-			fireball.doPartialDamage(target, 1);
+			spell.doPartialDamage(target, 1);
 			moveBack(source, actionDone);
 		}});
 	});
@@ -74,6 +77,7 @@ lightning.baseDamage = 1000;
 lightning.cost = 50;
 lightning.affinities = ["Electric"];
 lightning.execute = function(source, target) {
+	var spell = this;
 
 	stepTowards(source, target, function() {
 		var targetSpr = target.sprite;
@@ -86,7 +90,7 @@ lightning.execute = function(source, target) {
 				var spr = addRectImage(32, gameHeight, 0xFFFF00);
 				spr.x = targetSpr.x + targetSpr.width/2 - spr.width/2 + rndFloat(-50, 50);
 				spr.y = 0;
-				lightning.doPartialDamage(target, 1/(strikes));
+				spell.doPartialDamage(target, 1/(strikes));
 				tween(spr, 0.5, {alpha: 0}, {onComplete: function() {
 					spr.destroy();
 					if (i == strikesArr.length-1) moveBack(source, actionDone);
@@ -102,6 +106,7 @@ gutPunch.info = "A strong generic attack";
 gutPunch.baseDamage = 500;
 gutPunch.isAttack = true;
 gutPunch.execute = function(source, target) {
+	var spell = this;
 	var sourceSpr = source.sprite;
 	var targetSpr = target.sprite;
 
@@ -110,7 +115,7 @@ gutPunch.execute = function(source, target) {
 
 	tween(sourceSpr, 1, {x: endX, y: endY}, {onComplete: function() {
 		tween(sourceSpr, 0.5, {x: targetSpr.x}, {ease: QUART_OUT, startDelay: 0.5, onComplete: function() {
-			gutPunch.doPartialDamage(target, 1);
+			spell.doPartialDamage(target, 1);
 			moveBack(source, actionDone);
 		}});
 	}});
@@ -151,7 +156,7 @@ var rejuvenate = createSpell();
 rejuvenate.name = "Rejuvenate";
 rejuvenate.info = "Heal an ally over multiple turns";
 rejuvenate.baseDamage = 0;
-rejuvenate.cost = 70;
+rejuvenate.cost = 200;
 rejuvenate.targetsEnemies = false;
 rejuvenate.targetsAllies = true;
 rejuvenate.execute = function(source, target) {
@@ -169,6 +174,7 @@ poison.info = "Hits an enemy twice, then poisons them";
 poison.baseDamage = 100;
 poison.cost = 30;
 poison.execute = function(source, target) {
+	var spell = this;
 	stepTowards(source, target, function() {
 		var targetSpr = target.sprite;
 
@@ -181,7 +187,7 @@ poison.execute = function(source, target) {
 				var spr = addRectImage(32, 32, 0xAAAA00);
 				spr.x = targetSpr.x + targetSpr.width/2 - spr.width/2 + rndFloat(-50, 50);
 				spr.y = targetSpr.y + targetSpr.height/2 - spr.height/2 + rndFloat(-50, 50);
-				poison.doPartialDamage(target, 1/strikes);
+				spell.doPartialDamage(target, 1/strikes);
 				tween(spr, 1, {y: spr.y - rndFloat(20, 60), alpha: 0}, {onComplete: function() {
 					spr.destroy();
 					if (i == strikesArr.length-1) {
@@ -204,32 +210,6 @@ barrier.execute = function(source, target) {
 	moveUpTo(source, target, function() {
 		timer(1, function() {
 			applyBuff("Shielded", target);
-			moveBack(source, actionDone);
-		});
-	});
-};
-
-var slam = createSpell();
-slam.name = "Slam";
-slam.info = "Makes an enemy lose their next turn";
-slam.baseDamage = 0;
-slam.execute = function(source, target) {
-	moveUpTo(source, target, function() {
-		timer(0.2, function() {
-			applyBuff("Slammed", target);
-			moveBack(source, actionDone);
-		});
-	});
-};
-
-var pushSpell = createSpell();
-pushSpell.name = "Push";
-pushSpell.info = "Gives enemies a chance to lose their next turn";
-pushSpell.baseDamage = 0;
-pushSpell.execute = function(source, target) {
-	moveUpTo(source, target, function() {
-		timer(0.2, function() {
-			applyBuff("Pushed", target);
 			moveBack(source, actionDone);
 		});
 	});
@@ -343,17 +323,51 @@ dream.execute = function(source, target) {
 
 var lastDream = createSpell();
 lastDream.name = "Last Dream";
-lastDream.info = "The goal of \"Determination.\"";
+lastDream.info = "The goal of \"Determination.\"\nGives 500mp.";
 lastDream.baseDamage = 0;
 lastDream.targetsEnemies = false;
 lastDream.targetsAllies = true;
 lastDream.execute = function(source, target) {
 	moveUpTo(source, target, function() {
-		doDamage(target, -30);
+		target.mp += 500;
 		moveBack(source, actionDone);
 	});
 };
 
+var giveSoul = createSpell();
+giveSoul.name = "Give Soul";
+giveSoul.info = "Give your health to your ally";
+giveSoul.baseDamage = 0;
+giveSoul.cost = 50;
+giveSoul.targetsNone = true;
+giveSoul.execute = function(source, target) {
+	var drops = [];
+	var ally = getMyAllies(source, true, true)[0];
+	forRange(0, 50, function(i) {
+		var drop = addRectImage(16, 16, 0xBB0000);
+		centerSpriteOnSprite(source.sprite, drop);
+		drop.x += rndFloat(-20, 20);
+		drop.y += rndFloat(-20, 20);
+		drop.alpha = 0;
+
+		tween(drop, 1, {alpha: 1}, {startDelay: rndFloat(0, 1), onComplete: function() {
+			var allySpr = ally.sprite;
+			tween(drop, 0.5, {x: allySpr.x + allySpr.width/2, y: allySpr.y + allySpr.height/2}, {onComplete: function() {
+				drop.destroy();
+			}});
+		}});
+	});
+
+	timer(2, function() {
+		reviveUnit(ally);
+		ally.hp += source.hp-1;
+		source.hp = 1;
+		moveBack(source, actionDone);
+	});
+};
+
+
+/// Enemy Spells
 var shieldSpell = createSpell();
 shieldSpell.name = "Shield";
 shieldSpell.info = "Gives an ally a small shield";
@@ -370,20 +384,159 @@ shieldSpell.execute = function(source, target) {
 	});
 };
 
+var slam = createSpell();
+slam.name = "Slam";
+slam.info = "Makes an enemy lose their next turn";
+slam.baseDamage = 0;
+slam.execute = function(source, target) {
+	moveUpTo(source, target, function() {
+		timer(0.2, function() {
+			applyBuff("Slammed", target);
+			moveBack(source, actionDone);
+		});
+	});
+};
+
+var pushSpell = createSpell();
+pushSpell.name = "Push";
+pushSpell.info = "Gives enemies a chance to lose their next turn";
+pushSpell.baseDamage = 0;
+pushSpell.execute = function(source, target) {
+	moveUpTo(source, target, function() {
+		timer(0.2, function() {
+			applyBuff("Pushed", target);
+			moveBack(source, actionDone);
+		});
+	});
+};
+
 var hardSlam = createSpell();
 hardSlam.name = "Hard Slam";
 hardSlam.info = "Stuns people hard";
 hardSlam.baseDamage = 333;
 hardSlam.cost = 100;
 hardSlam.execute = function(source, target) {
+	var spell = this;
 	moveUpTo(source, target, function() {
 		timer(0.2, function() {
-			hardSlam.doPartialDamage(target, 1);
+			spell.doPartialDamage(target, 1);
 			applyBuff("Slammed", target);
 			moveBack(source, actionDone);
 		});
 	});
 };
+
+var quillSpray = createSpell();
+quillSpray.name = "Quill Spray";
+quillSpray.info = "none";
+quillSpray.cost = 20;
+quillSpray.execute = function(source, target) {
+	stepTowards(source, target, function() {
+		var quills = addRectImage(32, 32, 0x351900);
+		quills.centerPivot = true;
+		centerSpriteOnSprite(source.sprite, quills);
+		tween(quills, 0.5, {scaleX: 50, scaleY: 50, alpha: 0}, {onComplete: function() {
+			quills.destroy();
+			getMyOpponents(source).forEach(function(opp) {
+				doDamage(opp, 250);
+			});
+			moveBack(source, actionDone);
+		}});
+	});
+};
+
+var lilNibble = createSpell();
+lilNibble.name = "Lil Nibble";
+lilNibble.info = "none";
+lilNibble.baseDamage = 200;
+lilNibble.cost = 20;
+lilNibble.execute = function(source, target) {
+	var spell = this;
+	moveUpTo(source, target, function() {
+		spell.doPartialDamage(target, lilNibble.damage);
+		moveBack(source, actionDone);
+	});
+};
+
+var kickSand = createSpell();
+kickSand.name = "Kick Sand";
+kickSand.info = "none";
+kickSand.baseDamage = 100;
+kickSand.cost = 20;
+kickSand.execute = function(source, target) {
+	var spell = this;
+	moveUpTo(source, target, function() {
+		applyBuff("Blind", target);
+		spell.doPartialDamage(1);
+		moveBack(source, actionDone);
+	});
+};
+
+var explode = createSpell();
+explode.name = "Explode";
+explode.info = "none";
+explode.cost = 20;
+explode.execute = function(source, target) {
+	var spell = this;
+	stepTowards(source, target, function() {
+		var explosion = addRectImage(32, 32, 0xFFFFFF);
+		explosion.centerPivot = true;
+		centerSpriteOnSprite(source.sprite, explosion);
+		tween(explosion, 5, {scaleX: 50, scaleY: 50, alpha: 0}, {onComplete: function() {
+			explosion.destroy();
+			getMyOpponents(source).forEach(function(opp) {
+				doDamage(opp, 999);
+			});
+			moveBack(source, actionDone);
+		}});
+	});
+};
+
+var smoke = createSpell();
+smoke.name = "Smoke";
+smoke.info = "none";
+smoke.cost = 40;
+smoke.execute = function(source, target) {
+	var spell = this;
+	stepTowards(source, target, function() {
+		var smoke = addRectImage(32, 32, 0xAAAAAA);
+		smoke.centerPivot = true;
+		centerSpriteOnSprite(source.sprite, smoke);
+		tween(smoke, 0.5, {scaleX: 50, scaleY: 50, alpha: 0, rotation: 360}, {onComplete: function() {
+			smoke.destroy();
+			getMyOpponents(source).forEach(function(opp) {
+				if (rnd() > 0.15) {
+					doDamage(opp, 400);
+				} else {
+					doDamage(opp, 1);
+				}
+			});
+			moveBack(source, actionDone);
+		}});
+	});
+};
+
+var fuseSpark = createSpell();
+fuseSpark.name = "Fuse Spark";
+fuseSpark.info = "none";
+fuseSpark.cost = 10;
+fuseSpark.execute = function(source, target) {
+	var spell = this;
+	stepTowards(source, target, function() {
+		var explosion = addRectImage(32, 32, 0x550000);
+		explosion.centerPivot = true;
+		centerSpriteOnSprite(source.sprite, explosion);
+		tween(explosion, 0.5, {scaleX: 50, scaleY: 50, alpha: 0}, {onComplete: function() {
+			explosion.destroy();
+			getMyOpponents(source).forEach(function(opp) {
+				doDamage(opp, 100);
+			});
+			applyBuff("Burn", source);
+			moveBack(source, actionDone);
+		}});
+	});
+};
+
 
 /// Buffs
 var markedBuff = createBuff();
@@ -468,7 +621,63 @@ rejuvenating.executeStartOfTrun = function(unit) {
 	actionDone();
 }
 
-/// AIs
+var bristleback = createBuff();
+bristleback.name = "Bristleback";
+bristleback.iconName = "Snuff.png";
+bristleback.info = "Does a lot of damage when attacked";
+bristleback.lastingTurns = 999;
+bristleback.executeDamaged = function(unit, damage, spell) {
+	var quills = addRectImage(32, 32, 0x351900);
+	quills.centerPivot = true;
+	centerSpriteOnSprite(unit.sprite, quills);
+	tween(quills, 0.5, {scaleX: 50, scaleY: 50, alpha: 0}, {onComplete: function() {
+		quills.destroy();
+		getMyOpponents(unit).forEach(function(opp) {
+			doDamage(opp, 200);
+		});
+	}});
+	return damage;
+}
+
+var blind = createBuff();
+blind.name = "Blind";
+blind.iconName = "Trash.png";
+blind.info = "Has a 50% chance of missing";
+blind.lastingTurns = 2;
+blind.executeAttacking = function(unit, damage, spell) {
+	if (rnd() > 0.5) return 0;
+
+	return damage;
+}
+
+var spawning = createBuff();
+spawning.name = "Spawning";
+spawning.iconName = "Abuse.png";
+spawning.info = "Will spawn a unit";
+spawning.lastingTurns = 999;
+spawning.executeStartOfTrun = function(unit) {
+	var newEnemy = createUnit();
+	newEnemy.name = "Weak Porcupine";
+	newEnemy.hp = newEnemy.maxHp = 1000;
+	newEnemy.ai = "Porcupine";
+	newEnemy.speed = 10;
+	newEnemy.friendly = false;
+	addUnit(newEnemy);
+
+	actionDone();
+}
+
+var burn = createBuff();
+burn.name = "Burn";
+burn.iconName = "Blood.png";
+burn.info = "Lose 10% hp each turn";
+burn.lastingTurns = 3;
+burn.executeStartOfTrun = function(unit) {
+	doDamage(unit, unit.maxHp*0.1);
+	actionDone();
+}
+
+/// Ais
 var skipperAi = createAi();
 skipperAi.name = "Skipper";
 skipperAi.execute = function(unit) {
@@ -478,7 +687,7 @@ skipperAi.execute = function(unit) {
 var simpleAi = createAi();
 simpleAi.name = "Simple";
 simpleAi.execute = function(unit) {
-	castSpell("Gut Punch", unit, getRandomPlayer());
+	castSpell("Gut Punch", unit, getMyRandomOpponent(unit));
 	actionDone();
 };
 
@@ -486,14 +695,14 @@ var stunnerAi = createAi()
 stunnerAi.name = "Stunner";
 stunnerAi.execute = function(unit) {
 	var chosenTarget = null;
-	rpg.players.forEach(function(player) {
-		if (!hasBuff("Pushed", player)) chosenTarget = player;
+	getMyOpponents(unit).forEach(function(opp) {
+		if (!hasBuff("Pushed", opp)) chosenTarget = opp;
 	});
 
 	if (chosenTarget) {
 		castSpell("Push", unit, chosenTarget);
 	} else {
-		castSpell("Poison", unit, getRandomPlayer());
+		castSpell("Poison", unit, getMyRandomOpponent(unit));
 	}
 	actionDone();
 };
@@ -501,7 +710,7 @@ stunnerAi.execute = function(unit) {
 var hardStunnerAi = createAi()
 hardStunnerAi.name = "Hard Stunner";
 hardStunnerAi.execute = function(unit) {
-	castSpell("Hard Slam", unit, getRandomPlayer());
+	castSpell("Hard Slam", unit, getMyRandomOpponent(unit));
 	actionDone();
 };
 
@@ -509,17 +718,87 @@ var shielderAi = createAi()
 shielderAi.name = "Shielder";
 shielderAi.execute = function(unit) {
 	var toShield = null;
-	rpg.enemies.forEach(function(enemy) {
+	getMyAllies(unit).forEach(function(enemy) {
 		if (!hasBuff("Light Shield", enemy)) toShield = enemy;
 	});
 
 	if (toShield) {
 		castSpell("Shield", unit, toShield);
 	} else {
-		castSpell("Shield", unit, getRandomEnemy());
+		castSpell("Shield", unit, getMyRandomAlly(unit));
 	}
 	actionDone();
 };
+
+var porcupine = createAi()
+porcupine.name = "Porcupine";
+porcupine.executeSpawned = function(unit) {
+	applyBuff("Bristleback", unit);
+}
+porcupine.execute = function(unit) {
+	var bothLow = true;
+	var highPlayer = null;
+	getMyOpponents(unit).forEach(function(opp) {
+		if (!highPlayer || opp.hp > highPlayer.hp) highPlayer = opp;
+		if (opp.hp / opp.maxHp > 0.5) bothLow = false;
+	});
+
+	if (bothLow) {
+		castSpell("Quill Spray", unit, getMyOpponents(unit)[0]);
+	} else if (highPlayer) {
+		castSpell("Lil Nibble", unit, highPlayer);
+	} else {
+		castSpell("Lil Nibble", unit, getMyRandomOpponent(unit));
+	}
+	actionDone();
+};
+
+var spawner = createAi()
+spawner.name = "Spawner";
+spawner.execute = function(unit) {
+	if (hasBuff("Marked", unit)) {
+		var spr = addRectImage(256, 256, 0xFFFF00);
+		centerSpriteOnSprite(unit.sprite, spr);
+		spr.alpha = 0.5;
+		spr.centerPivot = true; 
+		tween(spr, 3, {alpha: 0, rotation: 360, scaleX: 0, scaleY: 0}, {onComplete: function() {
+			spr.destroy();
+		}});
+		removeBuff("Marked", unit);
+		timer(2, actionDone);
+		return;
+	}
+
+	if (unit.hp / unit.maxHp < 0.75 && !hasBuff("Spawning", unit)) {
+		applyBuff("Spawning", unit);
+	} else {
+		var unitToBlind = null;
+		getMyOpponents(unit).forEach(function(unit) {
+			if (!hasBuff("Blind", unit)) unitToBlind = unit;
+		});
+		if (unitToBlind) {
+			castSpell("Kick Sand", unit, unitToBlind);
+		} else {
+			castSpell("Poison", unit, getMyRandomOpponent(unit));
+		}
+	}
+	actionDone();
+};
+
+var exploder = createAi()
+exploder.name = "Exploder";
+exploder.execute = function(unit) {
+	var hpPerc = unit.hp / unit.maxHp;
+	if (hpPerc < 0.3) {
+		castSpell("Explode", unit, getMyOpponents(unit)[0]);
+	} else if (!hasBuff("Burn", unit)) {
+		castSpell("Fuse Spark", unit, unit);
+	} else {
+		castSpell("Smoke", unit, getMyOpponents(unit)[0]);
+	}
+	actionDone();
+};
+
 
 /// Units
 var players = [];
@@ -531,6 +810,7 @@ p1.spellNames = [
 	"Fireball",
 	"Marked",
 	"Barrier",
+	"Give Soul"
 ];
 p1.itemNames = [
 	"Health Potion",
@@ -647,6 +927,68 @@ if (data.testRpgSetting == "rpgShields") {
 	enemy3.ai = "Hard Stunner";
 	enemy3.hp = enemy3.maxHp = 7000;
 	enemy3.speed = 20;
+	enemies.push(enemy3);
+}
+
+if (data.testRpgSetting == "rpgPorcupines") {
+	var enemy1 = createUnit();
+	enemy1.name = "enemy 1";
+	enemy1.ai = "Porcupine";
+	enemy1.hp = enemy1.maxHp = 5000;
+	enemy1.speed = 10;
+	enemies.push(enemy1);
+
+	var enemy2 = createUnit();
+	enemy2.name = "enemy 2";
+	enemy2.ai = "Porcupine";
+	enemy2.hp = enemy2.maxHp = 5000;
+	enemy2.speed = 10;
+	enemies.push(enemy2);
+
+	var enemy3 = createUnit();
+	enemy3.name = "enemy 3";
+	enemy3.ai = "Porcupine";
+	enemy3.hp = enemy3.maxHp = 5000;
+	enemy3.speed = 10;
+	enemies.push(enemy3);
+}
+
+if (data.testRpgSetting == "rpgSpawners") {
+	var enemy1 = createUnit();
+	enemy1.name = "enemy 1";
+	enemy1.ai = "Spawner";
+	enemy1.hp = enemy1.maxHp = 5000;
+	enemy1.speed = 10;
+	enemies.push(enemy1);
+
+	var enemy2 = createUnit();
+	enemy2.name = "enemy 2";
+	enemy2.ai = "Spawner";
+	enemy2.hp = enemy2.maxHp = 5000;
+	enemy2.speed = 10;
+	enemies.push(enemy2);
+}
+
+if (data.testRpgSetting == "rpgExploders") {
+	var enemy1 = createUnit();
+	enemy1.name = "enemy 1";
+	enemy1.ai = "Exploder";
+	enemy1.hp = enemy1.maxHp = 3000;
+	enemy1.speed = 10;
+	enemies.push(enemy1);
+
+	var enemy2 = createUnit();
+	enemy2.name = "enemy 2";
+	enemy2.ai = "Exploder";
+	enemy2.hp = enemy2.maxHp = 3000;
+	enemy2.speed = 10;
+	enemies.push(enemy2);
+
+	var enemy3 = createUnit();
+	enemy3.name = "enemy 3";
+	enemy3.ai = "Exploder";
+	enemy3.hp = enemy3.maxHp = 3000;
+	enemy3.speed = 10;
 	enemies.push(enemy3);
 }
 
