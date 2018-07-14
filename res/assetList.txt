@@ -16,6 +16,7 @@ info/magiDemo.phore
 info/nodeGraph.phore
 info/mods.phore
 info/rpg.phore
+info/testRpg.phore
 
 info/interStart.phore
 info/interConfig.js
