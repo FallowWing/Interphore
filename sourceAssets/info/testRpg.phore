@@ -323,13 +323,13 @@ dream.execute = function(source, target) {
 
 var lastDream = createSpell();
 lastDream.name = "Last Dream";
-lastDream.info = "The goal of \"Determination.\"";
+lastDream.info = "The goal of \"Determination.\"\nGives 500mp.";
 lastDream.baseDamage = 0;
 lastDream.targetsEnemies = false;
 lastDream.targetsAllies = true;
 lastDream.execute = function(source, target) {
 	moveUpTo(source, target, function() {
-		doDamage(target, -30);
+		target.mp += 500;
 		moveBack(source, actionDone);
 	});
 };
@@ -342,6 +342,7 @@ giveSoul.cost = 50;
 giveSoul.targetsNone = true;
 giveSoul.execute = function(source, target) {
 	var drops = [];
+	var ally = getMyAllies(source, true)[0];
 	forRange(0, 50, function(i) {
 		var drop = addRectImage(16, 16, 0xBB0000);
 		centerSpriteOnSprite(source.sprite, drop);
@@ -350,7 +351,7 @@ giveSoul.execute = function(source, target) {
 		drop.alpha = 0;
 
 		tween(drop, 1, {alpha: 1}, {startDelay: rndFloat(0, 1), onComplete: function() {
-			var allySpr = rpg.players[1].sprite;
+			var allySpr = ally.sprite;
 			tween(drop, 0.5, {x: allySpr.x + allySpr.width/2, y: allySpr.y + allySpr.height/2}, {onComplete: function() {
 				drop.destroy();
 			}});
@@ -358,7 +359,6 @@ giveSoul.execute = function(source, target) {
 	});
 
 	timer(2, function() {
-		var ally = rpg.players[1];
 		ally.dead = false;
 		ally.hp += source.hp-1;
 		source.hp = 1;
@@ -437,7 +437,7 @@ quillSpray.execute = function(source, target) {
 		centerSpriteOnSprite(source.sprite, quills);
 		tween(quills, 0.5, {scaleX: 50, scaleY: 50, alpha: 0}, {onComplete: function() {
 			quills.destroy();
-			rpg.players.forEach(function(player) {
+			getMyOpponents(source).forEach(function(player) {
 				doDamage(player, 250);
 			});
 			moveBack(source, actionDone);
@@ -484,7 +484,7 @@ explode.execute = function(source, target) {
 		centerSpriteOnSprite(source.sprite, explosion);
 		tween(explosion, 5, {scaleX: 50, scaleY: 50, alpha: 0}, {onComplete: function() {
 			explosion.destroy();
-			rpg.players.forEach(function(player) {
+			getMyOpponents(source).forEach(function(player) {
 				doDamage(player, 999);
 			});
 			moveBack(source, actionDone);
@@ -504,7 +504,7 @@ smoke.execute = function(source, target) {
 		centerSpriteOnSprite(source.sprite, smoke);
 		tween(smoke, 0.5, {scaleX: 50, scaleY: 50, alpha: 0, rotation: 360}, {onComplete: function() {
 			smoke.destroy();
-			rpg.players.forEach(function(player) {
+			getMyOpponents(source).forEach(function(player) {
 				if (rnd() > 0.15) {
 					doDamage(player, 400);
 				} else {
@@ -528,7 +528,7 @@ fuseSpark.execute = function(source, target) {
 		centerSpriteOnSprite(source.sprite, explosion);
 		tween(explosion, 0.5, {scaleX: 50, scaleY: 50, alpha: 0}, {onComplete: function() {
 			explosion.destroy();
-			rpg.players.forEach(function(player) {
+			getMyOpponents(source).forEach(function(player) {
 				doDamage(player, 100);
 			});
 			applyBuff("Burn", source);
@@ -632,7 +632,7 @@ bristleback.executeDamaged = function(unit, damage, spell) {
 	centerSpriteOnSprite(unit.sprite, quills);
 	tween(quills, 0.5, {scaleX: 50, scaleY: 50, alpha: 0}, {onComplete: function() {
 		quills.destroy();
-		rpg.players.forEach(function(player) {
+		getMyOpponents(unit).forEach(function(player) {
 			doDamage(player, 200);
 		});
 	}});
@@ -687,7 +687,7 @@ skipperAi.execute = function(unit) {
 var simpleAi = createAi();
 simpleAi.name = "Simple";
 simpleAi.execute = function(unit) {
-	castSpell("Gut Punch", unit, getRandomPlayer());
+	castSpell("Gut Punch", unit, getMyRandomOpponent(unit));
 	actionDone();
 };
 
@@ -695,14 +695,14 @@ var stunnerAi = createAi()
 stunnerAi.name = "Stunner";
 stunnerAi.execute = function(unit) {
 	var chosenTarget = null;
-	rpg.players.forEach(function(player) {
+	getMyOpponents(unit).forEach(function(player) {
 		if (!hasBuff("Pushed", player)) chosenTarget = player;
 	});
 
 	if (chosenTarget) {
 		castSpell("Push", unit, chosenTarget);
 	} else {
-		castSpell("Poison", unit, getRandomPlayer());
+		castSpell("Poison", unit, getMyRandomOpponent(unit));
 	}
 	actionDone();
 };
@@ -710,7 +710,7 @@ stunnerAi.execute = function(unit) {
 var hardStunnerAi = createAi()
 hardStunnerAi.name = "Hard Stunner";
 hardStunnerAi.execute = function(unit) {
-	castSpell("Hard Slam", unit, getRandomPlayer());
+	castSpell("Hard Slam", unit, getMyRandomOpponent(unit));
 	actionDone();
 };
 
@@ -718,14 +718,14 @@ var shielderAi = createAi()
 shielderAi.name = "Shielder";
 shielderAi.execute = function(unit) {
 	var toShield = null;
-	rpg.enemies.forEach(function(enemy) {
+	getMyAllies(unit).forEach(function(enemy) {
 		if (!hasBuff("Light Shield", enemy)) toShield = enemy;
 	});
 
 	if (toShield) {
 		castSpell("Shield", unit, toShield);
 	} else {
-		castSpell("Shield", unit, getRandomEnemy());
+		castSpell("Shield", unit, getMyRandomAlly(unit));
 	}
 	actionDone();
 };
@@ -738,17 +738,17 @@ porcupine.executeSpawned = function(unit) {
 porcupine.execute = function(unit) {
 	var bothLow = true;
 	var highPlayer = null;
-	rpg.players.forEach(function(player) {
-		if (!highPlayer || player.hp > highPlayer.hp) highPlayer = player;
-		if (player.hp / player.maxHp > 0.5) bothLow = false;
+	getMyOpponents(unit).forEach(function(opp) {
+		if (!highPlayer || opp.hp > highPlayer.hp) highPlayer = opp;
+		if (opp.hp / opp.maxHp > 0.5) bothLow = false;
 	});
 
 	if (bothLow) {
-		castSpell("Quill Spray", unit, rpg.players[0]);
+		castSpell("Quill Spray", unit, getMyOpponents(unit)[0]);
 	} else if (highPlayer) {
 		castSpell("Lil Nibble", unit, highPlayer);
 	} else {
-		castSpell("Lil Nibble", unit, getRandomPlayer());
+		castSpell("Lil Nibble", unit, getMyRandomOpponent(unit));
 	}
 	actionDone();
 };
@@ -773,13 +773,13 @@ spawner.execute = function(unit) {
 		applyBuff("Spawning", unit);
 	} else {
 		var unitToBlind = null;
-		rpg.players.forEach(function(unit) {
+		getMyOpponents(unit).forEach(function(unit) {
 			if (!hasBuff("Blind", unit)) unitToBlind = unit;
 		});
 		if (unitToBlind) {
 			castSpell("Kick Sand", unit, unitToBlind);
 		} else {
-			castSpell("Poison", unit, getRandomPlayer());
+			castSpell("Poison", unit, getMyRandomOpponent(unit));
 		}
 	}
 	actionDone();
@@ -790,11 +790,11 @@ exploder.name = "Exploder";
 exploder.execute = function(unit) {
 	var hpPerc = unit.hp / unit.maxHp;
 	if (hpPerc < 0.3) {
-		castSpell("Explode", unit, rpg.players[0]);
+		castSpell("Explode", unit, getMyOpponents(unit)[0]);
 	} else if (!hasBuff("Burn", unit)) {
 		castSpell("Fuse Spark", unit, unit);
 	} else {
-		castSpell("Smoke", unit, rpg.players[0]);
+		castSpell("Smoke", unit, getMyOpponents(unit)[0]);
 	}
 	actionDone();
 };

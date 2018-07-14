@@ -761,20 +761,56 @@ function hasBuff(buffName, unit) {
 		return doesHave;
 }
 
-function getRandomPlayer() {
-	var livingPlayers = [];
-	rpg.players.forEach(function(player) {
-		if (!player.dead) livingPlayers.push(player);
-	});
-
-	return livingPlayers[rndInt(0, livingPlayers.length-1)];
-}
-
-function getRandomEnemy() {
+function getEnemies() {
 	var livingEnemies = [];
 	rpg.enemies.forEach(function(enemy) {
 		if (!enemy.dead) livingEnemies.push(enemy);
 	});
 
-	return livingEnemies[rndInt(0, livingEnemies.length-1)];
+	return livingEnemies;
+
+}
+
+function getPlayers() {
+	var livingPlayers = [];
+	rpg.players.forEach(function(player) {
+		if (!player.dead) livingPlayers.push(player);
+	});
+
+	return livingPlayers;
+}
+
+function getMyOpponents(unit) {
+	if (unit.friendly) {
+		arr = getEnemies();
+	} else {
+		arr = getPlayers();
+	}
+
+	return arr;
+}
+
+function getMyAllies(unit, exclusive) {
+	if (exclusive === undefined) exclusive = false;
+
+	var arr = null;
+	if (unit.friendly) {
+		arr = getPlayers();
+	} else {
+		arr = getEnemies();
+	}
+
+	if (exclusive) arrayForceRemove(arr, unit);
+
+	return arr;
+}
+
+function getMyRandomOpponent(unit) {
+	var arr = getMyOpponents(unit);
+	return arr[rndInt(0, arr.length-1)];
+}
+
+function getMyRandomAlly(unit, exclusive) {
+	var arr = getMyAllies(unit, exclusive);
+	return arr[rndInt(0, arr.length-1)];
 }
