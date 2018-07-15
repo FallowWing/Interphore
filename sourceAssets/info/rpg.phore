@@ -359,6 +359,13 @@ function addUnit(unit) {
 	unit.sprite.centerPivot = true;
 
 	unit.statBox = addEmptyImage(128, 64);
+	unit.statBox.whileHovering = function() {
+		var statsText = "";
+		statsText += "Hp: " + unit.hp + "/" + unit.maxHp + "\n";
+		statsText += "Mp: " + unit.mp + "/" + unit.maxMp + "\n";
+		statsText += "Limit: " + unit.limit + "/" + 100;
+		showTooltip(statsText);
+	};
 
 	unit.nameTf = addEmptyImage(unit.statBox.width, 64);
 	unit.nameTf.tint = 0xFFFFFFFF;
@@ -728,7 +735,6 @@ function applyBuff(buffName, unit) {
 			tween(buffTracker.icon, 0.25, {alpha: 1, scaleX: 1, scaleY: 1, rotation: 0});
 
 			unit.statBox.addChild(buffTracker.icon);
-
 
 			unit.buffTrackers.push(buffTracker);
 		}

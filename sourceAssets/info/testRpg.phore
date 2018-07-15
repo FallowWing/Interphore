@@ -903,7 +903,7 @@ immortal.executeDead = function(unit) {
 	forRange(0, 2, function(i) {
 		var newEnemy = createUnit();
 		newEnemy.name = "Ender";
-		newEnemy.hp = newEnemy.maxHp = 1000;
+		newEnemy.hp = newEnemy.maxHp = 500;
 		newEnemy.ai = "Ender";
 		newEnemy.speed = 10;
 		newEnemy.friendly = false;
@@ -1134,7 +1134,7 @@ if (data.testRpgSetting == "rpgImmortals") {
 	var enemy3 = createUnit();
 	enemy3.name = "enemy 3";
 	enemy3.ai = "Immortal";
-	enemy3.hp = enemy3.maxHp = 1;
+	enemy3.hp = enemy3.maxHp = 3000;
 	enemy3.speed = 10;
 	enemies.push(enemy3);
 }
