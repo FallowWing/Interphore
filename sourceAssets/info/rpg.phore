@@ -162,6 +162,8 @@ function createAi() {
 			skip();
 		},
 		executeSpawned: function(unit) {
+		},
+		executeDead: function(unit) {
 		}
 	};
 
@@ -205,6 +207,7 @@ function startRpgBattle(players, enemies, whenDone) {
 
 	tempUpdateFunctions.push(updateRpgBattle);
 
+	rpg.cycle = [];
 	nextTurn();
 }
 
@@ -250,9 +253,12 @@ function updateRpgBattle() {
 
 	if (!rpg.currentAction && rpg.actionList.length > 0) {
 		rpg.units.forEach(function(unit) {
-			if (unit.hp <= 0) {
+			if (unit.hp <= 0 && !unit.dead) {
 				unit.dead = true;
 				tween(unit.sprite, 0.5, {rotation: 90});
+
+				var ai = getAi(unit.ai);
+				if (ai) ai.executeDead(unit);
 			}
 		});
 

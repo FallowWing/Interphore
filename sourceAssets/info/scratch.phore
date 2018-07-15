@@ -407,7 +407,7 @@ if (internal) {
 		execAsset("testRpg.phore");
 	});
 
-	addChoice("Imortals", function() {
+	addChoice("Immortals", function() {
 		data.testRpgSetting = "rpgImmortals";
 		execAsset("testRpg.phore");
 	});

@@ -367,7 +367,7 @@ giveSoul.execute = function(source, target) {
 };
 
 
-/// Enemy Spells
+///{ Enemy Spells
 var shieldSpell = createSpell();
 shieldSpell.name = "Shield";
 shieldSpell.info = "Gives an ally a small shield";
@@ -550,8 +550,53 @@ poke.execute = function(source, target) {
 	});
 };
 
+var waitForEnd = createSpell();
+waitForEnd.name = "Wait for End";
+waitForEnd.info = "none";
+waitForEnd.baseDamage = 0;
+waitForEnd.cost = 0;
+waitForEnd.execute = function(source, target) {
+	var spell = this;
 
-/// Buffs
+	stepTowards(source, target, function() {
+		var square = addRectImage(128, 128, 0xFFFFFF);
+		centerSpriteOnSprite(source.sprite, square);
+		square.scaleY = 0;
+		tween(square, 1, {alpha: 0, scaleY: 1}, {onComplete: function() {
+			square.destroy();
+			applyBuff("Awaiting End", source);
+			moveBack(source, actionDone);
+		}});
+	});
+};
+
+var finalPunch = createSpell();
+finalPunch.name = "Final Punch";
+finalPunch.info = "none";
+finalPunch.baseDamage = 30;
+finalPunch.cost = 0;
+finalPunch.execute = function(source, target) {
+	var spell = this;
+	moveUpTo(source, target, function() {
+		spell.doPartialDamage(target, 1);
+		moveBack(source, function() {
+			var square = addRectImage(16, 16, 0xFFFFFF);
+			square.alpha = 0;
+			square.centerPivot = true;
+			centerSpriteOnSprite(source.sprite, square);
+			tween(square, 0.25, {alpha: 1, scaleX: 30, scaleY: 30}, {type: PINGPONG_ONCE, onComplete: function() {
+				square.destroy();
+				doDamage(source, source.maxHp);
+				actionDone();
+			}});
+		});
+	});
+};
+
+///}
+
+
+///{ Buffs
 var markedBuff = createBuff();
 markedBuff.name = "Marked";
 markedBuff.iconName = "Snuff.png";
@@ -698,6 +743,13 @@ suffering.lastingTurns = 2;
 suffering.executeDamaged = function(unit, damage, spell) {
 	return damage*10;
 }
+
+var awaitingEnd = createBuff();
+awaitingEnd.name = "Awaiting End";
+awaitingEnd.iconName = "Hard-Vore.png";
+awaitingEnd.info = "Preparing to end it";
+awaitingEnd.lastingTurns = 999;
+///}
 
 
 /// Ais
@@ -846,6 +898,29 @@ immortal.execute = function(unit) {
 		castSpell("Poke", unit, getMyRandomOpponent(unit));
 		actionDone();
 	}
+};
+immortal.executeDead = function(unit) {
+	forRange(0, 2, function(i) {
+		var newEnemy = createUnit();
+		newEnemy.name = "Ender";
+		newEnemy.hp = newEnemy.maxHp = 1000;
+		newEnemy.ai = "Ender";
+		newEnemy.speed = 10;
+		newEnemy.friendly = false;
+		addUnit(newEnemy);
+	});
+}
+
+var ender = createAi()
+ender.name = "Ender";
+ender.execute = function(unit) {
+	if (hasBuff("Awaiting End", unit)) {
+		castSpell("Final Punch", unit, getMyRandomOpponent(unit));
+	} else {
+		castSpell("Wait for End", unit, getMyRandomOpponent(unit));
+	}
+
+	actionDone();
 };
 
 
@@ -1059,7 +1134,7 @@ if (data.testRpgSetting == "rpgImmortals") {
 	var enemy3 = createUnit();
 	enemy3.name = "enemy 3";
 	enemy3.ai = "Immortal";
-	enemy3.hp = enemy3.maxHp = 3000;
+	enemy3.hp = enemy3.maxHp = 1;
 	enemy3.speed = 10;
 	enemies.push(enemy3);
 }
