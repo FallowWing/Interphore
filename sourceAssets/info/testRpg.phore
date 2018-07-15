@@ -453,7 +453,7 @@ lilNibble.cost = 20;
 lilNibble.execute = function(source, target) {
 	var spell = this;
 	moveUpTo(source, target, function() {
-		spell.doPartialDamage(target, lilNibble.damage);
+		spell.doPartialDamage(target, 1);
 		moveBack(source, actionDone);
 	});
 };
@@ -467,7 +467,7 @@ kickSand.execute = function(source, target) {
 	var spell = this;
 	moveUpTo(source, target, function() {
 		applyBuff("Blind", target);
-		spell.doPartialDamage(1);
+		spell.doPartialDamage(target, 1);
 		moveBack(source, actionDone);
 	});
 };
@@ -534,6 +534,19 @@ fuseSpark.execute = function(source, target) {
 			applyBuff("Burn", source);
 			moveBack(source, actionDone);
 		}});
+	});
+};
+
+var poke = createSpell();
+poke.name = "Poke";
+poke.info = "none";
+poke.baseDamage = 1;
+poke.cost = 0;
+poke.execute = function(source, target) {
+	var spell = this;
+	moveUpTo(source, target, function() {
+		spell.doPartialDamage(target, 1);
+		moveBack(source, actionDone);
 	});
 };
 
@@ -677,6 +690,16 @@ burn.executeStartOfTrun = function(unit) {
 	actionDone();
 }
 
+var suffering = createBuff();
+suffering.name = "Suffering";
+suffering.iconName = "Hyper.png";
+suffering.info = "Takes 10x damage";
+suffering.lastingTurns = 2;
+suffering.executeDamaged = function(unit, damage, spell) {
+	return damage*10;
+}
+
+
 /// Ais
 var skipperAi = createAi();
 skipperAi.name = "Skipper";
@@ -797,6 +820,32 @@ exploder.execute = function(unit) {
 		castSpell("Smoke", unit, getMyOpponents(unit)[0]);
 	}
 	actionDone();
+};
+
+var immortal = createAi()
+immortal.name = "Immortal";
+immortal.execute = function(unit) {
+	var unitToSuffer = null;
+
+	getMyOpponents(unit).forEach(function(opp) {
+		if (!hasBuff("Suffering", opp)) unitToSuffer = opp;
+	});
+
+	if (unitToSuffer) {
+		stepTowards(unit, unitToSuffer, function() {
+			var square = addRectImage(128, 128, 0xFFFFFF);
+			centerSpriteOnSprite(unitToSuffer.sprite, square);
+			square.scaleY = 0;
+			tween(square, 1, {alpha: 0, scaleY: 1}, {onComplete: function() {
+				square.destroy();
+				applyBuff("Suffering", unitToSuffer);
+				moveBack(unit, actionDone);
+			}});
+		});
+	} else {
+		castSpell("Poke", unit, getMyRandomOpponent(unit));
+		actionDone();
+	}
 };
 
 
@@ -987,6 +1036,29 @@ if (data.testRpgSetting == "rpgExploders") {
 	var enemy3 = createUnit();
 	enemy3.name = "enemy 3";
 	enemy3.ai = "Exploder";
+	enemy3.hp = enemy3.maxHp = 3000;
+	enemy3.speed = 10;
+	enemies.push(enemy3);
+}
+
+if (data.testRpgSetting == "rpgImmortals") {
+	var enemy1 = createUnit();
+	enemy1.name = "enemy 1";
+	enemy1.ai = "Immortal";
+	enemy1.hp = enemy1.maxHp = 3000;
+	enemy1.speed = 10;
+	enemies.push(enemy1);
+
+	var enemy2 = createUnit();
+	enemy2.name = "enemy 2";
+	enemy2.ai = "Immortal";
+	enemy2.hp = enemy2.maxHp = 3000;
+	enemy2.speed = 10;
+	enemies.push(enemy2);
+
+	var enemy3 = createUnit();
+	enemy3.name = "enemy 3";
+	enemy3.ai = "Immortal";
 	enemy3.hp = enemy3.maxHp = 3000;
 	enemy3.speed = 10;
 	enemies.push(enemy3);

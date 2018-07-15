@@ -406,6 +406,11 @@ if (internal) {
 		data.testRpgSetting = "rpgExploders";
 		execAsset("testRpg.phore");
 	});
+
+	addChoice("Imortals", function() {
+		data.testRpgSetting = "rpgImmortals";
+		execAsset("testRpg.phore");
+	});
 }
 
 // addChoice("Go back", "scratchModStart");
