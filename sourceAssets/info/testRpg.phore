@@ -73,24 +73,25 @@ fireball.execute = function(source, target) {
 var lightning = createSpell();
 lightning.name = "Lightning";
 lightning.info = "Hit an enemy with many lightning bolts";
-lightning.baseDamage = 1000;
+lightning.baseDamage = 1200;
 lightning.cost = 50;
 lightning.affinities = ["Electric"];
+lightning.targetsNone = true;
 lightning.execute = function(source, target) {
 	var spell = this;
 
-	stepTowards(source, target, function() {
-		var targetSpr = target.sprite;
-		var strikes = 10;
+	stepTowards(source, getMyRandomOpponent(source), function() {
+		var strikes = 12;
 		var strikesArr = [];
 		for (var i = 0; i < strikes; i++) strikesArr.push(i);
 		strikesArr.forEach(function(i) {
 
 			timer(i * 0.2, function() {
+				var curTarget = getMyRandomOpponent(source);
 				var spr = addRectImage(32, gameHeight, 0xFFFF00);
-				spr.x = targetSpr.x + targetSpr.width/2 - spr.width/2 + rndFloat(-50, 50);
+				spr.x = curTarget.sprite.x + curTarget.sprite.width/2 - spr.width/2 + rndFloat(-50, 50);
 				spr.y = 0;
-				spell.doPartialDamage(target, 1/(strikes));
+				spell.doPartialDamage(curTarget, 1/(strikes));
 				tween(spr, 0.5, {alpha: 0}, {onComplete: function() {
 					spr.destroy();
 					if (i == strikesArr.length-1) moveBack(source, actionDone);
