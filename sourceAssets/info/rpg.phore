@@ -386,17 +386,54 @@ function addUnit(unit) {
 	unit.statBox.addChild(unit.limitBar);
 
 	if (unit.friendly) {
-		unit.originX = 32 + rpg.players.length*70;
-		unit.originY = 128 + rpg.players.length*(unit.sprite.height - 55);
+		var slot = -1;
+		for (var i = 0; i < rpg.players.length; i++) {
+			if (!rpg.players[i]) {
+				slot = i;
+				break;
+			}
+		}
+
+		if (slot != -1) {
+			rpg.players[slot] = unit;
+		} else {
+			rpg.players.push(unit);
+			slot = rpg.players.length-1;
+		}
+
+		unit.originX = 32 + slot*70;
+		unit.originY = 128 + slot*(unit.sprite.height - 55);
 		unit.sprite.tint = 0xFF0000FF;
-
-		rpg.players.push(unit);
 	} else {
-		unit.originX = gameWidth - unit.sprite.width - 32 - rpg.enemies.length*70;
-		unit.originY = 128 + rpg.enemies.length*(unit.sprite.height - 55);
-		unit.sprite.tint = 0xFFFF6100;
+		if (rpg.enemies.length >= 4) {
+			var toRemove = [];
+			rpg.enemies.forEach(function(unit) {
+				if (unit.dead) toRemove.push(unit);
+			});
 
-		rpg.enemies.push(unit);
+			toRemove.forEach(function(unit) {
+				removeEnemy(unit);
+			});
+		}
+
+		var slot = -1;
+		for (var i = 0; i < rpg.enemies.length; i++) {
+			if (!rpg.enemies[i]) {
+				slot = i;
+				break;
+			}
+		}
+
+		if (slot != -1) {
+			rpg.enemies[slot] = unit;
+		} else {
+			rpg.enemies.push(unit);
+			slot = rpg.enemies.length-1;
+		}
+
+		unit.originX = gameWidth - unit.sprite.width - 32 - slot*70;
+		unit.originY = 128 + slot*(unit.sprite.height - 55);
+		unit.sprite.tint = 0xFFFF6100;
 	}
 
 	rpg.units.push(unit);
@@ -416,6 +453,14 @@ function addUnit(unit) {
 	if (ai) ai.executeSpawned(unit);
 }
 
+function removeEnemy(unit) {
+	unit.sprite.destroy();
+	unit.statBox.destroy();
+
+	rpg.enemies[rpg.enemies.indexOf(unit)] = null;
+	rpg.units[rpg.enemies.indexOf(unit)] = null;
+	arrayRemove(rpg.cycle, unit);
+}
 
 function actionDone() {
 	var action = rpg.currentAction;
@@ -542,11 +587,11 @@ function showMenu() {
 
 		var unitChoices = [];
 		rpg.units.forEach(function(unit) {
-			var addUnit = true;
-			if (unit.dead && !rpg.currentSpell.targetsDead) addUnit = false;
-			if (unit.friendly && !rpg.currentSpell.targetsAllies) addUnit = false;
-			if (!unit.friendly && !rpg.currentSpell.targetsEnemies) addUnit = false;
-			if (addUnit) unitChoices.push(unit);
+			var shouldAdd = true;
+			if (unit.dead && !rpg.currentSpell.targetsDead) shouldAdd = false;
+			if (unit.friendly && !rpg.currentSpell.targetsAllies) shouldAdd = false;
+			if (!unit.friendly && !rpg.currentSpell.targetsEnemies) shouldAdd = false;
+			if (shouldAdd) unitChoices.push(unit);
 		});
 
 		unitChoices.sort(function(a, b) {
