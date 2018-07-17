@@ -621,10 +621,29 @@ poisoned.name = "Poisoned";
 poisoned.iconName = "Blood.png";
 poisoned.info = "Will take damage at the start of their turn";
 poisoned.lastingTurns = 2;
+// poisoned.lastingTurns = 7;
 poisoned.executeStartOfTrun = function(unit) {
 	doDamage(unit, 150);
 	actionDone();
-}
+};
+poisoned.executeUpdate = function(unit, tracker) {
+	if (!tracker.temp.b0) tracker.temp.b0 = addRectImage(16, 16, 0x004400); //@incomplete Attach this to some kind of "rpg battle" object or group.
+	if (!tracker.temp.b1) tracker.temp.b1 = addRectImage(16, 16, 0x004400);
+
+	var b0 = tracker.temp.b0;
+	var b1 = tracker.temp.b1;
+
+	b0.x = unit.sprite.x + 10 + Math.cos(time)*5;
+	b0.y = unit.sprite.y - 10 + Math.sin(time)*3;
+
+	b1.x = b0.x + b0.width + 10;
+	b1.y = b0.y + 20;
+};
+poisoned.executeRemoved = function(unit, tracker) {
+	var temp = tracker.temp;
+	if (temp.b0) temp.b0.destroy();
+	if (temp.b1) temp.b1.destroy();
+};
 
 var pushed = createBuff();
 pushed.name = "Pushed";

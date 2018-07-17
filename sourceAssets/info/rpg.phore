@@ -99,6 +99,10 @@ function createBuff() {
 		iconName: "Abuse.png",
 		info: "No info",
 		lastingTurns: 999,
+		executeUpdate: function(unit, tracker) {
+		},
+		executeRemoved: function(unit, tracker) {
+		},
 		executeDamaged: function(unit, damage, spell) {
 			return damage;
 		},
@@ -352,6 +356,14 @@ function updateRpgBattle() {
 		rpg.unitArrow.x = unitSpr.x + unitSpr.width/2 - rpg.unitArrow.width/2;
 		rpg.unitArrow.y = unitSpr.y - rpg.unitArrow.height - 20 + Math.sin(time)*20;
 	}
+
+	rpg.units.forEach(function(unit) {
+		unit.buffTrackers.forEach(function(buffTracker) {
+			if (buffTracker.remove) return;
+			var buff = getBuff(buffTracker.name);
+			buff.executeUpdate(unit, buffTracker);
+		});
+	});
 }
 
 function addUnit(unit) {
@@ -759,8 +771,8 @@ function applyBuff(buffName, unit) {
 				name: buff.name,
 				turns: buff.lastingTurns,
 				remove: false,
-				/// Temp:
-				icon: null
+				icon: null, // Also temp
+				temp: {}
 			};
 
 			buffTracker.icon = addImage(buff.iconName);
@@ -791,8 +803,11 @@ function applyBuff(buffName, unit) {
 function removeBuff(buffName, unit) {
 	unit.buffTrackers.some(function(buffTracker) {
 		if (buffTracker.name == buffName && !buffTracker.remove) {
+			var buff = getBuff(buffTracker.name);
+			buff.executeRemoved(unit, buffTracker);
 			buffTracker.remove = true;
 			buffTracker.icon.destroy();
+			buffTracker.temp = null;
 			return true;
 		}
 	});
