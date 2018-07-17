@@ -620,8 +620,7 @@ var poisoned = createBuff();
 poisoned.name = "Poisoned";
 poisoned.iconName = "Blood.png";
 poisoned.info = "Will take damage at the start of their turn";
-poisoned.lastingTurns = 2;
-// poisoned.lastingTurns = 7;
+poisoned.lastingTurns = 7;
 poisoned.executeStartOfTrun = function(unit) {
 	doDamage(unit, 150);
 	actionDone();
