@@ -165,8 +165,6 @@ void initGame() {
 	addJsFunction("loadMod_internal", loadMod, 0);
 
 	game = (Game *)zalloc(sizeof(Game));
-	game->bg = createMintSprite();
-	game->bg->setupRect(engine->width, engine->height, 0x000000);
 
 	initProfiler(&game->profiler);
 	initDebugOverlay(&game->debugOverlay);
@@ -214,7 +212,6 @@ void deinitGame() {
 		MintSprite *img = game->images[i];
 		if (img) img->destroy();
 	}
-	game->bg->destroy();
 
 	for (int i = 0; i < game->passagesNum; i++) {
 		Passage *passage = game->passages[i];
