@@ -73,24 +73,25 @@ fireball.execute = function(source, target) {
 var lightning = createSpell();
 lightning.name = "Lightning";
 lightning.info = "Hit an enemy with many lightning bolts";
-lightning.baseDamage = 1000;
+lightning.baseDamage = 1200;
 lightning.cost = 50;
 lightning.affinities = ["Electric"];
+lightning.targetsNone = true;
 lightning.execute = function(source, target) {
 	var spell = this;
 
-	stepTowards(source, target, function() {
-		var targetSpr = target.sprite;
-		var strikes = 10;
+	stepTowards(source, getMyRandomOpponent(source), function() {
+		var strikes = 12;
 		var strikesArr = [];
 		for (var i = 0; i < strikes; i++) strikesArr.push(i);
 		strikesArr.forEach(function(i) {
 
 			timer(i * 0.2, function() {
+				var curTarget = getMyRandomOpponent(source);
 				var spr = addRectImage(32, gameHeight, 0xFFFF00);
-				spr.x = targetSpr.x + targetSpr.width/2 - spr.width/2 + rndFloat(-50, 50);
+				spr.x = curTarget.sprite.x + curTarget.sprite.width/2 - spr.width/2 + rndFloat(-50, 50);
 				spr.y = 0;
-				spell.doPartialDamage(target, 1/(strikes));
+				spell.doPartialDamage(curTarget, 1/(strikes));
 				tween(spr, 0.5, {alpha: 0}, {onComplete: function() {
 					spr.destroy();
 					if (i == strikesArr.length-1) moveBack(source, actionDone);
@@ -367,7 +368,7 @@ giveSoul.execute = function(source, target) {
 };
 
 
-/// Enemy Spells
+///{ Enemy Spells
 var shieldSpell = createSpell();
 shieldSpell.name = "Shield";
 shieldSpell.info = "Gives an ally a small shield";
@@ -453,7 +454,7 @@ lilNibble.cost = 20;
 lilNibble.execute = function(source, target) {
 	var spell = this;
 	moveUpTo(source, target, function() {
-		spell.doPartialDamage(target, lilNibble.damage);
+		spell.doPartialDamage(target, 1);
 		moveBack(source, actionDone);
 	});
 };
@@ -467,7 +468,7 @@ kickSand.execute = function(source, target) {
 	var spell = this;
 	moveUpTo(source, target, function() {
 		applyBuff("Blind", target);
-		spell.doPartialDamage(1);
+		spell.doPartialDamage(target, 1);
 		moveBack(source, actionDone);
 	});
 };
@@ -537,8 +538,66 @@ fuseSpark.execute = function(source, target) {
 	});
 };
 
+var poke = createSpell();
+poke.name = "Poke";
+poke.info = "none";
+poke.baseDamage = 1;
+poke.cost = 0;
+poke.execute = function(source, target) {
+	var spell = this;
+	moveUpTo(source, target, function() {
+		spell.doPartialDamage(target, 1);
+		moveBack(source, actionDone);
+	});
+};
 
-/// Buffs
+var waitForEnd = createSpell();
+waitForEnd.name = "Wait for End";
+waitForEnd.info = "none";
+waitForEnd.baseDamage = 0;
+waitForEnd.cost = 0;
+waitForEnd.execute = function(source, target) {
+	var spell = this;
+
+	stepTowards(source, target, function() {
+		var square = addRectImage(128, 128, 0xFFFFFF);
+		centerSpriteOnSprite(source.sprite, square);
+		square.scaleY = 0;
+		tween(square, 1, {alpha: 0, scaleY: 1}, {onComplete: function() {
+			square.destroy();
+			applyBuff("Awaiting End", source);
+			moveBack(source, actionDone);
+		}});
+	});
+};
+
+var finalPunch = createSpell();
+finalPunch.name = "Final Punch";
+finalPunch.info = "none";
+finalPunch.baseDamage = 30;
+finalPunch.cost = 0;
+finalPunch.execute = function(source, target) {
+	var spell = this;
+	moveUpTo(source, target, function() {
+		spell.doPartialDamage(target, 1);
+		moveBack(source, function() {
+			var square = addRectImage(16, 16, 0xFFFFFF);
+			square.alpha = 0;
+			square.centerPivot = true;
+			centerSpriteOnSprite(source.sprite, square);
+			tween(square, 0.25, {alpha: 1, scaleX: 30, scaleY: 30}, {type: PINGPONG_ONCE, onComplete: function() {
+				square.destroy();
+				doDamage(source, source.maxHp);
+				actionDone();
+			}});
+		});
+	});
+};
+
+///}
+
+
+///{ Buffs
 var markedBuff = createBuff();
 markedBuff.name = "Marked";
 markedBuff.iconName = "Snuff.png";
@@ -561,11 +620,29 @@ var poisoned = createBuff();
 poisoned.name = "Poisoned";
 poisoned.iconName = "Blood.png";
 poisoned.info = "Will take damage at the start of their turn";
-poisoned.lastingTurns = 2;
+poisoned.lastingTurns = 7;
 poisoned.executeStartOfTrun = function(unit) {
 	doDamage(unit, 150);
 	actionDone();
-}
+};
+poisoned.executeUpdate = function(unit, tracker) {
+	if (!tracker.temp.b0) tracker.temp.b0 = addRectImage(16, 16, 0x004400); //@incomplete Attach this to some kind of "rpg battle" object or group.
+	if (!tracker.temp.b1) tracker.temp.b1 = addRectImage(16, 16, 0x004400);
+
+	var b0 = tracker.temp.b0;
+	var b1 = tracker.temp.b1;
+
+	b0.x = unit.sprite.x + 10 + Math.cos(time)*5;
+	b0.y = unit.sprite.y - 10 + Math.sin(time)*3;
+
+	b1.x = b0.x + b0.width + 10;
+	b1.y = b0.y + 20;
+};
+poisoned.executeRemoved = function(unit, tracker) {
+	var temp = tracker.temp;
+	if (temp.b0) temp.b0.destroy();
+	if (temp.b1) temp.b1.destroy();
+};
 
 var pushed = createBuff();
 pushed.name = "Pushed";
@@ -676,6 +753,23 @@ burn.executeStartOfTrun = function(unit) {
 	doDamage(unit, unit.maxHp*0.1);
 	actionDone();
 }
+
+var suffering = createBuff();
+suffering.name = "Suffering";
+suffering.iconName = "Hyper.png";
+suffering.info = "Takes 10x damage";
+suffering.lastingTurns = 2;
+suffering.executeDamaged = function(unit, damage, spell) {
+	return damage*10;
+}
+
+var awaitingEnd = createBuff();
+awaitingEnd.name = "Awaiting End";
+awaitingEnd.iconName = "Hard-Vore.png";
+awaitingEnd.info = "Preparing to end it";
+awaitingEnd.lastingTurns = 999;
+///}
+
 
 /// Ais
 var skipperAi = createAi();
@@ -796,6 +890,55 @@ exploder.execute = function(unit) {
 	} else {
 		castSpell("Smoke", unit, getMyOpponents(unit)[0]);
 	}
+	actionDone();
+};
+
+var immortal = createAi()
+immortal.name = "Immortal";
+immortal.execute = function(unit) {
+	var unitToSuffer = null;
+
+	getMyOpponents(unit).forEach(function(opp) {
+		if (!hasBuff("Suffering", opp)) unitToSuffer = opp;
+	});
+
+	if (unitToSuffer) {
+		stepTowards(unit, unitToSuffer, function() {
+			var square = addRectImage(128, 128, 0xFFFFFF);
+			centerSpriteOnSprite(unitToSuffer.sprite, square);
+			square.scaleY = 0;
+			tween(square, 1, {alpha: 0, scaleY: 1}, {onComplete: function() {
+				square.destroy();
+				applyBuff("Suffering", unitToSuffer);
+				moveBack(unit, actionDone);
+			}});
+		});
+	} else {
+		castSpell("Poke", unit, getMyRandomOpponent(unit));
+		actionDone();
+	}
+};
+immortal.executeDead = function(unit) {
+	forRange(0, 2, function(i) {
+		var newEnemy = createUnit();
+		newEnemy.name = "Ender";
+		newEnemy.hp = newEnemy.maxHp = 500;
+		newEnemy.ai = "Ender";
+		newEnemy.speed = 10;
+		newEnemy.friendly = false;
+		addUnit(newEnemy);
+	});
+}
+
+var ender = createAi()
+ender.name = "Ender";
+ender.execute = function(unit) {
+	if (hasBuff("Awaiting End", unit)) {
+		castSpell("Final Punch", unit, getMyRandomOpponent(unit));
+	} else {
+		castSpell("Wait for End", unit, getMyRandomOpponent(unit));
+	}
+
 	actionDone();
 };
 
@@ -987,6 +1130,29 @@ if (data.testRpgSetting == "rpgExploders") {
 	var enemy3 = createUnit();
 	enemy3.name = "enemy 3";
 	enemy3.ai = "Exploder";
+	enemy3.hp = enemy3.maxHp = 3000;
+	enemy3.speed = 10;
+	enemies.push(enemy3);
+}
+
+if (data.testRpgSetting == "rpgImmortals") {
+	var enemy1 = createUnit();
+	enemy1.name = "enemy 1";
+	enemy1.ai = "Immortal";
+	enemy1.hp = enemy1.maxHp = 3000;
+	enemy1.speed = 10;
+	enemies.push(enemy1);
+
+	var enemy2 = createUnit();
+	enemy2.name = "enemy 2";
+	enemy2.ai = "Immortal";
+	enemy2.hp = enemy2.maxHp = 3000;
+	enemy2.speed = 10;
+	enemies.push(enemy2);
+
+	var enemy3 = createUnit();
+	enemy3.name = "enemy 3";
+	enemy3.ai = "Immortal";
 	enemy3.hp = enemy3.maxHp = 3000;
 	enemy3.speed = 10;
 	enemies.push(enemy3);

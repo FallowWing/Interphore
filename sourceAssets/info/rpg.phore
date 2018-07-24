@@ -99,6 +99,10 @@ function createBuff() {
 		iconName: "Abuse.png",
 		info: "No info",
 		lastingTurns: 999,
+		executeUpdate: function(unit, tracker) {
+		},
+		executeRemoved: function(unit, tracker) {
+		},
 		executeDamaged: function(unit, damage, spell) {
 			return damage;
 		},
@@ -162,6 +166,8 @@ function createAi() {
 			skip();
 		},
 		executeSpawned: function(unit) {
+		},
+		executeDead: function(unit) {
 		}
 	};
 
@@ -205,6 +211,7 @@ function startRpgBattle(players, enemies, whenDone) {
 
 	tempUpdateFunctions.push(updateRpgBattle);
 
+	rpg.cycle = [];
 	nextTurn();
 }
 
@@ -250,9 +257,12 @@ function updateRpgBattle() {
 
 	if (!rpg.currentAction && rpg.actionList.length > 0) {
 		rpg.units.forEach(function(unit) {
-			if (unit.hp <= 0) {
+			if (unit.hp <= 0 && !unit.dead) {
 				unit.dead = true;
 				tween(unit.sprite, 0.5, {rotation: 90});
+
+				var ai = getAi(unit.ai);
+				if (ai) ai.executeDead(unit);
 			}
 		});
 
@@ -346,6 +356,14 @@ function updateRpgBattle() {
 		rpg.unitArrow.x = unitSpr.x + unitSpr.width/2 - rpg.unitArrow.width/2;
 		rpg.unitArrow.y = unitSpr.y - rpg.unitArrow.height - 20 + Math.sin(time)*20;
 	}
+
+	rpg.units.forEach(function(unit) {
+		unit.buffTrackers.forEach(function(buffTracker) {
+			if (buffTracker.remove) return;
+			var buff = getBuff(buffTracker.name);
+			buff.executeUpdate(unit, buffTracker);
+		});
+	});
 }
 
 function addUnit(unit) {
@@ -353,6 +371,13 @@ function addUnit(unit) {
 	unit.sprite.centerPivot = true;
 
 	unit.statBox = addEmptyImage(128, 64);
+	unit.statBox.whileHovering = function() {
+		var statsText = "";
+		statsText += "Hp: " + unit.hp + "/" + unit.maxHp + "\n";
+		statsText += "Mp: " + unit.mp + "/" + unit.maxMp + "\n";
+		statsText += "Limit: " + unit.limit + "/" + 100;
+		showTooltip(statsText);
+	};
 
 	unit.nameTf = addEmptyImage(unit.statBox.width, 64);
 	unit.nameTf.tint = 0xFFFFFFFF;
@@ -373,17 +398,54 @@ function addUnit(unit) {
 	unit.statBox.addChild(unit.limitBar);
 
 	if (unit.friendly) {
-		unit.originX = 32 + rpg.players.length*70;
-		unit.originY = 128 + rpg.players.length*(unit.sprite.height - 55);
+		var slot = -1;
+		for (var i = 0; i < rpg.players.length; i++) {
+			if (!rpg.players[i]) {
+				slot = i;
+				break;
+			}
+		}
+
+		if (slot != -1) {
+			rpg.players[slot] = unit;
+		} else {
+			rpg.players.push(unit);
+			slot = rpg.players.length-1;
+		}
+
+		unit.originX = 32 + slot*70;
+		unit.originY = 128 + slot*(unit.sprite.height - 55);
 		unit.sprite.tint = 0xFF0000FF;
-
-		rpg.players.push(unit);
 	} else {
-		unit.originX = gameWidth - unit.sprite.width - 32 - rpg.enemies.length*70;
-		unit.originY = 128 + rpg.enemies.length*(unit.sprite.height - 55);
-		unit.sprite.tint = 0xFFFF6100;
+		if (rpg.enemies.length >= 4) {
+			var toRemove = [];
+			rpg.enemies.forEach(function(unit) {
+				if (unit.dead) toRemove.push(unit);
+			});
 
-		rpg.enemies.push(unit);
+			toRemove.forEach(function(unit) {
+				removeEnemy(unit);
+			});
+		}
+
+		var slot = -1;
+		for (var i = 0; i < rpg.enemies.length; i++) {
+			if (!rpg.enemies[i]) {
+				slot = i;
+				break;
+			}
+		}
+
+		if (slot != -1) {
+			rpg.enemies[slot] = unit;
+		} else {
+			rpg.enemies.push(unit);
+			slot = rpg.enemies.length-1;
+		}
+
+		unit.originX = gameWidth - unit.sprite.width - 32 - slot*70;
+		unit.originY = 128 + slot*(unit.sprite.height - 55);
+		unit.sprite.tint = 0xFFFF6100;
 	}
 
 	rpg.units.push(unit);
@@ -403,6 +465,14 @@ function addUnit(unit) {
 	if (ai) ai.executeSpawned(unit);
 }
 
+function removeEnemy(unit) {
+	unit.sprite.destroy();
+	unit.statBox.destroy();
+
+	rpg.enemies[rpg.enemies.indexOf(unit)] = null;
+	rpg.units[rpg.enemies.indexOf(unit)] = null;
+	arrayRemove(rpg.cycle, unit);
+}
 
 function actionDone() {
 	var action = rpg.currentAction;
@@ -529,11 +599,11 @@ function showMenu() {
 
 		var unitChoices = [];
 		rpg.units.forEach(function(unit) {
-			var addUnit = true;
-			if (unit.dead && !rpg.currentSpell.targetsDead) addUnit = false;
-			if (unit.friendly && !rpg.currentSpell.targetsAllies) addUnit = false;
-			if (!unit.friendly && !rpg.currentSpell.targetsEnemies) addUnit = false;
-			if (addUnit) unitChoices.push(unit);
+			var shouldAdd = true;
+			if (unit.dead && !rpg.currentSpell.targetsDead) shouldAdd = false;
+			if (unit.friendly && !rpg.currentSpell.targetsAllies) shouldAdd = false;
+			if (!unit.friendly && !rpg.currentSpell.targetsEnemies) shouldAdd = false;
+			if (shouldAdd) unitChoices.push(unit);
 		});
 
 		unitChoices.sort(function(a, b) {
@@ -701,8 +771,8 @@ function applyBuff(buffName, unit) {
 				name: buff.name,
 				turns: buff.lastingTurns,
 				remove: false,
-				/// Temp:
-				icon: null
+				icon: null, // Also temp
+				temp: {}
 			};
 
 			buffTracker.icon = addImage(buff.iconName);
@@ -723,7 +793,6 @@ function applyBuff(buffName, unit) {
 
 			unit.statBox.addChild(buffTracker.icon);
 
-
 			unit.buffTrackers.push(buffTracker);
 		}
 	});
@@ -734,8 +803,11 @@ function applyBuff(buffName, unit) {
 function removeBuff(buffName, unit) {
 	unit.buffTrackers.some(function(buffTracker) {
 		if (buffTracker.name == buffName && !buffTracker.remove) {
+			var buff = getBuff(buffTracker.name);
+			buff.executeRemoved(unit, buffTracker);
 			buffTracker.remove = true;
 			buffTracker.icon.destroy();
+			buffTracker.temp = null;
 			return true;
 		}
 	});
