@@ -4,7 +4,8 @@ START_PASSAGES
 Cartographer welcomes you.
 
 [Rules of Operation for Paraphores.]
-[Examine Spilled Paint.|Layer Info.]
+[Examine Spilled Paint.|layerSpilledPaint]
+[Examine L.L.L.|layerLLL]
 !`
 getAudio("music").destroy();
 var music = playMusic("audio/ambience/cell");
@@ -17,36 +18,148 @@ addChoice("Move along.", function() {
 });
 `
 ---
-:Layer Info.
+:layerLLL
+LAYER NAME: L.L.L. formerly G.C.D. (GAY CUB DUNGEON)
+PARENT LAYER: The Red Sea
+PARENT ENTITY: Mr. Eyeball
+CHILD LAYERS: Spilled Paint (+87 children)
+PARAPHRASED TIMELINES:
+	> THIS INFORMATION IS NOT PUBLIC.
 
-PARENT ENTITY: CARTOGRAPHER
-CHILD LAYERS: LIBRARY2 (+3 CHILDREN), RELAXATIONGAME
+---
+:layerSpilledPaint
+
+LAYER NAME: Spilled Paint
+PARENT LAYER: L.L.L.
+PARENT ENTITY: Cartographer
+CHILD LAYERS: Library2 (+3 children), RELAXATIONGAME
 PARAPHRASED TIMELINES: 4
 	> PROTOCOL ENDING:
-		DANGER LEVEL: SAFE
-		CLASS: HEAVEN
-		- CHARACTER(S) "MYNT" AND CHARACTER "REBECA" ASSIMILATED.
+		DANGER LEVEL: Safe
+		CLASS: Heaven
+		— Character "Mynt" rendered inaccessible
+		- Fragmentary clone of "Mynt" assimilated
+		- Character "REBECA" ASSIMILATED.
 
 	> MINT ENDING:
-		DANGER LEVEL: CORRUPTIVE
-		CLASS: HELL
-		- CHARACTER(S) "MYNT" FUNCTIONALLY PERISHED.
-		- VALID DUPLICATE CHARACTER "REBECA" ASSIMILATED. ASSIMILATED CHARACTER "REBECA" RELOCATED TO PREVENT DUPE COLLISION.
+		DANGER LEVEL: Corruptive
+		CLASS: Hell
+		- Character "Mynt" and her fragmentary clone functionally perished.
+		- <b>VALID DUPLICATE</b> character "Rebeca" assimilated
+		- Original "Rebeca" relocated to prevent dupe collission
 
 	> MYNT ENDING:
-		DANGER LEVEL: SAFE
-		CLASS: MACBETH
-		- VALID DUPLICATE CHARACTER(S) "MYNT" ASSIMILATED. ASSIMILATED CHARACTER(S) "MYNT" RELOCATED TO PREVENT DUPE COLLISION.
-		- VALID DUPLICATE CHARACTER "REBECA" PERISHED.
+		DANGER LEVEL: Safe
+		CLASS: Macbeth
+		- <b>VALID DUPLICATE</b> character "Mynt" assimilated
+		- Original "Mynt" relocated to prevent dupe collission
+		- <b>VALID DUPLICATE</b> character "Rebeca" perished
 
 	> METEORITE ENDING:
-		DANGER LEVEL: RISKY
-		CLASS: HIGURASHI
-		- ALL CHARACTERS ARE INVALID DUPLICATES. NO FURTHER ASSIMILATION IS POSSIBLE.
-		- STABLE CHECKPOINTS CREATED AND MAINTAINED.
-		- 7 CHARACTER SEEDS RECOVERED.
-		- THIS TIMELINE IS DOMESTICATED, AND THUS FULLY OPEN TO UPPER TOURISTS.
-		- GENERATED BASED ON 66 YEARS OF PLAYER DATA.
+		DANGER LEVEL: Risky
+		CLASS: Higurashi
+		- This timeline has been opened to upper tourists
+		- Stable red pond checkpoints created and maintained on a giant purple meteorite
+		- Passable safety measures based on 66 years of player data, thanks Rebeca!
+		- Cusp catastrophes unlikely but possible, run if you see a black hole
+		
+		- All characters are <b>INVALID</b> duplicates. No further assimilation possible
+		- 7 character seeds recovered
+		
+
+[Back.|hubLLL]
+
+---
+:Terms
+
+<b>Terms & Definitions</b>
+
+<b>LAYER</b>
+-*-
+A universe.
+"We went down a couple layers to get a drink at an Indigo Pond."
+
+<b>PARENT LAYER</b>
+<i>aka</i>
+Upper layer
+-*-
+A universe above this one.
+"My universe is just spilled paint up in the parent layer."
+
+<b>CHILD LAYER</b>
+<i>aka</i>
+Lower layer
+-*-
+The universe below this one.
+"Wendy accidentally made a child layer inside her computer."
+
+<b>INTERPHORE</b>
+<i>aka</i>
+The hivemind
+Mr. Eyeball's Wild Ride
+-*-
+An immortal hivemind spanning multiple universes.
+"The Interphore is rigid, but it's stable."
+
+<b>ASSIMILATE</b>
+-*-
+To make someone part of the Interphore. Usually you just have to get them to jump in a red pond.
+"The meteorite landed and opened its eye. Then I got assimilated, and I was like fuck, man, I always hoped aliens were just like us."
+
+<b>MEMBER</b>
+-*-
+An person who got assimilated and chose to join the Interphore.
+"He had just become a member when the nymphs swarmed and corrupted him."
+
+<b>MR. EYEBALL</b>
+-*-
+The first member of the Interphore and the narrator of everyone's reality. His telepathic words become real sensations for you.
+"Twenty billion years ago, Mr. Eyeball assimilated Cartographer, the first member of his hivemind."
+
+<b>RED JUICE</b>
+<i>aka</i>
+Blood
+<b>Red Engine Fluid</b>
+-*-
+Conductive liquid that can perfectly store and retrieve information. It forms the bodies of all members.
+"Chugging red juice will make you trip fucking cinder blocks to the dome, dude."
+
+<b>RED PONDS</b>
+-*-
+Puddles of red juice. Used to assimilate people. Members can melt their bodies inside to travel across layers.
+"Just hop in the red pond and choose a different respawn point, it's like fast travel."
+
+<b>SHAPESHIFTING</b>
+-*-
+Shapeshifting is a common ability among all members. You only need to jump in a red pond and think about having a different gender or body.
+
+The first time you do it, you will lose most of your memories except childhood memories and your memory of the previous moment.
+"We shapeshifted into burly dads, got high, and wrestled for six hours."
+
+<b>CYAN JUICE</b>
+<i>aka</i>
+Glowjuice
+Engine Fluid
+Cyan liquid
+-*-
+???
+"???"
+
+<b>PARAPHRASE</b>
+-*-
+To record all known timelines of a layer in a concise way. This is the job of Paraphores.
+"Rebeca helped to paraphrase the timeline where Mynt is trapped in solitary confinement for 4000 years."
+
+<b>PARAPHORE</b>
+-*-
+A member of the Interphore who has chosen to shapeshift into an object. They are sent to lower layers. They usually pick the most common object on that layer, to blend in. Then they tell us what they have paraphrased and assimilate everyone on that layer.
+"We sent a Paraphore down to their child layer and paraphrased eveything that ever could've happened there."
+
+<b>TENDERFOOT</b>
+-*-
+A person who has not been assimilated into the Interphore.
+"There's a couple tenderfoots locked up one layer down, we can't get to them them."
+
 [Back.|hubLLL]
 
 ---
