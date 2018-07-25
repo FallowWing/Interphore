@@ -1,3 +1,17 @@
+/*
+Swords:
+Fire - burns self and target.
+Poison - poisons, small chance of self poison when attacked.
+Resistive - removes a buff at random, has a 50% chance of ignoring buffs.
+Reset - removes all hp, mana, and buffs, big damage.
+Drain - gain hp when enemies take damage.
+Absorb - taking damage gives some mana.
+Wind - hits all enemies, damage taken is shared with partner.
+Ice - 50/50 to freeze self or enemy.
+Defender - no attack, but defends.
+Charger - no attack, but charges for 2x damage next attack/turn.
+*/
+
 execAsset("rpg.phore");
 
 initRpgBattle();
