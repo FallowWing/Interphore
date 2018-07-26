@@ -130,6 +130,8 @@ function newImage() {
 		alpha: 1,
 		scaleX: 1,
 		scaleY: 1,
+		skewX: 0,
+		skewY: 0,
 		smoothing: false,
 		centerPivot: false,
 
@@ -1039,7 +1041,7 @@ function realUpdate() {
 			}
 		}
 
-		setImageProps(img.id, img.x, img.y, img.scaleX, img.scaleY, img.alpha, img.rotation, img.tint, img.layer, img.smoothing, img.centerPivot);
+		setImageProps(img.id, img.x, img.y, img.scaleX, img.scaleY, img.skewX, img.skewY, img.alpha, img.rotation, img.tint, img.layer, img.smoothing, img.centerPivot);
 	});
 
 	/// Audios

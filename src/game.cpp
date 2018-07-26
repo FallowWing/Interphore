@@ -137,7 +137,7 @@ void initGame() {
 	addJsFunction("addRectImage_internal", addRectImage, 3);
 	addJsFunction("add9SliceImage_internal", add9SliceImage, 7);
 	addJsFunction("addEmptyImage_internal", addEmptyImage, 2);
-	addJsFunction("setImageProps", setImageProps, 11);
+	addJsFunction("setImageProps", setImageProps, 13);
 	addJsFunction("setImageText_internal", setImageText, 2);
 	addJsFunction("getImageSize", getImageSize, 2);
 	addJsFunction("getTextSize", getTextSize, 2);
@@ -756,11 +756,13 @@ duk_ret_t setImageProps(duk_context *ctx) {
 	int tint = duk_get_uint(ctx, -4);
 	double rotation = duk_get_number(ctx, -5);
 	double alpha = duk_get_number(ctx, -6);
-	double scaleY = duk_get_number(ctx, -7);
-	double scaleX = duk_get_number(ctx, -8);
-	double y = duk_get_number(ctx, -9);
-	double x = duk_get_number(ctx, -10);
-	int id = duk_get_number(ctx, -11);
+	double skewY = duk_get_number(ctx, -7);
+	double skewX = duk_get_number(ctx, -8);
+	double scaleY = duk_get_number(ctx, -9);
+	double scaleX = duk_get_number(ctx, -10);
+	double y = duk_get_number(ctx, -11);
+	double x = duk_get_number(ctx, -12);
+	int id = duk_get_number(ctx, -13);
 
 	MintSprite *img = game->images[id];
 	if (!img) return 0;
@@ -769,6 +771,8 @@ duk_ret_t setImageProps(duk_context *ctx) {
 	img->y = y;
 	img->scaleX = scaleX;
 	img->scaleY = scaleY;
+	img->skewX = skewX;
+	img->skewY = skewY;
 	img->alpha = alpha;
 	img->rotation = rotation;
 	img->tint = tint;

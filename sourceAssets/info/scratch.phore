@@ -227,8 +227,8 @@ Your data has been saved, you can exit now without losing your data
 var spr = addRectImage(64, 64, 0x0000FF);
 spr.x = 20;
 spr.y = 20;
-tween(spr, 3, {scaleX: 0.8, scaleY: 0.8}, {ease: QUAD_IN, type: PINGPONG});
-tween(spr, 3, {x: 100}, {ease: QUAD_IN, type: PINGPONG});
+tween(spr, 3, {skewX: 1}, {type: PINGPONG});
+// tween(spr, 3, {scaleY: 2}, {type: PINGPONG});
 `
 [Go back|scratchModStart]
 ---
