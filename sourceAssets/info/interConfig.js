@@ -134,6 +134,7 @@ function newImage() {
 		skewY: 0,
 		smoothing: false,
 		centerPivot: false,
+		ignoreMouseRect: false,
 
 		text: "", //@cleanup Consider removing this
 		textWidth: 0,
@@ -760,6 +761,10 @@ function keyJustPressed(keyCode) {
 	return keys[keyCode] == KEY_JUST_PRESSED;
 }
 
+function hookUpdate(fn) {
+	tempUpdateFunctions.push(fn);
+}
+
 function __update() {
 	try {
 		realUpdate();
@@ -1041,7 +1046,7 @@ function realUpdate() {
 			}
 		}
 
-		setImageProps(img.id, img.x, img.y, img.scaleX, img.scaleY, img.skewX, img.skewY, img.alpha, img.rotation, img.tint, img.layer, img.smoothing, img.centerPivot);
+		setImageProps(img.id, img.x, img.y, img.scaleX, img.scaleY, img.skewX, img.skewY, img.alpha, img.rotation, img.tint, img.layer, img.smoothing, img.centerPivot, img.ignoreMouseRect);
 	});
 
 	/// Audios
