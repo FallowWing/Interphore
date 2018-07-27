@@ -196,9 +196,6 @@ function newImage() {
 	return img;
 }
 
-function getImageProps(id, index) {
-}
-
 function addImage(assetId) {
 	var img = newImage();
 	img.id = addImage_internal(assetId);
@@ -1037,8 +1034,9 @@ function realUpdate() {
 				img.y = mouseY - img.dragPivotY;
 			}
 		}
-		if (img.alpha < 0) img.alpha = 0;
-		if (img.alpha > 1) img.alpha = 1;
+		img.alpha = clamp(img.alpha, 0, 1);
+		img.skewX = clamp(img.skewX, -1, 1);
+		img.skewY = clamp(img.skewY, -1, 1);
 
 		if (img.inInputField) {
 			img.x = round(img.x);
