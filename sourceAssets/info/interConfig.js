@@ -3,7 +3,7 @@ function arrayContains(arr, ele) {
 	return index != -1;
 }
 
-function arrayRemove(arr, ele) {
+function arrayLazyRemove(arr, ele) {
 	var index = arr.indexOf(ele);
 	if (index != -1) arr.splice(index, 1);
 }
@@ -17,7 +17,7 @@ function arrayCount(arr, ele) {
 	return count;
 }
 
-function arrayForceRemove(arr, ele) {
+function arrayRemove(arr, ele) {
 	var index = arr.indexOf(ele);
 	if (index == -1) print("Going to fail to remove this element from an array");
 	arr.splice(index, 1);
@@ -565,6 +565,17 @@ function tween(src, time, params, config) {
 
 	tweens.push(tw);
 	return tw;
+}
+
+function cancelTweens(source) {
+	var tweensToRemove = [];
+	tweens.forEach(function(tw) {
+		if (tw.source == source) tweensToRemove.push(tw);
+	});
+
+	tweensToRemove.forEach(function(tw) {
+		arrayRemove(tweens, tw);
+	});
 }
 
 function setTitle(text) {
