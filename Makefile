@@ -34,6 +34,7 @@ all:
 fast:
 	cp sourceAssets/info/*.phore bin/assets/info
 	cp sourceAssets/info/*.js bin/assets/info
+	cp sourceAssets/shader/* bin/assets/shader
 	make r
 
 exportAssets:

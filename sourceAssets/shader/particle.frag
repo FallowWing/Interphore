@@ -10,10 +10,10 @@ vec4 fragColor;
 #define TEXTURE2D texture2D
 #endif
 
-uniform sampler2D u_texture;
+uniform sampler2D p_u_texture;
 
 void main() {
-	fragColor = TEXTURE2D(u_texture, v_texCoord);
+	fragColor = TEXTURE2D(p_u_texture, v_texCoord);
 #if __VERSION__ == 100
 	gl_FragColor = fragColor;
 #endif

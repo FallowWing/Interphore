@@ -189,6 +189,7 @@ void initGame() {
 	runJs("gotoPassage(\"scratchModStart\");");
 
 	MintParticleSystem *system = createMintParticleSystem("/particles.png", 128);
+	system->sprite->layer = 9999;
 	system->x = 200;
 	system->y = 200;
 	for (int i = 0; i < system->particlesMax; i++) {
