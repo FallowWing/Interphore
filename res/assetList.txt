@@ -35,6 +35,9 @@ info/scratch.phore
 info/basic.phore
 info/utils.phore
 
+img/writer/particles.png
+img/writer/particles.spr
+
 img/writer/icons/Abuse.png
 img/writer/icons/Abuse.spr
 img/writer/icons/Art.png
