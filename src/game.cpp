@@ -185,6 +185,18 @@ void initGame() {
 	runJs("gotoPassage(\"rpgTest\");");
 #endif
 
+#ifdef TEST_PARTICLES
+	runJs("gotoPassage(\"scratchModStart\");");
+
+	MintParticleSystem *system = createMintParticleSystem(128);
+	system->x = 200;
+	system->y = 200;
+	for (int i = 0; i < system->particlesMax; i++) {
+		system->emit();
+	}
+#endif
+
+
 	game->root = createMintSprite();
 	game->root->setupContainer(engine->width, engine->height);
 
