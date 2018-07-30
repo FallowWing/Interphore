@@ -439,7 +439,6 @@ vn.setRight("someImagePath", 0xFF550000);
 vn.rightIn();
 
 vn.rightSay("I'm here.");
-
 vn.leftSay("Oh! Hello, little deer.");
 vn.rightSay("I'm an impala.");
 vn.leftSay("Right. Do you know where Rebeca is?");
