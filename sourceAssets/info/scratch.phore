@@ -37,6 +37,7 @@ Make sure you play through the intro or go to Hub and visit Red Pond to set your
 [Tooltip Test|tooltipTest]
 [Word wrap Test|wordWrapTest]
 [Rpg test|rpgTest]
+[VN test|vnTest]
 ---
 :Change Mynt's genitals
 
@@ -422,6 +423,52 @@ if (internal) {
 // });
 `
 
+---
+:vnTest
+!`
+vn.start();
+vn.setLeft("someImg", 0x005500);
+vn.delay(0.5);
+vn.setRight("someImg", 0x005500);
+vn.delay(0.5);
+vn.leftIn();
+vn.rightIn();
+vn.leftSay("Hello");
+vn.rightSay("Hello to you too!");
+vn.choice("c1");
+vn.choice("c2");
+vn.choice("c3");
+vn.stop();
+vn.rightSay("Nice choice");
+vn.end();
+
+// - Mynt appears on the left of the screen, behind the text bar.
+// - The text bar goes dark green whenever she speaks.
+// - Left-justified text appears on the bar:
+//     Mynt: Hello?
+//     Mynt: Is anyone there?
+// - Alula appears on the right side of the screen, behind the text bar.
+// - Right-justified text appears whenever she speaks.
+// - The text bar goes dark red whenever she speaks.
+// - Whenever someone speaks who was not already speaking, their art jumps up 5px and falls back down, to grab attention.
+//     Alula: I'm here.
+//     Mynt: Oh! Hello, little deer.
+//     Alula: I'm an impala.
+//     Mynt: Right. Do you know where Rebeca is?
+//     Mynt: I've been looking for her since the :-) face killed everyone.
+//     Alula: Haven't seen her.
+//     Mynt: Ah...
+//     Mynt: Do you know where we are?
+//     Alula: I do not.
+//     Mynt: We're in a bomb shelter.
+// - Alula's art changes to a scared expression variant.
+// - Alula's art begins to shake 2px left and right.
+//     Alula: Is the situation that dire?
+//     Mynt: Well, we don't know, but it couldn't hurt to stay here until things settle down.
+// - Mynt and Alula art both fades out.
+// - Text bar tint is set to 0.
+// - Text section or whatever.
+`
 ---
 :Exit
 `exitMod();`

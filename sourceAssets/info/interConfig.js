@@ -94,11 +94,12 @@ var GRAPH_NODE_LAYER = 50;
 var DEFAULT_LAYER = 60;
 var CHOICE_BUTTON_LAYER = 70;
 var CHOICE_TEXT_LAYER = 80;
-var MSG_SPRITE_LAYER = 90;
-var MSG_TEXT_LAYER = 100;
-var TITLE_LAYER = 110;
-var TOOLTIP_SPRITE_LAYER = 120;
-var TOOLTIP_TEXT_LAYER = 130;
+var VN_TEXT_LAYER = 90;
+var MSG_SPRITE_LAYER = 100;
+var MSG_TEXT_LAYER = 110;
+var TITLE_LAYER = 120;
+var TOOLTIP_SPRITE_LAYER = 130;
+var TOOLTIP_TEXT_LAYER = 140;
 
 var choicesPerPage = 4;
 var BUTTON_HEIGHT = 128;
@@ -614,6 +615,30 @@ function queueCall(func) {
 	queuedCommands.push(command);
 }
 
+function queueDelay(amount) {
+	var command = {};
+	command.type = "delay";
+	command.addedTime = amount;
+	queuedCommands.push(command);
+}
+
+function queuePause(amount) {
+	var command = {};
+	command.type = "pause";
+	command.skippable = true;
+	queuedCommands.push(command);
+}
+
+function queueStop() {
+	var command = {};
+	command.type = "stop";
+	queuedCommands.push(command);
+}
+
+function skipCurrentCommand() {
+	queueTimeLeft = 0;
+}
+
 function enableExit() {
 	exitDisabled = false;
 	exitButton.alpha = 1;
@@ -900,6 +925,11 @@ function realUpdate() {
 			if (command.type === "title") setTitle(command.content);
 			if (command.type === "addChoice") addChoice(command.choiceText, command.result);
 			if (command.type === "call") command.func();
+			if (command.type === "delay") {
+				// Nothing
+			}
+			if (command.type === "pause") command.addedTime = 99999;
+			if (command.type === "stop") command.addedTime = 99999;
 
 			currentCommand = command;
 			queueTimeLeft = command.addedTime;
@@ -1064,5 +1094,7 @@ function realUpdate() {
 		setAudioFlags(audio.id, audio.looping, audio.volume);
 	}
 }
+
+for (var i = 0; i < 500; i++) keys[i] = KEY_RELEASED;
 
 execAsset("interStart.phore");
