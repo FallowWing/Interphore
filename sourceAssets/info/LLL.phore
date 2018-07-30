@@ -3,9 +3,11 @@ START_PASSAGES
 
 Cartographer welcomes you.
 
+[Examine Paraphores.|examineParaphores]
 [Rules of Operation for Paraphores.]
 [Examine Spilled Paint.|layerSpilledPaint]
 [Examine L.L.L.|layerLLL]
+
 !`
 getAudio("music").destroy();
 var music = playMusic("audio/ambience/cell");
@@ -19,12 +21,56 @@ addChoice("Move along.", function() {
 `
 ---
 :layerLLL
-LAYER NAME: L.L.L. formerly G.C.D. (GAY CUB DUNGEON)
+LAYER NAME: L.L.L. — formerly G.C.D. (GAY CUB DUNGEON)
 PARENT LAYER: The Red Sea
 PARENT ENTITY: Mr. Eyeball
 CHILD LAYERS: Spilled Paint (+87 children)
 PARAPHRASED TIMELINES:
-	> THIS INFORMATION IS NOT PUBLIC.
+	> Redacted.
+
+[Back.|hubLLL]
+
+---
+:examineParaphores
+
+Paraphores #0-140 will be redacted from this narration to minimize security risk. You should not need that information anyway.
+
+The primary form of these shapeshifts were speckles of paint. Secondary forms have been used here for accessibility.
+
+Paraphore #141
+- Name: Mynt's Dress
+- Dispatched by: Cartographer
+- Shapeshift: Electron arrangement for a pre-exisiting circuit
+- Destination: Digital, green cat alone in a box
+- Functional Disguise: A dress
+
+Paraphore #142
+- Name: Daydream Journal
+- Dispatched by: Cartographer
+- Shapeshift: Electron arrangement for a pre-existing circuit
+- Destination: Digital, green cat alone in a library
+- Functional Disguise: A journal
+
+Paraphore #143
+- Name: Grey Meteorite
+- Dispatched by: Mr. Eyeball
+- Shapeshift: Ball of various minerals, hydrogen, helium, oxygen
+- Destination: Earth
+- Functional Disguise: A grey meteorite
+
+Paraphore #144
+- Name: Violet Meteorite, Violet
+- Dispatched by: Cartographer
+- Shapeshift: Electron arrangement for a pre-exisiting circuit
+- Destination: Digital, fragmentary clone of green cat
+- Functional Disguise: A purple meteorite
+
+[Back.|hubLLL]
+---
+:assimilationNotes
+
+- Rebeca fast-forwarded Library2's PROTOCOL ENDING timeline by 4000 years. Assimilation was postponed until the fast-forward had finished.
+- Gabriel Archibald (A.K.A Archie, Archbishop) returned to Earth after his assimilation to make sure his daughter had her toys. She never played with them or acknowledged his visit.
 
 ---
 :layerSpilledPaint
@@ -33,26 +79,34 @@ LAYER NAME: Spilled Paint
 PARENT LAYER: L.L.L.
 PARENT ENTITY: Cartographer
 CHILD LAYERS: Library2 (+3 children), RELAXATIONGAME
+PARAPHRASED TIMELINES: Redacted.
+
+LAYER NAME: Library2
+PARENT LAYER: Spilled Paint
+PARENT ENTITY: Wendy Archibald
+CHILD LAYERS: Catnyp, Vanylla, Mynt, RELAXATIONGAME
 PARAPHRASED TIMELINES: 4
 	> PROTOCOL ENDING:
 		DANGER LEVEL: Safe
 		CLASS: Heaven
-		— Character "Mynt" rendered inaccessible
-		- Fragmentary clone of "Mynt" assimilated
-		- Character "REBECA" ASSIMILATED.
+		— Character "Mynt" assimilated by Paraphore #141
+		- Fragmentary clone of "Mynt" assimilated by Paraphore #144
+		- Character "REBECA" assimilated by Paraphore #143
+		- See "Assimilation Notes" for more information
 
 	> MINT ENDING:
 		DANGER LEVEL: Corruptive
 		CLASS: Hell
-		- Character "Mynt" and her fragmentary clone functionally perished.
-		- <b>VALID DUPLICATE</b> character "Rebeca" assimilated
+		- Character "Mynt" rendered corruptive, functionally perished
+		- Mynt's fragmentary clone rendered corruptive, functionally perished
+		- <b>VALID DUPLICATE</b> character "Rebeca" assimilated by Paraphore #143
 		- Original "Rebeca" relocated to prevent dupe collission
 
 	> MYNT ENDING:
 		DANGER LEVEL: Safe
 		CLASS: Macbeth
-		- <b>VALID DUPLICATE</b> character "Mynt" assimilated
-		- Original "Mynt" relocated to prevent dupe collission
+		- <b>VALID DUPLICATE</b> character "Mynt" assimilated by Paraphore #141
+		- Half of Mynt's fragmentary clone relocated to prevent dupe collision
 		- <b>VALID DUPLICATE</b> character "Rebeca" perished
 
 	> METEORITE ENDING:
@@ -60,13 +114,13 @@ PARAPHRASED TIMELINES: 4
 		CLASS: Higurashi
 		- This timeline has been opened to upper tourists
 		- Stable red pond checkpoints created and maintained on a giant purple meteorite
-		- Passable safety measures based on 66 years of player data, thanks Rebeca!
-		- Cusp catastrophes unlikely but possible, run if you see a black hole
+		- Passable safety measures and emergency procedures based on 66 years of player data, thanks Rebeca!
+		- Cusp catastrophes unlikely but possible, jump in a pond if you see a black hole
 		
 		- All characters are <b>INVALID</b> duplicates. No further assimilation possible
-		- 7 character seeds recovered
+		- 7 character seeds assimilated by Paraphore #143
 		
-
+[Assimilation Notes.|assimilationNotes]
 [Back.|hubLLL]
 
 ---
@@ -161,40 +215,6 @@ A person who has not been assimilated into the Interphore.
 "There's a couple tenderfoots locked up one layer down, we can't get to them."
 
 [Back.|hubLLL]
-
----
-:Layers.
-
-PARENT ENTITY: CARTOGRAPHER
-CHILD LAYERS: LIBRARY2 (+3 CHILDREN), RELAXATIONGAME, MINT
-PARAPHRASED TIMELINES: 4
-	- PROTOCOL ENDING:
-		DANGER LEVEL: SAFE
-		CLASS: HEAVEN
-		- CHARACTER(S) "MYNT" AND CHARACTER "REBECA" ASSIMILATED.
-
-	- MINT ENDING:
-		DANGER LEVEL: CORRUPTIVE
-		CLASS: HELL
-		- CHARACTER(S) "MYNT" FUNCTIONALLY PERISHED.
-		- VALID DUPLICATE CHARACTER "REBECA" ASSIMILATED. ASSIMILATED CHARACTER "REBECA" RELOCATED TO PREVENT DUPE COLLISION.
-
-	- MYNT ENDING:
-		DANGER LEVEL: SAFE
-		CLASS: MACBETH
-		- VALID DUPLICATE CHARACTER(S) "MYNT" ASSIMILATED. ASSIMILATED CHARACTER(S) "MYNT" RELOCATED TO PREVENT DUPE COLLISION.
-		- VALID DUPLICATE CHARACTER "REBECA" PERISHED.
-
-	- METEORITE ENDING:
-		DANGER LEVEL: RISKY
-		CLASS: HIGURASHI
-		- ALL CHARACTERS ARE INVALID DUPLICATES. NO FURTHER ASSIMILATION IS POSSIBLE.
-		- STABLE CHECKPOINTS CREATED AND MAINTAINED.
-		- 7 CHARACTER SEEDS RECOVERED.
-		- THIS TIMELINE IS DOMESTICATED, AND THUS FULLY OPEN TO UPPER TOURISTS.
-		- GENERATED BASED ON 66 YEARS OF PLAYER DATA.
-[Back.|hubLLL]
-
 ---
 :Rules of Operation for Paraphores.
 
@@ -229,7 +249,9 @@ The Paraphores have six rules of operation:
 			- The entire 'empty' layer may be a cover for a LETHAL or CORRUPTIVE layer. If you have even the slightest suspicion about this, OPEN YOUR EYE and attempt to retreat back to the Interphore immediately. Otherwise, remain calm and wait for something worth recording. It could just be a quiet universe.
 
 	- Position yourself in high-traffic areas or vantage points in order to record as many stories as possible.
+
 	- If your disguise or position causes destruction to your destination layer, extreme confusion to its characters, or any other disturbance which may reduce the amount of stories you could feasibly record on a given layer, or if the structure of that layer changes such that your disguise is now outdated, remain calm and DO NOT OPEN YOUR EYE. Instead, wait for the arrival of additional Paraphores with redesigned disguises. As many as seven Paraphores have been sent to some layers before all their stories were recorded.
+	
 	- If the characters of that layer attempt to kill you, remain calm and DO NOT OPEN YOUR EYE. The story of your death will be recorded by the Paraphore that replaces you.
 		2a) Some layers have been marked with a danger rating. The ratings are as follows:
 			1. RISKY: This layer's characters have displayed mild hostility or suspicion towards Paraphores in the past.
@@ -242,8 +264,11 @@ The Paraphores have six rules of operation:
 
 2. Tell stories.
 	- If your disguise is able to present information (if you are a book, movie, website, text document, ancient scroll, or creature with the capability for speech) you are obligated to present all stories recorded thus far to a pre-determined party within that layer. This creates a 'player character' for any given story: a person or group of persons which becomes the common factor between all of that layer's stories, simply due to the amount that they know. The existence of an all-knowing player character makes stories longer and more interesting in 78 percent of all cases. Omniscient upper-layer characters are also more likely to play through a given story if they have a knowledgeable stand-in character to relate to.
+	
 	- If your disguise is able to hold water (if you are a water bottle, cooking pot, hot springs, ocean, lake, pond, or thermos) you may be obligated to partially fill yourself with engine fluid. Engine fluid will allow the spawning of assimilated creatures. They accept the risk of spawning on your layer before it has been verified as safe.
+	
 	- The Interphore reserves the right to kill or incapacitate you at any time if the stories you tell are liable to leak highly secret information or liable to provide a pathway for a LETHAL or CORRUPTIVE layer's full-scale attack on the Interphore.
+	
 	- Likewise, choosing to spawn on layers that are still being recorded (and thus have not been marked as Safe) is dangerous for non-Paraphores as well. Any assimilated creatures who choose to spawn on layers WITHOUT any open-eye Paraphore may be left stranded on that layer if it ever receives an urgent LETHAL or CORRUPTIVE rating reclassification.
 [Back.|Rules of Operation for Paraphores.]
 ---
@@ -251,25 +276,40 @@ The Paraphores have six rules of operation:
 
 3. After all stories have been recorded, open your eye.
 	- Opening your eye will fill all nearby physical space with a particulate form of engine fluid. If the characters' sensory organs make contact with our eyeball particles, they will be assimilated. (Did you know: Ancient humans thought THEY created light by shooting particles from their eyeballs, which then bounced off of objects and returned as visual stimuli. Perhaps we caused that. Oops.)
+	
 	- Opening your eye will broadcast your layer to the rest of the Interphore as a safe place to spawn. Ensure you mark your layer with the appropriate content warning symbols.
+	
 	- Opening your eye will make any further recording impossible; from now on, your body will be dedicated to telling stories only.
+	
 	- DO NOT OPEN YOUR EYE IF YOU HAVE ANY DOUBTS ABOUT THE SAFETY OF YOUR CURRENT LAYER.
 
 	3a) REMEMBER: Particulate engine fluid is necessary for inter-universal travel. After your eye has been opened and your particles begin to leak, you will not be able to return to the Interphore. You will stay in your layer as a tour guide for any assimilated creatures which choose to spawn there.
 
 	3b) After your eye has been opened and your stories have all ended, your layer will be labelled with one of many tags designed to help assimilated creatures find or avoid specific layers:
 		- Macbeth-Class: Macbeth-Class layers saw the complete annihilation of all their characters as part of their stories' climax. Now, only assimilated creatures from other layers are present.
+		
 		- LOTF-Class: LOTF-Class layers are extremely violent places. Half or more of their characters may have been killed before the story's conflict was resolved— if it was resolved at all. Death or the coagulation of extreme fetishes are known risks associated with spawning on LOTF-Class layers.
+		
 		- BR-Class: BR-Class layers precipitate a free-for-all battle to the death between their characters. DO NOT spawn on these layers unless you are willing to fight for your life.
+		
 		- Hell-Class: Hell-Class layers trap their characters or any assimilated visiting creatures in eternal suffering. Or, you know, eternal until you decide to stop spawning there.
+		
 		- Heaven-Class: Heaven-Class layers and their characters have dedicated themselves to increasing the happiness of any other characters or of assimilated creatures who choose to spawn in them. Spawning here may constitute an agreement to help run the place, so be careful.
+		
 		- 999-Class: 999-Class layers do not allow free movement or exchange of information. To spawn here is to willingly put yourself in extended (and potentially solitary) confinement.
+		
 		- Dune-Class: Dune-Class layers see ongoing political or national warfare. Spawning here is not recommended unless you are prepared to get involved with the conflict and declare your alleigance to one side or another.
+		
 		- Higurashi-Class: Higurashi-Class layers see an endlessly repeating story or set of stories. Breaking the repetition is usually either impossible or extremely dangerous.
+		
 		- DNote-Class: DNote-Class layers focus on an exceptional artifact, ritual, behavior, memory, or piece of information which 'bounces' from one inhabitant to the next and creates stories around itself.
+		
 		- Inert-Class: Inert-Class layers are definitively storyless; there is no indication that any considerable narrative will ever take place on this layer again.
+		
 		- Marquez-Class: Marquez-Class layers are dreamlike; they display imperceptible breaks from their own established mechanisms of physics or logic, and no one tends to notice or care, including assimilated creatures who chose to spawn on these layers knowing what they were.
+		
 		- End-Class: End-Class layers are in the process of closing, either due to unpopularity, hostile characters, or simply because the Paraphore wishes to return to the Interphore and resume living as a regular assimilated creature instead of opening their eye. Spawning on these layers may be restricted or entirely stopped in the near future; it is YOUR responsibility to ensure you are not left stranded.
+		
 		- Test-Class: Test-Class layers are still pending a full 'safe' assessment; their Paraphore has not opened its eye yet. Spawning here is allowed as long as you accept the risk of death or confinement due to unforeseen complications.
 [Back.|Rules of Operation for Paraphores.]
 ---
