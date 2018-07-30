@@ -567,6 +567,107 @@ One says <i>Customer Records</i> and the other says <i>Applicant Records</i>.
 ---
 :nextThelly40
 
+
+---
+:thellyRecordsMode
+
+!`
+
+queueTitle("");
+
+
+addChoice("Customer Records.", function() {
+	clear();
+	append("
+
+<b>Customer Records</b>
+- 9/8/2083 [The day the power went out in your bomb shelter.]
+
+> One zebra dad & one warthog dad.
+	- Booked a room together alone
+	- Behaved well
+	- Seemed embarrassed
+
+> One warthog dad.
+	- Booked a room with his son.
+
+> One zebra dad.
+	- Booked a room with the warthog boy.
+
+> One warthog boy and one zebra boy.
+
+> Sixteen werewolves and one bunny dude.
+
+> An angry cow lady.
+	- Disruptive. Bitch.
+	- Obviously drunk. No shirt on. Tits out.
+	- Leaned in way too far over the desk.
+	- Was angry that we didn't let her rent boys for more than a day.
+	- She starts fuckin crying on the counter about how she misses her lamb and can't find him.
+	- Used to live on a farm, can't find her way back.
+	- Gravitating to the alcohol layer.
+	- We kick her out with $50 tucked between her asscheeks and tell her to go jump in the pond and look around.
+	- Someone will take her up on her offer, but not our employees. We're hurting on boipower as it is.
+
+> One surly lion. Gartrag.
+	- Got the youngest for a night and left.
+	- No trouble this time.
+
+> Two girls looking for a boy with blue skin.
+
+> One crusty old angel looking for someone named Rebeca.
+	- Stuck around for a bit too long.
+	- Creepy.
+
+	");
+});
+
+addChoice("Applicant Records.", function() {
+	clear();
+	append("
+
+<b>Applicant Records</b>
+
+- 9/8/2083 [Today.]
+
+> Thelly!!!! <3 (It's signed with a pawprint.)
+> Some blue-skinned kid. He was on his way out though, and he knew he couldn't keep a job for long.
+
+- 8/8/2083 [Yesterday.]
+> No one.
+
+- 7/8/2083
+> No one.
+
+- 6/8/2083
+> No one.
+
+- 5/8/2083
+> Maybe one guy? No one knows where he went. I don't think we're paying him.
+
+- 4/8/2083
+> No one.
+
+- 3/8/2083
+> No one.
+
+- 2/8/2083
+> No one.
+
+- 1/8/2083
+> No one.
+
+The weeks go on like this.
+
+	");
+});
+
+
+`
+
+---
+:thellyEnd
+
 END_PASSAGES
 /*
 
