@@ -50,10 +50,6 @@ exitButton.onRelease = function() {
 	gotoMap(false);
 }
 
-function exitMod() {
-	gotoPassage("modsStart");
-}
-
 var titleBg = addRectImage(gameWidth, 50, 0x2d354c);
 titleBg.onRelease = function() {
 	if (titleBg.alpha != 0) commandSkipped = true;
@@ -101,7 +97,223 @@ var tooltipBg = null;
 var desiredWidth = 1280;
 var desiredHeight = 720;
 
-for (var i = 0; i < 500; i++) keys[i] = KEY_RELEASED;
+function exitMod() {
+	gotoPassage("modsStart");
+}
+
+/// VN
+
+var vn = {
+	leftChar: null,
+	rightChar: null,
+	charPad: 128,
+
+	text: null,
+	leftFontColour: 0xFFFFFFFF,
+	rightFontColour: 0xFFFFFFFF,
+};
+
+vn.init = function() {
+	queueCall(function() { vn.initNow(); });
+}
+vn.initNow = function() {
+	vn.text = addEmptyImage(512, 256);
+	vn.text.layer = VN_TEXT_LAYER;
+}
+vn.deinit = function() {
+	queueCall(function() { vn.deinitNow(); });
+}
+vn.deinitNow = function() {
+	vn.text.destroy();
+	vn.text = null;
+
+	if (vn.leftChar) {
+		vn.leftChar.destroy();
+		vn.leftChar = null;
+	}
+
+	if (vn.rightChar) {
+		vn.rightChar.destroy();
+		vn.rightChar = null;
+	}
+}
+
+vn.setLeft = function(img, fontColour) {
+	queueCall(function() { vn.setLeftNow(img, fontColour); });
+}
+vn.setLeftNow = function(img, fontColour) {
+	if (fontColour === undefined) fontColour = 0xFFFFFFFF;
+	if (vn.leftChar) {
+		vn.leftChar.destroy();
+		vn.leftChar = null;
+	}
+
+	vn.leftChar = addRectImage(256, 512, 0x5555FF);
+	vn.leftChar.x = -vn.leftChar.width;
+	vn.leftChar.y = gameHeight - vn.leftChar.height;
+	vn.leftFontColour = fontColour;
+}
+
+vn.setRight = function(img, fontColour) {
+	queueCall(function() { vn.setRightNow(img, fontColour); });
+}
+vn.setRightNow = function(img, fontColour) {
+	if (fontColour === undefined) fontColour = 0xFFFFFFFF;
+	if (vn.rightChar) {
+		vn.rightChar.destroy();
+		vn.rightChar = null;
+	}
+
+	vn.rightChar = addRectImage(256, 512, 0xFF5555);
+	vn.rightChar.x = gameWidth + vn.rightChar.width;
+	vn.rightChar.y = gameHeight - vn.rightChar.height;
+	vn.rightFontColour = fontColour;
+}
+
+vn.delay = function(amount) {
+	queueDelay(amount);
+}
+
+vn.leftIn = function(time) {
+	if (time == undefined) time = 0.5;
+	queueCall(function() { vn.leftInNow(time); });
+	queueDelay(time);
+}
+vn.leftInNow = function(time) {
+	tween(vn.leftChar, time, {x: vn.charPad});
+}
+
+vn.leftOut = function(time) {
+	if (time == undefined) time = 0.5;
+	queueCall(function() { vn.leftOutNow(time); });
+	queueDelay(time);
+}
+vn.leftOutNow = function(time) {
+	tween(vn.leftChar, time, {x: -vn.leftChar.width});
+}
+
+vn.leftFadeIn = function(time) {
+	if (time == undefined) time = 0.5;
+	queueCall(function() { vn.leftFadeInNow(time); });
+	queueDelay(time);
+}
+vn.leftFadeInNow = function(time) {
+	vn.leftChar.x = vn.charPad;
+	vn.leftChar.alpha = 0;
+	tween(vn.leftChar, time, {alpha: 1});
+}
+
+vn.leftFadeOut = function(time) {
+	if (time == undefined) time = 0.5;
+	queueCall(function() { vn.leftFadeOutNow(time); });
+	queueDelay(time);
+}
+vn.leftFadeOutNow = function(time) {
+	vn.leftChar.alpha = 1;
+	tween(vn.leftChar, time, {alpha: 0});
+}
+
+vn.rightIn = function(time) {
+	if (time == undefined) time = 0.5;
+	queueCall(function() { vn.rightInNow(time); });
+	queueDelay(time);
+}
+vn.rightInNow = function(time) {
+	tween(vn.rightChar, time, {x: gameWidth - vn.rightChar.width - vn.charPad});
+}
+
+vn.rightOut = function(time) {
+	if (time == undefined) time = 0.5;
+	queueCall(function() { vn.rightOutNow(time); });
+	queueDelay(time);
+}
+vn.rightOutNow = function(time) {
+	tween(vn.rightChar, time, {x: gameWidth + vn.rightChar.width});
+}
+
+vn.rightFadeIn = function(time) {
+	if (time == undefined) time = 0.5;
+	queueCall(function() { vn.rightFadeInNow(time); });
+	queueDelay(time);
+}
+vn.rightFadeInNow = function(time) {
+	vn.rightChar.x = gameWidth - vn.rightChar.width - vn.charPad;
+	vn.rightChar.alpha = 0;
+	tween(vn.rightChar, time, {alpha: 1});
+}
+
+vn.rightFadeOut = function(time) {
+	if (time == undefined) time = 0.5;
+	queueCall(function() { vn.rightFadeOutNow(time); });
+	queueDelay(time);
+}
+vn.rightFadeOutNow = function(time) {
+	vn.rightChar.alpha = 1;
+	tween(vn.rightChar, time, {alpha: 0});
+}
+
+vn.leftSay = function(text) {
+	queueCall(function() { vn.leftSayNow(text); });
+	queuePause();
+}
+vn.leftSayNow = function(text) {
+	vn.text.tint = vn.leftFontColour;
+	vn.text.setText(text);
+
+	vn.text.x = gameWidth*0.25 - vn.text.textWidth/2;
+	vn.text.y = gameHeight*0.75 - vn.text.textHeight/2;
+}
+
+vn.rightSay = function(text) {
+	queueCall(function() { vn.rightSayNow(text); });
+	queuePause();
+}
+vn.rightSayNow = function(text) {
+	vn.text.tint = vn.rightFontColour;
+	vn.text.setText(text);
+
+	vn.text.x = gameWidth*0.75 - vn.text.textWidth/2;
+	vn.text.y = gameHeight*0.75 - vn.text.textHeight/2;
+}
+
+vn.choice = function(text, result) {
+	queueCall(function() { vn.choiceNow(text, result); });
+};
+vn.choiceNow = function(text, result) {
+	if (result === undefined) result = skipCurrentCommand;
+	addChoice(text, function() {
+		clearChoices();
+		result();
+	});
+}
+
+vn.leftEffect = function(type) {
+	queueCall(function() { vn.doEffectNow(vn.leftChar, type); }); 
+}
+vn.rightEffect = function(type) {
+	queueCall(function() { vn.doEffectNow(vn.rightChar, type); });
+}
+vn.doEffectNow = function(sprite, type) {
+	if (type == "shake") {
+		tween(sprite, 0.1, {x: sprite.x + 4}, {type: PINGPONG});
+	}
+}
+
+vn.leftCancelEffects = function() {
+	queueCall(function() { vn.cancelEffectsNow(vn.leftChar); });
+}
+vn.rightCancelEffects = function() {
+	queueCall(function() { vn.cancelEffectsNow(vn.rightChar); });
+}
+vn.cancelEffectsNow = function(sprite) {
+	cancelTweens(sprite);
+}
+
+vn.stop = function() {
+	queueStop();
+};
+
+/// /VN
 
 addSoundTweak("audio/ui/exit", 0.1);
 addSoundTweak("audio/ui/restart", 0.3);

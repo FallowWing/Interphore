@@ -37,6 +37,10 @@ Make sure you play through the intro or go to Hub and visit Red Pond to set your
 [Tooltip Test|tooltipTest]
 [Word wrap Test|wordWrapTest]
 [Rpg test|rpgTest]
+
+!`
+if (internal) addChoice("VN test", "vnTest");
+`
 ---
 :Change Mynt's genitals
 
@@ -421,6 +425,45 @@ if (internal) {
 // 	execAsset("magiDemo.phore");
 // });
 `
+
+---
+:vnTest
+!`
+vn.init();
+vn.setLeft("someImagePath", 0xFF005500);
+vn.leftIn();
+vn.leftSay("Hello?");
+vn.leftSay("Is anyone there?");
+
+vn.setRight("someImagePath", 0xFF550000);
+vn.rightIn();
+
+vn.rightSay("I'm here.");
+vn.leftSay("Oh! Hello, little deer.");
+vn.rightSay("I'm an impala.");
+vn.leftSay("Right. Do you know where Rebeca is?");
+vn.leftSay("I've been looking for here since the :-) face killed everyone.");
+vn.rightSay("Haven't seen here.");
+vn.leftSay("Ah...");
+vn.leftSay("Do you know where we are?");
+vn.rightSay("I do not.");
+vn.leftSay("We're in a bomb shelter.");
+
+vn.rightFadeOut();
+vn.setRight("someImagePath", 0xFF005500);
+vn.rightFadeIn();
+
+vn.rightEffect("shake");
+vn.rightSay("Is the situation that dire?");
+vn.leftSay("Well, we don't know, but it couldn't hurt to stay here until things settle down.");
+
+vn.delay(0.5);
+vn.leftFadeOut();
+vn.rightFadeOut();
+vn.choice("Go back", function() {
+	gotoPassage("scratchModStart");
+});
+vn.deinit();
 
 ---
 :Exit
