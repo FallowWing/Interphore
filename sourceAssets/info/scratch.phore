@@ -224,11 +224,13 @@ Your data has been saved, you can exit now without losing your data
 ---
 :tweenTest
 !`
-var spr = addRectImage(64, 64, 0x0000FF);
-spr.x = 20;
-spr.y = 20;
-tween(spr, 3, {scaleX: 0.8, scaleY: 0.8}, {ease: QUAD_IN, type: PINGPONG});
-tween(spr, 3, {x: 100}, {ease: QUAD_IN, type: PINGPONG});
+var spr = addRectImage(65, 65, 0x0000FF);
+spr.x = 600;
+spr.y = 300;
+tween(spr, 5, {scaleX: -3, skewY: 0.5, rotation: 20}, {type: PINGPONG});
+hookUpdate(function() {
+	spr.alpha = spr.hovering ? 0.5 : 1;
+});
 `
 [Go back|scratchModStart]
 ---

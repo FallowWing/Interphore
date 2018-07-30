@@ -3,7 +3,7 @@ function arrayContains(arr, ele) {
 	return index != -1;
 }
 
-function arrayRemove(arr, ele) {
+function arrayLazyRemove(arr, ele) {
 	var index = arr.indexOf(ele);
 	if (index != -1) arr.splice(index, 1);
 }
@@ -17,7 +17,7 @@ function arrayCount(arr, ele) {
 	return count;
 }
 
-function arrayForceRemove(arr, ele) {
+function arrayRemove(arr, ele) {
 	var index = arr.indexOf(ele);
 	if (index == -1) print("Going to fail to remove this element from an array");
 	arr.splice(index, 1);
@@ -130,8 +130,11 @@ function newImage() {
 		alpha: 1,
 		scaleX: 1,
 		scaleY: 1,
+		skewX: 0,
+		skewY: 0,
 		smoothing: false,
 		centerPivot: false,
+		ignoreMouseRect: false,
 
 		text: "", //@cleanup Consider removing this
 		textWidth: 0,
@@ -191,9 +194,6 @@ function newImage() {
 
 	images.push(img);
 	return img;
-}
-
-function getImageProps(id, index) {
 }
 
 function addImage(assetId) {
@@ -564,6 +564,17 @@ function tween(src, time, params, config) {
 	return tw;
 }
 
+function cancelTweens(source) {
+	var tweensToRemove = [];
+	tweens.forEach(function(tw) {
+		if (tw.source == source) tweensToRemove.push(tw);
+	});
+
+	tweensToRemove.forEach(function(tw) {
+		arrayRemove(tweens, tw);
+	});
+}
+
 function setTitle(text) {
 	tween(titleTf, 0.20, {scaleY: 0}, {ease: QUINT_OUT});
 	tween(titleTf, 0.25, {alpha: 0}, {onComplete: function() {
@@ -756,6 +767,10 @@ function showTooltip(str) {
 
 function keyJustPressed(keyCode) {
 	return keys[keyCode] == KEY_JUST_PRESSED;
+}
+
+function hookUpdate(fn) {
+	tempUpdateFunctions.push(fn);
 }
 
 function __update() {
@@ -1019,8 +1034,9 @@ function realUpdate() {
 				img.y = mouseY - img.dragPivotY;
 			}
 		}
-		if (img.alpha < 0) img.alpha = 0;
-		if (img.alpha > 1) img.alpha = 1;
+		img.alpha = clamp(img.alpha, 0, 1);
+		img.skewX = clamp(img.skewX, -1, 1);
+		img.skewY = clamp(img.skewY, -1, 1);
 
 		if (img.inInputField) {
 			img.x = round(img.x);
@@ -1039,7 +1055,7 @@ function realUpdate() {
 			}
 		}
 
-		setImageProps(img.id, img.x, img.y, img.scaleX, img.scaleY, img.alpha, img.rotation, img.tint, img.layer, img.smoothing, img.centerPivot);
+		setImageProps(img.id, img.x, img.y, img.scaleX, img.scaleY, img.skewX, img.skewY, img.alpha, img.rotation, img.tint, img.layer, img.smoothing, img.centerPivot, img.ignoreMouseRect);
 	});
 
 	/// Audios

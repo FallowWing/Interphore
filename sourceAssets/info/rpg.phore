@@ -294,7 +294,7 @@ function updateRpgBattle() {
 				if (hasAffinity) spell.source.limit += spell.cost;
 			}
 
-			if (action.usedAsItem) arrayForceRemove(spell.source.itemNames, spell.name);
+			if (action.usedAsItem) arrayRemove(spell.source.itemNames, spell.name);
 
 			var buffs = getBuffs(action.source);
 			buffs.forEach(function(buff) {
@@ -471,7 +471,7 @@ function removeEnemy(unit) {
 
 	rpg.enemies[rpg.enemies.indexOf(unit)] = null;
 	rpg.units[rpg.enemies.indexOf(unit)] = null;
-	arrayRemove(rpg.cycle, unit);
+	arrayLazyRemove(rpg.cycle, unit);
 }
 
 function actionDone() {
@@ -648,7 +648,7 @@ function nextTurn() {
 	if (rpg.currentUnit) {
 		for (var i = rpg.currentUnit.buffTrackers.length-1; i > 0; i--) {
 			var tracker = rpg.currentUnit.buffTrackers[i];
-			if (tracker.remove) arrayForceRemove(rpg.currentUnit.buffTrackers, tracker);
+			if (tracker.remove) arrayRemove(rpg.currentUnit.buffTrackers, tracker);
 		}
 	}
 
@@ -890,7 +890,7 @@ function getMyAllies(unit, exclusive, includeDead) {
 		arr = getEnemies(includeDead);
 	}
 
-	if (exclusive) arrayForceRemove(arr, unit);
+	if (exclusive) arrayRemove(arr, unit);
 
 	return arr;
 }
