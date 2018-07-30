@@ -37,7 +37,10 @@ Make sure you play through the intro or go to Hub and visit Red Pond to set your
 [Tooltip Test|tooltipTest]
 [Word wrap Test|wordWrapTest]
 [Rpg test|rpgTest]
-[VN test|vnTest]
+
+!`
+if (internal) addChoice("VN test", "vnTest");
+`
 ---
 :Change Mynt's genitals
 
