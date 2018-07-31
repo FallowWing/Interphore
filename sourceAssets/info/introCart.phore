@@ -864,7 +864,7 @@ Okay, Mynt sets Cart down and the mood dies.
 ---
 :booze6
 
-Cartographer pulls his bangs aside and looks you in the eyes.
+Cartographer looks you in the eyes. Well, his bangs are in the way, but he would be looking you in the eyes if not for them.
 
 "What do you call this?"
 
@@ -874,11 +874,11 @@ Cartographer pulls his bangs aside and looks you in the eyes.
 
 He throws his arms out to indicate literally everything.
 
-"What were you, seventy something? Now you are now young, immortal, and sexy. I constructed this library, ran it, maintained it, and used its dome to help our Paraphores assimilate every layer up to the straining walls of known reality just so that we might save stranded souls such as Mynt and yourself from death or insanity by prolonged isolation."
+"What were you, seventy something? Now you are now young, immortal, and sexy. I constructed this library, ran it, maintained it, and used its dome to guide our Paraphores with my maps so that they could assimilate every layer up to the straining walls of known reality and save stranded souls such as Mynt and yourself from death or insanity by prolonged isolation."
 
 He puts you in a headlock.
 
-"Do not come into my glorious map dome as a guest and then demand to know why I did not care for you. As far as I am concerned, `data.playerName`, you are presently nestled right the fuck up under my plush, motherly wing. Now inhale."
+"Do not come here beneath this glorious map dome as my honored guest, drink me dry, and then demand to know why I did not care for you. As far as I am concerned, `data.playerName`, you are presently nestled right the fuck up under my plush, motherly wing. Now inhale."
 
 !`
 addChoice("Mynt? Help?", function() {
@@ -904,7 +904,7 @@ He's still sweaty from painstaking paint-skating. He tenses his arm and holds yo
 
 He lets you off.
 
-"You're welcome."
+"You are welcome."
 
 Fresh air floods into your lungs, but his scent still lingers. Now that it's been smeared all over your nose, it'll probably linger for a while yet.
 
@@ -929,7 +929,7 @@ Mynt steps between you two and plops down on a beanbag, arms crossed.
 
 Cart grins at you. "Your cat is right, `data.playerName`."
 
-(Mynt's face looks like she's thinking <i>'`gender("His", "Her", "Their")` cat?'</i>)
+(Mynt looks like she's thinking <i>'`gender("His", "Her", "Their")` cat?'</i>)
 
 "I always puke lore at new people and end up nauseating them," he continues. "There is just so much you do not know. I should really just start with a simple recap before I get into all that: you both got sucked into a multiversal narrative hivemind. This is due mostly to my hard work. Also, this next factoid is going to blow your minds: some Paraphores can actually take the form of <i>people</i>— oh, and by the way, Paraphores are—"
 
@@ -961,7 +961,7 @@ Mynt looks at you.
 ---
 :member3
 
-"Lastly..." Cart pours more tea for himself, head down. His blue bangs part to reveal two piercing eyes. Both are pointed right at you. "Lastly, she asked about the uppermost layer."
+"Lastly..." Cart pours more tea for himself, head down. His blue bangs almost part. Whatever is underneath does not look like two eyes. "Lastly, she asked about the uppermost layer."
 
 He stops pouring. The kettle burps.
 
