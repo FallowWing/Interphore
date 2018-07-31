@@ -155,6 +155,10 @@ img/writer/mynt/face/myntBod/9.png
 img/writer/mynt/face/myntBod/9.spr
 img/writer/mynt/face/myntBod/10.png
 img/writer/mynt/face/myntBod/10.spr
+img/writer/characters/thelly/thelly.png
+img/writer/characters/thelly/thelly.spr
+img/writer/characters/ren/ren.png
+img/writer/characters/ren/ren.spr
 img/writer/characters/cart/cart.png
 img/writer/characters/cart/cart.spr
 img/writer/characters/cart/cart2.png

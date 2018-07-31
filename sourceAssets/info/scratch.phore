@@ -40,6 +40,7 @@ Make sure you play through the intro or go to Hub and visit Red Pond to set your
 
 !`
 if (internal) addChoice("VN test", "vnTest");
+if (internal) addChoice("Thelly", "thellyMod");
 `
 ---
 :Change Mynt's genitals
@@ -67,6 +68,16 @@ execAsset("thirstyCaves.phore");
 initThirstyCaves();
 gotoMap();
 `
+
+---
+:thellyMod
+
+!`
+clear();
+execAsset("thelly.phore");
+gotoPassage("thellyModStart");
+`
+---
 
 ---
 :introModOriginal
