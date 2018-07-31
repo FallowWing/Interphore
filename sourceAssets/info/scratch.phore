@@ -474,7 +474,7 @@ vn.rightFadeOut();
 vn.choice("Go back", function() {
 	gotoPassage("scratchModStart");
 });
-vn.deinit();
+vn.deinit();`
 
 ---
 :Exit
