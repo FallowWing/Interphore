@@ -29,6 +29,7 @@ info/mainMenu.phore
 info/main.phore
 info/thirstyCaves.phore
 info/wendyApt.phore
+info/thelly.phore
 info/introCart.phore
 info/LLL.phore
 info/scratch.phore
