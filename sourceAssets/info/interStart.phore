@@ -104,13 +104,11 @@ function exitMod() {
 /// VN
 
 var vn = {
-	leftChar: null,
-	rightChar: null,
+	chars: [],
 	charPad: 128,
 
 	text: null,
-	leftFontColour: 0xFFFFFFFF,
-	rightFontColour: 0xFFFFFFFF,
+	fontColours: [],
 };
 
 vn.init = function() {
@@ -127,47 +125,38 @@ vn.deinitNow = function() {
 	vn.text.destroy();
 	vn.text = null;
 
-	if (vn.leftChar) {
-		vn.leftChar.destroy();
-		vn.leftChar = null;
-	}
+	vn.chars.forEach(function(curChar) {
+		curChar.destroy();
+	});
 
-	if (vn.rightChar) {
-		vn.rightChar.destroy();
-		vn.rightChar = null;
-	}
+	vn.chars = [];
+	vn.fontColour = [];
 }
 
 vn.setLeft = function(img, fontColour) {
-	queueCall(function() { vn.setLeftNow(img, fontColour); });
+	queueCall(function() { vn.setNow(0, img, fontColour); });
 }
-vn.setLeftNow = function(img, fontColour) {
-	if (fontColour === undefined) fontColour = 0xFFFFFFFF;
-	if (vn.leftChar) {
-		vn.leftChar.destroy();
-		vn.leftChar = null;
-	}
-
-	vn.leftChar = addRectImage(256, 512, 0x5555FF);
-	vn.leftChar.x = -vn.leftChar.width;
-	vn.leftChar.y = gameHeight - vn.leftChar.height;
-	vn.leftFontColour = fontColour;
-}
-
 vn.setRight = function(img, fontColour) {
-	queueCall(function() { vn.setRightNow(img, fontColour); });
+	queueCall(function() { vn.setNow(1, img, fontColour); });
 }
-vn.setRightNow = function(img, fontColour) {
+vn.setNow = function(charNum, img, fontColour) {
 	if (fontColour === undefined) fontColour = 0xFFFFFFFF;
-	if (vn.rightChar) {
-		vn.rightChar.destroy();
-		vn.rightChar = null;
+
+	if (vn.chars[charNum]) {
+		vn.chars[charNum].destroy();
+		vn.chars[charNum] = null;
 	}
 
-	vn.rightChar = addRectImage(256, 512, 0xFF5555);
-	vn.rightChar.x = gameWidth + vn.rightChar.width;
-	vn.rightChar.y = gameHeight - vn.rightChar.height;
-	vn.rightFontColour = fontColour;
+	var newChar = addRectImage(256, 512, 0xFF5555);
+	newChar.x =
+		(charNum == 0) ? -newChar.width :
+		(charNum == 1) ? gameWidth + newChar.width :
+		0;
+
+	newChar.y = gameHeight - newChar.height;
+
+	vn.fontColours[charNum] = fontColour;
+	vn.chars[charNum] = newChar;
 }
 
 vn.delay = function(amount) {
@@ -176,103 +165,102 @@ vn.delay = function(amount) {
 
 vn.leftIn = function(time) {
 	if (time == undefined) time = 0.5;
-	queueCall(function() { vn.leftInNow(time); });
+	queueCall(function() { vn.inNow(0, time); });
 	queueDelay(time);
 }
-vn.leftInNow = function(time) {
-	tween(vn.leftChar, time, {x: vn.charPad});
+vn.rightIn = function(time) {
+	if (time == undefined) time = 0.5;
+	queueCall(function() { vn.inNow(1, time); });
+	queueDelay(time);
+}
+vn.inNow = function(charNum, time) {
+	var endX = 
+		(charNum == 0) ? vn.charPad :
+		(charNum == 1) ? gameWidth - vn.chars[charNum].width - vn.charPad :
+		0;
+
+	tween(vn.chars[charNum], time, {x: endX});
 }
 
 vn.leftOut = function(time) {
 	if (time == undefined) time = 0.5;
-	queueCall(function() { vn.leftOutNow(time); });
+	queueCall(function() { vn.outNow(0, time); });
 	queueDelay(time);
 }
-vn.leftOutNow = function(time) {
-	tween(vn.leftChar, time, {x: -vn.leftChar.width});
+vn.rightOut = function(time) {
+	if (time == undefined) time = 0.5;
+	queueCall(function() { vn.outNow(1, time); });
+	queueDelay(time);
+}
+vn.outNow = function(charNum, time) {
+	var curChar = vn.chars[charNum];
+	var endX = 
+		(charNum == 0) ? -curChar.width :
+		(charNum == 1) ? gameWidth + curChar.width :
+		0;
+
+	tween(curChar, time, {x: endX});
 }
 
 vn.leftFadeIn = function(time) {
 	if (time == undefined) time = 0.5;
-	queueCall(function() { vn.leftFadeInNow(time); });
+	queueCall(function() { vn.fadeInNow(0, time); });
 	queueDelay(time);
 }
-vn.leftFadeInNow = function(time) {
-	vn.leftChar.x = vn.charPad;
-	vn.leftChar.alpha = 0;
-	tween(vn.leftChar, time, {alpha: 1});
+vn.rightFadeIn = function(time) {
+	if (time == undefined) time = 0.5;
+	queueCall(function() { vn.fadeInNow(1, time); });
+	queueDelay(time);
+}
+vn.fadeInNow = function(charNum, time) {
+	var curChar = vn.chars[charNum];
+
+	var endX = 
+		(charNum == 0) ? vn.charPad :
+		(charNum == 1) ? gameWidth - curChar.width - vn.charPad :
+		0;
+
+	curChar.x = endX;
+	curChar.alpha = 0;
+	tween(curChar, time, {alpha: 1});
 }
 
 vn.leftFadeOut = function(time) {
 	if (time == undefined) time = 0.5;
-	queueCall(function() { vn.leftFadeOutNow(time); });
+	queueCall(function() { vn.fadeOutNow(0, time); });
 	queueDelay(time);
 }
-vn.leftFadeOutNow = function(time) {
-	vn.leftChar.alpha = 1;
-	tween(vn.leftChar, time, {alpha: 0});
-}
-
-vn.rightIn = function(time) {
-	if (time == undefined) time = 0.5;
-	queueCall(function() { vn.rightInNow(time); });
-	queueDelay(time);
-}
-vn.rightInNow = function(time) {
-	tween(vn.rightChar, time, {x: gameWidth - vn.rightChar.width - vn.charPad});
-}
-
-vn.rightOut = function(time) {
-	if (time == undefined) time = 0.5;
-	queueCall(function() { vn.rightOutNow(time); });
-	queueDelay(time);
-}
-vn.rightOutNow = function(time) {
-	tween(vn.rightChar, time, {x: gameWidth + vn.rightChar.width});
-}
-
-vn.rightFadeIn = function(time) {
-	if (time == undefined) time = 0.5;
-	queueCall(function() { vn.rightFadeInNow(time); });
-	queueDelay(time);
-}
-vn.rightFadeInNow = function(time) {
-	vn.rightChar.x = gameWidth - vn.rightChar.width - vn.charPad;
-	vn.rightChar.alpha = 0;
-	tween(vn.rightChar, time, {alpha: 1});
-}
-
 vn.rightFadeOut = function(time) {
 	if (time == undefined) time = 0.5;
-	queueCall(function() { vn.rightFadeOutNow(time); });
+	queueCall(function() { vn.fadeOutNow(1, time); });
 	queueDelay(time);
 }
-vn.rightFadeOutNow = function(time) {
-	vn.rightChar.alpha = 1;
-	tween(vn.rightChar, time, {alpha: 0});
+vn.fadeOutNow = function(charNum, time) {
+	var curChar = vn.chars[charNum];
+
+	curChar.alpha = 1;
+	tween(curChar, time, {alpha: 0});
 }
 
 vn.leftSay = function(text) {
-	queueCall(function() { vn.leftSayNow(text); });
+	queueCall(function() { vn.sayNow(0, text); });
 	queuePause();
 }
-vn.leftSayNow = function(text) {
-	vn.text.tint = vn.leftFontColour;
-	vn.text.setText(text);
-
-	vn.text.x = gameWidth*0.25 - vn.text.textWidth/2;
-	vn.text.y = gameHeight*0.75 - vn.text.textHeight/2;
-}
-
 vn.rightSay = function(text) {
-	queueCall(function() { vn.rightSayNow(text); });
+	queueCall(function() { vn.sayNow(1, text); });
 	queuePause();
 }
-vn.rightSayNow = function(text) {
-	vn.text.tint = vn.rightFontColour;
+vn.sayNow = function(charNum, text) {
+	var curChar = vn.chars[charNum];
+	vn.text.tint = vn.fontColours[charNum];
 	vn.text.setText(text);
 
-	vn.text.x = gameWidth*0.75 - vn.text.textWidth/2;
+	var textX = 
+		(charNum == 0) ? gameWidth*0.25 - vn.text.textWidth/2 :
+		(charNum == 1) ? gameWidth*0.75 - vn.text.textWidth/2 :
+		0;
+
+	vn.text.x = textX;
 	vn.text.y = gameHeight*0.75 - vn.text.textHeight/2;
 }
 
@@ -288,25 +276,29 @@ vn.choiceNow = function(text, result) {
 }
 
 vn.leftEffect = function(type) {
-	queueCall(function() { vn.doEffectNow(vn.leftChar, type); }); 
+	queueCall(function() { vn.doEffectNow(0, type); }); 
 }
 vn.rightEffect = function(type) {
-	queueCall(function() { vn.doEffectNow(vn.rightChar, type); });
+	queueCall(function() { vn.doEffectNow(1, type); });
 }
-vn.doEffectNow = function(sprite, type) {
+vn.doEffectNow = function(charNum, type) {
+	var curChar = vn.chars[charNum];
+
 	if (type == "shake") {
-		tween(sprite, 0.1, {x: sprite.x + 4}, {type: PINGPONG});
+		tween(curChar, 0.1, {x: curChar.x + 4}, {type: PINGPONG});
 	}
 }
 
 vn.leftCancelEffects = function() {
-	queueCall(function() { vn.cancelEffectsNow(vn.leftChar); });
+	queueCall(function() { vn.cancelEffectsNow(0); });
 }
 vn.rightCancelEffects = function() {
-	queueCall(function() { vn.cancelEffectsNow(vn.rightChar); });
+	queueCall(function() { vn.cancelEffectsNow(1); });
 }
-vn.cancelEffectsNow = function(sprite) {
-	cancelTweens(sprite);
+vn.cancelEffectsNow = function(charNum) {
+	var curChar = vn.chars[charNum];
+
+	cancelTweens(curChar);
 }
 
 vn.stop = function() {

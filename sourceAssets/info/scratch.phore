@@ -450,7 +450,7 @@ vn.rightSay("I do not.");
 vn.leftSay("We're in a bomb shelter.");
 
 vn.rightFadeOut();
-vn.setRight("someImagePath", 0xFF005500);
+vn.setRight("someImagePath", 0xFF550000);
 vn.rightFadeIn();
 
 vn.rightEffect("shake");
