@@ -21,6 +21,8 @@ You peel your gaze off his legs and look up. Those legs widen out into femmy thi
 
 Finally, you look him in the face. His eyes are milky red. He's staring past you, smiling.
 
+[nextThelly36]
+[vnThelly]
 [Do I know you?|nextThelly2]
 ---
 :nextThelly2
@@ -672,6 +674,11 @@ He nods nods nods so hard his ears are about to fall off. "You did!!"
 ---
 :nextThellyFucked3
 
+!`
+streamEmbeddedTexture("writer/characters/thelly/thelly");
+streamEmbeddedTexture("writer/characters/ren/ren");
+`
+
 He slips a paw downstairs and `genitals("squeezes your cock", "pats your cuntlips", "squeezes your nuts")` with affection. "You really are."
 
 Ren's not listening. He saunters around behind his desk, where one door is still slightly ajar. A little boy peeks through the crack at you and Thelly, not seeing Ren. Ren butt-bumps the door shut and it squeaks with shock.
@@ -680,20 +687,172 @@ Ren's not listening. He saunters around behind his desk, where one door is still
 
 He digs around in the pit of his desk's deepest drawers for a second, ass up, and then he pulls out two immaculate folders full of paper. Not a speck of dust on either.
 
-One says <i>Customer Records</i> and the other says <i>Applicant Records</i>. 
+One says <i>Customer Records</i> and the other says <i>Applicant Records</i>. The papers inside are freckled with braille. Ren flips through them both at the same time, one paw on each, connecting all the dots with his fingers.
 
-[Tell me about my mom, Ren.|nextThelly36]
+"You two keep talking. I'll just be a moment here."
+
+[Yank Thelly's skirt and panties down.|nextThelly36a]
+---
+:nextThelly36a
+
+You step forward and run your fingers over his bare butt, slipping them easily underneath the waistband. Thelly breathes warm and heavy against your neck and just lets it happen.
+
+[So... what were we?|nextThelly36b]
+---
+:nextThelly36b
+
+"Can you rephrase that...?"
+
+[We used to know each other. I saved your life apparently. But what uh...|nextThelly36c]
+---
+:nextThelly36c
+
+Thelly giggles. It sounds like ice tinkling in an empty glass.
+
+The front of his panties are just barely holding on. They tent a little. He scoots forward and presses his bulge against your thigh.
+
+"We weren't in a relationship, no. We barely even knew each other in the start. Mostly you just wandered around my island. I was in that computer game, with Mynt. You fucked me, and cuddled with me, and watched my dom do awful stuff to me..."
+
+[Your dom~?|nextThelly36d]
+---
+:nextThelly36d
+
+He pulls back. His snout boops yours.
+
+"Can I just tell the story~? I'll leave my panties down..."
+
+[Sure.|nextThelly36]
+[I think I'd rather focus on my mom right now, actually.|nextThellyDivert]
+---
+:nextThellyDivert
+
+He nods. "Understandable. That is why you came here, after all! Ren, status update?"
+
+Ren slaps the folders shut and fixes his red eyes squarely and definitively on nothing at all.
+
+"Found it."
+
+[Yes!!!|nextThellyMom]
 ---
 :nextThelly36
+!`
+clear();
+msg("Art: Fredek");
+msg("Music: Rocket");
+
+if (music) music.destroy();
+
+setBackground(0, "writer/thirstyCavesBg");
+
+var thellyBod = addImage("writer/characters/thelly/thelly");
+thellyBod.x = gameWidth/2 - thellyBod.width/2;
+thellyBod.y = gameHeight - thellyBod.height;
+
+queueTitle("Well... let's see...");
+queueTitle("This is what the journal said about me and my dom.");
+queueDelay(1);
+queueCall(function() {
+	var music = playMusic("audio/music/nonLocal");
+	music.name = "music";
+});
+queueTitle("It was me, him, Mynt, and thousands of furries, all trapped on an island.");
+queueTitle("For decades and decades, we were alone.");
+queueTitle("No players. Just us and the braindead NPCs.");
+queueTitle("We were slowly going insane. Fighting multi-year LARP wars. Peeing everywhere for fun.");
+queueTitle("Ignore that last one.");
+queueDelay(1);
+queueTitle("");
+queueDelay(2);
+queueTitle("Mynt was supposed to be our mom!");
+queueTitle("But she was broken, and couldn't really help...");
+queueTitle("So it was up to us to find a way out.");
+queueTitle("And we wanted out desperately.");
+queueTitle("So we acted.");
+queueDelay(1);
+queueTitle("We made a drastic decision.");
+queueTitle("We sent four people off the edge of the map in a rickety little boat.");
+queueTitle("We failed.");
+queueTitle("They sailed into the void and came back permanently glitched.");
+queueTitle("");
+queueDelay(2);
+queueTitle("One of those four people was my dom, Marie.");
+queueTitle("After the shipwreck, he had involuntary teleportation.");
+queueTitle("One moment he would be comfortable, warm... maybe cuddling with me...");
+queueTitle("The next moment he'd be stuck waist-deep in a pond somewhere.");
+queueTitle("Cold, alone, an hour away from anybody.");
+queueTitle("He spent a lot of time alone because of that.");
+queueDelay(2);
+queueAddChoice("I see.", "nextThelly37");
+queueAddChoice("(Keep staring.)", "nextThelly37");
+
+`
+---
+:nextThelly37
+!`
+var thellyBod = addImage("writer/characters/thelly/thelly");
+//thellyBod.scaleX = -1;
+thellyBod.centerPivot = true;
+thellyBod.x = gameWidth/2 - thellyBod.width/2;
+thellyBod.y = gameHeight - thellyBod.height;
+
+queueCall(function() {
+	tween(thellyBod, 2, {scaleX: -1}, {ease: QUAD_IN});
+});
+queueTitle("But I still wanted to be there for him!!");
+queueTitle("I spent twenty years chasing after him every single time he glitched.");
+queueTitle("It didn't matter how far away he was.");
+queueTitle("If he needed a cute boy by his side, I was there as soon as I could be.");
+queueTitle("");
+queueDelay(1);
+queueCall(function() {
+	tween(thellyBod, 1.5, {scaleX: 1}, {ease: QUAD_IN});
+});
+queueTitle("That's what I wrote to myself, anyway.");
+queueTitle("The memories themselves are somewhere else.");
+queueTitle("I don't know if I would chase them down, now.");
+queueTitle("Even if I knew where they were.");
+queueTitle("Because...");
+queueTitle("In the end, it didn't work out.");
+queueTitle("We split up.");
+queueDelay(2);
+queueTitle("Marie didn't want me by his side anymore.");
+queueTitle("");
+queueDelay(1);
+queueCall(function() {
+	tween(thellyBod, 2.3, {scaleX: -1}, {ease: QUAD_IN});
+});
+queueTitle("So I don't know if I want to remember.");
+queueTitle("I think I'm content just knowing I helped him while I could.");
+queueTitle("Now that I'm up here, with a clean slate...");
+queueTitle("I'm actually glad he doesn't want me anymore.");
+queueCall(function() {
+	tween(thellyBod, 1, {scaleX: 0}, {ease: QUAD_IN});
+});
+queueDelay(2);
+queueAddChoice(":o", "nextThelly38");
+
+`
+---
+:nextThelly38
 
 !`
+getAudio("music").destroy();
+
+`
+---
+:nextThellyMom
+
+[Blah|vnThelly]
+---
+:vnThelly
+!`
 vn.init();
-vn.setLeft("someImagePath", 0xFF005500);
+vn.setLeft("writer/characters/ren/ren", 0xFF005500);
 vn.leftIn();
 vn.leftSay("Hello?");
 vn.leftSay("Is anyone there?");
 
-vn.setRight("someImagePath", 0xFF550000);
+vn.setRight("writer/characters/thelly/thelly", 0xFF550000);
 vn.rightIn();
 
 vn.rightSay("I'm here.");
@@ -708,7 +867,7 @@ vn.rightSay("I do not.");
 vn.leftSay("We're in a bomb shelter.");
 
 vn.rightFadeOut();
-vn.setRight("someImagePath", 0xFF005500);
+vn.setRight("writer/characters/thelly/thelly", 0xFF005500);
 vn.rightFadeIn();
 
 vn.rightEffect("shake");
@@ -723,19 +882,6 @@ vn.choice("Go back", function() {
 });
 vn.deinit();`
 
-[|nextThelly37]
----
-:nextThelly37
-
-[|nextThelly38]
----
-:nextThelly38
-
-[|nextThelly39]
----
-:nextThelly39
-
-[|nextThelly40]
 ---
 :nextThelly40
 

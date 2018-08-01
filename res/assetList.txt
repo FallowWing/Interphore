@@ -235,6 +235,7 @@ audio/ui/exit.ogg
 audio/ui/load.ogg
 audio/music/newVictim.ogg
 audio/music/newSelf.ogg
+audio/music/nonLocal.ogg
 audio/ambience/violetMeteorite.ogg
 audio/ambience/cell.ogg
 audio/ambience/library.ogg
