@@ -38,6 +38,8 @@ info/utils.phore
 
 img/writer/particles.png
 img/writer/particles.spr
+img/writer/autoNineSliceTest.png
+img/writer/autoNineSliceTest.spr
 
 img/writer/icons/Abuse.png
 img/writer/icons/Abuse.spr

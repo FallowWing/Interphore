@@ -116,10 +116,6 @@ vn.init = function() {
 	queueCall(function() { vn.initNow(); });
 }
 vn.initNow = function() {
-	vn.textBg = addRectImage(1, 1, 0x000000);
-	vn.textBg.alpha = 0.85;
-	vn.textBg.layer = VN_TEXT_LAYER;
-
 	vn.text = addEmptyImage(512, 256);
 	vn.text.layer = VN_TEXT_LAYER;
 }
@@ -127,10 +123,10 @@ vn.deinit = function() {
 	queueCall(function() { vn.deinitNow(); });
 }
 vn.deinitNow = function() {
-	vn.text.destroy();
+	if (vn.text) vn.text.destroy();
 	vn.text = null;
 
-	vn.textBg.destroy();
+	if (vn.textBg) vn.textBg.destroy();
 	vn.textBg = null;
 
 	vn.chars.forEach(function(curChar) {
@@ -271,10 +267,12 @@ vn.sayNow = function(charNum, text) {
 	vn.text.x = textX;
 	vn.text.y = gameHeight*0.75 - vn.text.textHeight/2;
 
-	vn.textBg.scaleX = vn.text.textWidth * 1.25;
-	vn.textBg.scaleY = vn.text.textHeight * 1.25;
-	vn.textBg.x = vn.text.x + vn.text.textWidth/2 - vn.textBg.width*vn.textBg.scaleX/2;
-	vn.textBg.y = vn.text.y + vn.text.textHeight/2 - vn.textBg.height*vn.textBg.scaleY/2;
+	if (vn.textBg) vn.textBg.destroy();
+	vn.textBg = addRectImage(vn.text.textWidth * 1.25, vn.text.textHeight * 1.25);
+	vn.textBg.alpha = 0.85;
+	vn.textBg.layer = VN_TEXT_BG_LAYER;
+	vn.textBg.x = vn.text.x + vn.text.textWidth/2 - vn.textBg.width/2;
+	vn.textBg.y = vn.text.y + vn.text.textHeight/2 - vn.textBg.height/2;
 }
 
 vn.choice = function(text, result) {
