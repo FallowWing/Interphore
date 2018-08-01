@@ -441,12 +441,12 @@ if (internal) {
 :vnTest
 !`
 vn.init();
-vn.setLeft("someImagePath", 0xFF005500);
+vn.setLeft("writer/characters/ren/ren", 0xFF005500);
 vn.leftIn();
 vn.leftSay("Hello?");
 vn.leftSay("Is anyone there?");
 
-vn.setRight("someImagePath", 0xFF550000);
+vn.setRight("writer/characters/thelly/thelly", 0xFF550000);
 vn.rightIn();
 
 vn.rightSay("I'm here.");
@@ -461,7 +461,7 @@ vn.rightSay("I do not.");
 vn.leftSay("We're in a bomb shelter.");
 
 vn.rightFadeOut();
-vn.setRight("someImagePath", 0xFF550000);
+vn.setRight("writer/characters/thelly/thelly", 0xFF550000);
 vn.rightFadeIn();
 
 vn.rightEffect("shake");
