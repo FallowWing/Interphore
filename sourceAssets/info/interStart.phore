@@ -108,6 +108,7 @@ var vn = {
 	charPad: 128,
 
 	text: null,
+	textBg: null,
 	fontColours: [],
 };
 
@@ -122,8 +123,11 @@ vn.deinit = function() {
 	queueCall(function() { vn.deinitNow(); });
 }
 vn.deinitNow = function() {
-	vn.text.destroy();
+	if (vn.text) vn.text.destroy();
 	vn.text = null;
+
+	if (vn.textBg) vn.textBg.destroy();
+	vn.textBg = null;
 
 	vn.chars.forEach(function(curChar) {
 		curChar.destroy();
@@ -147,7 +151,7 @@ vn.setNow = function(charNum, img, fontColour) {
 		vn.chars[charNum] = null;
 	}
 
-	var newChar = addRectImage(256, 512, 0xFF5555);
+	var newChar = addImage(img);
 	newChar.x =
 		(charNum == 0) ? -newChar.width :
 		(charNum == 1) ? gameWidth + newChar.width :
@@ -262,6 +266,13 @@ vn.sayNow = function(charNum, text) {
 
 	vn.text.x = textX;
 	vn.text.y = gameHeight*0.75 - vn.text.textHeight/2;
+
+	if (vn.textBg) vn.textBg.destroy();
+	vn.textBg = addRectImage(vn.text.textWidth * 1.25, vn.text.textHeight * 1.25);
+	vn.textBg.alpha = 0.85;
+	vn.textBg.layer = VN_TEXT_BG_LAYER;
+	vn.textBg.x = vn.text.x + vn.text.textWidth/2 - vn.textBg.width/2;
+	vn.textBg.y = vn.text.y + vn.text.textHeight/2 - vn.textBg.height/2;
 }
 
 vn.choice = function(text, result) {
