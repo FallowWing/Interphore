@@ -140,12 +140,6 @@ vn.deinitNow = function() {
 vn.set = function(charNum, img, fontColour) {
 	queueCall(function() { vn.setNow(charNum, img, fontColour); });
 }
-vn.setLeft = function(img, fontColour) {
-	queueCall(function() { vn.setNow(0, img, fontColour); });
-}
-vn.setRight = function(img, fontColour) {
-	queueCall(function() { vn.setNow(1, img, fontColour); });
-}
 vn.setNow = function(charNum, img, fontColour) {
 	if (fontColour === undefined) fontColour = 0xFFFFFFFF;
 
@@ -175,16 +169,6 @@ vn.moveIn = function(charNum, time) {
 	queueCall(function() { vn.inNow(charNum, time); });
 	queueDelay(time);
 }
-vn.leftIn = function(time) {
-	if (time == undefined) time = 0.5;
-	queueCall(function() { vn.inNow(0, time); });
-	queueDelay(time);
-}
-vn.rightIn = function(time) {
-	if (time == undefined) time = 0.5;
-	queueCall(function() { vn.inNow(1, time); });
-	queueDelay(time);
-}
 vn.inNow = function(charNum, time) {
 	var endX = 
 		(charNum == 0) ? vn.charPad :
@@ -197,16 +181,6 @@ vn.inNow = function(charNum, time) {
 vn.moveOut = function(charNum, time) {
 	if (time == undefined) time = 0.5;
 	queueCall(function() { vn.outNow(0, time); });
-	queueDelay(time);
-}
-vn.leftOut = function(time) {
-	if (time == undefined) time = 0.5;
-	queueCall(function() { vn.outNow(0, time); });
-	queueDelay(time);
-}
-vn.rightOut = function(time) {
-	if (time == undefined) time = 0.5;
-	queueCall(function() { vn.outNow(1, time); });
 	queueDelay(time);
 }
 vn.outNow = function(charNum, time) {
@@ -222,16 +196,6 @@ vn.outNow = function(charNum, time) {
 vn.fadeIn = function(charNum, time) {
 	if (time == undefined) time = 0.5;
 	queueCall(function() { vn.fadeInNow(charNum, time); });
-	queueDelay(time);
-}
-vn.leftFadeIn = function(time) {
-	if (time == undefined) time = 0.5;
-	queueCall(function() { vn.fadeInNow(0, time); });
-	queueDelay(time);
-}
-vn.rightFadeIn = function(time) {
-	if (time == undefined) time = 0.5;
-	queueCall(function() { vn.fadeInNow(1, time); });
 	queueDelay(time);
 }
 vn.fadeInNow = function(charNum, time) {
@@ -252,16 +216,6 @@ vn.fadeOut = function(charNum, time) {
 	queueCall(function() { vn.fadeOutNow(charNum, time); });
 	queueDelay(time);
 }
-vn.leftFadeOut = function(time) {
-	if (time == undefined) time = 0.5;
-	queueCall(function() { vn.fadeOutNow(0, time); });
-	queueDelay(time);
-}
-vn.rightFadeOut = function(time) {
-	if (time == undefined) time = 0.5;
-	queueCall(function() { vn.fadeOutNow(1, time); });
-	queueDelay(time);
-}
 vn.fadeOutNow = function(charNum, time) {
 	var curChar = vn.chars[charNum];
 
@@ -271,14 +225,6 @@ vn.fadeOutNow = function(charNum, time) {
 
 vn.say = function(charNum, text) {
 	queueCall(function() { vn.sayNow(charNum, text); });
-	queuePause();
-}
-vn.leftSay = function(text) {
-	queueCall(function() { vn.sayNow(0, text); });
-	queuePause();
-}
-vn.rightSay = function(text) {
-	queueCall(function() { vn.sayNow(1, text); });
 	queuePause();
 }
 vn.sayNow = function(charNum, text) {
@@ -316,12 +262,6 @@ vn.choiceNow = function(text, result) {
 vn.effect = function(charNum, type) {
 	queueCall(function() { vn.doEffectNow(charNum, type); }); 
 }
-vn.leftEffect = function(type) {
-	queueCall(function() { vn.doEffectNow(0, type); }); 
-}
-vn.rightEffect = function(type) {
-	queueCall(function() { vn.doEffectNow(1, type); });
-}
 vn.doEffectNow = function(charNum, type) {
 	var curChar = vn.chars[charNum];
 
@@ -332,12 +272,6 @@ vn.doEffectNow = function(charNum, type) {
 
 vn.cancelEffects = function(charNum) {
 	queueCall(function() { vn.cancelEffectsNow(charNum); });
-}
-vn.leftCancelEffects = function() {
-	queueCall(function() { vn.cancelEffectsNow(0); });
-}
-vn.rightCancelEffects = function() {
-	queueCall(function() { vn.cancelEffectsNow(1); });
 }
 vn.cancelEffectsNow = function(charNum) {
 	var curChar = vn.chars[charNum];
