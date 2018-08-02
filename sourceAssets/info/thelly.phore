@@ -92,15 +92,23 @@ He stands up. His caged, flaccid cock jiggles just above two tight nuts.
 
 Cartographer zips by the door of his map dome:
 
-"When I told Thelly that you came in here asking about your mom, the little guy was relentless. He made me call Ren over so he could interrogate him." He zips past again, just a little brown blur against the creamy white canvas of his map dome. "Ren said he wasn't sure if he saw her or not. Said he'd need to check the records and speak with you."
+"When I told Thelly that you came in here asking about your mom, the little guy was relentless. He made me call Ren over so he could interrogate him." He zips past again, just a little brown blur against the creamy white canvas of his map dome. "Ren said he wasn't sure if she had dropped by the brothel or not. Said he'd need to check the records and speak with you."
 
 Ren glances over in Cart's general direction and nods. "This was a while ago. Months, maybe."
 
-"But you might have seen her."
+[She looked like a chubby nerd lady, right???|nextThelly4a]
+---
+:nextThelly4a
 
-"I might have, yes."
+Ren rolls his milky eyes. "Dunno. Somehow, I couldn't quite get a good look at her."
 
-[What do you need me to do?|nextThelly5]
+[... Oh... oop.|nextThelly5a]
+---
+:nextThelly5a
+
+"It's fine. Yeah, my boys said she looked like that. Can you do me a favor?"
+
+[Probably!|nextThelly5]
 ---
 :nextThelly5
 
@@ -749,7 +757,7 @@ thellyBod.x = gameWidth/2 - thellyBod.width/2;
 thellyBod.y = gameHeight - thellyBod.height;
 
 queueTitle("Well... let's see...");
-queueTitle("This is what the journal said about me and my dom.");
+queueTitle("This is what I wrote down before I jumped in the pond:");
 queueDelay(1);
 queueCall(function() {
 	var music = playMusic("audio/music/nonLocal");
@@ -813,9 +821,9 @@ queueTitle("I don't know if I would chase them down, now.");
 queueTitle("Even if I knew where they were.");
 queueTitle("Because...");
 queueTitle("In the end, it didn't work out.");
-queueTitle("We split up.");
+queueTitle("Even after you saved us, we split up.");
 queueDelay(2);
-queueTitle("Marie didn't want me by his side anymore.");
+queueTitle("Marie didn't want me by her side anymore.");
 queueTitle("");
 queueDelay(1);
 queueCall(function() {
@@ -829,61 +837,172 @@ queueCall(function() {
 	tween(thellyBod, 1, {scaleX: 0}, {ease: QUAD_IN});
 });
 queueDelay(2);
-queueAddChoice(":o", "nextThelly38");
+queueAddChoice(":o", "vnThelly");
 
 `
----
-:nextThelly38
-
-!`
-getAudio("music").destroy();
-
-`
----
-:nextThellyMom
-
-[Blah|vnThelly]
 ---
 :vnThelly
 !`
+getAudio("music").destroy();
+
 vn.init();
-vn.setLeft("writer/characters/ren/ren", 0xFF005500);
-vn.leftIn();
-vn.leftSay("Hello?");
-vn.leftSay("Is anyone there?");
+vn.set(0, "writer/characters/ren/ren", 0xFF005500);
+vn.set(1, "writer/characters/thelly/thelly", 0xFF550000);
 
-vn.setRight("writer/characters/thelly/thelly", 0xFF550000);
-vn.rightIn();
+vn.moveIn(0, 1.5);
+vn.say(0, "Anyway.");
+vn.say(0, "I'm your dom, now.");
 
-vn.rightSay("I'm here.");
-vn.leftSay("Oh! Hello, little deer.");
-vn.rightSay("I'm an impala.");
-vn.leftSay("Right. Do you know where Rebeca is?");
-vn.leftSay("I've been looking for here since the :-) face killed everyone.");
-vn.rightSay("Haven't seen here.");
-vn.leftSay("Ah...");
-vn.leftSay("Do you know where we are?");
-vn.rightSay("I do not.");
-vn.leftSay("We're in a bomb shelter.");
 
-vn.rightFadeOut();
-vn.setRight("writer/characters/thelly/thelly", 0xFF005500);
-vn.rightFadeIn();
+vn.moveIn(1, 3);
+vn.say(1, "Um... I wasn't finished...");
 
-vn.rightEffect("shake");
-vn.rightSay("Is the situation that dire?");
-vn.leftSay("Well, we don't know, but it couldn't hurt to stay here until things settle down.");
-
-vn.delay(0.5);
-vn.leftFadeOut();
-vn.rightFadeOut();
-vn.choice("Go back", function() {
-	gotoPassage("scratchModStart");
+vn.say(0, "Shut up, puppy.");
+vn.say(1, ":x");
+vn.say(0, "We won't bother digging through those folders. I remember your mom crystal clear now.");
+vn.say(0, "They're just there so you can verify what I say.");
+vn.say(0, "Listen up, because I can't see if you're ignoring me.");
+vn.say(0, "We have a male-only policy here. Goes for customers too.");
+vn.say(0, "But she said she was a dude deep down, so we let her in.");
+vn.say(0, "Said her name was Wendy.");
+vn.say(0, "She asked for a tiger cock strap-on and a single tiger boy. Assfucked him. Paid.");
+vn.say(0, "After, Wendy asked if we had seen someone identical to her passing through here.");
+vn.say(0, "We had no record of anyone like that, male or female.");
+vn.say(1, "Ah...");
+vn.say(1, "I guess that's not really the most solid lead, is it?");
+vn.say(1, "Can you get any clues out of that?");
+vn.choice("Hmmmm...", function() {
+	gotoPassage("vnThelly2");
 });
-vn.deinit();`
+`
+---
+:vnThelly2
+
+!`
+vn.say(0, "Remember:");
+vn.say(0, "It could've been the fake Wendy looking for the real one, or the other way around.");
+vn.choice("Yeah, gotta find a way to tell them apart...", function() {
+	gotoPassage("vnThelly2a");
+});
+`
 
 ---
-:nextThelly40
+:vnThelly2a
+
+!`
+vn.say(0, "Well, is the real Wendy trans?");
+vn.choice("I don't know.", function() {
+	gotoPassage("vnThelly3");
+});
+`
+
+---
+:vnThelly3
+
+!`
+vn.say(1, "Do you know if she liked boys, then?");
+vn.choice("I don't think so, but I can't really be sure...", function() {
+	gotoPassage("vnThelly4");
+});
+`
+
+---
+:vnThelly4
+
+!`
+vn.say(0, "Did she have a thing for tigers?");
+vn.choice("No idea.", function() {
+	gotoPassage("vnThelly5");
+});
+`
+
+---
+:vnThelly5
+
+!`
+vn.say(1, "Let's back up.");
+vn.say(1, "Would your mom even go to a brothel in the first place?");
+vn.choice("I...", function() {
+	gotoPassage("vnThelly6");
+});
+`
+
+---
+:vnThelly6
+
+!`
+vn.choice("... don't know at all.", function() {
+	gotoPassage("vnThelly7");
+});
+`
+
+---
+:vnThelly7
+
+!`
+vn.choice("I only have my childhood memories of her, and she never shared any of that info with five-year-old me.", function() {
+	gotoPassage("vnThelly8");
+});
+`
+---
+:vnThelly8
+
+!`
+vn.choice("So I don't know. I guess I barely know anything about her.", function() {
+	gotoPassage("vnThelly9");
+});
+`
+
+---
+:vnThelly9
+
+!`
+vn.say(0, "Then you've got some homework to do.");
+vn.say(1, "We don't even know her game plan in general...");
+vn.say(0, "At least we know she's on the move, right?");
+vn.say(1, "Yeah!!");
+vn.say(1, "Seems like she's hunting her copy or evading her copy...");
+vn.say(0, "Even if you did track her down to one layer, good luck trying to predict where she goes next.");
+vn.choice("I'll work on that.", function() {
+	gotoPassage("vnThelly10");
+});
+`
+
+---
+:vnThelly10
+
+!`
+vn.say(1, "And I'll help as much as I can!!");
+vn.say(0, "I hope you're not walking off the job on your first day, Thelly.");
+vn.say(1, "Ah...! Well...");
+vn.say(1, "I'll help as much as I can in-between shifts!");
+vn.say(0, "Good puppy.");
+vn.say(1, "Thank you...");
+vn.choice("Yeah, thanks! You've been a huge help already.", function() {
+	gotoPassage("vnThelly11");
+});
+`
+
+---
+:vnThelly11
+
+!`
+vn.say(1, "A-Ahhh... it was nothing...");
+vn.say(1, "All I did was bug Ren to bring you here...");
+vn.say(0, "You still owe me for all this trouble, you know.");
+vn.say(1, "I understand...");
+vn.say(1, "Can I repay you with my butt~?");
+vn.say(0, "Actually, I had something else in mind.");
+vn.say(1, "Uh oh.");
+vn.choice("You've been a huge help already.", function() {
+	gotoPassage("vnThelly12");
+
+});`
+---
+:vnThelly12
+!`
+vn.deinit();
+`
 
 
 ---
