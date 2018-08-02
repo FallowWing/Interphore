@@ -137,6 +137,9 @@ vn.deinitNow = function() {
 	vn.fontColour = [];
 }
 
+vn.set = function(charNum, img, fontColour) {
+	queueCall(function() { vn.setNow(charNum, img, fontColour); });
+}
 vn.setLeft = function(img, fontColour) {
 	queueCall(function() { vn.setNow(0, img, fontColour); });
 }
@@ -167,6 +170,11 @@ vn.delay = function(amount) {
 	queueDelay(amount);
 }
 
+vn.moveIn = function(charNum, time) {
+	if (time == undefined) time = 0.5;
+	queueCall(function() { vn.inNow(charNum, time); });
+	queueDelay(time);
+}
 vn.leftIn = function(time) {
 	if (time == undefined) time = 0.5;
 	queueCall(function() { vn.inNow(0, time); });
@@ -186,6 +194,11 @@ vn.inNow = function(charNum, time) {
 	tween(vn.chars[charNum], time, {x: endX});
 }
 
+vn.moveOut = function(charNum, time) {
+	if (time == undefined) time = 0.5;
+	queueCall(function() { vn.outNow(0, time); });
+	queueDelay(time);
+}
 vn.leftOut = function(time) {
 	if (time == undefined) time = 0.5;
 	queueCall(function() { vn.outNow(0, time); });
@@ -206,6 +219,11 @@ vn.outNow = function(charNum, time) {
 	tween(curChar, time, {x: endX});
 }
 
+vn.fadeIn = function(charNum, time) {
+	if (time == undefined) time = 0.5;
+	queueCall(function() { vn.fadeInNow(charNum, time); });
+	queueDelay(time);
+}
 vn.leftFadeIn = function(time) {
 	if (time == undefined) time = 0.5;
 	queueCall(function() { vn.fadeInNow(0, time); });
@@ -229,6 +247,11 @@ vn.fadeInNow = function(charNum, time) {
 	tween(curChar, time, {alpha: 1});
 }
 
+vn.fadeOut = function(charNum, time) {
+	if (time == undefined) time = 0.5;
+	queueCall(function() { vn.fadeOutNow(charNum, time); });
+	queueDelay(time);
+}
 vn.leftFadeOut = function(time) {
 	if (time == undefined) time = 0.5;
 	queueCall(function() { vn.fadeOutNow(0, time); });
@@ -246,6 +269,10 @@ vn.fadeOutNow = function(charNum, time) {
 	tween(curChar, time, {alpha: 0});
 }
 
+vn.say = function(charNum, text) {
+	queueCall(function() { vn.sayNow(charNum, text); });
+	queuePause();
+}
 vn.leftSay = function(text) {
 	queueCall(function() { vn.sayNow(0, text); });
 	queuePause();
@@ -286,6 +313,9 @@ vn.choiceNow = function(text, result) {
 	});
 }
 
+vn.effect = function(charNum, type) {
+	queueCall(function() { vn.doEffectNow(charNum, type); }); 
+}
 vn.leftEffect = function(type) {
 	queueCall(function() { vn.doEffectNow(0, type); }); 
 }
@@ -300,6 +330,9 @@ vn.doEffectNow = function(charNum, type) {
 	}
 }
 
+vn.cancelEffects = function(charNum) {
+	queueCall(function() { vn.cancelEffectsNow(charNum); });
+}
 vn.leftCancelEffects = function() {
 	queueCall(function() { vn.cancelEffectsNow(0); });
 }
