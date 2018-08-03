@@ -107,6 +107,7 @@ var vn = {
 	active: false,
 	chars: [],
 	charPad: 128,
+	transitionTime: 0.5,
 
 	text: null,
 	textBg: null,
@@ -134,7 +135,7 @@ vn.deinitNow = function() {
 		if (curChar) vn.unsetNow(i);
 	});
 
-	vn.chars = [];
+	vn.chars = []; // This should almost be an assert
 	vn.active = false;
 }
 
@@ -145,6 +146,8 @@ vn.setNow = function(charNum, img, fontColour) {
 	if (fontColour === undefined) fontColour = 0xFFFFFFFF;
 
 	var newChar = {
+		fadedIn: false,
+		slidIn: true,
 		sprite: null,
 		fontColour: fontColour,
 	};
@@ -152,12 +155,7 @@ vn.setNow = function(charNum, img, fontColour) {
 	if (vn.chars[charNum]) vn.unsetNow(charNum);
 
 	newChar.sprite = addImage(img);
-	newChar.sprite.x =
-		(charNum == 0) ? -newChar.sprite.width :
-		(charNum == 1) ? gameWidth + newChar.sprite.width :
-		0;
-
-	newChar.sprite.y = gameHeight - newChar.sprite.height;
+	newChar.sprite.alpha = 0;
 
 	vn.chars[charNum] = newChar;
 }
@@ -174,66 +172,40 @@ vn.delay = function(amount) {
 	queueDelay(amount);
 }
 
-vn.moveIn = function(charNum, time) {
-	if (time == undefined) time = 0.5;
-	queueCall(function() { vn.inNow(charNum, time); });
-	queueDelay(time);
+vn.moveIn = function(charNum, tranTime) {
+	queueCall(function() { vn.moveInNow(charNum); });
+	queueDelay(vn.transitionTime);
 }
-vn.inNow = function(charNum, time) {
+vn.moveInNow = function(charNum) {
 	var spr = vn.chars[charNum].sprite;
-
-	var endX = 
-		(charNum == 0) ? vn.charPad :
-		(charNum == 1) ? gameWidth - spr.width - vn.charPad :
-		0;
-
-	tween(spr, time, {x: endX});
+	vn.chars[charNum].slidIn = true;
+	vn.chars[charNum].fadedIn = true;
+	spr.y = gameHeight;
 }
 
-vn.moveOut = function(charNum, time) {
-	if (time == undefined) time = 0.5;
-	queueCall(function() { vn.outNow(0, time); });
-	queueDelay(time);
+vn.moveOut = function(charNum, tranTime) {
+	queueCall(function() { vn.moveOutNow(charNum); });
+	queueDelay(vn.transitionTime);
 }
-vn.outNow = function(charNum, time) {
-	var spr = vn.chars[charNum].sprite;
-
-	var endX = 
-		(charNum == 0) ? -spr.width :
-		(charNum == 1) ? gameWidth + spr.width :
-		0;
-
-	tween(spr, time, {x: endX});
+vn.moveOutNow = function(charNum) {
+	vn.chars[charNum].slidIn = false;
+	vn.chars[charNum].fadedIn = false;
 }
 
-vn.fadeIn = function(charNum, time) {
-	if (time == undefined) time = 0.5;
-	queueCall(function() { vn.fadeInNow(charNum, time); });
-	queueDelay(time);
+vn.fadeIn = function(charNum, tranTime) {
+	queueCall(function() { vn.fadeInNow(charNum); });
+	queueDelay(vn.transitionTime);
 }
-vn.fadeInNow = function(charNum, time) {
-	var spr = vn.chars[charNum].sprite;
-
-	var endX = 
-		(charNum == 0) ? vn.charPad :
-		(charNum == 1) ? gameWidth - spr.width - vn.charPad :
-		0;
-
-	spr.x = endX;
-	spr.alpha = 0;
-	tween(spr, time, {alpha: 1});
+vn.fadeInNow = function(charNum) {
+	vn.chars[charNum].fadedIn = true;
 }
 
-vn.fadeOut = function(charNum, time) {
-	if (time == undefined) time = 0.5;
-	queueCall(function() { vn.fadeOutNow(charNum, time); });
-	queueDelay(time);
+vn.fadeOut = function(charNum, tranTime) {
+	queueCall(function() { vn.fadeOutNow(charNum); });
+	queueDelay(vn.transitionTime);
 }
-vn.fadeOutNow = function(charNum, time) {
-	var spr = vn.chars[charNum].sprite;
-
-	spr.alpha = 1;
-	tween(spr, time, {alpha: 0});
+vn.fadeOutNow = function(charNum) {
+	vn.chars[charNum].fadedIn = false;
 }
 
 vn.say = function(charNum, text) {
@@ -300,7 +272,29 @@ vn.update = function() {
 	if (!vn.active) return;
 
 	vn.chars.forEach(function(curChar, i) {
-		// if (curChar) vn.unsetNow(i);
+		var spr = curChar.sprite;
+
+		var transSpeed = 1/(vn.transitionTime*60);
+		if (curChar.fadedIn) {
+			spr.alpha += transSpeed;
+		} else {
+			spr.alpha -= transSpeed;
+		}
+
+		var posRect = {x: 0, y: 0, width: 0, height: 0};
+		posRect.height = gameHeight;
+		posRect.width = gameWidth / vn.chars.length;
+		posRect.x += posRect.width * i;
+		spr.x = posRect.x + posRect.width/2 - spr.width/2;
+
+		var slideSpeed = spr.height/(vn.transitionTime*60);
+		if (curChar.slidIn) {
+			spr.y -= slideSpeed;
+			if (spr.y + spr.height < gameHeight) spr.y = gameHeight - spr.height;
+		} else {
+			spr.y += slideSpeed;
+			if (spr.y > gameHeight) spr.y = gameHeight;
+		}
 	});
 }
 
