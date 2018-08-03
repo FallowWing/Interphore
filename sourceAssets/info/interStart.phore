@@ -110,7 +110,6 @@ var vn = {
 
 	text: null,
 	textBg: null,
-	fontColours: [],
 };
 
 vn.init = function() {
@@ -131,12 +130,11 @@ vn.deinitNow = function() {
 	if (vn.textBg) vn.textBg.destroy();
 	vn.textBg = null;
 
-	vn.chars.forEach(function(curChar) {
-		curChar.destroy();
+	vn.chars.forEach(function(curChar, i) {
+		if (curChar) vn.unsetNow(i);
 	});
 
 	vn.chars = [];
-	vn.fontColour = [];
 	vn.active = false;
 }
 
@@ -146,21 +144,30 @@ vn.set = function(charNum, img, fontColour) {
 vn.setNow = function(charNum, img, fontColour) {
 	if (fontColour === undefined) fontColour = 0xFFFFFFFF;
 
-	if (vn.chars[charNum]) {
-		vn.chars[charNum].destroy();
-		vn.chars[charNum] = null;
-	}
+	var newChar = {
+		sprite: null,
+		fontColour: fontColour,
+	};
 
-	var newChar = addImage(img);
-	newChar.x =
-		(charNum == 0) ? -newChar.width :
-		(charNum == 1) ? gameWidth + newChar.width :
+	if (vn.chars[charNum]) vn.unsetNow(charNum);
+
+	newChar.sprite = addImage(img);
+	newChar.sprite.x =
+		(charNum == 0) ? -newChar.sprite.width :
+		(charNum == 1) ? gameWidth + newChar.sprite.width :
 		0;
 
-	newChar.y = gameHeight - newChar.height;
+	newChar.sprite.y = gameHeight - newChar.sprite.height;
 
-	vn.fontColours[charNum] = fontColour;
 	vn.chars[charNum] = newChar;
+}
+
+vn.unset = function(charNum) {
+	queueCall(function() { vn.unsetNow(charNum); });
+}
+vn.unsetNow = function(charNum) {
+	vn.chars[charNum].sprite.destroy();
+	vn.chars[charNum] = null;
 }
 
 vn.delay = function(amount) {
@@ -173,12 +180,14 @@ vn.moveIn = function(charNum, time) {
 	queueDelay(time);
 }
 vn.inNow = function(charNum, time) {
+	var spr = vn.chars[charNum].sprite;
+
 	var endX = 
 		(charNum == 0) ? vn.charPad :
-		(charNum == 1) ? gameWidth - vn.chars[charNum].width - vn.charPad :
+		(charNum == 1) ? gameWidth - spr.width - vn.charPad :
 		0;
 
-	tween(vn.chars[charNum], time, {x: endX});
+	tween(spr, time, {x: endX});
 }
 
 vn.moveOut = function(charNum, time) {
@@ -187,13 +196,14 @@ vn.moveOut = function(charNum, time) {
 	queueDelay(time);
 }
 vn.outNow = function(charNum, time) {
-	var curChar = vn.chars[charNum];
+	var spr = vn.chars[charNum].sprite;
+
 	var endX = 
-		(charNum == 0) ? -curChar.width :
-		(charNum == 1) ? gameWidth + curChar.width :
+		(charNum == 0) ? -spr.width :
+		(charNum == 1) ? gameWidth + spr.width :
 		0;
 
-	tween(curChar, time, {x: endX});
+	tween(spr, time, {x: endX});
 }
 
 vn.fadeIn = function(charNum, time) {
@@ -202,16 +212,16 @@ vn.fadeIn = function(charNum, time) {
 	queueDelay(time);
 }
 vn.fadeInNow = function(charNum, time) {
-	var curChar = vn.chars[charNum];
+	var spr = vn.chars[charNum].sprite;
 
 	var endX = 
 		(charNum == 0) ? vn.charPad :
-		(charNum == 1) ? gameWidth - curChar.width - vn.charPad :
+		(charNum == 1) ? gameWidth - spr.width - vn.charPad :
 		0;
 
-	curChar.x = endX;
-	curChar.alpha = 0;
-	tween(curChar, time, {alpha: 1});
+	spr.x = endX;
+	spr.alpha = 0;
+	tween(spr, time, {alpha: 1});
 }
 
 vn.fadeOut = function(charNum, time) {
@@ -220,10 +230,10 @@ vn.fadeOut = function(charNum, time) {
 	queueDelay(time);
 }
 vn.fadeOutNow = function(charNum, time) {
-	var curChar = vn.chars[charNum];
+	var spr = vn.chars[charNum].sprite;
 
-	curChar.alpha = 1;
-	tween(curChar, time, {alpha: 0});
+	spr.alpha = 1;
+	tween(spr, time, {alpha: 0});
 }
 
 vn.say = function(charNum, text) {
@@ -231,8 +241,8 @@ vn.say = function(charNum, text) {
 	queuePause();
 }
 vn.sayNow = function(charNum, text) {
-	var curChar = vn.chars[charNum];
-	vn.text.tint = vn.fontColours[charNum];
+	var spr = vn.chars[charNum].sprite;
+	vn.text.tint = vn.chars[charNum].fontColour;
 	vn.text.setText(text);
 
 	var textX = 
@@ -266,10 +276,10 @@ vn.effect = function(charNum, type) {
 	queueCall(function() { vn.doEffectNow(charNum, type); }); 
 }
 vn.doEffectNow = function(charNum, type) {
-	var curChar = vn.chars[charNum];
+	var spr = vn.chars[charNum].sprite;
 
 	if (type == "shake") {
-		tween(curChar, 0.1, {x: curChar.x + 4}, {type: PINGPONG});
+		tween(spr, 0.1, {x: spr.x + 4}, {type: PINGPONG});
 	}
 }
 
@@ -277,9 +287,9 @@ vn.cancelEffects = function(charNum) {
 	queueCall(function() { vn.cancelEffectsNow(charNum); });
 }
 vn.cancelEffectsNow = function(charNum) {
-	var curChar = vn.chars[charNum];
+	var spr = vn.chars[charNum].sprite;
 
-	cancelTweens(curChar);
+	cancelTweens(spr);
 }
 
 vn.stop = function() {
