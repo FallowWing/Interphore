@@ -167,7 +167,7 @@ vn.unset = function(charNum) {
 }
 vn.unsetNow = function(charNum) {
 	vn.chars[charNum].sprite.destroy();
-	vn.chars[charNum] = null;
+	arrayRemove(vn.chars, vn.chars[charNum]);
 }
 
 vn.delay = function(amount) {
@@ -298,6 +298,10 @@ vn.stop = function() {
 
 vn.update = function() {
 	if (!vn.active) return;
+
+	vn.chars.forEach(function(curChar, i) {
+		// if (curChar) vn.unsetNow(i);
+	});
 }
 
 hookUpdate(vn.update);
