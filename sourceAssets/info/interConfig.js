@@ -62,6 +62,7 @@ var msgs = [];
 var iconDatabase = [];
 var doneStreamingFns = [];
 var tempUpdateFunctions = [];
+var updateFunctions = [];
 var clearFunctions = [];
 
 var mouseX = 0;
@@ -795,8 +796,12 @@ function keyJustPressed(keyCode) {
 	return keys[keyCode] == KEY_JUST_PRESSED;
 }
 
-function hookUpdate(fn) {
+function hookTempUpdate(fn) {
 	tempUpdateFunctions.push(fn);
+}
+
+function hookUpdate(fn) {
+	updateFunctions.push(fn);
 }
 
 function __update() {
@@ -816,6 +821,10 @@ function realUpdate() {
 	/// Callbacks
 	while (doneStreamingFns.length > 0 && assetStreamsLeft == 0) doneStreamingFns.shift()();
 	tempUpdateFunctions.forEach(function(fn) {
+		fn();
+	});
+
+	updateFunctions.forEach(function(fn) {
 		fn();
 	});
 

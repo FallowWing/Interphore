@@ -104,6 +104,7 @@ function exitMod() {
 /// VN
 
 var vn = {
+	active: false,
 	chars: [],
 	charPad: 128,
 
@@ -118,6 +119,7 @@ vn.init = function() {
 vn.initNow = function() {
 	vn.text = addEmptyImage(512, 256);
 	vn.text.layer = VN_TEXT_LAYER;
+	vn.active = true;
 }
 vn.deinit = function() {
 	queueCall(function() { vn.deinitNow(); });
@@ -135,6 +137,7 @@ vn.deinitNow = function() {
 
 	vn.chars = [];
 	vn.fontColour = [];
+	vn.active = false;
 }
 
 vn.set = function(charNum, img, fontColour) {
@@ -250,7 +253,7 @@ vn.sayNow = function(charNum, text) {
 
 vn.choice = function(text, result) {
 	queueCall(function() { vn.choiceNow(text, result); });
-};
+}
 vn.choiceNow = function(text, result) {
 	if (result === undefined) result = skipCurrentCommand;
 	addChoice(text, function() {
@@ -281,7 +284,13 @@ vn.cancelEffectsNow = function(charNum) {
 
 vn.stop = function() {
 	queueStop();
-};
+}
+
+vn.update = function() {
+	if (!vn.active) return;
+}
+
+hookUpdate(vn.update);
 
 /// /VN
 

@@ -243,7 +243,7 @@ var spr = addRectImage(65, 65, 0x0000FF);
 spr.x = 600;
 spr.y = 300;
 tween(spr, 5, {scaleX: -3, skewY: 0.5, rotation: 20}, {type: PINGPONG});
-hookUpdate(function() {
+hookTempUpdate(function() {
 	spr.alpha = spr.hovering ? 0.5 : 1;
 });
 `
