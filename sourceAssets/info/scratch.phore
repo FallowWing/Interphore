@@ -243,7 +243,7 @@ var spr = addRectImage(65, 65, 0x0000FF);
 spr.x = 600;
 spr.y = 300;
 tween(spr, 5, {scaleX: -3, skewY: 0.5, rotation: 20}, {type: PINGPONG});
-hookUpdate(function() {
+hookTempUpdate(function() {
 	spr.alpha = spr.hovering ? 0.5 : 1;
 });
 `
@@ -444,33 +444,23 @@ vn.init();
 vn.set(0, "writer/characters/ren/ren", 0xFF005500);
 vn.moveIn(0);
 vn.say(0, "Hello?");
-vn.say(0, "Is anyone there?");
 
 vn.set(1, "writer/characters/thelly/thelly", 0xFF550000);
 vn.moveIn(1);
 
-vn.say(1, "I'm here.");
-vn.say(0, "Oh! Hello, little deer.");
-vn.say(1, "I'm an impala.");
-vn.say(0, "Right. Do you know where Rebeca is?");
-vn.say(0, "I've been looking for here since the :-) face killed everyone.");
-vn.say(1, "Haven't seen here.");
-vn.say(0, "Ah...");
-vn.say(0, "Do you know where we are?");
-vn.say(1, "I do not.");
-vn.say(0, "We're in a bomb shelter.");
+vn.say(1, "Yo");
 
 vn.fadeOut(1);
 vn.set(1, "writer/characters/thelly/thelly", 0xFF550000);
 vn.fadeIn(1);
 
 vn.effect(1, "shake");
-vn.say(1, "Is the situation that dire?");
-vn.say(0, "Well, we don't know, but it couldn't hurt to stay here until things settle down.");
+vn.say(1, "Effect!");
 
+vn.say(0, "Nice");
 vn.delay(0.5);
-vn.fadeOut(0);
-vn.fadeOut(1);
+vn.moveOut(0);
+vn.moveOut(1);
 vn.choice("Go back", function() {
 	gotoPassage("scratchModStart");
 });

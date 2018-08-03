@@ -40,17 +40,6 @@ function forRange(start, end, fn) {
 	arr.forEach(fn);
 }
 
-function lerp(perc, min, max) {
-	return min + (max - min) * perc;
-}
-
-function clamp(value, min, max) {
-	if (value > max) value = max;
-	if (value < min) value = min;
-	return value;
-}
-
-
 var images = [];
 var audios = [];
 var choices = [];
@@ -62,6 +51,7 @@ var msgs = [];
 var iconDatabase = [];
 var doneStreamingFns = [];
 var tempUpdateFunctions = [];
+var updateFunctions = [];
 var clearFunctions = [];
 
 var mouseX = 0;
@@ -442,6 +432,17 @@ function rndInt(min, max) { return round(rndFloat(min, max)); }
 function rndFloat(min, max) { return min + rnd() * (max - min); }
 function floor(num) { return Math.floor(num); }
 function round(num) { return Math.round(num); }
+function lerp(perc, min, max) { return lerp_internal(perc, min, max); }
+function norm(value, min, max) { return norm_internal(value, min, max); }
+function map(value, sourceMin, sourceMax, destMin, destMax, ease) { return map_internal(value, sourceMin, sourceMax, destMin, destMax, ease === undefined ? LINEAR : ease); }
+function clampMap(value, sourceMin, sourceMax, destMin, destMax, ease) { return clampMap_internal(value, sourceMin, sourceMax, destMin, destMax, ease === undefined ? LINEAR : ease); }
+
+function clamp(value, min, max) {
+	if (value > max) value = max;
+	if (value < min) value = min;
+	return value;
+}
+
 
 function saveCheckpoint() {
 	checkpointStr = JSON.stringify(data);
@@ -795,8 +796,12 @@ function keyJustPressed(keyCode) {
 	return keys[keyCode] == KEY_JUST_PRESSED;
 }
 
-function hookUpdate(fn) {
+function hookTempUpdate(fn) {
 	tempUpdateFunctions.push(fn);
+}
+
+function hookUpdate(fn) {
+	updateFunctions.push(fn);
 }
 
 function __update() {
@@ -816,6 +821,10 @@ function realUpdate() {
 	/// Callbacks
 	while (doneStreamingFns.length > 0 && assetStreamsLeft == 0) doneStreamingFns.shift()();
 	tempUpdateFunctions.forEach(function(fn) {
+		fn();
+	});
+
+	updateFunctions.forEach(function(fn) {
 		fn();
 	});
 
@@ -914,7 +923,7 @@ function realUpdate() {
 	}
 
 	/// Command queue
-	if (keys[32] == KEY_JUST_PRESSED) commandSkipped = true;
+	if (mouseJustDown || keys[32] == KEY_JUST_PRESSED) commandSkipped = true;
 	if (currentCommand && currentCommand.skippable && commandSkipped) queueTimeLeft = 0;
 	commandSkipped = false;
 
