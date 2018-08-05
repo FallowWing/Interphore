@@ -965,6 +965,7 @@ function realUpdate() {
 	});
 
 	/// Tweens
+	// var start = performance.now();
 	var tweensToRemove = [];
 	tweens.forEach(function(tw) {
 		if (tw.source.exists === false) {
@@ -1010,6 +1011,8 @@ function realUpdate() {
 		var index = tweens.indexOf(tw);
 		if (index != -1) tweens.splice(index, 1);
 	});
+	// var end = performance.now();
+	// print("start: "+start+" end: "+end+" sub: "+(end-start));
 
 	/// Timers
 	var timersToRemove = [];
