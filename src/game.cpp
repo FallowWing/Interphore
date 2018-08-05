@@ -72,6 +72,7 @@ duk_ret_t setFontTag(duk_context *ctx);
 duk_ret_t streamEmbeddedTexture(duk_context *ctx);
 duk_ret_t openSoftwareKeyboard(duk_context *ctx);
 duk_ret_t interRnd(duk_context *ctx);
+duk_ret_t iterTweens(duk_context *ctx);
 
 /// Images
 duk_ret_t addImage(duk_context *ctx);
@@ -131,6 +132,7 @@ void initGame() {
 	addJsFunction("streamEmbeddedTexture", streamEmbeddedTexture, 1);
 	addJsFunction("openSoftwareKeyboard", openSoftwareKeyboard, 0);
 	addJsFunction("rnd_internal", interRnd, 0);
+	addJsFunction("iterTweens_internal", iterTweens, 1);
 
 	addJsFunction("addImage_internal", addImage, 1);
 	addJsFunction("addCanvasImage_internal", addCanvasImage, 3);
@@ -333,12 +335,12 @@ void runMod(char *serialData) {
 	// printf("Loaded data: %s\n", serialData);
 	char *inputData = (char *)zalloc(SERIAL_SIZE);
 
-	String *realData = newString(4096);
+	int serialLen = strlen(serialData);
+	String *realData = newString(serialLen * 2); //@incomplete Make this a normal char * again
 	realData->append("var __passage = \"\";\n");
 	realData->append("var __image = \"\";\n");
 	realData->append("var __audio = \"\";\n");
 
-	int serialLen = strlen(serialData);
 	int inputLen = 0;
 	for (int i = 0; i < serialLen; i++)
 		if (serialData[i] != '\r')
@@ -643,6 +645,99 @@ duk_ret_t openSoftwareKeyboard(duk_context *ctx) {
 duk_ret_t interRnd(duk_context *ctx) {
 	duk_push_number(ctx, rnd());
 	return 1;
+}
+
+duk_ret_t iterTweens(duk_context *ctx) {
+	int n = duk_get_length(ctx, 0);
+	// printf("elements: %d\n", n);
+	for (int i = 0; i < n; i++) {
+		char keyNames[10][20]; // 10 possible keys of max length 20
+		int keyNamesNum = 0;
+
+		float startValues[10];
+		int startValuesNum = 0;
+
+		float endValues[10];
+		int endValuesNum = 0;
+
+		duk_get_prop_index(ctx, 0, i);
+
+		/// Start params
+		duk_push_string(ctx, "startParams");
+		duk_get_prop(ctx, -2);
+
+		duk_enum(ctx, -1, 0);
+		while (duk_next(ctx, -1, true)) {
+			const char *paramName = duk_safe_to_string(ctx, -2);
+			float value = duk_get_number(ctx, -1);
+			strcpy(keyNames[keyNamesNum++], paramName);
+			startValues[startValuesNum++] = value;
+			duk_pop_2(ctx);
+		}
+		duk_pop(ctx); // enum
+
+		duk_pop(ctx); // string
+
+		/// End params
+		duk_push_string(ctx, "params");
+		duk_get_prop(ctx, -2);
+
+		duk_enum(ctx, -1, 0);
+		while (duk_next(ctx, -1, true)) {
+			const char *paramName = duk_safe_to_string(ctx, -2);
+			float value = duk_get_number(ctx, -1);
+			for (int keysI = 0; keysI < keyNamesNum; keysI++) {
+				if (streq(keyNames[keysI], paramName)) {
+					endValues[keysI++] = value;
+					break;
+				}
+			}
+			duk_pop_2(ctx);
+		}
+		duk_pop(ctx); // enum
+
+		duk_pop(ctx); // string
+
+		/// Perc
+		duk_push_string(ctx, "elapsed");
+		duk_get_prop(ctx, -2);
+		float elapsed = duk_get_number(ctx, -1);
+		duk_pop(ctx); // string
+
+		duk_push_string(ctx, "elapsed");
+		elapsed += engine->elapsed;
+		duk_push_number(ctx, elapsed);
+		duk_put_prop(ctx, -3);
+
+		duk_push_string(ctx, "totalTime");
+		duk_get_prop(ctx, -2);
+		float totalTime = duk_get_number(ctx, -1);
+		duk_pop(ctx); // string
+
+		float perc = elapsed/totalTime;
+		//@todo easing and reverse
+
+		/// Source
+		duk_push_string(ctx, "source");
+		duk_get_prop(ctx, -2);
+		for (int keysI = 0; keysI < keyNamesNum; keysI++) {
+			const char *keyName = keyNames[keysI];
+			float start = startValues[keysI];
+			float end = endValues[keysI];
+			float newValue = mathLerp(perc, start, end);
+
+			duk_push_string(ctx, keyName);
+			duk_push_number(ctx, newValue);
+			duk_put_prop(ctx, -3);
+		}
+		duk_pop(ctx); // string
+
+		// printf("e/t: %0.1f %0.1f\n", elapsed, totalTime);
+		// for (int keysI = 0; keysI < keyNamesNum; keysI++) {
+		// 	printf("Got key %s, start: %0.1f end: %0.1f\n", keyNames[keysI], startValues[keysI], endValues[keysI]);
+		// }
+	}
+	return 0;
 }
 
 

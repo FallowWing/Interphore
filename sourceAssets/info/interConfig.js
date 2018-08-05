@@ -967,45 +967,73 @@ function realUpdate() {
 	/// Tweens
 	// var start = performance.now();
 	var tweensToRemove = [];
-	tweens.forEach(function(tw) {
-		if (tw.source.exists === false) {
-			tweensToRemove.push(tw);
-			return;
-		}
-
-		if (tw.elapsed < 0) {
-			tw.elapsed += elapsed;
-			return;
-		}
-
-		var perc = tw.elapsed / tw.totalTime;
-		if (tw.config.reversed) perc = 1 - perc;
-		perc = tweenEase(perc, tw.config.ease);
-		perc = round(perc * 1000) / 1000;
-
-		for (key in tw.params) {
-			var min = tw.startParams[key];
-			var max = tw.params[key];
-			tw.source[key] = min + (max - min) * perc;
-		}
-		tw.elapsed += elapsed;
-
-		if ((perc >= 1 && !tw.config.reversed) || (perc <= 0 && tw.config.reversed)) {
-			if (tw.config.type == LOOPING) {
-				tw.elapsed = 0;
-			} else if (tw.config.type == PINGPONG) {
-				tw.elapsed = 0;
-				tw.config.reversed = !tw.config.reversed;
-			} else if (tw.config.type == PINGPONG_ONCE) {
-				tw.elapsed = 0;
-				tw.config.reversed = !tw.config.reversed;
-				tw.config.type = null;
-			} else {
-				if (tw.config.onComplete) tw.config.onComplete();
+	if (false) {
+		iterTweens_internal(tweens);
+		tweens.forEach(function(tw) {
+			if (tw.source.exists === false) {
 				tweensToRemove.push(tw);
+				return;
 			}
-		}
-	});
+
+			var perc = tw.elapsed / tw.totalTime;
+			if ((perc >= 1 && !tw.config.reversed) || (perc <= 0 && tw.config.reversed)) {
+				if (tw.config.type == LOOPING) {
+					tw.elapsed = 0;
+				} else if (tw.config.type == PINGPONG) {
+					tw.elapsed = 0;
+					tw.config.reversed = !tw.config.reversed;
+				} else if (tw.config.type == PINGPONG_ONCE) {
+					tw.elapsed = 0;
+					tw.config.reversed = !tw.config.reversed;
+					tw.config.type = null;
+				} else {
+					if (tw.config.onComplete) tw.config.onComplete();
+					tweensToRemove.push(tw);
+				}
+			}
+		});
+
+	} else {
+		tweens.forEach(function(tw) {
+			if (tw.source.exists === false) {
+				tweensToRemove.push(tw);
+				return;
+			}
+
+			if (tw.elapsed < 0) {
+				tw.elapsed += elapsed;
+				return;
+			}
+
+			var perc = tw.elapsed / tw.totalTime;
+			if (tw.config.reversed) perc = 1 - perc;
+			perc = tweenEase(perc, tw.config.ease);
+			perc = round(perc * 1000) / 1000;
+
+			for (key in tw.params) {
+				var min = tw.startParams[key];
+				var max = tw.params[key];
+				tw.source[key] = min + (max - min) * perc;
+			}
+			tw.elapsed += elapsed;
+
+			if ((perc >= 1 && !tw.config.reversed) || (perc <= 0 && tw.config.reversed)) {
+				if (tw.config.type == LOOPING) {
+					tw.elapsed = 0;
+				} else if (tw.config.type == PINGPONG) {
+					tw.elapsed = 0;
+					tw.config.reversed = !tw.config.reversed;
+				} else if (tw.config.type == PINGPONG_ONCE) {
+					tw.elapsed = 0;
+					tw.config.reversed = !tw.config.reversed;
+					tw.config.type = null;
+				} else {
+					if (tw.config.onComplete) tw.config.onComplete();
+					tweensToRemove.push(tw);
+				}
+			}
+		});
+	}
 
 	tweensToRemove.forEach(function(tw) {
 		var index = tweens.indexOf(tw);
