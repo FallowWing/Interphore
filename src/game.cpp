@@ -202,12 +202,12 @@ void initGame() {
 
 #ifdef TEST_TEXT_AREA
 	runJs("gotoPassage(\"scratchModStart\");");
-	initTextArea(&game->area, 512, 512);
+	initTextArea(&game->area, 512, 1024);
 
 	TextArea *area = &game->area;
 	area->sprite->layer = 9999;
 	area->sprite->tint = 0xFFFFFFFF;
-	area->setText("This is a test of the text area system");
+	area->setText("This is a test of the text area system, I wonder how much text I can render this way till <b>Flash</b> becomes too slow");
 #endif
 
 
@@ -256,21 +256,7 @@ void deinitGame() {
 void updateGame() {
 	game->profiler.startProfile(PROFILE_JS_UPDATE);
 
-	if (game->area.exists) {
-		TextArea *area = &game->area;
-		MintSprite *sprite = area->sprite;
-
-		sprite->clear();
-		for (int i = 0; i < area->defsNum; i++) {
-			CharRenderDef *def = &area->defs[i];
-			if (def->glyph == ' ') continue;
-
-			Rect *sourceRect = &def->sourceRect;
-			Point *destPoint = &def->destPoint;
-			sprite->drawPixelsFromAsset(def->sourceTextureAsset, sourceRect->x, sourceRect->y, sourceRect->width, sourceRect->height, destPoint->x+rndInt(-5, 5), destPoint->y+rndInt(-5, 5));
-		}
-
-	}
+	if (game->area.exists) game->area.update();
 
 	char buf[1024];
 	sprintf(
