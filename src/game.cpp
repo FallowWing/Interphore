@@ -258,17 +258,18 @@ void updateGame() {
 
 	if (game->area.exists) {
 		TextArea *area = &game->area;
-		// MintSprite *ref = area->ref;
 		MintSprite *sprite = area->sprite;
 
 		sprite->clear();
-		// for (int i = 0; i < textLen; i++) {
-		// 	Rect *rect = &ref->charRects[i];
-		// 	// sprite->drawPixelsFromSprite(ref, rect->x, rect->y, rect->width-1, rect->height, rect->x+rndInt(-5, 5), rect->y+rndInt(-5, 5));
-		// 	sprite->drawPixelsFromSprite(ref, rect->x, rect->y, rect->width, rect->height, rect->x + i*3, rect->y);
-		// }
+		for (int i = 0; i < area->defsNum; i++) {
+			CharRenderDef *def = &area->defs[i];
+			if (def->glyph == ' ') continue;
 
-		// sprite->drawPixelsFromSprite(ref, 0, 0, ref->width/2, ref->height, 0, 0, rndFloat(0.9, 1.1), rndFloat(0.9, 1.1));
+			Rect *sourceRect = &def->sourceRect;
+			Point *destPoint = &def->destPoint;
+			sprite->drawPixelsFromAsset(def->sourceTextureAsset, sourceRect->x, sourceRect->y, sourceRect->width, sourceRect->height, destPoint->x+rndInt(-5, 5), destPoint->y+rndInt(-5, 5));
+		}
+
 	}
 
 	char buf[1024];

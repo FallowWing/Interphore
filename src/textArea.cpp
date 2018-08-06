@@ -25,12 +25,12 @@ void initTextArea(TextArea *area, int width, int height) {
 void TextArea::setText(const char *text) {
 	TextArea *area = this;
 
-	// FormatRegion regions[REGION_LIMIT];
-	// int regionsNum;
+	FormatRegion regions[REGION_LIMIT];
+	int regionsNum;
 
-	// char outText[HUGE_STR];
+	char outText[HUGE_STR];
 
-	// parseText(text, outText, regions, &regionsNum);
+	parseText(text, outText, regions, &regionsNum);
 
-	// getTextRects(outText, area->sprite->width, NULL, regions, regionsNum, area->defs, &area->defsNum, &area->textWidth, &area->textHeight);
+	getTextRects(outText, area->sprite->width, NULL, regions, regionsNum, area->defs, &area->defsNum, &area->textWidth, &area->textHeight);
 }
