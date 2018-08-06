@@ -19,6 +19,7 @@ struct Passage {
 struct Game {
 	Profiler profiler;
 	DebugOverlay debugOverlay;
+	TextArea area;
 
 	MintSprite *bg;
 
@@ -72,6 +73,7 @@ duk_ret_t setFontTag(duk_context *ctx);
 duk_ret_t streamEmbeddedTexture(duk_context *ctx);
 duk_ret_t openSoftwareKeyboard(duk_context *ctx);
 duk_ret_t interRnd(duk_context *ctx);
+duk_ret_t iterTweens(duk_context *ctx);
 
 /// Images
 duk_ret_t addImage(duk_context *ctx);
@@ -131,6 +133,7 @@ void initGame() {
 	addJsFunction("streamEmbeddedTexture", streamEmbeddedTexture, 1);
 	addJsFunction("openSoftwareKeyboard", openSoftwareKeyboard, 0);
 	addJsFunction("rnd_internal", interRnd, 0);
+	addJsFunction("iterTweens_internal", iterTweens, 1);
 
 	addJsFunction("addImage_internal", addImage, 1);
 	addJsFunction("addCanvasImage_internal", addCanvasImage, 3);
@@ -197,6 +200,16 @@ void initGame() {
 	}
 #endif
 
+#ifdef TEST_TEXT_AREA
+	runJs("gotoPassage(\"scratchModStart\");");
+	initTextArea(&game->area, 512, 1024);
+
+	TextArea *area = &game->area;
+	area->sprite->layer = 9999;
+	area->sprite->tint = 0xFFFFFFFF;
+	area->setText("This is a test of the text area system, I wonder how much text I can render this way till <b>Flash</b> becomes too slow");
+#endif
+
 
 	game->root = createMintSprite();
 	game->root->setupContainer(engine->width, engine->height);
@@ -242,6 +255,8 @@ void deinitGame() {
 
 void updateGame() {
 	game->profiler.startProfile(PROFILE_JS_UPDATE);
+
+	if (game->area.exists) game->area.update();
 
 	char buf[1024];
 	sprintf(
@@ -333,12 +348,18 @@ void runMod(char *serialData) {
 	// printf("Loaded data: %s\n", serialData);
 	char *inputData = (char *)zalloc(SERIAL_SIZE);
 
-	String *realData = newString(4096);
-	realData->append("var __passage = \"\";\n");
-	realData->append("var __image = \"\";\n");
-	realData->append("var __audio = \"\";\n");
-
 	int serialLen = strlen(serialData);
+
+	int realDataSize = sizeof(char) * (serialLen + 1024) * 10; //@hack Not sure how big this should really be
+	// printf("Data size is: %0.2fmb\n", (float)realDataSize / Megabytes(1));
+	char *realData = (char *)Malloc(realDataSize);
+	memset(realData, 0, realDataSize);
+
+	char *realDataEnd = realData;
+	realDataEnd = fastStrcat(realDataEnd, "var __passage = \"\";\n");
+	realDataEnd = fastStrcat(realDataEnd, "var __image = \"\";\n");
+	realDataEnd = fastStrcat(realDataEnd, "var __audio = \"\";\n");
+
 	int inputLen = 0;
 	for (int i = 0; i < serialLen; i++)
 		if (serialData[i] != '\r')
@@ -362,68 +383,75 @@ void runMod(char *serialData) {
 
 		if (strstr(line, "START_IMAGES")) {
 			inImages = true;
-			realData->append("var __image = \"\";\n");
+			realDataEnd = fastStrcat(realDataEnd, "var __image = \"\";\n");
 		} else if (strstr(line, "END_IMAGES")) {
 			inImages = false;
-			realData->append("print(\"Submitting images is deprecated\");");
+			realDataEnd = fastStrcat(realDataEnd, "print(\"Submitting images is deprecated\");");
 		} else if (strstr(line, "START_AUDIO")) {
 			inAudio = true;
-			realData->append("__audio = \"\";");
+			realDataEnd = fastStrcat(realDataEnd, "__audio = \"\";");
 		} else if (strstr(line, "END_AUDIO")) {
 			inAudio = false;
-			realData->append("print(\"Submitting audio is deprecated\");");
+			realDataEnd = fastStrcat(realDataEnd, "print(\"Submitting audio is deprecated\");");
 		} else if (strstr(line, "START_PASSAGES")) {
 			inPassage = true;
-			realData->append("__passage = \"\";");
+			realDataEnd = fastStrcat(realDataEnd, "__passage = \"\";");
 		} else if (strstr(line, "END_PASSAGES")) {
-			realData->append("submitPassage(__passage);");
+			realDataEnd = fastStrcat(realDataEnd, "submitPassage(__passage);");
 			inPassage = false;
 		} else if (strstr(line, "---")) {
 			if (inPassage) {
-				realData->append("submitPassage(__passage);\n__passage = \"\";");
+				realDataEnd = fastStrcat(realDataEnd, "submitPassage(__passage);\n__passage = \"\";");
 			} else if (inImages) {
-			realData->append("print(\"Submitting images is deprecated\");");
+			realDataEnd = fastStrcat(realDataEnd, "print(\"Submitting images is deprecated\");");
 			} else if (inAudio) {
-			realData->append("print(\"Submitting audio is deprecated\");");
+			realDataEnd = fastStrcat(realDataEnd, "print(\"Submitting audio is deprecated\");");
 			}
 		} else if (inPassage) {
-			realData->append("__passage += \"");
+			realDataEnd = fastStrcat(realDataEnd, "__passage += \"");
 
 			if (strstr(line, "\"")) {
 				for (int lineIndex = 0; lineIndex < strlen(line); lineIndex++) {
 					if (line[lineIndex] == '"') {
-						realData->append("\\\"");
+						realDataEnd = fastStrcat(realDataEnd, "\\\"");
 					} else if (line[lineIndex] == '\\') {
-						realData->append("\\\\");
+						realDataEnd = fastStrcat(realDataEnd, "\\\\");
 					} else {
-						realData->appendChar(line[lineIndex]);
+#if 0
+						char letter[2] = {};
+						letter[0] = line[lineIndex];
+						realDataEnd = fastStrcat(realDataEnd, letter);
+#else
+						*realDataEnd = line[lineIndex];
+						realDataEnd++;
+#endif
 					}
 				}
 			} else {
-				realData->append(line);
+				realDataEnd = fastStrcat(realDataEnd, line);
 			}
-			realData->append("\\n\";");
+			realDataEnd = fastStrcat(realDataEnd, "\\n\";");
 		} else if (inImages) {
-			realData->append("__image += \"");
-			realData->append(line);
-			realData->append("\n\";");
+			realDataEnd = fastStrcat(realDataEnd, "__image += \"");
+			realDataEnd = fastStrcat(realDataEnd, line);
+			realDataEnd = fastStrcat(realDataEnd, "\n\";");
 		} else if (inAudio) {
-			realData->append("__audio += \"");
-			realData->append(line);
-			realData->append("\n\";");
+			realDataEnd = fastStrcat(realDataEnd, "__audio += \"");
+			realDataEnd = fastStrcat(realDataEnd, line);
+			realDataEnd = fastStrcat(realDataEnd, "\n\";");
 		} else {
-			realData->append(line);
+			realDataEnd = fastStrcat(realDataEnd, line);
 		}
-		realData->append("\n");
+		realDataEnd = fastStrcat(realDataEnd, "\n");
 
 		lineStart = lineEnd+1;
 	}
 
 	Free(inputData);
 
-	// printf("Final: %s\n", realData->cStr);
-	runJs(realData->cStr);
-	realData->destroy();
+	// printf("Final: %s\n", realData);
+	runJs(realData);
+	Free(realData);
 }
 
 void msg(const char *str, ...) {
@@ -585,12 +613,16 @@ void modLoaded(char *data) {
 
 	if (!streq(data, "none") && !streq(data, "(null)")) {
 		msg("Mod loaded!");
-		String *str = newString(2048);
-		str->append("try {\n");
-		str->append(data);
-		str->append("\n} catch (e) { msg(String(e.stack), {smallFont: true, hugeTexture: true, extraTime: 20}); }\n");
-		runMod(str->cStr);
-		str->destroy();
+		int modDataSize = sizeof(char) * strlen(data) + 1024;
+		char *str = (char *)Malloc(modDataSize);
+		memset(str, 0, modDataSize);
+		char *endOfStr = str;
+
+		endOfStr = fastStrcat(endOfStr, "try {\n");
+		endOfStr = fastStrcat(endOfStr, data);
+		endOfStr = fastStrcat(endOfStr, "\n} catch (e) { msg(String(e.stack), {smallFont: true, hugeTexture: true, extraTime: 20}); }\n");
+		runMod(str);
+		Free(str);
 	} else {
 		msg("No mod found");
 	}
@@ -643,6 +675,99 @@ duk_ret_t openSoftwareKeyboard(duk_context *ctx) {
 duk_ret_t interRnd(duk_context *ctx) {
 	duk_push_number(ctx, rnd());
 	return 1;
+}
+
+duk_ret_t iterTweens(duk_context *ctx) {
+	int n = duk_get_length(ctx, 0);
+	// printf("elements: %d\n", n);
+	for (int i = 0; i < n; i++) {
+		char keyNames[10][20]; // 10 possible keys of max length 20
+		int keyNamesNum = 0;
+
+		float startValues[10];
+		int startValuesNum = 0;
+
+		float endValues[10];
+		int endValuesNum = 0;
+
+		duk_get_prop_index(ctx, 0, i);
+
+		/// Start params
+		duk_push_string(ctx, "startParams");
+		duk_get_prop(ctx, -2);
+
+		duk_enum(ctx, -1, 0);
+		while (duk_next(ctx, -1, true)) {
+			const char *paramName = duk_safe_to_string(ctx, -2);
+			float value = duk_get_number(ctx, -1);
+			strcpy(keyNames[keyNamesNum++], paramName);
+			startValues[startValuesNum++] = value;
+			duk_pop_2(ctx);
+		}
+		duk_pop(ctx); // enum
+
+		duk_pop(ctx); // string
+
+		/// End params
+		duk_push_string(ctx, "params");
+		duk_get_prop(ctx, -2);
+
+		duk_enum(ctx, -1, 0);
+		while (duk_next(ctx, -1, true)) {
+			const char *paramName = duk_safe_to_string(ctx, -2);
+			float value = duk_get_number(ctx, -1);
+			for (int keysI = 0; keysI < keyNamesNum; keysI++) {
+				if (streq(keyNames[keysI], paramName)) {
+					endValues[keysI++] = value;
+					break;
+				}
+			}
+			duk_pop_2(ctx);
+		}
+		duk_pop(ctx); // enum
+
+		duk_pop(ctx); // string
+
+		/// Perc
+		duk_push_string(ctx, "elapsed");
+		duk_get_prop(ctx, -2);
+		float elapsed = duk_get_number(ctx, -1);
+		duk_pop(ctx); // string
+
+		duk_push_string(ctx, "elapsed");
+		elapsed += engine->elapsed;
+		duk_push_number(ctx, elapsed);
+		duk_put_prop(ctx, -3);
+
+		duk_push_string(ctx, "totalTime");
+		duk_get_prop(ctx, -2);
+		float totalTime = duk_get_number(ctx, -1);
+		duk_pop(ctx); // string
+
+		float perc = elapsed/totalTime;
+		//@todo easing and reverse
+
+		/// Source
+		duk_push_string(ctx, "source");
+		duk_get_prop(ctx, -2);
+		for (int keysI = 0; keysI < keyNamesNum; keysI++) {
+			const char *keyName = keyNames[keysI];
+			float start = startValues[keysI];
+			float end = endValues[keysI];
+			float newValue = mathLerp(perc, start, end);
+
+			duk_push_string(ctx, keyName);
+			duk_push_number(ctx, newValue);
+			duk_put_prop(ctx, -3);
+		}
+		duk_pop(ctx); // string
+
+		// printf("e/t: %0.1f %0.1f\n", elapsed, totalTime);
+		// for (int keysI = 0; keysI < keyNamesNum; keysI++) {
+		// 	printf("Got key %s, start: %0.1f end: %0.1f\n", keyNames[keysI], startValues[keysI], endValues[keysI]);
+		// }
+	}
+	return 0;
 }
 
 
