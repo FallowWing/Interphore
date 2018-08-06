@@ -136,7 +136,6 @@ queueAddChoice("... Okay that is kind of true...", "forgNext6");
 !`
 queueTitle("...");
 queueTitle("... Please, Rebeca.");
-queueTitle("These little silent patches... of ellipses... are killing me...");
 queueTitle("Whenever it's quiet...");
 queueTitle("I hear them crying in the back of my skull...");
 queueAddChoice("Take her hand.", "... Take her hand.");
