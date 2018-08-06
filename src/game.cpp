@@ -19,6 +19,7 @@ struct Passage {
 struct Game {
 	Profiler profiler;
 	DebugOverlay debugOverlay;
+	TextArea area;
 
 	MintSprite *bg;
 
@@ -199,6 +200,20 @@ void initGame() {
 	}
 #endif
 
+#ifdef TEST_TEXT_AREA
+	runJs("gotoPassage(\"scratchModStart\");");
+	initTextArea(&game->area, 512, 512);
+
+	TextArea *area = &game->area;
+	area->sprite->layer = 9999;
+	area->sprite->tint = 0xFFFFFFFF;
+	area->ref->setText("This is a test of text areas\n");
+
+	area->ref->layer = 9999;
+	area->ref->y = 100;
+	area->ref->tint = 0xFFFFFFFF;
+#endif
+
 
 	game->root = createMintSprite();
 	game->root->setupContainer(engine->width, engine->height);
@@ -244,6 +259,22 @@ void deinitGame() {
 
 void updateGame() {
 	game->profiler.startProfile(PROFILE_JS_UPDATE);
+
+	if (game->area.exists) {
+		TextArea *area = &game->area;
+		MintSprite *ref = area->ref;
+		MintSprite *sprite = area->sprite;
+
+		int textLen = strlen(ref->text);
+		sprite->clear();
+		// for (int i = 0; i < textLen; i++) {
+		// 	Rect *rect = &ref->charRects[i];
+		// 	// sprite->drawPixelsFromSprite(ref, rect->x, rect->y, rect->width-1, rect->height, rect->x+rndInt(-5, 5), rect->y+rndInt(-5, 5));
+		// 	sprite->drawPixelsFromSprite(ref, rect->x, rect->y, rect->width, rect->height, rect->x + i*3, rect->y);
+		// }
+
+		sprite->drawPixelsFromSprite(ref, 0, 0, ref->width/2, ref->height, 0, 0, rndFloat(0.9, 1.1), rndFloat(0.9, 1.1));
+	}
 
 	char buf[1024];
 	sprintf(
