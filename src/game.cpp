@@ -207,11 +207,7 @@ void initGame() {
 	TextArea *area = &game->area;
 	area->sprite->layer = 9999;
 	area->sprite->tint = 0xFFFFFFFF;
-	area->ref->setText("This is a test of text areas\n");
-
-	area->ref->layer = 9999;
-	area->ref->y = 100;
-	area->ref->tint = 0xFFFFFFFF;
+	area->setText("This is a test of the text area system");
 #endif
 
 
@@ -262,10 +258,9 @@ void updateGame() {
 
 	if (game->area.exists) {
 		TextArea *area = &game->area;
-		MintSprite *ref = area->ref;
+		// MintSprite *ref = area->ref;
 		MintSprite *sprite = area->sprite;
 
-		int textLen = strlen(ref->text);
 		sprite->clear();
 		// for (int i = 0; i < textLen; i++) {
 		// 	Rect *rect = &ref->charRects[i];
@@ -273,7 +268,7 @@ void updateGame() {
 		// 	sprite->drawPixelsFromSprite(ref, rect->x, rect->y, rect->width, rect->height, rect->x + i*3, rect->y);
 		// }
 
-		sprite->drawPixelsFromSprite(ref, 0, 0, ref->width/2, ref->height, 0, 0, rndFloat(0.9, 1.1), rndFloat(0.9, 1.1));
+		// sprite->drawPixelsFromSprite(ref, 0, 0, ref->width/2, ref->height, 0, 0, rndFloat(0.9, 1.1), rndFloat(0.9, 1.1));
 	}
 
 	char buf[1024];
