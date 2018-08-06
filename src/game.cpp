@@ -362,10 +362,16 @@ void runMod(char *serialData) {
 	char *inputData = (char *)zalloc(SERIAL_SIZE);
 
 	int serialLen = strlen(serialData);
-	String *realData = newString(serialLen * 2); //@incomplete Make this a normal char * again
-	realData->append("var __passage = \"\";\n");
-	realData->append("var __image = \"\";\n");
-	realData->append("var __audio = \"\";\n");
+
+	int realDataSize = sizeof(char) * (serialLen + 1024) * 10; //@hack Not sure how big this should really be
+	// printf("Data size is: %0.2fmb\n", (float)realDataSize / Megabytes(1));
+	char *realData = (char *)Malloc(realDataSize);
+	memset(realData, 0, realDataSize);
+
+	char *realDataEnd = realData;
+	realDataEnd = fastStrcat(realDataEnd, "var __passage = \"\";\n");
+	realDataEnd = fastStrcat(realDataEnd, "var __image = \"\";\n");
+	realDataEnd = fastStrcat(realDataEnd, "var __audio = \"\";\n");
 
 	int inputLen = 0;
 	for (int i = 0; i < serialLen; i++)
@@ -390,68 +396,75 @@ void runMod(char *serialData) {
 
 		if (strstr(line, "START_IMAGES")) {
 			inImages = true;
-			realData->append("var __image = \"\";\n");
+			realDataEnd = fastStrcat(realDataEnd, "var __image = \"\";\n");
 		} else if (strstr(line, "END_IMAGES")) {
 			inImages = false;
-			realData->append("print(\"Submitting images is deprecated\");");
+			realDataEnd = fastStrcat(realDataEnd, "print(\"Submitting images is deprecated\");");
 		} else if (strstr(line, "START_AUDIO")) {
 			inAudio = true;
-			realData->append("__audio = \"\";");
+			realDataEnd = fastStrcat(realDataEnd, "__audio = \"\";");
 		} else if (strstr(line, "END_AUDIO")) {
 			inAudio = false;
-			realData->append("print(\"Submitting audio is deprecated\");");
+			realDataEnd = fastStrcat(realDataEnd, "print(\"Submitting audio is deprecated\");");
 		} else if (strstr(line, "START_PASSAGES")) {
 			inPassage = true;
-			realData->append("__passage = \"\";");
+			realDataEnd = fastStrcat(realDataEnd, "__passage = \"\";");
 		} else if (strstr(line, "END_PASSAGES")) {
-			realData->append("submitPassage(__passage);");
+			realDataEnd = fastStrcat(realDataEnd, "submitPassage(__passage);");
 			inPassage = false;
 		} else if (strstr(line, "---")) {
 			if (inPassage) {
-				realData->append("submitPassage(__passage);\n__passage = \"\";");
+				realDataEnd = fastStrcat(realDataEnd, "submitPassage(__passage);\n__passage = \"\";");
 			} else if (inImages) {
-			realData->append("print(\"Submitting images is deprecated\");");
+			realDataEnd = fastStrcat(realDataEnd, "print(\"Submitting images is deprecated\");");
 			} else if (inAudio) {
-			realData->append("print(\"Submitting audio is deprecated\");");
+			realDataEnd = fastStrcat(realDataEnd, "print(\"Submitting audio is deprecated\");");
 			}
 		} else if (inPassage) {
-			realData->append("__passage += \"");
+			realDataEnd = fastStrcat(realDataEnd, "__passage += \"");
 
 			if (strstr(line, "\"")) {
 				for (int lineIndex = 0; lineIndex < strlen(line); lineIndex++) {
 					if (line[lineIndex] == '"') {
-						realData->append("\\\"");
+						realDataEnd = fastStrcat(realDataEnd, "\\\"");
 					} else if (line[lineIndex] == '\\') {
-						realData->append("\\\\");
+						realDataEnd = fastStrcat(realDataEnd, "\\\\");
 					} else {
-						realData->appendChar(line[lineIndex]);
+#if 0
+						char letter[2] = {};
+						letter[0] = line[lineIndex];
+						realDataEnd = fastStrcat(realDataEnd, letter);
+#else
+						*realDataEnd = line[lineIndex];
+						realDataEnd++;
+#endif
 					}
 				}
 			} else {
-				realData->append(line);
+				realDataEnd = fastStrcat(realDataEnd, line);
 			}
-			realData->append("\\n\";");
+			realDataEnd = fastStrcat(realDataEnd, "\\n\";");
 		} else if (inImages) {
-			realData->append("__image += \"");
-			realData->append(line);
-			realData->append("\n\";");
+			realDataEnd = fastStrcat(realDataEnd, "__image += \"");
+			realDataEnd = fastStrcat(realDataEnd, line);
+			realDataEnd = fastStrcat(realDataEnd, "\n\";");
 		} else if (inAudio) {
-			realData->append("__audio += \"");
-			realData->append(line);
-			realData->append("\n\";");
+			realDataEnd = fastStrcat(realDataEnd, "__audio += \"");
+			realDataEnd = fastStrcat(realDataEnd, line);
+			realDataEnd = fastStrcat(realDataEnd, "\n\";");
 		} else {
-			realData->append(line);
+			realDataEnd = fastStrcat(realDataEnd, line);
 		}
-		realData->append("\n");
+		realDataEnd = fastStrcat(realDataEnd, "\n");
 
 		lineStart = lineEnd+1;
 	}
 
 	Free(inputData);
 
-	// printf("Final: %s\n", realData->cStr);
-	runJs(realData->cStr);
-	realData->destroy();
+	// printf("Final: %s\n", realData);
+	runJs(realData);
+	Free(realData);
 }
 
 void msg(const char *str, ...) {
@@ -613,12 +626,16 @@ void modLoaded(char *data) {
 
 	if (!streq(data, "none") && !streq(data, "(null)")) {
 		msg("Mod loaded!");
-		String *str = newString(2048);
-		str->append("try {\n");
-		str->append(data);
-		str->append("\n} catch (e) { msg(String(e.stack), {smallFont: true, hugeTexture: true, extraTime: 20}); }\n");
-		runMod(str->cStr);
-		str->destroy();
+		int modDataSize = sizeof(char) * strlen(data) + 1024;
+		char *str = (char *)Malloc(modDataSize);
+		memset(str, 0, modDataSize);
+		char *endOfStr = str;
+
+		endOfStr = fastStrcat(endOfStr, "try {\n");
+		endOfStr = fastStrcat(endOfStr, data);
+		endOfStr = fastStrcat(endOfStr, "\n} catch (e) { msg(String(e.stack), {smallFont: true, hugeTexture: true, extraTime: 20}); }\n");
+		runMod(str);
+		Free(str);
 	} else {
 		msg("No mod found");
 	}
