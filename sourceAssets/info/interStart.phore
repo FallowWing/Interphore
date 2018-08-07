@@ -109,7 +109,6 @@ var vn = {
 	charPad: 128,
 	transitionTime: 0.5,
 
-	text: null,
 	textBg: null,
 };
 
@@ -117,16 +116,13 @@ vn.init = function() {
 	queueCall(function() { vn.initNow(); });
 }
 vn.initNow = function() {
-	vn.text = addEmptyImage(512, 256);
-	vn.text.layer = VN_TEXT_LAYER;
 	vn.active = true;
 }
 vn.deinit = function() {
 	queueCall(function() { vn.deinitNow(); });
 }
 vn.deinitNow = function() {
-	if (vn.text) vn.text.destroy();
-	vn.text = null;
+	setTextArea_internal("");
 
 	if (vn.textBg) vn.textBg.destroy();
 	vn.textBg = null;
@@ -214,23 +210,21 @@ vn.say = function(charNum, text) {
 }
 vn.sayNow = function(charNum, text) {
 	var spr = vn.chars[charNum].sprite;
-	vn.text.tint = vn.chars[charNum].fontColour;
-	vn.text.setText(text);
+	// vn.text.tint = vn.chars[charNum].fontColour;
+	setTextArea_internal(text);
+	var textWidth = getTextAreaWidth_internal();
+	var textHeight = getTextAreaHeight_internal();
 
-	var textX = 
-		(charNum == 0) ? gameWidth*0.25 - vn.text.textWidth/2 :
-		(charNum == 1) ? gameWidth*0.75 - vn.text.textWidth/2 :
-		0;
-
-	vn.text.x = textX;
-	vn.text.y = gameHeight*0.75 - vn.text.textHeight/2;
+	var textX = spr.x + spr.width/2 - textWidth/2;
+	var textY = gameHeight*0.75 - textHeight/2;
+	moveTextArea_internal(textX, textY);
 
 	if (vn.textBg) vn.textBg.destroy();
-	vn.textBg = addRectImage(vn.text.textWidth * 1.25, vn.text.textHeight * 1.25);
+	vn.textBg = addRectImage(textWidth * 1.25, textHeight * 1.25);
 	vn.textBg.alpha = 0.85;
 	vn.textBg.layer = VN_TEXT_BG_LAYER;
-	vn.textBg.x = vn.text.x + vn.text.textWidth/2 - vn.textBg.width/2;
-	vn.textBg.y = vn.text.y + vn.text.textHeight/2 - vn.textBg.height/2;
+	vn.textBg.x = textX + textWidth/2 - vn.textBg.width/2;
+	vn.textBg.y = textY + textHeight/2 - vn.textBg.height/2;
 }
 
 vn.choice = function(text, result) {
@@ -267,6 +261,9 @@ vn.cancelEffectsNow = function(charNum) {
 vn.stop = function() {
 	queueStop();
 }
+
+// vn.setJiggleText = function(jiggleX, jiggleY) {
+// }
 
 vn.update = function() {
 	if (!vn.active) return;

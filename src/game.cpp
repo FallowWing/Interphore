@@ -75,6 +75,12 @@ duk_ret_t openSoftwareKeyboard(duk_context *ctx);
 duk_ret_t interRnd(duk_context *ctx);
 duk_ret_t iterTweens(duk_context *ctx);
 
+duk_ret_t moveTextArea(duk_context *ctx);
+duk_ret_t resizeTextArea(duk_context *ctx);
+duk_ret_t setTextArea(duk_context *ctx);
+duk_ret_t getTextAreaWidth(duk_context *ctx);
+duk_ret_t getTextAreaHeight(duk_context *ctx);
+
 /// Images
 duk_ret_t addImage(duk_context *ctx);
 duk_ret_t addCanvasImage(duk_context *ctx);
@@ -167,6 +173,12 @@ void initGame() {
 	addJsFunction("loadGame_internal", loadGame, 0);
 	addJsFunction("loadMod_internal", loadMod, 0);
 
+	addJsFunction("moveTextArea_internal", moveTextArea, 2);
+	addJsFunction("resizeTextArea_internal", resizeTextArea, 2);
+	addJsFunction("setTextArea_internal", setTextArea, 1);
+	addJsFunction("getTextAreaWidth_internal", getTextAreaWidth, 0);
+	addJsFunction("getTextAreaHeight_internal", getTextAreaHeight, 0);
+
 	game = (Game *)zalloc(sizeof(Game));
 
 	initProfiler(&game->profiler);
@@ -200,17 +212,10 @@ void initGame() {
 	}
 #endif
 
-#ifdef TEST_TEXT_AREA
-	runJs("gotoPassage(\"scratchModStart\");");
 	initTextArea(&game->area);
-
-	TextArea *area = &game->area;
-	area->resize(512, 1024);
-	area->sprite->layer = 9999;
-
-	area->setFont("NunitoSans-Light_22");
-#endif
-
+	game->area.resize(512, 512);
+	game->area.sprite->layer = 9999;
+	// game->area.setFont("NunitoSans-Light_22");
 
 	game->root = createMintSprite();
 	game->root->setupContainer(engine->width, engine->height);
@@ -257,19 +262,6 @@ void deinitGame() {
 void updateGame() {
 	game->profiler.startProfile(PROFILE_JS_UPDATE);
 
-	if (game->area.exists) {
-		// if (keyIsJustReleased('T')) {
-		// 	TextArea *area = &game->area;
-		// 	// area->addMode(TEXT_MODE_JIGGLE);
-		// 	// area->jiggleX = 3;
-		// 	// area->jiggleY = 3;
-
-		// 	area->addMode(TEXT_MODE_ZOOM_OUT);
-		// 	area->setText("This is a test of the text area system, I wonder how much text I can render this way till <b>Flash</b> becomes too slow");
-		// }
-		game->area.update();
-	}
-
 	char buf[1024];
 	sprintf(
 		buf,
@@ -295,6 +287,8 @@ void updateGame() {
 
 	game->profiler.endProfile(PROFILE_JS_UPDATE);
 	game->profiler.startProfile(PROFILE_GAME_UPDATE);
+
+	if (game->area.exists) game->area.update();
 
 	{ /// Update streaming
 		if (!game->isStreaming && game->streamNamesNum > game->curStreamIndex) {
@@ -782,7 +776,43 @@ duk_ret_t iterTweens(duk_context *ctx) {
 	return 0;
 }
 
+duk_ret_t moveTextArea(duk_context *ctx) {
+	float ypos = duk_get_number(ctx, -1);
+	float xpos = duk_get_number(ctx, -2);
 
+	game->area.sprite->x = xpos;
+	game->area.sprite->y = ypos;
+
+	return 0;
+}
+
+duk_ret_t resizeTextArea(duk_context *ctx) {
+	float height = duk_get_number(ctx, -1);
+	float width = duk_get_number(ctx, -2);
+
+	game->area.resize(width, height);
+	game->area.sprite->layer = 9999;
+
+	return 0;
+}
+
+duk_ret_t setTextArea(duk_context *ctx) {
+	const char *value = duk_get_string(ctx, -1);
+
+	game->area.setText(value);
+
+	return 0;
+}
+
+duk_ret_t getTextAreaWidth(duk_context *ctx) {
+	duk_push_number(ctx, game->area.textWidth);
+	return 1;
+}
+
+duk_ret_t getTextAreaHeight(duk_context *ctx) {
+	duk_push_number(ctx, game->area.textHeight);
+	return 1;
+}
 //
 //
 //         IMAGES START
