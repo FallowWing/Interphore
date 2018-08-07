@@ -40,7 +40,8 @@ Make sure you play through the intro or go to Hub and visit Red Pond to set your
 
 !`
 if (internal) addChoice("VN test", "vnTest");
-if (internal) addChoice("Thelly", "thellyMod");
+addChoice("Thelly", "thellyMod");
+addChoice("Lone", "loneMod");
 `
 ---
 :Change Mynt's genitals
@@ -72,13 +73,47 @@ gotoMap();
 ---
 :thellyMod
 
+Password?
+
 !`
-clear();
-execAsset("thelly.phore");
-gotoPassage("thellyModStart");
+addInputField();
+addChoice("Submit.", "thellyMod2");
+addChoice("Back.", "scratchModStart");
 `
 ---
+:thellyMod2
 
+!`
+if (lastInput === "thellybobelly") {
+	clear();
+	execAsset("thelly.phore");
+	gotoPassage("thellyModStart");
+} else {
+	gotoPassage("thellyMod");
+}
+`
+---
+:loneMod
+
+Password?
+
+!`
+addInputField();
+addChoice("Submit.", "loneMod2");
+addChoice("Back.", "scratchModStart");
+`
+---
+:loneMod2
+
+!`
+if (lastInput === "lonebobone") {
+	clear();
+	execAsset("lone.phore");
+	gotoPassage("loneModStart");
+} else {
+	gotoPassage("loneMod");
+}
+`
 ---
 :introModOriginal
 
