@@ -506,7 +506,15 @@ vn.fadeIn(1);
 vn.effect(1, "shake");
 vn.say(1, "Effect!");
 
-vn.say(0, "Nice");
+vn.setTextZoomOut();
+vn.say(0, "Nice effect, check out this text zooming-out text (Benchmark Benchmark Benchmark Benchmark Benchmark Benchmark Benchmark Benchmark)");
+vn.say(0, "Look at how it slows down a lot with this third parameter", 3);
+vn.resetTextModes();
+
+vn.setTextZoomOut();
+vn.setTextJiggle(4, 4);
+vn.say(1, "It can be jiggling as well", 3);
+
 vn.delay(0.5);
 vn.moveOut(0);
 vn.moveOut(1);

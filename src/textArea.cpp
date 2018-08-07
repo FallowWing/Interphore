@@ -62,7 +62,6 @@ void TextArea::setFont(const char *fontName) {
 void TextArea::addMode(TextAreaMode mode) {
 	TextArea *area = this;
 	area->modes[area->modesNum++] = mode;
-	area->modeStartTime = engine->time;
 
 	if (mode == TEXT_MODE_JIGGLE) {
 		area->jiggleX = 0;
@@ -86,6 +85,8 @@ void TextArea::setText(const char *text) {
 
 	parseText(text, outText, regions, &regionsNum);
 	getTextRects(outText, area->sprite->width, area->defaultFont, regions, regionsNum, area->defs, &area->defsNum, &area->textWidth, &area->textHeight);
+
+	area->modeStartTime = engine->time;
 }
 
 void TextArea::update() {
@@ -105,8 +106,8 @@ void TextArea::update() {
 		for (int modeI = 0; modeI < area->modesNum; modeI++) {
 			TextAreaMode mode = area->modes[modeI];
 			if (mode == TEXT_MODE_JIGGLE) {
-				destPoint.x += rndFloat(-area->jiggleX, area->jiggleX);
-				destPoint.y += rndFloat(-area->jiggleY, area->jiggleY);
+				destPoint.x += rndInt(-area->jiggleX, area->jiggleX);
+				destPoint.y += rndInt(-area->jiggleY, area->jiggleY);
 			} else if (mode == TEXT_MODE_ZOOM_OUT) {
 				float charPerc = mathClampMap(engine->time, area->modeStartTime, area->modeStartTime + zoomTime, 0, area->defsNum);
 				if (charPerc > i+1) {

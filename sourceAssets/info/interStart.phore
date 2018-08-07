@@ -204,14 +204,19 @@ vn.fadeOutNow = function(charNum) {
 	vn.chars[charNum].fadedIn = false;
 }
 
-vn.say = function(charNum, text) {
-	queueCall(function() { vn.sayNow(charNum, text); });
+vn.say = function(charNum, text, timeMulti) {
+	if (timeMulti === undefined) timeMulti = 1;
+
+	var textTime = 1 + text.length/100;
+	textTime *= timeMulti;
+	queueCall(function() { vn.sayNow(charNum, text, textTime); });
 	queuePause();
 }
-vn.sayNow = function(charNum, text) {
+vn.sayNow = function(charNum, text, textTime) {
 	var spr = vn.chars[charNum].sprite;
 	// vn.text.tint = vn.chars[charNum].fontColour;
 	setTextArea_internal(text);
+	setTextAreaZoomTime_internal(textTime);
 	var textWidth = getTextAreaWidth_internal();
 	var textHeight = getTextAreaHeight_internal();
 
@@ -258,12 +263,20 @@ vn.cancelEffectsNow = function(charNum) {
 	cancelTweens(spr);
 }
 
+vn.setTextZoomOut = function() {
+	queueCall(function() { setTextAreaZoomOut_internal(); });
+}
+vn.setTextJiggle = function(jiggleX, jiggleY) {
+	queueCall(function() { setTextAreaJiggle_internal(jiggleX, jiggleY); });
+}
+
+vn.resetTextModes = function() {
+	queueCall(function() { resetTextAreaModes_internal(); });
+}
+
 vn.stop = function() {
 	queueStop();
 }
-
-// vn.setJiggleText = function(jiggleX, jiggleY) {
-// }
 
 vn.update = function() {
 	if (!vn.active) return;

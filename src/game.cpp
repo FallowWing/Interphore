@@ -80,6 +80,10 @@ duk_ret_t resizeTextArea(duk_context *ctx);
 duk_ret_t setTextArea(duk_context *ctx);
 duk_ret_t getTextAreaWidth(duk_context *ctx);
 duk_ret_t getTextAreaHeight(duk_context *ctx);
+duk_ret_t setTextAreaZoomTime(duk_context *ctx);
+duk_ret_t setTextAreaZoomOut(duk_context *ctx);
+duk_ret_t setTextAreaJiggle(duk_context *ctx);
+duk_ret_t resetTextAreaModes(duk_context *ctx);
 
 /// Images
 duk_ret_t addImage(duk_context *ctx);
@@ -178,6 +182,10 @@ void initGame() {
 	addJsFunction("setTextArea_internal", setTextArea, 1);
 	addJsFunction("getTextAreaWidth_internal", getTextAreaWidth, 0);
 	addJsFunction("getTextAreaHeight_internal", getTextAreaHeight, 0);
+	addJsFunction("setTextAreaZoomTime_internal", setTextAreaZoomTime, 1);
+	addJsFunction("setTextAreaZoomOut_internal", setTextAreaZoomOut, 0);
+	addJsFunction("setTextAreaJiggle_internal", setTextAreaJiggle, 2);
+	addJsFunction("resetTextAreaModes_internal", resetTextAreaModes, 0);
 
 	game = (Game *)zalloc(sizeof(Game));
 
@@ -812,6 +820,35 @@ duk_ret_t getTextAreaWidth(duk_context *ctx) {
 duk_ret_t getTextAreaHeight(duk_context *ctx) {
 	duk_push_number(ctx, game->area.textHeight);
 	return 1;
+}
+
+duk_ret_t setTextAreaZoomTime(duk_context *ctx) {
+	float time = duk_get_number(ctx, -1);
+
+	game->area.zoomTime = time;
+
+	return 0;
+}
+
+duk_ret_t setTextAreaZoomOut(duk_context *ctx) {
+	game->area.addMode(TEXT_MODE_ZOOM_OUT);
+	return 0;
+}
+
+duk_ret_t setTextAreaJiggle(duk_context *ctx) {
+	int jiggleY = duk_get_int(ctx, -1);
+	int jiggleX = duk_get_int(ctx, -2);
+
+	game->area.addMode(TEXT_MODE_JIGGLE);
+	game->area.jiggleX = jiggleX;
+	game->area.jiggleY = jiggleY;
+
+	return 0;
+}
+
+duk_ret_t resetTextAreaModes(duk_context *ctx) {
+	game->area.resetModes();
+	return 0;
 }
 //
 //
