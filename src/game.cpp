@@ -202,12 +202,13 @@ void initGame() {
 
 #ifdef TEST_TEXT_AREA
 	runJs("gotoPassage(\"scratchModStart\");");
-	initTextArea(&game->area, 512, 1024);
+	initTextArea(&game->area);
 
 	TextArea *area = &game->area;
+	area->resize(512, 1024);
 	area->sprite->layer = 9999;
-	area->sprite->tint = 0xFFFFFFFF;
-	area->setText("This is a test of the text area system, I wonder how much text I can render this way till <b>Flash</b> becomes too slow");
+
+	area->setFont("NunitoSans-Light_22");
 #endif
 
 
@@ -256,7 +257,18 @@ void deinitGame() {
 void updateGame() {
 	game->profiler.startProfile(PROFILE_JS_UPDATE);
 
-	if (game->area.exists) game->area.update();
+	if (game->area.exists) {
+		// if (keyIsJustReleased('T')) {
+		// 	TextArea *area = &game->area;
+		// 	// area->addMode(TEXT_MODE_JIGGLE);
+		// 	// area->jiggleX = 3;
+		// 	// area->jiggleY = 3;
+
+		// 	area->addMode(TEXT_MODE_ZOOM_OUT);
+		// 	area->setText("This is a test of the text area system, I wonder how much text I can render this way till <b>Flash</b> becomes too slow");
+		// }
+		game->area.update();
+	}
 
 	char buf[1024];
 	sprintf(
