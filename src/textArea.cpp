@@ -94,11 +94,11 @@ void TextArea::update() {
 	MintSprite *sprite = area->sprite;
 
 	sprite->clear();
-	sprite->tint = area->fontColour;
 	for (int i = 0; i < area->defsNum; i++) {
 		CharRenderDef *def = &area->defs[i];
 		if (def->glyph == ' ') continue;
 
+		int tint = area->fontColour;
 		Rect sourceRect = def->sourceRect;
 		Point destPoint = def->destPoint;
 		Point scale = {1, 1};
@@ -130,6 +130,6 @@ void TextArea::update() {
 			}
 		}
 
-		sprite->drawPixelsFromAsset(def->sourceTextureAsset, sourceRect.x, sourceRect.y, sourceRect.width, sourceRect.height, destPoint.x, destPoint.y, scale.x, scale.y);
+		sprite->drawPixelsFromAsset(def->sourceTextureAsset, sourceRect.x, sourceRect.y, sourceRect.width, sourceRect.height, destPoint.x, destPoint.y, scale.x, scale.y, tint);
 	}
 }

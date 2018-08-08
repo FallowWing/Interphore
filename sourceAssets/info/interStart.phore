@@ -214,7 +214,7 @@ vn.say = function(charNum, text, timeMulti) {
 }
 vn.sayNow = function(charNum, text, textTime) {
 	var spr = vn.chars[charNum].sprite;
-	// vn.text.tint = vn.chars[charNum].fontColour;
+	setTextAreaTint_internal(vn.chars[charNum].fontColour);
 	setTextArea_internal(text);
 	setTextAreaZoomTime_internal(textTime);
 	var textWidth = getTextAreaWidth_internal();
