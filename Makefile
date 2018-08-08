@@ -46,23 +46,45 @@ resetSite:
 		git reset --hard origin/master && \
 		git pull
 
+shipInterNewDir:
+	$(MAKE) resetSite
+	newDirName=$(PARAPHORE_COM_PATH)/interphore/early/`date | md5sum -- `; \
+												newDirName=$${newDirName:0:-3}; \
+												rm -rf $(PARAPHORE_COM_PATH)/interphore/early/*; \
+												mkdir $$newDirName;
+	$(MAKE) shipDir SHIP_DIR="$(PARAPHORE_COM_PATH)/interphore/early"
+	
+	$(MAKE) shipInter
+	dirName=`ls -d $(PARAPHORE_COM_PATH)/interphore/early/*`; \
+									echo New url is $$dirName;
+
+# | awk -F "*" '{print $1}'
 shipInter:
 	$(MAKE) resetSite
 	
 	cp res/currentMod.phore bin
-	$(MAKE) boptflash EXTRA_DEFINES="-D SEMI_DEV" SHIPPING=1
-	$(MAKE) packWindows EXTRA_DEFINES="-D SEMI_DEV" SHIPPING=1
-	$(MAKE) bandroid EXTRA_DEFINES="-D SEMI_DEV" SHIPPING=1
-	cp bin/engine.swf $(PARAPHORE_COM_PATH)/interphore/interphore.swf
-	cp bin/$(GAME_NAME).zip $(PARAPHORE_COM_PATH)/interphore/interphore.zip
-	cp bin/engine.apk $(PARAPHORE_COM_PATH)/interphore/interphore.apk
+	$(MAKE) boptflash EXTRA_DEFINES+="-D SEMI_DEV" SHIPPING=1
+	$(MAKE) packWindows EXTRA_DEFINES+="-D SEMI_DEV" SHIPPING=1
+	$(MAKE) bandroid EXTRA_DEFINES+="-D SEMI_DEV" SHIPPING=1
+	dirName=`ls -d $(PARAPHORE_COM_PATH)/interphore/early/*`; \
+									cp $(PARAPHORE_COM_PATH)/interphore/index.html $$dirName/index.html; \
+									cp bin/engine.swf $$dirName/interphore.swf; \
+									cp bin/$(GAME_NAME).zip $$dirName/interphore.zip; \
+									cp bin/engine.apk $$dirName/interphore.apk;
+	
+	$(MAKE) shipDir SHIP_DIR="$(PARAPHORE_COM_PATH)/interphore/early/"
+
+shipInterPublic:
+	$(MAKE) shipInter
+	dirName=`ls -d $(PARAPHORE_COM_PATH)/interphore/early/*`; \
+									cp -r $$dirName/* $(PARAPHORE_COM_PATH)/interphore/
 	
 	$(MAKE) shipDir SHIP_DIR="$(PARAPHORE_COM_PATH)/interphore"
 
 shipDir:
 	cd $(SHIP_DIR); \
 		git add .; \
-		git commit -m "semi up"; \
+		git commit -m "inter up"; \
 		git push; \
 		newPrefix=`pwd | grep -o "paraphore.com.*"`; \
 		newPrefix=$${newPrefix:14}; \
