@@ -269,6 +269,9 @@ vn.setTextZoomOut = function() {
 vn.setTextJiggle = function(jiggleX, jiggleY) {
 	queueCall(function() { setTextAreaJiggle_internal(jiggleX, jiggleY); });
 }
+vn.setTextRainbow = function() {
+	queueCall(function() { setTextAreaRainbow_internal(); });
+}
 
 vn.resetTextModes = function() {
 	queueCall(function() { resetTextAreaModes_internal(); });

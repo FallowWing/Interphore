@@ -83,6 +83,7 @@ duk_ret_t getTextAreaHeight(duk_context *ctx);
 duk_ret_t setTextAreaZoomTime(duk_context *ctx);
 duk_ret_t setTextAreaZoomOut(duk_context *ctx);
 duk_ret_t setTextAreaJiggle(duk_context *ctx);
+duk_ret_t setTextAreaRainbow(duk_context *ctx);
 duk_ret_t setTextAreaTint(duk_context *ctx);
 duk_ret_t resetTextAreaModes(duk_context *ctx);
 
@@ -186,6 +187,7 @@ void initGame() {
 	addJsFunction("setTextAreaZoomTime_internal", setTextAreaZoomTime, 1);
 	addJsFunction("setTextAreaZoomOut_internal", setTextAreaZoomOut, 0);
 	addJsFunction("setTextAreaJiggle_internal", setTextAreaJiggle, 2);
+	addJsFunction("setTextAreaRainbow_internal", setTextAreaRainbow, 0);
 	addJsFunction("setTextAreaTint_internal", setTextAreaTint, 1);
 	addJsFunction("resetTextAreaModes_internal", resetTextAreaModes, 0);
 
@@ -845,6 +847,11 @@ duk_ret_t setTextAreaJiggle(duk_context *ctx) {
 	game->area.jiggleX = jiggleX;
 	game->area.jiggleY = jiggleY;
 
+	return 0;
+}
+
+duk_ret_t setTextAreaRainbow(duk_context *ctx) {
+	game->area.addMode(TEXT_MODE_RAINBOW);
 	return 0;
 }
 

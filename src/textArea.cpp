@@ -4,6 +4,7 @@ enum TextAreaMode {
 	TEXT_MODE_NONE,
 	TEXT_MODE_JIGGLE,
 	TEXT_MODE_ZOOM_OUT,
+	TEXT_MODE_RAINBOW,
 };
 
 struct TextArea {
@@ -127,6 +128,8 @@ void TextArea::update() {
 					destPoint.x -= sizeDiffX/2;
 					destPoint.y -= sizeDiffY/2;
 				}
+			} else if (mode == TEXT_MODE_RAINBOW) {
+				tint = argbToHex(255, rndInt(0, 255), rndInt(0, 255), rndInt(0, 255));
 			}
 		}
 
