@@ -547,7 +547,7 @@ vn.say(0, "Look at how it slows down a lot with this third parameter", 3);
 
 vn.resetTextModes();
 vn.setTextZoomOut();
-vn.setTextJiggle(4, 4);
+vn.setTextJiggle(2, 2);
 vn.say(1, "It can be jiggling as well", 3);
 
 vn.resetTextModes();
