@@ -4,6 +4,9 @@ enum TextAreaMode {
 	TEXT_MODE_NONE,
 	TEXT_MODE_JIGGLE,
 	TEXT_MODE_ZOOM_OUT,
+	TEXT_MODE_ZOOM_IN,
+	TEXT_MODE_RAINBOW,
+	TEXT_MODE_WAVE,
 };
 
 struct TextArea {
@@ -24,6 +27,9 @@ struct TextArea {
 	int jiggleX;
 	int jiggleY;
 	float zoomTime;
+	int waveX;
+	int waveY;
+	float waveSpeed;
 
 	void resize(int width, int height);
 	void setFont(const char *fontName);
@@ -94,11 +100,11 @@ void TextArea::update() {
 	MintSprite *sprite = area->sprite;
 
 	sprite->clear();
-	sprite->tint = area->fontColour;
 	for (int i = 0; i < area->defsNum; i++) {
 		CharRenderDef *def = &area->defs[i];
 		if (def->glyph == ' ') continue;
 
+		int tint = area->fontColour;
 		Rect sourceRect = def->sourceRect;
 		Point destPoint = def->destPoint;
 		Point scale = {1, 1};
@@ -127,9 +133,33 @@ void TextArea::update() {
 					destPoint.x -= sizeDiffX/2;
 					destPoint.y -= sizeDiffY/2;
 				}
+			} else if (mode == TEXT_MODE_ZOOM_IN) {
+				float charPerc = mathClampMap(engine->time, area->modeStartTime, area->modeStartTime + zoomTime, 0, area->defsNum);
+				if (charPerc > i+1) {
+					continue;
+				} else if (charPerc < i) {
+					scale.x = 0;
+					scale.y = 0;
+				} else {
+					float perc = charPerc - i;
+
+					float scaleFactor = mathLerp(perc, 0, 1);
+					scale.x = scaleFactor;
+					scale.y = scaleFactor;
+
+					float sizeDiffX = sourceRect.width*scale.x - sourceRect.width;
+					float sizeDiffY = sourceRect.height*scale.y - sourceRect.height;
+					destPoint.x -= sizeDiffX/2;
+					destPoint.y -= sizeDiffY/2;
+				}
+			} else if (mode == TEXT_MODE_RAINBOW) {
+				tint = argbToHex(255, rndInt(0, 255), rndInt(0, 255), rndInt(0, 255));
+			} else if (mode == TEXT_MODE_WAVE) {
+				destPoint.x += cos(engine->time*area->waveSpeed + ((float)i/area->defsNum)) * area->waveX;
+				destPoint.y += sin(engine->time*area->waveSpeed + ((float)i/area->defsNum)) * area->waveY;
 			}
 		}
 
-		sprite->drawPixelsFromAsset(def->sourceTextureAsset, sourceRect.x, sourceRect.y, sourceRect.width, sourceRect.height, destPoint.x, destPoint.y, scale.x, scale.y);
+		sprite->drawPixelsFromAsset(def->sourceTextureAsset, sourceRect.x, sourceRect.y, sourceRect.width, sourceRect.height, destPoint.x, destPoint.y, scale.x, scale.y, tint);
 	}
 }

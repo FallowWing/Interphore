@@ -80,9 +80,13 @@ duk_ret_t resizeTextArea(duk_context *ctx);
 duk_ret_t setTextArea(duk_context *ctx);
 duk_ret_t getTextAreaWidth(duk_context *ctx);
 duk_ret_t getTextAreaHeight(duk_context *ctx);
+duk_ret_t setTextAreaTint(duk_context *ctx);
 duk_ret_t setTextAreaZoomTime(duk_context *ctx);
 duk_ret_t setTextAreaZoomOut(duk_context *ctx);
+duk_ret_t setTextAreaZoomIn(duk_context *ctx);
 duk_ret_t setTextAreaJiggle(duk_context *ctx);
+duk_ret_t setTextAreaRainbow(duk_context *ctx);
+duk_ret_t setTextAreaWave(duk_context *ctx);
 duk_ret_t resetTextAreaModes(duk_context *ctx);
 
 /// Images
@@ -182,9 +186,13 @@ void initGame() {
 	addJsFunction("setTextArea_internal", setTextArea, 1);
 	addJsFunction("getTextAreaWidth_internal", getTextAreaWidth, 0);
 	addJsFunction("getTextAreaHeight_internal", getTextAreaHeight, 0);
+	addJsFunction("setTextAreaTint_internal", setTextAreaTint, 1);
 	addJsFunction("setTextAreaZoomTime_internal", setTextAreaZoomTime, 1);
 	addJsFunction("setTextAreaZoomOut_internal", setTextAreaZoomOut, 0);
+	addJsFunction("setTextAreaZoomIn_internal", setTextAreaZoomIn, 0);
 	addJsFunction("setTextAreaJiggle_internal", setTextAreaJiggle, 2);
+	addJsFunction("setTextAreaRainbow_internal", setTextAreaRainbow, 0);
+	addJsFunction("setTextAreaWave_internal", setTextAreaWave, 3);
 	addJsFunction("resetTextAreaModes_internal", resetTextAreaModes, 0);
 
 	game = (Game *)zalloc(sizeof(Game));
@@ -835,6 +843,11 @@ duk_ret_t setTextAreaZoomOut(duk_context *ctx) {
 	return 0;
 }
 
+duk_ret_t setTextAreaZoomIn(duk_context *ctx) {
+	game->area.addMode(TEXT_MODE_ZOOM_IN);
+	return 0;
+}
+
 duk_ret_t setTextAreaJiggle(duk_context *ctx) {
 	int jiggleY = duk_get_int(ctx, -1);
 	int jiggleX = duk_get_int(ctx, -2);
@@ -843,6 +856,28 @@ duk_ret_t setTextAreaJiggle(duk_context *ctx) {
 	game->area.jiggleX = jiggleX;
 	game->area.jiggleY = jiggleY;
 
+	return 0;
+}
+
+duk_ret_t setTextAreaRainbow(duk_context *ctx) {
+	game->area.addMode(TEXT_MODE_RAINBOW);
+	return 0;
+}
+
+duk_ret_t setTextAreaWave(duk_context *ctx) {
+	int waveSpeed = duk_get_int(ctx, -1);
+	int waveY = duk_get_int(ctx, -2);
+	int waveX = duk_get_int(ctx, -3);
+	game->area.waveX = waveX;
+	game->area.waveY = waveY;
+	game->area.waveSpeed = waveSpeed;
+	game->area.addMode(TEXT_MODE_WAVE);
+	return 0;
+}
+
+duk_ret_t setTextAreaTint(duk_context *ctx) { 
+	int tint = duk_get_uint(ctx, -1);
+	game->area.fontColour = tint;
 	return 0;
 }
 
