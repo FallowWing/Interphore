@@ -554,6 +554,10 @@ vn.resetTextModes();
 vn.setTextRainbow();
 vn.say(0, "Look, rainbows!");
 
+vn.resetTextModes();
+vn.setTextWave(10, 10, 5);
+vn.say(0, "And wave effect (Benchmark Benchmark Benchmark Benchmark Benchmark Benchmark)");
+
 vn.delay(0.5);
 vn.moveOut(0);
 vn.moveOut(1);

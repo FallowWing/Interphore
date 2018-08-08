@@ -272,6 +272,9 @@ vn.setTextJiggle = function(jiggleX, jiggleY) {
 vn.setTextRainbow = function() {
 	queueCall(function() { setTextAreaRainbow_internal(); });
 }
+vn.setTextWave = function(waveX, waveY, waveTime) {
+	queueCall(function() { setTextAreaWave_internal(waveX, waveY, waveTime); });
+}
 
 vn.resetTextModes = function() {
 	queueCall(function() { resetTextAreaModes_internal(); });

@@ -5,6 +5,7 @@ enum TextAreaMode {
 	TEXT_MODE_JIGGLE,
 	TEXT_MODE_ZOOM_OUT,
 	TEXT_MODE_RAINBOW,
+	TEXT_MODE_WAVE,
 };
 
 struct TextArea {
@@ -25,6 +26,9 @@ struct TextArea {
 	int jiggleX;
 	int jiggleY;
 	float zoomTime;
+	int waveX;
+	int waveY;
+	float waveSpeed;
 
 	void resize(int width, int height);
 	void setFont(const char *fontName);
@@ -130,6 +134,9 @@ void TextArea::update() {
 				}
 			} else if (mode == TEXT_MODE_RAINBOW) {
 				tint = argbToHex(255, rndInt(0, 255), rndInt(0, 255), rndInt(0, 255));
+			} else if (mode == TEXT_MODE_WAVE) {
+				destPoint.x += cos(engine->time*area->waveSpeed + ((float)i/area->defsNum)) * area->waveX;
+				destPoint.y += sin(engine->time*area->waveSpeed + ((float)i/area->defsNum)) * area->waveY;
 			}
 		}
 
