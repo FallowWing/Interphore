@@ -4,6 +4,7 @@ enum TextAreaMode {
 	TEXT_MODE_NONE,
 	TEXT_MODE_JIGGLE,
 	TEXT_MODE_ZOOM_OUT,
+	TEXT_MODE_ZOOM_IN,
 	TEXT_MODE_RAINBOW,
 	TEXT_MODE_WAVE,
 };
@@ -124,6 +125,25 @@ void TextArea::update() {
 					float perc = charPerc - i;
 
 					float scaleFactor = mathLerp(perc, 3, 1);
+					scale.x = scaleFactor;
+					scale.y = scaleFactor;
+
+					float sizeDiffX = sourceRect.width*scale.x - sourceRect.width;
+					float sizeDiffY = sourceRect.height*scale.y - sourceRect.height;
+					destPoint.x -= sizeDiffX/2;
+					destPoint.y -= sizeDiffY/2;
+				}
+			} else if (mode == TEXT_MODE_ZOOM_IN) {
+				float charPerc = mathClampMap(engine->time, area->modeStartTime, area->modeStartTime + zoomTime, 0, area->defsNum);
+				if (charPerc > i+1) {
+					continue;
+				} else if (charPerc < i) {
+					scale.x = 0;
+					scale.y = 0;
+				} else {
+					float perc = charPerc - i;
+
+					float scaleFactor = mathLerp(perc, 0, 1);
 					scale.x = scaleFactor;
 					scale.y = scaleFactor;
 

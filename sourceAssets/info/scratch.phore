@@ -556,7 +556,18 @@ vn.say(0, "Look, rainbows!");
 
 vn.resetTextModes();
 vn.setTextWave(10, 10, 5);
-vn.say(0, "And wave effect (Benchmark Benchmark Benchmark Benchmark Benchmark Benchmark)");
+vn.say(0, "And wave effect, but sadly it leave the bounds at the top left, possible solution, move all text 20px down and too the right, but then it won't be centered");
+
+vn.resetTextModes();
+vn.setTextZoomIn();
+vn.say(1, "And this wispering thing...", 3);
+
+vn.resetTextModes();
+vn.setTextZoomOut();
+vn.setTextJiggle(2, 2);
+vn.setTextRainbow();
+vn.setTextWave(10, 10, 5);
+vn.say(0, "Most effects can be combined! (Except zoom in and zoom out)", 3);
 
 vn.delay(0.5);
 vn.moveOut(0);

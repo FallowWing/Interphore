@@ -266,6 +266,9 @@ vn.cancelEffectsNow = function(charNum) {
 vn.setTextZoomOut = function() {
 	queueCall(function() { setTextAreaZoomOut_internal(); });
 }
+vn.setTextZoomIn = function() {
+	queueCall(function() { setTextAreaZoomIn_internal(); });
+}
 vn.setTextJiggle = function(jiggleX, jiggleY) {
 	queueCall(function() { setTextAreaJiggle_internal(jiggleX, jiggleY); });
 }
