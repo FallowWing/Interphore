@@ -5,9 +5,7 @@ Welcome to the mod page.
 addChoice("Load a mod", loadMod);
 addChoice("See completed mods", "Completed Mods");
 
-addChoice("Back to extras", function() {
-	execAsset("scratch.phore");
-});
+addChoice("Back to extras", "scratchModStart");
 `
 ---
 :Completed Mods
