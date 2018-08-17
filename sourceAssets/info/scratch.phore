@@ -7,7 +7,7 @@ music.name = "music";
 
 setBackground(0, "img/writer/mainBg");
 setBackground(1, "");
-choicesPerPage = 4;
+//choicesPerPage = 4;
 `
 WIP Dev Menu
 
@@ -16,13 +16,11 @@ Make sure you play through the intro or go to Hub and visit Red Pond to set your
 [Mods|modsStart]
 [Tests|testsStart]
 [Teleports|teleStart]
-[New|newStart]
 [Change Mynt|Change Mynt's genitals]
+[New|newStart]
 
 !`
 if (internal) addChoice("VN test", "vnTest");
-addChoice("Thelly", "thellyMod");
-addChoice("Lone", "loneMod");
 `
 ---
 :Change Mynt's genitals
@@ -329,7 +327,7 @@ for (var i = 0; i < 40; i++) append("A line\n ");
 `
 ---
 :tagTest
-This <b>text</b> has <i>tags!</i>
+This (<b>text)</b> has <i>tags!</i>
 [Go back|scratchModStart]
 ---
 :benchmark
