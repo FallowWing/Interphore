@@ -7,36 +7,17 @@ music.name = "music";
 
 setBackground(0, "img/writer/mainBg");
 setBackground(1, "");
-choicesPerPage = 6;
+choicesPerPage = 4;
 `
 WIP Dev Menu
 
-Make sure you play through the intro or go to Hub and visit Red Pond to set your player variables
+Make sure you play through the intro or go to Hub and visit Red Pond to set your player variables.
 
 [Mods|modsStart]
-[Cart Intro|cartIntro]
-[Wendy's Apartment|wendyApt]
-[LLL]
+[Tests|testsStart]
+[Teleports|teleStart]
+[New|newStart]
 [Change Mynt|Change Mynt's genitals]
-[Hub|thirstyCaves]
-[Red Pond|introModOriginal]
-[Background Test|backgroundTest]
-[Input Text Test|inputTest]
-[Icon Test|iconTest]
-[Disable Exit Test|disableExitTest]
-[Title test|titleTest]
-[Audio Test|audioTest]
-[Image test|imageTest]
-[Variable test|variableTest]
-[Save test|saveTest]
-[Tween test|tweenTest]
-[Msg test|msgText]
-[Text scrolling test|textScrollingTest]
-[Tag test|tagTest]
-[Benchmark|benchmark]
-[Tooltip Test|tooltipTest]
-[Word wrap Test|wordWrapTest]
-[Rpg test|rpgTest]
 
 !`
 if (internal) addChoice("VN test", "vnTest");
@@ -60,6 +41,53 @@ addChoice("Cunt", function() {
 
 addChoice("Back", "scratchModStart");
 `
+---
+:newStart
+
+!`
+addChoice("Thelly", "thellyMod", {icons: ["Cub", "Male"]});
+addChoice("Lone", "loneMod", {icons: ["Cub", "Male", "Abuse"]});
+addChoice("Back", "scratchModStart");
+`
+
+---
+:teleStart
+
+[Back|scratchModStart]
+[Hub|thirstyCaves]
+[Cart Intro|cartIntro]
+[Wendy's Apartment|wendyApt]
+[LLL]
+[Red Pond|introModOriginal]
+[Back|scratchModStart]
+
+---
+:testsStart
+
+!`
+choicesPerPage = 6;
+`
+
+
+[Back|scratchModStart]
+[Background Test|backgroundTest]
+[Input Text Test|inputTest]
+[Icon Test|iconTest]
+[Disable Exit Test|disableExitTest]
+[Title test|titleTest]
+[Audio Test|audioTest]
+[Image test|imageTest]
+[Variable test|variableTest]
+[Save test|saveTest]
+[Tween test|tweenTest]
+[Msg test|msgText]
+[Text scrolling test|textScrollingTest]
+[Tag test|tagTest]
+[Benchmark|benchmark]
+[Tooltip Test|tooltipTest]
+[Word wrap Test|wordWrapTest]
+[Rpg test|rpgTest]
+[Back|scratchModStart]
 
 ---
 :thirstyCaves
