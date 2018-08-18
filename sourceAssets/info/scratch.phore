@@ -331,6 +331,9 @@ This (<b>text)</b> has <i>tags!</i>
 Some (<b>text</b>
 Some [<b>text</b>
 Some {<b>text</b>
+Some a<b>text</b>
+Some b<b>text</b>
+Some c<b>text</b>
 Some <b>(text)</b>
 Some <b>(text</b>)
 [Go back|scratchModStart]
