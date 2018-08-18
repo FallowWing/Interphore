@@ -89,25 +89,29 @@ PARAPHRASED TIMELINES: 4
 	> PROTOCOL ENDING:
 		DANGER LEVEL: Safe
 		CLASS: Heaven
-		— Character "Mynt" assimilated by Paraphore #141
-		- Fragmentary clone of "Mynt" assimilated by Paraphore #144
-		- Character "REBECA" assimilated by Paraphore #143
+		- Character <b>Mynt</b> assimilated by Paraphore <b>#141</b>
+		- Character <b>Rebeca</b> assimilated by Paraphore <b>#143</b>
+
+		- Fragmentary clone of <b>Mynt</b> assimilated by Paraphore <b>#144</b>
+		- Original <b>Mynt</b> relocated to the Outerphore to prevent dupe collision
+		
 		- See "Assimilation Notes" for more information
 
 	> MINT ENDING:
 		DANGER LEVEL: Corruptive
 		CLASS: Hell
-		- Character "Mynt" rendered corruptive, functionally perished
-		- Mynt's fragmentary clone rendered corruptive, functionally perished
-		- <b>VALID DUPLICATE</b> character "Rebeca" assimilated by Paraphore #143
-		- Original "Rebeca" relocated to prevent dupe collission
+		- Character <b>Mynt</b> rendered corruptive, functionally <b>perished</b>
+		- Mynt's fragmentary clone rendered corruptive, functionally <b>perished</b>
+
+		- <b>VALID</b> duplicate character <b>Rebeca</b> assimilated by Paraphore <b>#143</b>
+		- Original <b>Rebeca</b> relocated to the Outerphore to prevent dupe collision
 
 	> MYNT ENDING:
 		DANGER LEVEL: Safe
 		CLASS: Macbeth
-		- <b>VALID DUPLICATE</b> character "Mynt" assimilated by Paraphore #141
+		- <b>VALID</b> duplicate character <b>Mynt</b> assimilated by Paraphore <b>#141</b>
 		- Half of Mynt's fragmentary clone relocated to prevent dupe collision
-		- <b>VALID DUPLICATE</b> character "Rebeca" perished
+		- <b>VALID</b> duplicate character <b>Rebeca</b> perished
 
 	> METEORITE ENDING:
 		DANGER LEVEL: Risky
@@ -118,7 +122,7 @@ PARAPHRASED TIMELINES: 4
 		- Cusp catastrophes unlikely but possible, jump in a pond if you see a black hole
 		
 		- All characters are <b>INVALID</b> duplicates. No further assimilation possible
-		- 7 character seeds assimilated by Paraphore #143
+		- 7 seeds assimilated by Paraphore <b>#143</b>
 		
 [Assimilation Notes.|assimilationNotes]
 [Back.|hubLLL]
