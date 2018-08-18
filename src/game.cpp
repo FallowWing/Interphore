@@ -334,7 +334,7 @@ void updateGame() {
 
 	if (!game->mainText) {
 		game->mainText = createMintSprite();
-		game->mainText->setupEmpty(engine->width - 64, 2048);
+		game->mainText->setupEmpty(engine->width - 128, 2048);
 		game->mainText->clipRect.setTo(0, 0, engine->width, engine->height - BUTTON_HEIGHT - 16);
 		strcpy(game->mainText->defaultFont, "NunitoSans-Light_26");
 		game->mainText->tint = 0xFFdff9ff;
