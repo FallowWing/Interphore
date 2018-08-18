@@ -328,6 +328,11 @@ for (var i = 0; i < 40; i++) append("A line\n ");
 ---
 :tagTest
 This (<b>text)</b> has <i>tags!</i>
+Some (<b>text</b>
+Some [<b>text</b>
+Some {<b>text</b>
+Some <b>(text)</b>
+Some <b>(text</b>)
 [Go back|scratchModStart]
 ---
 :benchmark
