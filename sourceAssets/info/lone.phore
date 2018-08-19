@@ -1,11 +1,15 @@
 START_PASSAGES
 :loneModStart
 
+!`
+data.metLone = true;
+`
+
 You stroll down the hallway, looking for the exit.
 
 "You should just change yourself in the pond, Lone."
 
-Seven boys have clustered around something in the corner of the hallway. They glance at you and hurry away, scattering into a hundred doors, cacks, and hidden passageways. One lifts up a loose plank in the floor and squeezes his little butt through the hole into a passage underneath.
+Seven boys have clustered around something in the corner of the hallway. They glance at you and hurry away, scattering into a hundred doors, cracks, and hidden passageways. One lifts up a loose plank in the floor and squeezes his little butt through the hole into a passage underneath.
 
 [Examine the corner.|lone01]
 ---
@@ -13,15 +17,23 @@ Seven boys have clustered around something in the corner of the hallway. They gl
 
 It's a femmy twelve-year-old goat boi with motherly hips. He's curled up in the corner, sniffling, covered in bruises. Purple splotches decorate the soft wool of his belly. His tiny goatdick is rock hard.
 
+!`
+var loneImg = addImage("assets/img/writer/characters/lone/lone.png");
+loneImg.x = gameWidth - loneImg.width;
+loneImg.y = gameHeight - loneImg.height;
+`
+
 [You okay man?|lone02]
 ---
 :lone02
 
-You startled him.
+You startle him.
 
 He stares up at you and opens his maw, but nothing intelligible comes out. It looks like he desperately wants to tell you something and just can't get it out of his little throat.
 
 [Did those boys beat you up? :c|lone03]
+---
+:lone03
 
 A door shuts. You look over.
 
@@ -140,9 +152,9 @@ He grinds his thighs together.
 
 As you saunter over to his bed, you realize how little he really is. Your head is about the same height as his soft, squeeze-able nuts and sheath, both small even for a twelve-year-old. He's got big hips for his age, but his chest and belly are thin, tiny, and his throat is so skinny you might even be able to wrap a clenched paw around it.
 
-[Oh! Well it's good to meet you, cutie. >:3 What's your name?]
+[Nice to meet you. What's your name?]
 ---
-:Oh! Well it's good to meet you, cutie. >:3 What's your name?
+:Nice to meet you. What's your name?
 
 He holds eye contact comfortably now, soaking in the praise. His wooly maw twitches into a smile. He really must be excited to see you, despite all his shyness and his pitiful shivering. The excitement even travels right down to his sheath, which twitches on its own.
 
@@ -182,8 +194,10 @@ He leans forward with a rush of bravery, cheeks glowing, and whispers in your ea
 
 "I moved <i>in</i> to the city. Because I... I like it brutal."
 
-[Oh? So you're a painslut~?]
-[Ah. I don't. Bye!|loneLeaveEarly]
+!`
+addChoice("Oh? So you're a painslut~?", "Oh? So you're a painslut~?", {icons: ["Cub", "Male", "Abuse"]});
+addChoice("Ah. I don't. Bye!", "loneLeaveEarly");
+`
 ---
 :Oh? So you're a painslut~?
 
@@ -230,7 +244,7 @@ Gravity unfolds Lone's body and he flops back onto the blankets spread-eagle. Bo
 
 Then, slowly, his cock starts to slide out of its sheath. Pitiful whimpers leak out from between his paws. He pulls them away to reveal a tear-stained face and a big fat welt right above his cheekbone.
 
-Lone sniffles hard. Tears trickle down that pretty little welt. They lace his flat chest.
+Lone sniffles hard. Tears trickle down that pretty little welt. Teartracks lace his flat chest.
 
 [... You okay, Lone?]
 ---
@@ -278,7 +292,7 @@ You grab him by the ankles and yank him off the top bunk.
 
 He topples onto the hardwood in a swirl of blankets and tears, hitting the floor ass-first with a dull thud.
 
-"A- Ah!! Ah!" he squeals, rubbing his sore tailbone. It's like when you land on your feet the wrong way and an electric shock goes through them, except that shock is racing up the base of his poor little spine instead.
+"A- Ah!! Ah!" he squeals, rubbing his sore tailbone. It's like when you land on your feet the wrong way and an electric shock goes through them, except that shock is racing up the base of his spine instead.
 
 "Please, I—"
 
@@ -324,7 +338,7 @@ Lone pretends to struggle as you tug on his ears, scrabbling pathetically at you
 
 ... The boys are peeking in again, but this time their eyes are dark and watchful, and no one smiles or giggles or even makes any snide comments.
 
-"Lone," one of them says softly, "this isn't appropriate. You're not even on shift."
+"Lone," one of them says softly, like a mom to her kid. "This isn't appropriate. You're not even on shift."
 
 "Someone told Ren," says another. "You're outta here."
 
@@ -346,7 +360,7 @@ Ren feels his way into the room. The boys guide him and clear a path in the crow
 
 Ren gestures lazily at the ceiling. "Two bedrooms, six hallways, and a couple dozen pieces of furniture crushed inside both. You took out a main support beam with your... well, I'm not going to ask what you were doing, but it sounded violent."
 
-"You can't see them, Ren— the goat cub has bruises," someone tattles to him. "So obviously they were—"
+"You can't see the goat, Ren— but he has <i>bruises,"</i> someone tattles to him. "So obviously they were—"
 
 "I know he has bruises." Ren's blank eyes snap to him. "Thelly described the cub to me when he signed up. He always has bruises. That's just how he is."
 
@@ -362,15 +376,15 @@ Ren turns to you and Lone now. His eyes are absolute zero.
 
 "Really inconsiderate of you both. I welcomed you into my house of sticks, and you huffed and puffed and gave it structural damage."
 
-[Hey, I'm sorry. Lone, don't apologize, this is my fault.|lone14]
+[Hey, I'm sorry. Lone, don't apologize, this is my fault.|lone14a]
 ---
-:lone14
+:lone14a
 
 "I'm sorry too!!!" he sobs, bowing over so hard and fast his long ears whip against Ren's chest. They flop down and cover his face. Tears patter on the hardwood floor.
 
 Ren pulls him back up by his ears and hugs him tight.
 
-"I'm sorry three. I wanted you to feel welcome and wanted here. I know you're very new to the Interphore, and it's big and scary out there. But this is not the place for you. May I suggest moving back down to your kinky island?"
+"I'm sorry three. I wanted you to feel welcome and wanted here. I know you're very new to the Interphore, and it's big and scary out there. But this is not the place for you. May I suggest moving back down to your kinky island? I heard they opened one of the timelines for tourists."
 
 Lone shakes his head violently, ears flopping. He can't speak past the lump in his throat.
 
@@ -378,7 +392,7 @@ The corners of Ren's maw tighten.
 
 "`data.playerName`, if you know the way out, please show Lone back to the dungeon. You're still welcome here, of course."
 
-[But this was all my fault.|lone15]
+[No! This was all my fault.|lone15]
 ---
 :lone15
 
@@ -459,13 +473,13 @@ He fidgets and glances at your paws.
 
 He trots away from you, down a long street that ends in a mess of rotted, empty buildings. His white wool contrasts hard against their darkness. Soon, he's too far away for you to even see his bruises.
 
-[Move along.|@TODO]
+[Move along.|loneMoveAlong]
 ---
 :lone21
 
 He tilts his head.
 
-[Don't go jump in the pond and edit your brain over that.|lone22]
+[Don't go jump in the pond and edit your brain over some petty structural damage.|lone22]
 ---
 :lone22
 
@@ -475,7 +489,7 @@ He tilts his head.
 ---
 :lone23
 
-"B-But I'm so gross and fucked up..."
+"Nuh uh... no one wants me. I'm s-so gross and fucked up..."
 
 [Oh stop fucking whining.|lone24]
 ---
@@ -493,7 +507,9 @@ Lone squeaks with real fear, but he obeys. He watches you carefully as he pulls 
 
 "Wh-What are you gonna—"
 
-[You're cute and good. (Beat him.)|lone26]
+!`
+addChoice("You're cute and good. (Beat him.)", "lone26", {icons: ["Abuse", "Blood", "Gore"]});
+`
 ---
 :lone26
 
@@ -521,7 +537,7 @@ A couple dads walk by and ask if everything is alright. Lone gurgles like a reta
 
 You fall on his crumpled little body all at once, crushing him under your full adult weight. Your `genitals("cock", "cunt", "cock")` squeezes up against his asscrack, grinding on the fat bruises. Lone whines and claws at the pavement uselessly as your `genitals("dick", "fist", "dick")` forces his pucker open and bruises his insides up so deeply within the first few impacts that any further raping just goes numb for him.
 
-Lone turns his cute, broken face over his shoulder, lip split, eyes black, eyelids drooping. He babbles at you through the numb fog:
+Lone turns his cute, broken face over his shoulder, lip split, eyes black, eyelids drooping. He babbles at you through a cute, numb smile:
 
 "Is it in y-yet?"
 
@@ -531,7 +547,7 @@ Lone turns his cute, broken face over his shoulder, lip split, eyes black, eyeli
 
 You slam your palm down on the dent in the back of his head, grab a fistful of goat hide, and bash his screaming, sobbing face into the concrete while you rape your `genitals("cock", "fist", "cock")` up into his belly.
 
-!`addChoice("HARDER!! <b>HARDER!!!</b> YOU'RE A <b>GREAT</b> PERSON OKAY YOU LITTLE FUCKTARD!?", "lone30");`
+!`addChoice("HARDER!! <b>HARDER!!!</b> YOU'RE A <b>GREAT</b> PERSON OKAY YOU LITTLE CUBCUNT!?", "lone30", {icons: ["Love"]});`
 ---
 :lone30
 
@@ -545,8 +561,10 @@ He's been thrashing this whole time, but now, suddenly, he goes still. You hear 
 
 "S-S-Something buh-b-broke," he croaks throat a crunched throat. "K-Kuh-Kill me. R-Ruh-Re... Respawn."
 
-[Cum. (Kill him.)|loneKill]
-[Cum. (Spare him.)|loneSpare]
+!`
+addChoice("Cum. (Kill him.)", "loneKill", {icons: ["Love", "Snuff"]});
+addChoice("Cum. (Spare him.)", "loneSpare");
+`
 ---
 :loneSpare
 
@@ -580,7 +598,7 @@ His bloodshot eyes lock on yours. The sensitive little goat bitch is crying for 
 
 "Please visit me!!"
 
-[I will. <3|@TODO]
+[I will. <3|loneMoveAlong]
 ---
 :loneKill
 
@@ -628,7 +646,17 @@ He turns away from you and watches a dad and his son crossing over the street, j
 
 He hugs you tightly. You lean down to rest your chin on his little head. His fresh wool smells like pine.
 
-[I will. <3|@TODO]
+[I will. <3|loneMoveAlong]
+---
+:loneMoveAlong
+
+!`
+if (music) music.destroy();
+
+execAsset("thirstyCaves.phore");
+initThirstyCaves();
+gotoMap();
+`
 
 
 END_PASSAGES

@@ -14,14 +14,31 @@ WIP Dev Menu
 Make sure you play through the intro or go to Hub and visit Red Pond to set your player variables.
 
 [Mods|modsStart]
+[Cheats|cheatsStart]
 [Tests|testsStart]
 [Teleports|teleStart]
-[Change Mynt|Change Mynt's genitals]
+
 [New|newStart]
 
 !`
 if (internal) addChoice("VN test", "vnTest");
 `
+---
+:cheatsStart
+
+[Back|scratchModStart]
+[Change Mynt|Change Mynt's genitals]
+[Unlock everything]
+---
+:Unlock everything
+
+Unlocked everything!
+
+!`
+data.unlockedDev = true;
+data.metCart = true;
+`
+[Back|scratchModStart]
 ---
 :Change Mynt's genitals
 

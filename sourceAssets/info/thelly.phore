@@ -1,6 +1,9 @@
 START_PASSAGES
 :thellyModStart
 
+!`
+data.metRen = true;
+`
 You head back to the L.L.L. and push open the door to the cozy antechamber, just outside the map dome.
 
 A teen boy sits on the couch.
@@ -142,7 +145,7 @@ Ren nods. "Just hug the back wall of the universe until you hit downtown, then g
 
 He saunters past you, hips swaying. "See you there."
 
-[Seeya.|@TODO]
+[Seeya.|thellyMoveAlong]
 ---
 :nextThelly8
 
@@ -381,7 +384,7 @@ Ren sneakily moves behind you.
 ---
 :nextThelly26
 
-Ren takes his key and puts his cage back on with a satisfying <i>click</i>.
+Ren takes his key and puts his cage back on with a satisfying <i>click.</i>
 
 The door swings open.
 
@@ -705,7 +708,9 @@ He pauses and blinks.
 ---
 :nextThellyFucked
 
-He nods eagerly, big puppy ears flopping. "My journal goes into... <i>great</i> detail... I won't belt out the whole story right here. Just know that you saved my life and the lives of all my friends."
+He nods eagerly, big puppy ears flopping. "My journal goes into... <i>great</i> detail about you... I won't belt out the whole story right here."
+
+He takes a big breath. "Just know that you saved my life and the lives of all my friends!!"
 
 [I did?!|nextThellyFucked2]
 ---
@@ -730,7 +735,7 @@ Ren's not listening. He saunters around behind his desk, where one door is still
 
 He digs around in the pit of his desk's deepest drawers for a second, ass up, and then he pulls out two immaculate folders full of paper. Not a speck of dust on either.
 
-One says <i>Customer Records</i> and the other says <i>Applicant Records</i>. The papers inside are freckled with braille. Ren flips through them both at the same time, one paw on each, connecting all the dots with his fingers.
+One says <i>Customer Records</i> and the other says <i>Applicant Records.</i> The papers inside are freckled with braille. Ren flips through them both at the same time, one paw on each, connecting all the dots with his fingers.
 
 "You two keep talking. I'll just be a moment here."
 
@@ -740,13 +745,13 @@ One says <i>Customer Records</i> and the other says <i>Applicant Records</i>. Th
 
 You step forward and run your fingers over his bare butt, slipping them easily underneath the waistband. Thelly breathes warm and heavy against your neck and just lets it happen.
 
-[So... what were we?|nextThelly36b]
+[So, when we knew each other... what were we?|nextThelly36b]
 ---
 :nextThelly36b
 
-"Can you rephrase that...?"
+"Oh! Um. Can you rephrase that...?"
 
-[We used to know each other. I saved your life apparently. But what uh...|nextThelly36c]
+[We used to know each other. I saved your life apparently. But were we...|nextThelly36c]
 ---
 :nextThelly36c
 
@@ -792,8 +797,9 @@ thellyBod.x = gameWidth/2 - thellyBod.width/2;
 thellyBod.y = gameHeight - thellyBod.height;
 
 queueTitle("Well... let's see...");
-queueTitle("This is what I wrote down before I jumped in the pond:");
 queueDelay(1);
+queueTitle("This is what I wrote down before I jumped in the pond:");
+queueDelay(2);
 queueCall(function() {
 	var music = playMusic("audio/music/nonLocal");
 	music.name = "music";
@@ -855,6 +861,7 @@ queueTitle("The memories themselves are somewhere else.");
 queueTitle("I don't know if I would chase them down, now.");
 queueTitle("Even if I knew where they were.");
 queueTitle("Because...");
+queueDelay(2);
 queueTitle("In the end, it didn't work out.");
 queueTitle("Even after you saved us, we split up.");
 queueDelay(2);
@@ -866,7 +873,7 @@ queueCall(function() {
 });
 queueTitle("So I don't know if I want to remember.");
 queueTitle("I think I'm content just knowing I helped him while I could.");
-queueTitle("Now that I'm up here, with a clean slate...");
+queueTitle("Now that I've been assimilated, and I'm up in here with a clean slate...");
 queueTitle("I'm actually glad he doesn't want me anymore.");
 queueCall(function() {
 	tween(thellyBod, 1, {scaleX: 0}, {ease: QUAD_IN});
@@ -880,35 +887,38 @@ queueAddChoice(":o", "vnThelly");
 !`
 getAudio("music").destroy();
 
+setTitle("");
+
 vn.init();
-vn.set(0, "writer/characters/ren/ren", 0xFF005500);
-vn.set(1, "writer/characters/thelly/thelly", 0xFF550000);
+vn.set(0, "writer/characters/ren/ren", 0xFFe2e2e2);
+vn.set(1, "writer/characters/thelly/thelly", 0xFFf8d364);
 
 vn.moveIn(0);
-vn.say(0, "Anyway.");
-vn.say(0, "I'm your dom, now.");
+vn.say(0, "Anyway.", 3);
+vn.say(0, "I'm your dom, now.", 1.5);
 
 
 vn.moveIn(1);
-vn.say(1, "Um... I wasn't finished...");
+vn.say(1, "Um... I wasn't finished...", 1.5);
 
-vn.say(0, "Shut up, puppy.");
+vn.setTextZoomOut();
+vn.say(0, "Shut up, puppy.", 2);
+vn.resetTextModes();
+
 vn.say(1, ":x");
 vn.say(0, "We won't bother digging through those folders. I remember your mom crystal clear now.");
 vn.say(0, "They're just there so you can verify what I say.");
 vn.say(0, "Listen up, because I can't see if you're ignoring me.");
 vn.say(0, "We have a male-only policy here. Goes for customers too.");
-vn.say(0, "But she said she was a dude deep down, so we let her in.");
-vn.say(0, "Said her name was Wendy.");
+vn.say(0, "But your mom said she was a dude deep down, so we let her in.");
+vn.say(0, "Said her name was Wendy.", 2);
 vn.say(0, "She asked for a tiger cock strap-on and a single tiger boy. Assfucked him. Paid.");
 vn.say(0, "After, Wendy asked if we had seen someone identical to her passing through here.");
 vn.say(0, "We had no record of anyone like that, male or female.");
-vn.say(1, "Ah...");
-vn.say(1, "I guess that's not really the most solid lead, is it?");
-vn.say(1, "Can you get any clues out of that?");
-vn.choice("Hmmmm...", function() {
-	gotoPassage("vnThelly2");
-});
+vn.say(1, "Ah...", 1);
+vn.say(1, "I guess that's not really the most solid lead, is it?", 2);
+vn.say(1, "Can you get any clues out of that?", 2);
+vn.choice("Hmmmm...", "vnThelly2");
 `
 ---
 :vnThelly2
@@ -916,9 +926,7 @@ vn.choice("Hmmmm...", function() {
 !`
 vn.say(0, "Remember:");
 vn.say(0, "It could've been the fake Wendy looking for the real one, or the other way around.");
-vn.choice("Yeah, gotta find a way to tell them apart...", function() {
-	gotoPassage("vnThelly2a");
-});
+vn.choice("Yeah, gotta find a way to tell them apart...", "vnThelly2a");
 `
 
 ---
@@ -926,9 +934,7 @@ vn.choice("Yeah, gotta find a way to tell them apart...", function() {
 
 !`
 vn.say(0, "Well, is the real Wendy trans?");
-vn.choice("I don't know.", function() {
-	gotoPassage("vnThelly3");
-});
+vn.choice("I don't know.", "vnThelly3");
 `
 
 ---
@@ -936,9 +942,7 @@ vn.choice("I don't know.", function() {
 
 !`
 vn.say(1, "Do you know if she liked boys, then?");
-vn.choice("I don't think so, but I can't really be sure...", function() {
-	gotoPassage("vnThelly4");
-});
+vn.choice("I don't think so, but I can't really be sure...", "vnThelly4");
 `
 
 ---
@@ -946,9 +950,7 @@ vn.choice("I don't think so, but I can't really be sure...", function() {
 
 !`
 vn.say(0, "Did she have a thing for tigers?");
-vn.choice("No idea.", function() {
-	gotoPassage("vnThelly5");
-});
+vn.choice("No idea.", "vnThelly5");
 `
 
 ---
@@ -957,35 +959,27 @@ vn.choice("No idea.", function() {
 !`
 vn.say(1, "Let's back up.");
 vn.say(1, "Would your mom even go to a brothel in the first place?");
-vn.choice("I...", function() {
-	gotoPassage("vnThelly6");
-});
+vn.choice("I...", "vnThelly6");
 `
 
 ---
 :vnThelly6
 
 !`
-vn.choice("... don't know at all.", function() {
-	gotoPassage("vnThelly7");
-});
+vn.choice("... don't know at all.", "vnThelly7");
 `
 
 ---
 :vnThelly7
 
 !`
-vn.choice("I only have my childhood memories of her, and she never shared any of that info with five-year-old me.", function() {
-	gotoPassage("vnThelly8");
-});
+vn.choice("I only have my childhood memories of her, and she never shared any of that info with five-year-old me.", "vnThelly8");
 `
 ---
 :vnThelly8
 
 !`
-vn.choice("So I don't know. I guess I barely know anything about her.", function() {
-	gotoPassage("vnThelly9");
-});
+vn.choice("So I don't know. I guess I barely know anything about her.", "vnThelly9");
 `
 
 ---
@@ -998,9 +992,7 @@ vn.say(0, "At least we know she's on the move, right?");
 vn.say(1, "Yeah!!");
 vn.say(1, "Seems like she's hunting her copy or evading her copy...");
 vn.say(0, "Even if you did track her down to one layer, good luck trying to predict where she goes next.");
-vn.choice("I'll work on that.", function() {
-	gotoPassage("vnThelly10");
-});
+vn.choice("I'll work on that.", "vnThelly10");
 `
 
 ---
@@ -1013,9 +1005,7 @@ vn.say(1, "Ah...! Well...");
 vn.say(1, "I'll help as much as I can in-between shifts!");
 vn.say(0, "Good puppy.");
 vn.say(1, "Thank you...");
-vn.choice("Yeah, thanks! You've been a huge help already.", function() {
-	gotoPassage("vnThelly11");
-});
+vn.choice("Yeah, thanks! You've been a huge help already.", "vnThelly11");
 `
 
 ---
@@ -1029,9 +1019,8 @@ vn.say(1, "I know, I know...");
 vn.say(1, "Can I repay you with my butt~?");
 vn.say(0, "Actually, I had something else in mind.");
 vn.say(1, "Uh oh.");
-vn.choice(";3?", function() {
-	gotoPassage("vnThelly12");
-});`
+vn.choice(";3?", "vnThelly12");
+`
 ---
 :vnThelly12
 !`
@@ -1044,7 +1033,7 @@ Ren sways around to the front of his desk and sits on the edge, bare asscheeks a
 
 "If you're still a little torn up about your old dom, you should have said something earlier."
 
-His fluffy chest rises and falls with intense breaths. His pale red eyes track to the direction of Thelly's mild, whimpering little protests— he's not torn up, he was going to say something, it's nothing— and without focus or expression they lock onto his maw.
+His fluffy chest rises and falls with intense breaths. His pale red eyes track to the direction of Thelly's mild, whimpering little protests (I'm not torn up, I didn't wanna bug you with it, it's nothing) and without focus or expression Ren's eyes lock onto his maw.
 
 "I mean, it's over, right, and I hardly even re—"
 
@@ -1056,7 +1045,7 @@ Thelly looks at you, performing helplessness, brow all furrowed, paws wringing. 
 
 [Go see your master.|thellySex]
 [Fuck you looking at puppyslut? (Smack his ass.)|thellySmack]
-[Welp, it's been fun, boys. I got what I came for. Seeya!|@TODO]
+[Welp, it's been fun, boys. I got what I came for. Seeya!|thellyMoveAlong]
 ---
 :thellySmack
 
@@ -1085,7 +1074,7 @@ Thelly sways on his high-heels and falls against Ren and the desk. The legs groa
 
 "A-Aaaahhh...! Ow! Ow, ow, ow..."
 
-Ren grins like a feral, fangs out. "Little bitch couldn't take it."
+Ren grins like a feral, fangs out. "Awww, he couldn't take it."
 
 [Oops. Are you okay, Thelly?|nextThellyAnother2]
 [You like getting your ass beat you little slut?|nextThellyAnother2]
@@ -1094,11 +1083,15 @@ Ren grins like a feral, fangs out. "Little bitch couldn't take it."
 
 "It feels good...!" Thelly squeaks on the exhale from his big gasp. He runs a paw over the huge red splotch on his ass, wincing. It starts to swell up, and his fat ass starts to look even fatter.
 
-"You like feeling good, huh," Ren asks softly, right in his ear. Thelly rests his squishy ass on the desk, sighing with relief.
+"You like feeling good, huh," Ren asks rhetorically, right in his ear. Thelly rests his squishy ass on the desk, sighing with relief.
 
-Ren slams a paw between his shoulder blades and shoves him to the ground on all fours. "Don't think you can just hide your ass from me."
+Ren slams a paw between his shoulder blades and shoves him to the ground on all fours. Thelly's butt jiggles out in the open again. "Don't think you can just hide your ass from me."
 
 Thelly grunts, resting on his elbows. He shoots you a pitiful look and raises his hips. "I'm sorry. Sorry..."
+
+[Not sorry enough~|nextThellyAnother2a]
+---
+:nextThellyAnother2a
 
 Ren lifts a foot and plants it down hard on Thelly's raw buttcheek. With a single push, Thelly's got his stomach pressed to the planks of the office floor.
 
@@ -1114,7 +1107,7 @@ Ren commands from above: "Ask nicely to sit on the desk with me, bitch."
 
 He gasps: "Please may I... sit on your desk, Ren...?"
 
-[Help him up~|nextThellyAnother3]
+[Help him up.|nextThellyAnother3]
 ---
 :nextThellyAnother3
 
@@ -1128,7 +1121,7 @@ Although you can't see his bare butt anymore, you imagine you can feel the heat 
 
 Ren thanks you softly under his breath and takes the lead again.
 
-[Next~|thellySex2]
+[Next.|thellySex2]
 ---
 :thellySex
 
@@ -1157,6 +1150,10 @@ Thelly squeaks. His ass <i>pomfs</i> onto the desk, beside Ren's. "Ah! Thank you
 "I um— I'm nervous."
 
 "Try."
+
+[Next.|thellySex2a]
+---
+:thellySex2a
 
 Thelly frowns and concentrates. Ren <i>yanks</i> his head back, exposing his vulnerable little throat. He dives in for a vicious hickey.
 
@@ -1281,7 +1278,7 @@ He swallows. Ren clearly feels it between his lips, because his claws come out a
 
 "Imma... dumb pisspup..."
 
-Ren feels the words come out, too. He yanks that thick skull around.
+Ren feels the words come out, too. His teeth nuzzle Thelly's neck. Ren yanks his skull backwards, exposing even more vulnerable throat.
 
 "Yes you are."
 
@@ -1298,6 +1295,10 @@ Anything Thelly might have said dies in his abused throat and comes out as a bro
 Thelly's eyes snap open and he seizes control of himself again, like a truck driver torn awake by a bump in the road, two hands on his shuddering wheel. His paws scrabble for something to hold on to.
 
 "AH! GOOD! IT FEELS GOOD!"
+
+[Yeah? <3|thellySex3a]
+---
+:thellySex3a
 
 Thelly's toes curl. His paws clench the desk so hard it creaks. A single spot of puppy pre beads up through the fabric of his tented panties.
 
@@ -1325,7 +1326,7 @@ Your `genitals` rub between their girly thighs. They hug you from both sides, ki
 
 "Mmmmh," Ren growls. He shakes his butt a bit, just to feel it jiggle against the desk. "You're more of a fag than I am, though. In the training machine for <i>twenty</i> minutes..."
 
-He quivers in response, rocking his hips back and forth on the desk. If you rest your chin on Thelly's shoulder and look down, you can see the shimmering streak of condensation where he's been smearing his sweaty cunt back and forth~
+He quivers in response, rocking his hips against the desk. If you rest your chin on Thelly's shoulder and look down, you can see the shimmering streak of condensation where he's been smearing his sweaty cunt back and forth on the desk~ Must be a puppy thing. You're surprised he hasn't scratched his little ass on the carpet yet.
 
 Ren peeks curiously at his own fat ass. "I feel like this little episode has been pretty butt-focused, too. We should end it on the same note..."
 
@@ -1344,7 +1345,7 @@ Ren brings the cage down to Thelly's throbbing puppydick. The room fills with si
 By then, Thelly has softened up, and the still-warm cage slips right on. It locks into place with a click. Perfect fit.
 
 !`
-if (data.genitals == "cunt") addChoice("Watch.", "thellySex7");
+if (data.genitals !== "female") addChoice("Watch.", "thellySex7");
 else addChoice("Grind on his ass.", "thellySex7");
 `
 ---
@@ -1354,7 +1355,7 @@ You grope Thelly's heavy nuts, squeezing them hard and taking pleasure in the th
 
 You trail your fingers off his nuts, over his inner thighs, and clamp your grip around his ankles. You yank them out over the sides of the desk, peeling his cheeks open.
 
-!`if (data.genitals != "cunt") append("Your cock looks like a curious little cutie, slowly creeping up towards his butthole as you rub it along his thighs. You lean forward and breathe deep. Your cockhead kisses Thelly's fucked-open hole. The squishy wet noise of the machine's cumlube makes your dick twitch.");`
+!`if (data.genitals !== "female") append("Your cock looks like a curious little cutie, slowly creeping up towards his butthole as you rub it along his thighs. You lean forward and breathe deep. Your cockhead kisses Thelly's fucked-open hole. The squishy wet noise of the machine's cumlube makes your dick twitch.");`
 
 Ren exhales, still on top of Thelly.
 
@@ -1375,8 +1376,7 @@ Thelly opens his mouth to reply—
 And Ren drop his ass down on the little pup's mouth, stuffing it full of taint. <3
 
 !`
-if (data.genitals == "cunt") addChoice("Watch.", "thellySex8");
-else addChoice("Plunge inside.", "thellySex8");
+addChoice("Watch.", "thellySex8");
 `
 ---
 :thellySex8
@@ -1387,30 +1387,33 @@ Ren's asscheeks slide down and split apart to take Thelly's whole face between t
 
 Cute puppy whimpers leak out just underneath Ren's tail.
 
-!`if (data.genitals != "cunt") append("You ram forward at max force. His hole is already loose and warmed up from the machine, so there's no point being gentle or careful with him. You crush his ankles in your grip, still yanking them in opposite directions off the side of the desk, and feed your cock all the way up his butt with a few brutal thrusts.
+!`
+if (data.genitals === "female") addChoice("Watch.", "thellySex9");
+else addChoice("Plunge inside.", "thellySex9a");
+`
+---
+:thellySex9a
 
-Thelly squeals like a pitiful lil piglet as Ren refuses to let him off to acclimate. Thelly gags and gasps with the rhythm of your fuck. Every thrust forces the air from his already needy lungs.");`
+You ram forward at max force. His hole is already loose and warmed up from the machine, so there's no point being gentle or careful with him. You crush his ankles in your grip, still yanking them in opposite directions off the side of the desk, and feed your cock all the way up his butt with a few brutal thrusts.
+
+Thelly squeals like a pitiful lil piglet as Ren refuses to let him off to acclimate. Thelly gags and gasps with the rhythm of your fuck. Every thrust forces the air from his already needy lungs.
+
+[Unf...|thellySex9]
+---
+:thellySex9
 
 Thelly taps Ren's leg in a panic, but Ren just bites his lip with a fang, releases an utterly homosexual sigh, and wiggles his ass from left to right on Thelly's face, rocking his bare hole down a little deeper between Thelly's lips.
 
 "Open... that's it..."
 
-!`
-if (data.genitals == "cunt") addChoice("Watch.", "thellySex9");
-else addChoice("Fuck him!!", "thellySex9");
-`
----
-:thellySex9
-
-Ren straights his back up, chin above chest above pelvis, and starts bouncing his ass on Thelly's face for fun. He lets his tongue flop out and his milky eyes go half-lidded. He wraps a soft paw around his cock and starts jacking it furiously fast. His nuts are just a blur of swinging meat which occasionally go still when they pap against Thelly's chin.
+Ren straightens his back up, chin above chest above pelvis, every chakra aligned, and then he starts bouncing his ass on Thelly's face for fun. He lets his tongue flop out and his milky eyes go half-lidded. He wraps a soft paw around his cock and starts jacking it furiously fast. His nuts are just a blur of swinging meat which occasionally go still when they pap against Thelly's chin.
 
 Ren runs a paw over Thelly's bare chest and stomach, pinning him to the desk, and picks up the pace. His hips bang against the wood. Thelly's skull gets trapped between the desk and Ren's sweaty ass over and over and over. The whole thing sways and creaks. The folders topple off. Two drawers pop out and spill their rattled contents on the hardwood.
 
-!`if (data.genitals != "cunt") append("Your vicious thrusting does not help at all. Thelly's feet writhe and twitch as you hold his legs to the desk and fuck him so hard your end lifts a couple inches off the ground each time you plunge your dick up to his prostate and then slams back down just a second later. Your nuts bang against Thelly's bubbly buttcheeks while his own nuts bounce up and down happily in their sack, just below that pathetic, soft little puppydick~");`
+!`if (data.genitals !== "female") append("Your vicious thrusting does not help at all. Thelly's feet writhe and twitch as you hold his legs to the desk and fuck him so hard your end lifts a couple inches off the ground each time you plunge your dick up to his prostate and then slams back down just a second later. Your nuts bang against Thelly's bubbly buttcheeks while his own nuts bounce up and down happily in their sack, just below that pathetic, soft little puppydick~");`
 
 !`
-if (data.genitals == "cunt") addChoice("You gonna cum, Ren?", "thellySex10");
-else addChoice("Cum.", "thellySex10");
+addChoice("You gonna cum, Ren?", "thellySex10");
 `
 ---
 :thellySex10
@@ -1429,21 +1432,43 @@ Ren peels his ass off Thelly's face. It's coated with sweat and a couple white w
 
 Ren slides his knees back and plunges his dick down Thelly's throat all at once. He grabs you by the neck and kisses you hard as his unrelenting thrusts send Thelly's skull banging against the table. Ren doesn't care. He humps harder and faster. He feeds cock down Thelly's throat like it's a cunt and he wants it pregnant.
 
-!`if (data.genitals != "cunt") append("You follow suit, meeting Ren's soft kiss and stuffing your tongue in his maw. He welcomes it. Together, you spitroast Thelly's slender little body, grabbing at random limbs and yanking him off one of your cocks and onto the other's. His whimpering turns to soft, sexy, played-up crying, broken every once in a while by a wet gag as he chokes on some of Ren's precum.
+!`
+if (data.genitals !== "female") addChoice("Cum.", "thellySex10a");
+else addChoice("Cum.", "thellySex10b");
+`
+---
+:thellySex10a
 
-Neither of you show mercy. Thelly squirms and struggles on your dicks for show, but they aren't coming out until you're both satisfied. You lean into the kiss, tilting your head to prevent schnoz collision, and suck on Ren's tongue as your cockhead beats on Thelly's prostate and you both climax at once.");`
+You follow suit, meeting Ren's soft kiss and stuffing your tongue in his maw. He welcomes it. Together, you spitroast Thelly's slender little body, grabbing at random limbs and yanking him off one of your cocks and onto the other's. His whimpering turns to soft, sexy, played-up crying, broken every once in a while by a wet gag as he chokes on some of Ren's precum.
 
-In a matter of moments Ren hits orgasm. He wraps an arm around your neck and holds you close, slamming his cock down over and over. He reaches down with his free paw and massages the massive, straining cockbulge in that tiny throat. Visible spurts of cum force their way down to his belly.
+Neither of you show mercy. Thelly squirms and struggles on your dicks for show, but they aren't coming out until you're both satisfied. You lean into the kiss, tilting your head to prevent schnoz collision, and suck on Ren's tongue as your cockhead beats on Thelly's prostate and you both climax at once.
 
-!`if (data.genitals != "cunt") append("You force your cock in as deep as it'll go and cum. Thelly gurgles out a squeal, nose in Ren's twitching nuts.
+[HNNNNNGH|thellySex10b]
+---
+:thellySex10b
 
-You both stay there for a full minute. The room is quiet except for Thelly's gagging and the sound of cum slowly trickling into his belly from both ends. It swells up a tiny bit. You and Ren can't resist... you both reach out and rub it with your paws, feeling the tightness in his golden fur and the warmth of your thick cum hidden just beneath it.");`
+In moments Ren hits orgasm. He wraps an arm around your neck and holds you close, slamming his cock down over and over. He reaches down with his free paw and massages the massive, straining cockbulge in that tiny throat. Visible spurts of cum force their way down to his belly.
+
+!`
+if (data.genitals !== "female") addChoice("Force it in.", "thellySex10c");
+else addChoice("Ahhh...", "thellySex10d");
+`
+
+---
+:thellySex10c
+
+You force your cock in as deep as it'll go and cum. Thelly gurgles out a squeal, nose in Ren's twitching nuts.
+
+You both stay there for a full minute. The room is quiet except for Thelly's gagging and the sound of cum slowly trickling into his belly from both ends. It swells up a tiny bit. You and Ren can't resist... you both reach out and rub it with your paws, feeling the tightness in his golden fur and the warmth of your thick cum hidden just beneath it.
+
+[Phwahhh...|thellySex10d]
+---
+:thellySex10d
 
 "Aaahhh..." Ren sighs. He smiles at you. "So relaxed... I gotta go pee, but I don't wanna get up..."
 
 !`
-if (data.genitals == "cunt") addChoice("Piss down his throat, Ren. <3", "thellySexPiss", {icons: ["Piss"]});
-else addChoice("Piss up Thelly's butt. <3", "thellySexPiss", {icons: ["Piss"]});
+addChoice("Piss down his throat, Ren. <3", "thellySexPiss", {icons: ["Piss"]});
 addChoice("Wind down.", "thellyWindDown");
 `
 ---
@@ -1467,11 +1492,23 @@ Thelly squirms. "Mmmggh!! MMMMMHHH!"
 
 Ren grabs him by the throat. He screws his eyes shut and concentrates.
 
-"Open... that's... it... aaahhhh."
+"Open... that's... it... say aaahhhh."
 
-!`if (data.genitals != "cunt") append("At the same instant, you release a jet of pee right up Thelly's ass. You aim it so the jet blasts against his prostate, stimulating it with force and warmth.");`
+!`
+if (data.genitals !== "female") addChoice("Piss up Thelly's butt. <3", "thellySexPiss2");
+else addChoice("Mmmf... next...", "thellySexPiss2a");
+addChoice("Wind down.", "thellyWindDown");
+`
+---
+:thellySexPiss2
 
-Pee splurts from his snout and leaks out over the tabletop. He throws his head from left to right, trying to get away from Ren's cock, but it's pointless. The cat just pulls his knees together and forces Thelly to stay still while he chugs piss.
+At the same instant, you release a jet of pee right up Thelly's ass. You aim it so the jet blasts against his prostate, stimulating it with force and warmth. Thelly's thighs smush together as hot golden trickles leak between them~
+
+[So warm...|thellySexPiss2a]
+---
+:thellySexPiss2a
+
+Pee splurts from his snout and leaks out over the tabletop. He throws his head from left to right, trying to get away from Ren's cock, but it's pointless. The cat just pulls his knees together and forces Thelly to stay perfectly still while he chugs piss.
 
 "That taste good?"
 
@@ -1481,7 +1518,7 @@ Eventually, the stream runs dry. Both you and Ren step away from the desk, panti
 
 "Th-Thank— hrk— Thanks, guys..."
 
-[Wind down.|thellyWindDown]
+[Wind down~|thellyWindDown]
 ---
 :thellyWindDown
 
@@ -1494,59 +1531,13 @@ After that intense, impromptu threesome, you all go through the records one last
 :thellyCust
 
 <b>Customer Records</b>
-- 9/8/2083 [The day the power went out in your bomb shelter.]
+=== 9/8/2083 [The day the power went out in your bomb shelter.] ===
 
 > One surly lion. Gartrag.
 	- Got the youngest for a night and left.
 	- No trouble, but seemed like there easily could have been.
 
 > Two girls looking for a boy with blue skin.
-
-> One crusty old angel looking for someone named Rebeca.
-	- Stuck around for a bit too long.
-	- Creepy.
-
-- 8/8/2083
-
-> No one.
-
-- 7/8/2083
-
-> No one.
-
-- 6/8/2083
-
-> One zebra dad & one warthog dad.
-	- Booked a room together alone
-	- Behaved well
-	- Seemed embarrassed
-
-- 5/8/2083
-
-> One warthog dad.
-	- Booked a room with his son.
-
-- 4/8/2083
-
-> One zebra dad.
-	- Booked a room with the warthog boy.
-
-- 3/8/2083
-
-> One warthog boy and one zebra boy.
-
-> Sixteen werewolves and one bunny dude.
-
-- 2/8/2083
-
-> No one.
-
-- 1/8/2083
-
-> Wendy.
-	- Claims to be FTM, close enough for me.
-	- Asked for gray strap-on and a tiger boy.
-	- Asked if we saw her twin or something.
 
 > An angry cow lady.
 	- Disruptive. Bitch.
@@ -1560,6 +1551,56 @@ After that intense, impromptu threesome, you all go through the records one last
 	- We kick her out with $50 tucked between her asscheeks and tell her to go jump in the pond and look around.
 	- Someone will take her up on her offer, but not our employees. We're hurting on boipower as it is.
 
+> One crusty old angel looking for someone named Rebeca.
+	- Stuck around for a bit too long.
+	- Creepy.
+
+=== 8/8/2083 ===
+
+> No one.
+
+=== 7/8/2083 ===
+
+> No one.
+
+=== 6/8/2083 ===
+
+> One zebra dad & one warthog dad.
+	- Booked a room together alone
+	- Behaved well
+	- Seemed embarrassed
+
+=== 5/8/2083 ===
+
+> One warthog dad.
+	- Booked a room with his son.
+
+=== 4/8/2083 ===
+
+> One zebra dad.
+	- Booked a room with the warthog boy.
+
+=== 3/8/2083 ===
+
+> One warthog boy and one zebra boy.
+
+> Sixteen werewolves and one bunny dude.
+
+=== 2/8/2083 ===
+
+> Cartographer.
+	- Charming, as always
+	- Two boys much younger than him and a private room for three nights in a row
+	- Brought some special pink paint for fingerpainting
+	- The boys loved it
+
+=== 1/8/2083 ===
+
+> Wendy.
+	- Claims to be FTM, close enough for me.
+	- Asked for gray strap-on and a tiger boy.
+	- Asked if we saw her twin or something.
+
 [Applicant Records|thellyApp]
 [Next.|thellyWindDown2]
 ---
@@ -1567,36 +1608,39 @@ After that intense, impromptu threesome, you all go through the records one last
 
 <b>Applicant Records</b>
 
-- 9/8/2083 [Today.]
+=== 9/8/2083 [Today.] ===
 
 > Thelly!!!! <3 (It's signed with a pawprint.)
-> Some blue-skinned kid. He was on his way out though, and he knew he couldn't keep a job for long.
 
-- 8/8/2083 [Yesterday.]
+> Lone the goat boi
+
+> Some blue-skinned kid. He was on his way out though. I think he just applied as a joke
+
+=== 8/8/2083 [Yesterday.] ===
 > No one.
 
-- 7/8/2083
+=== 7/8/2083 ===
 > No one.
-	- Found the guy though, he was hiding in like three or four bedrooms and just switching between them whenever we searched one.
+	- Found the guy, he was hiding in like three or four bedrooms and just switching between them whenever we searched one.
 	- Caught him trying to sleep creep the boys.
 	- Banned for life.
 
-- 6/8/2083
+=== 6/8/2083 ===
 > No one.
 
-- 5/8/2083
+=== 5/8/2083 ===
 > Maybe one guy? No one knows where he went. I don't think anyone even saw him leave.
 
-- 4/8/2083
+=== 4/8/2083 ===
 > No one.
 
-- 3/8/2083
+=== 3/8/2083 ===
 > No one.
 
-- 2/8/2083
+=== 2/8/2083 ===
 > No one.
 
-- 1/8/2083
+=== 1/8/2083 ===
 > No one.
 
 The weeks go on like this.
@@ -1632,15 +1676,15 @@ Thelly hugs him and doesn't say anything. He puts his face in Ren's chest floof.
 
 Thelly pulls his face away, a little teary.
 
-"You're disabled..." he says.
+"You're disabled," he says. "So..."
 
 [...|thellyWindDown5]
 ---
 :thellyWindDown5
 
-"I hope that's not a drawback for you..."
+Ren tightens. "I hope that's not a problem..."
 
-"No!" Thelly snaps, shaking his head violently. He wipes what would have been tears from his eyes before they can coalesce. "No. I've always, always felt like regular old subbing was just... pointless. I don't just want to make my dom cum. I want to help them, too. I want to sub for them non-sexually. I want to help them physically, mentally... <i>because</i> you're blind, not despite it, I think I'd like to be your sub more than anyone else's."
+"No!" Thelly snaps, shaking his head violently. He wipes what would have been tears from his eyes before they can coalesce. "No. I've always, always felt like regular old subbing was just... pointless. I don't just want to make my dom cum. I want to help them, too. I want to be actually valuable when I'm not being a worthless slut. I want to help my doms physically, mentally... Ren, <i>because</i> you're blind, not despite it, I think I'd like to be your sub more than anyone else's."
 
 He clutches his heavily abused throat and coughs up a little cum. You and Ren both go 'awwww, poor puppycunt' internally.
 
@@ -1650,7 +1694,18 @@ Ren crushes him in a supermassive hug. Thelly squeaks. His fluffy tail helicopte
 
 "I'd love that, Thelly."
 
-[Move along.|@TODO]
+[Move along.|thellyMoveAlong]
+---
+:thellyMoveAlong
+
+!`
+if (music) music.destroy();
+
+execAsset("thirstyCaves.phore");
+initThirstyCaves();
+gotoMap();
+`
+
 ---
 :thellyEnd
 

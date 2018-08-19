@@ -18,6 +18,16 @@ addChoice("Move along.", function() {
 	initThirstyCaves();
 	gotoMap();
 });
+
+var cartImg = addImage("assets/img/writer/characters/cart/cart2.png");
+cartImg.x = gameWidth - cartImg.width * 1.1;
+cartImg.y = gameHeight/2 - cartImg.height/2;
+
+if (!data.metRen) {
+	clear();
+	execAsset("thelly.phore");
+	gotoPassage("thellyModStart");
+}
 `
 ---
 :layerLLL
@@ -35,35 +45,35 @@ PARAPHRASED TIMELINES:
 
 Paraphores #0-140 will be redacted from this narration to minimize security risk. You should not need that information anyway.
 
-The primary form of these shapeshifts were speckles of paint. Secondary forms have been used here for accessibility.
+The primary form of these shapeshifts were speckles of paint. Secondary forms have been used here for ease of reading.
 
 Paraphore #141
-- Name: Mynt's Dress
-- Dispatched by: Cartographer
-- Shapeshift: Electron arrangement for a pre-exisiting circuit
-- Destination: Digital, green cat alone in a box
-- Functional Disguise: A dress
+<b>Name:</b> Mynt's Dress
+<b>Dispatched by:</b> Cartographer
+<b>Shapeshift:</b> Electron arrangement for a pre-exisiting circuit
+<b>Destination:</b> Digital, green cat alone in a box
+<b>Functional Disguise:</b> A dress
 
 Paraphore #142
-- Name: Daydream Journal
-- Dispatched by: Cartographer
-- Shapeshift: Electron arrangement for a pre-existing circuit
-- Destination: Digital, green cat alone in a library
-- Functional Disguise: A journal
+<b>Name:</b> Daydream Journal
+<b>Dispatched by:</b> Cartographer
+<b>Shapeshift:</b> Electron arrangement for a pre-existing circuit
+<b>Destination:</b> Digital, green cat alone in a library
+<b>Functional Disguise:</b> A journal
 
 Paraphore #143
-- Name: Grey Meteorite
-- Dispatched by: Mr. Eyeball
-- Shapeshift: Ball of various minerals, hydrogen, helium, oxygen
-- Destination: Earth
-- Functional Disguise: A grey meteorite
+<b>Name:</b> Grey Meteorite
+<b>Dispatched by:</b> Mr. Eyeball
+<b>Shapeshift:</b> Ball of various minerals, hydrogen, helium, oxygen
+<b>Destination:</b> Earth
+<b>Functional Disguise:</b> A grey meteorite
 
 Paraphore #144
-- Name: Violet Meteorite, Violet
-- Dispatched by: Cartographer
-- Shapeshift: Electron arrangement for a pre-exisiting circuit
-- Destination: Digital, fragmentary clone of green cat
-- Functional Disguise: A purple meteorite
+<b>Name:</b> Violet Meteorite, Violet
+<b>Dispatched by:</b> Cartographer
+<b>Shapeshift:</b> Electron arrangement for a pre-exisiting circuit
+<b>Destination:</b> Digital, fragmentary clone of green cat
+<b>Functional Disguise:</b> A purple meteorite
 
 [Back.|hubLLL]
 ---
@@ -89,25 +99,29 @@ PARAPHRASED TIMELINES: 4
 	> PROTOCOL ENDING:
 		DANGER LEVEL: Safe
 		CLASS: Heaven
-		— Character "Mynt" assimilated by Paraphore #141
-		- Fragmentary clone of "Mynt" assimilated by Paraphore #144
-		- Character "REBECA" assimilated by Paraphore #143
+		- Character <b>Mynt</b> assimilated by Paraphore <b>#141</b>
+		- Character <b>Rebeca</b> assimilated by Paraphore <b>#143</b>
+
+		- Fragmentary clone of <b>Mynt</b> assimilated by Paraphore <b>#144</b>
+		- Original <b>Mynt</b> relocated to the Outerphore to prevent dupe collision
+		
 		- See "Assimilation Notes" for more information
 
 	> MINT ENDING:
 		DANGER LEVEL: Corruptive
 		CLASS: Hell
-		- Character "Mynt" rendered corruptive, functionally perished
-		- Mynt's fragmentary clone rendered corruptive, functionally perished
-		- <b>VALID DUPLICATE</b> character "Rebeca" assimilated by Paraphore #143
-		- Original "Rebeca" relocated to prevent dupe collission
+		- Character <b>Mynt</b> rendered corruptive, functionally <b>perished</b>
+		- Mynt's fragmentary clone rendered corruptive, functionally <b>perished</b>
+
+		- <b>VALID</b> duplicate character <b>Rebeca</b> assimilated by Paraphore <b>#143</b>
+		- Original <b>Rebeca</b> relocated to the Outerphore to prevent dupe collision
 
 	> MYNT ENDING:
 		DANGER LEVEL: Safe
 		CLASS: Macbeth
-		- <b>VALID DUPLICATE</b> character "Mynt" assimilated by Paraphore #141
+		- <b>VALID</b> duplicate character <b>Mynt</b> assimilated by Paraphore <b>#141</b>
 		- Half of Mynt's fragmentary clone relocated to prevent dupe collision
-		- <b>VALID DUPLICATE</b> character "Rebeca" perished
+		- <b>VALID</b> duplicate character <b>Rebeca</b> perished
 
 	> METEORITE ENDING:
 		DANGER LEVEL: Risky
@@ -118,7 +132,7 @@ PARAPHRASED TIMELINES: 4
 		- Cusp catastrophes unlikely but possible, jump in a pond if you see a black hole
 		
 		- All characters are <b>INVALID</b> duplicates. No further assimilation possible
-		- 7 character seeds assimilated by Paraphore #143
+		- 7 seeds assimilated by Paraphore <b>#143</b>
 		
 [Assimilation Notes.|assimilationNotes]
 [Back.|hubLLL]

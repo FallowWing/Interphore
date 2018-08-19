@@ -117,6 +117,8 @@ img/writer/load.png
 img/writer/load.spr
 img/writer/save.png
 img/writer/save.spr
+img/writer/extras.png
+img/writer/extras.spr
 img/writer/mute.png
 img/writer/mute.spr
 img/writer/notification.png
@@ -163,6 +165,8 @@ img/writer/characters/thelly/thelly.png
 img/writer/characters/thelly/thelly.spr
 img/writer/characters/ren/ren.png
 img/writer/characters/ren/ren.spr
+img/writer/characters/lone/lone.png
+img/writer/characters/lone/lone.spr
 img/writer/characters/cart/cart.png
 img/writer/characters/cart/cart.spr
 img/writer/characters/cart/cart2.png
