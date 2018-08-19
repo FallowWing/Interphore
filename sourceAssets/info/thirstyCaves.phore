@@ -1598,7 +1598,20 @@ if (data.metCart) {
 	data.metCart = true;
 }
 `
-
+---
+:thelly
+!`
+clear();
+execAsset("thelly.phore");
+gotoPassage("thellyModStart");
+`
+---
+:lone
+!`
+clear();
+execAsset("lone.phore");
+gotoPassage("loneModStart");
+`
 ---
 :wendyApt
 !`
@@ -1625,6 +1638,8 @@ function initThirstyCaves() {
 	submitNode("Heaven", "heaven");
 	submitNode("Dev Menu", "devMenu");
 	submitNode("L.L.L.", "LLL");
+	submitNode("Femme Ren's", "thelly");
+	submitNode("Lone's Room", "lone");
 	submitNode("Spilled Paint", "wendyApt");
 	submitNode("Intro", "myntIntro");
 	
@@ -1636,9 +1651,19 @@ function initThirstyCaves() {
 	attachNode("Red Pond", "Spilled Paint", BOTTOM);
 	attachNode("Spilled Paint", "Intro", BOTTOM);
 	attachNode("Red Pond", "L.L.L.", TOP);
+	attachNode("L.L.L.", "Femme Ren's", RIGHT);
+	attachNode("Femme Ren's", "Lone's Room", RIGHT);
 
 	setNodeLocked("Spilled Paint", function() {
 		return data.metCart;
+  	});
+
+  	setNodeLocked("Femme Ren's", function() {
+		return data.metRen;
+  	});
+
+  	setNodeLocked("Lone's Room", function() {
+		return data.metRen;
   	});
 
   	setNodeLocked("Dev Menu", function() {

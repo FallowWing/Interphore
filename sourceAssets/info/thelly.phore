@@ -1,11 +1,13 @@
 START_PASSAGES
 :thellyModStart
 
+!`
+data.metRen = true;
+`
 You head back to the L.L.L. and push open the door to the cozy antechamber, just outside the map dome.
 
 A teen boy sits on the couch.
 
-[vnThelly12]
 [Examine boy?|nextThelly1]
 ---
 :nextThelly1
@@ -143,7 +145,7 @@ Ren nods. "Just hug the back wall of the universe until you hit downtown, then g
 
 He saunters past you, hips swaying. "See you there."
 
-[Seeya.|@TODO]
+[Seeya.|thellyMoveAlong]
 ---
 :nextThelly8
 
@@ -1043,7 +1045,7 @@ Thelly looks at you, performing helplessness, brow all furrowed, paws wringing. 
 
 [Go see your master.|thellySex]
 [Fuck you looking at puppyslut? (Smack his ass.)|thellySmack]
-[Welp, it's been fun, boys. I got what I came for. Seeya!|@TODO]
+[Welp, it's been fun, boys. I got what I came for. Seeya!|thellyMoveAlong]
 ---
 :thellySmack
 
@@ -1692,7 +1694,18 @@ Ren crushes him in a supermassive hug. Thelly squeaks. His fluffy tail helicopte
 
 "I'd love that, Thelly."
 
-[Move along.|@TODO]
+[Move along.|thellyMoveAlong]
+---
+:thellyMoveAlong
+
+!`
+if (music) music.destroy();
+
+execAsset("thirstyCaves.phore");
+initThirstyCaves();
+gotoMap();
+`
+
 ---
 :thellyEnd
 

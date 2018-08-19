@@ -239,7 +239,7 @@ cart.y = 20;
 cart.alpha = 0;
 cart.smoothing = true;
 if (randomAsset === "img/writer/characters/cart/cart2.png") cart.scaleX = cart.scaleY = 1.3;
-if (randomAsset === "img/writer/characters/ren/ren.png") cart.scaleX = cart.scaleY = 1;
+if (randomAsset === "img/writer/characters/ren/ren.png") cart.y = gameHeight - cart.height;
 if (randomAsset === "img/writer/characters/thelly/thelly.png") cart.scaleX = cart.scaleY = 1.1;
 if (randomAsset === "img/writer/characters/lone/lone.png") cart.scaleX = cart.scaleY = 0.8;
 

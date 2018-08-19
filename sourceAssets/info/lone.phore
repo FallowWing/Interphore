@@ -1,6 +1,10 @@
 START_PASSAGES
 :loneModStart
 
+!`
+data.metLone = true;
+`
+
 You stroll down the hallway, looking for the exit.
 
 "You should just change yourself in the pond, Lone."
@@ -14,11 +18,9 @@ Seven boys have clustered around something in the corner of the hallway. They gl
 It's a femmy twelve-year-old goat boi with motherly hips. He's curled up in the corner, sniffling, covered in bruises. Purple splotches decorate the soft wool of his belly. His tiny goatdick is rock hard.
 
 !`
-
 var loneImg = addImage("assets/img/writer/characters/lone/lone.png");
 loneImg.x = gameWidth - loneImg.width;
 loneImg.y = gameHeight - loneImg.height;
-
 `
 
 [You okay man?|lone02]
@@ -471,7 +473,7 @@ He fidgets and glances at your paws.
 
 He trots away from you, down a long street that ends in a mess of rotted, empty buildings. His white wool contrasts hard against their darkness. Soon, he's too far away for you to even see his bruises.
 
-[Move along.|@TODO]
+[Move along.|loneMoveAlong]
 ---
 :lone21
 
@@ -596,7 +598,7 @@ His bloodshot eyes lock on yours. The sensitive little goat bitch is crying for 
 
 "Please visit me!!"
 
-[I will. <3|@TODO]
+[I will. <3|loneMoveAlong]
 ---
 :loneKill
 
@@ -644,7 +646,17 @@ He turns away from you and watches a dad and his son crossing over the street, j
 
 He hugs you tightly. You lean down to rest your chin on his little head. His fresh wool smells like pine.
 
-[I will. <3|@TODO]
+[I will. <3|loneMoveAlong]
+---
+:loneMoveAlong
+
+!`
+if (music) music.destroy();
+
+execAsset("thirstyCaves.phore");
+initThirstyCaves();
+gotoMap();
+`
 
 
 END_PASSAGES

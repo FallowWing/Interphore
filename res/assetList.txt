@@ -117,6 +117,8 @@ img/writer/load.png
 img/writer/load.spr
 img/writer/save.png
 img/writer/save.spr
+img/writer/extras.png
+img/writer/extras.spr
 img/writer/mute.png
 img/writer/mute.spr
 img/writer/notification.png

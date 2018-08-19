@@ -18,6 +18,16 @@ addChoice("Move along.", function() {
 	initThirstyCaves();
 	gotoMap();
 });
+
+var cartImg = addImage("assets/img/writer/characters/cart/cart2.png");
+cartImg.x = gameWidth - cartImg.width * 1.1;
+cartImg.y = gameHeight/2 - cartImg.height/2;
+
+if (!data.metRen) {
+	clear();
+	execAsset("thelly.phore");
+	gotoPassage("thellyModStart");
+}
 `
 ---
 :layerLLL
@@ -35,35 +45,35 @@ PARAPHRASED TIMELINES:
 
 Paraphores #0-140 will be redacted from this narration to minimize security risk. You should not need that information anyway.
 
-The primary form of these shapeshifts were speckles of paint. Secondary forms have been used here for accessibility.
+The primary form of these shapeshifts were speckles of paint. Secondary forms have been used here for ease of reading.
 
 Paraphore #141
-- Name: Mynt's Dress
-- Dispatched by: Cartographer
-- Shapeshift: Electron arrangement for a pre-exisiting circuit
-- Destination: Digital, green cat alone in a box
-- Functional Disguise: A dress
+<b>Name:</b> Mynt's Dress
+<b>Dispatched by:</b> Cartographer
+<b>Shapeshift:</b> Electron arrangement for a pre-exisiting circuit
+<b>Destination:</b> Digital, green cat alone in a box
+<b>Functional Disguise:</b> A dress
 
 Paraphore #142
-- Name: Daydream Journal
-- Dispatched by: Cartographer
-- Shapeshift: Electron arrangement for a pre-existing circuit
-- Destination: Digital, green cat alone in a library
-- Functional Disguise: A journal
+<b>Name:</b> Daydream Journal
+<b>Dispatched by:</b> Cartographer
+<b>Shapeshift:</b> Electron arrangement for a pre-existing circuit
+<b>Destination:</b> Digital, green cat alone in a library
+<b>Functional Disguise:</b> A journal
 
 Paraphore #143
-- Name: Grey Meteorite
-- Dispatched by: Mr. Eyeball
-- Shapeshift: Ball of various minerals, hydrogen, helium, oxygen
-- Destination: Earth
-- Functional Disguise: A grey meteorite
+<b>Name:</b> Grey Meteorite
+<b>Dispatched by:</b> Mr. Eyeball
+<b>Shapeshift:</b> Ball of various minerals, hydrogen, helium, oxygen
+<b>Destination:</b> Earth
+<b>Functional Disguise:</b> A grey meteorite
 
 Paraphore #144
-- Name: Violet Meteorite, Violet
-- Dispatched by: Cartographer
-- Shapeshift: Electron arrangement for a pre-exisiting circuit
-- Destination: Digital, fragmentary clone of green cat
-- Functional Disguise: A purple meteorite
+<b>Name:</b> Violet Meteorite, Violet
+<b>Dispatched by:</b> Cartographer
+<b>Shapeshift:</b> Electron arrangement for a pre-exisiting circuit
+<b>Destination:</b> Digital, fragmentary clone of green cat
+<b>Functional Disguise:</b> A purple meteorite
 
 [Back.|hubLLL]
 ---
