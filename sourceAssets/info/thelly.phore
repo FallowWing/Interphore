@@ -889,6 +889,8 @@ getAudio("music").destroy();
 
 setTitle("");
 
+msg("Art: Fredek");
+
 vn.init();
 vn.set(0, "writer/characters/ren/ren", 0xFFe2e2e2);
 vn.set(1, "writer/characters/thelly/thelly", 0xFFf8d364);

@@ -21,6 +21,7 @@ It's a femmy twelve-year-old goat boi with motherly hips. He's curled up in the 
 var loneImg = addImage("assets/img/writer/characters/lone/lone.png");
 loneImg.x = gameWidth - loneImg.width;
 loneImg.y = gameHeight - loneImg.height;
+msg("Art: Spunkymutt");
 `
 
 [You okay man?|lone02]

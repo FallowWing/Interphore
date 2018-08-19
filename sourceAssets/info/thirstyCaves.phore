@@ -1584,6 +1584,7 @@ You follow the ALCOHOL LAYER pipeline underground. It takes a sharp left turn ou
 clearNodes();
 getAudio("music").destroy();
 execAsset("scratch.phore");
+gotoPassage("scratchModStart");
 `
 ---
 :LLL
