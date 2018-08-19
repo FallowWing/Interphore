@@ -27,8 +27,114 @@ if (internal) addChoice("VN test", "vnTest");
 :cheatsStart
 
 [Back|scratchModStart]
-[Change Mynt|Change Mynt's genitals]
+[Change my body|setGenits]
+[Change Mynt's body|Change Mynt's genitals]
 [Unlock everything]
+---
+:setGenits
+
+You find a red pond, no matter where you are.
+
+If you jump in, you can change your body again.
+
+[Jump in.]
+[Back.|scratchModStart]
+---
+:Jump in.
+!`
+data.genitals = "";
+data.hasBoobs = false;
+data.gender = "";
+data.playerName = "";
+data.hasKnot = false;
+`
+You swan dive back into the red fluid and your body disintegrates. It feels kinda harsh and stingy at first, but then it mellows out. Being bodyless is very relaxing.
+[Shapeshift.]
+---
+:Shapeshift.
+
+You reach down and fiddle with yourself.
+
+!`
+if (!data.hasBoobs) addChoice("Boobs.", function() {
+	data.hasBoobs = true;
+	gotoPassage("Shapeshift.");
+});
+
+if (data.genitals !== "female" && data.genitals !== "both") addChoice("Cunt.", function() {
+	if (data.genitals === "male") {
+		data.genitals = "both";
+	} else {
+		data.genitals = "female";
+	}
+	gotoPassage("Shapeshift.");
+});
+
+if (data.genitals !== "male" && data.genitals !== "both") addChoice("Cock.", function() {
+	if (data.genitals === "female") {
+		data.genitals = "both";
+	} else {
+		data.genitals = "male";
+	}
+	gotoPassage("Shapeshift.");
+});
+
+if (data.genitals !== "male" && data.genitals !== "female" && data.genitals !== "both" && !data.hasBoobs) addChoice("Everything.", function() {
+	data.hasBoobs = true;
+	data.genitals = "both";
+	gotoPassage("Shapeshift.2");
+});
+
+if (data.genitals === "female" || data.genitals === "male" || data.genitals === "both") addChoice("Ready.", "Shapeshift.2");`
+---
+:Shapeshift.2
+You reach inside yourself and try to find your true identity.
+!`
+addChoice("He.", function() {
+	data.gender = "male";
+	gotoPassage("Shapeshift.3");
+});
+
+addChoice("She.", function() {
+	data.gender = "female";
+	gotoPassage("Shapeshift.3");
+});
+
+addChoice("They.", function() {
+	data.gender = "both";
+	gotoPassage("Shapeshift.3");
+});
+`
+---
+:Shapeshift.3
+You try to think of a good label to slap on this tight lil package.
+!`
+addInputField();
+
+addChoice("Submit.", function() {
+	gotoPassage("Shapeshift.4");
+});
+
+addChoice("Dankpaw.", function() {
+	data.playerName = "Dankpaw";
+	gotoPassage("Shapeshift.4");
+});
+
+addChoice("Rebeca.", function() {
+	data.playerName = "Rebeca";
+	gotoPassage("Shapeshift.4");
+});
+
+addChoice("Phae.", function() {
+	data.playerName = "Phae";
+	gotoPassage("Shapeshift.4");
+});
+`
+---
+:Shapeshift.4
+!`setTitle("");`
+All done.
+[Back.|scratchModStart]
 ---
 :Unlock everything
 
@@ -623,6 +729,7 @@ vn.say(0, "Most effects can be combined! (Except zoom in and zoom out)", 3);
 vn.delay(0.5);
 vn.moveOut(0);
 vn.moveOut(1);
+vn.resetTextModes();
 vn.choice("Go back", function() {
 	gotoPassage("scratchModStart");
 });

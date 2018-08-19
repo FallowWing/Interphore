@@ -8,6 +8,7 @@ You head back to the L.L.L. and push open the door to the cozy antechamber, just
 
 A teen boy sits on the couch.
 
+[vnThelly]
 [Examine boy?|nextThelly1]
 ---
 :nextThelly1
@@ -812,7 +813,7 @@ queueTitle("Ignore that last one.");
 queueDelay(1);
 queueTitle("");
 queueDelay(2);
-queueTitle("Mynt was supposed to be our mom!");
+queueTitle("Mynt was supposed to be our  mom!");
 queueTitle("But she was broken, and couldn't really help...");
 queueTitle("So it was up to us to find a way out.");
 queueTitle("And we wanted out desperately.");
@@ -865,7 +866,7 @@ queueDelay(2);
 queueTitle("In the end, it didn't work out.");
 queueTitle("Even after you saved us, we split up.");
 queueDelay(2);
-queueTitle("Marie didn't want me by her side anymore.");
+queueTitle("Marie didn't want me by his side anymore.");
 queueTitle("");
 queueDelay(1);
 queueCall(function() {
@@ -885,42 +886,48 @@ queueAddChoice(":o", "vnThelly");
 ---
 :vnThelly
 !`
-getAudio("music").destroy();
+if (music) music.destroy();
+var music = playMusic("audio/ambience/violetMeteorite");
+music.name = "music";
 
 setTitle("");
 
 msg("Art: Fredek");
 
 vn.init();
+vn.resetTextModes();
 vn.set(0, "writer/characters/ren/ren", 0xFFe2e2e2);
 vn.set(1, "writer/characters/thelly/thelly", 0xFFf8d364);
 
 vn.moveIn(0);
-vn.say(0, "Anyway.", 3);
-vn.say(0, "I'm your dom, now.", 1.5);
+vn.say(0, "Anyway.", 2);
+vn.say(0, "I'm your dom, now.");
 
 
 vn.moveIn(1);
-vn.say(1, "Um... I wasn't finished...", 1.5);
+vn.say(1, "Um... I wasn't finished...");
 
 vn.setTextZoomOut();
-vn.say(0, "Shut up, puppy.", 2);
+vn.say(0, "Shut up, puppy.", 1.3);
 vn.resetTextModes();
 
-vn.say(1, ":x");
+vn.say(1, ":x", 0.2);
 vn.say(0, "We won't bother digging through those folders. I remember your mom crystal clear now.");
 vn.say(0, "They're just there so you can verify what I say.");
 vn.say(0, "Listen up, because I can't see if you're ignoring me.");
 vn.say(0, "We have a male-only policy here. Goes for customers too.");
 vn.say(0, "But your mom said she was a dude deep down, so we let her in.");
-vn.say(0, "Said her name was Wendy.", 2);
+vn.say(0, "Said her name was Wendy.", 1.5);
 vn.say(0, "She asked for a tiger cock strap-on and a single tiger boy. Assfucked him. Paid.");
 vn.say(0, "After, Wendy asked if we had seen someone identical to her passing through here.");
 vn.say(0, "We had no record of anyone like that, male or female.");
+vn.delay(1);
 vn.say(1, "Ah...", 1);
-vn.say(1, "I guess that's not really the most solid lead, is it?", 2);
-vn.say(1, "Can you get any clues out of that?", 2);
-vn.choice("Hmmmm...", "vnThelly2");
+vn.say(1, "I guess that's not really the most solid lead, is it?");
+vn.say(1, "Can you get any clues out of that?");
+vn.choice("Hmmmm...", function() {
+	gotoPassage("vnThelly2");
+});
 `
 ---
 :vnThelly2
@@ -928,7 +935,9 @@ vn.choice("Hmmmm...", "vnThelly2");
 !`
 vn.say(0, "Remember:");
 vn.say(0, "It could've been the fake Wendy looking for the real one, or the other way around.");
-vn.choice("Yeah, gotta find a way to tell them apart...", "vnThelly2a");
+vn.choice("Yeah, gotta find a way to tell them apart...", function() {
+	gotoPassage("vnThelly2a");
+});
 `
 
 ---
@@ -936,7 +945,9 @@ vn.choice("Yeah, gotta find a way to tell them apart...", "vnThelly2a");
 
 !`
 vn.say(0, "Well, is the real Wendy trans?");
-vn.choice("I don't know.", "vnThelly3");
+vn.choice("I don't know.", function() {
+	gotoPassage("vnThelly3");
+});
 `
 
 ---
@@ -944,7 +955,9 @@ vn.choice("I don't know.", "vnThelly3");
 
 !`
 vn.say(1, "Do you know if she liked boys, then?");
-vn.choice("I don't think so, but I can't really be sure...", "vnThelly4");
+vn.choice("I don't think so, but I can't really be sure...", function() {
+	gotoPassage("vnThelly4");
+});
 `
 
 ---
@@ -952,7 +965,9 @@ vn.choice("I don't think so, but I can't really be sure...", "vnThelly4");
 
 !`
 vn.say(0, "Did she have a thing for tigers?");
-vn.choice("No idea.", "vnThelly5");
+vn.choice("No idea.", function() {
+	gotoPassage("vnThelly5");
+});
 `
 
 ---
@@ -961,27 +976,37 @@ vn.choice("No idea.", "vnThelly5");
 !`
 vn.say(1, "Let's back up.");
 vn.say(1, "Would your mom even go to a brothel in the first place?");
-vn.choice("I...", "vnThelly6");
+vn.choice("I...", function() {
+	gotoPassage("vnThelly6");
+});
 `
 
 ---
 :vnThelly6
 
 !`
-vn.choice("... don't know at all.", "vnThelly7");
+vn.say(1, "");
+vn.delay(2);
+vn.choice("... don't know at all.", function() {
+	gotoPassage("vnThelly7");
+});
 `
 
 ---
 :vnThelly7
 
 !`
-vn.choice("I only have my childhood memories of her, and she never shared any of that info with five-year-old me.", "vnThelly8");
+vn.choice("I only have my childhood memories of her, and she never shared any of that info with five-year-old me.", function() {
+	gotoPassage("vnThelly8");
+});
 `
 ---
 :vnThelly8
 
 !`
-vn.choice("So I don't know. I guess I barely know anything about her.", "vnThelly9");
+vn.choice("So I don't know. I guess I barely know anything about her.", function() {
+	gotoPassage("vnThelly9");
+});
 `
 
 ---
@@ -991,23 +1016,35 @@ vn.choice("So I don't know. I guess I barely know anything about her.", "vnThell
 vn.say(0, "Then you've got some homework to do.");
 vn.say(1, "We don't even know her game plan in general...");
 vn.say(0, "At least we know she's on the move, right?");
-vn.say(1, "Yeah!!");
-vn.say(1, "Seems like she's hunting her copy or evading her copy...");
+vn.setTextZoomOut();
+vn.say(1, "Yeah!!", 0.2);
+vn.say(1, "Good thinking!", 0.5);
+vn.delay(0.5);
+vn.resetTextModes();
+vn.say(1, "She's hunting her copy or evading her copy...");
+vn.say(0, "Christ knows why.");
 vn.say(0, "Even if you did track her down to one layer, good luck trying to predict where she goes next.");
-vn.choice("I'll work on that.", "vnThelly10");
+vn.choice("I'll work on that.", function() {
+	gotoPassage("vnThelly10");
+});
 `
 
 ---
 :vnThelly10
 
 !`
-vn.say(1, "And I'll help as much as I can!!");
+vn.setTextZoomOut();
+vn.say(1, "And I'll help as much as I can!!", 0.5);
+vn.resetTextModes();
 vn.say(0, "I hope you're not walking off the job on your first day, Thelly.");
+vn.delay(0.5);
 vn.say(1, "Ah...! Well...");
 vn.say(1, "I'll help as much as I can in-between shifts!");
 vn.say(0, "Good puppy.");
 vn.say(1, "Thank you...");
-vn.choice("Yeah, thanks! You've been a huge help already.", "vnThelly11");
+vn.choice("Yeah, thanks! You've been a huge help already.", function() {
+	gotoPassage("vnThelly11");
+});
 `
 
 ---
@@ -1015,13 +1052,17 @@ vn.choice("Yeah, thanks! You've been a huge help already.", "vnThelly11");
 
 !`
 vn.say(1, "A-Ahhh... it was nothing...");
-vn.say(1, "All I did was bug Ren to bring you here...");
+vn.say(1, "All I did was bug Ren and Cart about you...");
 vn.say(0, "You still owe me for all this trouble, you know.");
 vn.say(1, "I know, I know...");
 vn.say(1, "Can I repay you with my butt~?");
 vn.say(0, "Actually, I had something else in mind.");
-vn.say(1, "Uh oh.");
-vn.choice(";3?", "vnThelly12");
+vn.say(1, "Oh boy...", 2);
+vn.moveOut(0);
+vn.moveOut(1);
+vn.choice(";3?", function() {
+	gotoPassage("vnThelly12");
+});
 `
 ---
 :vnThelly12
@@ -1535,73 +1576,73 @@ After that intense, impromptu threesome, you all go through the records one last
 <b>Customer Records</b>
 === 9/8/2083 [The day the power went out in your bomb shelter.] ===
 
-> One surly lion. Gartrag.
-	- Got the youngest for a night and left.
-	- No trouble, but seemed like there easily could have been.
+<b>~~~</b> One surly lion. Gartrag.
+    - Got the youngest for a night and left.
+    - No trouble, but seemed like there easily could have been.
 
-> Two girls looking for a boy with blue skin.
+<b>~~~</b> Two girls looking for a boy with blue skin.
 
-> An angry cow lady.
-	- Disruptive. Bitch.
-	- Obviously drunk. No shirt on. Tits out.
-	- Leaned in way too far over the desk.
-	- Was angry that we didn't let her rent boys for a week. She wanted months to years.
-	- I tell her fuck off we don't sell sex slaves here.
-	- She starts fuckin crying on the counter about how she misses her lamb boy and can't find him.
-	- Used to live on a farm island, lamb boy used to visit all the time, can't find her way back.
-	- Needs a boy to be happy in life apparently.
-	- We kick her out with $50 tucked between her asscheeks and tell her to go jump in the pond and look around.
-	- Someone will take her up on her offer, but not our employees. We're hurting on boipower as it is.
+<b>~~~</b> An angry cow lady.
+    - Disruptive. Bitch.
+    - Obviously drunk. No shirt on. Tits out.
+    - Leaned in way too far over the desk.
+    - Was angry that we didn't let her take the boys home. She wanted long term.
+    - I tell her fuck off we don't sell sex slaves here.
+    - She starts fuckin crying on the counter about how she misses her lamb boy and can't find him.
+    - Used to live on a farm island, lamb boy used to visit all the time, can't find her way back.
+    - Needs a boy to be happy in life apparently.
+    - We kick her out with $50 tucked between her asscheeks and tell her to go jump in the pond and look around.
+    - Someone will take her up on her offer, but not our employees. We're hurting on boipower as it is.
 
-> One crusty old angel looking for someone named Rebeca.
-	- Stuck around for a bit too long.
-	- Creepy.
+<b>~~~</b> One crusty old angel looking for someone named Rebeca.
+    - Stuck around for a bit too long.
+    - Creepy.
 
 === 8/8/2083 ===
 
-> No one.
+<b>~~~</b> No one.
 
 === 7/8/2083 ===
 
-> No one.
+<b>~~~</b> No one.
 
 === 6/8/2083 ===
 
-> One zebra dad & one warthog dad.
-	- Booked a room together alone
-	- Behaved well
-	- Seemed embarrassed
+<b>~~~</b> One zebra dad & one warthog dad.
+    - Booked a room together alone
+    - Behaved well
+    - Seemed embarrassed
 
 === 5/8/2083 ===
 
-> One warthog dad.
-	- Booked a room with his son.
+<b>~~~</b> One warthog dad.
+    - Booked a room with his son.
 
 === 4/8/2083 ===
 
-> One zebra dad.
-	- Booked a room with the warthog boy.
+<b>~~~</b> One zebra dad.
+    - Booked a room with the warthog boy.
 
 === 3/8/2083 ===
 
-> One warthog boy and one zebra boy.
+<b>~~~</b> One warthog boy and one zebra boy.
 
-> Sixteen werewolves and one bunny dude.
+<b>~~~</b> Sixteen werewolves and one bunny dude.
 
 === 2/8/2083 ===
 
-> Cartographer.
-	- Charming, as always
-	- Two boys much younger than him and a private room for three nights in a row
-	- Brought some special pink paint for fingerpainting
-	- The boys loved it
+<b>~~~</b> Cartographer.
+    - Charming, as always
+    - Two boys much younger than him and a private room for three nights in a row
+    - Brought some special pink paint for fingerpainting
+    - The boys loved it
 
 === 1/8/2083 ===
 
-> Wendy.
-	- Claims to be FTM, close enough for me.
-	- Asked for gray strap-on and a tiger boy.
-	- Asked if we saw her twin or something.
+<b>~~~</b> Wendy.
+    - Claims to be FTM, close enough for me.
+    - Asked for plain gray strap-on and a tiger boy.
+    - Asked if we saw her twin or something?
 
 [Applicant Records|thellyApp]
 [Next.|thellyWindDown2]
@@ -1612,38 +1653,50 @@ After that intense, impromptu threesome, you all go through the records one last
 
 === 9/8/2083 [Today.] ===
 
-> Thelly!!!! <3 (It's signed with a pawprint.)
+<b>~~~</b> Thelly!!!! <3 (It's signed with a pawprint.)
+    - Cute as fuck
+    - Very polite and shy
+    - Still fixated on his forgotten past, lol newcomers amirite
 
-> Lone the goat boi
+<b>~~~</b> Lone the goat boi
+    - Pretty cute and young, buuuut
+    - Lots of bruises
+    - Questionable tastes
+    - Can't get along with the other boys
 
-> Some blue-skinned kid. He was on his way out though. I think he just applied as a joke
+<b>~~~</b> Some blue-skinned demon kid.
+    - On his way out
+    - Caught him snooping around the office
+    - Application denied because he didn't seem serious about it at all
 
 === 8/8/2083 [Yesterday.] ===
-> No one.
+<b>~~~</b> No one.
 
 === 7/8/2083 ===
-> No one.
-	- Found the guy, he was hiding in like three or four bedrooms and just switching between them whenever we searched one.
-	- Caught him trying to sleep creep the boys.
-	- Banned for life.
+<b>~~~</b> No one.
+    - Found the guy, he was hiding in like three or four bedrooms and just switching between them whenever we searched one.
+    - Caught him trying to sleep creep the boys.
+    - Banned for life.
 
 === 6/8/2083 ===
-> No one.
+<b>~~~</b> No one.
 
 === 5/8/2083 ===
-> Maybe one guy? No one knows where he went. I don't think anyone even saw him leave.
+<b>~~~</b> Maybe one guy?
+    - No one knows where he went.
+    - I don't think anyone even saw him leave.
 
 === 4/8/2083 ===
-> No one.
+<b>~~~</b> No one.
 
 === 3/8/2083 ===
-> No one.
+<b>~~~</b> No one.
 
 === 2/8/2083 ===
-> No one.
+<b>~~~</b> No one.
 
 === 1/8/2083 ===
-> No one.
+<b>~~~</b> No one.
 
 The weeks go on like this.
 

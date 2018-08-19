@@ -1637,7 +1637,6 @@ function initThirstyCaves() {
 	submitNode("Alcohol Layer", "pipeline");
 	submitNode("Underground Farms", "rox");
 	submitNode("Heaven", "heaven");
-	submitNode("Dev Menu", "devMenu");
 	submitNode("L.L.L.", "LLL");
 	submitNode("Femme Ren's", "thelly");
 	submitNode("Lone's Room", "lone");
@@ -1646,7 +1645,6 @@ function initThirstyCaves() {
 	
 	attachNode("Red Pond", "Underground Farms", RIGHT);
 	attachNode("Underground Farms", "Heaven", RIGHT);
-	attachNode("Heaven", "Dev Menu", RIGHT);
 	attachNode("Red Pond", "Yellow Pond", LEFT);
 	attachNode("Yellow Pond", "Alcohol Layer", LEFT);
 	attachNode("Red Pond", "Spilled Paint", BOTTOM);
@@ -1665,10 +1663,6 @@ function initThirstyCaves() {
 
   	setNodeLocked("Lone's Room", function() {
 		return data.metRen;
-  	});
-
-  	setNodeLocked("Dev Menu", function() {
-		return data.unlockedDev;
   	});
 
 	setBackground(0, "writer/mainBg");
