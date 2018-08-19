@@ -152,6 +152,7 @@ vn.setNow = function(charNum, img, fontColour) {
 
 	newChar.sprite = addImage(img);
 	newChar.sprite.alpha = 0;
+	newChar.sprite.temp = false;
 
 	vn.chars[charNum] = newChar;
 }
@@ -227,6 +228,7 @@ vn.sayNow = function(charNum, text, textTime) {
 	if (vn.textBg) vn.textBg.destroy();
 	vn.textBg = addRectImage(textWidth * 1.25, textHeight * 1.25);
 	vn.textBg.alpha = 0.85;
+	vn.textBg.temp = false;
 	vn.textBg.layer = VN_TEXT_BG_LAYER;
 	vn.textBg.x = textX + textWidth/2 - vn.textBg.width/2;
 	vn.textBg.y = textY + textHeight/2 - vn.textBg.height/2;
@@ -281,6 +283,7 @@ vn.setTextWave = function(waveX, waveY, waveTime) {
 
 vn.resetTextModes = function() {
 	queueCall(function() { resetTextAreaModes_internal(); });
+	vn.setTextZoomIn();
 }
 
 vn.stop = function() {
