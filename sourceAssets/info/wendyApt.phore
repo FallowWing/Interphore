@@ -1171,18 +1171,20 @@ Wind rushes past you, flipping you onto your back. That's okay. It makes you woo
 
 Mynt's face pops out of the window. She extracts a paw from her burrito and waves goodbye as you hit the concrete skull-first and explode into a spluttery gush of red mist.
 
-"I'll clean that up!" Mynt assures your corpse.
+"I'll clean you up!" Mynt assures your corpse.
 
 [Next.|End]
 ---
 :End
 
-To be continued in the next version of Interphore.
+To be continued in further versions of Interphore.
 
-!`addChoice("[Dev Menu]", function() {
-	clear();
-	gotoPassage("scratchModStart");
-	data.unlockedDev = true;
-});`
+!`
+if (music) music.destroy();
+
+execAsset("thirstyCaves.phore");
+initThirstyCaves();
+gotoMap();
+`
 
 END_PASSAGES
