@@ -181,6 +181,15 @@ function gotoMap(isCheckpoint) {
 	loadButton.y = saveButton.y + saveButton.height*saveButton.scaleX + 16;
 	loadButton.onRelease = loadGame;
 
+	var extrasButton = addImage("writer/extras.png");
+	extrasButton.scaleX = extrasButton.scaleY = 2;
+	extrasButton.x = loadButton.x;
+	extrasButton.y = loadButton.y + loadButton.height*loadButton.scaleX + 16;
+	extrasButton.onRelease = function() {
+		gotoPassage("scratchModStart");
+	}
+
+
 	// { /// Exit button
 	// 	MintSprite *spr = createMintSprite("writer/exit.png");
 	// 	writer->bg->addChild(spr);
