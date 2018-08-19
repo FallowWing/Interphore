@@ -222,46 +222,18 @@ gotoMap();
 ---
 :thellyMod
 
-Password?
-
 !`
-addInputField();
-addChoice("Submit.", "thellyMod2");
-addChoice("Back.", "scratchModStart");
-`
----
-:thellyMod2
-
-!`
-if (lastInput === "thellybobelly") {
-	clear();
-	execAsset("thelly.phore");
-	gotoPassage("thellyModStart");
-} else {
-	gotoPassage("thellyMod");
-}
+clear();
+execAsset("thelly.phore");
+gotoPassage("thellyModStart");
 `
 ---
 :loneMod
 
-Password?
-
 !`
-addInputField();
-addChoice("Submit.", "loneMod2");
-addChoice("Back.", "scratchModStart");
-`
----
-:loneMod2
-
-!`
-if (lastInput === "lonebobone") {
-	clear();
-	execAsset("lone.phore");
-	gotoPassage("loneModStart");
-} else {
-	gotoPassage("loneMod");
-}
+clear();
+execAsset("lone.phore");
+gotoPassage("loneModStart");
 `
 ---
 :introModOriginal
