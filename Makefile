@@ -58,7 +58,6 @@ shipInterNewDir:
 	dirName=`ls -d $(PARAPHORE_COM_PATH)/interphore/early/*`; \
 									echo New url is $$dirName;
 
-# | awk -F "*" '{print $1}'
 shipInter:
 	$(MAKE) resetSite
 	
@@ -100,5 +99,6 @@ shipAll:
 shipCurrent:
 	$(MAKE) shipDir SHIP_DIR="$(PARAPHORE_COM_PATH)/paraphore/dev"
 	$(MAKE) shipDir SHIP_DIR="$(PARAPHORE_COM_PATH)/semiphore"
+	$(MAKE) shipDir SHIP_DIR="$(PARAPHORE_COM_PATH)/interphore"
 
 include $(CPP_TOOLS)/engine/buildSystem/Makefile.common

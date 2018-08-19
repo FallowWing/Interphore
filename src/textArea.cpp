@@ -155,8 +155,8 @@ void TextArea::update() {
 			} else if (mode == TEXT_MODE_RAINBOW) {
 				tint = argbToHex(255, rndInt(0, 255), rndInt(0, 255), rndInt(0, 255));
 			} else if (mode == TEXT_MODE_WAVE) {
-				destPoint.x += cos(engine->time*area->waveSpeed + ((float)i/area->defsNum)) * area->waveX;
-				destPoint.y += sin(engine->time*area->waveSpeed + ((float)i/area->defsNum)) * area->waveY;
+				destPoint.x += cos(engine->time*area->waveSpeed + ((float)i/area->defsNum)*(2.0*M_PI)) * area->waveX + 20;
+				destPoint.y += sin(engine->time*area->waveSpeed + ((float)i/area->defsNum)*(2.0*M_PI)) * area->waveY + 20;
 			}
 		}
 
