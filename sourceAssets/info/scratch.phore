@@ -665,11 +665,13 @@ vn.say(1, "Yo");
 vn.say(1, "Here's a choice test");
 vn.choice("test 1 first");
 vn.choice("test 1 second");
+vn.stop();
 vn.say(1, "You should of had to choose one before getting here");
 vn.choice("Pick this to freeze", function() {
 });
 vn.choice("Pick this to <i>not</i> freeze", function() {
 });
+vn.stop();
 
 vn.fadeOut(1);
 vn.set(1, "writer/characters/thelly/thelly", 0xFF550000);
@@ -713,6 +715,7 @@ vn.resetTextModes();
 vn.choice("Go back", function() {
 	gotoPassage("scratchModStart");
 });
+vn.stop();
 vn.deinit();`
 
 ---

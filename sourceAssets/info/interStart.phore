@@ -238,10 +238,16 @@ vn.choice = function(text, result) {
 	queueCall(function() { vn.choiceNow(text, result); });
 }
 vn.choiceNow = function(text, result) {
-	if (result === undefined) result = skipCurrentCommand;
 	addChoice(text, function() {
+		skipCurrentCommand();
 		clearChoices();
-		result();
+		if (result !== undefined) {
+			if (typeof result === "string") {
+				gotoPassage(result);
+			} else {
+				result();
+			}
+		}
 	});
 }
 
