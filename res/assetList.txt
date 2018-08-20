@@ -14,6 +14,7 @@ font/bitmap/OpenSans-Regular_40*
 info/replay/*
 
 info/magiDemo.phore
+info/silverMod.phore
 
 info/nodeGraph.phore
 info/mods.phore
