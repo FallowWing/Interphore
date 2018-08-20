@@ -883,6 +883,44 @@ queueAddChoice(":o", "vnThelly");
 
 `
 ---
+:nextThellyMom
+
+!`
+if (music) music.destroy();
+var music = playMusic("audio/ambience/violetMeteorite");
+music.name = "music";
+
+setTitle("");
+
+msg("Art: Fredek");
+
+vn.init();
+vn.resetTextModes();
+vn.set(0, "writer/characters/ren/ren", 0xFFe2e2e2);
+vn.set(1, "writer/characters/thelly/thelly", 0xFFf8d364);
+
+vn.moveIn(0);
+vn.say(0, "Let's see...", 2);
+vn.moveIn(1);
+vn.say(1, "Let's!", 0.5);
+vn.say(0, "We won't bother digging through those folders. I remember your mom crystal clear now.");
+vn.say(0, "They're just there so you can verify what I say.");
+vn.say(0, "Listen up, because I can't see if you're ignoring me.");
+vn.say(0, "We have a male-only policy here. Goes for customers too.");
+vn.say(0, "But your mom said she was a dude deep down, so we let her in.");
+vn.say(0, "Said her name was Wendy.", 1.5);
+vn.say(0, "She asked for a tiger cock strap-on and a single tiger boy. Assfucked him. Paid.");
+vn.say(0, "After, Wendy asked if we had seen someone identical to her passing through here.");
+vn.say(0, "We had no record of anyone like that, male or female.");
+vn.delay(1);
+vn.say(1, "Ah...", 1);
+vn.say(1, "I guess that's not really the most solid lead, is it?");
+vn.say(1, "Can you get any clues out of that?");
+vn.choice("Hmmmm...", function() {
+	gotoPassage("vnThelly2");
+});
+`
+---
 :vnThelly
 !`
 if (music) music.destroy();
