@@ -970,86 +970,32 @@ vn.choice("Hmmmm...", function() {
 :vnThelly2
 
 !`
+choicesPerPage = 2;
 vn.say(0, "Remember:");
 vn.say(0, "It could've been the fake Wendy looking for the real one, or the other way around.");
-vn.choice("Yeah, gotta find a way to tell them apart...", function() {
-	gotoPassage("vnThelly2a");
-});
-`
+vn.choice("Yeah, gotta find a way to tell them apart...");
 
----
-:vnThelly2a
-
-!`
 vn.say(0, "Well, is the real Wendy trans?");
-vn.choice("I don't know.", function() {
-	gotoPassage("vnThelly3");
-});
-`
+vn.choice("I don't know.");
+vn.choice("I donut know.");
 
----
-:vnThelly3
-
-!`
 vn.say(1, "Do you know if she liked boys, then?");
-vn.choice("I don't think so, but I can't really be sure...", function() {
-	gotoPassage("vnThelly4");
-});
-`
+vn.choice("I don't think so, but I can't really be sure...");
 
----
-:vnThelly4
-
-!`
 vn.say(0, "Did she have a thing for tigers?");
-vn.choice("No idea.", function() {
-	gotoPassage("vnThelly5");
-});
-`
+vn.choice("No idea.");
 
----
-:vnThelly5
-
-!`
 vn.say(1, "Let's back up.");
 vn.say(1, "Would your mom even go to a brothel in the first place?");
-vn.choice("I...", function() {
-	gotoPassage("vnThelly6");
-});
-`
+vn.choice("I...");
 
----
-:vnThelly6
-
-!`
 vn.say(1, "");
 vn.delay(2);
-vn.choice("... don't know at all.", function() {
-	gotoPassage("vnThelly7");
-});
-`
+vn.choice("... don't know at all.");
 
----
-:vnThelly7
+vn.choice("I only have my childhood memories of her, and she never shared any of that info with five-year-old me.");
+vn.choice("I don't know. I guess I barely know anything about her.");
 
-!`
-vn.choice("I only have my childhood memories of her, and she never shared any of that info with five-year-old me.", function() {
-	gotoPassage("vnThelly8");
-});
-`
----
-:vnThelly8
-
-!`
-vn.choice("So I don't know. I guess I barely know anything about her.", function() {
-	gotoPassage("vnThelly9");
-});
-`
-
----
-:vnThelly9
-
-!`
 vn.say(0, "Then you've got some homework to do.");
 vn.say(1, "We don't even know her game plan in general...");
 vn.say(0, "At least we know she's on the move, right?");
@@ -1061,15 +1007,8 @@ vn.resetTextModes();
 vn.say(1, "She's hunting her copy or evading her copy...");
 vn.say(0, "Christ knows why.");
 vn.say(0, "Even if you did track her down to one layer, good luck trying to predict where she goes next.");
-vn.choice("I'll work on that.", function() {
-	gotoPassage("vnThelly10");
-});
-`
+vn.choice("I'll work on that.");
 
----
-:vnThelly10
-
-!`
 vn.setTextZoomOut();
 vn.say(1, "And I'll help as much as I can!!", 0.5);
 vn.resetTextModes();
@@ -1079,15 +1018,8 @@ vn.say(1, "Ah...! Well...");
 vn.say(1, "I'll help as much as I can in-between shifts!");
 vn.say(0, "Good puppy.");
 vn.say(1, "Thank you...");
-vn.choice("Yeah, thanks! You've been a huge help already.", function() {
-	gotoPassage("vnThelly11");
-});
-`
+vn.choice("Yeah, thanks! You've been a huge help already.");
 
----
-:vnThelly11
-
-!`
 vn.say(1, "A-Ahhh... it was nothing...");
 vn.say(1, "All I did was bug Ren and Cart about you...");
 vn.say(0, "You still owe me for all this trouble, you know.");
@@ -1097,12 +1029,13 @@ vn.say(0, "Actually, I had something else in mind.");
 vn.say(1, "Oh boy...", 2);
 vn.moveOut(0);
 vn.moveOut(1);
-vn.choice(";3?", function() {
-	gotoPassage("vnThelly12");
+vn.choice("Hmmmm...", function() {
+	gotoPassage("vnThellyEnd");
 });
 `
 ---
-:vnThelly12
+:vnThellyEnd
+
 !`
 vn.deinit();
 `
