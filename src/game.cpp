@@ -372,8 +372,8 @@ void runMod(char *serialData) {
 
 	int serialLen = strlen(serialData);
 
-	int realDataSize = sizeof(char) * (serialLen + 1024) * 10; //@hack Not sure how big this should really be
-	// printf("Data size is: %0.2fmb\n", (float)realDataSize / Megabytes(1));
+	int realDataSize = sizeof(char) * (serialLen + 1024) * 20; //@hack Not sure how big this should really be
+	printf("Data size is: %0.2fmb\n", (float)realDataSize / Megabytes(1));
 	char *realData = (char *)Malloc(realDataSize);
 	memset(realData, 0, realDataSize);
 
