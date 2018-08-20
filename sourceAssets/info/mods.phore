@@ -3,7 +3,7 @@ START_PASSAGES
 Welcome to the mod page.
 !`
 addChoice("Load a mod", loadMod);
-addChoice("See completed mods", "Completed Mods (1)");
+addChoice("See completed mods", "Completed Mods");
 
 addChoice("Back to extras", "scratchModStart");
 `
