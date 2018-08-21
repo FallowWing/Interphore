@@ -22,6 +22,7 @@ Make sure you play through the intro or go to Hub and visit Red Pond to set your
 
 !`
 if (internal) addChoice("VN test", "vnTest");
+if (internal) addChoice("Weird choices", "weirdChoiceTest");
 `
 ---
 :cheatsStart
@@ -894,6 +895,18 @@ vn.choice("Go back", function() {
 vn.stop();
 vn.deinit();`
 
+---
+:weirdChoiceTest
+!`
+for (var i = 0; i < 9; i++) addChoice("Test");
+vn.choice("Go back", function() {
+	gotoPassage("scratchModStart");
+});
+
+hookTempUpdate(function() {
+	choicesPerPage = time % 10;
+});
+`
 ---
 :Exit
 `exitMod();`
