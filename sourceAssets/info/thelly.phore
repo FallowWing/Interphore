@@ -8,7 +8,7 @@ You head back to the L.L.L. and push open the door to the cozy antechamber, just
 
 A teen boy sits on the couch.
 
-[Click here Fallow|vnThelly]
+[vnThelly]
 [Examine boy?|nextThelly1]
 ---
 :nextThelly1
@@ -920,6 +920,7 @@ vn.say(1, "Can you get any clues out of that?");
 vn.choice("Hmmmm...", function() {
 	gotoPassage("vnThelly2");
 });
+vn.stop();
 `
 ---
 :vnThelly
@@ -966,6 +967,7 @@ vn.say(1, "Can you get any clues out of that?");
 vn.choice("Hmmmm...", function() {
 	gotoPassage("vnThelly2");
 });
+vn.stop();
 `
 ---
 :vnThelly2
@@ -975,27 +977,36 @@ choicesPerPage = 2;
 vn.say(0, "Remember:");
 vn.say(0, "It could've been the fake Wendy looking for the real one, or the other way around.");
 vn.choice("Yeah, gotta find a way to tell them apart...");
+vn.stop();
 
 vn.say(0, "Well, is the real Wendy trans?");
 vn.choice("I don't know.");
 vn.choice("I donut know.");
+vn.stop();
 
 vn.say(1, "Do you know if she liked boys, then?");
 vn.choice("I don't think so, but I can't really be sure...");
+vn.stop();
 
 vn.say(0, "Did she have a thing for tigers?");
 vn.choice("No idea.");
+vn.stop();
 
 vn.say(1, "Let's back up.");
 vn.say(1, "Would your mom even go to a brothel in the first place?");
 vn.choice("I...");
+vn.stop();
 
 vn.say(1, "");
 vn.delay(2);
 vn.choice("... don't know at all.");
+vn.stop();
 
 vn.choice("I only have my childhood memories of her, and she never shared any of that info with five-year-old me.");
+vn.stop();
+
 vn.choice("I don't know. I guess I barely know anything about her.");
+vn.stop();
 
 vn.say(0, "Then you've got some homework to do.");
 vn.say(1, "We don't even know her game plan in general...");
@@ -1009,6 +1020,7 @@ vn.say(1, "She's hunting her copy or evading her copy...");
 vn.say(0, "Christ knows why.");
 vn.say(0, "Even if you did track her down to one layer, good luck trying to predict where she goes next.");
 vn.choice("I'll work on that.");
+vn.stop();
 
 vn.setTextZoomOut();
 vn.say(1, "And I'll help as much as I can!!", 0.5);
@@ -1020,6 +1032,7 @@ vn.say(1, "I'll help as much as I can in-between shifts!");
 vn.say(0, "Good puppy.");
 vn.say(1, "Thank you...");
 vn.choice("Yeah, thanks! You've been a huge help already.");
+vn.stop();
 
 vn.say(1, "A-Ahhh... it was nothing...");
 vn.say(1, "All I did was bug Ren and Cart about you...");
@@ -1033,6 +1046,7 @@ vn.moveOut(1);
 vn.choice("Hmmmm...", function() {
 	gotoPassage("vnThellyEnd");
 });
+vn.stop();
 `
 ---
 :vnThellyEnd

@@ -649,6 +649,182 @@ if (internal) {
 // 	execAsset("magiDemo.phore");
 // });
 `
+---
+:vnTest2
+
+---
+:vnTest
+!`
+vn.init();
+vn.set(0, "writer/characters/john/john", 0xFF005500);
+vn.moveIn(0);
+vn.say(0, "Hullo?");
+vn.choice("Hello!! Have you seen a green cat?");
+vn.stop();
+vn.say(0, "Oh. Nope. Have you seen a little fox in a turtleneck?");
+vn.choice("No...");
+vn.stop();
+vn.say(0, "How many of us are in here?");
+vn.stop();
+vn.choice("There's at least one more.");
+vn.stop();
+vn.choice("She's a little spaz, we'll find her in no time.");
+vn.stop();
+vn.choice("Oh god.");
+vn.stop();
+vn.say(0, "Oh. Nope. Have you seen a little fox in a turtleneck?");
+vn.say(0, "What?");
+vn.choice("Just listen to yourself.");
+vn.stop();
+vn.say(0, "Um.");
+vn.choice("You would make an adorable librarian.");
+vn.stop();
+vn.say(0, "A-Ah...");
+vn.choice("And you look like a nerd in that shirt.");
+vn.stop();
+vn.say(0, "Listen...");
+vn.say(0, "We're trapped.");
+vn.choice("The ");
+vn.say(0, "Hello?");
+vn.choice("Oh god.");
+vn.say(0, "Hello?");
+vn.choice("Oh god.");
+vn.say(0, "Hello?");
+vn.choice("Oh god.");
+vn.say(0, "Hello?");
+vn.choice("Oh god.");
+vn.say(0, "Hello?");
+vn.choice("Oh god.");
+vn.say(0, "Hello?");
+vn.choice("Oh god.");
+vn.say(0, "Hello?");
+vn.choice("Oh god.");
+vn.say(0, "Hello?");
+vn.choice("Oh god.");
+vn.say(0, "Hello?");
+
+vn.set(1, "writer/characters/redder/redder", 0xFF550000);
+vn.moveIn(1);
+
+vn.say(1, "Yo.");
+vn.say(1, "");
+vn.choice("test 1 first");
+vn.choice("test 1 second");
+vn.say(1, "You should of had to choose one before getting here");
+vn.choice("Pick this to freeze", function() {
+});
+vn.choice("Pick this to <i>not</i> freeze", function() {
+});
+
+vn.fadeOut(1);
+vn.set(1, "writer/characters/thelly/thelly", 0xFF550000);
+vn.fadeIn(1);
+
+vn.effect(1, "shake");
+vn.say(1, "Effect!");
+
+vn.setTextZoomOut();
+vn.say(0, "Nice effect, check out this text zooming-out text (Benchmark Benchmark Benchmark Benchmark Benchmark Benchmark Benchmark Benchmark)");
+vn.say(0, "Look at how it slows down a lot with this third parameter", 3);
+
+vn.resetTextModes();
+vn.setTextZoomOut();
+vn.setTextJiggle(2, 2);
+vn.say(1, "It can be jiggling as well", 3);
+
+vn.resetTextModes();
+vn.setTextRainbow();
+vn.say(0, "Look, rainbows!");
+
+vn.resetTextModes();
+vn.setTextWave(10, 10, 5);
+vn.say(0, "And wave effect, but sadly it leave the bounds at the top left, possible solution, move all text 20px down and too the right, but then it won't be centered");
+
+vn.resetTextModes();
+vn.setTextZoomIn();
+vn.say(1, "And this wispering thing...", 3);
+
+vn.resetTextModes();
+vn.setTextZoomOut();
+vn.setTextJiggle(2, 2);
+vn.setTextRainbow();
+vn.setTextWave(10, 10, 5);
+vn.say(0, "Most effects can be combined! (Except zoom in and zoom out)", 3);
+
+vn.delay(0.5);
+vn.moveOut(0);
+vn.moveOut(1);
+vn.resetTextModes();
+vn.choice("Go back", function() {
+	gotoPassage("scratchModStart");
+});
+vn.deinit();`
+
+---
+:vnTest
+!`
+vn.init();
+vn.set(0, "writer/characters/ren/ren", 0xFF005500);
+vn.moveIn(0);
+vn.say(0, "Hello?");
+
+vn.set(1, "writer/characters/thelly/thelly", 0xFF550000);
+vn.moveIn(1);
+
+vn.say(1, "Yo");
+vn.say(1, "Here's a choice test");
+vn.choice("test 1 first");
+vn.choice("test 1 second");
+vn.say(1, "You should of had to choose one before getting here");
+vn.choice("Pick this to freeze", function() {
+});
+vn.choice("Pick this to <i>not</i> freeze", function() {
+});
+
+vn.fadeOut(1);
+vn.set(1, "writer/characters/thelly/thelly", 0xFF550000);
+vn.fadeIn(1);
+
+vn.effect(1, "shake");
+vn.say(1, "Effect!");
+
+vn.setTextZoomOut();
+vn.say(0, "Nice effect, check out this text zooming-out text (Benchmark Benchmark Benchmark Benchmark Benchmark Benchmark Benchmark Benchmark)");
+vn.say(0, "Look at how it slows down a lot with this third parameter", 3);
+
+vn.resetTextModes();
+vn.setTextZoomOut();
+vn.setTextJiggle(2, 2);
+vn.say(1, "It can be jiggling as well", 3);
+
+vn.resetTextModes();
+vn.setTextRainbow();
+vn.say(0, "Look, rainbows!");
+
+vn.resetTextModes();
+vn.setTextWave(10, 10, 5);
+vn.say(0, "And wave effect, but sadly it leave the bounds at the top left, possible solution, move all text 20px down and too the right, but then it won't be centered");
+
+vn.resetTextModes();
+vn.setTextZoomIn();
+vn.say(1, "And this wispering thing...", 3);
+
+vn.resetTextModes();
+vn.setTextZoomOut();
+vn.setTextJiggle(2, 2);
+vn.setTextRainbow();
+vn.setTextWave(10, 10, 5);
+vn.say(0, "Most effects can be combined! (Except zoom in and zoom out)", 3);
+
+vn.delay(0.5);
+vn.moveOut(0);
+vn.moveOut(1);
+vn.resetTextModes();
+vn.choice("Go back", function() {
+	gotoPassage("scratchModStart");
+});
+vn.deinit();`
+
 
 ---
 :vnTest
