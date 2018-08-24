@@ -439,7 +439,7 @@ void runMod(char *serialData) {
 					} else if (line[lineIndex] == '\\') {
 						realDataEnd = fastStrcat(realDataEnd, "\\\\");
 					} else {
-#if 0
+#if 1
 						char letter[2] = {};
 						letter[0] = line[lineIndex];
 						realDataEnd = fastStrcat(realDataEnd, letter);
