@@ -27,7 +27,21 @@ void DebugOverlay::update() {
 
 		char buildDateChar[32] = {};
 		getBuildDate(buildDateChar);
-		dgb->info->setText("Built %s UTC\nActive Sprite: %d", buildDateChar, engine->activeSprites);
+
+		bool isDebug = false;
+		bool isEarly = false;
+		bool isInternal = false;
+#ifdef SEMI_DEBUG
+		isDebug = true;
+#endif
+#ifdef SEMI_EARLY
+		isEarly = true;
+#endif
+#ifdef SEMI_INTERNAL
+		isInternal = true;
+#endif
+
+		dgb->info->setText("Built %s UTC\nDev version: %d\nEarly version: %d\nInternal version: %d\nActive Sprite: %d\n", buildDateChar, isDebug, isEarly, isInternal, engine->activeSprites);
 	}
 	if (!dgb->active) {
 		if (dgb->info) {
