@@ -230,6 +230,8 @@ function addEmptyImage(width, height) {
 }
 
 function addChoice(choiceText, result, config) {
+	if (result === undefined) result = choiceText;
+
 	var choice = {
 		sprite: null,
 		textField: null,
