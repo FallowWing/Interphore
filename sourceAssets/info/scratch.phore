@@ -170,7 +170,16 @@ addChoice("Back", "scratchModStart");
 !`
 addChoice("Thelly", "thellyMod", {icons: ["Cub", "Male"]});
 addChoice("Lone", "loneMod", {icons: ["Cub", "Male", "Abuse"]});
+addChoice("Mynt's Day Off", "myntMod");
 addChoice("Back", "scratchModStart");
+`
+---
+:myntMod
+
+!`
+clear();
+execAsset("wendyApt2.phore");
+gotoPassage("wendyApt2Start");
 `
 
 ---
