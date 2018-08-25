@@ -46,19 +46,46 @@ resetSite:
 		git reset --hard origin/master && \
 		git pull
 
-shipInterNewDir:
+shipInterNewEarlyDir:
 	$(MAKE) resetSite
 	newDirName=$(PARAPHORE_COM_PATH)/interphore/early/`date | md5sum -- `; \
 												newDirName=$${newDirName:0:-3}; \
 												rm -rf $(PARAPHORE_COM_PATH)/interphore/early/*; \
-												mkdir $$newDirName;
+												mkdir -p $$newDirName;
 	$(MAKE) shipDir SHIP_DIR="$(PARAPHORE_COM_PATH)/interphore/early"
 	
-	$(MAKE) shipInter
+	$(MAKE) shipInterEarly
 	dirName=`ls -d $(PARAPHORE_COM_PATH)/interphore/early/*`; \
 									echo New url is $$dirName;
 
+shipInterNewDevDir:
+	$(MAKE) resetSite
+	newDirName=$(PARAPHORE_COM_PATH)/interphore/dev/`date | md5sum -- `; \
+												newDirName=$${newDirName:0:-3}; \
+												rm -rf $(PARAPHORE_COM_PATH)/interphore/dev/*; \
+												mkdir -p $$newDirName;
+	$(MAKE) shipDir SHIP_DIR="$(PARAPHORE_COM_PATH)/interphore/dev"
+	
+	$(MAKE) shipInter
+	dirName=`ls -d $(PARAPHORE_COM_PATH)/interphore/dev/*`; \
+									echo New url is $$dirName;
+
 shipInter:
+	$(MAKE) resetSite
+	
+	cp res/currentMod.phore bin
+	$(MAKE) boptflash EXTRA_DEFINES+="-D SEMI_DEV" SHIPPING=1
+	$(MAKE) packWindows EXTRA_DEFINES+="-D SEMI_DEV" SHIPPING=1
+	$(MAKE) bandroid EXTRA_DEFINES+="-D SEMI_DEV" SHIPPING=1
+	dirName=`ls -d $(PARAPHORE_COM_PATH)/interphore/dev/*`; \
+									cp $(PARAPHORE_COM_PATH)/interphore/index.html $$dirName/index.html; \
+									cp bin/engine.swf $$dirName/interphore.swf; \
+									cp bin/$(GAME_NAME).zip $$dirName/interphore.zip; \
+									cp bin/engine.apk $$dirName/interphore.apk;
+	
+	$(MAKE) shipDir SHIP_DIR="$(PARAPHORE_COM_PATH)/interphore/dev/"
+
+shipInterEarly:
 	$(MAKE) resetSite
 	
 	cp res/currentMod.phore bin
