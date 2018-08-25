@@ -49,8 +49,40 @@ timer(8, function() { addChoice("I love you too, Mynt.", "I love you too, Mynt."
 :I love you too, Mynt.
 
 !`
+queueAddChoice("I can't believe it's you. Physically you.");
+`
+
+---
+:I can't believe it's you. Physically you.
+
+!`
+queueTitle("Heh... my new body doesn't look too bad, does it?");
+queueTitle("I think he just copied the code from my little computer body.");
+queueTitle("I don't know how he made it physical and put me on Earth, though...");
+queueTitle("Something to do with red juice...");
+queueAddChoice("I don't care how you got here. I'm just glad you're here.");
+`
+
+---
+:I don't care how you got here. I'm just glad you're here.
+
+!`
+queueTitle("I'm glad too, I...");
+queueTitle("Oh...!");
+queueCall(function() { setBackground(1, "writer/mynt/face/myntBod/7", CENTERED); });
+queueTitle("Oh, Rebeca.");
+queueTitle("I thought I'd never see you again.");
+queueDelay(2);
+queueAddChoice("I REALLY didn't expect to see you again...");
+`
+
+---
+:I REALLY didn't expect to see you again...
+
+!`
 queueTitle("Let's step into the red pond.");
 queueTitle("Together, okay?");
+queueCall(function() { setBackground(1, "writer/mynt/face/myntBod/10", CENTERED); });
 queueTitle("Take my hand.");
 queueAddChoice("Why do we have to go in the pond?");
 `

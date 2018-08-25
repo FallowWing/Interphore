@@ -1621,6 +1621,13 @@ execAsset("wendyApt.phore");
 gotoPassage("wendyAptStart");
 `
 ---
+:wendyApt2
+!`
+clear();
+execAsset("wendyApt2.phore");
+gotoPassage("wendyApt2Start");
+`
+---
 :myntIntro
 !`
 clear();
@@ -1641,6 +1648,7 @@ function initThirstyCaves() {
 	submitNode("Femme Ren's", "thelly");
 	submitNode("Lone's Room", "lone");
 	submitNode("Spilled Paint", "wendyApt");
+	submitNode("Mynt's Day Off", "wendyApt2");
 	submitNode("Intro", "myntIntro");
 	
 	attachNode("Red Pond", "Underground Farms", RIGHT);
@@ -1649,12 +1657,17 @@ function initThirstyCaves() {
 	attachNode("Yellow Pond", "Alcohol Layer", LEFT);
 	attachNode("Red Pond", "Spilled Paint", BOTTOM);
 	attachNode("Spilled Paint", "Intro", BOTTOM);
+	attachNode("Spilled Paint", "Mynt's Day Off", LEFT);
 	attachNode("Red Pond", "L.L.L.", TOP);
 	attachNode("L.L.L.", "Femme Ren's", RIGHT);
 	attachNode("Femme Ren's", "Lone's Room", RIGHT);
 
 	setNodeLocked("Spilled Paint", function() {
 		return data.metCart;
+  	});
+
+  	setNodeLocked("Mynt's Day Off", function() {
+		return data.leftMynt;
   	});
 
   	setNodeLocked("Femme Ren's", function() {

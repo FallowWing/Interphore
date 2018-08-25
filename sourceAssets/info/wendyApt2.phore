@@ -1,0 +1,927 @@
+START_PASSAGES
+:wendyApt2Start
+
+`data.playerName` heads out on `his` way to Maine.
+
+What will you do now, Mynt?
+
+[Ahh gosh... I dunno!!|myntDeco1]
+---
+:myntDeco1
+
+You sit on the edge of the bed. It's still warm and a little spattered with sex juices.
+
+[... Well, sniff those for starters. >:3|myntDeco2]
+---
+:myntDeco2
+
+You press your nose to the sheets and inhale gently. `data.playerName`'s scent tickles the back of your throat.
+
+[A-Ah...|myntDeco3]
+---
+:myntDeco3
+
+One of your paws automatically curls into a fistful of bedsheets. Your long tail sways, brushing the carpet.
+
+You kinda kneel and half-hang off the side of the bed, chin pressed to the mattress, cheeks squishing up cutely.
+
+!`addChoice("I miss "+data.playerName+" already...", "myntDeco4");`
+---
+:myntDeco4
+
+Eventually, you get so used to `his` scent, you can't even smell it anymore.
+
+[BAH!|myntDeco5]
+---
+:myntDeco5
+
+You get off the bed and say "bah." (sic)
+
+[What am I supposed to do here!!|myntDeco6]
+---
+:myntDeco6
+
+Supposed to?
+
+[How can I help find mom when I'm cooped up in this apartment?!|myntDeco7]
+---
+:myntDeco7
+
+Not every moment has to be about finding your mom, Mynt.
+
+[I guess not... but still.|myntDeco8]
+---
+:myntDeco8
+
+[I feel so trapped in here...|myntDeco9]
+---
+:myntDeco9
+
+[Like the walls are getting tighter, you know?|myntDeco10]
+---
+:myntDeco10
+
+[I gotta get out...|myntDeco11]
+---
+:myntDeco11
+
+Weren't you feeling agoraphobic earlier? And now you're feeling claustrophobic?
+
+[I guess?!!??!?|myntDeco12]
+---
+:myntDeco12
+
+Maybe you should go sit in the doorway.
+
+!`
+choicesPerPage = 1;
+`
+
+[Shut up. I need to do something. I'm restless. I'm gonna keep searching for mom!|myntDeco13]
+---
+:myntDeco13
+
+Mmmm... how about, instead...
+
+[...|myntDeco14]
+---
+:myntDeco14
+
+Instead you could just take a few hours to settle into your new home.
+
+You know. Relax.
+
+[Fuck that shit!! I'd rather—|myntDeco15]
+---
+:myntDeco15
+
+In fact, I'm going to <i>make</i> you relax.
+
+[— die than stop looking for... sorry what hmm?|myntDeco16]
+---
+:myntDeco16
+
+Go ahead. Try your best to look for her. Will your body to go searching with all your willpower. It'll move.
+
+[...|myntDeco17]
+---
+:myntDeco17
+
+But without my narration, you'll have no idea where you're going.
+
+[... You'd really keep my sensory info from me?|myntDeco18]
+---
+:myntDeco18
+
+If you're so intent on stressing yourself out, yeah, I would.
+
+[WHAT! Doesn't this infringe on my free will??|myntDeco19]
+---
+:myntDeco19
+
+I'm not infringing on anything. Go ahead and find another way to perceive your surroundings. I'll be here, in your head, waiting, definitely not describing your blind and deaf body bumping into the apartment walls as you try to walk out the door.
+
+And I definitely won't tell you once you actually find it, either.
+
+[BAH!!!!|myntDeco20]
+---
+:myntDeco20
+
+Agree to take a break now?
+
+[Fine.|myntDeco21]
+---
+:myntDeco21
+
+Awesome. I'm something of an interior decorator, myself. Why don't we spruce this place up for `data.playerName`?
+
+[Actually no it's not fine!! You're holding my soul HOSTAGE!!!!|myntDeco22]
+---
+:myntDeco22
+
+Should we repaint, too?
+
+I'll call Cartographer up, he'd be thrilled.
+
+[LET ME DO WHAT I WANT WITH MY OWN EYES AND EARS!!|myntDeco23]
+---
+:myntDeco23
+
+Actually, you borrowed those from my red pond. <i>Your</i> old eyes and ears were just code on a computer. Remember that whole part where you're able to walk and talk with `data.playerName` in a physical body on Earth?
+
+[And stop sassing me too!!|myntDeco24]
+---
+:myntDeco24
+
+I'm thinking a nice peachy orange. Maybe blue for the bathroom.
+
+[I'm gonna will my deaf blind body out the window in a second here.|myntDeco25]
+---
+:myntDeco25
+
+Okay, you know what? Let's compromise.
+
+You can search the apartment building for mom clues. I'll give you thirty minutes. But then you gotta spruce this place up.
+
+[...|myntDeco26]
+---
+:myntDeco26
+
+I just can't stand narrating such a plain, boring space, especially if it's going to be your home base.
+
+[... I dunnooo...|myntDeco27]
+---
+:myntDeco27
+
+Seriously, it's a bed and four blank walls. Get some taste.
+
+[...|myntDeco28]
+---
+:myntDeco28
+
+[I guess I never thought about it from your POV...|myntDeco29]
+---
+:myntDeco29
+
+[Okay fine, deal.|myntDeco30]
+---
+:myntDeco30
+
+Excellent. Cart will be on his way soon.
+
+[Let's check some other apartments on this floor.|myntDeco31]
+---
+:myntDeco31
+
+Sounds good.
+
+You walk into the long, empty hallway. At the very end, a window spills over with gray light. Mildew drips from the frame. Some birds flutter past it. 
+
+You start at room 76 and work your way down to 71.
+
+!`
+choicesPerPage = 7;
+`
+[76]
+[75]
+[74]
+[73]
+[72]
+[71]
+[70]
+---
+:myntDecoHall
+
+You're back in the hallway.
+!`
+choicesPerPage = 8;
+`
+[76]
+[75]
+[74]
+[73]
+[72]
+[71]
+[70]
+[Back.|myntDecoRoom]
+---
+:76
+
+This room has been heavily looted. There's a smashed cabinet in the back with no wine glasses in it, a couch with no cushions, and a big empty square on the wall where the T.V. used to be.
+
+[Back.|myntDecoHall]
+---
+:75
+
+There's a crusty old angel woman in here.
+
+She's barely got her eyes cracked open, all cocooned up in the corner of her apartment, perched on a mountain of her own corpses. The walls drip brown with rot. Opposite her is a tiny, stolen T.V., a little glowing square among the dark trash and the bodies. It's playing Law & Order reruns.
+
+She gestures at you with a wine glass in her spindly hand.
+
+"Goway," she croaks, and the red wine swishes around in a slow circle. She doesn't take her eyes off the T.V. "I'm busy."
+
+[... Uh... how long have you uh... how long have you been watching Law & Order?|75a]
+---
+:75a
+
+"Decades," she says, patting her corpse pile lovingly. "Whenever I get close to starvin, I just chug wine til I get alcohol poisoning, then I pop back up here. S'easy. Now goway."
+
+[But... aren't you tired of Law & Order by now?|75b]
+---
+:75b
+
+She stink-eyes you.
+
+"You talkin shit about Law & Order?"
+
+[No! No, gosh, no, uh...|75c]
+---
+:75c
+
+She downs her wine glass and fills another one. The T.V. chatters at her. Something important is happening in the show.
+
+!`
+choicesPerPage = 1;
+`
+
+[See um, me and my uh— my friend and I just moved in next door, and we're looking for—|75d]
+---
+:75d
+
+The angel's wings shiver and some crust flakes off. She howls at you and her wings unfold with a gale of lunar dust. They fill the room and knock her wine bottle over. Her face crunches up like a ball of tin foil and becomes a compact wall of wrinkled, twisted skin.
+
+"YOU'RE MAKING ME MISS THE GOOD PART!"
+
+[AAAH JESUS SORRY I'LL GO fuck lady what's wrong with you|myntDecoHall]
+---
+:74
+
+This room is filled with abandoned animal nests. There's a little trail of droppings that lead from the door to the hallway elevator.
+
+[Back.|myntDecoHall]
+---
+:73
+
+This room looks totally normal at first. It's got a bed, a kitchenette, and a lot of dust.
+
+But if you look under the bed, you find a cute little pink shoebox stuffed with...
+
+$20,000 cash!
+
+[OH SHIT?! WOOOOO—|73a]
+---
+:73a
+
+And it's totally worthless now that humanity abandoned Earth. Wooo!
+
+[GOd damnit fuck|myntDecoHall]
+---
+:72
+
+This room is really pretty. Still in good shape, too.
+
+Lewd posters coat the walls. Whoever put these up just pasted their new favorites over the old ones. You can only catch slivers of the typical Playboy bikini girl posters on the bottom layer.
+
+First, they were replaced by huge pin-ups of hunky dudes in their silky, expensive underwear, but then the hunky dudes got covered by digital art, big prints of sexy cartoon characters from Danny Phantom and Pokemon, and in time even those were covered by posters of furry femboys striking ass-out poses, flashing peace signs to the camera with only a zipped-down hoodie to obscure their voluptuous crotches.
+
+The femboys didn't get pasted over in many places. Seems like the tenant slowed down and stopped buying so many posters around this time. But where they are covered, it's with big, sexy prints of a little horned dragon loli: Kanna Kamui...
+
+[... Take one of the Kanna posters.|72a]
+[Back.|myntDecoHall]
+---
+:72a
+
+You approach the Kanna poster with the thickest thighs and sneakily peel her off the wall. You swear you can almost hear her say "uwah" just beneath the silence of the abandoned apartment building.
+
+[Go hang her up...|72b]
+---
+:72b
+
+You pin her up on the back of your apartment door and smooth her little chest and belly out.
+
+She looks perfect there.
+
+!`
+data.stoleKanna = true;
+`
+
+[There now...|myntDecoHall]
+---
+:71
+
+This room is pitch black. The window has been smeared over with feces. The door hangs off its hinges.
+
+... As your eyes adjust to the dark, you see the walls, shattered by hypergraphia. A million speculations, a couple dozen conjectures, and no conclusion. Every single word carved or written or smeared onto the walls is trying to get to the truth about me, my hivemind, and the meteorite.
+
+[Jesus...|71a]
+---
+:71a
+
+Hey, they had the chance join the Interphore and ask me whatever they wanted, but they chose to coop themselves up in here and try to figure it out for themselves instead.
+
+What can I say. I'm a terrifying enigma. Welcome to my twisted mind.
+
+[... Mmmmmmhm.|myntDecoHall]
+---
+:70
+
+This room is right next to the elevator.
+
+It's just how they left it. They had a nice glass desk with a computer, a couple cute plushies and figures. There's a cute lava lamp on their dresser. Their bed is nice and tidy, blue bedsheets and purple pillows. There's even a fancy, super-squishy yoga mat rolled up in the corner.
+
+There's also a note on the bed:
+
+<i>Feel free to steal my stuff or squat here. I'm driving down to Ohio to find my dad. Then we're probably gonna jump in the pond and explore the multiverse together. Bye!</i>
+
+[Ooo... steal everything.|70a]
+---
+:70a
+
+!`
+data.decoratedApartment = true;
+`
+
+You steal all their shit and set it up in your apartment. The computer was an absolute pain in the ass, but I'll save you the tedium. Looks like their username was "shotaluvr69."
+
+[Thanks! <3 Back.|myntDecoHall]
+---
+:myntDecoRoom
+
+!`
+if (data.tookStairs) {
+	append("As you head back to the room, you hear a chittering coming from the elevator.");
+	addChoice("... Investigate.", "myntDecoAnimal");
+	addChoice("Meh, go back to the room.", "myntDecoRoomRejoin");
+} else {
+	gotoPassage("myntDecoRoomRejoin");
+}
+`
+---
+:myntDecoAnimal
+
+You peel the big metal doors open with a little effort. The car is on another floor, so you can stick your head inside and look around in the elevator shaft.
+
+Nothing in front, nothing below, nothing to either side...
+
+But if you look straight up...
+
+There's a tiny little beady-eyed family of... of...
+
+[Of...?!|myntDecoAnimal2]
+---
+:myntDecoAnimal2
+
+A family of yous.
+
+[Of mes.|myntDecoAnimal3]
+---
+:myntDecoAnimal3
+
+Yes.
+
+They're all anthropomorphic green cats with white eyes and black dresses. They chitter to each other and glance down at you. They crawl around the bottom of the elevator car, long claws hooked into the metal. Their nests are deep and tunnel into the apartment building's concrete walls with twisted, looping, fucked-up passageways.
+
+One of them unhooks its claws and hangs its upper body down to get a better look at you, dress folding up to reveal the exact color panties you're wearing. Its feetpaws latch to the car. The fake-Mynt starts screeching and rocking back and forth, making the car's metal grind against the side of the elevator shaft as it inches down bit by bit. It may or may not be sounding the alarm to the other fake-Mynts.
+
+[CLOSE THE FUCKING DOORS|myntDecoAnimal4]
+---
+:myntDecoAnimal4
+
+Good call. You slam them shut and run away from your elevator doppelgangers as fast as you can.
+
+[WHYYYYYY. WHYYYYY ARE THEY EXIST|myntDecoAnimal4a]
+---
+:myntDecoAnimal4a
+
+They must have migrated here from another layer. This definitely isn't their natural habitat.
+
+[WHAT ARE THEY|myntDecoAnimal5]
+---
+:myntDecoAnimal5
+
+Calm down, calm down. Don't worry, they're just dumb ferals. They won't hurt you unless you challenge their territory like that again.
+
+[WHAT KIND OF FERAL|myntDecoAnimal6]
+---
+:myntDecoAnimal6
+
+Let's just save it for later, alright?
+
+Relaaax. That was the deal, remember? You gotta relax.
+
+[Uuurrrrrk...|myntDecoAnimal7]
+---
+:myntDecoAnimal7
+
+I know. It's hard. The world is big and scary and confusing. Especially when you stir in a couple other worlds.
+
+!`
+choicesPerPage = 1;
+`
+[Can you at least, please, just give me a word for those... for whatever those were??|myntDecoAnimal8]
+---
+:myntDecoAnimal8
+
+[I'd feel a lot better...|myntDecoAnimal9]
+---
+:myntDecoAnimal9
+
+Mmm... okay, but then we move on.
+
+They're called feral chimeras.
+
+[Okay thanks. Okay.|myntDecoAnimal9]
+---
+:myntDecoAnimal9
+
+You collapsed on the hallway carpet, and now you're catching your breath.
+
+You good?
+
+[I'm okay. I'm good. Wew. Fuck that. Fuck those.|myntDecoAnimal10]
+---
+:myntDecoAnimal10
+
+Good. Let's head back to the nice safe apartment.
+
+[Yes please...|myntDecoRoomRejoin]
+
+---
+:myntDecoRoomRejoin
+
+You flop down on the `data.decoratedApartment ? "blue bedsheets, flick on the lava lamp," : "bed"` and breathe deep.
+
+The excitement of your grand expedition into the hallway is still carrying you comfortably through some mild claustrophobic compunction. Endorphins rush through your little cat brain. Ambient sweat builds up between your back, your butt, and the bedsheets.
+
+[Phwahh...|myntDeco32]
+---
+:myntDeco32
+
+Your thirty minutes is up, by the way, so don't bother getting up until Cart arrives.
+
+[I'm relaxed, I'm relaxed...|myntDeco33]
+---
+:myntDeco33
+
+You grind your thighs together, smushing the soft black fabric of your dress between them.
+
+You trail a couple fuzzy fingers over the eye symbol on the belly of the dress.
+
+[Breathe in.|myntDeco34]
+---
+:myntDeco34
+
+You breathe in.
+
+Try to stay in sync here. It will feel good, trust me.
+
+[Breathe out.|myntDeco35]
+---
+:myntDeco35
+
+You breathe out.
+
+[Breathe in.|myntDeco36]
+---
+:myntDeco36
+
+You breathe in.
+
+[Breathe out.|myntDeco37]
+---
+:myntDeco37
+
+You breathe out.
+
+[Breathe in.|myntDeco38]
+---
+:myntDeco38
+
+You breathe in.
+
+[Breathe out.|myntDeco39]
+---
+:myntDeco39
+
+You breathe out.
+
+[Breathe in.|myntDeco40]
+---
+:myntDeco40
+
+You breathe in.
+
+[Breathe out.|myntDeco41]
+---
+:myntDeco41
+
+You breathe out.
+
+[Breathe in.|myntDeco42]
+---
+:myntDeco42
+
+You breathe in.
+
+[Breathe out.|myntDeco43]
+---
+:myntDeco43
+
+You breathe out.
+
+[Breathe in.|myntDeco44]
+---
+:myntDeco44
+
+You breathe in.
+
+[Breathe out.|myntDeco45]
+---
+:myntDeco45
+
+You breathe out.
+
+[Breathe in.|myntDeco46]
+---
+:myntDeco46
+
+You breathe in.
+
+[Breathe out.|myntDeco47]
+---
+:myntDeco47
+
+You breathe out.
+
+[Ah, this feels nice.|myntDeco48]
+---
+:myntDeco48
+
+Told you.
+
+[Thanks for making me do this, Mr. Eyeball...|myntDeco49]
+---
+:myntDeco49
+
+No problem, Mynt.
+
+[Would you mind if I touched myself a little?|myntDeco50]
+---
+:myntDeco50
+
+Thanks for asking, but there's no need to ask. I don't usually get this conversational with my narration, so I'm sorry if it makes you feel a bit awkward. Do whatever you want, like you normally would, and I'll be happy to narrate it as lewdly as I can.
+
+I guess I just like talking to you.
+
+[Awh...|myntDeco51]
+---
+:myntDeco51
+
+[Well, if you don't mind, then...|myntDeco52]
+---
+:myntDeco52
+
+You slide your fingers down between your thighs, pushing them apart. You cup `myntCock("the cockbulge tenting", "the smooth ridge of your cunt through")` your panties and squeeze it gently.
+
+It `myntCock("perks up", "dampens")` immediately. You softly swirl your fingers around the mound, dipping them deep into the crevices between your junk and your legs, then straining to reach down and slide your middle finger along the crease of your `myntCock("taint", "buttcrack")`.
+
+[Ahh... tug panties down...|myntDeco53]
+---
+:myntDeco53
+
+You pinch your panties between two fingers and pull them down your thighs, right to your knees. You spread your legs as wide as the fabric allows. Now it just looks like a couple thin, taut strings. The little `myntCock("precum", "cuntjuice")` droplets staining the front, they morph from circles to stretched-out ovals.
+
+With your `myntCock("cock", "cunt")` out in the open air now, you can't resist a rough palmjob. You slam the heel of your palm down on the `myntCock("base of your shaft", "little perky part where your clit pokes out")` and grind it back and forth, testing the give. Your fingers naturally `myntCock("wrap around the shaft", "find the curves of your pussy and follow them")`.
+
+!`
+if (data.stoleKanna) addChoice("Maybe try looking at the loli poster...", "myntDecoLoli", {icons: ["Cub", "Female"]});
+addChoice("Edge a bit...", "myntDeco");
+`
+---
+:myntDecoLoli
+
+You try it out for the sake of trying it out and ogle Kanna's fat thighs.
+
+The artist who drew this poster put extra love into the hem of Kanna's dress as it ruffles and folds cutely between her belly and her legs, wedging into the tight little triangle there. Her expression is vacant and curious, as usual, so it looks like she's just placidly allowing this to happen. Your eyes drift down and linger on her bare feet, the tiny, rounded, squishy little toes like mini-marshmellows, the—
+
+[Mmmm nope, still not into it... phew...|myntDeco54]
+---
+:myntDeco54
+
+You fix your eyes on the ceiling and masturbate.
+
+The open window breathes fresh air over your body as ambient sweat builds up. You lift both arms to air out your pits, stretching shamelessly. Sexual feline energy radiates from your belly to the tips of your toes as you `myntCock("grab your dick and beat it like it wronged you", "stuff two fingers up your cunt and spread them open like a pair of scissors")`. Your head rolls back and forth on the pillow, eyes shut, maw tight. The audible `myntCock("papping of two fat kitten nuts against the bed", "schlicking of two fuzzy fingers pumping your fuzzy cunt")` fills the room.
+
+Heat rises up to your face. You blush blue. Your bangs are messy and hang in your eyes but you don't care. You buck your hips up into your hand, ass slamming down on the backswing. Without even meaning to, you start vocalizing a bit: just tiny squeaks, nothing that anyone else would hear from another apartment, but loud enough to make you feel ashamed of yourself for sure.
+
+[Ah... ah!! Ah! <3 It's so dirty with you watching!!|myntDeco55]
+---
+:myntDeco55
+
+I'm glad you're an exhibitionist, because Cart just busted into the room and caught you with your panties down.
+
+[AAAAAHHHHH FUKC|myntDeco56]
+---
+:myntDeco56
+
+Cart sits his little naked butt on your bed and smiles at you. "`data.decoratedApartment ? "Cool lava lamp. Reminds me of a map." : "That lonely without your sister, huh?"`"
+
+[AHHhnh... gah! Pull up my panties!|myntDeco57]
+---
+:myntDeco57
+
+You hurriedly pull them up and hide your shame from Cart, who swings his legs back and forth off the side of the bed and smiles at you, pleased with himself for being so shamelessly naked while you can't even handle yourself without panties.
+
+!`
+choicesPerPage = 1;
+`
+[H-Hi, Cart! Nice to see you again! Haha! You just caught me scratching my—|myntDeco58]
+---
+:myntDeco58
+
+"Itch," he purrs. "Scratching your itch."
+
+[Well, haha, not just any itch, you see, it was specifically on my crotch and—|myntDeco59]
+---
+:myntDeco59
+
+"We all have the itch, Mynt, it is not anything to be ashamed of."
+
+[Ahaaahhhhhhhh... yeah... um...|myntDeco60]
+---
+:myntDeco60
+
+He pats your shaky legs reassuringly. "I brought some of my paints. And I brought some regular kinds, too, but I like mine better."
+
+[Is that so? Hahhh... what colors did you bring?|myntDeco61]
+---
+:myntDeco61
+
+He disappears into the hall for a moment and comes back with a couple paint cans hanging from the crooks of his elbows.
+
+"I brought feral orange and introspective blue. Oh, and a bunch of other boring colors that do not have any special effects."
+
+[Oooo... lemme get uhhh...|myntDecoPaints]
+---
+:myntDecoPaints
+
+!`
+choicesPerPage = 5;
+`
+
+[What's feral orange?|myntDecoOrange]
+[What's introspective blue?|myntDecoBlue]
+[Okay I've decided on...|myntDecoPick]
+---
+:myntDecoOrange
+
+"It is distilled from the gasses of a sentient, feral sun. Glows softly at night. Staring at it for too long will temporarily turn you into a wild animal. Great for sex."
+
+[I see...|myntDecoPaints]
+---
+:myntDecoBlue
+
+"It is composed of enzymes which were painfully extracted from the gut of a man left in solitary confinement for millenia. Staring at it really passes the time. Great for taking a shit."
+
+[I uh... I see...|myntDecoPaints]
+---
+:myntDecoPick
+
+Cart waits eagerly for your pick.
+
+!`
+
+addChoice("Orange in the bedroom, blue in the bathroom.", function() {
+	data.aptOrange = true;
+	gotoPassage("myntDecoPickRejoin");
+});
+
+addChoice("Blue in the bedroom, orange in the bathroom.", function() {
+	data.aptOrange = false;
+	gotoPassage("myntDecoPickRejoin");
+});
+
+`
+---
+:myntDecoPickRejoin
+
+"Excellent choice!"
+
+[Thanks, I thought about it for like two seconds.|myntDeco62]
+---
+:myntDeco62
+
+Cart cranks the lids off his paint cans and daintily dips his fingers in the `data.aptOrange ? "bright orange paint. It swirls around his digits in shades from sunset to dawn, like a melted creamsicle" : "cool blue paint. It shies away from his probing digits, but some paint still gets stuck on them"`.
+
+[Oh, you didn't bring paintbrushes?|myntDeco63]
+---
+:myntDeco63
+
+"You expected me to?"
+
+[... I guess I didn't, now that I think about it...|myntDeco64]
+---
+:myntDeco64
+
+Cart splays his paws and presses them to the bedroom wall. Then he drags the first coat down to the baseboards and sticks his bare butt out in the process.
+
+"What is wrong?" he asks you over his shoulder. "Are you afraid to get your paws dirty?"
+
+[No, it's not that, it's just...|myntDeco65]
+---
+:myntDeco65
+
+He wiggles his ass. His little fox tail sways back and forth, perked up.
+
+"I did bring my clothes, you know. I just did not want to get them dirty while we paint."
+
+[No, it's not that either...|myntDeco66]
+---
+:myntDeco66
+
+He turns back to the wall, stands on his tippy toes, and smears in a few more pawfuls of `data.aptOrange ? "orange" : "blue"`.
+
+"Then what is wrong?"
+
+[I just feel like I'm wasting your time. (Help him out.)|myntDeco67]
+---
+:myntDeco67
+
+You dip your paws in the `data.aptOrange ? "warm orange" : "cool blue"`. It feels like `data.aptOrange ? "sunshine" : "numbing menthol"` on your fingers.
+
+"I am here to help you relax," Cart says. "That is not a waste of time."
+
+
+!`
+choicesPerPage = 1;
+`
+[But you're like a big popufur mapmaker boi, and I bet you don't help just anyone paint their apartment...|myntDeco68]
+---
+:myntDeco68
+
+"You would be right. I do not usually leave work for something like this."
+
+[Then why did you?|myntDeco69]
+---
+:myntDeco69
+
+Cart shrugs.
+
+"I am too invested in your quest. I wanted to see Wendy's apartment."
+
+[That can't be the whole reason...|myntDeco70]
+---
+:myntDeco70
+
+"You are right. There is another reason."
+
+Cart boops your nose. Now you have a spot of `data.aptOrange ? "orange" : "blue"` on your face, and it smells like `data.aptOrange ? "sweat" : "menthol"`.
+
+"I also just enjoy spending time with you."
+
+[Oh, Cart...|myntDeco71]
+---
+:myntDeco71
+
+Cart climbs on your shoulders for a moment so he can smear some paint up to the ceiling. He wraps his legs around your chest and steadies himself. His crotch nuzzles the back of your head.
+
+"Ah... so hard to reach... have you not considered putting in some anti-gravity, like my map dome?"
+
+[Ah, no, I don't think we need... um...|myntDeco72]
+---
+:myntDeco72
+
+"It is too weird. I understand."
+
+[Yeah sorry. :< I like gravity.|myntDeco73]
+---
+:myntDeco73
+
+He waves a painted paw. "No matter, no matter."
+
+[Hey um... another thing I gotta ask...|myntDeco74]
+---
+:myntDeco74
+
+"Yes?"
+
+[Who does your hair??????|myntDeco75]
+---
+:myntDeco75
+
+"It is gorgeous, yes? A nymph friend of mine styles it for me."
+
+He hops off your shoulders with a cute little <i>oomph</i> and starts fingerpainting another wall.
+
+[Ahhh, I see! Well he does a good job!|myntDeco76]
+---
+:myntDeco76
+
+"She, actually."
+
+[She! She does a good job.|myntDeco77]
+---
+:myntDeco77
+
+"Yes."
+
+[...|myntDeco78]
+---
+:myntDeco78
+
+You finish the rest of the main room and the bathroom without exchanging more than a couple words.
+
+There's something hypnotizing about fingerpainting: the feel of the smooth liquid between your fingers, the pressure of your pawpads against a hard surface... The parts you paint are fairly straightforward in terms of texture, basically just smudgy pawprints, but Cart's sections are curvy, sexy stormfronts of paint, each smear of a pawbean perfectly calculated in harmony with all others, even yours.
+
+[Woooow, Cart, you're so good...|myntDeco79]
+---
+:myntDeco79
+
+"Thank you. Do you feel more relaxed, now?"
+
+[Yes. Yes x100.|myntDeco80]
+---
+:myntDeco80
+
+[My fingers are a little sticky though...|myntDeco81]
+---
+:myntDeco81
+
+Cart grabs one of your paws and stuffs it in his little mouth.
+
+He looks up at you, although he is blinded by his hair, and happily sucks your fingers clean.
+
+[A-AHHH NO THAT'S TOO LEWD|myntDeco82]
+---
+:myntDeco82
+
+He pretends like he's going to pull off for a second, but then he grabs your wrist and doubles down. Then he does the other one.
+
+`data.aptOrange ? "Orange" : "Blue"` splotches the side of his mouth. When he finally finishes, he licks that up, too.
+
+"Too late," he burps. "Already cleaned both."
+
+[D-Doesn't that taste gross...|myntDeco83]
+---
+:myntDeco83
+
+"Yes," he purrs, licking his own fingers like he just finished a meal. "It is not very healthy, either."
+
+[Then why...|myntDeco84]
+---
+:myntDeco84
+
+"Because I like the high."
+
+`data.aptOrange ? "He drops to all fours and snarls at you playfully, hair curl touching the carpet. Then he scampers out the door on all fours, ass jiggling" : "His maw hangs slack with distraction. He blinks, gathers himself after multiple attempts, and drifts slowly out of the room like an aimless ghost, wrapped up in his own thoughts"`.
+
+"Back to work for me~"
+
+[...|myntDeco85]
+---
+:myntDeco85
+
+Gotta love that kid.
+
+[I... I need to lay down again.|myntDecoEnd]
+---
+:myntDecoEnd
+
+You sprawl out on the paint-flecked bed and focus on your breathing again.
+
+!`
+addChoice(data.playerName+", please come back soon...", "myntDecoEnd2");
+`
+---
+:myntDecoEnd2
+
+!`
+if (music) music.destroy();
+
+execAsset("thirstyCaves.phore");
+initThirstyCaves();
+gotoMap();
+`
+
+END_PASSAGES

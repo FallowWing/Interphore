@@ -3,6 +3,7 @@ START_PASSAGES
 
 !`
 data.tookStairs = false;
+data.leftMynt = true;
 setBackground(0, "img/writer/mainBg");`
 
 You and Mynt come to the double-doors of 322 Peachpit Road, a shitty apartment complex.
@@ -1176,8 +1177,6 @@ Mynt's face pops out of the window. She extracts a paw from her burrito and wave
 [Next.|End]
 ---
 :End
-
-To be continued in further versions of Interphore.
 
 !`
 if (music) music.destroy();

@@ -30,6 +30,7 @@ info/mainMenu.phore
 info/main.phore
 info/thirstyCaves.phore
 info/wendyApt.phore
+info/wendyApt2.phore
 info/thelly.phore
 info/lone.phore
 info/introCart.phore
