@@ -1,7 +1,7 @@
 START_PASSAGES
 :wendyApt2Start
 
-`data.playerName` heads out on `his` way to Maine.
+`data.playerName` heads out on `his()` way to Maine.
 
 What will you do now, Mynt?
 
@@ -29,7 +29,7 @@ You kinda kneel and half-hang off the side of the bed, chin pressed to the mattr
 ---
 :myntDeco4
 
-Eventually, you get so used to `his` scent, you can't even smell it anymore.
+Eventually, you get so used to `his()` scent, you can't even smell it anymore.
 
 [BAH!|myntDeco5]
 ---
@@ -179,7 +179,7 @@ Seriously, it's a bed and four blank walls. Get some taste.
 ---
 :myntDeco28
 
-[I guess I never thought about it from your POV...|myntDeco29]
+[I've got some questions to ask later... but...|myntDeco29]
 ---
 :myntDeco29
 
@@ -201,6 +201,13 @@ You start at room 76 and work your way down to 71.
 
 !`
 choicesPerPage = 7;
+addChoice("76", "76", {icons: [""]});
+addChoice("75", "75", {icons: ["Female", "Snuff"]});
+addChoice("74", "74", {icons: [""]});
+addChoice("73", "73", {icons: [""]});
+addChoice("72", "72", {icons: [""]});
+addChoice("71", "71", {icons: [""]});
+addChoice("70", "70", {icons: [""]});
 `
 [76]
 [75]
@@ -233,13 +240,29 @@ This room has been heavily looted. There's a smashed cabinet in the back with no
 ---
 :75
 
-There's a crusty old angel woman in here.
+This room is a hoarder's den, <b>stick</b>ier and <b>stink</b>ier than an armpit. Fast action dialogue whispers from a T.V. somewhere.
 
-She's barely got her eyes cracked open, all cocooned up in the corner of her apartment, perched on a mountain of her own corpses. The walls drip brown with rot. Opposite her is a tiny, stolen T.V., a little glowing square among the dark trash and the bodies. It's playing Law & Order reruns.
+There's a football trophy half-buried in bodies.
+
+Tucked away in the murk, a crusty old angel woman sips wine. She's barely got her eyes cracked open, all cocooned up in the corner of her apartment, perched on a mountain of her own corpses. The walls drip brown with rot. Opposite her is a tiny, stolen T.V., a little glowing square among the dark trash and the bodies. It's playing Law & Order reruns.
 
 She gestures at you with a wine glass in her spindly hand.
 
 "Goway," she croaks, and the red wine swishes around in a slow circle. She doesn't take her eyes off the T.V. "I'm busy."
+
+[Have you seen a chubby nerd lady anytime recently?|75wendy]
+---
+:75wendy
+
+"Yah. She ran out the building with a suit case in each hand yeah. So seeya."
+
+She points her beady, pure little angel eyes at you.
+
+"Skidaddle."
+
+[Can I just ask one question?|75a]
+---
+:75a
 
 [... Uh... how long have you uh... how long have you been watching Law & Order?|75a]
 ---
@@ -269,15 +292,37 @@ choicesPerPage = 1;
 ---
 :75d
 
-The angel's wings shiver and some crust flakes off. She howls at you and her wings unfold with a gale of lunar dust. They fill the room and knock her wine bottle over. Her face crunches up like a ball of tin foil and becomes a compact wall of wrinkled, twisted skin.
+The angel's wings shiver and some crust flakes off. Her muscles tense up and her tendons jut out.
 
-"YOU'RE MAKING ME MISS THE GOOD PART!"
+She howls at you and spreads her wings with a gale of lunar dust. They fill the room and knock her wine bottle over and dislodge her trophy from the winged bodies on the floor. Her face wads up like a ball of tin foil. It becomes a compact, ancient pucker of wrinkled skin.
 
-[AAAH JESUS SORRY I'LL GO fuck lady what's wrong with you|myntDecoHall]
+"YOU'RE MAKING ME MISS THE GOOD PART OF MY SHOW!"
+
+[AAAH JESUS SORRY I'LL GO fuck lady|myntDecoHall]
 ---
 :74
 
 This room is filled with abandoned animal nests. There's a little trail of droppings that lead from the door to the hallway elevator.
+
+They smell just awful.
+
+!`
+choicesPerPage = 3;
+addChoice("... Try sniffing it. Just once. Lightly.", "myntDecoShit", {icons: ["Feral", "Scat", "Scat", "Scat"]});
+addChoice("Fuck no, go back.", "myntDecoHall");
+addChoice("Back.", "myntDecoHall");
+`
+
+---
+:myntDecoShit
+
+The rank, earthy—
+
+[Nope can't do it.|myntDecoShit2]
+---
+:myntDecoShit2
+
+Aww.
 
 [Back.|myntDecoHall]
 ---
@@ -293,9 +338,21 @@ $20,000 cash!
 ---
 :73a
 
-And it's totally worthless now that humanity abandoned Earth. Wooo!
+And it's totally worthless now that humanity abandoned Earth to live up here with ME.
 
+Wooo!
+
+!`
+choicesPerPage = 2;
+`
+[What's the exchange rate between dollars and Mr. Eyeball's Wild Ride Funbucks TM?|myntDecoBucks]
 [GOd damnit fuck|myntDecoHall]
+---
+:myntDecoBucks
+
+You don't even want to hear about our economy lore.
+
+[Back.|myntDecoHall]
 ---
 :72
 
@@ -307,14 +364,23 @@ First, they were replaced by huge pin-ups of hunky dudes in their silky, expensi
 
 The femboys didn't get pasted over in many places. Seems like the tenant slowed down and stopped buying so many posters around this time. But where they are covered, it's with big, sexy prints of a little horned dragon loli: Kanna Kamui...
 
-[... Take one of the Kanna posters.|72a]
+!`
+choicesPerPage = 3;
+addChoice("... Take one of the Kanna posters.", "72a", {icons: ["Cub", "Female"]});
+addChoice("Back.", "myntDecoHall");
+addChoice("Haha FBI haha lol.", "myntDecoHall");
 [Back.|myntDecoHall]
+`
 ---
 :72a
 
-You approach the Kanna poster with the thickest thighs and sneakily peel her off the wall. You swear you can almost hear her say "uwah" just beneath the silence of the abandoned apartment building.
+You approach the Kanna poster with the thickest thighs (an overly lewd fan artwork) and sneakily peel her off the wall. You swear you can almost hear her say "uwah" just beneath the silence of the abandoned apartment building. You feel creepy.
 
-[Go hang her up...|72b]
+!`
+choicesPerPage = 2;
+`
+[Go hang her up tho...|72b]
+[Bail out.|myntDecoHall]
 ---
 :72b
 
@@ -324,9 +390,10 @@ She looks perfect there.
 
 !`
 data.stoleKanna = true;
+choicesPerPage = 2;
+addChoice("There now... <3", "myntDecoHall", {icons: ["Love", "Cub", "Female"]});
+addChoice("What have I done.", "myntDecoHall");
 `
-
-[There now...|myntDecoHall]
 ---
 :71
 
@@ -616,7 +683,7 @@ With your `myntCock("cock", "cunt")` out in the open air now, you can't resist a
 
 !`
 if (data.stoleKanna) addChoice("Maybe try looking at the loli poster...", "myntDecoLoli", {icons: ["Cub", "Female"]});
-addChoice("Edge a bit...", "myntDeco");
+addChoice("Edge a bit...", "myntDeco54");
 `
 ---
 :myntDecoLoli
@@ -629,7 +696,7 @@ The artist who drew this poster put extra love into the hem of Kanna's dress as 
 ---
 :myntDeco54
 
-You fix your eyes on the ceiling and masturbate.
+You fix your eyes on the ceiling and push yourself to the brink of orgasm.
 
 The open window breathes fresh air over your body as ambient sweat builds up. You lift both arms to air out your pits, stretching shamelessly. Sexual feline energy radiates from your belly to the tips of your toes as you `myntCock("grab your dick and beat it like it wronged you", "stuff two fingers up your cunt and spread them open like a pair of scissors")`. Your head rolls back and forth on the pillow, eyes shut, maw tight. The audible `myntCock("papping of two fat kitten nuts against the bed", "schlicking of two fuzzy fingers pumping your fuzzy cunt")` fills the room.
 

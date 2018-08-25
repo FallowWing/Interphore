@@ -149,23 +149,63 @@ Numbers from 70-79 run down the walls.
 ---
 :I dunno.
 
-Mynt leads the way, speed-walking, without looking backwards once.
+Mynt leads the way, running, without looking backwards once.
 
-73, 74...
+Room 70 looks lived-in, room 71 is pitch black...
+[Run after her!!]
+---
+:Run after her!!
+
+She apologizes over her shoulder and does not let you catch up.
+
+Room 73 has something shiny pink under the bed, room 74 smells like shit...
 
 [Wait up.]
+[Wait up you dink.|Wait up.]
 ---
 :Wait up.
 
-"No," she squeaks. You can't see if she's holding back tears or not. She knocks a maid's cleaning cart out of the way in her hurry.
+"No," she squeaks pathetically. Must have a lump in her throat. She knocks a maid's cleaning cart out of the way in her hurry.
 
-75, 76...
+Room 75 with the sound of gunshots on a T.V., room 76, which is completely empty, no furniture...
 
+!`
+choicesPerPage = 2;
+
+`
+
+[Someone lives here. Is it mom?|checkMom]
 [This place is abandoned. Mom's probably not here.]
+---
+:checkMom
+
+You peek in the door of Room 75.
+
+Something dark and dirty is illuminated by the fake fluorescent glow of a T.V.
+
+It's perched on a pile of what looks like dirty laundry.
+
+Whatever it is, it has wings.
+
+[THAT'S NOT MOM|notMom]
+---
+:notMom
+
+You shut the door to room 75 and sprint back to Mynt's side.
+
+Mynt has no idea what you just saw and doesn't care right now.
+
+"Do you think she'sstill here, in her apartment? What if she's just past the door?"
+
+[I don't... I dunno. That would be too easy.|This place is abandoned. Mom's probably not here.]
 ---
 :This place is abandoned. Mom's probably not here.
 
-... 77.
+You both turn to look at room 77.
+
+77.
+
+<b>77.</b>
 
 "I know! But still— maybe— I mean— if she's expecting us, this is where she would—"
 
@@ -177,7 +217,7 @@ There is no light or movement inside.
 
 "... this is where she would be."
 
-Her eyes go blank. 
+The apartment is an empty shithole.
 
 [Hug her.]
 ---
@@ -187,19 +227,23 @@ You hug Mynt, linking your arms around the small of her back.
 
 She doesn't hug back, but she does relax a little.
 
+"Was it weird of me to shoulder-check the door open? I got too excited."
+
 [It's okay. We'll find her somewhere.]
 ---
 :It's okay. We'll find her somewhere.
 
 Mynt nods against you and peeks over your shoulder, into Wendy's apartment. Sunshine pours in through the open window and bakes the stench of the room into a humid smog.
 
-It's packed to the absolute fucking brim with pile after pile of useless shit: half-used kleenex boxes, stained plates, a billion dust-caked toys, trophies, magazines, pile after pile, little free ketchup packets, perfume samples, bath bombs, decomposed food, pile after pile, anti-bacterial hand soap samples, socks, panties, pile after pile, old clothes, clothes that never fit you or Wendy and never would have, losing lottery tickets, shitty Javascript handbooks half-gift-wrapped with birthday cards and christmas cards still stuck between the pages <i>(to Wendy...)</i>, pile after pile, bottles of detergent with half an inch left in the bottom, pile after pile, diapers, pile after pile, baby powder, pile after pile, kid's books, pile after pile, pile after pile, pile after...
+The apartment packed to the absolute fucking brim with pile after pile of useless shit:
+
+Half-used kleenex boxes, stained plates, a billion dust-caked toys, trophies, magazines, pile after pile, little free ketchup packets, perfume samples, bath bombs, decomposed food, pile after pile, anti-bacterial hand soap samples, socks, panties, pile after pile, old clothes, clothes that never fit you or Wendy and never would have, losing lottery tickets, shitty Javascript handbooks half-gift-wrapped with birthday cards and christmas cards still stuck between the pages <i>(to Wendy...)</i>, pile after pile, bottles of detergent with half an inch left in the bottom, pile after pile, diapers, pile after pile, baby powder, pile after pile, kid's books, pile after pile, pile after pile, pile after...
 
 Mynt whimpers: "If her dead body is buried in here somewhere, I'll snap..."
 
-[But she was assimilated just like us. She'd just respawn if she died.]
+[If she's up here with us, she'd just respawn if she died.]
 ---
-:But she was assimilated just like us. She'd just respawn if she died.
+:If she's up here with us, she'd just respawn if she died.
 
 "Right... I guess we should check anyway, just in case..."
 
@@ -209,11 +253,11 @@ The inside of the apartment smells how it looks. A thousand different pungent st
 
 "She's not here."
 
-[That's fine. At least we know where to wait for her.]
+[See? It's fine. And we know where to wait for her.]
 ---
-:That's fine. At least we know where to wait for her.
+:See? It's fine. And we know where to wait for her.
 
-Mynt cocks her head and furrows her brow. Her tail flicks with suppressed annoyance and her nose shrivels up.
+Mynt cocks her head and looks all frustrated and worked up. Her tail flicks with suppressed annoyance and her nose shrivels up.
 
 "You want to <i>stay</i> here...?"
 
@@ -229,17 +273,17 @@ She squints at you.
 ---
 :We might as well pick the one place she might come back to.
 
-"Yeaaaaaah.. buuuut..."
+"Yeaaaaaah... buuuut..."
 
 She winces.
 
-"It's a fucking dump."
+"It's a dump."
 
 [It's always been messy. Let's just clean it out, then.]
 ---
 :It's always been messy. Let's just clean it out, then.
 
-"You grew up in <i>this—?</i> You... wait, clean it out?! Do you know how long it will—"
+"You grew up in <i>this—?</i> You... wait, <i>clean it out?!</i> Do you know how long it will—"
 
 [Mynt.]
 ---
@@ -261,9 +305,9 @@ She winces.
 
 "How do you know that?"
 
-[I don't know how I know, but I think I can do this.]
+[I just suddenly remembered how to do something.]
 ---
-:I don't know how I know, but I think I can do this.
+:I just suddenly remembered how to do something.
 
 ...
 
@@ -316,17 +360,28 @@ She looks at her paws.
 
 "What does this mean, then? What are we?"
 
-[We're still us. We just control our bodies through a narrator, now.]
+[We're still us. We just experience the world through Mr. Eyeball now, that's all.]
 ---
-:We're still us. We just control our bodies through a narrator, now.
+:We're still us. We just experience the world through Mr. Eyeball now, that's all.
 
 "Forever?"
 
+No, not forever. You can leave any time you want, but you'll be locked to one layer and unable to use the ponds or speak with me.
+
+And your bodies will forever be made of my thick red juice, also.
+
+Lewd.
+
+Mynt shakes her head and tells me to shut up.
+
+"`data.playerName`, you don't want to stay on Earth with me forever, do you?"
+
 [Maybe.]
+[No.|Maybe.]
 ---
 :Maybe.
 
-She gulps. The trash heaps and the dirty walls of the apartment surround her.
+She gulps. The heaps of trash, knick-knacks, toiletries, and pizza boxes surround her.
 
 "I feel restless."
 

@@ -133,7 +133,10 @@ addChoice("Phae.", function() {
 `
 ---
 :Shapeshift.4
-!`setTitle("");`
+!`
+if (data.playerName !== "Dankpaw" && data.playerName !== "Rebeca" && data.playerName !== "Phae") data.playerName = lastInput;
+setTitle("");
+`
 All done.
 [Back.|scratchModStart]
 ---
@@ -145,6 +148,7 @@ Unlocked everything!
 data.unlockedDev = true;
 data.metCart = true;
 data.leftMynt = true;
+data.metRen = true;
 `
 [Back|scratchModStart]
 ---
