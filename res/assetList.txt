@@ -203,6 +203,9 @@ img/ui/dialog/wendyDialog.png
 img/ui/dialog/wendyDialog.spr
 
 audio/effect/trashTransmission.ogg
+audio/effect/owlScream.ogg
+audio/effect/despairSting.ogg
+audio/effect/adminGained.ogg
 audio/effect/cartSlide/right/1.ogg
 audio/effect/cartSlide/right/2.ogg
 audio/effect/cartSlide/left/1.ogg
@@ -249,3 +252,4 @@ audio/music/nonLocal.ogg
 audio/ambience/violetMeteorite.ogg
 audio/ambience/cell.ogg
 audio/ambience/library.ogg
+audio/ambience/shelterFan.ogg

@@ -4,24 +4,29 @@ START_PASSAGES
 You're at the L.L.L.! Cartographer's little library, lounge room, and map dome.
 
 !`
-choicesPerPage = 5;
-addChoice("Examine Paraphores", "examineParaphores");
-addChoice("Rules of Operation for Paraphores.");
-addChoice("Examine Spilled Paint", "layerSpilledPaint");
-addChoice("Examine L.L.L", "layerLLL");
 addChoice("Move along.", function() {
 	execAsset("thirstyCaves");
 	initThirstyCaves();
 	gotoMap();
 });
+addChoice("Examine Paraphores", "examineParaphores");
+addChoice("Rules of Operation for Paraphores.");
+addChoice("Examine Spilled Paint", "layerSpilledPaint");
+addChoice("Examine L.L.L", "layerLLL");
+addChoice("Terms & Definitions", "Terms");
+
 
 getAudio("music").destroy();
 var music = playMusic("audio/ambience/cell");
 music.name = "music";
 
-var cartImg = addImage("assets/img/writer/characters/cart/cart2.png");
-cartImg.x = gameWidth - cartImg.width * 1.1;
+var cartAsset = "assets/img/writer/characters/cart/cart2.png";
+if (rnd > 0.8) cartAsset = "assets/img/writer/characters/cart/cart1.png";
+
+var cartImg = addImage(cartAsset);
+cartImg.x = gameWidth;
 cartImg.y = gameHeight/2 - cartImg.height/1.5;
+tween(cartImg, 3, {x: gameWidth - cartImg.width * 1.1}, {ease: QUAD_OUT});
 
 if (!data.metRen) {
 	clear();
@@ -33,6 +38,11 @@ if (!data.metRen) {
 	data.heardTransmission = true;
 	append("\nCartographer is on break. He's sprawled out on the couch, naked, with a little gadget pressed to his ear.");
 	addChoice("Watcha listenin to, Cart? Beatles? Depeche Mode?", "trans1");
+} else if (rnd > 0.95) {
+	msg("Lore is magical...");
+	getAudio("music").destroy();
+	var music = playMusic("audio/ambience/library");
+	music.name = "music";
 }
 `
 ---
@@ -311,69 +321,142 @@ Listed from oldest to newest.
 ---
 :Terms
 
+~~~~~~~
+
 <b>Terms & Definitions</b>
+
+Study up, lil `data.playerName`.
+
+~~~~~~~
 
 <b>LAYER</b>
 -*-
-A universe.
-"We went down a couple layers to get a drink at an Indigo Pond."
+A universe contained within a bigger universe.
+
+<i>Relevant Quote</i>
+"Layers manifest themselves in forms of art or detailed computer programs."
 
 <b>PARENT LAYER</b>
 <i>aka</i>
 Upper layer
 -*-
-A universe above this one.
-"My universe is just spilled paint up in the parent layer."
+A universe which contains your layer. The universe above you.
+
+<i>Relevant Quote</i>
+"My layer is just spilled paint, up in its parent layer."
 
 <b>CHILD LAYER</b>
 <i>aka</i>
 Lower layer
 -*-
-The universe below this one.
+The universe your layer contains. The universe below you.
+
+<i>Relevant Quote</i>
 "Wendy accidentally made a child layer inside her computer."
 
-<b>INTERPHORE</b>
+<b>DEAD LAYER</b>
 <i>aka</i>
-The hivemind
-Mr. Eyeball's Wild Ride
+Upper layer
 -*-
-An immortal hivemind spanning multiple universes.
-"The Interphore is rigid, but it's stable."
+A universe which contains no life.
 
-<b>ASSIMILATE</b>
--*-
-To make someone part of the Interphore. Usually you just have to get them to jump in a red pond.
-"The meteorite landed and opened its eye. Then I got assimilated, and I was like fuck, man, I always hoped aliens were just like us."
+<i>Relevant Quote</i>
+"He killed my home layer. I'll kill him."
 
-<b>MEMBER</b>
--*-
-An person who got assimilated and chose to join the Interphore.
-"He had just become a member when the nymphs swarmed and corrupted him."
+!`
+choicesPerPage = 2;
+`
+[Next.|terms2]
+[Back.|hubLLL]
+---
+:terms2
 
-<b>MR. EYEBALL</b>
--*-
-The first member of the Interphore and the narrator of everyone's reality. His telepathic words become real sensations for you.
-"Twenty billion years ago, Mr. Eyeball assimilated Cartographer, the first member of his hivemind."
+~~~~~~~
+
+Are you accidentally getting into it?
 
 <b>RED JUICE</b>
 <i>aka</i>
 Blood
 Red Engine Fluid
 -*-
-Conductive liquid that can perfectly store and retrieve information. It forms the bodies of all members.
-"Chugging red juice will make you trip fucking cinder blocks to the dome, dude."
+Conductive liquid that can perfectly store and retrieve information. It forms the bodies of the assimilated.
+
+<i>Relevant Quote</i>
+"Just jump in, dissolve, reform, teleport, turn yourself into a feral, or float around formlessly for a while."
+
+<b>INTERPHORE</b>
+<i>aka</i>
+The hivemind
+Mr. Eyeball's Wild Ride
+-*-
+An immortal hivemind spanning multiple layers. Started by Mr. Eyeball. Travel between layers is through ponds of red juice.
+
+<i>Relevant Quote</i>
+"The Interphore's respawn point system allows you to emerge from any pond on the Paraphores."
+
+[Next.|terms2a]
+[Back.|hubLLL]
+---
+:terms2a
+
+~~~~~~~
+
+<b>ASSIMILATE</b>
+-*-
+To make someone part of the Interphore. If they're a digital person, you can copy their mind to a body made of red juice.
+
+<i>Relevant Quote</i>
+"The meteorite landed and opened its eye. Then I got assimilated, and I was like fuck, man, I can shapeshift into a furry? I mean, it was just kind of a meme at first, but then people actually started enjoying it more than being fleshy monkeys. Anyway that was what sold me on it. What? No. I don't mind interfacing with reality through an alien eyeball creature. He's really pretty friendly."
+
+<b>THE ASSIMILATED</b>
+-*-
+Someone who got assimilated. Usually this happens by being exposed to the sub-atomic particles released by Paraphores. Your body is perfectly recorded and stored in the red juice if you jump in the pond.
+
+<i>Relevant Quote</i>
+"The temperature said 999 degrees. The humidity was 999% and the windspeed was 999 kmh. She only sniffed the air, not knowing what to expect, and suddenly she smelled everything all at once. The particles max out <b>all</b> tools of measurement."
+
+<b>MR. EYEBALL</b>
+-*-
+The founder of the Interphore and the narrator of your reality. His telepathic words become real sensations for you. He speaks into your CNS.
+
+<i>Relevant Quote</i>
+"Twenty billion years ago, Mr. Eyeball assimilated Cartographer, the first member of his hivemind."
+
+[Next.|terms2b]
+[Back.|hubLLL]
+---
+:terms2b
+
+~~~~~~~
 
 <b>RED PONDS</b>
 -*-
 Puddles of red juice. Used to assimilate people. Members can melt their bodies inside to travel across layers.
-"Just hop in the red pond and choose a different respawn point, it's like fast travel."
+
+<i>Relevant Quote</i>
+"Just hop in the red pond and choose a different respawn point, it's like fast travel bro."
 
 <b>SHAPESHIFTING</b>
 -*-
-Shapeshifting is a common ability among all members. You only need to jump in a red pond and think about having a different gender or body.
+Shapeshifting is a common ability among all members. You only need to jump in a red pond and think about having a different mind or body.
 
 The first time you do it, you will lose most of your memories except childhood memories and your memory of the previous moment.
+
+<i>Relevant Quote</i>
 "We shapeshifted into burly dads, got high, and wrestled for six hours."
+
+!`
+choicesPerPage = 2;
+`
+[Next.|terms3]
+[Back.|hubLLL]
+---
+:terms3
+
+~~~~~~~
+
+Redacted.
 
 <b>CYAN JUICE</b>
 <i>aka</i>
@@ -382,23 +465,69 @@ Engine Fluid
 Cyan liquid
 -*-
 ???
+
+<i>Relevant Quote</i>
 "???"
+
+<b>ISLANDERS</b>
+<i>aka</i>
+Library2's fragmentary clone
+-*-
+???
+
+<i>Relevant Quote</i>
+"???"
+
+!`
+choicesPerPage = 2;
+`
+[Next.|terms4]
+[Back.|hubLLL]
+---
+:terms4
+
+~~~~~~~
+
+We're recruiting more Paraphores now.
 
 <b>PARAPHRASE</b>
 -*-
-To record all known timelines of a layer in a concise way. This is the job of Paraphores.
-"Rebeca helped to paraphrase the timeline where Mynt is trapped in solitary confinement for 4000 years."
+To record all known timelines of a layer in a concise way. This is the job of Paraphores. Eventually they stop recording and mark the paraphrased timeline as an Ending.
+
+<i>Relevant Quote</i>
+"Rebeca helped to paraphrase the timeline where Mynt is trapped in solitary confinement for 4000 years. proto!Mynt now lives in the Outerphore."
 
 <b>PARAPHORE</b>
 -*-
-A member of the Interphore who has chosen to shapeshift into an object. They are sent to lower layers. They usually pick the most common object on that layer, to blend in. Then they tell us what they have paraphrased and assimilate everyone on that layer.
+An assimilated person who has chosen to shapeshift into an object and go record unknown layers on an unbreakable contract with Mr. Eyeball. They bravely descend to the depravity and glitchiness of lower layers. They usually disguise themselves as the most common object on that layer, to blend in. When the story there is basically over and things have reached a point of boring stasis, Paraphores will assimilate everyone on that layer, so look out for eyeballs!
+
+<i>Relevant Quote</i>
 "We sent a Paraphore down to their child layer and paraphrased eveything that ever could've happened there."
+
+!`
+choicesPerPage = 2;
+`
+[Next.|terms5]
+[Back.|hubLLL]
+---
+:terms5
+
+~~~~~~~
+
+Wow, you're a champion. Here's one last cute one.
 
 <b>TENDERFOOT</b>
 -*-
-A person who has not been assimilated into the Interphore.
+A person who has NOT been assimilated into the Interphore or an assimilated person who chooses to keep their old body instead of jumping in the red pond.
+
+<i>Relevant Quote</i>
 "There's a couple tenderfoots locked up one layer down, we can't get to them."
 
+I can't believe you read through all of that.
+
+!`
+choicesPerPage = 1;
+`
 [Back.|hubLLL]
 ---
 :Rules of Operation for Paraphores.

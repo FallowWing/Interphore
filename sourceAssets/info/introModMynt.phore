@@ -17,21 +17,22 @@ myntBod.tint = 0xFF000000;
 myntBod.x = gameWidth/2 - myntBod.width/2;
 myntBod.y = gameHeight/2 - myntBod.height/2;
 
+if (music) music.destroy();
 var music = playMusic("audio/ambience/violetMeteorite");
 music.name = "music";
 
 msg("18 or older only.");
 msg("Press Space to skip.");
 
-addChoice("Mynt...", "realStart");
+timer(2, function() { addChoice("Mynt...", "realStart"); });
 `
 
 ---
 :realStart
 
 !`
-var music = playMusic("audio/music/newSelf");
-music.name = "music2";
+var music2 = playMusic("audio/music/newSelf");
+music2.name = "music2";
 
 var fader = addRectImage(gameWidth, gameHeight, 0x000000);
 fader.alpha = 1;
@@ -57,7 +58,6 @@ queueAddChoice("I can't believe it's you. Physically you.");
 
 !`
 queueTitle("Heh... my new body doesn't look too bad, does it?");
-queueTitle("I think he just copied the code from my little computer body.");
 queueTitle("I don't know how he made it physical and put me on Earth, though...");
 queueTitle("Something to do with red juice...");
 queueAddChoice("I don't care how you got here. I'm just glad you're here.");
@@ -82,7 +82,7 @@ queueAddChoice("I REALLY didn't expect to see you again...");
 !`
 queueTitle("Let's step into the red pond.");
 queueTitle("Together, okay?");
-queueCall(function() { setBackground(1, "writer/mynt/face/myntBod/10", CENTERED); });
+//queueCall(function() { setBackground(1, "writer/mynt/face/myntBod/10", CENTERED); });
 queueTitle("Take my hand.");
 queueAddChoice("Why do we have to go in the pond?");
 `
@@ -114,7 +114,7 @@ queueTitle("Once we step into this pond, we'll dissolve into flesh tatters.");
 queueTitle("Our brains, too.");
 queueCall(function() { setBackground(1, "writer/mynt/face/myntBod/6", CENTERED); });
 queueTitle("Forgetting is not optional.");
-queueCall(function() { setBackground(1, "writer/mynt/face/myntBod/10", CENTERED); });
+//queueCall(function() { setBackground(1, "writer/mynt/face/myntBod/10", CENTERED); });
 queueTitle("Weren't you listening when Mr. Eyeball explained it?");
 queueAddChoice("Ah, yeah... Mr. Eyeball... I'm so out of it.", "forgNext2");
 `
@@ -158,7 +158,10 @@ queueAddChoice("After we respawn, we might be strangers again. We might split up
 
 !`
 queueTitle("You know I'm way too clingy to let that happen.");
-queueAddChoice("... Okay that is kind of true...", "forgNext6");
+
+choicesPerPage = 2;
+queueAddChoice("You'll get better.", "forgNext6");
+queueAddChoice("I guess you're right.", "forgNext6");
 `
 
 
@@ -168,8 +171,12 @@ queueAddChoice("... Okay that is kind of true...", "forgNext6");
 !`
 queueTitle("...");
 queueTitle("... Please, Rebeca.");
-queueTitle("Whenever it's quiet...");
-queueTitle("I hear them crying in the back of my skull...");
+
+if (rnd < 0.05) {
+	queueTitle("I hear them crying in the back of my skull.");
+} else {
+	queueTitle("I want to fix myself.");
+}
 queueAddChoice("Take her hand.", "... Take her hand.");
 `
 
@@ -191,8 +198,10 @@ queueAddChoice("I won't. I promise.");
 
 !`
 queueCall(function() { setBackground(1, "writer/mynt/face/myntBod/10", CENTERED); });
-queueTitle("Ah... it's lapping at my toes...");
-queueTitle("Y-You feel the water on your junk? It's so warm...");
+queueTitle("Ah... it's lapping at my toes.");
+queueTitle("It doesn't hurt... yet?");
+queueTitle("He said it was quick and painless...");
+queueTitle("Y-You feel the water on your junk? It's so warm!!");
 queueAddChoice("Step into the pond.");
 `
 
@@ -200,6 +209,7 @@ queueAddChoice("Step into the pond.");
 :Step into the pond.
 
 !`
+playEffect("audio/effect/adminGained");
 setBackground(1, "");
 
 if (!data.hasBoobs) queueAddChoice("Boobs.", function() {
@@ -266,30 +276,47 @@ queueAddChoice("They.", function() {
 queueTitle("Don't let go...");
 queueTitle("Don't let... go...");
 queueTitle("Don't let...");
+queueCall(function() {
+	music2.destroy();
+	getAudio("music2").destroy();
+});
+queueDelay(2);
+queueCall(function() { playEffect("audio/effect/despairSting"); });
+queueDelay(2);
 queueTitle("...............");
-queueCall(function() { getAudio("music2").destroy(); });
+queueDelay(1);
+queueTitle("");
+queueDelay(1);
+queueCall(function() { setBackground(1, "writer/mynt/face/myntBod/3", CENTERED); });
+queueDelay(2);
 queueTitle("Who are you? Weren't we just speaking? Are you Rebeca?");
+queueDelay(2);
 
-queueAddChoice("Submit.", function() {
-	gotoPassage("afterName");
+queueCall(function() {
+	addChoice("Submit.", function() {
+		gotoPassage("afterName");
+	});
+
+	addChoice("I guess I must be.", function() {
+		data.playerName = "Rebeca";
+		gotoPassage("afterName");
+	});
+
+	addChoice("Call me Dankpaw.", function() {
+		data.playerName = "Dankpaw";
+		gotoPassage("afterName");
+	});
+
+	addChoice("Call me Phae.", function() {
+		data.playerName = "Phae";
+		gotoPassage("afterName");
+	});
+
+	addInputField();
 });
 
-queueAddChoice("I guess I must be.", function() {
-	data.playerName = "Rebeca";
-	gotoPassage("afterName");
-});
 
-queueAddChoice("Call me Dankpaw.", function() {
-	data.playerName = "Dankpaw";
-	gotoPassage("afterName");
-});
 
-queueAddChoice("Call me Phae.", function() {
-	data.playerName = "Phae";
-	gotoPassage("afterName");
-});
-
-queueCall(addInputField);
 `
 ---
 :afterName
@@ -297,7 +324,9 @@ queueCall(addInputField);
 if (data.playerName !== "Dankpaw" && data.playerName !== "Rebeca" && data.playerName !== "Phae") data.playerName = lastInput;
 if (data.playerName === "") data.playerName = "Nameless";
 
+queueCall(function() { setBackground(1, "writer/mynt/face/myntBod/2", CENTERED); });
 queueTitle("... I see!!");
+queueCall(function() { setBackground(1, "writer/mynt/face/myntBod/3", CENTERED); });
 queueTitle("It's nice to meet you, "+data.playerName+"!");
 queueTitle("I uh...");
 queueTitle("I think my name is Mynt? You called me Mynt earlier...");
@@ -311,8 +340,13 @@ queueAddChoice("Hi, Mynt.");
 if (data.playerName !== "Dankpaw" && data.playerName !== "Rebeca" && data.playerName !== "Phae") data.playerName = lastInput;
 if (data.playerName === "") data.playerName = "Nameless";
 
+queueCall(function() { playEffect("audio/effect/despairSting"); });
 queueTitle("My mind feels different than it did a moment ago...");
-queueTitle("Why does that make me so happy?");
+queueDelay(1);
+queueCall(function() { setBackground(1, "writer/mynt/face/myntBod/2", CENTERED); });
+queueTitle("I think it really worked. I can't feel the feelings anymore.");
+
+choicesPerPage = 2;
 
 queueAddChoice("Remove hypoxia damage. Remove learning disability.", "furryTrash");
 queueAddChoice("Stay as I am.", "furryTrash");
@@ -320,7 +354,11 @@ queueAddChoice("Stay as I am.", "furryTrash");
 ---
 :furryTrash
 
+
+
 !`
+queueCall(function() { setBackground(1, "writer/mynt/face/myntBod/3", CENTERED); });
+
 if (rnd > 0.9) {
 	queueTitle("And... are you furry trash, too...?");
 } else {
@@ -361,8 +399,38 @@ addChoice("Wolf.", function() {
 :pickedSpecies
 
 !`
-timer(2, function() { setTitle("Alright. I think we're all clean."); });
-timer(5, function() {
+queueCall(function() { setBackground(1, "writer/mynt/face/myntBod/9", CENTERED); });
+queueTitle("AAAA I forgot to change my body to a cute new one!!");
+queueTitle("Forgot in a regular way, not an amnesia way. I still remember the recent moments.");
+queueCall(function() { setBackground(1, "writer/mynt/face/myntBod/1", CENTERED); });
+queueTitle("Oh well. Next time.");
+queueTitle("");
+queueDelay(3);
+queueTitle("Bleh.");
+queueDelay(1);
+queueTitle("");
+queueTitle("I feel like a zombie.");
+queueCall(function() { setBackground(1, "writer/mynt/face/myntBod/3", CENTERED); });
+queueTitle("How bout you?");
+queueCall(function() { setBackground(1, "writer/mynt/face/myntBod/10", CENTERED); });
+queueTitle("You look... a lot better than your grandmaself!");
+queueTitle("Not as crusty.");
+queueTitle("You had pretty bad hygiene, you know??");
+queueCall(function() { setBackground(1, "writer/mynt/face/myntBod/6", CENTERED); });
+queueTitle("No offense.");
+queueTitle("Granted, you did spend 94% of your life in that shelter.");
+
+choicesPerPage = 2;
+
+queueAddChoice("I feel like I just finished eighteen hours of yoga.", function() {
+	setBackground(1, "");
+	setBackground(2, "");
+	setTitle("");
+	resetBackgroundMode(2);
+	print("leaving intro");
+	gotoPassage("afterPond");
+});
+queueAddChoice("Nah you're right I stank like ass.", function() {
 	setBackground(1, "");
 	setBackground(2, "");
 	setTitle("");
@@ -375,9 +443,11 @@ timer(5, function() {
 ---
 :afterPond
 
-You haul yourself out of the pond.
+Your short-term memory jolts and restarts.
 
-Mynt follows. She's totally soaked.
+You haul yourself out of the pond, sopping red.
+
+Mynt follows. She's soaked too.
 
 She waddles up onto the rock shore and takes the hem of her dress in both paws. She pulls it up over her head, inside-out, with a FWOOMPH and a shower of droplets.
 
@@ -1387,6 +1457,7 @@ addChoice("Goddamnit.", "myntAdvent9");
 
 
 !`
+choicesPerPage = 1;
 addChoice("She wouldn't go down there without me... maybe she went back to the pond while I was leaving...", "myntAdvent10");
 `
 
