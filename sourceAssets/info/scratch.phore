@@ -175,7 +175,18 @@ addChoice("Back", "scratchModStart");
 addChoice("Thelly", "thellyMod", {icons: ["Cub", "Male"]});
 addChoice("Lone", "loneMod", {icons: ["Cub", "Male", "Abuse"]});
 addChoice("Mynt's Day Off", "myntMod");
+addChoice("Cart's Transmission", "carttransMod");
 addChoice("Back", "scratchModStart");
+`
+---
+:carttransMod
+
+!`
+clear();
+data.metRen = true;
+data.heardTransmission = false;
+execAsset("LLL.phore");
+gotoPassage("hubLLL");
 `
 ---
 :myntMod

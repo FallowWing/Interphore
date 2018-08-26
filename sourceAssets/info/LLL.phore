@@ -1,34 +1,198 @@
 START_PASSAGES
 :hubLLL
 
-Cartographer welcomes you.
-
-[Examine Paraphores.|examineParaphores]
-[Rules of Operation for Paraphores.]
-[Examine Spilled Paint.|layerSpilledPaint]
-[Examine L.L.L.|layerLLL]
+You're at the L.L.L.! Cartographer's little library, lounge room, and map dome.
 
 !`
-getAudio("music").destroy();
-var music = playMusic("audio/ambience/cell");
-music.name = "music";
-
+choicesPerPage = 5;
+addChoice("Examine Paraphores", "examineParaphores");
+addChoice("Rules of Operation for Paraphores.");
+addChoice("Examine Spilled Paint", "layerSpilledPaint");
+addChoice("Examine L.L.L", "layerLLL");
 addChoice("Move along.", function() {
 	execAsset("thirstyCaves");
 	initThirstyCaves();
 	gotoMap();
 });
 
+getAudio("music").destroy();
+var music = playMusic("audio/ambience/cell");
+music.name = "music";
+
 var cartImg = addImage("assets/img/writer/characters/cart/cart2.png");
 cartImg.x = gameWidth - cartImg.width * 1.1;
-cartImg.y = gameHeight/2 - cartImg.height/2;
+cartImg.y = gameHeight/2 - cartImg.height/1.5;
 
 if (!data.metRen) {
 	clear();
 	execAsset("thelly.phore");
 	gotoPassage("thellyModStart");
+} else if (!data.heardTransmission) {
+	clear();
+	choicesPerPage = 1;
+	data.heardTransmission = true;
+	append("\nCartographer is on break. He's sprawled out on the couch, naked, with a little gadget pressed to his ear.");
+	addChoice("Watcha listenin to, Cart? Beatles? Depeche Mode?", "trans1");
 }
 `
+---
+:trans1
+
+!`
+choicesPerPage = 2;
+`
+[Well?|trans7]
+[Got some Ramones on there? Some Aphex Twin?|trans2]
+---
+:trans2
+
+!`
+choicesPerPage = 2;
+`
+[Okay sorry I'm done.|trans7]
+[You getting down with some grimewave? Some neo acid big band?|trans3]
+---
+:trans3
+
+!`
+choicesPerPage = 1;
+`
+
+[Oh no, I pegged you all wrong. You're a Witch House pastel goth shota, aren'tcha? I see that blue hair.|trans3a]
+---
+:trans3a
+
+!`
+choicesPerPage = 2;
+`
+[Okay seriously I'm done now.|trans7]
+[Shpongle? Mr. Bungle? Swerving on some dunderwave?|trans4]
+---
+:trans4
+
+!`
+choicesPerPage = 2;
+`
+[... I'm really sorry about this.|trans7]
+[Mm. Sounds wet. You got some Tipper bubblin on there do ya?|trans5a]
+---
+:trans5a
+
+!`
+choicesPerPage = 2;
+`
+[You're pretty patient huh.|trans7]
+[You geekin out to some Benny Benassi? Wobblin on that eurobeat hardstyle?|trans5]
+---
+:trans5
+
+Even though you can't see his eyes, you're pretty sure he's looking at you like he wants to kill you.
+
+!`
+choicesPerPage = 2;
+`
+[Okay I'll stop.|trans7]
+[You bitchin on Bach? You groovin to some Gerschwin?|trans6]
+---
+:trans6
+
+!`
+choicesPerPage = 1;
+`
+
+[You goofin wild on some sticky fresh Wank House bangers with a—|trans7]
+---
+:trans7
+
+"Can you please shut up for a second? I am listening to an emergency transmission from an uncontacted layer. At least I think it is an emergency..."
+
+!`
+choicesPerPage = 1;
+`
+
+[Aw.|trans8]
+---
+:trans8
+
+You twiddle your thumbs and sit on the couch next to him.
+
+[...|trans9]
+---
+:trans9
+
+[So can I listen too, or...|trans10]
+---
+:trans10
+
+He holds the gadget to your ear.
+
+Up close, it's really dirty and greasy, and looks half-broken...
+
+[Listen to the transmission.|trans11]
+---
+:trans11
+
+"Does it sound like an emergency to you?"
+
+!`
+var musicTemp = playMusic("audio/effect/trashTransmission");
+musicTemp.name = "music";
+disableExit();
+
+choicesPerPage = 2;
+
+timer(5, function() {
+	addChoice("YES.", "trans12");
+	addChoice("Mother of God... it's all toilet sounds.", "trans12");
+});
+`
+---
+:trans12
+
+"Yes. Is it not enthralling? I cannot pin down the dialect."
+
+!`
+if (musicTemp) musicTemp.destroy();
+`
+
+[Can you pin down the... species...?|trans13]
+---
+:trans13
+
+"They are either liquid or molten elementals of some sort, most likely. Did you not hear the sexy wet noises?"
+
+!`
+choicesPerPage = 1;
+`
+
+[I'm not sure I'd describe them exactly like that, but... yeah, they sound drenched.|trans14]
+---
+:trans14
+
+Cart puts the gadget to his ear again and stares at the ceiling, legs crossed, feet wiggling absent-mindedly.
+
+"I should map a route there. I do not know what they are saying, but it sounds like they need help."
+
+[Or they need a meal...|trans15]
+---
+:trans15
+
+He covers his crotch with a sly paw.
+
+"Yes. Maybe they would eat me as soon as I got there."
+
+[...|trans16]
+[Unh yeah... <3|trans16]
+---
+:trans16
+
+Cart throws his little legs off the side of the couch and the rest of his body follows their momentum.
+
+He scurries off to his map dome, bare feetpaws pitter-pattering, flicks on the anti-gravity, waves goodbye to you, and closes the door.
+
+"Only one way to find out!"
+
+[Wasn't he supposed to be on break...?|hubLLL]
 ---
 :layerLLL
 LAYER NAME: L.L.L. — formerly G.C.D. (GAY CUB DUNGEON)
@@ -48,32 +212,34 @@ Paraphores #0-140 will be redacted from this narration to minimize security risk
 The primary form of these shapeshifts were speckles of paint. Secondary forms have been used here for ease of reading.
 
 Paraphore #141
-<b>Name:</b> Mynt's Dress
+<b>Functional Disguise:</b> Mynt's Dress
 <b>Dispatched by:</b> Cartographer
-<b>Shapeshift:</b> Electron arrangement for a pre-exisiting circuit
-<b>Destination:</b> Digital, green cat alone in a box
-<b>Functional Disguise:</b> A dress
+<b>Shapeshift:</b> Electron arrangement for Wendy Archibald's hard drive
+<b>Target:</b> Catnyp
 
 Paraphore #142
-<b>Name:</b> Daydream Journal
+<b>Functional Disguise:</b> Daydream Journal
 <b>Dispatched by:</b> Cartographer
-<b>Shapeshift:</b> Electron arrangement for a pre-existing circuit
-<b>Destination:</b> Digital, green cat alone in a library
-<b>Functional Disguise:</b> A journal
+<b>Shapeshift:</b> Electron arrangement for Wendy Archibald's hard drive
+<b>Target:</b> Vanylla
 
 Paraphore #143
-<b>Name:</b> Grey Meteorite
+<b>Functional Disguise:</b> Grey Meteorite
 <b>Dispatched by:</b> Mr. Eyeball
 <b>Shapeshift:</b> Ball of various minerals, hydrogen, helium, oxygen
-<b>Destination:</b> Earth
-<b>Functional Disguise:</b> A grey meteorite
+<b>Target:</b> Earth
 
 Paraphore #144
-<b>Name:</b> Violet Meteorite, Violet
-<b>Dispatched by:</b> Cartographer
-<b>Shapeshift:</b> Electron arrangement for a pre-exisiting circuit
-<b>Destination:</b> Digital, fragmentary clone of green cat
-<b>Functional Disguise:</b> A purple meteorite
+<b>Functional Disguise:</b> Violet Meteorite (or just "Violet")
+<b>Dispatched by:</b> Mr. Eyeball
+<b>Shapeshift:</b> Electron arrangement for Wendy Archibald's hard drive
+<b>Target:</b> Library2
+
+Paraphore #145
+<b>Functional Disguise:</b> Lana
+<b>Dispatched by:</b> Mr. Eyeball
+<b>Shapeshift:</b> Electron arrangement for Wendy Archibald's hard drive
+<b>Target:</b> Init
 
 [Back.|hubLLL]
 ---
@@ -82,6 +248,7 @@ Paraphore #144
 - Rebeca fast-forwarded Library2's PROTOCOL ENDING timeline by 4000 years. Assimilation was postponed until the fast-forward had finished.
 - Gabriel Archibald (A.K.A Archie, Archbishop) returned to Earth after his assimilation to make sure his daughter had her toys. She never played with them or acknowledged his visit.
 
+[Back.|hubLLL]
 ---
 :layerSpilledPaint
 
