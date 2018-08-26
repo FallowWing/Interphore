@@ -369,7 +369,7 @@ choicesPerPage = 3;
 addChoice("... Take one of the Kanna posters.", "72a", {icons: ["Cub", "Female"]});
 addChoice("Back.", "myntDecoHall");
 addChoice("Haha FBI haha lol.", "myntDecoHall");
-[Back.|myntDecoHall]
+addChoice("Back.", "myntDecoHall");
 `
 ---
 :72a
