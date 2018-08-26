@@ -152,6 +152,7 @@ timer(5, function() {
 "Yes. Is it not enthralling? I cannot pin down the dialect."
 
 !`
+enableExit();
 if (musicTemp) musicTemp.destroy();
 `
 
@@ -209,37 +210,39 @@ PARAPHRASED TIMELINES:
 
 Paraphores #0-140 will be redacted from this narration to minimize security risk. You should not need that information anyway.
 
-The primary form of these shapeshifts were speckles of paint. Secondary forms have been used here for ease of reading.
+The primary form of these shapeshifts were speckles of paint on Cart's map dome. Secondary forms have been used here for ease of reading.
 
-Paraphore #141
+Listed from oldest to newest.
+
+<i>Paraphore #141</i>
 <b>Functional Disguise:</b> Mynt's Dress
 <b>Dispatched by:</b> Cartographer
 <b>Shapeshift:</b> Electron arrangement for Wendy Archibald's hard drive
 <b>Target:</b> Catnyp
 
-Paraphore #142
+<i>Paraphore #142</i>
 <b>Functional Disguise:</b> Daydream Journal
 <b>Dispatched by:</b> Cartographer
 <b>Shapeshift:</b> Electron arrangement for Wendy Archibald's hard drive
 <b>Target:</b> Vanylla
 
-Paraphore #143
+<i>Paraphore #143</i>
 <b>Functional Disguise:</b> Grey Meteorite
 <b>Dispatched by:</b> Mr. Eyeball
 <b>Shapeshift:</b> Ball of various minerals, hydrogen, helium, oxygen
 <b>Target:</b> Earth
 
-Paraphore #144
+<i>Paraphore #144</i>
+<b>Functional Disguise:</b> Lana Statt
+<b>Dispatched by:</b> Mr. Eyeball
+<b>Shapeshift:</b> Electron arrangement for Wendy Archibald's hard drive
+<b>Target:</b> Init
+
+<i>Paraphore #145</i>
 <b>Functional Disguise:</b> Violet Meteorite (or just "Violet")
 <b>Dispatched by:</b> Mr. Eyeball
 <b>Shapeshift:</b> Electron arrangement for Wendy Archibald's hard drive
 <b>Target:</b> Library2
-
-Paraphore #145
-<b>Functional Disguise:</b> Lana
-<b>Dispatched by:</b> Mr. Eyeball
-<b>Shapeshift:</b> Electron arrangement for Wendy Archibald's hard drive
-<b>Target:</b> Init
 
 [Back.|hubLLL]
 ---
@@ -252,54 +255,55 @@ Paraphore #145
 ---
 :layerSpilledPaint
 
-LAYER NAME: Spilled Paint
-PARENT LAYER: L.L.L.
-PARENT ENTITY: Cartographer
-CHILD LAYERS: Library2 (+3 children), RELAXATIONGAME
-PARAPHRASED TIMELINES: Redacted.
+<b>LAYER NAME:</b> Spilled Paint
+<b>PARENT LAYER:</b> L.L.L.
+<b>PARENT ENTITY:</b> Cartographer
+<b>CHILD LAYERS:</b> Library2 (+3 children), RELAXATIONGAME
+<b>PARAPHRASED TIMELINES:</b> Redacted.
 
-LAYER NAME: Library2
-PARENT LAYER: Spilled Paint
-PARENT ENTITY: Wendy Archibald
-CHILD LAYERS: Catnyp, Vanylla, Mynt, RELAXATIONGAME
-PARAPHRASED TIMELINES: 4
-	> PROTOCOL ENDING:
-		DANGER LEVEL: Safe
-		CLASS: Heaven
-		- Character <b>Mynt</b> assimilated by Paraphore <b>#141</b>
-		- Character <b>Rebeca</b> assimilated by Paraphore <b>#143</b>
+<b>LAYER NAME:</b> Library2
+<b>PARENT LAYER:</b> Spilled Paint
+<b>PARENT ENTITY:</b> Wendy Archibald
+<b>CHILD LAYERS:</b> Catnyp, Vanylla, Mynt, RELAXATIONGAME
+<b>PARAPHRASED TIMELINES:</b> 4
 
-		- Fragmentary clone of <b>Mynt</b> assimilated by Paraphore <b>#144</b>
+	=== <b>PROTOCOL ENDING:</b>
+		<b>DANGER LEVEL:</b> Safe
+		<b>CLASS:</b> Heaven
+		- Character <b>Mynt</b> assimilated by <i>Paraphore #141</i>
+		- Character <b>Rebeca</b> assimilated by <i>Paraphore #143</i>
+
+		- Fragmentary clone of <b>Mynt</b> assimilated by <i>Paraphore #145</i>
 		- Original <b>Mynt</b> relocated to the Outerphore to prevent dupe collision
 		
 		- See "Assimilation Notes" for more information
 
-	> MINT ENDING:
-		DANGER LEVEL: Corruptive
-		CLASS: Hell
+	=== <b>MINT ENDING:</b>
+		<b>DANGER LEVEL:</b> Corruptive
+		<b>CLASS:</b> Hell
 		- Character <b>Mynt</b> rendered corruptive, functionally <b>perished</b>
 		- Mynt's fragmentary clone rendered corruptive, functionally <b>perished</b>
 
-		- <b>VALID</b> duplicate character <b>Rebeca</b> assimilated by Paraphore <b>#143</b>
+		- <b>VALID</b> duplicate character <b>Rebeca</b> assimilated by <i>Paraphore #143</i>
 		- Original <b>Rebeca</b> relocated to the Outerphore to prevent dupe collision
 
-	> MYNT ENDING:
-		DANGER LEVEL: Safe
-		CLASS: Macbeth
-		- <b>VALID</b> duplicate character <b>Mynt</b> assimilated by Paraphore <b>#141</b>
+	=== <b>MYNT ENDING:</b>
+		<b>DANGER LEVEL:</b> Safe
+		<b>CLASS:</b> Macbeth
+		- <b>VALID</b> duplicate character <b>Mynt</b> assimilated by <i>Paraphore #141</i>
 		- Half of Mynt's fragmentary clone relocated to prevent dupe collision
 		- <b>VALID</b> duplicate character <b>Rebeca</b> perished
 
-	> METEORITE ENDING:
-		DANGER LEVEL: Risky
-		CLASS: Higurashi
+	=== <b>METEORITE ENDING:</b>
+		<b>DANGER LEVEL:</b> Risky
+		<b>CLASS:</b> Higurashi
 		- This timeline has been opened to upper tourists
 		- Stable red pond checkpoints created and maintained on a giant purple meteorite
 		- Passable safety measures and emergency procedures based on 66 years of player data, thanks Rebeca!
 		- Cusp catastrophes unlikely but possible, jump in a pond if you see a black hole
 		
 		- All characters are <b>INVALID</b> duplicates. No further assimilation possible
-		- 7 seeds assimilated by Paraphore <b>#143</b>
+		- 7 seeds assimilated by <i>Paraphore #143</i>
 		
 [Assimilation Notes.|assimilationNotes]
 [Back.|hubLLL]
