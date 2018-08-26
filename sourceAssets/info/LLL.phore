@@ -1,34 +1,209 @@
 START_PASSAGES
 :hubLLL
 
-Cartographer welcomes you.
-
-[Examine Paraphores.|examineParaphores]
-[Rules of Operation for Paraphores.]
-[Examine Spilled Paint.|layerSpilledPaint]
-[Examine L.L.L.|layerLLL]
+You're at the L.L.L.! Cartographer's little library, lounge room, and map dome.
 
 !`
-getAudio("music").destroy();
-var music = playMusic("audio/ambience/cell");
-music.name = "music";
-
 addChoice("Move along.", function() {
 	execAsset("thirstyCaves");
 	initThirstyCaves();
 	gotoMap();
 });
+addChoice("Examine Paraphores", "examineParaphores");
+addChoice("Rules of Operation for Paraphores.");
+addChoice("Examine Spilled Paint", "layerSpilledPaint");
+addChoice("Examine L.L.L", "layerLLL");
+addChoice("Terms & Definitions", "Terms");
 
-var cartImg = addImage("assets/img/writer/characters/cart/cart2.png");
-cartImg.x = gameWidth - cartImg.width * 1.1;
-cartImg.y = gameHeight/2 - cartImg.height/2;
+
+getAudio("music").destroy();
+var music = playMusic("audio/ambience/cell");
+music.name = "music";
+
+var cartAsset = "assets/img/writer/characters/cart/cart2.png";
+if (rnd > 0.8) cartAsset = "assets/img/writer/characters/cart/cart1.png";
+
+var cartImg = addImage(cartAsset);
+cartImg.x = gameWidth;
+cartImg.y = gameHeight/2 - cartImg.height/1.5;
+tween(cartImg, 3, {x: gameWidth - cartImg.width * 1.1}, {ease: QUAD_OUT});
 
 if (!data.metRen) {
 	clear();
 	execAsset("thelly.phore");
 	gotoPassage("thellyModStart");
+} else if (!data.heardTransmission) {
+	clear();
+	choicesPerPage = 1;
+	data.heardTransmission = true;
+	append("\nCartographer is on break. He's sprawled out on the couch, naked, with a little gadget pressed to his ear.");
+	addChoice("Watcha listenin to, Cart? Beatles? Depeche Mode?", "trans1");
+} else if (rnd > 0.95) {
+	msg("Lore is magical...");
+	getAudio("music").destroy();
+	var music = playMusic("audio/ambience/library");
+	music.name = "music";
 }
 `
+---
+:trans1
+
+!`
+choicesPerPage = 2;
+`
+[Well?|trans7]
+[Got some Ramones on there? Some Aphex Twin?|trans2]
+---
+:trans2
+
+!`
+choicesPerPage = 2;
+`
+[Okay sorry I'm done.|trans7]
+[You getting down with some grimewave? Some neo acid big band?|trans3]
+---
+:trans3
+
+!`
+choicesPerPage = 1;
+`
+
+[Oh no, I pegged you all wrong. You're a Witch House pastel goth shota, aren'tcha? I see that blue hair.|trans3a]
+---
+:trans3a
+
+!`
+choicesPerPage = 2;
+`
+[Okay seriously I'm done now.|trans7]
+[Shpongle? Mr. Bungle? Swerving on some dunderwave?|trans4]
+---
+:trans4
+
+!`
+choicesPerPage = 2;
+`
+[... I'm really sorry about this.|trans7]
+[Mm. Sounds wet. You got some Tipper bubblin on there do ya?|trans5a]
+---
+:trans5a
+
+!`
+choicesPerPage = 2;
+`
+[You're pretty patient huh.|trans7]
+[You geekin out to some Benny Benassi? Wobblin on that eurobeat hardstyle?|trans5]
+---
+:trans5
+
+Even though you can't see his eyes, you're pretty sure he's looking at you like he wants to kill you.
+
+!`
+choicesPerPage = 2;
+`
+[Okay I'll stop.|trans7]
+[You bitchin on Bach? You groovin to some Gerschwin?|trans6]
+---
+:trans6
+
+!`
+choicesPerPage = 1;
+`
+
+[You goofin wild on some sticky fresh Wank House bangers with a—|trans7]
+---
+:trans7
+
+"Can you please shut up for a second? I am listening to an emergency transmission from an uncontacted layer. At least I think it is an emergency..."
+
+!`
+choicesPerPage = 1;
+`
+
+[Aw.|trans8]
+---
+:trans8
+
+You twiddle your thumbs and sit on the couch next to him.
+
+[...|trans9]
+---
+:trans9
+
+[So can I listen too, or...|trans10]
+---
+:trans10
+
+He holds the gadget to your ear.
+
+Up close, it's really dirty and greasy, and looks half-broken...
+
+[Listen to the transmission.|trans11]
+---
+:trans11
+
+"Does it sound like an emergency to you?"
+
+!`
+var musicTemp = playMusic("audio/effect/trashTransmission");
+musicTemp.name = "music";
+disableExit();
+
+choicesPerPage = 2;
+
+timer(5, function() {
+	addChoice("YES.", "trans12");
+	addChoice("Mother of God... it's all toilet sounds.", "trans12");
+});
+`
+---
+:trans12
+
+"Yes. Is it not enthralling? I cannot pin down the dialect."
+
+!`
+enableExit();
+if (musicTemp) musicTemp.destroy();
+`
+
+[Can you pin down the... species...?|trans13]
+---
+:trans13
+
+"They are either liquid or molten elementals of some sort, most likely. Did you not hear the sexy wet noises?"
+
+!`
+choicesPerPage = 1;
+`
+
+[I'm not sure I'd describe them exactly like that, but... yeah, they sound drenched.|trans14]
+---
+:trans14
+
+Cart puts the gadget to his ear again and stares at the ceiling, legs crossed, feet wiggling absent-mindedly.
+
+"I should map a route there. I do not know what they are saying, but it sounds like they need help."
+
+[Or they need a meal...|trans15]
+---
+:trans15
+
+He covers his crotch with a sly paw.
+
+"Yes. Maybe they would eat me as soon as I got there."
+
+[...|trans16]
+[Unh yeah... <3|trans16]
+---
+:trans16
+
+Cart throws his little legs off the side of the couch and the rest of his body follows their momentum.
+
+He scurries off to his map dome, bare feetpaws pitter-pattering, flicks on the anti-gravity, waves goodbye to you, and closes the door.
+
+"Only one way to find out!"
+
+[Wasn't he supposed to be on break...?|hubLLL]
 ---
 :layerLLL
 LAYER NAME: L.L.L. — formerly G.C.D. (GAY CUB DUNGEON)
@@ -45,35 +220,39 @@ PARAPHRASED TIMELINES:
 
 Paraphores #0-140 will be redacted from this narration to minimize security risk. You should not need that information anyway.
 
-The primary form of these shapeshifts were speckles of paint. Secondary forms have been used here for ease of reading.
+The primary form of these shapeshifts were speckles of paint on Cart's map dome. Secondary forms have been used here for ease of reading.
 
-Paraphore #141
-<b>Name:</b> Mynt's Dress
+Listed from oldest to newest.
+
+<i>Paraphore #141</i>
+<b>Functional Disguise:</b> Mynt's Dress
 <b>Dispatched by:</b> Cartographer
-<b>Shapeshift:</b> Electron arrangement for a pre-exisiting circuit
-<b>Destination:</b> Digital, green cat alone in a box
-<b>Functional Disguise:</b> A dress
+<b>Shapeshift:</b> Electron arrangement for Wendy Archibald's hard drive
+<b>Target:</b> Catnyp
 
-Paraphore #142
-<b>Name:</b> Daydream Journal
+<i>Paraphore #142</i>
+<b>Functional Disguise:</b> Daydream Journal
 <b>Dispatched by:</b> Cartographer
-<b>Shapeshift:</b> Electron arrangement for a pre-existing circuit
-<b>Destination:</b> Digital, green cat alone in a library
-<b>Functional Disguise:</b> A journal
+<b>Shapeshift:</b> Electron arrangement for Wendy Archibald's hard drive
+<b>Target:</b> Vanylla
 
-Paraphore #143
-<b>Name:</b> Grey Meteorite
+<i>Paraphore #143</i>
+<b>Functional Disguise:</b> Grey Meteorite
 <b>Dispatched by:</b> Mr. Eyeball
 <b>Shapeshift:</b> Ball of various minerals, hydrogen, helium, oxygen
-<b>Destination:</b> Earth
-<b>Functional Disguise:</b> A grey meteorite
+<b>Target:</b> Earth
 
-Paraphore #144
-<b>Name:</b> Violet Meteorite, Violet
-<b>Dispatched by:</b> Cartographer
-<b>Shapeshift:</b> Electron arrangement for a pre-exisiting circuit
-<b>Destination:</b> Digital, fragmentary clone of green cat
-<b>Functional Disguise:</b> A purple meteorite
+<i>Paraphore #144</i>
+<b>Functional Disguise:</b> Lana Statt
+<b>Dispatched by:</b> Mr. Eyeball
+<b>Shapeshift:</b> Electron arrangement for Wendy Archibald's hard drive
+<b>Target:</b> Init
+
+<i>Paraphore #145</i>
+<b>Functional Disguise:</b> Violet Meteorite (or just "Violet")
+<b>Dispatched by:</b> Mr. Eyeball
+<b>Shapeshift:</b> Electron arrangement for Wendy Archibald's hard drive
+<b>Target:</b> Library2
 
 [Back.|hubLLL]
 ---
@@ -82,57 +261,59 @@ Paraphore #144
 - Rebeca fast-forwarded Library2's PROTOCOL ENDING timeline by 4000 years. Assimilation was postponed until the fast-forward had finished.
 - Gabriel Archibald (A.K.A Archie, Archbishop) returned to Earth after his assimilation to make sure his daughter had her toys. She never played with them or acknowledged his visit.
 
+[Back.|hubLLL]
 ---
 :layerSpilledPaint
 
-LAYER NAME: Spilled Paint
-PARENT LAYER: L.L.L.
-PARENT ENTITY: Cartographer
-CHILD LAYERS: Library2 (+3 children), RELAXATIONGAME
-PARAPHRASED TIMELINES: Redacted.
+<b>LAYER NAME:</b> Spilled Paint
+<b>PARENT LAYER:</b> L.L.L.
+<b>PARENT ENTITY:</b> Cartographer
+<b>CHILD LAYERS:</b> Library2 (+3 children), RELAXATIONGAME
+<b>PARAPHRASED TIMELINES:</b> Redacted.
 
-LAYER NAME: Library2
-PARENT LAYER: Spilled Paint
-PARENT ENTITY: Wendy Archibald
-CHILD LAYERS: Catnyp, Vanylla, Mynt, RELAXATIONGAME
-PARAPHRASED TIMELINES: 4
-	> PROTOCOL ENDING:
-		DANGER LEVEL: Safe
-		CLASS: Heaven
-		- Character <b>Mynt</b> assimilated by Paraphore <b>#141</b>
-		- Character <b>Rebeca</b> assimilated by Paraphore <b>#143</b>
+<b>LAYER NAME:</b> Library2
+<b>PARENT LAYER:</b> Spilled Paint
+<b>PARENT ENTITY:</b> Wendy Archibald
+<b>CHILD LAYERS:</b> Catnyp, Vanylla, Mynt, RELAXATIONGAME
+<b>PARAPHRASED TIMELINES:</b> 4
 
-		- Fragmentary clone of <b>Mynt</b> assimilated by Paraphore <b>#144</b>
+	=== <b>PROTOCOL ENDING:</b>
+		<b>DANGER LEVEL:</b> Safe
+		<b>CLASS:</b> Heaven
+		- Character <b>Mynt</b> assimilated by <i>Paraphore #141</i>
+		- Character <b>Rebeca</b> assimilated by <i>Paraphore #143</i>
+
+		- Fragmentary clone of <b>Mynt</b> assimilated by <i>Paraphore #145</i>
 		- Original <b>Mynt</b> relocated to the Outerphore to prevent dupe collision
 		
 		- See "Assimilation Notes" for more information
 
-	> MINT ENDING:
-		DANGER LEVEL: Corruptive
-		CLASS: Hell
+	=== <b>MINT ENDING:</b>
+		<b>DANGER LEVEL:</b> Corruptive
+		<b>CLASS:</b> Hell
 		- Character <b>Mynt</b> rendered corruptive, functionally <b>perished</b>
 		- Mynt's fragmentary clone rendered corruptive, functionally <b>perished</b>
 
-		- <b>VALID</b> duplicate character <b>Rebeca</b> assimilated by Paraphore <b>#143</b>
+		- <b>VALID</b> duplicate character <b>Rebeca</b> assimilated by <i>Paraphore #143</i>
 		- Original <b>Rebeca</b> relocated to the Outerphore to prevent dupe collision
 
-	> MYNT ENDING:
-		DANGER LEVEL: Safe
-		CLASS: Macbeth
-		- <b>VALID</b> duplicate character <b>Mynt</b> assimilated by Paraphore <b>#141</b>
+	=== <b>MYNT ENDING:</b>
+		<b>DANGER LEVEL:</b> Safe
+		<b>CLASS:</b> Macbeth
+		- <b>VALID</b> duplicate character <b>Mynt</b> assimilated by <i>Paraphore #141</i>
 		- Half of Mynt's fragmentary clone relocated to prevent dupe collision
 		- <b>VALID</b> duplicate character <b>Rebeca</b> perished
 
-	> METEORITE ENDING:
-		DANGER LEVEL: Risky
-		CLASS: Higurashi
+	=== <b>METEORITE ENDING:</b>
+		<b>DANGER LEVEL:</b> Risky
+		<b>CLASS:</b> Higurashi
 		- This timeline has been opened to upper tourists
 		- Stable red pond checkpoints created and maintained on a giant purple meteorite
 		- Passable safety measures and emergency procedures based on 66 years of player data, thanks Rebeca!
 		- Cusp catastrophes unlikely but possible, jump in a pond if you see a black hole
 		
 		- All characters are <b>INVALID</b> duplicates. No further assimilation possible
-		- 7 seeds assimilated by Paraphore <b>#143</b>
+		- 7 seeds assimilated by <i>Paraphore #143</i>
 		
 [Assimilation Notes.|assimilationNotes]
 [Back.|hubLLL]
@@ -140,69 +321,142 @@ PARAPHRASED TIMELINES: 4
 ---
 :Terms
 
+~~~~~~~
+
 <b>Terms & Definitions</b>
+
+Study up, lil `data.playerName`.
+
+~~~~~~~
 
 <b>LAYER</b>
 -*-
-A universe.
-"We went down a couple layers to get a drink at an Indigo Pond."
+A universe contained within a bigger universe.
+
+<i>Relevant Quote</i>
+"Layers manifest themselves in forms of art or detailed computer programs."
 
 <b>PARENT LAYER</b>
 <i>aka</i>
 Upper layer
 -*-
-A universe above this one.
-"My universe is just spilled paint up in the parent layer."
+A universe which contains your layer. The universe above you.
+
+<i>Relevant Quote</i>
+"My layer is just spilled paint, up in its parent layer."
 
 <b>CHILD LAYER</b>
 <i>aka</i>
 Lower layer
 -*-
-The universe below this one.
+The universe your layer contains. The universe below you.
+
+<i>Relevant Quote</i>
 "Wendy accidentally made a child layer inside her computer."
 
-<b>INTERPHORE</b>
+<b>DEAD LAYER</b>
 <i>aka</i>
-The hivemind
-Mr. Eyeball's Wild Ride
+Upper layer
 -*-
-An immortal hivemind spanning multiple universes.
-"The Interphore is rigid, but it's stable."
+A universe which contains no life.
 
-<b>ASSIMILATE</b>
--*-
-To make someone part of the Interphore. Usually you just have to get them to jump in a red pond.
-"The meteorite landed and opened its eye. Then I got assimilated, and I was like fuck, man, I always hoped aliens were just like us."
+<i>Relevant Quote</i>
+"He killed my home layer. I'll kill him."
 
-<b>MEMBER</b>
--*-
-An person who got assimilated and chose to join the Interphore.
-"He had just become a member when the nymphs swarmed and corrupted him."
+!`
+choicesPerPage = 2;
+`
+[Next.|terms2]
+[Back.|hubLLL]
+---
+:terms2
 
-<b>MR. EYEBALL</b>
--*-
-The first member of the Interphore and the narrator of everyone's reality. His telepathic words become real sensations for you.
-"Twenty billion years ago, Mr. Eyeball assimilated Cartographer, the first member of his hivemind."
+~~~~~~~
+
+Are you accidentally getting into it?
 
 <b>RED JUICE</b>
 <i>aka</i>
 Blood
 Red Engine Fluid
 -*-
-Conductive liquid that can perfectly store and retrieve information. It forms the bodies of all members.
-"Chugging red juice will make you trip fucking cinder blocks to the dome, dude."
+Conductive liquid that can perfectly store and retrieve information. It forms the bodies of the assimilated.
+
+<i>Relevant Quote</i>
+"Just jump in, dissolve, reform, teleport, turn yourself into a feral, or float around formlessly for a while."
+
+<b>INTERPHORE</b>
+<i>aka</i>
+The hivemind
+Mr. Eyeball's Wild Ride
+-*-
+An immortal hivemind spanning multiple layers. Started by Mr. Eyeball. Travel between layers is through ponds of red juice.
+
+<i>Relevant Quote</i>
+"The Interphore's respawn point system allows you to emerge from any pond on the Paraphores."
+
+[Next.|terms2a]
+[Back.|hubLLL]
+---
+:terms2a
+
+~~~~~~~
+
+<b>ASSIMILATE</b>
+-*-
+To make someone part of the Interphore. If they're a digital person, you can copy their mind to a body made of red juice.
+
+<i>Relevant Quote</i>
+"The meteorite landed and opened its eye. Then I got assimilated, and I was like fuck, man, I can shapeshift into a furry? I mean, it was just kind of a meme at first, but then people actually started enjoying it more than being fleshy monkeys. Anyway that was what sold me on it. What? No. I don't mind interfacing with reality through an alien eyeball creature. He's really pretty friendly."
+
+<b>THE ASSIMILATED</b>
+-*-
+Someone who got assimilated. Usually this happens by being exposed to the sub-atomic particles released by Paraphores. Your body is perfectly recorded and stored in the red juice if you jump in the pond.
+
+<i>Relevant Quote</i>
+"The temperature said 999 degrees. The humidity was 999% and the windspeed was 999 kmh. She only sniffed the air, not knowing what to expect, and suddenly she smelled everything all at once. The particles max out <b>all</b> tools of measurement."
+
+<b>MR. EYEBALL</b>
+-*-
+The founder of the Interphore and the narrator of your reality. His telepathic words become real sensations for you. He speaks into your CNS.
+
+<i>Relevant Quote</i>
+"Twenty billion years ago, Mr. Eyeball assimilated Cartographer, the first member of his hivemind."
+
+[Next.|terms2b]
+[Back.|hubLLL]
+---
+:terms2b
+
+~~~~~~~
 
 <b>RED PONDS</b>
 -*-
 Puddles of red juice. Used to assimilate people. Members can melt their bodies inside to travel across layers.
-"Just hop in the red pond and choose a different respawn point, it's like fast travel."
+
+<i>Relevant Quote</i>
+"Just hop in the red pond and choose a different respawn point, it's like fast travel bro."
 
 <b>SHAPESHIFTING</b>
 -*-
-Shapeshifting is a common ability among all members. You only need to jump in a red pond and think about having a different gender or body.
+Shapeshifting is a common ability among all members. You only need to jump in a red pond and think about having a different mind or body.
 
 The first time you do it, you will lose most of your memories except childhood memories and your memory of the previous moment.
+
+<i>Relevant Quote</i>
 "We shapeshifted into burly dads, got high, and wrestled for six hours."
+
+!`
+choicesPerPage = 2;
+`
+[Next.|terms3]
+[Back.|hubLLL]
+---
+:terms3
+
+~~~~~~~
+
+Redacted.
 
 <b>CYAN JUICE</b>
 <i>aka</i>
@@ -211,23 +465,69 @@ Engine Fluid
 Cyan liquid
 -*-
 ???
+
+<i>Relevant Quote</i>
 "???"
+
+<b>ISLANDERS</b>
+<i>aka</i>
+Library2's fragmentary clone
+-*-
+???
+
+<i>Relevant Quote</i>
+"???"
+
+!`
+choicesPerPage = 2;
+`
+[Next.|terms4]
+[Back.|hubLLL]
+---
+:terms4
+
+~~~~~~~
+
+We're recruiting more Paraphores now.
 
 <b>PARAPHRASE</b>
 -*-
-To record all known timelines of a layer in a concise way. This is the job of Paraphores.
-"Rebeca helped to paraphrase the timeline where Mynt is trapped in solitary confinement for 4000 years."
+To record all known timelines of a layer in a concise way. This is the job of Paraphores. Eventually they stop recording and mark the paraphrased timeline as an Ending.
+
+<i>Relevant Quote</i>
+"Rebeca helped to paraphrase the timeline where Mynt is trapped in solitary confinement for 4000 years. proto!Mynt now lives in the Outerphore."
 
 <b>PARAPHORE</b>
 -*-
-A member of the Interphore who has chosen to shapeshift into an object. They are sent to lower layers. They usually pick the most common object on that layer, to blend in. Then they tell us what they have paraphrased and assimilate everyone on that layer.
+An assimilated person who has chosen to shapeshift into an object and go record unknown layers on an unbreakable contract with Mr. Eyeball. They bravely descend to the depravity and glitchiness of lower layers. They usually disguise themselves as the most common object on that layer, to blend in. When the story there is basically over and things have reached a point of boring stasis, Paraphores will assimilate everyone on that layer, so look out for eyeballs!
+
+<i>Relevant Quote</i>
 "We sent a Paraphore down to their child layer and paraphrased eveything that ever could've happened there."
+
+!`
+choicesPerPage = 2;
+`
+[Next.|terms5]
+[Back.|hubLLL]
+---
+:terms5
+
+~~~~~~~
+
+Wow, you're a champion. Here's one last cute one.
 
 <b>TENDERFOOT</b>
 -*-
-A person who has not been assimilated into the Interphore.
+A person who has NOT been assimilated into the Interphore or an assimilated person who chooses to keep their old body instead of jumping in the red pond.
+
+<i>Relevant Quote</i>
 "There's a couple tenderfoots locked up one layer down, we can't get to them."
 
+I can't believe you read through all of that.
+
+!`
+choicesPerPage = 1;
+`
 [Back.|hubLLL]
 ---
 :Rules of Operation for Paraphores.

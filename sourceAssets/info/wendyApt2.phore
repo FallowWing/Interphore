@@ -469,7 +469,15 @@ Yes.
 
 They're all anthropomorphic green cats with white eyes and black dresses. They chitter to each other and glance down at you. They crawl around the bottom of the elevator car, long claws hooked into the metal. Their nests are deep and tunnel into the apartment building's concrete walls with twisted, looping, fucked-up passageways.
 
+[Wha|myntDecoAnimal3a]
+---
+:myntDecoAnimal3a
+
 One of them unhooks its claws and hangs its upper body down to get a better look at you, dress folding up to reveal the exact color panties you're wearing. Its feetpaws latch to the car. The fake-Mynt starts screeching and rocking back and forth, making the car's metal grind against the side of the elevator shaft as it inches down bit by bit. It may or may not be sounding the alarm to the other fake-Mynts.
+
+!`
+queueCall(function() { playEffect("audio/effect/owlScream"); });
+`
 
 [CLOSE THE FUCKING DOORS|myntDecoAnimal4]
 ---

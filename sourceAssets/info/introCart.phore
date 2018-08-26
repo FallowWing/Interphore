@@ -520,7 +520,7 @@ queueAddChoice("How did I know God was going to be a weird little fuck.", "cartW
 !`
 queueTitle("Hmmm?");
 specialTitle("I am normal.");
-if (watchCart) queueAddChoice("You're a naked underaged boy paint-skating around an anti-gravity map dome.", "cartWatch9");
+if (watchCart) queueAddChoice("You're a naked cub boi paint-skating around an anti-gravity map dome.", "cartWatch9");
 if (!watchCart) queueAddChoice("Spilled Paint...? You know what, nevermind. Have you seen our mom?", "cartWatch10");
 `
 ---
@@ -535,6 +535,7 @@ queueAddChoice("Have you seen our mom or not?", "cartWatch10");
 !`
 specialTitle("What kind of body/mind did she pick?");
 specialTitle("In the pond, after she was assimilated.");
+specialTitle("You know. What happened to you earlier.");
 queueAddChoice("After she was... oh. So that's how Mynt and I got into this situation.", "cartWatch11");
 `
 ---
@@ -663,7 +664,7 @@ setTitle("");
 var cartStanding = addImage("writer/characters/cart/cart2");
 cartStanding.x = gameWidth;
 cartStanding.y = gameHeight - cartStanding.height *1.05;
-tween(cartStanding, 4, {x: gameWidth - cartStanding.width * 1.1}, {ease: QUAD_OUT});
+tween(cartStanding, 3, {x: gameWidth - cartStanding.width * 1.1}, {ease: QUAD_OUT});
 `
 "Hi," Mynt says, starstruck. "I'm Meet. Nice to Mynt you."
 

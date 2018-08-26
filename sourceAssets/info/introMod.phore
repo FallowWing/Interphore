@@ -29,6 +29,13 @@ queueAddChoice("Hi Mr. Eyeball. Nice to see you up close.", "Oh sure no prob.");
 :Oh sure no prob.
 
 !`
+data.gender = "";
+data.genitals = "";
+data.playerName = "";
+data.hasBoobs = false;
+data.hasKnot = false;
+disableExit();
+
 queueTitle("Go on.");
 
 if (!data.hasBoobs) queueAddChoice("Boobs.", function() {
