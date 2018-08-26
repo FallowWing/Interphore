@@ -156,18 +156,20 @@ function HerHim(gender) {
 
 START_PASSAGES
 :Start
-Version: Early-Acess ;)
+Loading done. Same text as in the "loading screen".
 
-No matter what happens, I don't care if you close the mod out of boredom on page 2, your mum busted you masturbating because of me or you think the mod needs a fedora-fetish option:
-PLS PLS PLS give me ANY feedback via pm or modding channel! <3
+If like this mod or close it on page 3 out of boredom - doesn't matter - I would love to know!
+Please drop a quick nice comment or suggestion in the #modding channel or pm me. Takes you a few seconds and makes my day.
 
+This is and will always be a casual/passion project.
+Feel free to write any fanfiction or additional decisions, if you want, i can probably implement them. :)
+I will correct any spelling mistakes i get send.
 
-This is and will always be a casual/passion project. I think, that by now, it has a serious level of polish. Nonetheless, if you have any expectations at all you are sure to get dissapointed.
-If you feel like writing any fanfiction to the story, feel free to send it to me. If it's arousing in any way, i will probably implement it. :D
+Do you have a dick ingame?
 
-
-Do you have a dick?
 !`if (data.apples === undefined) data.apples = 0;`
+!`if (data.bees === undefined) data.bees = 0;`
+
 !`
 setBackground(0, "img/writer/mainBg");
 setBackground(1, "");
@@ -177,18 +179,40 @@ setBackground(1, "");
 
 [Yes|Start Dick]
 [No|Start No Dick]
-[Imagetest :3|imageTest]
+[Imagetest|imageTest]
 ---
 
 :imageTest
 Here's some images.
+
+
+
+!`if (data.bees < 1) addChoice("A decision", "bee1");`
+!`if (data.bees > 1) addChoice("A different decision", "bee2");`
+
 !`
 var coin = addImage("coin.png");
 coin.x = 800;
 coin.y = 100;
 `
+
 [Go back|Start]
 ---
+
+:bee1
+You clicked a decision.
+!`data.bees = 2;`
+
+[Go back|imageTest]
+---
+
+:bee2
+You clicked a different decision.
+!`data.bees = 0;`
+
+[Go back|imageTest]
+---
+
 
 :Start Dick
 !`
@@ -259,17 +283,15 @@ This is a check if everything worked.
 `Fio6(data.mod.gender)`: Anyone there?
 `Fio6(data.mod.gender)`: If so, write smth
 `Fio6(data.mod.gender)`: Anything rly... I won't bite :b
-
+!`data.bees = 2;`
 !`if (data.mod.gender === "male") { var tr3 = addImage("t3.png");
 tr3.x = 800;
 tr3.y = 100;
 }`
-
 !`if (data.mod.gender === "female") { var gr3 = addImage("g3.png");
 gr3.x = 800;
 gr3.y = 100;
 }`
-
 [Hi|encounter1]
 !`if (data.mod.gender === "female") addChoice("Hey Fiona! Remember me? We met in a Paraphore mod :D", "encounter1c");`
 ---
@@ -388,7 +410,7 @@ You see `herHim(data.mod.gender)` jump of the chair and rummage in a box full of
 `Fiona(data.mod.gender)`: Hey look, I'm just introducing all this to you, basically I'm gonna boot up the separate stories for you, so you can play them without any interference. 
 I'm going to drop you off in a small part of the Bright Forest. Hope you have fun! :)
 !`data.apples += 1;`
-[Chapter1|StartGoo]
+[Chapter: 1|StartGoo]
 ---
 
 
@@ -404,7 +426,7 @@ Soulcrushed `she(data.mod.gender)` buries `herHis(data.mod.gender)` head in `her
 `Fio6(data.mod.gender)`: I'm just introducing all this to you, really. I'm just gonna boot up the separate stories for you, so you can play them without any interference. 
 `Fiona(data.mod.gender)`: The mod really isn't as bad as me! I hope...
 
-[Chapter1|StartGoo]
+[Chapter: 1|StartGoo]
 ---
 
 
@@ -837,10 +859,10 @@ goo-`girl(data.mod.gender)`s like myself work a bit differently. To keep our sen
 goo-skin clean we naturally sweat very easily." `she(data.mod.gender)` says, blushing. 
 
 "And if we don't wash it off within a day it get's suuuper itchy.
-"That way, no goo in the right mind wouldn't wash itself regularly. 
+That way, no goo in the right mind wouldn't wash itself regularly. 
 But since yesterday i kinda decided to... uhm leave out my private parts...
- So i kinda haven't washed my butt for 2 days and my pucker begs for some... 
- throughout scratching."
+ So i kinda haven't washed my butt for 2 days and my pucker begs for 
+ some...  throughout scratching."
 
 `She(data.mod.gender)` gropes `herHis(data.mod.gender)` ass with one 
 hand while `herHis(data.mod.gender)` green face slowly turns red. 
@@ -862,7 +884,7 @@ gr1.y = 100;
 "S-Sure, if you'd like to do that."
 You come closer while `she(data.mod.gender)` lowers `herHis(data.mod.gender)` upper body, rhythmically brushing `herHis(data.mod.gender)`!`if (data.mod.gender === "female") append("breasts");`!`if (data.mod.gender === "male") append("flat chest");` against the ground and sticking `herHis(data.mod.gender)` bottom in the air. Your face is just inches away from `herHis(data.mod.gender)` ass as `she(data.mod.gender)` starts to slowly crawl forward. You instinctively grab `herHis(data.mod.gender)` waist, not wanting `herHim(data.mod.gender)` to distance `herself(data.mod.gender)` one bit from you. 
 
-"You know, we should really get out of the sun. I've never kept my bum in "You know, we should really get out of the sun. It already makes my skin pretty sensitive and I don't wanna think about what would happen to me if I let it shine on my most intimate parts..." `she(data.mod.gender)` says, wiggling `herHis(data.mod.gender)` ass anxiously in your hands. `She(data.mod.gender)`'s already breathing heavily and goo-sweat-drips are building up on your hands.
+"You know, we should really get out of the sun. It already makes my skin pretty sensitive and I don't wanna think about what would happen to me if I let it shine on my most intimate parts..." `she(data.mod.gender)` says, wiggling `herHis(data.mod.gender)` ass anxiously in your hands. `She(data.mod.gender)`'s already breathing heavily and goo-sweat-drips are building up on your hands.
 [I want you to spread your ass :3|Goo Stuff 2]
 [Leave|Done]
 ---
@@ -876,8 +898,8 @@ swinging `herHis(data.mod.gender)` butt from left to right in your hands, but
 eventually, eyes half-closed, `she(data.mod.gender)` grabs `herHis(data.mod.gender)` buttcheeks.
 
 `She(data.mod.gender)` slowly spreads them wide apart and you can see how the 
-sun rays start to hit `herHis(data.mod.gender)` cute puckered bumhole
-while you embrace the scent of `herHis(data.mod.gender)` !`if (data.mod.gender === "female") append("dripping snatch mixed with ");`fresh sweat.
+sun rays start to hit `herHis(data.mod.gender)` cute puckered bumhole while 
+you embrace the scent of `herHis(data.mod.gender)` !`if (data.mod.gender === "female") append("dripping snatch mixed with ");`fresh sweat.
 
 `HerHis(data.mod.gender)` little pucker twitches in anticipation. "Pleeeaaase, my assshoole!"
 
@@ -895,15 +917,14 @@ gr2.y = 100;
 [Tonguefuck it|Tongue 1]
 ---
 :Tongue 1
-You let go of `herHis(data.mod.gender)` hips and carefully but firmly place your hands on `herHis(data.mod.gender)` inner asscheeks, spreading `herHis(data.mod.gender)` anus open a bit in the process to get an even closer look at it. 
+You let go of `herHis(data.mod.gender)` hips and carefully but firmly place your hands on `herHis(data.mod.gender)` inner asscheeks, spreading `herHis(data.mod.gender)` anus open a bit in the process to get an even closer look at it. A silent whimper escapes the goo-`girl(data.mod.gender)` as `she(data.mod.gender)` can feel the cooling breath touching `herHis(data.mod.gender)` private parts. 
 
-A silent whimper escapes the goo-`girl(data.mod.gender)` as `she(data.mod.gender)` can feel the cooling breath touching `herHis(data.mod.gender)` private parts. 
+You tenderly kiss one of `herHis(data.mod.gender)` asscheeks, barely touching the surface with your lips. `She(data.mod.gender)` responds with a longing "Hnnn ~". Finally you place your tongue on `herHis(data.mod.gender)` asshole and give it a long sloppy lick. `She(data.mod.gender)` kind of tastes like salt-crackers. <3
 
-You carefully kiss one of `herHis(data.mod.gender)` asscheeks, barely touching the surface with your lips. `She(data.mod.gender)` responds with a longing "Hnnn <3". Finally you place your tongue on `herHis(data.mod.gender)` asshole and give it a long sloppy lick. `She(data.mod.gender)` kind of tastes like salt-crackers. <3
+"Pleeaaase ~" `She(data.mod.gender)` needs to give more specific instructions than that... "Please tonguefuck my naughty little asshole, because I'm a dirty slut who gets off with a tongue in `herHis(data.mod.gender)` perverted aaassss."
 
-"Pleeaaase~"
-!`if (data.mod.gender === "female") addChoice("Make her beg", "Tongue Dirty 2");`
-!`if (data.mod.gender === "male") addChoice("Make him beg", "Tongue Dirty 2");`
+You start licking `herHis(data.mod.gender)` pucker in circles, making it twitch vigorously. You can hear the silent smacking sounds of it opening up and instantly closing again. `She(data.mod.gender)`'s a little more eager than you: "I'm going to fucking go crazyyy. PLEASE, ram your tongue into my fucked up asshole!"
+[Next|Tongue Dirty 3]
 ---
 :Tongue Dirty 2
 `She(data.mod.gender)` needs to give more specific instructions than that... "Please tonguefuck my naughty little asshole, because I'm a dirty slut who gets off with a tongue in `herHis(data.mod.gender)` perverted aaassss."
@@ -940,9 +961,9 @@ Sluggishly your finger goes deeper into `herHim(data.mod.gender)`, making lewd n
 ---
 :Finger 3
 Therefore, you decide to first let `herHim(data.mod.gender)` understand the scale of `herHis(data.mod.gender)` outraging naughtiness.
-Listening to `herHis(data.mod.gender)` desirous howls, you !`if (data.mod.gender === "female") append("peacefully slide your other hand over her leaking pussy,");`!`if (data.mod.gender === "male") append("peacefully slide your other hand over his pre dripping dick,");` rip your other finger out of `herHim(data.mod.gender)` ass and let them hover in front of `herHis(data.mod.gender)` face. You're sure `she(data.mod.gender)` knows that at least one has to be cleaned up, and there's only one way for `herHim(data.mod.gender)` to find out which wich coating liquid stems from which hole. So `she(data.mod.gender)` carefully leans closer to your dripping hands and takes a carefull whiff from both of them. 
+Listening to `herHis(data.mod.gender)` desirous howls, you !`if (data.mod.gender === "female") append("peacefully slide your other hand over her leaking pussy,");`!`if (data.mod.gender === "male") append("peacefully slide your other hand over his pre dripping dick,");` rip your other finger out of `herHim(data.mod.gender)` ass and let them hover in front of `herHis(data.mod.gender)` face. You're sure `she(data.mod.gender)` knows that at least one has to be cleaned up, and there's only one way for `herHim(data.mod.gender)` to find out which wich coating liquid stems from which hole. So `she(data.mod.gender)` hesitantly leans closer to your dripping hands and takes a carefull whiff from both of them. 
 
- `She(data.mod.gender)` immediately looses interest in one of them, grabs the finger that was in `herHis(data.mod.gender)` ass and smothers `herHis(data.mod.gender)` nose against it. `She(data.mod.gender)` inhales the scent with deep long breaths. Moaning and swaying `herHis(data.mod.gender)` ass in small circles, `she(data.mod.gender)` takes the finger that's coated in assjuice and nibbles down on it, letting `herHis(data.mod.gender)` tongue loll around it that unashamed, `she(data.mod.gender)` even lets it prod under your fingernail for a bit.
+Immediately loosing interest in one of them, `she(data.mod.gender)` grabs the finger that was in `herHis(data.mod.gender)` ass and smothers `herHis(data.mod.gender)` nose against it. `She(data.mod.gender)` inhales the scent with deep long breaths. Moaning and swaying `herHis(data.mod.gender)` ass in small circles, `she(data.mod.gender)` takes the finger that's coated in assjuice and nibbles down on it, letting `herHis(data.mod.gender)` tongue loll around it that unashamed, `she(data.mod.gender)` even lets it prod under your fingernail for a bit.
 
 A bit confused about how your game turned out, you return your rejected hand back to `herHis(data.mod.gender)` intimate parts, idly opening and closing her asshole with two fingers, almost thinking aloud: what could you possibly do now?
 
@@ -967,7 +988,7 @@ You give `herHis(data.mod.gender)` ass a good slap, making `herHim(data.mod.gend
 :Finger 5 dirty
 You place two fingers onto `herHis(data.mod.gender)` twitching pucker and give it a few prods, to test the water a bit. By now `herHis(data.mod.gender)` butthole is abnormaly squishy and even a bit swollen... three should be more appropriate.
 
-Giving `herHim(data.mod.gender)` way too much time for preparation already and regarding `she(data.mod.gender)` wanted punishment you start moving at a pace fast enough to create a considerable amount of squelching noises and send small vibrations through `herHis(data.mod.gender)` ass every time your knuckles jam against it. "Oh god... Fuck - Hnnn... right there." `She(data.mod.gender)` starts widening and the noises get juicer while you begin to twist your fingers, still ramming them in and out of `herHis(data.mod.gender)` butthole. "Hnnn.. Fuck me up moooreeee. <3"
+Giving `herHim(data.mod.gender)` way too much time for preparation already, regarding `she(data.mod.gender)` wanted punishment, you start moving at a pace fast enough to create a considerable amount of squelching noises and send small vibrations through `herHis(data.mod.gender)` ass every time your knuckles jam against it. "Oh god... Fuck - Hnnn... right there." `She(data.mod.gender)` starts widening and the noises get juicer while you begin to twist your fingers, still ramming them in and out of `herHis(data.mod.gender)` butthole. "Hnnn.. Fuck me up moooreeee. <3"
 
 !`
 if (data.hasDick) addChoice("Fuck", "Fuck 1");
@@ -1001,7 +1022,7 @@ You put full force into your arm, making sure `herHis(data.mod.gender)` anus can
 You pull out your fingers with a silent plop.
 
 "You know what? Maybe I like the way I am. :)"
-[That was awesome|Normal End]
+[Next|Normal End]
 ---
 :Finger 6 dirty
 You put full force into your arm, making sure `herHis(data.mod.gender)` anus can't even close completely before you rock your fingers inside `herHim(data.mod.gender)` again. `HerHis(data.mod.gender)` juices now flow freely down `herHis(data.mod.gender)` leg and fill the air with a mesmeric aroma. 
@@ -1013,7 +1034,7 @@ You put full force into your arm, making sure `herHis(data.mod.gender)` anus can
 You pull out your fingers with a silent plop.
 
 "You know what? Maybe I like the way I am. :)"
-[That was awesome|Normal End]
+[Next|Normal End]
 ---
 :Tongue 1 Hand
 You remove your finger from `herHis(data.mod.gender)` asshole and carefully but firmly place your hands on `herHis(data.mod.gender)` inner asscheeks, spreading `herHis(data.mod.gender)` anus a bit open in the process to getting an even closer look at it. 
@@ -1045,12 +1066,12 @@ While your tongue is occupied, `she(data.mod.gender)` uses `herHis(data.mod.gend
 :Tongue Dirty 4
 You go as fast as you can, jamming your tongue into `herHis(data.mod.gender)` asshole over and over again, complimented with loud squelching. `She(data.mod.gender)` starts arching back, pressing your face deeper into `herHis(data.mod.gender)` ass. You can feel `herHis(data.mod.gender)` asshole clenching up on your tongue, immobilizing it. You push as hard as you can while `she(data.mod.gender)` cums, moaning and grunting in the cutest way possible as `she(data.mod.gender)` !`if (data.mod.gender === "female") append("squits");`!`if (data.mod.gender === "male") append("spurts cum");` all over the floor.
 
-You reluctantly glide your tongue out of `herHim(data.mod.gender)` and give the winking pucker a few intimate kisses. 
+Reluctantly, you glide your tongue out of `herHim(data.mod.gender)` and give the winking pucker a few intimate kisses. 
 
 You loosen your grip a little, which lets `herHim(data.mod.gender)` flop into the puddle that's underneath `herHim(data.mod.gender)` and lay yourself infront of `herHis(data.mod.gender)` butt allowing you to give `herHis(data.mod.gender)` cute dark star some more occasional licks as you both relax for a bit.
 
 "You know what? Maybe I like the way I am. :)"
-[That was awesome|Normal End]
+[Next|Normal End]
 ---
 :Fuck 1
 It doesn't take you more than a few seconds before you placed your cock right between `herHis(data.mod.gender)` asscheeks, prodding `herHis(data.mod.gender)` asshole, which is already smothered with `herHis(data.mod.gender)` sweat, juices, and your precum. So `she(data.mod.gender)` wants to be fucked?
@@ -1070,7 +1091,7 @@ You both listen to the sound of `herHis(data.mod.gender)` slimy cave getting spr
 :Fuck 2
 Making `herHim(data.mod.gender)` grunt and even slobber a bit, you start to move. Letting your dick glide in again, you realize that fucking a goo-hole is a refreshingly different to what you are used to. The obscene slurping sound give a really nice touch to you thrust and `herHis(data.mod.gender)` slick suckling cave fights back in just the right way. 
 
-You can't help but pick up the pace immediately, starting to slap your hips against `herHis(data.mod.gender)` ass hard enough to send small waves through `herHis(data.mod.gender)` jiggling asscheecks. Now fucking `herHis(data.mod.gender)` asshole, that kneads your dick like it wants to suck you off, balls deep, `She(data.mod.gender)` seems to be enjoying the buttfuck grunting a few lines in between `herHis(data.mod.gender)` heavy breaths: "Hnnn... yes... keep fucking my perverted asshole!" 
+You can't help but pick up the pace immediately, starting to slap your hips against `herHis(data.mod.gender)` ass hard enough to send small waves through `herHis(data.mod.gender)` jiggling asscheecks. Now fucking `herHis(data.mod.gender)` asshole, that kneads your dick like it wants to suck you off, balls deep. `She(data.mod.gender)` seems to be enjoying the buttfuck grunting a few lines in between `herHis(data.mod.gender)` heavy breaths: "Hnnn... yes... keep fucking my perverted asshole!" 
 
 `She(data.mod.gender)` reaches back with both hands to spread `herHis(data.mod.gender)` winking anus wide open, so you adjust your movement, pulling your dick out of `herHim(data.mod.gender)` every time you move your hips back and effortlessly entering `herHim(data.mod.gender)` meanwhile gaping anus. You wonder if you had ever had a fuckhole that good and keep on slamming your dick into `herHim(data.mod.gender)` as you feel primal instincts take over you.
 
@@ -1082,7 +1103,7 @@ Now going all out, your mind starts getting blurry as you thoughtlessly ravage `
 
 `She(data.mod.gender)` sinks to `herHis(data.mod.gender)` knees as shoot your load inside `herHis(data.mod.gender)`, giving your dick some ever so satisfying rubs as you buck your cum into her, re-doing your deep thrust from time to time, making `herHis(data.mod.gender)` ass suckle on your dick till you're completely dry. Well, maybe not on the outside... 
 Fully spend. you slip out of `herHim(data.mod.gender)` as `she(data.mod.gender)` collapses with a released sigh. You let yourself fall to the ground beside `herHim(data.mod.gender)`, `she(data.mod.gender)` smiles back at you: "You know what? Maybe I like the way I am. :)"
-[That was awesome|Normal End]
+[Next|Normal End]
 ---
 :Fist
 `Shes(data.mod.gender)` about to get more than `she(data.mod.gender)` can handle. You pull your fingers out a bit, to carefully widen `herHis(data.mod.gender)` ass enough to get space for another one. Just as expected, `herHis(data.mod.gender)` lewd, puffy anus allows it to enter easily.
@@ -1116,7 +1137,7 @@ Half of your forearm disappears inside `herHim(data.mod.gender)` over and over a
 You can feel the orgasm building up in `herHim(data.mod.gender)`, so you give `herHim(data.mod.gender)` a few brutal strokes before you just start to push full force into `herHim(data.mod.gender)` while `she(data.mod.gender)` cums, gurgling and rubbing `herHis(data.mod.gender)` face into `herHis(data.mod.gender)` puddle. `HerHis(data.mod.gender)` asshole gives you a few unbelievably strong tugs before `she(data.mod.gender)` !`if (data.mod.gender === "female") append("squirts");`!`if (data.mod.gender === "male") append("spurts cum");` all over the floor. You wiggle a bit in the for now totally worn-out chute before, with loud, slimy squelching sounds, you pull your arm out of `herHim(data.mod.gender)`. 
 
 Inspecting what you shoved all the way inside `herHim(data.mod.gender)` you look at your arm, coated in clear green slime that smells rather juicy. "How can something so fucked up feel so fucking good?"
-[That was awesome|Normal End]
+[Next|Normal End]
 ---
 
 
@@ -1132,7 +1153,7 @@ That idea is not so bad actually.
 You give one last final strong push, feeling how `herHis(data.mod.gender)` asshole gives you a few unbelievably strong tugs, you pull your elbow deep arm out of her, making  `herHim(data.mod.gender)` !`if (data.mod.gender === "female") append("squits");`!`if (data.mod.gender === "male") append("spurts cum");` all over the floor accompanied by the nasty sounds of `herHis(data.mod.gender)` a huge shitlogs pushing out of `herHis(data.mod.gender)` gaping asshole and slapping on the ground. Still orgasming and shitting `she(data.mod.gender)` gradually breaks down into the mess underneath `herHim(data.mod.gender)` while `she(data.mod.gender)` rubs `herHis(data.mod.gender)` face into `herHis(data.mod.gender)` own saliva. 
 
 Inspecting what you shoved all the way inside `herHim(data.mod.gender)` you look at your arm, coated in clear green slime and shit that smell raunchy and surprisingly juicy. `HerHis(data.mod.gender)` still leaking asshole gapes and closes viciously as `she(data.mod.gender)` mutters into the puddle: "How can something so fucked up feel so fucking good?"
-[That was awesome|Normal End]
+[Next|Normal End]
 ---
 
 
@@ -1221,7 +1242,7 @@ gr3.y = 100;
 !`if (data.mod.gender === "female") addChoice("Ok, show me your fat tits", "encounter19mean");`
 !`if (data.mod.gender === "male") addChoice("Lets start off by you showing me your chest.", "encounter19m");`
 
-[Leave|And an exit button]
+[Exit Mod|And an exit button]
 ---
 
 
@@ -1355,7 +1376,7 @@ gr4.y = 100;
 
 !`if (data.mod.gender === "female") addChoice("Now, show me your puss!", "encounter23");`
 !`if (data.mod.gender === "male") addChoice("Now, show me your dick!", "encounter23");`
-[Leave|encounter23]
+[Exit Mod|encounter23]
 ---
 
 
@@ -1672,7 +1693,7 @@ your fucked up mind. So just give me back my ticket and I'm out of here.
 Cassie: Yeah, right. I'm going to spare us both the embarrassment of scooping it from your purse. Why would you hide it under the night table? I can see it from here.
 `Fiona(data.mod.gender)`: ... I - I'm not a slut...
 Cassie: Oh we'll see about that... 
-
+!`data.bees = 0;`
 [That means everything is more like consentiual rape|encounter40]
 ---
 
@@ -1738,7 +1759,8 @@ gr7.y = 100;
 !`if (data.mod.gender === "female") addChoice("Fionas butthole is clean", "encounter48clean");`
 !`if (data.mod.gender === "male") addChoice("Adleys butthole is clean", "encounter48clean");`
 [If only you had the time to shower before all this|encounter48]
-
+!`if (data.mod.gender === "female") addChoice("No licking? Skip to the fuck then :D", "encounter53");`
+!`if (data.mod.gender === "male") addChoice("No licking? Skip to the fuck then :D", "encounter54m");`
 ---
 
 :encounter48clean
@@ -1903,7 +1925,8 @@ Cassie: ...
 `Fiona(data.mod.gender)`: *sobbing*  I'm sorry I'm just... *sniff* it's... *sniff*
 *crying*
 
-[Next|encounter56]
+!`if (data.bees < 1) addChoice("Next", "encounter56");`
+!`if (data.bees > 1) addChoice("Next", "encounter56r");`
 ---
 
 [Next|encounter55]
@@ -1926,13 +1949,17 @@ Cassie: ...
 `Fiona(data.mod.gender)`: *sobbing*  I'm sorry I'm just... *sniff* it's... *sniff*
 *crying*
 
+!`if (data.bees < 1) addChoice("Next", "encounter56");`
+!`if (data.bees > 1) addChoice("Next", "encounter56r");`
 [Next|encounter56]
 ---
 
 :encounter56
+The situation pretty quickly devolves in an awkward halt. Cassie is stuck and just can't bring herself to keep going. `Fiona(data.mod.gender)` desperape cries finally crack Cassies cold character.
+
 Cassie: Hey- don't... don't cry now - hey it's all good... I stopped, ok? I'm not going to move an inch. Promise.
 `Fiona(data.mod.gender)`: Cassie- *sniff* I'm sorry... I just wasn't huuuu... it was just so surprising and- and... *sniff*
-Cassie: Hey, no, no you did good, ok? That was great, you did great. Listen, it's still really uncomfortable for you right now, right? I'm going to pull it out fast and that might hurt again but you want it out right?
+Cassie: Hey, no, no you did good, ok? That was great, you did great. Listen, it's still really uncomfortable for you now, right? I'm going to pull it out fast and that might hurt again but you want it out right?
 `Fiona(data.mod.gender)`: Ye- Yes just *sniff* make it qu- AHHH ffff...
 
 *whimpering*
@@ -1943,6 +1970,25 @@ Cassie: I'm out ok? It's going to stop hurting soon. You're ok?
 Cassie: ...
 [Next|encounter57]
 ---
+
+:encounter56r
+The situation pretty quickly devolves in an awkward halt. Cassie dick is stuck and no matter how hard she tries to push it in that `girl(data.mod.gender)`s virgin asshole, she just can't get it in deeper. The unwillingness of her partner to work with her making everything that more complicated.
+
+Cassie: Very Funny `Fiona(data.mod.gender)`. I get it - you can clench up reaaaly tight. Now let the other half of my dick in! You gotta push back a litte or we won't get anywhere.
+`Fiona(data.mod.gender)`: Cassie- don't you understand? We can't...
+Cassie: OK! SHUT THE FUCK UP! Fine, i'll pull it out. Now i swear to god if you start screaming again it gets back in right away. 
+`Fiona(data.mod.gender)`: Ye- Yes just *sniff* make it qu- AHHH ffff...
+
+*whimpering*
+
+Cassie: I'm out ok? It's going to stop hurting soon. You're ok crybaby?
+`Fiona(data.mod.gender)`: I don't know... *snort*
+*silent cries*
+["AHHH ffff..."? That's screaming in my book!|encounter681r]
+!`if (data.mod.gender === "female") addChoice("Give her a break! Is she ok?", "encounter57");`
+!`if (data.mod.gender === "male") addChoice("Give him a break! Is he ok?", "encounter57");`
+---
+
 
 :encounter56t
 `Fiona(data.mod.gender)`:  A- am I bleeding... or like leaking... anything disgusting? *sniff*
@@ -2040,18 +2086,45 @@ Cassie: You talk too much sweetie. Why don't you plug that pout of yours with so
 `Fiona(data.mod.gender)`: But that was in my butt...
 Cassie: It's about to get back in there if you keep complaining.
 
-`Fionas(data.mod.gender)` looking at the monster that is dangeling above `herHis(data.mod.gender)` head. Sure, it looks delicious. Maybe it even smells tasty, in a weird way, but `she(data.mod.gender)` just can't do something that deprieved. `She(data.mod.gender)` shouldn't even let Cassie touch `herHim(data.mod.gender)` down there.
+!`if (data.mod.gender === "female") addChoice("She's a brave girl, she can handle it", "encounter61tdirt");`
+!`if (data.mod.gender === "male") addChoice("He's a brave boy, he can handle it", "encounter61tdirt");`
+[Cassies dick is clean! Because gameplay machanics thingy.|encounter61tclean]
+[Next|encounter61tclean]
+---
+
+:encounter61tclean
+`Fionas(data.mod.gender)` looking at the monster that is dangeling above `herHis(data.mod.gender)` head. Sure, it looks delicious and doesn't smell bad at all, but `she(data.mod.gender)` just can't do something that deprieved. `She(data.mod.gender)` shouldn't even let Cassie touch `herHim(data.mod.gender)` down there.
 
 Cassie: Well ok then, back into your ass it is.
 `Fiona(data.mod.gender)`: Wait! ok I'll do it...
-
 *lick*
+
+It doesn't taste at all what `she(data.mod.gender)` expected it would. Was it even in `herHis(data.mod.gender)` butt at all?
+
 Cassie: Almost. That's what people call licking. That's what you would do if you had a clit in front of you.
 *sucking sounds*
 Cassie: !`if (data.mod.gender === "female") append("Good giiirl");`!`if (data.mod.gender === "male") append("Good boooy");`.
 [Next|encounter62]
 ---
 
+
+:encounter61tdirt
+`Fionas(data.mod.gender)` looking at the monster that is dangeling above `herHis(data.mod.gender)` head. Sure, it looks delicious, but it smells pretty bad. `She(data.mod.gender)` never was so intrigued and appeled by something at the same time.  But `she(data.mod.gender)` just can't do something that deprieved! This is where `she(data.mod.gender)` draws the line. `She(data.mod.gender)` shouldn't even let Cassie touch `herHim(data.mod.gender)` down there.
+
+Cassie: Well ok then, back into your ass it is.
+`Fiona(data.mod.gender)`: Wait! ok I'll do it...
+
+`She(data.mod.gender)` only said that to temper Cassie! `She(data.mod.gender)` sure as hell won't suck it! Just a quick short lick to show some good grief and that's it.
+
+*lick*
+Cassie: Is there anything you can do right? My god you are such a dissapointment.
+*sucking sounds*
+
+The taste will go away! `She(data.mod.gender)` can do it! 
+
+Cassie: !`if (data.mod.gender === "female") append("Good giiirl");`!`if (data.mod.gender === "male") append("Good boooy");`.
+[Next|encounter62]
+---
 
 :encounter62
 Cassie: Hnff.. ha damn that feels good. <3 The day I laid eyes on you I knew that someday my sweaty heavy balls wouldl smack against that smug face of yours.
@@ -2089,7 +2162,7 @@ Cassie: JESUS FUCKING CHRIST THERE! *slick* *slick* NOW OPEN UP AGAIN
 `Fiona(data.mod.gender)`: mo- more I want moreee
 
 Cassie: MORE FINGERS? FASTER? WHATEVER JUST GIVE ME BACK YOUR THROAT!
-`Fiona(data.mod.gender)`(quietly): I- I Hnn - I want your dick... I- In my butt.
+`Fiona(data.mod.gender)`(quietly): I- I Hnnn - I want your dick... I- In my butt.
 *silence*
 Cassie: Yeah sure, so you can blueball me again. NOW SUCK IT!
 `Fiona(data.mod.gender)`: N- no! Put it in my butt... You wanted to finish there right? So do it... please.
@@ -2151,7 +2224,7 @@ gr9.y = 100;
 
 :encounter67
 Cassie: Yeah that's it take it you whore. You love it right?
-`Fiona(data.mod.gender)`: It Hnn- isnt bad. Ha Huff Ahhh That felt really good! Thrust it more like this! Hnn fuuuck that's the spot.
+`Fiona(data.mod.gender)`: It Hnn- isnt bad. Ha Huff Ahhh That felt really good! Thrust it more like this! Hnnn fuuuck that's the spot.
 Cassie: Haha You're actually enjoying this? Huff. You shouldn't Hnnn You're such a slut.
 `Fiona(data.mod.gender)`: Yes I'm a sluuuut. Ha Hnnn fuck me in my butt. Hnnh ~ Hey don't stop now!
 Cassie: Your turn to work for it sweetie.
@@ -2173,7 +2246,7 @@ gr10.y = 100;
 
 
 :encounter681skip
-`Fiona(data.mod.gender)` is super exited to have `herHis(data.mod.gender)` first time with Cassie, but as the tip of Cassie's rod docks on `herHis(data.mod.gender)` asshole `herHis(data.mod.gender)` attitude changes in a flash. This soft prod already feels uncomfortable on `herHis(data.mod.gender)` small virgin butthole, reminding `herHim(data.mod.gender)` that `she(data.mod.gender)` never done anything like that. What had `she(data.mod.gender)` just signed up for!? This won't work and even if it does, it will sting like hell. 
+`Fiona(data.mod.gender)` was secretly exited to have `herHis(data.mod.gender)` first time with Cassie, but as the tip of Cassie's rod docks on `herHis(data.mod.gender)` asshole `herHis(data.mod.gender)` attitude changes in a flash. This soft prod already feels uncomfortable on `herHis(data.mod.gender)` small virgin butthole, reminding `herHim(data.mod.gender)` that `she(data.mod.gender)` never done anything like that. What had `she(data.mod.gender)` just signed up for!? This won't work and even if it does, it will sting like hell. 
 
 Panicking `herHis(data.mod.gender)` view bounces around the room searching for anything to distract `herHim(data.mod.gender)` as a helpless effort to stop `herHis(data.mod.gender)` mind from panicking.
 
@@ -2181,6 +2254,18 @@ Cassie starts to increase the pressure and `Fiona(data.mod.gender)` instinctivel
 [Next|encounter682skip]
 ---
 
+:encounter681r
+Cassie: Well if you don't know, I do. You're fine - its just the shock. If you wheren't such a whimp in the first place everything would've been fine.
+`Fiona(data.mod.gender)`: I- I just need a little break. Wh- Cassie! I though - WE CAN'T!
+Cassie: You get a break when im done with you and you better make sure it works this time, because my third try will be once i beat you unconscious.
+
+`Fiona(data.mod.gender)` already feels the tip of Cassie's rod docking on `herHis(data.mod.gender)` asshole again. This soft prod already feels uncomfortable on `herHis(data.mod.gender)` sore and swollen butthole,  reminding `herHim(data.mod.gender)` of the world of pain `she(data.mod.gender)` escaped from with no more than a black eye just a few seconds ago. Cassie is insane! This won't work and even if it does, it will sting like hell. 
+
+Panicking `herHis(data.mod.gender)` view bounces around the room searching for anything to distract `herHim(data.mod.gender)` as a helpless effort to stop `herHis(data.mod.gender)` mind from panicking.
+
+Cassie starts to increase the pressure and `Fiona(data.mod.gender)` instinctively pinches `herHis(data.mod.gender)` backdoor and jerks a bit forward, away from the burning feeling. There is no way `she(data.mod.gender)` can go through that! Even though Cassie seems to think differently "Woah there, tensing up a little? You wan't me to knock you out right away, do you?". `Fionas(data.mod.gender)` mind is racing. Just- just try to buy time. Ok if `she(data.mod.gender)` sways `herHis(data.mod.gender)` butt up and down like this, Cassie can't try to thrust into `herHim(data.mod.gender)`.
+[Next|encounter682skip]
+---
 
 :encounter681
 `Fiona(data.mod.gender)` is determined to make up for `herHis(data.mod.gender)` earlier slip up, but as the tip of Cassie's rod docks on `herHis(data.mod.gender)` asshole `herHis(data.mod.gender)` attitude changes in a flash. This soft touch already burns on `herHis(data.mod.gender)` sore and swollen butthole, reminding `herHim(data.mod.gender)` of the world of pain `she(data.mod.gender)` escaped from with no more than a black eye just minutes ago. What had `she(data.mod.gender)` just signed up for!? This will sting even more than last time. 
@@ -2209,8 +2294,8 @@ Cassie starts to increase the pressure and `Fiona(data.mod.gender)` instinctivel
 `HerHis(data.mod.gender)` ring is getting stretched to it's absolute limits and burns like crazy, 
 but the abnormal sensation of Cassie's dick rubbing along `herHis(data.mod.gender)` inner walls, 
 slowly spreading apart the needed space tickles `herHis(data.mod.gender)` nerves in just the right way. 
-Gradually, the intruder digs deeper in `herHim(data.mod.gender)` and with every inch it encloses `herHis(data.mod.gender)` 
-every thought more and more, making `herHis(data.mod.gender)` upper eyelids flicker. 
+Gradually, the intruder digs deeper in `herHim(data.mod.gender)` and with every inch it encloses 
+`herHis(data.mod.gender)` every thought more and more, making `herHis(data.mod.gender)` upper eyelids flicker. 
 
 Halfway in, Cassie's dick stops, and `Fionas(data.mod.gender)` pucker greedily starts tugging 
 on it, trying to suck more of Cassie's warm slick fuckmeat into itself. 
@@ -2242,13 +2327,13 @@ It subsides way too quickly but is renewed as Cassie's dick instantly ripples ou
 `herHis(data.mod.gender)` chute, only to slam back into `herHim(data.mod.gender)` with vicious force. That's all the 
 foreplay `Fiona(data.mod.gender)` is gifted before `she(data.mod.gender)` witnesses Cassie's thrust going full force, 
 speeding up as fast `Fionas(data.mod.gender)` inexperienced asshole allows,
-which is by now sending the intensest and most bittersweet sensations `she(data.mod.gender)`
-ever experienced through `herHis(data.mod.gender)` head. 
+which is by now sending the intensest and most bittersweet 
+sensations `she(data.mod.gender)`ever experienced through `herHis(data.mod.gender)` head. 
   
  `She(data.mod.gender)` is doing it!  `She(data.mod.gender)` is taking Cassie's beautiful dick up `herHis(data.mod.gender)` 
  ass like a champ and even enjoys it! 
-Not being able to suppress moans any longer `she(data.mod.gender)` earns a stinging slap on 
-`herHis(data.mod.gender)` buttcheek, a spit and verbal abuse: 
+Not being able to suppress moans any longer `she(data.mod.gender)` earns a stinging slap 
+on `herHis(data.mod.gender)` buttcheek, a spit and verbal abuse: 
 "Enjoying getting assraped!? Hnf - You are such a pig!
 Well, go on then, then bark for me like the bitch you are!" 
 
@@ -2256,8 +2341,9 @@ Well, go on then, then bark for me like the bitch you are!"
 But the way every inch of Cassie's cock is sliding in and out of `herHis(data.mod.gender)` asshole, 
 the feeling of `herHis(data.mod.gender)` master's hips slamming ruthlessly against her wobbling 
 asscheeks, having the heavy balls slap against `herHis(data.mod.gender)` !`if (data.mod.gender === "female") append("cunt");`!`if (data.mod.gender === "male") append("own small testicles");`... 
-`She(data.mod.gender)` just can't help it, 
-`she(data.mod.gender)` has to obey and starts barking like a mindless whore.
+
+`She(data.mod.gender)` just can't help it, `she(data.mod.gender)` has to obey and 
+starts barking like a mindless whore.
 
 !`if (data.mod.gender === "male") { var tr10 = addImage("t10.png");
 tr10.x = 800;
@@ -2299,7 +2385,7 @@ Cassie: You don't think I would? Well somebody would have to buy groceries. And 
 `Fiona(data.mod.gender)`: That sounds horribly HmpfHmpfhHmpfh
 Cassie: Hmmm yeah it does ~
 
-[Chapter3|StartSchool]
+[Chapter: 3|StartSchool]
 
 ---
 
@@ -2642,17 +2728,17 @@ Cassie rolls her eyes before examining her flawless fingernails to make sure her
 ---
 
 :Num13b2
-`Fiona(data.mod.gender)` was raging inside, Cassie and her silly games, `she(data.mod.gender)` will take the lifelong pass no matter what's inside those two boxes. There's nothing in the world that could be inside them that would consent `herHim(data.mod.gender)` to giving Cassie literal ownership over `herHis(data.mod.gender)` life. But, the smaller one's size, a noble silky shine to it, topped with a festive ribbon, indicates that in it could be - engagement rings? It can't be. But what's the harm in a little peek? 
+`Fiona(data.mod.gender)` was raging inside. Cassie and her silly games! There's nothing in the world that could be inside those two boxes that would consent `herHim(data.mod.gender)` to giving Cassie literal ownership of `herHis(data.mod.gender)`. But, the smaller one's size, a noble silky shine to it, topped with a festive ribbon, indicates that in it could be - engagement rings? It can't be. What's the harm in a little peek? 
 
-Hands shivering, and `she(data.mod.gender)` isn't cold anymore, `she(data.mod.gender)` opens the smaller box. In it, is a silky collar? Just the size and color as the one `she(data.mod.gender)` wears. Voice trembling in disappointment `she(data.mod.gender)` looks over to Cassie who has a wide grin on her face: "Very funny Cassie!" - "Oh, I'm dead serious. Take a closer look.". `She(data.mod.gender)` pulls the collar out of the box and notices that there's a thin golden coin attached to it. The words stamped in it has `Fionas(data.mod.gender)` heart pounding in excitement: "#1 dog" and the backside: "Property of Cassie Millers". 
+Hands again shivering slightly, and `she(data.mod.gender)` isn't cold anymore, `she(data.mod.gender)` opens the smaller box. In it, is a collar? Just the size and color as the one `she(data.mod.gender)` wears. Voice trembling in disappointment `she(data.mod.gender)` looks over to Cassie who has a wide grin on her face: "Very funny Cassie!" - "Oh, I'm dead serious. Take a closer look.". `She(data.mod.gender)` pulls the collar out of the box and notices that there's a thin golden coin attached to it. The words stamped in it has `Fionas(data.mod.gender)` heart pounding in excitement: "#1 dog" and the backside: "Property of Cassie Millers". 
 
- Cassie wants `herHim(data.mod.gender)` to completely surrender to her. As a degenerated and absolutely helpless slave. `Fionas(data.mod.gender)` head is boiling again, but this time for completely different reasons: "Just, don't let her see that you like it. Hold your breath. NO! She knows that when you do that... she already noticed, right? Gosh dangit!". Cassie is watching `herHis(data.mod.gender)` every move and `she(data.mod.gender)` knows it: "You wanna try it on? As long as you stay obedient I'll ensure they won't reset you and there's no way I would ever abuse my powers, right?"  
+Now that `she(data.mod.gender)` thinks about it. Literal ownership... `Fionas(data.mod.gender)` every move is beeing watched right now and `she(data.mod.gender)` know it: "Just, don't let her see that you like it. Hold your breath. NO! She knows that when you do that... she already noticed, right? Gosh dangit!" - "You wanna try it on? As long as you stay obedient I'll ensure they won't reset you and there's no way I would ever abuse my powers, right?"  
  
 [Next|Num13b3]
 ---
 
 :Num13b3
- `HerHis(data.mod.gender)` human rights and dignity for the affection of `herHis(data.mod.gender)` master. `Fiona(data.mod.gender)` couldn't fight it anymore. In fact, `she(data.mod.gender)` never could. It feels like the yearning in `herHis(data.mod.gender)` chest is going to make it burst as `she(data.mod.gender)` pulls `herHis(data.mod.gender)` previous collar off. 
+A helpless slave to Cassie? `Fiona(data.mod.gender)` can't fight it anymore. In fact, `she(data.mod.gender)` never could. It feels like the yearning in `herHis(data.mod.gender)` chest is going to make it burst as `she(data.mod.gender)` pulls `herHis(data.mod.gender)` previous collar off. 
  
  Despite everything that happened Cassie didn't expect that amount of determinism: "Hey there, are you really sure about this? I was planning on giving you a few days to think this trough. I won't let you back out of this commitment, you know that." `Fiona(data.mod.gender)` wasn't ever so sure about anything in `herHis(data.mod.gender)` life and in peace with `herself(data.mod.gender)` `she(data.mod.gender)` puts the sign of a new life on. The collar is a bit tighter than the ones `she(data.mod.gender)` usually wears, but something gives `herHim(data.mod.gender)` the feeling that this wasn't unintentional. 
 
@@ -2692,7 +2778,7 @@ Cassie already assessed the situation and sits herself on the edge of the bed. "
 ---
 
 :Num15a
-`Fiona(data.mod.gender)` is pretty self-aware of `herHis(data.mod.gender)` hygienic condition. Everything in Cassie's room looks tidy and the bed sheets where probably made just a few days ago. None the less `she(data.mod.gender)` lowers `herself(data.mod.gender)` as much as possible before looking up into the cold eyes of `herHis(data.mod.gender)` master: "Cassie, c- can I... I would do anything... please!" - "Well, come on. Hop on in."  
+`Fiona(data.mod.gender)` is pretty self-aware of `herHis(data.mod.gender)` hygienic condition. Everything in Cassie's room looks tidy and the bed sheets where probably made just a few days ago. `She(data.mod.gender)`, still in `herHis(data.mod.gender)` dirty clothes and overall pretty roughed up, is in stark contrast to every around `herHis(data.mod.gender)`, espacially Cassies bed. None the less `she(data.mod.gender)` lowers `herself(data.mod.gender)` as much as possible before looking up into the cold eyes of `herHis(data.mod.gender)` master: "Cassie, c- can I... I would do anything... please!" - "Well, come on. Hop on in."  
 
 Cassie holds up a good chunk of her bed sheet as she invites a baffled `Fiona(data.mod.gender)` in. `Fiona(data.mod.gender)` just can't believe `herHis(data.mod.gender)` luck: "Uhm really?" - "Yes really, this was a tough day for you, so lay down so I can give my brave `girl(data.mod.gender)` a hug." `Fiona(data.mod.gender)` still hesitates so Cassie leans in, gives `herHim(data.mod.gender)` a hearty hug, and still squeezed together with `Fiona(data.mod.gender)` she flops herself back in the bed. 
 
@@ -2775,8 +2861,8 @@ END_PASSAGES
 
 
 clear();
-append("Loading. Might take up to 2 minutes.");
-msg("Mod is loading, takes 2 MINUTES!");
+append("!Loading! Might take up to 2 minutes. The text won't leave, so take your time to read it. ~ \n\nIf like this mod or close it on page 3 out of boredom - doesn't matter - I would love to know!\nPlease drop a quick nice comment or suggestion in the #modding channel or pm me. Takes you a few seconds and makes my day.\n\nThis is and will always be a casual/passion project.\nFeel free to write any fanfiction or additional decisions, if you want, i can probably implement them. :)\nI will correct any spelling mistakes i get send.\n\nDo you have a dick ingame? \n!Still loading!");
+
 whenDoneStreaming(function() {
     gotoPassage("Start");
 });
