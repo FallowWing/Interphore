@@ -101,9 +101,16 @@ shipInterEarly:
 	$(MAKE) shipDir SHIP_DIR="$(PARAPHORE_COM_PATH)/interphore/early/"
 
 shipInterPublic:
-	$(MAKE) shipInter
-	dirName=`ls -d $(PARAPHORE_COM_PATH)/interphore/early/*`; \
-									cp -r $$dirName/* $(PARAPHORE_COM_PATH)/interphore/
+	$(MAKE) resetSite
+	
+	cp res/currentMod.phore bin
+	$(MAKE) boptflash SHIPPING=1
+	$(MAKE) packWindows SHIPPING=1
+	$(MAKE) bandroid SHIPPING=1
+	dirName=`ls -d `; \
+									cp bin/engine.swf $(PARAPHORE_COM_PATH)/interphore/interphore.swf; \
+									cp bin/$(GAME_NAME).zip $(PARAPHORE_COM_PATH)/interphore/interphore.zip; \
+									cp bin/engine.apk $(PARAPHORE_COM_PATH)/interphore/interphore.apk;
 	
 	$(MAKE) shipDir SHIP_DIR="$(PARAPHORE_COM_PATH)/interphore"
 
