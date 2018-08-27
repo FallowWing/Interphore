@@ -10,6 +10,7 @@
 
 #define PROFILE_JS_UPDATE 0
 #define PROFILE_GAME_UPDATE 1
+#define USE_FAST_STRCAT 1
 
 struct Passage {
 	char *name;
@@ -200,8 +201,7 @@ void initGame() {
 	initProfiler(&game->profiler);
 	initDebugOverlay(&game->debugOverlay);
 
-	char *initCode = (char *)getAsset("info/interConfig.js")->data;
-	runJs(initCode);
+	runJs((char *)getAsset("info/interConfig.js")->data);
 
 	// char *tempCode = (char *)getAsset("info/basic.phore")->data;
 	char *tempCode = (char *)getAsset("info/main.phore")->data;
@@ -378,9 +378,11 @@ void runMod(char *serialData) {
 	memset(realData, 0, realDataSize);
 
 	char *realDataEnd = realData;
+#ifdef USE_FAST_STRCAT
 	realDataEnd = fastStrcat(realDataEnd, "var __passage = \"\";\n");
-	realDataEnd = fastStrcat(realDataEnd, "var __image = \"\";\n");
-	realDataEnd = fastStrcat(realDataEnd, "var __audio = \"\";\n");
+#else
+	strcat(realData, "var __passage = \"\";\n");
+#endif
 
 	int inputLen = 0;
 	for (int i = 0; i < serialLen; i++)
@@ -389,8 +391,6 @@ void runMod(char *serialData) {
 
 	const char *lineStart = inputData;
 	bool inPassage = false;
-	bool inImages = false;
-	bool inAudio = false;
 	for (int i = 0;; i++) {
 		const char *lineEnd = strstr(lineStart, "\n");
 		if (!lineEnd) {
@@ -399,72 +399,87 @@ void runMod(char *serialData) {
 		}
 
 		char *line = tempBytes;
-		line[0] = '\0';
 		memcpy(line, lineStart, lineEnd-lineStart);
 		line[lineEnd-lineStart] = '\0';
 
-		if (strstr(line, "START_IMAGES")) {
-			inImages = true;
-			realDataEnd = fastStrcat(realDataEnd, "var __image = \"\";\n");
-		} else if (strstr(line, "END_IMAGES")) {
-			inImages = false;
-			realDataEnd = fastStrcat(realDataEnd, "print(\"Submitting images is deprecated\");");
-		} else if (strstr(line, "START_AUDIO")) {
-			inAudio = true;
-			realDataEnd = fastStrcat(realDataEnd, "__audio = \"\";");
-		} else if (strstr(line, "END_AUDIO")) {
-			inAudio = false;
-			realDataEnd = fastStrcat(realDataEnd, "print(\"Submitting audio is deprecated\");");
-		} else if (strstr(line, "START_PASSAGES")) {
+		if (strstr(line, "START_PASSAGES")) {
 			inPassage = true;
+#ifdef USE_FAST_STRCAT
 			realDataEnd = fastStrcat(realDataEnd, "__passage = \"\";");
+#else
+			strcat(realData, "__passage = \"\";");
+#endif
 		} else if (strstr(line, "END_PASSAGES")) {
+#ifdef USE_FAST_STRCAT
 			realDataEnd = fastStrcat(realDataEnd, "submitPassage(__passage);");
+#else
+			strcat(realData, "submitPassage(__passage);");
+#endif
 			inPassage = false;
 		} else if (strstr(line, "---")) {
 			if (inPassage) {
+#ifdef USE_FAST_STRCAT
 				realDataEnd = fastStrcat(realDataEnd, "submitPassage(__passage);\n__passage = \"\";");
-			} else if (inImages) {
-			realDataEnd = fastStrcat(realDataEnd, "print(\"Submitting images is deprecated\");");
-			} else if (inAudio) {
-			realDataEnd = fastStrcat(realDataEnd, "print(\"Submitting audio is deprecated\");");
+#else
+				strcat(realData, "submitPassage(__passage);\n__passage = \"\";");
+#endif
 			}
 		} else if (inPassage) {
+#ifdef USE_FAST_STRCAT
 			realDataEnd = fastStrcat(realDataEnd, "__passage += \"");
+#else
+			strcat(realData, "__passage += \"");
+#endif
 
 			if (strstr(line, "\"")) {
 				for (int lineIndex = 0; lineIndex < strlen(line); lineIndex++) {
 					if (line[lineIndex] == '"') {
+#ifdef USE_FAST_STRCAT
 						realDataEnd = fastStrcat(realDataEnd, "\\\"");
+#else
+						strcat(realData, "\\\"");
+#endif
 					} else if (line[lineIndex] == '\\') {
+#ifdef USE_FAST_STRCAT
 						realDataEnd = fastStrcat(realDataEnd, "\\\\");
+#else
+						strcat(realData, "\\\\");
+#endif
 					} else {
-#if 1
 						char letter[2] = {};
 						letter[0] = line[lineIndex];
+
+#ifdef USE_FAST_STRCAT
 						realDataEnd = fastStrcat(realDataEnd, letter);
 #else
-						*realDataEnd = line[lineIndex];
-						realDataEnd++;
+						strcat(realData, letter);
 #endif
 					}
 				}
 			} else {
+#ifdef USE_FAST_STRCAT
 				realDataEnd = fastStrcat(realDataEnd, line);
+#else
+				strcat(realData, line);
+#endif
 			}
+#ifdef USE_FAST_STRCAT
 			realDataEnd = fastStrcat(realDataEnd, "\\n\";");
-		} else if (inImages) {
-			realDataEnd = fastStrcat(realDataEnd, "__image += \"");
-			realDataEnd = fastStrcat(realDataEnd, line);
-			realDataEnd = fastStrcat(realDataEnd, "\n\";");
-		} else if (inAudio) {
-			realDataEnd = fastStrcat(realDataEnd, "__audio += \"");
-			realDataEnd = fastStrcat(realDataEnd, line);
-			realDataEnd = fastStrcat(realDataEnd, "\n\";");
+#else
+			strcat(realData, "\\n\";");
+#endif
 		} else {
+#ifdef USE_FAST_STRCAT
 			realDataEnd = fastStrcat(realDataEnd, line);
+#else
+			strcat(realData, line);
+#endif
 		}
+#ifdef USE_FAST_STRCAT
 		realDataEnd = fastStrcat(realDataEnd, "\n");
+#else
+		strcat(realData, "\n");
+#endif
 
 		lineStart = lineEnd+1;
 	}
