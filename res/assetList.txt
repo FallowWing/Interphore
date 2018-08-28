@@ -23,6 +23,7 @@ info/testRpg.phore
 
 info/interStart.phore
 info/interConfig.js
+info/passageParser.js
 
 info/introMod.phore
 info/introModMynt.phore

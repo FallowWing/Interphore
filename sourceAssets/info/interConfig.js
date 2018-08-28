@@ -1,3 +1,16 @@
+Duktape.errCreate = function (err) {
+	try {
+		if (typeof err === 'object' &&
+			typeof err.message !== 'undefined' &&
+			typeof err.lineNumber === 'number') {
+			err.message = err.message + ' (line ' + err.lineNumber + ')';
+		}
+	} catch (e) {
+		// ignore; for cases such as where "message" is not writable etc
+	}
+	return err;
+}
+
 function arrayContains(arr, ele) {
 	var index = arr.indexOf(ele);
 	return index != -1;

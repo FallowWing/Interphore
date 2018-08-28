@@ -10,7 +10,6 @@
 
 #define PROFILE_JS_UPDATE 0
 #define PROFILE_GAME_UPDATE 1
-#define USE_FAST_STRCAT 1
 
 struct Passage {
 	char *name;
@@ -201,11 +200,11 @@ void initGame() {
 	initProfiler(&game->profiler);
 	initDebugOverlay(&game->debugOverlay);
 
+	runJs((char *)getAsset("info/passageParser.js")->data);
 	runJs((char *)getAsset("info/interConfig.js")->data);
 
-	// char *tempCode = (char *)getAsset("info/basic.phore")->data;
-	char *tempCode = (char *)getAsset("info/main.phore")->data;
-	runMod(tempCode);
+	// runMod((char *)getAsset("info/basic.phore")->data);
+	runMod((char *)getAsset("info/main.phore")->data);
 
 #ifdef FAST_SCRATCH
 	runJs("gotoPassage(\"scratchModStart\");");
@@ -367,126 +366,15 @@ void updateGame() {
 }
 
 void runMod(char *serialData) {
-	// printf("Loaded data: %s\n", serialData);
-	char *inputData = (char *)zalloc(SERIAL_SIZE);
+	duk_get_global_string(jsContext, "runMod");
+	duk_push_string(jsContext, serialData);
+	duk_call(jsContext, 1);
 
-	int serialLen = strlen(serialData);
+	const char *data = duk_get_string(jsContext, -1);
+	char *realData = stringClone(data);
+	duk_pop(jsContext);
 
-	int realDataSize = sizeof(char) * (serialLen + 1024) * 20; //@hack Not sure how big this should really be
-	printf("Data size is: %0.2fmb\n", (float)realDataSize / Megabytes(1));
-	char *realData = (char *)Malloc(realDataSize);
-	memset(realData, 0, realDataSize);
-
-	char *realDataEnd = realData;
-#ifdef USE_FAST_STRCAT
-	realDataEnd = fastStrcat(realDataEnd, "var __passage = \"\";\n");
-#else
-	strcat(realData, "var __passage = \"\";\n");
-#endif
-
-	int inputLen = 0;
-	for (int i = 0; i < serialLen; i++)
-		if (serialData[i] != '\r')
-			inputData[inputLen++] = serialData[i];
-
-	const char *lineStart = inputData;
-	bool inPassage = false;
-	for (int i = 0;; i++) {
-		const char *lineEnd = strstr(lineStart, "\n");
-		if (!lineEnd) {
-			if (strlen(lineStart) == 0) break;
-			else lineEnd = lineStart+strlen(lineStart);
-		}
-
-		char *line = tempBytes;
-		memcpy(line, lineStart, lineEnd-lineStart);
-		line[lineEnd-lineStart] = '\0';
-
-		if (strstr(line, "START_PASSAGES")) {
-			inPassage = true;
-#ifdef USE_FAST_STRCAT
-			realDataEnd = fastStrcat(realDataEnd, "__passage = \"\";");
-#else
-			strcat(realData, "__passage = \"\";");
-#endif
-		} else if (strstr(line, "END_PASSAGES")) {
-#ifdef USE_FAST_STRCAT
-			realDataEnd = fastStrcat(realDataEnd, "submitPassage(__passage);");
-#else
-			strcat(realData, "submitPassage(__passage);");
-#endif
-			inPassage = false;
-		} else if (strstr(line, "---")) {
-			if (inPassage) {
-#ifdef USE_FAST_STRCAT
-				realDataEnd = fastStrcat(realDataEnd, "submitPassage(__passage);\n__passage = \"\";");
-#else
-				strcat(realData, "submitPassage(__passage);\n__passage = \"\";");
-#endif
-			}
-		} else if (inPassage) {
-#ifdef USE_FAST_STRCAT
-			realDataEnd = fastStrcat(realDataEnd, "__passage += \"");
-#else
-			strcat(realData, "__passage += \"");
-#endif
-
-			if (strstr(line, "\"")) {
-				for (int lineIndex = 0; lineIndex < strlen(line); lineIndex++) {
-					if (line[lineIndex] == '"') {
-#ifdef USE_FAST_STRCAT
-						realDataEnd = fastStrcat(realDataEnd, "\\\"");
-#else
-						strcat(realData, "\\\"");
-#endif
-					} else if (line[lineIndex] == '\\') {
-#ifdef USE_FAST_STRCAT
-						realDataEnd = fastStrcat(realDataEnd, "\\\\");
-#else
-						strcat(realData, "\\\\");
-#endif
-					} else {
-						char letter[2] = {};
-						letter[0] = line[lineIndex];
-
-#ifdef USE_FAST_STRCAT
-						realDataEnd = fastStrcat(realDataEnd, letter);
-#else
-						strcat(realData, letter);
-#endif
-					}
-				}
-			} else {
-#ifdef USE_FAST_STRCAT
-				realDataEnd = fastStrcat(realDataEnd, line);
-#else
-				strcat(realData, line);
-#endif
-			}
-#ifdef USE_FAST_STRCAT
-			realDataEnd = fastStrcat(realDataEnd, "\\n\";");
-#else
-			strcat(realData, "\\n\";");
-#endif
-		} else {
-#ifdef USE_FAST_STRCAT
-			realDataEnd = fastStrcat(realDataEnd, line);
-#else
-			strcat(realData, line);
-#endif
-		}
-#ifdef USE_FAST_STRCAT
-		realDataEnd = fastStrcat(realDataEnd, "\n");
-#else
-		strcat(realData, "\n");
-#endif
-
-		lineStart = lineEnd+1;
-	}
-
-	Free(inputData);
-
-	// printf("Final: %s\n", realData);
+	// printf("Running: %s\n", realData);
 	runJs(realData);
 	Free(realData);
 }
