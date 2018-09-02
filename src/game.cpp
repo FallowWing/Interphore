@@ -541,11 +541,16 @@ void modLoaded(char *data) {
 		int modDataSize = sizeof(char) * strlen(data) + 1024;
 		char *str = (char *)Malloc(modDataSize);
 		memset(str, 0, modDataSize);
-		char *endOfStr = str;
 
+#if 1
+		strcat(str, "try {\n");
+		strcat(str, data);
+		strcat(str, "\n} catch (e) { msg(String(e.stack), {smallFont: true, hugeTexture: true, extraTime: 20}); }\n");
+#else
 		endOfStr = fastStrcat(endOfStr, "try {\n");
 		endOfStr = fastStrcat(endOfStr, data);
 		endOfStr = fastStrcat(endOfStr, "\n} catch (e) { msg(String(e.stack), {smallFont: true, hugeTexture: true, extraTime: 20}); }\n");
+#endif
 		runMod(str);
 		Free(str);
 	} else {
