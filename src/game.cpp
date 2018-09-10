@@ -58,15 +58,15 @@ duk_ret_t append(duk_context *ctx);
 duk_ret_t setMainText(duk_context *ctx);
 duk_ret_t addPassage(duk_context *ctx);
 duk_ret_t streamAsset(duk_context *ctx);
-void assetStreamed(char *serialData);
+void assetStreamed(char *serialData, int size);
 duk_ret_t execAsset(duk_context *ctx);
 
 duk_ret_t gotoPassage(duk_context *ctx);
 duk_ret_t saveGame(duk_context *ctx);
 duk_ret_t loadGame(duk_context *ctx);
-void gameLoaded(char *data);
+void gameLoaded(char *data, int size);
 duk_ret_t loadMod(duk_context *ctx);
-void modLoaded(char *data);
+void modLoaded(char *data, int size);
 
 duk_ret_t interTweenEase(duk_context *ctx);
 duk_ret_t setFontTag(duk_context *ctx);
@@ -440,7 +440,7 @@ duk_ret_t streamAsset(duk_context *ctx) {
 	return 0;
 }
 
-void assetStreamed(char *serialData) {
+void assetStreamed(char *serialData, int size) {
 	const char *name = game->streamNames[game->curStreamIndex];
 	const char *url = game->streamUrls[game->curStreamIndex];
 
@@ -511,7 +511,7 @@ duk_ret_t loadGame(duk_context *ctx) {
 
 
 
-void gameLoaded(char *data) {
+void gameLoaded(char *data, int size) {
 	// printf("Loaded: %s\n", data);
 
 	if (!streq(data, "none") && !streq(data, "(null)")) {
@@ -533,29 +533,99 @@ duk_ret_t loadMod(duk_context *ctx) {
 	return 0;
 }
 
-void modLoaded(char *data) {
+void modLoaded(char *data, int size) {
 	// printf("Loaded: %s\n", data);
 
-	if (!streq(data, "none") && !streq(data, "(null)")) {
-		msg("Mod loaded!");
-		int modDataSize = sizeof(char) * strlen(data) + 1024;
-		char *str = (char *)Malloc(modDataSize);
-		memset(str, 0, modDataSize);
+	// 
 
-#if 1
-		strcat(str, "try {\n");
-		strcat(str, data);
-		strcat(str, "\n} catch (e) { msg(String(e.stack), {smallFont: true, hugeTexture: true, extraTime: 20}); }\n");
-#else
-		endOfStr = fastStrcat(endOfStr, "try {\n");
-		endOfStr = fastStrcat(endOfStr, data);
-		endOfStr = fastStrcat(endOfStr, "\n} catch (e) { msg(String(e.stack), {smallFont: true, hugeTexture: true, extraTime: 20}); }\n");
-#endif
-		runMod(str);
-		Free(str);
-	} else {
+	if (streq(data, "none") || streq(data, "(null)")) {
 		msg("No mod found");
+		Free(data);
+		return;
 	}
+
+	msg("Mod loaded!");
+
+	int firstInt = ((int *)data)[0];
+	if (firstInt == 0x04034b50) { // Is zip file
+		printf("Is zip file that's %0.2fkb\n", (float)size/(float)Kilobytes(1));
+
+		// string str_zip;    // The zip archive in string form.
+		// string str_unzip;  // The uncompressed contents of the first file in the zip archive.
+
+		// Read in or assign zip contents to the string.
+		// In my case I receive the zip file via a web service.  
+		// The processing all takes place in memory.  
+		// But you can easily read a file's contents into the zipfile string, as well.
+
+		// typedef unsigned char uint8;
+		// typedef unsigned short uint16;
+		// typedef unsigned int uint;
+
+		mz_zip_archive zip_archive;
+		mz_bool status;
+
+		// Now try to open the archive.
+		memset(&zip_archive, 0, sizeof(zip_archive));
+
+		// You can provide the zip data in memory as I did...
+		status = mz_zip_reader_init_mem(&zip_archive, data, size, 0);
+
+		// Or you can just give a filename...
+		// status = mz_zip_reader_init_file(&zip_archive, "myfile.zip", 0);
+
+		if (!status) {
+			printf("Invalid zip file");
+			Free(data);
+			return;
+		}
+
+		printf("Zip file contains %d files\n", mz_zip_reader_get_num_files(&zip_archive));
+		// Get the first file in the archive.
+		// if (mz_zip_reader_get_num_files(&zip_archive) != 1)
+		// {
+		// 	cout << "zip file does not contain our 1 file..." << endl;
+		// 	return;
+		// }
+
+		// mz_zip_archive_file_stat file_stat;
+		// if (!mz_zip_reader_file_stat(&zip_archive, 0, &file_stat))
+		// {
+		// 	cout << "zip file read error..." << endl;
+		// 	mz_zip_reader_end(&zip_archive);
+		// 	return;
+		// }
+
+		// // Unzip the file to heap.
+		// size_t uncompressed_size = file_stat.m_uncomp_size;
+		// void* p = mz_zip_reader_extract_file_to_heap(&zip_archive, file_stat.m_filename, &uncompressed_size, 0);
+		// if (!p)
+		// {
+		// 	cout << "mz_zip_reader_extract_file_to_heap() failed..." << endl;
+		// 	mz_zip_reader_end(&zip_archive);
+		// 	return;
+		// }
+
+		// str_unzip.assign((const char*)p,uncompressed_size);
+
+		// // Close the archive, freeing any resources it was using
+		// mz_free(p);
+		// mz_zip_reader_end(&zip_archive);
+
+		Free(data);
+		return;
+	}
+
+	int modDataSize = sizeof(char) * strlen(data) + 1024;
+	char *str = (char *)Malloc(modDataSize);
+	memset(str, 0, modDataSize);
+
+	strcat(str, "try {\n");
+	strcat(str, data);
+	strcat(str, "\n} catch (e) { msg(String(e.stack), {smallFont: true, hugeTexture: true, extraTime: 20}); }\n");
+
+	runMod(str);
+	Free(str);
 
 	Free(data);
 }
