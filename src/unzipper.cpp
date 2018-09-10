@@ -1,5 +1,5 @@
-struct Zip {
-};
+#define ZIP_HEADERS_MAX 2048
+#define INFLATE_BUFFER_SIZE (1024 * 1024)
 
 typedef unsigned char uint8;
 typedef unsigned short uint16;
@@ -18,92 +18,123 @@ struct LocalFileHeader {
 	uint16 fileNameLength;
 	uint16 extraFieldLength;
 
-	char fileName[Kilobytes(64)];
-	char extraField[Kilobytes(64)];
+	char *fileName;
+	char *extraField;
+	unsigned char *compressedData;
+	unsigned char *uncompressedData;
 };
 
-struct DataDescriptor {
-	uint signature;
-	uint crc;
-	uint compressedSize;
-	uint uncompressedSize;
+struct Zip {
+	LocalFileHeader headers[ZIP_HEADERS_MAX];
+	int headersNum;
 };
 
-// local file header signature     4 bytes  (0x04034b50)
-// version needed to extract       2 bytes
-// general purpose bit flag        2 bytes
-// compression method              2 bytes
-// last mod file time              2 bytes
-// last mod file date              2 bytes
-// crc-32                          4 bytes
-// compressed size                 4 bytes
-// uncompressed size               4 bytes
-// file name length                2 bytes
-// extra field length              2 bytes
+unsigned char inBuffer[INFLATE_BUFFER_SIZE];
+unsigned char outBuffer[INFLATE_BUFFER_SIZE];
 
 void openZip(unsigned char *data, int size, Zip *zip);
-uint endian_swap(uint x);
-#define ConsumeBytes(dest, src, count) memcpy(dest, src, count); src += count;
 
 void openZip(unsigned char *data, int size, Zip *zip) {
-	unsigned char *baseData = data;
+	memset(zip, 0, sizeof(Zip));
 
 	for (;;) {
-		LocalFileHeader header = {};
-		ConsumeBytes(&header.signature, data, 4);
+		int signature = ((int *)data)[0];
+		if (signature == 0x04034b50) {
+			LocalFileHeader *header = &zip->headers[zip->headersNum++];
+			ConsumeBytes(&header->signature, data, 4);
+			ConsumeBytes(&header->extractVersion, data, 2);
+			ConsumeBytes(&header->bitFlags, data, 2);
+			ConsumeBytes(&header->compressionMethod, data, 2);
+			ConsumeBytes(&header->loadModFileTime, data, 2);
+			ConsumeBytes(&header->loadModFileDate, data, 2);
+			ConsumeBytes(&header->crc, data, 4);
+			ConsumeBytes(&header->compressedSize, data, 4);
+			ConsumeBytes(&header->uncompressedSize, data, 4);
+			ConsumeBytes(&header->fileNameLength, data, 2);
+			ConsumeBytes(&header->extraFieldLength, data, 2);
 
-		if (header.signature != 0x04034b50) {
-			printf("Not a zip file\n");
+			header->fileName = (char *)Malloc(header->fileNameLength+1);
+			memset(header->fileName, 0, header->fileNameLength+1);
+
+			header->extraField = (char *)Malloc(header->extraFieldLength+1);
+			memset(header->extraField, 0, header->extraFieldLength+1);
+
+			header->compressedData = (unsigned char *)Malloc(header->compressedSize);
+			header->uncompressedData = (unsigned char *)Malloc(header->uncompressedSize);
+
+			ConsumeBytes(header->fileName, data, header->fileNameLength);
+			ConsumeBytes(header->extraField, data, header->extraFieldLength);
+			ConsumeBytes(header->compressedData, data, header->compressedSize);
+
+			if (header->compressionMethod == 0) {
+				memcpy(header->uncompressedData, header->compressedData, header->uncompressedSize);
+			} else if (header->compressionMethod == 8) {
+				uint infile_remaining = header->compressedSize;
+				unsigned char *inPos = header->compressedData;
+				unsigned char *outPos = header->uncompressedData;
+
+				z_stream stream = {};
+				stream.next_in = inBuffer;
+				stream.avail_in = 0;
+				stream.next_out = outBuffer;
+				stream.avail_out = INFLATE_BUFFER_SIZE;
+
+				if (inflateInit(&stream)) {
+					printf("inflateInit() failed!\n");
+					return;
+				}
+
+				for (;;) {
+					if (!stream.avail_in) {
+						// Input buffer is empty, so read more bytes from input file.
+						uint bytesToGet = Min(INFLATE_BUFFER_SIZE, infile_remaining);
+
+						memcpy(inBuffer, inPos, bytesToGet);
+
+						stream.next_in = inBuffer;
+						stream.avail_in = bytesToGet;
+
+						inPos += bytesToGet;
+						infile_remaining -= bytesToGet;
+					}
+
+				int	status = inflate(&stream, Z_SYNC_FLUSH);
+
+					if (status == Z_STREAM_END || !stream.avail_out) {
+						// Output buffer is full, or decompression is done, so write buffer to output file.
+
+						uint bytesDone = INFLATE_BUFFER_SIZE - stream.avail_out;
+						memcpy(outPos, outBuffer, bytesDone);
+
+						stream.next_out = outBuffer;
+						stream.avail_out = INFLATE_BUFFER_SIZE;
+					}
+
+					if (status == Z_STREAM_END) {
+						break;
+					} else if (status != Z_OK) {
+						printf("inflate() failed with status %i!\n", status);
+						return;
+					}
+				}
+
+				if (inflateEnd(&stream) != Z_OK) {
+					printf("inflateEnd() failed!\n");
+					return;
+				}
+			}
+
+			printf("Name: %s\n", header->fileName);
+		} else if (signature == 0x08074b50) {
+			printf("We don't parse data descriptors! (Unsupported zip file)\n");
+			return;
+		} else if (signature == 0x02014b50) { // Central directory structure
+			break;
+		} else if (signature == 0x08064b50) { // Archive extra data record
+			break;
+		} else {
+			printf("Unknown signature %x (Unsupported zip file)\n", signature);
 			return;
 		}
-
-		ConsumeBytes(&header.extractVersion, data, 2);
-		ConsumeBytes(&header.bitFlags, data, 2);
-		ConsumeBytes(&header.compressionMethod, data, 2);
-		ConsumeBytes(&header.loadModFileTime, data, 2);
-		ConsumeBytes(&header.loadModFileDate, data, 2);
-		ConsumeBytes(&header.crc, data, 4);
-		ConsumeBytes(&header.compressedSize, data, 4);
-		ConsumeBytes(&header.uncompressedSize, data, 4);
-		ConsumeBytes(&header.fileNameLength, data, 2);
-		ConsumeBytes(&header.extraFieldLength, data, 2);
-
-		ConsumeBytes(&header.fileName, data, header.fileNameLength);
-		ConsumeBytes(&header.extraField, data, header.extraFieldLength);
-
-		printf("Name: %s\n", header.fileName);
-
-		// DataDescriptor descriptor = {};
-		// ConsumeBytes(&descriptor.signature, data, 4);
-		// ConsumeBytes(&descriptor.compressedSize, data, 4);
-		// ConsumeBytes(&descriptor.uncompressedSize, data, 4);
-
-	// uint16 extractVersion;
-	// uint16 bitFlags;
-	// uint16 compressionMethod;
-	// uint16 loadModFileTime;
-	// uint16 loadModFileDate;
-	// uint crc;
-	// uint compressedSize;
-	// uint uncompressedSize;
-	// uint16 fileNameLength;
-	// uint16 extraFieldLength;
-		// header->fileNameLength = endian_swap(header->fileNameLength);
-		// header->extraFieldLength = endian_swap(header->extraFieldLength);
-
-		// char *fileName = NULL;
-		// char *extraField = NULL;
-
-		// memcpy(fileName, data, header->fileNameLength);
-		// data += header->fileNameLength;
-
-		// memcpy(extraField, data, header->extraFieldLength);
-		// data += header->extraFieldLength;
-
-		// printf("File name: %s\n", fileName);
 	}
-}
-
-uint endian_swap(uint x) {
-	return (x>>24) | ((x>>8) & 0x0000ff00) | ((x<<8) & 0x00ff0000) | (x<<24);
 }
