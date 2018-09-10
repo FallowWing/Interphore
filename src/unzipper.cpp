@@ -79,14 +79,13 @@ void openZip(unsigned char *data, int size, Zip *zip) {
 				stream.next_out = outBuffer;
 				stream.avail_out = INFLATE_BUFFER_SIZE;
 
-				if (inflateInit(&stream)) {
+				if (inflateInit2(&stream, -MZ_DEFAULT_WINDOW_BITS)) {
 					printf("inflateInit() failed!\n");
 					return;
 				}
 
 				for (;;) {
 					if (!stream.avail_in) {
-						// Input buffer is empty, so read more bytes from input file.
 						uint bytesToGet = Min(INFLATE_BUFFER_SIZE, infile_remaining);
 
 						memcpy(inBuffer, inPos, bytesToGet);
@@ -98,11 +97,9 @@ void openZip(unsigned char *data, int size, Zip *zip) {
 						infile_remaining -= bytesToGet;
 					}
 
-				int	status = inflate(&stream, Z_SYNC_FLUSH);
+					int status = inflate(&stream, Z_SYNC_FLUSH);
 
 					if (status == Z_STREAM_END || !stream.avail_out) {
-						// Output buffer is full, or decompression is done, so write buffer to output file.
-
 						uint bytesDone = INFLATE_BUFFER_SIZE - stream.avail_out;
 						memcpy(outPos, outBuffer, bytesDone);
 
