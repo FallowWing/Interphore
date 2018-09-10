@@ -121,7 +121,6 @@ void openZip(unsigned char *data, int size, Zip *zip) {
 				}
 			}
 
-			printf("Name: %s\n", header->fileName);
 		} else if (signature == 0x08074b50) {
 			printf("We don't parse data descriptors! (Unsupported zip file)\n");
 			return;

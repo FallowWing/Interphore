@@ -548,63 +548,29 @@ void modLoaded(char *data, int size) {
 
 	int firstInt = ((int *)data)[0];
 	if (firstInt == 0x04034b50) { // Is zip file
+		//@cleanup This will eventually overflow the assets
 		printf("Is zip file that's %0.2fkb\n", (float)size/(float)Kilobytes(1));
 		Zip zip;
 		openZip((unsigned char *)data, size, &zip);
 
-		// typedef unsigned char uint8;
-		// typedef unsigned short uint16;
-		// typedef unsigned int uint;
+		for (int i = 0; i < zip.headersNum; i++) {
+			LocalFileHeader *curHeader = &zip.headers[i];
+			if (curHeader->uncompressedSize == 0) continue;
 
-		// mz_zip_archive zip_archive;
-		// mz_bool status;
+			char realName[PATH_LIMIT] = {};
+			strcpy(realName, "assets/");
+			strcat(realName, curHeader->fileName);
 
-		// // Now try to open the archive.
-		// memset(&zip_archive, 0, sizeof(zip_archive));
+			for (int j = 0; j < engine->assets.assetsNum; j++) {
+				Asset *curAsset = &engine->assets.assets[j];
+				if (streq(curAsset->name, realName)) {
+					// printf("Destroyed %s\n", realName);
+					destroyAsset(curAsset);
+				}
+			}
 
-		// // You can provide the zip data in memory as I did...
-		// status = mz_zip_reader_init_mem(&zip_archive, data, size, 0);
-
-		// // Or you can just give a filename...
-		// // status = mz_zip_reader_init_file(&zip_archive, "myfile.zip", 0);
-
-		// if (!status) {
-		// 	printf("Invalid zip file: %s\n", mz_zip_get_error_string(mz_zip_get_last_error(&zip_archive)));
-		// 	Free(data);
-		// 	return;
-		// }
-
-		// printf("Zip file contains %d files\n", mz_zip_reader_get_num_files(&zip_archive));
-		// Get the first file in the archive.
-		// if (mz_zip_reader_get_num_files(&zip_archive) != 1)
-		// {
-		// 	cout << "zip file does not contain our 1 file..." << endl;
-		// 	return;
-		// }
-
-		// mz_zip_archive_file_stat file_stat;
-		// if (!mz_zip_reader_file_stat(&zip_archive, 0, &file_stat))
-		// {
-		// 	cout << "zip file read error..." << endl;
-		// 	mz_zip_reader_end(&zip_archive);
-		// 	return;
-		// }
-
-		// // Unzip the file to heap.
-		// size_t uncompressed_size = file_stat.m_uncomp_size;
-		// void* p = mz_zip_reader_extract_file_to_heap(&zip_archive, file_stat.m_filename, &uncompressed_size, 0);
-		// if (!p)
-		// {
-		// 	cout << "mz_zip_reader_extract_file_to_heap() failed..." << endl;
-		// 	mz_zip_reader_end(&zip_archive);
-		// 	return;
-		// }
-
-		// str_unzip.assign((const char*)p,uncompressed_size);
-
-		// // Close the archive, freeing any resources it was using
-		// mz_free(p);
-		// mz_zip_reader_end(&zip_archive);
+			addAsset(realName, (char *)curHeader->uncompressedData, curHeader->uncompressedSize);
+		}
 
 		Free(data);
 		return;
