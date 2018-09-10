@@ -549,38 +549,32 @@ void modLoaded(char *data, int size) {
 	int firstInt = ((int *)data)[0];
 	if (firstInt == 0x04034b50) { // Is zip file
 		printf("Is zip file that's %0.2fkb\n", (float)size/(float)Kilobytes(1));
-
-		// string str_zip;    // The zip archive in string form.
-		// string str_unzip;  // The uncompressed contents of the first file in the zip archive.
-
-		// Read in or assign zip contents to the string.
-		// In my case I receive the zip file via a web service.  
-		// The processing all takes place in memory.  
-		// But you can easily read a file's contents into the zipfile string, as well.
+		Zip zip;
+		openZip((unsigned char *)data, size, &zip);
 
 		// typedef unsigned char uint8;
 		// typedef unsigned short uint16;
 		// typedef unsigned int uint;
 
-		mz_zip_archive zip_archive;
-		mz_bool status;
+		// mz_zip_archive zip_archive;
+		// mz_bool status;
 
-		// Now try to open the archive.
-		memset(&zip_archive, 0, sizeof(zip_archive));
+		// // Now try to open the archive.
+		// memset(&zip_archive, 0, sizeof(zip_archive));
 
-		// You can provide the zip data in memory as I did...
-		status = mz_zip_reader_init_mem(&zip_archive, data, size, 0);
+		// // You can provide the zip data in memory as I did...
+		// status = mz_zip_reader_init_mem(&zip_archive, data, size, 0);
 
-		// Or you can just give a filename...
-		// status = mz_zip_reader_init_file(&zip_archive, "myfile.zip", 0);
+		// // Or you can just give a filename...
+		// // status = mz_zip_reader_init_file(&zip_archive, "myfile.zip", 0);
 
-		if (!status) {
-			printf("Invalid zip file");
-			Free(data);
-			return;
-		}
+		// if (!status) {
+		// 	printf("Invalid zip file: %s\n", mz_zip_get_error_string(mz_zip_get_last_error(&zip_archive)));
+		// 	Free(data);
+		// 	return;
+		// }
 
-		printf("Zip file contains %d files\n", mz_zip_reader_get_num_files(&zip_archive));
+		// printf("Zip file contains %d files\n", mz_zip_reader_get_num_files(&zip_archive));
 		// Get the first file in the archive.
 		// if (mz_zip_reader_get_num_files(&zip_archive) != 1)
 		// {

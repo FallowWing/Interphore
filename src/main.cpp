@@ -3,6 +3,7 @@
 #include "gameEngine.h"
 #include "debugOverlay.cpp"
 #include "textArea.cpp"
+#include "unzipper.cpp"
 #include "game.cpp"
 
 void updateMain();
