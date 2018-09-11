@@ -33,6 +33,7 @@ unsigned char inBuffer[INFLATE_BUFFER_SIZE];
 unsigned char outBuffer[INFLATE_BUFFER_SIZE];
 
 void openZip(unsigned char *data, int size, Zip *zip);
+void closeZip(Zip *zip);
 
 void openZip(unsigned char *data, int size, Zip *zip) {
 	memset(zip, 0, sizeof(Zip));
@@ -132,5 +133,16 @@ void openZip(unsigned char *data, int size, Zip *zip) {
 			printf("Unknown signature %x (Unsupported zip file)\n", signature);
 			return;
 		}
+	}
+}
+
+void closeZip(Zip *zip) {
+	for (int i = 0; i < zip->headersNum; i++) {
+		LocalFileHeader *header = &zip->headers[i];
+
+		if (header->fileName) Free(header->fileName);
+		if (header->extraField) Free(header->extraField);
+		if (header->compressedData) Free(header->compressedData);
+		if (header->uncompressedData) Free(header->uncompressedData);
 	}
 }

@@ -551,7 +551,6 @@ void modLoaded(char *data, int size) {
 		//@cleanup This will eventually overflow the assets
 		printf("Is zip file that's %0.2fkb\n", (float)size/(float)Kilobytes(1));
 		Zip zip;
-		//@todo Make this not leak
 		openZip((unsigned char *)data, size, &zip);
 
 		for (int i = 0; i < zip.headersNum; i++) {
@@ -570,9 +569,12 @@ void modLoaded(char *data, int size) {
 				}
 			}
 
-			addAsset(realName, (char *)curHeader->uncompressedData, curHeader->uncompressedSize);
+			void *assetData = Malloc(curHeader->uncompressedSize);
+			memcpy(assetData, curHeader->uncompressedData, curHeader->uncompressedSize);
+			addAsset(realName, (char *)assetData, curHeader->uncompressedSize);
 		}
 
+		closeZip(&zip);
 		Free(data);
 		return;
 	}
