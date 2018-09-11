@@ -147,6 +147,7 @@ function newImage() {
 		layer: DEFAULT_LAYER,
 		inInputField: false,
 		setText: function(text) {
+			if (!text) return;
 			text = text.replace(/%/g, "%%");
 			img.text = text;
 			setImageText(img, text);
