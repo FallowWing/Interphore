@@ -1,5 +1,6 @@
 ASSET_PATH := sourceAssets
 EXTRA_DEFINES := 
+# EXTRA_DEFINES += -DFAST_SCRATCH
 GAME_NAME := Interphore
 
 NEEDED_FONTS := "Espresso-Dolce 22" \
