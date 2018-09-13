@@ -578,6 +578,19 @@ void modLoaded(char *data, int size) {
 			memcpy(assetData, curHeader->uncompressedData, curHeader->uncompressedSize);
 			addAsset(realName, (char *)assetData, curHeader->uncompressedSize);
 
+			if (strstr(realName, ".png")) {
+				for (int spriteI = 0; spriteI < SPRITE_LIMIT; spriteI++) {
+					MintSprite *spr = &engine->spriteData.sprites[spriteI];
+					if (!spr->exists) continue;
+
+					if (streq(spr->assetId, realName)) {
+						Asset *texAsset = getTextureAsset(spr->assetId);
+						spr->assetId = texAsset->name;
+						spr->reloadGraphic();
+					}
+				}
+			}
+
 			if (streq(realName, "assets/main.phore")) {
 				codeToRun = (char *)Malloc(curHeader->uncompressedSize + 1);
 				strncpy(codeToRun, (char *)curHeader->uncompressedData, curHeader->uncompressedSize);
