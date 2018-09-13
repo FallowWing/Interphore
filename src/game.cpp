@@ -366,6 +366,8 @@ void updateGame() {
 }
 
 void runMod(char *serialData) {
+	// printf("About to parse: %s\n", serialData);
+
 	duk_get_global_string(jsContext, "runMod");
 	duk_push_string(jsContext, serialData);
 	duk_call(jsContext, 1);
@@ -550,8 +552,11 @@ void modLoaded(char *data, int size) {
 	if (firstInt == 0x04034b50) { // Is zip file
 		//@cleanup This will eventually overflow the assets
 		printf("Is zip file that's %0.2fkb\n", (float)size/(float)Kilobytes(1));
+
 		Zip zip;
 		openZip((unsigned char *)data, size, &zip);
+
+		char *codeToRun = NULL;
 
 		for (int i = 0; i < zip.headersNum; i++) {
 			LocalFileHeader *curHeader = &zip.headers[i];
@@ -572,10 +577,20 @@ void modLoaded(char *data, int size) {
 			void *assetData = Malloc(curHeader->uncompressedSize);
 			memcpy(assetData, curHeader->uncompressedData, curHeader->uncompressedSize);
 			addAsset(realName, (char *)assetData, curHeader->uncompressedSize);
+
+			if (streq(realName, "assets/main.phore")) {
+				codeToRun = (char *)Malloc(curHeader->uncompressedSize + 1);
+				strncpy(codeToRun, (char *)curHeader->uncompressedData, curHeader->uncompressedSize);
+				codeToRun[curHeader->uncompressedSize] = '\0';
+			}
 		}
 
 		closeZip(&zip);
 		Free(data);
+
+		// printf("Code to run is:\n%s\n", codeToRun);
+		runMod(codeToRun);
+		Free(codeToRun);
 		return;
 	}
 
