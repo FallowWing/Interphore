@@ -602,8 +602,10 @@ void modLoaded(char *data, int size) {
 		Free(data);
 
 		// printf("Code to run is:\n%s\n", codeToRun);
-		runMod(codeToRun);
-		Free(codeToRun);
+		if (codeToRun) {
+			runMod(codeToRun);
+			Free(codeToRun);
+		}
 		return;
 	}
 
