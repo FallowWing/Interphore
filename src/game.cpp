@@ -574,9 +574,10 @@ void modLoaded(char *data, int size) {
 				}
 			}
 
-			void *assetData = Malloc(curHeader->uncompressedSize);
+			void *assetData = Malloc(curHeader->uncompressedSize+1);
 			memcpy(assetData, curHeader->uncompressedData, curHeader->uncompressedSize);
-			addAsset(realName, (char *)assetData, curHeader->uncompressedSize);
+			((char *)assetData)[curHeader->uncompressedSize] = '\0';
+			addAsset(realName, (char *)assetData, curHeader->uncompressedSize+1);
 
 			if (strstr(realName, ".png")) {
 				for (int spriteI = 0; spriteI < SPRITE_LIMIT; spriteI++) {
@@ -591,11 +592,7 @@ void modLoaded(char *data, int size) {
 				}
 			}
 
-			if (streq(realName, "assets/main.phore")) {
-				codeToRun = (char *)Malloc(curHeader->uncompressedSize + 1);
-				strncpy(codeToRun, (char *)curHeader->uncompressedData, curHeader->uncompressedSize);
-				codeToRun[curHeader->uncompressedSize] = '\0';
-			}
+			if (streq(realName, "assets/main.phore")) codeToRun = (char *)assetData;
 		}
 
 		closeZip(&zip);
