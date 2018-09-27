@@ -58,15 +58,15 @@ duk_ret_t append(duk_context *ctx);
 duk_ret_t setMainText(duk_context *ctx);
 duk_ret_t addPassage(duk_context *ctx);
 duk_ret_t streamAsset(duk_context *ctx);
-void assetStreamed(char *serialData);
+void assetStreamed(char *serialData, int size);
 duk_ret_t execAsset(duk_context *ctx);
 
 duk_ret_t gotoPassage(duk_context *ctx);
 duk_ret_t saveGame(duk_context *ctx);
 duk_ret_t loadGame(duk_context *ctx);
-void gameLoaded(char *data);
+void gameLoaded(char *data, int size);
 duk_ret_t loadMod(duk_context *ctx);
-void modLoaded(char *data);
+void modLoaded(char *data, int size);
 
 duk_ret_t interTweenEase(duk_context *ctx);
 duk_ret_t setFontTag(duk_context *ctx);
@@ -366,6 +366,8 @@ void updateGame() {
 }
 
 void runMod(char *serialData) {
+	// printf("About to parse: %s\n", serialData);
+
 	duk_get_global_string(jsContext, "runMod");
 	duk_push_string(jsContext, serialData);
 	duk_call(jsContext, 1);
@@ -440,7 +442,7 @@ duk_ret_t streamAsset(duk_context *ctx) {
 	return 0;
 }
 
-void assetStreamed(char *serialData) {
+void assetStreamed(char *serialData, int size) {
 	const char *name = game->streamNames[game->curStreamIndex];
 	const char *url = game->streamUrls[game->curStreamIndex];
 
@@ -511,7 +513,7 @@ duk_ret_t loadGame(duk_context *ctx) {
 
 
 
-void gameLoaded(char *data) {
+void gameLoaded(char *data, int size) {
 	// printf("Loaded: %s\n", data);
 
 	if (!streq(data, "none") && !streq(data, "(null)")) {
@@ -533,24 +535,84 @@ duk_ret_t loadMod(duk_context *ctx) {
 	return 0;
 }
 
-void modLoaded(char *data) {
+void modLoaded(char *data, int size) {
 	// printf("Loaded: %s\n", data);
 
-	if (!streq(data, "none") && !streq(data, "(null)")) {
-		msg("Mod loaded!");
-		int modDataSize = sizeof(char) * strlen(data) + 1024;
-		char *str = (char *)Malloc(modDataSize);
-		memset(str, 0, modDataSize);
-		char *endOfStr = str;
+	// 
 
-		endOfStr = fastStrcat(endOfStr, "try {\n");
-		endOfStr = fastStrcat(endOfStr, data);
-		endOfStr = fastStrcat(endOfStr, "\n} catch (e) { msg(String(e.stack), {smallFont: true, hugeTexture: true, extraTime: 20}); }\n");
-		runMod(str);
-		Free(str);
-	} else {
+	if (streq(data, "none") || streq(data, "(null)")) {
 		msg("No mod found");
+		Free(data);
+		return;
 	}
+
+	msg("Mod loaded!");
+
+	int firstInt = ((int *)data)[0];
+	if (firstInt == 0x04034b50) { // Is zip file
+		//@cleanup This will eventually overflow the assets
+		printf("Is zip file that's %0.2fkb\n", (float)size/(float)Kilobytes(1));
+
+		Zip zip;
+		openZip((unsigned char *)data, size, &zip);
+
+		char *codeToRun = NULL;
+
+		for (int i = 0; i < zip.headersNum; i++) {
+			LocalFileHeader *curHeader = &zip.headers[i];
+			if (curHeader->uncompressedSize == 0) continue;
+
+			char realName[PATH_LIMIT] = {};
+			strcpy(realName, "assets/");
+			strcat(realName, curHeader->fileName);
+
+			for (int j = 0; j < engine->assets.assetsNum; j++) {
+				Asset *curAsset = &engine->assets.assets[j];
+				if (streq(curAsset->name, realName)) {
+					// printf("Destroyed %s\n", realName);
+					destroyAsset(curAsset);
+				}
+			}
+
+			void *assetData = Malloc(curHeader->uncompressedSize+1);
+			memcpy(assetData, curHeader->uncompressedData, curHeader->uncompressedSize);
+			((char *)assetData)[curHeader->uncompressedSize] = '\0';
+			addAsset(realName, (char *)assetData, curHeader->uncompressedSize+1);
+
+			if (strstr(realName, ".png")) {
+				for (int spriteI = 0; spriteI < SPRITE_LIMIT; spriteI++) {
+					MintSprite *spr = &engine->spriteData.sprites[spriteI];
+					if (!spr->exists) continue;
+
+					if (streq(spr->assetId, realName)) {
+						Asset *texAsset = getTextureAsset(spr->assetId);
+						spr->assetId = texAsset->name;
+						spr->reloadGraphic();
+					}
+				}
+			}
+
+			if (streq(realName, "assets/main.phore")) codeToRun = (char *)assetData;
+		}
+
+		closeZip(&zip);
+		Free(data);
+
+		// printf("Code to run is:\n%s\n", codeToRun);
+		if (codeToRun) runMod(codeToRun);
+		return;
+	}
+
+	int modDataSize = sizeof(char) * strlen(data) + 1024;
+	char *str = (char *)Malloc(modDataSize);
+	memset(str, 0, modDataSize);
+
+	strcat(str, "try {\n");
+	strcat(str, data);
+	strcat(str, "\n} catch (e) { msg(String(e.stack), {smallFont: true, hugeTexture: true, extraTime: 20}); }\n");
+
+	runMod(str);
+	Free(str);
 
 	Free(data);
 }

@@ -1,4 +1,5 @@
 function runMod(str) {
+	str = str.replace(/\r/g, "");
 	var lines = str.split("\n");
 	var newStr = "var __passage = \"\";";
 

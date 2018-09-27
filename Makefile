@@ -1,5 +1,6 @@
 ASSET_PATH := sourceAssets
 EXTRA_DEFINES := 
+# EXTRA_DEFINES += -DFAST_SCRATCH
 GAME_NAME := Interphore
 
 NEEDED_FONTS := "Espresso-Dolce 22" \
@@ -23,7 +24,27 @@ NEEDED_FONTS := "Espresso-Dolce 22" \
 CPP_TOOLS := ..
 CPP_TOOLS_WIN := ..
 
+# If you don't have the Makefile.secret file, comment the line below and fill in the args underneath
 include ../other/Makefile.secret
+
+# Needed to build the Flash version
+# CPP_TOOLS_ABS := /c/Dropbox/cpp # The Cygwin path to the directory that contains the engine and game directories
+# CPP_TOOLS_ABS_WIN := C:\Dropbox\cpp # The Windows path to the directory that contains the engine and game directories
+# CROSSBRIDGE_PATH = /d/_tools/_sdks/crossbridge
+# JAVA_MAKE_PATH := /d/_tools/_sdks/jdk8u144_x64
+# AIR_MAKE_PATH := /d/_tools/_sdks/air
+#
+# Needed to build the Android version
+# ANDROID_SDK_PATH := /d/_tools/_sdks/android-sdk
+# ANT_PATH := /d/_tools/_sdks/ant
+# PYTHON3 := /c/Users/$$USERNAME/AppData/Local/Programs/Python/Python36/python.exe
+#
+# Currently unnecessary
+# EMSCRIPTEN_DIR := /d/_tools/_sdks/emsdk-portable/emscripten/1.37.21
+# EMSCRIPTEN_DIR_WIN := D:\_tools/_sdks/emsdk-portable/emscripten/1.37.21
+# FLASH_SO_DIR := /d/Users/$$USERNAME/AppData/Roaming/Macromedia/Flash\ Player/\#SharedObjects/6U22UWBZ/localhost/Dropbox/cpp
+# PARAPHORE_COM_PATH := /d/paraphore.com
+
 GAME_WIDTH=1280
 GAME_HEIGHT=720
 SCREEN_ORIENTATION := landscape
