@@ -82,6 +82,15 @@ function dog() {
 	return data.species;
 }
 
+function cockType(knot, barbs, human) {
+	if (data.species === undefined) return human;
+	if (data.species === "fox") return knot;
+	if (data.species === "wolf") return knot;
+	if (data.species === "bunny") return human;
+	if (data.species === "cat") return barbs;
+	return human;
+}
+
 function boobs(hasTiddy, noTiddy) {
     if (data.hasBoobs && hasTiddy !== undefined) return hasTiddy;
     if (data.hasBoobs && hasTiddy === undefined) return "tits";
@@ -99,14 +108,19 @@ function myntCock(pickedCock, pickedCunt) {
 }
 
 function cock(genitals) {
-	if (genitals === undefined) genitals = data.genitals;
-	if (genitals === "male") return "cock";
-	if (genitals === "female") return "cunt";
-	if (genitals === "both") return "junk";
+	if (genitals === undefined) return "cock";
+	if (data.genitals === "male") return "cock";
+	if (data.genitals === "female") return "cunt";
+	if (data.genitals === "both") return "junk";
 	return "nil genitals";
 }
 
 function genitals(male, female, both) {
+	if (male === undefined) {
+		if (data.genitals === "male") return "cock";
+		if (data.genitals === "female") return "cunt";
+		if (data.genitals === "both") return "cock";
+	}
 	if (data.genitals === "male") return male;
 	if (data.genitals === "female") return female;
 	if (data.genitals === "both") return both;

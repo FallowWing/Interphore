@@ -980,7 +980,6 @@ vn.stop();
 
 vn.say(0, "Well, is the real Wendy trans?");
 vn.choice("I don't know.");
-vn.choice("I donut know.");
 vn.stop();
 
 vn.say(1, "Do you know if she liked boys, then?");
@@ -1343,7 +1342,7 @@ Ren smirks with a fang hanging out of the corner of his maw. "Mmmh. Good. That's
 ---
 :thellySex4
 
-Your `genitals()` rub between their girly thighs. They hug you from both sides, kissing your neck and your cheeks and your `boobs` with a flurry of utterly domesticated affection.
+Your `genitals()` rub between their girly thighs. They hug you from both sides, kissing your neck and your cheeks and your `boobs()` with a flurry of utterly domesticated affection.
 
 [You've both got such big hips...|thellySex5]
 ---

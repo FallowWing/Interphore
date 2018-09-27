@@ -132,6 +132,8 @@ img/writer/nodeChoice.png
 img/writer/nodeChoice.spr
 img/writer/choiceArrow.png
 img/writer/choiceArrow.spr
+img/writer/statusBox.png
+img/writer/statusBox.spr
 img/writer/thirstyCavesBg.png
 img/writer/thirstyCavesBg.spr
 img/writer/cartBg.png
