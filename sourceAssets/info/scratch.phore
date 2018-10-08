@@ -152,6 +152,7 @@ data.metCart = true;
 data.tookStairs = true;
 data.leftMynt = true;
 data.metRen = true;
+data.heardTransmission = true;
 `
 [Back|cheatsStart]
 ---
