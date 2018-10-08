@@ -1,0 +1,1264 @@
+START_PASSAGES
+:cartPara
+
+You roll by the L.L.L. to check on Cart's progress, but the door to his map dome is actually shut for once.
+
+[Hellooo~?|cartPara]
+---
+:cartPara
+
+You press your ear to the door. There's the usual schlicky wet noise of painted paws sliding across paper. The sound pans from left ear to right, up and down, flying in complex revolutions around the dome.
+
+[I guess he's too busy to talk to me...|cartPara]
+---
+:cartPara
+
+He gets like that when he's really focused. Want me to bug him for you?
+
+[Oh, no, I don't wanna interrupt or anythi—|cartPara]
+---
+:cartPara
+
+Okay well I already did expecting you to say yes, so we're in this together now.
+
+The sound of paintskating skids to a stop. A little light beside the door clicks off. Two wet feetpaws smack against the floor, because gravity.
+
+The door swings open. Cart looks pissed.
+
+"What? I am busy."
+
+[Okay first of all this isn't my fault actually but I—|cartPara]
+---
+:cartPara
+
+"Get to the point."
+
+[I just wanted to check up on your progress that's all jeez!!|cartPara]
+---
+:cartPara
+
+[What with the spooky transmission and stuff.|cartPara]
+---
+:cartPara
+
+"It is awful. I am banging my head against a wall."
+
+He pulls the gadget out from between his buttcheeks. It's still transmitting the same distressed groans and glorps and whines.
+
+[You can't map the way there...?|cartPara]
+---
+:cartPara
+
+He shakes his head.
+
+"Whenever I think I am maybe a couple pawprints away, they move again. Watch."
+
+He places his paw on the dome, smudging in a blue waypoint. The gadget in his palm shivers and clicks. Its mechanical innards rearrange themselves.
+
+"See? Their gadget changes. My routes fall out of date too fast."
+
+[THEIR gadget...|cartPara]
+---
+:cartPara
+
+[Wait... they're inside that little thing? I thought it was a transmission device...???|cartPara]
+---
+:cartPara
+
+The gadget settles into place. Up close, it's about as big as a cell phone, but with no screen or visible holes for a speaker. It looks like a monochrome rubik's cube after some fatty sat on it.
+
+Cart gives it a smack. "Tell me your secrets, you little fuck."
+
+The speaker crackles and loses its signal. Cart frowns, playing with a knob on the side, until the frequency is close enough to separate the elemental voices from the background static again. A fresh prickle of panic distorts them, and they all yipe and squeal and scream in those wet, throaty voices.
+
+"We have to find a way down to their layer. I wish I knew how this little thing worked..."
+
+[I don't know how I can really help with this... but if there's a way, I'm willing!|cartPara]
+---
+:cartPara
+
+Cart stares and stares at the little hunk of interlocking metal in his palm.
+
+Then he looks at you.
+
+Then he looks at his map.
+
+"Wait. Listen."
+
+[!!! ... Listen.|cartPara]
+---
+:cartPara
+
+The static gurgles are the only noise in the room...
+
+Cart walks up to the wall of his map, raises his paw, and slashes a tear through the paper.
+
+The gadget completely re-aligns itself, and the voices scream and babble like they're drowning.
+
+He reviews his paint. "I knew it! They moved again. Now the whole map is useless."
+
+[... What does it mean...|cartPara]
+---
+:cartPara
+
+He grabs you by the shoulders. This looks pretty ridiculous, since he's half your height.
+
+"Do you not see!" he says, shaking you ineffectively. "The fabric of their reality evades aggression!"
+
+[But how can they tell when you... how does any of this...|cartPara]
+---
+:cartPara
+
+He stands on his tippy toes and cranes his neck up.
+
+"Hurry! There's only one way to pin them down!"
+
+!`
+addChoice("Oh hold on a sec.", "cartPara", {icons: ["Cub", "Male", "Plot"]});
+`
+---
+:cartPara
+
+With a ton of effort, Cart's maw raises up to your chin. He places a gentle peck just below your lower lip.
+
+When he pulls away, he drags two fingers through the film of saliva hanging from his lips and uses it to brush in a bold stroke on the map. The voices calm down a little. Cart spins on his heels and his hidden eyes connect about sixteen more dots than you're able to. Using that saliva smear as a reference point, he hurriedly blurs and re-paints a couple symbols, moving that paw over here, smudging this line so it intersects with that one...
+
+"Love!" he bursts, and happiness poofs his tail out. Tears fall from beneath his bangs. "Only loving cartography will route us down there! What an ingenious defense mechanism!"
+
+[Oooo.|cartPara]
+---
+:cartPara
+
+He throws himself at your waist and latches on, happily nuzzling your crotch. "This way, a psychopath can't map their way to the layer. You have to have empathy... and maybe you also have to have..."
+
+[... Perhaps I can help after all. ;3|cartPara]
+---
+:cartPara
+
+"I will handle the prep. But, first... we need to wet the bristles."
+
+He rests his chin on your chest, still hugging you. All you can see is his squished :3 face, his bangs, and the tops of his buttcheeks behind and below. You can't see the rest of his naked little body, you can only feel it as warmth against your legs and lower belly.
+
+[What uh... what do you need me to do?|cartPara]
+---
+:cartPara
+
+A painted paw slides up over your `boobs()`.
+
+Suddenly, he pulls away from you. "Go into the antechamber. Take a left down the hallway you never noticed before. The paint room will be on your right. Grab whichever colors you have the most affection for. When you come back, I will be ready."
+
+[Yeah, but, I mean... what are we gonna do after that?|cartPara]
+---
+:cartPara
+
+"We will have sex, of course."
+
+[Like on the ground in here?|cartPara]
+---
+:cartPara
+
+He laughs and shakes his head. "In the air, silly."
+
+[OooOOOOoo.|cartPara]
+---
+:cartPara
+
+He leads the way out of the dome. He takes you down the hallway and points you to the paint room while he takes a quick shower to wash the caked paint off his curves.
+
+[Let's see... my favorite colors...|cartPara]
+---
+:cartPara
+
+You browse through glass beakers and vials of paint in his storage room. They kind of look like HP and mana potions.
+
+[Let's get some mint, some cherry, some blueberry...|cartPara]
+---
+:cartPara
+
+Cart pokes his head in, sopping wet and clean. He smothers his hair in a towel and it frizzes out.
+
+"Three is fine. I do not think the colors will matter beyond your feelings for them. Meet you in the dome, okay?"
+
+[Okay!! Oh man, this is exciting...|cartPara]
+---
+:cartPara
+
+Soon, you're both back in the mapping room. Cart presses a button and the whole building trembles as a fresh sphere of paper slides in to replace his old, ripped map.
+
+Cart sits his bare butt down and spreads his lil legs out shamelessly. He slides a couple fingers `genitals("down his taint, digging them deep up his buttcrack", "down over his nuts and squeezes them like he's testing their virility", "down his taint, digging them deep up his buttcrack")`.
+
+[Wait!|cartPara]
+---
+:cartPara
+
+He smiles up at you and pats the floor. "What is it? I set a timer for the anti-grav, if that concerns you. It will come on about when we are done with our foreplay."
+
+[I was just wondering what position you wanted me in.|cartPara]
+---
+:cartPara
+
+He smiles up at you and doesn't say anything.
+
+His `genitals("fingers casually pop up his butthole, tugging on it, stretching it", "cocklet throbs to life from all his playing and squeezing, foreskin tightening", "fingers casually pop up his butthole, tugging on it, stretching it, and meanwhile, his other paw starts working along his shaft, waking it up")`.
+
+"What do you think?"
+
+!`
+if (data.genitals === "male") addChoice("You want my cock up there...?", "cartPara");
+if (data.genitals === "female") addChoice("You want me to ride that...?", "cartPara");
+if (data.genitals === "both") addChoice("You want my cock up there...?", "cartPara");
+`
+---
+:cartPara
+
+He nods. "Come. Sit. We do not have to do anything too serious yet. We should just wet our bristles."
+
+[Alright...|cartPara]
+---
+:cartPara
+
+He uncorks a little minty-green paint potion and pours a cup or so over his bare chest. The liquid flows down through the bristles of his fur. Fat little droplets hang off of his nipples. Rivulets trickle over his belly button, running in goopy, slimy trails over the shaft of his cock, along the creases between his nuts and his thighs. Soon, he's sitting in a little mint puddle.
+
+"Come on." He splashes around a bit, flecking you with it. "Have fun with it."
+
+[Ah, okay... smear some blue on my belly...|cartPara]
+---
+:cartPara
+
+You dunk your paw in the blueberry paint and smack your belly around a little. It feels warm and wet and nice on your bare fur.
+
+"There you go," Cart says, smiling. He paps a paw on your `boobs()` and pulls it down, leaving five distinct lines on your chest from his pawbeans.
+
+[Paint him...|cartPara]
+---
+:cartPara
+
+You grab handfuls of red, blue, and green. They mix into every shade of every color in your palms. Carefully, sitting on your heels and leaning forward, you run one paw up the sides of Cart's stomach. You slide them around his love handles, down over his blue-splattered butt. You scoot closer, chin hovering over his shoulder, and smear the small of his back...
+
+[I just hope I'm doing this right... I have no idea how to cartograph...|cartPara]
+---
+:cartPara
+
+"For maps like this one, it is not about having an idea or not. All you have to do is—"
+
+He closes both paws around the nape of your neck and kisses you on the mouth.
+
+"— feel it."
+
+[A-Ah... okay, I can do that pretty well...|cartPara]
+---
+:cartPara
+
+The voices are murmuring like a worried aunt, barely half as stressed as they were earlier. Cart slides the gadget out of his buttcheeks. He throws it out of the map dome.
+
+A single second later, the door automatically slides shut, and a deep, electric whirr rises up through your feet, your heels, up into all the assmeat they're supporting, and finally anti-gravity tingles settle into the pit of your gut.
+
+Like the takeoff of a plane, or the first serious drop of a rollercoaster, your stomach tightens and quivers.
+
+"Easy," Cart purrs in your ear. He grinds his chest against yours. Both of you are sopping now.  Droplets of paint fall from your extremeties and pitter onto the ground.
+
+Then they stop falling.
+
+[Oh my...|cartPara]
+---
+:cartPara
+
+Cart's deft little paws run over your `genitals("cock. He squeezes it like his favorite teddy bear", "cuntlips. He even makes sure to tuck some paint inside for lube (and he promises you it's not dangerous or anything, heck, you could even ingest it)", "cock. He squeezes it like his favorite teddy bear")`.
+
+"Are you ready?"
+
+[I think so...|cartPara]
+---
+:cartPara
+
+Droplets of paint hover around you like a constellation. Cart only has to shift his weight a little, and his knees rise off the ground. He takes your hand and guides you into the air above your messy, multi-colored paint puddle. You feel your body drifting sideways. You get a desperate urge to find your balance by throwing your arms and legs out and wobbling around like an idiot.
+
+[Resist that urge.|cartPara]
+---
+:cartPara
+
+Urge successfully resisted.
+
+Another urge is rising from that same flutter in your belly to take its place. Cart relaxes in the air, one hand behind his head, legs crossed, coin purse jiggling with the air currents.
+
+[Stop resisting and embrace him.|cartPara]
+---
+:cartPara
+
+Your arms slide easily under his. His lips find yours and lock on.
+
+Your hips meet and kiss with a whisper of paint. He un-crosses his legs and pulls his knees up to either side of his chest, fully exposing himself. `genitals("Your first tentative thrust misses. Instead of sliding up his ass, it glides between his cheeks, and a little glob of paint collects on your tip. You roll with it and hotdog him for starters, chin on his shoulder, looking down between his shoulder blades for a beautiful view of your cockhead popping in and out of his assmeat", "You lower your cunt to his shaft and push down with vicious passion, really grinding it deep between the lips. One is painted green, the other blue, and so a beautiful shade of teal soon coats the bulge of his urethra. He hooks a paw around your neck and holds you closer, bucking his lil hips", "Your first tentative thrust misses. Instead of sliding up his ass, it glides between his cheeks, and a little glob of paint collects on your tip. You roll with it and hotdog him for starters, chin on his shoulder, looking down between his shoulder blades for a beautiful view of your cockhead popping in and out of his assmeat")`.
+
+You've been steadily rising this whole time. The ceiling comes up behind you. Your back is only a few feet away. 
+
+His breath washes over your mouth. "We are about to make our first mark on the paper..."
+
+[Slip inside...|cartPara]
+---
+:cartPara
+
+You reach down and `genitals("spread his cheeks", "aim his cock", "spread his cheeks")`. You pull your hips back and inhale.
+
+Then...
+
+Exhale.
+
+Your hips connect. <i>Smack.</i> Beautiful, twirling strands of paint explode in a ring between you. Droplets patter across the map. The momentum carries you the rest of the way to the ceiling. Your shoulder blades thud against it and bounce off, leaving a red imprint of your spine at the map's zenith.
+
+Cart smiles at you like nothing's changed. His `genitals("butthole flexes around your shaft, but his body doesn't shiver or twitch", "cock throbs inside you, but he doesn't thrust", "butthole flexes around your shaft, but his body doesn't shiver or twitch")`. He pulls you in for a kiss so passionate that your bodies start to rotate in mid-air, devastating all sense of direction.
+
+[Close my eyes. Hold on tight. Thrust.|cartPara]
+---
+:cartPara
+
+You block out the dizzying view and just feel the g-forces groping your body, pulling your fur on end, tugging wobbly globs of paint around. You wrap your arms around his flat chest and start swinging your hips back and forth, `genitals("feeding your cock up his welcoming little ass", "bullying his fupa into submission with relentless powerbottom thrusts", "feeding your cock up his welcoming little ass, painting the map with a squirt of cuntjuice")`. Still, he's not reacting much... his breathing is a little faster, that's it.
+
+[Rrrgh... fuck him!!|cartPara]
+---
+:cartPara
+
+A wall nuzzles up against your feet. You bend your legs to let it approach without resistance... wait for it... wait for it...
+
+You kick off the wall and `genitals("powerfuck his little body. Your nuts tighten up, all shiny with blue paint, and smack against him, peppering his asscheeks with big blue circles", "smash your cunt down to the base of his dick over and over, sometimes pulling right off, sometimes holding it there and grinding back and forth. He reaches down and twiddles your clit playfully", "powerfuck his little body. Your nuts tighten up, all shiny with blue paint, and smack against him, peppering his asscheeks with big blue circles")`.
+
+"That— is it— keep going—" he gasps between thrusts. Behind you, his toes splay and wiggle, paint webbed between them. His knees lock. Each leg flies out in a different direction. `genitals("This makes it even easier for you to pound your dick in as deep as it can possibly go.", "", "This makes it even easier for you to pound your dick in as deep as it can possibly go.")`
+
+[Cum.|cartPara]
+---
+:cartPara
+
+You lose all sense of where you are. The sensation of paper against your fur comes from all different directions at any time, and you bounce off of it just as often as you slide along the surface of the map for minutes at a time. At one point you pin Cart against the ceiling and claw your fingers into the paper for stability in the heat of the moment. For some reason the sound of delicate parchment ripping under your fingers only turns you on more. Maw open, tongue out, Cart breathes heavy in your face. His tail sways back and forth, throwing arcs of paint across the map.
+
+Finally, he breaks: after a full hour of quiet composure, he just has to bite his lip and squeak like a little bitch.
+
+You `genitals("ram your dick up his ass and pump it full of cum", "beat your hips against his, milking a couple cute splurts of boicum from his cock", "ram your dick up his ass and pump it full of cum")`!! Thick cumglobs splatter the red mark your shoulder blades left on the ceiling, transforming it from a meaningless smudge into an impeccable waypoint that throws the whole rest of the map into alignment.
+
+"Yes!!!" Cart squeals, `genitals("bouncing his fat little bubblebutt so hard his nuts smack against your lower belly", "unplugging his cocklet from your lips and letting his cum fly off into the air", "bouncing his fat little bubblebutt so hard his nuts smack against your lower belly")`. "Oh, yes..."
+
+[I'm that good, huh? <3|cartPara]
+---
+:cartPara
+
+"No, not that," he giggles. "I just meant 'Oh, yes, that waypoint is perfect!'"
+
+[Ah goddamnit...|cartPara]
+---
+:cartPara
+
+"You are good too, though. But. You know. I am attracted to maps more than people."
+
+He plants a kiss on your neck, sucking the paint from it. The electric growl of the anti-gravity system softens to a purr.
+
+You unhook your fingers from the ceiling and fall in slow motion with Cart. Your butt hits the ground first, then the small of your back, then the rest of your spine curls down until, at last, the tile floor presses up against the back of your skull and even the system's purr rumbles to a full stop.
+
+[Phwaaaa...|cartPara]
+---
+:cartPara
+
+Cart's straddling your waist. He's soft now, and his cute little rainbow-smeared cock squishes up against `genitals("yours", "your clit, grinding gently", "yours")`.
+
+... Above him, beside him, everywhere you look... it's so beautiful.
+
+The ghosts of your bodies intertwine with each other. A thighprint here, a bellyprint there. Long scratches lance the map where Cart dragged his fingers over it. Now that the anti-gravity is off, the paint begins to drip a little.
+
+You grab the back of his skull and kiss him hard. Rainbows of paint pour over your embrace.
+
+[Did I do okay, Cart...?|cartPara]
+---
+:cartPara
+
+The collage of body marks and cumdrops seems completely unintelligible to you, but when Cart peels his face away from yours and looks it over, you can actually follow his gaze from point to point, almost, almost, alllllmost seeing the network of routes, forks in the roads of your affection, turn-left-here's in your affinity for each other, and triple-lane roundabouts that circle your love like targets.
+
+"You did amazing."
+
+[Glad to help!|cartPara]
+---
+:cartPara
+
+He hauls himself off of you, belly all soaked and shiny green. A little red dribbles from `genitals("his butt", "his nuts", "his butt")`.
+
+Cart helps you up, sets his map dome to dry, and leads you to the showers, all without letting go of your hand for a second. The warm water peels off layer after layer of color from your fur. A rainbow swirls down the drain below your big feet and his little cub toes.
+
+"How was it?" he asks, gently scrubbing your buttcrack clean for you with a bar of soap.
+
+[I'm a bit queasy...|cartParaQueasy]
+[I loved it!!|cartParaLove]
+---
+:cartParaQueasy
+
+"I understand that. Well— your queasiness may save a whole layer of people."
+
+He slaps his belly. "Thankfully, I do not get queasy anymore. I think taking dicks up to the pit of my belly for my whole life has also helped train me for that."
+
+[You just may be right...|cartPara]
+---
+:cartParaLove
+
+He smooches your solar plexus, face hidden, just a little floof of blue `boobs("between your tits", "pressed to your chest")`.
+
+"I did too."
+
+[Good. <3|cartPara]
+---
+:cartPara
+
+You hit him back by soaping `genitals("his ass down, making sure not to get any suds in his fucked-raw butthole", "his little package down, making sure to be gentle with his soft, sensitive cocklet", "his ass down, making sure not to get any suds in his fucked-raw butthole")`. He purrs and sticks his butt out, cheeks squishing up against the tile wall.
+
+[So what's the next step here?|cartPara]
+---
+:cartPara
+
+"I'll post an ad on the Paraphorum. A paraphore will volunteer and travel here to see us. They will go to this new layer, record the surroundings until we are sure it is safe, and then they will squirt out some red juice we can use as a spawn point."
+
+[Okay. Dry off.|cartPara]
+---
+:cartPara
+
+You step out of the shower and grab one of his towels (it's baby blue with a print of sexy boys on it).
+
+Cart towels his hair and trots after you.
+
+"Are you not going to ask me to clarify anything?"
+
+[Nah. I mean, I'm gonna witness it in a bit, so whatever.|cartPara]
+---
+:cartPara
+
+"This is true."
+
+He curls his towel up and whips your butt with it.
+
+[OW hey the fuck man (Whip him back!!)|cartPara]
+---
+:cartPara
+
+You crack his little asscheeks with the end of your towel. He squeaks and dodges left.
+
+[Attack left!|cartParaLeft]
+[Attack right!|cartParaRight]
+---
+:cartParaLeft
+
+It was a feint. His cocky little :3 face is the last thing you see before he flashsteps away and whips you right in the middle of your back so hard you fall right the fuck over.
+
+[AAAaa fuck you win|cartPara]
+---
+:cartParaRight
+
+He attempts to feint right, sees that you have anticipated him, and tries to change direction too fast. His footpaw slips on soap suds, and he hits the ground with a wet <i>smack</i>.
+
+"Oog. You win."
+
+[|cartPara]
+---
+:cartPara
+
+You spend a little time giving him some gentle aftercare, rubbing the red spots. He does the same for you.
+
+After that, you both retire to the antechamber, and Cart whips out a laptop to make the post.
+
+[Peek at the Paraphorum.|cartPara]
+---
+:cartPara
+
+It's probably the worst website design you've ever seen. Looks like a frankenstein of stock market analysis and craigslist made with geocities.
+
+<i>Looking for someone willing to paraphrase a Macbeth timeline, lots of dead innocents, only apply if you have mental fortitude</i>
+
+<i>2 newly recruited Paraphores (twins, MUST be deployed together) looking to explore new layers NO SCAT LAYERS PLS!!</i>
+
+<i>Retired Paraphore looking to get back in the game, 8 layers paraphrased, stayed on spawnpoint duty for ~5 years each</i>
+
+<i>Help I just signed up to be a Parafore how do I post here</i>
+
+[Huh.|cartPara]
+---
+:cartPara
+
+Cart puts out a special, gilded sticky post.
+
+<i>New layer, mapped route 15 min ago. Liquid elementals in severe distress. Apply if you have a high tolerance for mess and despair. Layer appears tiny. You will NOT be on spawnpoint duty after paraphrasing and assimilation, free to leave.</i>
+
+Somehow, no one replies. His post sits at the top of the forum, shiny and glittering, and the words 'mess and despair' cancel all of his traffic out.
+
+[... How long does it usually take before someone applies?|cartPara]
+---
+:cartPara
+
+"A couple seconds," Cart says, pouting. "But I understand. It is <i>brand</i> new... it may not be safe or vanilla, so people are afraid to go."
+
+The gadget has started whining again. The wet moans and whimpers come in waves.
+
+[Let's give it another fifteen minutes.|cartPara]
+---
+:cartPara
+
+Cart stops touching himself. He bumps his own post over and over even though it's already stickied.
+
+"They have all grown too complacent..."
+
+The voices are screaming now. Something bad is happening down there.
+
+[Fuck it, I'll go.|cartPara]
+---
+:cartPara
+
+Cart slaps his laptop shut and takes you by the wrist.
+
+"Good. Come with me. We will get you suited up."
+
+[Wow. Not even an "Are you sure?"|cartPara]
+---
+:cartPara
+
+"I assumed you were not the type of person to offer help, reap the credit for offering, and secretly hope someone else does it for you."
+
+He pulls you past the shower room to a little sacred pedestal bathtub filled with red juice. Without asking if you really are sure about this, he shoves you in.
+
+[Plunk.|cartPara]
+---
+:cartPara
+
+Yes, your whole body goes <i>plunk</i> and dissolves. Cart jumps in too, and your minds float free, nuzzling with each other, your thoughts brushing at the edges.
+
+"Can you hear me?" Cart asks you through me.
+
+[Yes.|cartPara]
+---
+:cartPara
+
+"Good. You are about to get a crash course here. Now. Listen to me. Shapeshift into this:"
+
+He beams your mind an image of a circuit board. The circuit board falls away, revealing a few gossamer lines of raw electrons that would have fit it perfectly.
+
+[You want me to shapeshift into electrons?|cartPara]
+---
+:cartPara
+
+"Yes. Make sure you match the arrangement exactly, or else you will not be able to interact with the beings inside their gadget."
+
+[Okay. Shapeshift into electrons, I guess.|cartPara]
+---
+:cartPara
+
+Your new body slowly and delicately takes form. A lightness fills you up from the tips of your toes to the tips of your fuzzy `species()` ears. You feel like a ghost in a windstorm, yanked and stretched around by the currents, torn into hair-thin threads of ectoplasm. After really focusing on it, you finally manage to match your new body to Cart's specification perfectly.
+
+"Float to the surface."
+
+[Float to the surface.|cartPara]
+---
+:cartPara
+
+You bob on the surface of his bathtub like a single styrofoam pellet in the middle of the atlantic ocean.
+
+He pulls himself out of the tub as a slender micro-monster with atomic tweezers for hands. He reaches down and carefully nudges you inside his gadget, clicking your tiny body into line with one circuit in particular.
+
+"Now your perspective should shift one layer down."
+
+[Shift, eh...|cartPara]
+---
+:cartPara
+
+A black membrane swallows your feet. Darkness rises up to your neck, choking you, getting stuck under your chin, and then your whole head is submerged with a tiny <i>pop.</i>
+
+[...|cartPara]
+---
+:cartPara
+
+Something must be wrong?
+
+It's black down here. It's just nothingness.
+
+[Stare into the void.|cartPara]
+---
+:cartPara
+
+It does not stare back.
+
+You look down at yourself. Your body is red liquid, of course, a perfect disguise for this wet layer. There's a weird eye marking on your belly, too.
+
+You hope none of the inhabitants notice it, or your disguise will flop. If there are any inhabitants...?
+
+[Listen hard.|cartPara]
+---
+:cartPara
+
+...
+
+[...|cartPara]
+---
+:cartPara
+
+A tiny <i>plip</i> comes from deep in the abyss. Sounds like a single drop of water falling into a cup.
+
+[Go toward it.|cartPara]
+---
+:cartPara
+
+Your body flows effortlessly through the dark. It's not just empty space. The air feels pressurized and oppressive against your surface tension.
+
+"When you see someone," Cart says from above, "stay still and hidden. Your job is not to save anyone right now. All Paraphores go through this stage when they first arrive at their target layer: you sit still and record the story until it goes stale."
+
+[I'm looking and listening, but there really isn't a story to tell...|cartPara]
+---
+:cartPara
+
+Something appears in the distance. It's a glass sculpture. Looks melted, translucent, and a little tarnished, but there's a clearly defined head, shoulders, face...
+
+I'll let you take over partially. Go ahead and tell him.
+
+[It's uh... there's a memorial here.|cartPara]
+---
+:cartPara
+
+A dozen more sculptures float into view. Fifty more. Hundreds more.
+
+[They left statues of their older generations.|cartPara]
+---
+:cartPara
+
+You brush up against the membrane of a walled city. Faded murals and welcome banners coat the outside.
+
+<i>Thank you for coming down to visit us, Gods!</i>
+
+<i>Thank you for hearing our message!</i>
+
+<i>Please be nice, upper layer folks! We are a peaceful people!</i>
+
+[They've been expecting us for a while.|cartPara]
+---
+:cartPara
+
+You float into the empty city. Canals sprawl in sophisticated, planned routes around the bowl-like buildings. Every water-tight door has nine locks on it. Trash and grease and black grime have swallowed absolutely everything.
+
+[I think they built the transmitter a long time ago.|cartPara]
+---
+:cartPara
+
+The transmitter spikes out above the buildings. Looks like a cell tower, basically. There's a big strawberry-red light blinking on top, and near the bottom, a hundred generators churn through oil and spew smog all over their city.
+
+[They fucked themselves up with it.|cartPara]
+---
+:cartPara
+
+You glance at political posters, now barely visible through a layer of pollution you could scrape off with your fingernail. They beg people to vote for <i>this</i> guy, who promises to find a new, cleaner way to power the transmitter, and other ones beg people to vote for <i>that</i> guy, who promises to quarantine the generators to the city's slums.
+
+[They really, really wanted to contact us. They kept the transmission going no matter what.|cartPara]
+---
+:cartPara
+
+Hold on.
+
+Someone's here.
+
+[Examine.|cartPara]
+---
+:cartPara
+
+A black ooze gurgles pathetically at someone's doorstep. Maybe once it was clear and pure water, but now he's basically just a trash elemental.
+
+[Approach.|cartPara]
+---
+:cartPara
+
+Cart flickers back into your head. "Remember: do not interfere."
+
+[I won't, I won't.|cartPara]
+---
+:cartPara
+
+Too late.
+
+The elemental sees you, your freakish red hue, your freakish eyeball marking, and immediately loses his shit.
+
+He throws himself at the nine locks on the door, splashing around hopelessly, losing huge coagulated chunks of black dirt from his body. The wet screeching sets off every other elemental in this neighborhood. They all scream together, terrifying each other more and more in a feedback loop.
+
+From every locked room of every locked building, a single voice moans.
+
+[Dear god.|cartPara]
+---
+:cartPara
+
+[They're all shut-ins.|cartPara]
+---
+:cartPara
+
+The ooze in front of you collapses into a little puddle of anxiety and self-hatred. You either hurt their feelings by calling them a shut-in, or you made them feel left out by reminding them that they are the only elemental <i>not</i> locked up, miserable and alone in their room.
+
+[Cart I gotta be honest, I don't think there's a story to record here.|cartPara]
+---
+:cartPara
+
+He thinks you're right. Back upstairs, he jumps into his red pond.
+
+Your gut liquid starts to whirlpool inside you. You double over. Your palms splash against the ground.
+
+Your belly bulges...
+
+[Oh god...|cartPara]
+---
+:cartPara
+
+... You drop to all fours and stick your ass out, heaving with the strain to your membrane. Your belly balloons out so far it kisses the grimy ground. Then your stomach splits away from your body, crashes to the ground, and re-forms itself into Cart.
+
+He gets up and pats your belly. "Hi. We are down here, now, huh."
+
+[Yeah, we are! How did that happen again??|cartPara]
+---
+:cartPara
+
+"I sent you down, and then I used you like you were just some slutty red pond."
+
+He steps away from the trash elemental grovelling at the door and pats your belly. "You did good. This is the last step, now. Oh— did you enjoy giving birth to me like that?"
+
+[... Yes.|cartPara]
+[... Maybe.|cartPara]
+[No!?|cartPara]
+---
+:cartPara
+
+He pats your belly again, this time right on the eye marking. "Either way," he says, "open this up, will you?"
+
+He inches closer to the oozeling, poking it with his toe. "We'll get these poor guys cleaned up."
+
+[Open my belly eye.|cartPara]
+---
+:cartPara
+
+You stretch out and find a deep curve in your spine. The eye stirs and slowly peels open.
+
+"A flood of special particles has now been released," Cart explains. "All Paraphores have an eye for this reason. Look, now— here, little guy. As long as any sensory organ makes contact with them, it will..."
+
+The trashling, currently whining and bashing itself against the door, he goes still. His body slides over like a slug, magnetized to your staring stomach. He trickles to a stop at your feet, not touching them.
+
+[Woah.|cartPara]
+[Belly dance.|cartParaBelly]
+---
+:cartParaBelly
+
+You start to groove a little, jiggling your slippery bod for the ooze, but he doesn't care much. He's entranced by your swaying belly.
+
+"Stop that." Cart tries to grab your hips but his paws go right through them. "There's still one more step."
+
+[Whatzat?|cartPara]
+---
+:cartPara
+
+"It has to decide whether to join us or not. Don't ever assimilate someone without their consent."
+
+[Ooh.|cartPara]
+---
+:cartPara
+
+[Wanna come with me, little guy?|cartPara]
+---
+:cartPara
+
+[Just hop in my red juice and you'll dissolve! (That's probably how it works right?)|cartPara]
+---
+:cartPara
+
+Yes.
+
+[Come on~ Jump on in.|cartPara]
+---
+:cartPara
+
+The oozeling hesitates, still anxious, but after a moment he slides up your ankle and coils around it like a snake.
+
+"Smooth him out."
+
+You run your palms slowly down your legs. Any black grime globs either fall away or pop into your thighs and the crooks behind your kneecaps. The ooze is completely inside you now, and you can feel him poking around curiously.
+
+[A-Ah! It tickles!|cartPara]
+---
+:cartPara
+
+"Suck it up," Cart says, watching your belly bulge again.
+
+This time you hunch over and give easy birth to a dazzling, pure-clear water elemental, after he's done mentally focusing on his new body. I can't communicate with him yet. When I can, I will relay the message... but I think you'll get it anyway:
+
+He launches himself off the ground and blasts your fuckin face off like a fire hose. His body becomes a mist that encircles you in a hurricane of rainbows and cool, breezy g-forces. After exhaling through a little trickle, he reforms into a hug that completely covers your surface area.
+
+I think he's saying thank you.
+
+[Awww! Hug him back!|cartPara]
+---
+:cartPara
+
+Your membrane bullies his out of the way. The two of you become one clear-opaque smoothie, bubbles of you floating through him like a lava lamp.
+
+Cart taps your shoulder.
+
+[Mmmn? Goway, I call dibs on this water boi.|cartPara]
+---
+:cartPara
+
+"Listen," is all Cart says.
+
+[Yes, I'm sure you have more lore to explain. In a bit I said.|cartPara]
+---
+:cartPara
+
+He shakes his head. "Not to me. Just listen in general."
+
+[... Oh yeah.|cartPara]
+---
+:cartPara
+
+The world is filled with muffled hikkikomori moaning.
+
+[Forgot there was a shitload of these little guys.|cartParaRejoin2]
+[Hikkikomori?|cartParaHikki]
+---
+:cartParaHikki
+
+Shut-ins.
+
+Sorry, I'm a weeb.
+
+[Ooooo right. This is just one.|cartParaRejoin2]
+---
+:cartPara
+
+Cart jams his arm through your belly without warning. You swallow on impulse and your chest tightens up. Feels like you just took a cock dry.
+
+The rest of him slips inside easily after that first gape. He dissolves, reforms, and comes back out as a waterbeing that flows more gracefully and cohesively (he never spills a drop of himself!) than you or your beloved water boi.
+
+He slides up to the boi and tries his hand at the language:
+
+"A blrlbhlerbehl? Blrble blrlblrbl?"
+
+"Ablrbl! Ablrblrble! Brblrhl."
+
+[Dude come on I called dibs on him.|cartPara]
+---
+:cartPara
+
+Your water boi hurries off along the street. He stops at each door to sing like a happy little brook at the vault-locked doors to each building. If he can find any crack that'll let his liquid body squeeze inside, he always sniffs the occupants out and talks to them directly. As soon as he coaxes them out— or, sometimes, as soon as he coaxes them even somewhat near one of the cracks in their buildings— your eyeball particles overload their senses and pull them over to you for assimilation. The process gets faster and faster with each new elemental that comes to you and cleans themselves in your body.
+
+Soon he passes out of sight.
+
+[Why'd you do that?? He was getting ready to fuck me for sure.|cartPara]
+---
+:cartPara
+
+"He already fucked you. Did you not notice when his body intertwined with yours?"
+
+Oops. I thought that was a hug. Sorry. You could probably tell from the blrblrblrbl earlier that I'm not very well-versed in elemental culture.
+
+[Oh...|cartPara]
+---
+:cartPara
+
+One by one, the trashbeings drag their sorry asses out of reclusion and into the blinding... near-darkness of their polluted city. They come to you in unwashed waves, crooning, groping for your holy crimson body.
+
+[Take it all. <3|cartPara]
+---
+:cartPara
+
+Without exception, you fuck everyone who presses into you. Black filth clogs your red juice, at times, and turns it maroon, but Cart holds off the crowd of horny elementals long enough for you to shake it out before it becomes a problem.
+
+Cart cranes his neck, checking the black streets. One single trash child still cowers in the distance. Cart moves towards him, but he disappears, wracked by fear. "Leave it alone," he tells you. "It will come if it wants."
+
+[Okay...|cartPara]
+---
+:cartPara
+
+Slowly, all those wretched toilet screams around the city turn to echoes of screams, and then even those dissipate. Wet murmurs circle the crowd. It was worth it, they seem to say, gesturing from their transmitter tower to you and Cart: our hard work and our suffering finally caught the attention of a God.
+
+Yes! I knew I guessed right. The very next thing they do is kneel before you, although for them it's more like puddle-ifying themselves before you. Reverence ripples through them physically.
+
+[Ah, my people, my children, at last! I have come to ferry you unto—|cartPara]
+---
+:cartPara
+
+They have no idea what you're saying.
+
+[... Fuck Cart help|cartPara]
+---
+:cartPara
+
+Instead, he addresses them with a booming "BLRBLRBL!" and starts his own speech. He's sending me a copy in English for you, here.
+
+"TRASH PEOPLE," he begins, and no one seems offended, "You have been assimilated into the Interphore. I know that does not mean anything to you right now, but hopefully, in the future, you will understand what you have become. Please dissolve yourselves in my... my associate's body and find the back wall of a layer called 'L.L.L.' That is where I live. I will meet you there. <i>Please</i> keep away from the couch and the shower room. No one is going to fish you out if you flow down the drain."
+
+[(Associate?? I thought we were friends at least...)|cartPara]
+---
+:cartPara
+
+They all fuse together and flow into you, a penetrating jet of water so clear and pure and filled with nourishing minerals it could be sold for $4.99 at an organic food store. Cart goes on:
+
+"And you should—"
+
+... But a group of elementals aren't leaving yet. They're in a tight little group, tugging on Cart's surface tension.
+
+"Yes? What is it?"
+
+"Abrlblrb," they tell him. (Waiting on the translation.)
+
+[Next?|cartPara]
+---
+:cartPara
+
+Cart looks jittery and awkward, which is really saying something, since he usually seemed so nimble and comfortable in liquid form.
+
+"I uh... I see..."
+
+(Still waiting.)
+
+[Hmmm.|cartPara]
+---
+:cartPara
+
+(Here we go.)
+
+They're saying:
+
+"Please fix our world, God! We can help clean it if you only show us how!"
+
+[Aaaahh shit.|cartPara]
+---
+:cartPara
+
+"Two things," Cart burbles, muttering. He clears his throat of some bubbles and tries again with a bit more bravery: "Two things I should have told you before I got your hopes up like that. One, I am not your God. That would be our resident technophile. Your world is contained inside a little machine that I honestly do not know very much about. Two, the Interphore is not in the business of terraforming, environmental activism, city planning, socioeconomic restructuring, or really anything besides recording and transmitting people or their stories."
+
+The crowd is silent. Not a single bubble moves.
+
+[...|cartPara]
+---
+:cartPara
+
+Cart fidgets.
+
+"So. I am sorry. But you ruined it. No one will be able to live here safely until you find a way to clean it."
+
+[Hey! If it's any consolation, um. (Wait tell Cart to translate this to them.)|cartPara]
+---
+:cartPara
+
+Already on it.
+
+[If it's any consolation, there are tons and tons of cleaner layers out there!|cartPara]
+---
+:cartPara
+
+
+
+[And lots of dirtier ones, too, if that's your thing~|cartPara]
+---
+:cartPara
+
+The elementals look at each other. Unfortunately, you don't think any of them have a pollution kink after the hell they just went through.
+
+Wait. Nope. Some of them are whispering about it in the back. Cart says they're gonna reclaim pollution during roleplay to help them deal with their past trauma.
+
+[Well, whatever your tastes,|cartPara]
+---
+:cartPara
+
+
+
+[I'm sure there's a place for all of you up above, with us!|cartPara]
+---
+:cartPara
+
+That cheers them up.
+
+They flow past you and Cart, reaching out to at least graze your holiness before they go, watery digits lingering on your face and your neck. A few stay to interrogate Cart— What is the Interphore? What am I now? Are there other elementals up there, or are we the first? Did you really hear our transmission after all this time, or did I die in my bedroom and now I'm just dreaming? Where do we go if we die, is there a second afterlife after yours?
+
+"Big multiversal cool kids club, you are juice now, yeah there are some but not a ton, yes we heard your message and this is really happening, you cannot die now you will just respawn— good God, people, just shut up and fuck `data.playerName` until you dissolve, I will answer the rest of your questions at the L.L.L."
+
+[I can probably help and answer some! Maybe! Like two!|cartPara]
+---
+:cartPara
+
+The rest of the crowd trickles away.
+
+You're left feeling extremely full, rubbing your big red eyeball belly, and standing in the middle of the black city with Cart. The transmitter blinks hypnotically. It transmits mostly silence now. There is only one sound left, and it clings to your ear drum like a burr:
+
+A child crying in the distance.
+
+[Cart I think we missed one.|cartPara]
+---
+:cartPara
+
+Cart shrugs.
+
+"It did not come forward. We cannot force it."
+
+Still, he walks (flows) towards it.
+
+[Follow.|cartPara]
+---
+:cartPara
+
+It has crushed itself into the corner of an apartment piled up to the ceiling with dark sludge and soot. It burrows. Cart digs it out over and over, until it has nowhere else to go. It starts squealing and scrabbling at the room's metal floor. Its whole body is thick with tar, and its eyes are bleeding pockets of crude oil.
+
+[Come on. We have to save it. Look at the fucking thing.|cartPara]
+---
+:cartPara
+
+"I know it is hard," Cart says, and plunges into your body once more. You barely even wince, you're so used to the gape now. "But until I say so, you are a Paraphore, and you have to abide by the same rules all the others do when it comes to assimilation: consent is absolutely necessary."
+
+He re-emerges as himself, mostly, but when he lifts his bangs there's a camera embedded underneath.
+
+He snaps a picture of the screaming trash baby and quietly slips back inside you.
+
+[... But come on...|cartPara]
+---
+:cartPara
+
+"You already said come on, and I have not came on," he says from within you. He's a little voice just below your heart. "It is hard. But it is your job. You volunteered."
+
+[I know, but...|cartPara]
+---
+:cartPara
+
+"Are you coming back with me now?"
+
+[I'm just gonna see if I can't calm it down or something.|cartPara]
+---
+:cartPara
+
+"I will meet you at the L.L.L., then."
+
+[Yeah, see you there...|cartPara]
+---
+:cartPara
+
+"`data.playerName`."
+
+[What?|cartPara]
+---
+:cartPara
+
+"Do not assimilate that trash baby."
+
+[I said I was just going to calm it down.|cartPara]
+---
+:cartPara
+
+"You will not be able to communicate with it, calm or not."
+
+[Fine whatever.|cartPara]
+---
+:cartPara
+
+
+[...|cartPara]
+---
+:cartPara
+
+
+
+[Is he gone?|cartPara]
+---
+:cartPara
+
+Yeah, he just teleported back to his bathtub. The elementals got into his paints and now he's gotta filter all their liquids out. It will be a while.
+
+[Okay let's see what we can do here...|cartPara]
+---
+:cartPara
+
+The trash baby thrashes and burrows its way through the muck the second you try to grab it.
+
+I advise against assimilating it.
+
+[Ugh. You too? This rule is dumb.|cartParaQuit]
+[Fuck what you thought, assimilate it.|cartParaAss]
+---
+:cartParaQuit
+
+I guess it is kind of dumb in cases like this.
+
+[You should have a clause for when there's a trash baby who can't communicate.|cartPara]
+---
+:cartPara
+
+I'll work on it.
+
+[Thanks.|cartPara]
+---
+:cartPara
+
+Are you ready to go now?
+
+[Beam me up.|cartPara]
+---
+:cartPara
+
+<i>Fwooooooosh.</i>
+
+That's not the sound of me beaming you up, that's the sound of your liquid form glitching into a puddle of nothingness as your little cluster of electrons stops making sense to the gadget and just becomes meaningless atomic noise.
+
+You leak out of the machinery  as a little red trickle one layer up. Your curves fill out into the shape they had before this adventure. It felt nice to be so thin, small, and light, but there's a pleasure to having some weight to your hips again, too.
+
+[Move along~|cartPara]
+---
+:cartParaAss
+
+This is against the rules. You should know, I refuse to narrate this. I do not want to enable you.
+
+[Oh yeah? Well how about I just THINK about doing it...|cartPara]
+---
+:cartPara
+
+...
+
+[Really... REALLY... hard...|cartPara]
+---
+:cartPara
+
+Alright, your body actually did move. You sloppily body-slammed the little thing and shoved it into the red juice.
+
+Now its body is dissolving against its will. It is panicking. It cannot keep a coherent intention or thought in its mind. It cannot choose a form, gender, anything. But a body is still forming. It is spindly and black. Everything is tainted by panic. The pollution washes away, but what is left at the core, what it is now forced to embody—
+
+I won't narrate that.
+
+[...|cartPara]
+---
+:cartPara
+
+Not gonna lie, I'm pissed at you right now.
+
+[...|cartPara]
+---
+:cartPara
+
+[So did it work, or...|cartPara]
+---
+:cartPara
+
+Yes. You assimilated it. Now it can hop inside you and leave whenever it wants.
+
+[... Does it want to, or...|cartPara]
+---
+:cartPara
+
+Its body is terror incarnate.
+
+[... So it doesn't want to, or...|cartPara]
+---
+:cartPara
+
+It knows nothing but suffering and will know nothing but suffering until Cart gets here and cleans up after you.
+
+[... Look I'm sorry.|cartPara]
+---
+:cartPara
+
+
+
+[...|cartPara]
+---
+:cartPara
+
+
+
+[Okay you don't forgive me right now, I gotcha...|cartPara]
+---
+:cartPara
+
+
+
+[...|cartPara]
+---
+:cartPara
+
+
+
+[So um...|cartPara]
+---
+:cartPara
+
+[Can you tell me more about it? Is it okay, besides like, embodying pure fear and all?|cartPara]
+---
+:cartPara
+
+Consider yourself lucky that sight and sound are not mandatory for you right now.
+
+[It's that bad, huh.|cartPara]
+---
+:cartPara
+
+It's awful.
+
+[... I don't know what else I can do besides saying sorry...|cartPara]
+---
+:cartPara
+
+You can listen the next time we both assure you it is a bad idea to mess with a near-magical system that you have absolutely no understanding of.
+
+[Okay I promise I won't do that again.|cartPara]
+---
+:cartPara
+
+Thank you.
+
+Cart's here.
+
+[...|cartPara]
+---
+:cartPara
+
+He flows out of you and takes the form of a greasy, polluted trash being. Something more familiar than a fox or clear liquid.
+
+He shows the screaming anxiety baby the picture he took earlier, when it was still a trash elemental. It's not exactly a cute, warm-lit family photo, but the longer he holds it still in front of the child, the calmer it gets. Under his breath, he urges it to focus on the memory, although it can't understand him.
+
+Cart squats there, in the sludge, holding the photo, and waits as long as it takes for the crying to slow and stop. It's a few hours.
+
+[Next...|cartPara]
+---
+:cartPara
+
+It stares up at him, wary. He lowers himself over it.
+
+He embraces it, absorbs it, and only then does he allow his body to change back to red juice. This time, its little mind is filled with the sight of Cart's body and memories of its own body. When it dissolves and reforms, it comes back out as sparkling, pure liquid.
+
+[...|cartPara]
+---
+:cartPara
+
+Cart stands up and looks at you.
+
+[You don't have to chew me out. Mr. Eyeball already did it.|cartPara]
+---
+:cartPara
+
+"I am not going to waste time on you. I have eighty elementals flooding the map archives as we speak."
+
+[I...|cartPara]
+---
+:cartPara
+
+"Do your homework next time before you fuck with innocent trash babies."
+
+He shoves himself back into you and leaves.
+
+[x_x|cartPara]
+---
+:cartPara
+
+Well, I'm feeling a lot better now, and personally I thought the way he worded that was pretty funny.
+
+[Shut up man.|cartPara]
+---
+:cartPara
+
+Fair enough. I talk too much almost by definition.
+
+[Move along.|cartParaMoveAlong]
+---
+:cartParaMoveAlong
+
+!`
+if (music) music.destroy();
+
+execAsset("thirstyCaves.phore");
+initThirstyCaves();
+gotoMap();
+`
+
+END_PASSAGES

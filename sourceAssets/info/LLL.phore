@@ -5,6 +5,8 @@ You're at the L.L.L.! Cartographer's little library, lounge room, and map dome.
 
 !`
 addChoice("Move along.", function() {
+	clear();
+	
 	execAsset("thirstyCaves");
 	initThirstyCaves();
 	gotoMap();
