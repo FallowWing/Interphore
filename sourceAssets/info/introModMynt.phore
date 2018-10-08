@@ -1584,8 +1584,6 @@ addChoice("Step into the pond.", "myntAdvent16knew5");
 resetBackgroundMode(2);
 print("leaving intro");
 
-execAsset("thirstyCaves.phore");
-initThirstyCaves();
 gotoPassage("thirstyCavesIntro");
 `
 

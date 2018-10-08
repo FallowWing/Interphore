@@ -1111,9 +1111,6 @@ resetBackgroundMode(2);
 print("leaving intro");
 
 if (music) music.destroy();
-
-execAsset("thirstyCaves.phore");
-initThirstyCaves();
 gotoMap();
 `
 

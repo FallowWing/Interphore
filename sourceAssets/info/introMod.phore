@@ -238,8 +238,6 @@ queueCall(function() {
 	resetBackgroundMode(2);
 	print("leaving intro");
 
-	execAsset("thirstyCaves.phore");
-	initThirstyCaves();
 	if (data.shapeShifted) {
 		gotoMap();
 	} else {

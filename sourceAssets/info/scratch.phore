@@ -244,8 +244,6 @@ choicesPerPage = 6;
 :thirstyCaves
 
 !`
-execAsset("thirstyCaves.phore");
-initThirstyCaves();
 gotoMap();
 `
 

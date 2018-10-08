@@ -1255,9 +1255,6 @@ Fair enough. I talk too much almost by definition.
 
 !`
 if (music) music.destroy();
-
-execAsset("thirstyCaves.phore");
-initThirstyCaves();
 gotoMap();
 `
 
