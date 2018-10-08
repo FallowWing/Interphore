@@ -1132,7 +1132,7 @@ function realUpdate() {
 			if (keys[32] == KEY_JUST_RELEASED) img.setText(img.text + " ");
 			if (keys[KEY_BACKSPACE] == KEY_JUST_RELEASED) img.setText(img.text.substring(0, img.text.length-1));
 
-			for (var j = 65; j < 90; j++) {
+			for (var j = 65; j <= 90; j++) {
 				if (keys[j] == KEY_JUST_PRESSED) {
 					var ch = String.fromCharCode(j);
 					if (keys[KEY_SHIFT] == KEY_RELEASED || keys[KEY_SHIFT] == KEY_JUST_RELEASED) ch = ch.toLowerCase();
