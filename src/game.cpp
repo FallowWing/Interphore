@@ -865,6 +865,7 @@ duk_ret_t addImage(duk_context *ctx) {
 	if (slot >= IMAGES_MAX) {
 		msg("Too many images");
 		duk_push_int(ctx, -1);
+		Assert(0);
 		return 1;
 	}
 
@@ -886,6 +887,7 @@ duk_ret_t addCanvasImage(duk_context *ctx) {
 	if (slot >= IMAGES_MAX) {
 		msg("Too many images");
 		duk_push_int(ctx, -1);
+		Assert(0);
 		return 1;
 	}
 
@@ -908,6 +910,7 @@ duk_ret_t addRectImage(duk_context *ctx) {
 	if (slot >= IMAGES_MAX) {
 		msg("Too many images");
 		duk_push_int(ctx, -1);
+		Assert(0);
 		return 1;
 	}
 
@@ -934,6 +937,7 @@ duk_ret_t add9SliceImage(duk_context *ctx) {
 	if (slot >= IMAGES_MAX) {
 		msg("Too many images");
 		duk_push_int(ctx, -1);
+		Assert(0);
 		return 1;
 	}
 
@@ -955,6 +959,7 @@ duk_ret_t addEmptyImage(duk_context *ctx) {
 	if (slot >= IMAGES_MAX) {
 		msg("Too many images");
 		duk_push_int(ctx, -1);
+		Assert(0);
 		return 1;
 	}
 
@@ -1180,6 +1185,7 @@ duk_ret_t playMusic(duk_context *ctx) {
 	if (slot >= AUDIOS_MAX) {
 		msg("Too many audios");
 		duk_push_int(ctx, -1);
+		Assert(0);
 		return 1;
 	}
 
@@ -1200,6 +1206,7 @@ duk_ret_t playEffect(duk_context *ctx) {
 	if (slot >= AUDIOS_MAX) {
 		msg("Too many audios");
 		duk_push_int(ctx, -1);
+		Assert(0);
 		return 1;
 	}
 
