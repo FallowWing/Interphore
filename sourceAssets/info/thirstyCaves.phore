@@ -1607,6 +1607,13 @@ execAsset("thelly.phore");
 gotoPassage("thellyModStart");
 `
 ---
+:foodLand
+!`
+clear();
+execAsset("foodLand.phore");
+gotoPassage("foodLandModStart");
+`
+---
 :lone
 !`
 clear();
@@ -1643,6 +1650,7 @@ function initThirstyCaves() {
 	submitNode("Red Pond", "introArea");
 	submitNode("Alcohol Layer", "pipeline");
 	submitNode("Underground Farms", "rox");
+	submitNode("Foodland", "foodLand");
 	submitNode("Heaven", "heaven");
 	submitNode("L.L.L.", "LLL");
 	submitNode("Femme Ren's", "thelly");
@@ -1653,6 +1661,7 @@ function initThirstyCaves() {
 	
 	attachNode("Red Pond", "Underground Farms", RIGHT);
 	attachNode("Underground Farms", "Heaven", RIGHT);
+	attachNode("Underground Farms", "Foodland", BOTTOM);
 	attachNode("Red Pond", "Yellow Pond", LEFT);
 	attachNode("Yellow Pond", "Alcohol Layer", LEFT);
 	attachNode("Red Pond", "Spilled Paint", BOTTOM);

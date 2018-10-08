@@ -36,6 +36,8 @@ info/thelly.phore
 info/lone.phore
 info/introCart.phore
 info/LLL.phore
+info/foodLand.phore
+info/cartPara.phore
 info/scratch.phore
 info/basic.phore
 info/utils.phore
