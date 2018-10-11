@@ -1667,21 +1667,21 @@ function gotoThirstyCaves() {
 
 	setNodeLocked("Spilled Paint", function() {
 		return data.metCart;
-  	});
+	});
 
-  	setNodeLocked("Mynt's Day Off", function() {
+	setNodeLocked("Mynt's Day Off", function() {
 		return data.leftMynt;
-  	});
+	});
 
-  	setNodeLocked("Femme Ren's", function() {
+	setNodeLocked("Femme Ren's", function() {
 		return data.metRen;
-  	});
+	});
 
-  	setNodeLocked("Lone's Room", function() {
+	setNodeLocked("Lone's Room", function() {
 		return data.metRen;
-  	});
+	});
 
-  	gotoMap();
+	gotoMap();
 	setBackground(0, "writer/mainBg");
 }
 

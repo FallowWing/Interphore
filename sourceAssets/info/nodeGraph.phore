@@ -1,3 +1,4 @@
+var preventNextCheckpoint = false;
 var graphNodes = [];
 
 var graphBg = null;
@@ -48,14 +49,13 @@ function setNodeLocked(nodeName, fn) {
 	node.lockFunction = fn;
 }
 
-function gotoMap(isCheckpoint) {
-	if (isCheckpoint === undefined) isCheckpoint = true;
-
-	if (isCheckpoint) {
+function gotoMap() {
+	if (preventNextCheckpoint) {
+		data = JSON.parse(checkpointStr);
+		preventNextCheckpoint = false;
+	} else {
 		msg("Checkpoint");
 		saveCheckpoint();
-	} else {
-		data = JSON.parse(checkpointStr);
 	}
 
 	clear();
