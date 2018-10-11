@@ -108,24 +108,6 @@ function gotoMap() {
 		node.textField.y = node.sprite.height/2 - node.textField.textHeight/2;
 		node.textField.layer = GRAPH_NODE_LAYER;
 		node.sprite.addChild(node.textField);
-
-		// for (int i = 0; i < graph->nodesNum; i++) {
-
-		// 	{ /// Node locked
-		// 		if (node->unlockVarName) {
-		// 			execJs("var nodeLockedStr = %s ? \"1\" : \"0\";", node->unlockVarName);
-
-		// 			mjs_val_t jsData = mjs_get(mjs, mjs_get_global(mjs), "nodeLockedStr", strlen("nodeLockedStr"));
-		// 			size_t jsStrLen = 0;
-		// 			const char *jsStr = mjs_get_string(mjs, &jsData, &jsStrLen);
-		// 			bool isUnlocked = jsStr[0] == '1' ? true : false;
-		// 			// printf("%s is %d\n", node->name, isUnlocked);
-
-		// 			execJs("var nodeLockedStr = null;");
-
-		// 			if (!isUnlocked) node->sprite->alpha = 0.5;
-		// 		}
-		// 	}
 	});
 
 	graphNodes.forEach(function(node) {
@@ -183,18 +165,12 @@ function gotoMap() {
 	extrasButton.onRelease = function() {
 		gotoPassage("scratchModStart");
 	}
+}
 
-
-	// { /// Exit button
-	// 	MintSprite *spr = createMintSprite("writer/exit.png");
-	// 	writer->bg->addChild(spr);
-	// 	spr->scale(2, 2);
-	// 	spr->x = graph->loadButton->x;
-	// 	spr->y = graph->loadButton->y + graph->loadButton->getHeight() + 16; //@hardcode padding 16px
-	// 	spr->layer = lowestLayer + NODES_LAYER;
-
-	// 	graph->exitButton = spr;
-	// }
+function getNode(name) {
+	graphNodes.forEach(function(node) {
+		if (node.name == name) return node;
+	});
 }
 
 { //@incomplete Move these somewhere else
