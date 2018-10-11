@@ -1111,7 +1111,7 @@ resetBackgroundMode(2);
 print("leaving intro");
 
 if (music) music.destroy();
-gotoMap();
+gotoLLL();
 `
 
 END_PASSAGES

@@ -244,7 +244,7 @@ choicesPerPage = 6;
 :thirstyCaves
 
 !`
-gotoMap();
+gotoThirstyCaves();
 `
 
 ---

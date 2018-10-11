@@ -6,7 +6,7 @@ You're at the L.L.L.! Cartographer's little library, lounge room, and map dome.
 !`
 addChoice("Move along.", function() {
 	clear();
-	gotoMap();
+	gotoLLL();
 });
 addChoice("Examine Paraphores", "examineParaphores");
 addChoice("Rules of Operation for Paraphores.");
@@ -26,24 +26,19 @@ var cartImg = addImage(cartAsset);
 cartImg.x = gameWidth;
 cartImg.y = gameHeight/2 - cartImg.height/1.5;
 tween(cartImg, 3, {x: gameWidth - cartImg.width * 1.1}, {ease: QUAD_OUT});
-
-if (!data.metRen) {
-	clear();
-	execAsset("thelly.phore");
-	gotoPassage("thellyModStart");
-} else if (!data.heardTransmission) {
-	clear();
-	choicesPerPage = 1;
-	data.heardTransmission = true;
-	append("\nCartographer is on break. He's sprawled out on the couch, naked, with a little gadget pressed to his ear.");
-	addChoice("Watcha listenin to, Cart? Beatles? Depeche Mode?", "trans1");
-} else if (rnd > 0.95) {
-	msg("Lore is magical...");
-	getAudio("music").destroy();
-	var music = playMusic("audio/ambience/library");
-	music.name = "music";
-}
 `
+---
+:trans0
+
+Cartographer is on break. He's sprawled out on the couch, naked, with a little gadget pressed to his ear.
+
+!`
+clear();
+choicesPerPage = 1;
+data.heardTransmission = true;
+addChoice("Watcha listenin to, Cart? Beatles? Depeche Mode?", "trans1");
+`
+
 ---
 :trans1
 

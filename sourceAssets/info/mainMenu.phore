@@ -78,7 +78,7 @@ loadRect.onRelease = function() {
 	getAudio("music").destroy();
 	playEffect("audio/ui/newChoiceClick");
 	clearNodes();
-	gotoMap();
+	gotoThirstyCaves();
 	loadGame();
 }
 
@@ -263,7 +263,7 @@ gotoPassage("scratchModStart");
 `
 ---
 :Back.
-!`gotoMap();`
+!`gotoThirstyCaves();`
 
 ---
 :Exit

@@ -993,7 +993,7 @@ addChoice(data.playerName+", please come back soon...", "myntDecoEnd2");
 
 !`
 if (music) music.destroy();
-gotoMap();
+gotoThirstyCaves();
 `
 
 END_PASSAGES

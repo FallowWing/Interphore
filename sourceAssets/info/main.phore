@@ -4,3 +4,5 @@ execAsset("mods.phore");
 execAsset("nodeGraph.phore");
 execAsset("utils.phore");
 execAsset("mainMenu.phore");
+execAsset("thirstyCaves.phore");
+execAsset("LLLmap.phore");

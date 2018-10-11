@@ -25,6 +25,7 @@ info/interStart.phore
 info/interConfig.js
 info/passageParser.js
 
+info/LLLmap.phore
 info/introMod.phore
 info/introModMynt.phore
 info/mainMenu.phore
@@ -130,6 +131,8 @@ img/writer/notification.png
 img/writer/notification.spr
 img/writer/writerChoice.png
 img/writer/writerChoice.spr
+img/writer/layerSelect.png
+img/writer/layerSelect.spr
 img/writer/nodeChoice.png
 img/writer/nodeChoice.spr
 img/writer/choiceArrow.png

@@ -1575,7 +1575,7 @@ You follow the ALCOHOL LAYER pipeline underground. It takes a sharp left turn ou
 [Move along.]
 ---
 :Move along.
-!`gotoMap();`
+!`gotoThirstyCaves();`
 
 ---
 :devMenu
@@ -1589,15 +1589,7 @@ gotoPassage("scratchModStart");
 ---
 :LLL
 !`
-clear();
-if (data.metCart) {
-	execAsset("LLL.phore");
-	gotoPassage("hubLLL");
-} else {
-	execAsset("introCart.phore");
-	gotoPassage("introModCartStart");
-	data.metCart = true;
-}
+gotoLLL();
 `
 ---
 :thelly
@@ -1644,7 +1636,9 @@ gotoPassage("introModMyntStart");
 
 END_PASSAGES
 
-function initThirstyCaves() {
+function gotoThirstyCaves() {
+	clearNodes();
+
 	submitNode("Red Pond", "introArea");
 	submitNode("Yellow Pond", "piss");
 	submitNode("Red Pond", "introArea");
@@ -1687,6 +1681,7 @@ function initThirstyCaves() {
 		return data.metRen;
   	});
 
+  	gotoMap();
 	setBackground(0, "writer/mainBg");
 }
 

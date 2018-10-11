@@ -499,7 +499,7 @@ Lulu bolts, using your lap as a springboard for his hindpaws. He kicks you over 
 
 !`
 if (music) music.destroy();
-gotoMap();
+gotoLLL();
 `
 
 END_PASSAGES

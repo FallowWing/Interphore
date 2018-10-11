@@ -239,7 +239,7 @@ queueCall(function() {
 	print("leaving intro");
 
 	if (data.shapeShifted) {
-		gotoMap();
+		gotoThirstyCaves();
 	} else {
 		data.shapeShifted = true;
 		gotoPassage("thirstyCavesIntro");

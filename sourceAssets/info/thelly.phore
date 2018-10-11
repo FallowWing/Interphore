@@ -1739,9 +1739,7 @@ Ren crushes him in a supermassive hug. Thelly squeaks. His fluffy tail helicopte
 !`
 if (music) music.destroy();
 
-execAsset("thirstyCaves.phore");
-initThirstyCaves();
-gotoMap();
+gotoLLL();
 `
 
 ---
