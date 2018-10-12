@@ -150,8 +150,6 @@ function gotoThirstyCaves() {
 	attachNode("L.L.L.", "Earth", BOTTOM);
 	attachNode("Earth", "Red Pond", RIGHT);
 
-  	gotoMap();
+	gotoMap();
 	setBackground(0, "writer/mainBg");
 }
-
-//Taro, Cade, Gryphon, and Kemp's truck cameo

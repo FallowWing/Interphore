@@ -47,7 +47,8 @@ exitButton.x = gameWidth - exitButton.width*exitButton.scaleX - 16;
 exitButton.y = 16;
 exitButton.onRelease = function() {
 	if (exitButton.alpha != 1) return;
-	gotoMap(false);
+	preventNextCheckpoint = true;
+	gotoThirstyCaves();
 }
 
 var titleBg = addRectImage(gameWidth, 50, 0x2d354c);
