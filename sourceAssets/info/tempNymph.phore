@@ -1,0 +1,146 @@
+---
+:thirstyCavesIntro
+
+The first and only sensation you feel after your body reforms is heat. You're blind, deaf, and mute... but you're warm.
+
+You are floating around in a totally different red pond, in all red ponds, temporarily formless and non-localized.
+
+Light glimmers above you. Shadows splash and play in it.
+
+Bright red filters through the pond's wavy surface and coats the rock walls in dancing cobwebs of light. Your eyes have finished forming, obviously.
+
+Now you can see what the shadows were: three smooth, purple-skinned creatures, skinny dipping in the pond above you. Must be nymphs, judging by their slow, drunken movements, their skittery dragonfly wings, petite physiques, and their cute, floppy goat-like ears. They shove each other, fool around, make out, and swim laps on the surface. A boy, a girl, and a both. From below, you get an impeccable view of their bubbly little toes, their slender legs, their plump taints (and the girl's plump vulva), and when they dive, you can even see the way their tummies bulge out a little. They must've eaten a big yummy meal recently.
+
+Swimming with full stomachs... they're just asking for a surprise from below.
+
+!`
+addChoice("Boy.", function() {
+	data.nymGen = "male";
+	gotoPassage("nymphPicked");
+}, {icons: ["Male"]});
+
+addChoice("Girl.", function() {
+	data.nymGen = "female";
+	gotoPassage("nymphPicked");
+}, {icons: ["Female"]});
+
+addChoice("Both.", function() {
+	data.nymGen = "both";
+	gotoPassage("nymphPicked");
+}, {icons: ["Intersex"]});
+`
+[Move along.]
+---
+:nymphPicked
+
+`Hes(data.nymGen)` completely unaware of your presence.
+
+You detach from the rest of the fluid, like a big lazy glob from the bottom of a lava lamp, and start to rise to the surface. Ripples caress your liquid body, tucking some parts in, stretching other parts out...
+
+Your buttcheeks tighten up and take shape. They're super shiny. Your `genitals("cock flops down between your thighs", "cunt pops up between your legs", "cock flops down between your thighs, and a cunt pops into existence, just beneath it")`. By merely trying to reach upward, you force your arms to detach from the blob and manifest themselves just below this nymph's cute butt.
+
+You brace your feet against the pond's rock wall and kick yourself up to the surface. Now that your oopy goopy body has condensed definitively into the body of a `dog()`, your paw can close around that nymph `his(data.nymGen)` ankle and you can...
+
+!`
+addChoice("Tickle it!!", "tickle");
+`
+---
+:tickle
+
+... you can tickle `his(data.nymGen)` lil foot.
+
+Instead of jerking away from you and freaking out, `he(data.nymGen)` jerk`data.nymGen === "both" ? "" : "s"` towards you and freak`data.nymGen === "both" ? "" : "s"` in. `He(data.nymGen)` know`data.nymGen === "both" ? "" : "s"` `hes(data.nymGen)` swimming right above the place where people spawn in, and your tickles are no surprise. You spot `his(data.nymGen)` pervy grin below the rippled surface.
+
+`He(data.nymGen)` sink`data.nymGen === "both" ? "" : "s"` a bit. `His(data.nymGen)` ankle slides down through your loose grip, which makes your palm slide sensually up `his(data.nymGen)` leg. Nymph skin is smooth and soft and perfectly hairless, like a shark's, so it doesn't matter that you aren't really trying to feel `him(data.nymGen)` up; all `he(data.nymGen)` `data.nymGen === "both" ? "have" : "has"` to do is let `his(data.nymGen)` body descend in the water, and your outstretched paw gropes `him(data.nymGen)` effortlessly.
+
+A shiver skitters up `his(data.nymGen)` leg. You feel it under your pawpads. `He(data.nymGen)` spreads `his(data.nymGen)` legs a little. Clearly, `he(data.nymGen)` want`data.nymGen === "both" ? "" : "s"` to go deeper.
+
+[Mmmm...|preAssGrope]
+---
+:preAssGrope
+
+`He(data.nymGen);` exhale`data.nymGen === "both" ? "" : "s"`. `His(data.nymGen)` chest deflates, `(data.nymGen !== "boy"?"petite tits sinking inward":"and that cute nymphcock stirs")`.
+
+Slowly, wrapped in a mask of bubbles, `his(data.nymGen)` face sinks below the surface of the water. `His(data.nymGen)` eyes are closed... you guess it's part of the thrill for `him(data.nymGen)`, to submit `himself(data.nymGen)` blindly to a mysterious underwater tickler such as yourself. As the nymph's body sinks down, your paw slides up. Your fingers slip lazily through the crevice behind `his(data.nymGen)` knee, up the back of `his(data.nymGen)` thigh.
+
+`Hes(data.nymGen)` so warm... you can almost feel the heat of `his(data.nymGen)` cock convecting through the same water that laps at your `genitals("own", "cunt", "own")`. Your paw nuzzles up against the bottom of `his(data.nymGen)` buttcheek. `He(data.nymGen)` leak`data.nymGen === "both" ? "" : "s"` a couple excited bubbles.
+
+Soon, `hes(data.nymGen)` perfectly level with you, face-to-face. `He(data.nymGen)` can't take the suspense anymore; `he(data.nymGen)` just `data.nymGen === "both" ? "have" : "has"` to open `his(data.nymGen)` eyes.
+
+!`
+addChoice("Grope "+his(data.nymGen)+" ass.", "assGrope");
+`
+---
+:assGrope
+
+`His(data.nymGen);` eyes pierce yours. `He(data.nymGen);` grab`data.nymGen === "both" ? "" : "s"` your hand before it goes anywhere.
+
+"You were the player, weren't you?" `he(data.nymGen);` ask`data.nymGen === "both" ? "" : "s"` underwater. "I'm `data.nymGen === "male" ? "Patch" : data.nymGen === "female" ? "Allei" : "Patch"`. We only met briefly..."
+
+You guess nymphs are amphibious. What beasts they are.
+
+[Jeez man don't be so harsh on them.|Jeez man.]
+!`addChoice("Mmm yeh.", "Mmm yeh.", {icons: ["Feral", "Love"]});`
+---
+:Mmm yeh.
+"I'm not a feral," `he(data.nymGen);` giggles. "They can't talk."
+[Aww.|nextBeasts2]
+---
+:Jeez man.
+"Who are you talking to?" `he(data.nymGen);` ask`data.nymGen === "both" ? "" : "s"`.
+[Nevermind.|nextBeasts2]
+[You're seriously going to narrate at me like that?|like that?]
+---
+:like that?
+"I wasn't trying to... 'narrate' at you. I'm not sure what that even really means? I guess it would be kinda like calling me an NPC, huh? You trying to say I'm spinning you a script? Well guess what, buddy, I've spent a lotta time inside computers, and I don't appreciate implied slurs."
+
+Alright I'm sorry. `He(data.nymGen);` didn't really say that. I was kinda just making it up.
+
+... Come on, don't give me the silent treatment.
+
+Just give me a "Next." command.
+
+[Next.|nextBeasts]
+---
+:nextBeasts
+
+!`
+timer(0, function(){
+	setTitle("That's it.");
+});
+
+timer(1, function(){
+	setTitle("Good job.");
+});
+
+timer(2, function(){
+	setTitle("");
+	gotoPassage("nextBeasts2");
+});
+`
+
+---
+:nextBeasts2
+Anyway, this little pink-skinned beast has already stuffed your paw down `his(data.nymGen);` buttcheeks and started smearing your fingers over `his(data.nymGen);` hole. Dribbly, fine bubble trails leak from `his(data.nymGen);` nostrils. `He(data.nymGen);` breathe`data.nymGen === "both" ? "" : "s"` through `his(data.nymGen);` skin; you can feel the soft rush of water flowing in and out, under your fingers. You're both locked together. The light drifts away, leaving you in romantic, dim mood lighting. You both sink deeper at a slow, consistent rate. The rock walls go from lit, to dark, to totally black. You have no idea if the pond has gotten wider. It could be as wide as a small lake now. You might be a ten minute swim away from anything. You both start to get cold.
+
+As you slip your fingers up against `his(data.nymGen);` butthole so vigorously, `he(data.nymGen);` crane`data.nymGen === "both" ? "" : "s"` `his(data.nymGen);` back and howl`data.nymGen === "both" ? "" : "s"` gallons of water. `His(data.nymGen);` little wings shiver violently, and all one direction at once, as if invisible hands are tickling them. `He(data.nymGen);` twists `his(data.nymGen);` flexible hips down and pop`data.nymGen === "both" ? "" : "s"` a finger in. Then `he(data.nymGen);` grab`data.nymGen === "both" ? "" : "s"` your wrist and fuck`data.nymGen === "both" ? "" : "s"` `himself(data.nymGen);` down to the knuckle.
+
+[Swim up!!!!!]
+[Add another finger.]
+---
+:Add another finger.
+Despite not being able to breathe through your skin, you decide to keep sinking with this cute nymph anyway. You lock your lips around `his(data.nymGen);` soft neck and plug a second finger up that slippery nymph ass, curling them both backward and tugging it open. `He(data.nymGen);` smile`data.nymGen === "both" ? "" : "s"` down at you, eyes half-lidded. Sacrificing yourself for `his(data.nymGen);` pleasure is the ultimate compliment. `He(data.nymGen);` lean`data.nymGen === "both" ? "" : "s"` down and kiss`data.nymGen === "both" ? "" : "es"` your forehead gently, bouncing `his(data.nymGen);` ass on your digits. The gyrations spin you onto your back, so that `his(data.nymGen);` face is cast in shadow from the last few dim rays of light that pierce this deep into the pond. Although you can't see `him(data.nymGen)`, you can feel `his(data.nymGen)` paws all over you, and you can hear the muffled little giggles as `he(data.nymGen);` watch`data.nymGen === "both" ? "" : "es"` your face go blue.
+
+"Thank you."
+
+The nymph kisses you. `His(data.nymGen);` mouth is full of warm water.
+
+[Mmmn... okay, swim up now...|Swim up!!!!!]
+---
+:Swim up!!!!!
+It's too late.
+
+You sink too deep to have any chance of getting back to the surface in time. You drown in `his(data.nymGen);` arms, with your finger tickling `his(data.nymGen);` squishy inner butthole.
+
+[Respawn.|Move along.]
+---

@@ -14,7 +14,7 @@ gotoPassage("introModCartStart");
 data.metCart = true;
 `
 ---
-:backOut
+:backLLL
 
 !`
 gotoThirstyCaves();
@@ -65,7 +65,7 @@ END_PASSAGES
 function gotoLLL() {
 	clearNodes();
 
-	submitNode("Back", "backOut");
+	submitNode("Back", "backLLL");
 	submitNode("Meeting Cart", "meetingCart");
 	submitNode("Femme Ren's", "femmeRens");
 	submitNode("Bullying Lone", "bullyingLone");

@@ -1,0 +1,89 @@
+print("arriving at Earth map");
+
+if (music) music.destroy();
+var music = playMusic("audio/ambience/violetMeteorite");
+music.name = "music";
+
+START_PASSAGES
+:backEarth
+
+!`
+gotoThirstyCaves();
+`
+---
+:wendyApt
+!`
+clear();
+execAsset("wendyApt.phore");
+gotoPassage("wendyAptStart");
+`
+---
+:wendyApt2
+!`
+clear();
+execAsset("wendyApt2.phore");
+gotoPassage("wendyApt2Start");
+`
+---
+:myntIntro
+!`
+clear();
+execAsset("introModMynt.phore");
+gotoPassage("introModMyntStart");
+`
+---
+:foodLand
+!`
+clear();
+execAsset("foodLand.phore");
+gotoPassage("introModMyntStart");
+`
+---
+:yellowPond
+!`
+clear();
+execAsset("yellowPond.phore");
+gotoPassage("introYellowPondStart");
+`
+
+
+END_PASSAGES
+
+function gotoEarth() {
+	clearNodes();
+
+	submitNode("Back", "backEarth");
+	submitNode("Intro", "myntIntro");
+	attachNode("Back", "Intro", RIGHT);
+
+	submitNode("Moving In", "wendyApt");
+	attachNode("Intro", "Moving In", RIGHT);
+
+	submitNode("Mynt's Day Off", "wendyApt2");
+	attachNode("Moving In", "Mynt's Day Off", BOTTOM);
+
+	submitNode("Yellow Pond", "yellowPond");
+	attachNode("Intro", "Yellow Pond", BOTTOM);
+
+	submitNode("Foodland", "foodLand");
+	attachNode("Yellow Pond", "Foodland", BOTTOM);
+
+	setNodeLocked("Moving In", function() {
+		return data.metCart;
+  	});
+
+  	setNodeLocked("Mynt's Day Off", function() {
+		return data.leftMynt;
+  	});
+
+  	setNodeLocked("Foodland", function() {
+		return data.leftMynt;
+  	});
+
+  	setNodeLocked("Yellow Pond", function() {
+		return data.metCart;
+  	});
+
+	gotoMap();
+	setBackground(0, "writer/mainBg");
+}

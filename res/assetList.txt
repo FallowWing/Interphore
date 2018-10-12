@@ -26,6 +26,7 @@ info/interConfig.js
 info/passageParser.js
 
 info/LLLmap.phore
+info/earthMap.phore
 info/introMod.phore
 info/introModMynt.phore
 info/mainMenu.phore
