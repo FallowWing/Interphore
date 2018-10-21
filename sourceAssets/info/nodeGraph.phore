@@ -168,9 +168,12 @@ function gotoMap() {
 }
 
 function getNode(name) {
+	var returnNode = null;
 	graphNodes.forEach(function(node) {
-		if (node.name == name) return node;
+		if (node.name == name) returnNode = node;
 	});
+
+	return returnNode;
 }
 
 { //@incomplete Move these somewhere else
