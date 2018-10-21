@@ -106,6 +106,9 @@ function gotoLLL() {
 	});
 
 	gotoMap();
+
+	var layerSelect = addImage("writer/gcd.png");
+
 	setBackground(0, "writer/mainBg");
 }
 

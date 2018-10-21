@@ -136,8 +136,16 @@ img/writer/notification.png
 img/writer/notification.spr
 img/writer/writerChoice.png
 img/writer/writerChoice.spr
+
 img/writer/layerSelect.png
 img/writer/layerSelect.spr
+img/writer/gcd.png
+img/writer/gcd.spr
+img/writer/library2.png
+img/writer/library2.spr
+img/writer/earth.png
+img/writer/earth.spr
+
 img/writer/nodeChoice.png
 img/writer/nodeChoice.spr
 img/writer/choiceArrow.png
@@ -178,6 +186,8 @@ img/writer/mynt/face/myntBod/10.png
 img/writer/mynt/face/myntBod/10.spr
 img/writer/characters/thelly/thelly.png
 img/writer/characters/thelly/thelly.spr
+img/writer/characters/taro/taro.png
+img/writer/characters/taro/taro.spr
 img/writer/characters/ren/ren.png
 img/writer/characters/ren/ren.spr
 img/writer/characters/lone/lone.png

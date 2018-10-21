@@ -40,7 +40,7 @@ gotoPassage("introModMyntStart");
 !`
 clear();
 execAsset("foodLand.phore");
-gotoPassage("introModMyntStart");
+gotoPassage("foodLandModStart");
 `
 ---
 :yellowPond
@@ -89,5 +89,8 @@ function gotoEarth() {
   	});
 
 	gotoMap();
+
+	var layerSelect = addImage("writer/earth.png");
+
 	setBackground(0, "writer/mainBg");
 }

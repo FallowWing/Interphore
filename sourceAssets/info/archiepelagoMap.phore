@@ -34,5 +34,8 @@ function gotoArchiepelago() {
 	attachNode("Back", "Farm Island", RIGHT);
 
 	gotoMap();
+
+	var layerSelect = addImage("writer/library2.png");
+
 	setBackground(0, "writer/mainBg");
 }

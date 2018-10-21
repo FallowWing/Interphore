@@ -144,11 +144,22 @@ You slip his paw past your lips. It's so soft and smooth... you roll your tongue
 
 Taro watches you amusedly. "I thought I recognized you. We met on the island, before, but I guess you forget me now."
 
-[Mmmh...|foodLand8]
+[Mmmh... Mynt's island, right? I do forget.|foodLand8]
 ---
 :foodLand8
 
-"Well, that's fine. Let's start from square one. My name is Taro, I'm a potatocat. I live in Foodland over here, but sometimes I visit other layers and run a little refreshments stand. Everything on the menu comes from my own body, of course, since I'm so delicious..."
+"Well, that's fine. Let's start from square one. My name is Taro, I'm a potatocat. I live in Foodland down here, but sometimes I visit other layers and run a little refreshments stand during earthquake season. Everything on the menu comes from my own body, of course, since I'm so delicious..."
+
+!`
+var taroImg = addImage("assets/img/writer/characters/taro/taro.png");
+taroImg.x = gameWidth;
+taroImg.y = gameHeight - taroImg.height;
+tween(taroImg, 3, {x: gameWidth - taroImg.width * 1.1}, {ease: QUAD_OUT});
+`
+
+[Nice to meetcha, Taro.|foodLand8a]
+---
+:foodLand8a
 
 He wraps one paw around the nape of your neck and grabs Lulu's forearm with the other. Gently, hardening just from the sight of it, Taro pushes his wolf's paw to the back of your throat and holds it there.
 

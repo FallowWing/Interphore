@@ -6,6 +6,7 @@ music.name = "music";
 
 START_PASSAGES
 :introArea
+
 You find a red pond, no matter where you are.
 
 If you jump in, you can change your body again.
@@ -212,6 +213,8 @@ if (data.genitals === "female") {
 	if (data.species === "cat") append("Sexy.\n\n");
 }
 append("Okay. All done. You haul your new body out of the red pond, all sloppy and drippy at the extremeties.");
+
+enableExit();
 `
 
 [Move along.]
@@ -263,5 +266,8 @@ function gotoThirstyCaves() {
   	});
 
 	gotoMap();
+
+	var layerSelect = addImage("writer/layerSelect.png");
+
 	setBackground(0, "writer/mainBg");
 }
