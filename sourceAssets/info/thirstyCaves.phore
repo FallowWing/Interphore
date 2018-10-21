@@ -10,15 +10,12 @@ You find a red pond, no matter where you are.
 
 If you jump in, you can change your body again.
 
-!`addChoice("Jump in.", function() {
-	if (data.shapeShifted) {
-		gotoPassage("Jump in.");
-	} else {
-		clear();
-		execAsset("introMod.phore");
-		gotoPassage("introModStart");
-	}
-});`
+!`
+choicesPerPage = 2;
+addChoice("Jump in.", function() {
+	gotoPassage("Jump in.");
+});
+`
 [Move along.]
 ---
 :Jump in.
@@ -28,12 +25,25 @@ data.hasBoobs = false;
 data.gender = "";
 data.playerName = "";
 data.hasKnot = false;
+data.hasBarbs = false;
+data.species = "";
+disableExit();
 `
-You swan dive back into the red fluid and your body disintegrates. It feels kinda harsh and stingy at first, but then it mellows out. Being bodyless is very relaxing.
+
+You swan dive back into the red fluid and your body disintegrates. It feels kinda harsh and stingy at first because you hit it at a weird angle, but then it mellows out to a cool, tingly numbness. Feels like a menthol hot tub.
+
+Man, indefinity is so relaxing.
+
+!`
+choicesPerPage = 1;
+`
+
 [Shapeshift.]
 ---
 :Shapeshift.
+
 You reach down and fiddle with yourself.
+
 !`
 if (!data.hasBoobs) addChoice("Boobs.", function() {
 	data.hasBoobs = true;
@@ -67,8 +77,12 @@ if (data.genitals !== "male" && data.genitals !== "female" && data.genitals !== 
 if (data.genitals === "female" || data.genitals === "male" || data.genitals === "both") addChoice("Ready.", "Shapeshift.2");`
 ---
 :Shapeshift.2
+
 You reach inside yourself and try to find your true identity.
+
 !`
+choicesPerPage = 3;
+
 addChoice("He.", function() {
 	data.gender = "male";
 	gotoPassage("Shapeshift.3");
@@ -86,7 +100,9 @@ addChoice("They.", function() {
 `
 ---
 :Shapeshift.3
+
 You try to think of a good label to slap on this tight lil package.
+
 !`
 addInputField();
 
@@ -111,8 +127,93 @@ addChoice("Phae.", function() {
 `
 ---
 :Shapeshift.4
-!`setTitle("");`
-All done.
+
+You contemplate your new fursona. "Original character," you think to yourself, "please do not steal."
+
+!`
+addChoice("Fox.", function() {
+	data.species = "fox";
+	if (data.genitals === "male" || data.genitals === "both") {
+		gotoPassage("ShapeshiftClarify");
+	} else {
+		gotoPassage("Shapeshift.5");
+	}
+});
+
+addChoice("Wolf.", function() {
+	data.species = "wolf";
+	if (data.genitals === "male" || data.genitals === "both") {
+		gotoPassage("ShapeshiftClarify");
+	} else {
+		gotoPassage("Shapeshift.5");
+	}
+});
+
+addChoice("Bunny.", function() {
+	data.species = "bunny";
+	gotoPassage("Shapeshift.5");
+});
+
+addChoice("Cat.", function() {
+	data.species = "cat";
+	if (data.genitals === "male" || data.genitals === "both") {
+		gotoPassage("ShapeshiftClarify");
+	} else {
+		gotoPassage("Shapeshift.5");
+	}
+});
+`
+---
+:ShapeshiftClarify
+
+!`
+choicesPerPage = 2;
+
+if (data.species === "cat") {
+	append("Sexy.\n\nYou ponder whether or not you want barbs on your dick, though.");
+
+	addChoice("Yes. >:3", function() {
+		data.hasBarbs = true;
+		gotoPassage("Shapeshift.5");
+	});
+
+	addChoice("No.", function() {
+		data.hasBarbs = false;
+		gotoPassage("Shapeshift.5");
+	});
+} else {
+	if (data.species === "fox") append("Slut.");
+	if (data.species === "wolf") append("Edgy.");
+
+	append("\n\nYou ponder whether or not you want a big fat knot at the base of your dick.");
+	
+	addChoice("Oh yes I do.", function() {
+		data.hasKnot = true;
+		gotoPassage("Shapeshift.5");
+	});
+
+	addChoice("No.", function() {
+		data.hasKnot = false;
+		gotoPassage("Shapeshift.5");
+	});
+}
+`
+
+---
+:Shapeshift.5
+
+!`
+choicesPerPage = 1;
+
+if (data.species === "bunny") append("Cute.\n\n");
+if (data.genitals === "female") {
+	if (data.species === "fox") append("Slut.\n\n");
+	if (data.species === "wolf") append("Edgy.\n\n");
+	if (data.species === "cat") append("Sexy.\n\n");
+}
+append("Okay. All done. You haul your new body out of the red pond, all sloppy and drippy at the extremeties.");
+`
+
 [Move along.]
 ---
 :Move along.
@@ -137,6 +238,11 @@ gotoLLL();
 !`
 gotoEarth();
 `
+---
+:archiepelago
+!`
+gotoArchiepelago();
+`
 
 END_PASSAGES
 
@@ -144,11 +250,17 @@ function gotoThirstyCaves() {
 	clearNodes();
 
 	submitNode("L.L.L.", "LLL");
-	submitNode("Earth", "earth");
-	submitNode("Red Pond", "introArea")
+	submitNode("Spilled Paint", "earth");
+	submitNode("Red Pond", "introArea");
+	submitNode("Archiepelago", "archiepelago");
 	
-	attachNode("L.L.L.", "Earth", BOTTOM);
-	attachNode("Earth", "Red Pond", RIGHT);
+	attachNode("L.L.L.", "Spilled Paint", BOTTOM);
+	attachNode("Spilled Paint", "Red Pond", RIGHT);
+	attachNode("Spilled Paint", "Archiepelago", BOTTOM);
+
+	setNodeLocked("Archiepelago", function() {
+		return data.metCart;
+  	});
 
 	gotoMap();
 	setBackground(0, "writer/mainBg");

@@ -1,0 +1,38 @@
+print("arriving at Archiepelago map");
+
+if (music) music.destroy();
+var music = playMusic("audio/ambience/cell");
+music.name = "music";
+
+START_PASSAGES
+---
+:archiepelagoStart
+
+---
+:backArchie
+
+!`
+gotoThirstyCaves();
+`
+---
+:farmIsland
+
+!`
+clear();
+print("leaving archiepelagoMap");
+execAsset("mudPies.phore");
+gotoPassage("roxStart");
+`
+
+END_PASSAGES
+
+function gotoArchiepelago() {
+	clearNodes();
+
+	submitNode("Back", "backArchie");
+	submitNode("Farm Island", "farmIsland");
+	attachNode("Back", "Farm Island", RIGHT);
+
+	gotoMap();
+	setBackground(0, "writer/mainBg");
+}

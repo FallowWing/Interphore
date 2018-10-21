@@ -5,6 +5,10 @@ var music = playMusic("audio/ambience/violetMeteorite");
 music.name = "music";
 
 START_PASSAGES
+---
+:earthStart
+
+---
 :backEarth
 
 !`

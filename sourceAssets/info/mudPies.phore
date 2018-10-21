@@ -1,22 +1,29 @@
-:rox
-You come across a series of underground farms. All kinds of curious flora grow here: neat little rows of barbledinkers, a trellis overflowing with gorbota vine, even two huge rolling fields of subterranean stank marsh.
+print("arriving at mudPies");
 
-Most of the farmhouses have cheery lights on and humping shadows at the windows, but for some reason you're drawn to an abandoned farm at the very end of the neighbourhood.
+START_PASSAGES
+:roxStart
+
+You wander onto a forest island. All kinds of curious flora grow here: neat little rows of barbledinkers, a trellis overflowing with gorbota vine, even two huge rolling fields of subterranean stank marsh.
+
+Most of the farmhouses have cheery lights on and humping shadows at the windows, but for some reason you're drawn to an abandoned farm at the very end of the island.
 
 [Examine abandoned farm.|rox2a]
 ---
 :rox2a
-It's empty and dusty. Everything out front is dead.
 
-Whoever lived here left no belongings, except a stack of stained papers at the back of the living room.
+It's empty, but not dusty.
 
-Most of them are just boring financial stuff with lots of red numbers but at the bottom of the pile, you find a little story stapled together at the edges:
+The floorboards creak as you wander deeper. Whoever lived here left no belongings except a stack of stained papers at the back of the living room.
 
-Mud Pies by Roxelle Devaunt.
+Most of them are just boring financial stuff with lots of red numbers, but at the bottom of the pile, you find a little wine-stained manuscript stapled together at the corner, its pages swollen and musty with dried moisture:
+
+<b>Mud Pies</b> by Roxelle Devaunt.
+
 !`addChoice("Read it.", "rox2", {icons: ["Cub", "Intersex", "Male", "Female", "Raunch", "Scat", "Trash", "Vomit"]});`
-[Move along.]
+[Move along.|roxMoveAlong]
 ---
 :rox2
+
 The moon shined down on the forest canopy. Thin, pale light filtered through the leaves and painted my little farmstead minty-green. That was the only light that came through the window into my room. For one second, before I was fully awake, I thought I saw a shadow in my bedroom window.
 
 He scurried away.
@@ -752,24 +759,12 @@ I kissed him back hard. "There's more where that came from."
 We sat there for a while longer. Cage was still destroying his little skunk in the dumpster, much to the crowd's enjoyment. Cub squeals echoed out over the water.
 
 I came to realize that all the work we'd done for the contest wasn't in vain. It didn't matter that I'd puked twice and fucked everything up. It wasn't about how fat our logs were, or how crispy our pie shells, because it wasn't about the mud pies at all... the contest's real prize was the friendship we had forged along the way.
-[End.|Move along.]
+[End.|roxMoveAlong]
 ---
-:heaven
-The sign is pretty explicit. HEAVEN THIS WAY! GOT ASSIMILATED, HUH? JUDGEMENT DAY SURE WAS HARSH! YOU DESERVE A VACATION!
+:roxMoveAlong
 
-... There's a long, long line. The tired angels working the gate booths can only let so many people in at once. Even when they do let someone in, first they make them take a bath in red fluid, so they can reform their bodies to specification. The only species allowed in Heaven are smiling, flawless, winged humans with toned muscles and flaccid cocks. Once their bodies finish reforming, they're fitted with a plush white robe and sent to the trial area, where they have to prove that they can behave before they're allowed in.
+!`
+gotoArchiepelago();
+`
 
-"Hey," a little nymph girl asks the angels, budging in front of the line. "Will you guys let our kind in yet~?"
-
-The angels smile and gently turn her down for what sounds like the billionth time, based on their tone.
-
-She cranes her toes and tries to look in past the gates. Everyone seems so happy inside. An old man with enormous wings gives sermon to his people, and he speaks with so much arm-flailing passion it seems like he's about to fall over. The little nymph tries to listen, but she can't hear a word of it.
-[Move along.]
----
-:pipeline
-You follow the ALCOHOL LAYER pipeline underground. It takes a sharp left turn out of this universe and into another.
-
-... It's a magnificent ocean planet: an ever-changing system of lakes and rivers and springs, all gushing and frothing with different kinds of booze. You think you spot a cow in the distance, but she disappears.
-
-[Move along.]
----
+END_PASSAGES

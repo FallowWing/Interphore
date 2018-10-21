@@ -5,6 +5,10 @@ var music = playMusic("audio/ambience/cell");
 music.name = "music";
 
 START_PASSAGES
+---
+:LLLmapStart
+
+---
 :meetingCart
 
 !`

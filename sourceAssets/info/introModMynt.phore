@@ -4,11 +4,12 @@ START_PASSAGES
 setBackground(0, "writer/mynt/bg/myntBodBg");
 streamEmbeddedTexture("writer/mynt/face/myntBod/10");
 streamEmbeddedTexture("writer/mynt/face/myntBod/6");
-streamEmbeddedTexture("writer/mynt/face/myntBod/8");
+streamEmbeddedTexture("writer/mynt/face/myntBod/8a");
 data.gender = "";
 data.genitals = "";
 data.playerName = "";
 data.hasKnot = false;
+data.hasBarbs = false;
 data.hasBoobs = false;
 disableExit();
 
@@ -69,7 +70,7 @@ queueAddChoice("I don't care how you got here. I'm just glad you're here.");
 !`
 queueTitle("I'm glad too, I...");
 queueTitle("Oh...!");
-queueCall(function() { setBackground(1, "writer/mynt/face/myntBod/7", CENTERED); });
+queueCall(function() { setBackground(1, "writer/mynt/face/myntBod/7a", CENTERED); });
 queueTitle("Oh, Rebeca.");
 queueTitle("I thought I'd never see you again.");
 queueDelay(2);
@@ -123,7 +124,7 @@ queueAddChoice("Ah, yeah... Mr. Eyeball... I'm so out of it.", "forgNext2");
 :forgNext2
 
 !`
-queueCall(function() { setBackground(1, "writer/mynt/face/myntBod/8", CENTERED); });
+queueCall(function() { setBackground(1, "writer/mynt/face/myntBod/8a", CENTERED); });
 queueTitle("That's okay. <3 You have plenty of reason to be out of it.");
 queueCall(function() { setBackground(1, "writer/mynt/face/myntBod/6", CENTERED); });
 queueTitle("I mean, you are pushing 80 with a learning disability and a history of hypoxia abuse...");
@@ -138,7 +139,7 @@ queueCall(function() { setBackground(1, "writer/mynt/face/myntBod/10", CENTERED)
 queueTitle("If you're not proud of that, change it when you're in the pond.");
 queueTitle("I'm making some edits. You can too.");
 queueTitle("We can make our new selves together.");
-queueCall(function() { setBackground(1, "writer/mynt/face/myntBod/8", CENTERED); });
+queueCall(function() { setBackground(1, "writer/mynt/face/myntBod/8a", CENTERED); });
 queueTitle("Please?");
 queueTitle("..........");
 queueAddChoice("I'm still not sure.", "forgNext4");
@@ -184,7 +185,7 @@ queueAddChoice("Take her hand.", "... Take her hand.");
 :... Take her hand.
 
 !`
-queueCall(function() { setBackground(1, "writer/mynt/face/myntBod/8", CENTERED); });
+queueCall(function() { setBackground(1, "writer/mynt/face/myntBod/8a", CENTERED); });
 queueTitle("Thank you.");
 queueTitle("Okay...");
 queueTitle("Don't let go...");
@@ -329,17 +330,23 @@ queueTitle("... I see!!");
 queueCall(function() { setBackground(1, "writer/mynt/face/myntBod/3", CENTERED); });
 queueTitle("It's nice to meet you, "+data.playerName+"!");
 queueTitle("I uh...");
-queueTitle("I think my name is Mynt? You called me Mynt earlier...");
+queueTitle("I remember mom calling me Catnyp...");
+queueCall(function() { setBackground(1, "writer/mynt/face/myntBod/2", CENTERED); });
+queueTitle("But no.");
+queueTitle("I think my name is Mynt.");
+queueCall(function() { setBackground(1, "writer/mynt/face/myntBod/3", CENTERED); });
+queueTitle("Is it Mynt? You called me Mynt earlier...");
 
-queueAddChoice("Hi, Mynt.");
+queueAddChoice("You are Mynt.");
 `
 
 ---
-:Hi, Mynt.
+:You are Mynt.
 !`
 if (data.playerName !== "Dankpaw" && data.playerName !== "Rebeca" && data.playerName !== "Phae") data.playerName = lastInput;
 if (data.playerName === "") data.playerName = "Nameless";
 
+queueTitle("I... yes. Of course. Bwah.");
 queueCall(function() { playEffect("audio/effect/despairSting"); });
 queueTitle("My mind feels different than it did a moment ago...");
 queueDelay(1);
@@ -365,43 +372,89 @@ if (rnd > 0.9) {
 	queueTitle("Are you still human...?");
 }
 
+addChoice("Fox.", function() {
+	data.species = "fox";
+	if (data.genitals === "male" || data.genitals === "both") {
+		gotoPassage("pickedSpeciesClarify");
+	} else {
+		gotoPassage("pickedSpecies");
+	}
+});
 
+addChoice("Wolf.", function() {
+	data.species = "wolf";
+	if (data.genitals === "male" || data.genitals === "both") {
+		gotoPassage("pickedSpeciesClarify");
+	} else {
+		gotoPassage("pickedSpecies");
+	}
+});
 
-addChoice("Dog.", function() {
-	data.species = "dog";
-	if (data.genitals === "male") data.hasKnot = true;
+addChoice("Bunny.", function() {
+	data.species = "bunny";
 	gotoPassage("pickedSpecies");
-	setTitle("A dog!");
 });
 
 addChoice("Cat.", function() {
 	data.species = "cat";
-	if (data.genitals === "male") data.hasKnot = false;
-	gotoPassage("pickedSpecies");
-	setTitle("A cat! Like me!");
-});
-
-addChoice("Fox.", function() {
-	data.species = "fox";
-	if (data.genitals === "male") data.hasKnot = true;
-	gotoPassage("pickedSpecies");
-	setTitle("Aren't foxes supposed to be sluts...?");
-}); 
-
-addChoice("Wolf.", function() {
-	data.species = "wolf";
-	if (data.genitals === "male") data.hasKnot = true;
-	gotoPassage("pickedSpecies");
-	setTitle("Oh, wow... so cool and intimidating...!");
+	if (data.genitals === "male" || data.genitals === "both") {
+		gotoPassage("pickedSpeciesClarify");
+	} else {
+		gotoPassage("pickedSpecies");
+	}
 });
 `
+---
+:pickedSpeciesClarify
+
+!`
+choicesPerPage = 2;
+
+if (data.species === "cat") {
+	setTitle("A cat! Like me!");
+
+	addChoice("Barbs.", function() {
+		data.hasBarbs = true;
+		gotoPassage("pickedSpecies");
+	});
+
+	addChoice("No barbs.", function() {
+		data.hasBarbs = false;
+		gotoPassage("pickedSpecies");
+	});
+} else {
+	if (data.species === "fox") append("Aren't foxes supposed to be sluts...?");
+	if (data.species === "wolf") append("Wow... you're so cool and intimidating...!");
+	
+	addChoice("Knot.", function() {
+		data.hasKnot = true;
+		gotoPassage("pickedSpecies");
+	});
+
+	addChoice("No knot.", function() {
+		data.hasKnot = false;
+		gotoPassage("pickedSpecies");
+	});
+}
+`
+
 ---
 :pickedSpecies
 
 !`
+queueCall(function() { setBackground(1, "writer/mynt/face/myntBod/8a", CENTERED); });
+
+if (data.species === "bunny") {
+	queueTitle("Oooo, lookit those floppy ears.");
+} else if (data.genitals === "female") {
+	if (data.species === "fox") queueTitle("Aren't foxes supposed to be sluts...?");
+	if (data.species === "wolf") queueTitle("Wow... you're so cool and intimidating...!");
+	if (data.species === "cat") queueTitle("A cat! Like me!");
+}
+
 queueCall(function() { setBackground(1, "writer/mynt/face/myntBod/9", CENTERED); });
 queueTitle("AAAA I forgot to change my body to a cute new one!!");
-queueTitle("Forgot in a regular way, not an amnesia way. I still remember the recent moments.");
+queueTitle("Forgot in a regular way, not an amnesia way. I still remember these recent moments.");
 queueCall(function() { setBackground(1, "writer/mynt/face/myntBod/1", CENTERED); });
 queueTitle("Oh well. Next time.");
 queueTitle("");
@@ -413,7 +466,7 @@ queueTitle("I feel like a zombie.");
 queueCall(function() { setBackground(1, "writer/mynt/face/myntBod/3", CENTERED); });
 queueTitle("How bout you?");
 queueCall(function() { setBackground(1, "writer/mynt/face/myntBod/10", CENTERED); });
-queueTitle("You look... a lot better than your grandmaself!");
+queueTitle("You look... a lot better than your grandma-self!");
 queueTitle("Not as crusty.");
 queueTitle("You had pretty bad hygiene, you know??");
 queueCall(function() { setBackground(1, "writer/mynt/face/myntBod/6", CENTERED); });

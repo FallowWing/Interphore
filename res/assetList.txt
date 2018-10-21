@@ -27,9 +27,12 @@ info/passageParser.js
 
 info/LLLmap.phore
 info/earthMap.phore
+info/archiepelagoMap.phore
+
 info/introMod.phore
 info/introModMynt.phore
 info/yellowPond.phore
+info/mudPies.phore
 info/mainMenu.phore
 info/main.phore
 info/thirstyCaves.phore
@@ -165,10 +168,10 @@ img/writer/mynt/face/myntBod/5.png
 img/writer/mynt/face/myntBod/5.spr
 img/writer/mynt/face/myntBod/6.png
 img/writer/mynt/face/myntBod/6.spr
-img/writer/mynt/face/myntBod/7.png
-img/writer/mynt/face/myntBod/7.spr
-img/writer/mynt/face/myntBod/8.png
-img/writer/mynt/face/myntBod/8.spr
+img/writer/mynt/face/myntBod/7a.png
+img/writer/mynt/face/myntBod/7a.spr
+img/writer/mynt/face/myntBod/8a.png
+img/writer/mynt/face/myntBod/8a.spr
 img/writer/mynt/face/myntBod/9.png
 img/writer/mynt/face/myntBod/9.spr
 img/writer/mynt/face/myntBod/10.png
