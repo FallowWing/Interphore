@@ -310,8 +310,19 @@ Listed from oldest to newest.
 		- 7 seeds assimilated by <i>Paraphore #143</i>
 		
 [Assimilation Notes.|assimilationNotes]
+[Can you sum this up for me?|dumbDown]
 [Back.|hubLLL]
+---
+:dumbDown
 
+Sure.
+
+!`
+var spr = addImage("img/writer/statusBox.png");
+spr.y = gameHeight/2 - spr.height/2;
+`
+
+[Thanks.|layerSpilledPaint]
 ---
 :Terms
 
