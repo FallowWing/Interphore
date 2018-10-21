@@ -1,12 +1,15 @@
----
-:piss
+START_PASSAGES
+:yellowPondModStart
+
+`data.leftMynt === true ? "You go spelunk for your mom, up on/in the meteorite that hovers above Earth's crust." : "You come across a yawning cave maw up on the meteorite. Mynt is a little too pussy to come with, but she urges you to go spelunk a little in case your mom got lost in the craggy depths."`
+
 Your footsteps get closer and closer together as you descend into the dim, musky-aired depths of the meteorite.
 
 A gaggle of nymphs pass you, all boys. They push their little bodies through a crack in the rock wall, hardly wider than their hips, and disappear.
 
 !`
 addChoice("Follow them.", "Follow them.", {icons: ["Cub", "Male", "Male", "Male", "Piss"]});
-addChoice("Move along.", "Move along.");
+addChoice("Move along.", "yellowPondMoveAlong");
 `
 
 ---
@@ -194,7 +197,7 @@ You look over your shoulder one last time, before you pass through the curtain i
 "We just sandwiched you between our hips and dry-humped you for like ten minutes, and now we're gonna take you to a private area... of course you're getting double teamed."
 
 [Oh, of course! Of course!]
-[Move along.]
+[Move along.|yellowPondMoveAlong]
 ---
 :Oh, of course! Of course!
 
@@ -464,9 +467,9 @@ They look at each other. Some time has apparently passed without you noticing, b
 ---
 :I don't know how to leave. The passageways shift.
 
-They blink and look at each other. "Just type 'Move along...'?"
+They blink and look at each other. "Just think 'Move along...'?"
 
-[Move along.]
+[Move along.|yellowPondMoveAlong]
 ---
 :rejoinNymphBoys
 
@@ -535,5 +538,12 @@ Patch laughs. The cave echoes with dozens of soft, tinkling, faggy nymph voices.
 
 Five or so nymphs shyly approach and rub your body down with hot, fresh handtowels, cleaning the pee and sweat from it. So many paws, all sliding over your fur, dipping deep into your armpits, between your thighs, feeling you up eeeeeverywhere... it's unlike anything you've ever felt before. Even though it's all just one mind, you blush hard and shiver like it really is just a crowd of strangers molesting you all at once.
 
-[Move along.]
+[Move along.|yellowPondMoveAlong]
 ---
+:yellowPondMoveAlong
+
+!`
+gotoEarth();
+`
+
+END_PASSAGES

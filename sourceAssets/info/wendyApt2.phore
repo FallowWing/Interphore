@@ -992,8 +992,7 @@ addChoice(data.playerName+", please come back soon...", "myntDecoEnd2");
 :myntDecoEnd2
 
 !`
-if (music) music.destroy();
-gotoThirstyCaves();
+gotoEarth();
 `
 
 END_PASSAGES

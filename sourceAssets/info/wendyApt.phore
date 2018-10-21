@@ -1235,7 +1235,7 @@ Mynt's face pops out of the window. She extracts a paw from her burrito and wave
 
 !`
 if (music) music.destroy();
-gotoThirstyCaves();
+gotoEarth();
 `
 
 END_PASSAGES

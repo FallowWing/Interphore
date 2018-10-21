@@ -43,7 +43,7 @@ gotoPassage("introModMyntStart");
 !`
 clear();
 execAsset("yellowPond.phore");
-gotoPassage("introYellowPondStart");
+gotoPassage("yellowPondModStart");
 `
 
 

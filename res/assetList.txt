@@ -29,6 +29,7 @@ info/LLLmap.phore
 info/earthMap.phore
 info/introMod.phore
 info/introModMynt.phore
+info/yellowPond.phore
 info/mainMenu.phore
 info/main.phore
 info/thirstyCaves.phore
