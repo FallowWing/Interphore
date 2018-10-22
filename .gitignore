@@ -4,8 +4,8 @@ val.log
 main.obj
 vc140.pdb
 stats
-/sourceAssets/img/writer/mynt/face/myntBod/7_data/7.png
-/sourceAssets/img/writer/mynt/face/myntBod/8_data/8.png
+sourceAssets/img/writer/mynt/face/myntBod/7_data/7.png
+sourceAssets/img/writer/mynt/face/myntBod/8_data/8.png
 gmon.out
 log
 .tags
