@@ -183,7 +183,8 @@ container.addChild(bottomRect);
 
 var muteButton = addImage("writer/mute.png");
 muteButton.scaleY = muteButton.scaleX = 2;
-muteButton.x = (muteButton.width * muteButton.scaleX) * -1;
+muteButton.alpha = 0;
+muteButton.x = desiredWidth - muteButton.width * muteButton.scaleX - 20;
 muteButton.y = desiredHeight - muteButton.height*muteButton.scaleY * 1.5;
 container.addChild(muteButton);
 muteButton.onRelease = function() {
@@ -202,7 +203,7 @@ muteButton.onUnHover = function() {
 	muteButton.tint = 0;
 }
 
-tween(muteButton, 3, {x: desiredWidth - muteButton.width * muteButton.scaleX - 20}, {ease: QUINT_OUT});
+tween(muteButton, 3, {alpha: 1}, {ease: QUINT_OUT});
 
 tween(bottomRect, 2, {y: 625, alpha: 1}, {ease: QUINT_OUT});
 tween(bottomRect, 6, {scaleY: 1.2}, {type: PINGPONG, ease: QUAD_IN_OUT});

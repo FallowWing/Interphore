@@ -215,6 +215,7 @@ if (data.genitals === "female") {
 append("Okay. All done. You haul your new body out of the red pond, all sloppy and drippy at the extremeties.");
 
 enableExit();
+saveCheckpoint();
 `
 
 [Move along.]
