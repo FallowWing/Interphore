@@ -23,6 +23,15 @@ print("leaving archiepelagoMap");
 execAsset("mudPies.phore");
 gotoPassage("roxStart");
 `
+---
+:indigoPond
+
+!`
+clear();
+print("leaving archiepelagoMap");
+execAsset("introAllei.phore");
+gotoPassage("introAlleiStart");
+`
 
 END_PASSAGES
 
@@ -32,6 +41,13 @@ function gotoArchiepelago() {
 	submitNode("Back", "backArchie");
 	submitNode("Farm Island", "farmIsland");
 	attachNode("Back", "Farm Island", RIGHT);
+
+	submitNode("Indigo Pond", "indigoPond");
+	attachNode("Farm Island", "Indigo Pond", BOTTOM);
+
+	setNodeLocked("Indigo Pond", function() {
+		return data.metPatch;
+  	});
 
 	gotoMap();
 

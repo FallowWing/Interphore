@@ -50,7 +50,6 @@ execAsset("yellowPond.phore");
 gotoPassage("yellowPondModStart");
 `
 
-
 END_PASSAGES
 
 function gotoEarth() {
@@ -92,5 +91,13 @@ function gotoEarth() {
 
 	var layerSelect = addImage("writer/earth.png");
 
-	setBackground(0, "writer/mainBg");
+	var backgroundSpilled = addImage("writer/spilledPaintBg.png");
+	backgroundSpilled.y = gameHeight - backgroundSpilled.height;
+	backgroundSpilled.layer = 39; //Just below the lines on the node graph, which are at 40
+	tween(backgroundSpilled, 30, {y: 0}, {ease: QUAD_OUT, type: PINGPONG});
+
+	if (!data.seenEarthCredit) {
+		data.seenEarthCredit = true;
+		msg("Art: Cubber");
+	}
 }

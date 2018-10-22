@@ -8,6 +8,7 @@ Your footsteps get closer and closer together as you descend into the dim, musky
 A gaggle of nymphs pass you, all boys. They push their little bodies through a crack in the rock wall, hardly wider than their hips, and disappear.
 
 !`
+data.metPatch = true;
 addChoice("Follow them.", "Follow them.", {icons: ["Cub", "Male", "Male", "Male", "Piss"]});
 addChoice("Move along.", "yellowPondMoveAlong");
 `

@@ -32,6 +32,7 @@ info/archiepelagoMap.phore
 info/introMod.phore
 info/introModMynt.phore
 info/yellowPond.phore
+info/introAllei.phore
 info/mudPies.phore
 info/mainMenu.phore
 info/main.phore
@@ -154,6 +155,8 @@ img/writer/statusBox.png
 img/writer/statusBox.spr
 img/writer/thirstyCavesBg.png
 img/writer/thirstyCavesBg.spr
+img/writer/spilledPaintBg.png
+img/writer/spilledPaintBg.spr
 img/writer/cartBg.png
 img/writer/cartBg.spr
 img/writer/mynt/bg/myntBg1.png
