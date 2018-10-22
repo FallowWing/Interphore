@@ -151,12 +151,18 @@ function gotoMap() {
 	saveButton.x = exitButton.x;
 	saveButton.y = exitButton.y + exitButton.height*exitButton.scaleX + 16;
 	saveButton.onRelease = saveGame;
+	saveButton.whileHovering = function() {
+		showTooltip("Save");
+	}
 
 	var loadButton = addImage("writer/load.png");
 	loadButton.scaleX = loadButton.scaleY = 2;
 	loadButton.x = saveButton.x;
 	loadButton.y = saveButton.y + saveButton.height*saveButton.scaleX + 16;
 	loadButton.onRelease = loadGame;
+	loadButton.whileHovering = function() {
+		showTooltip("Load");
+	}
 
 	var extrasButton = addImage("writer/extras.png");
 	extrasButton.scaleX = extrasButton.scaleY = 2;
@@ -164,6 +170,9 @@ function gotoMap() {
 	extrasButton.y = loadButton.y + loadButton.height*loadButton.scaleX + 16;
 	extrasButton.onRelease = function() {
 		gotoPassage("scratchModStart");
+	}
+	extrasButton.whileHovering = function() {
+		showTooltip("Extras");
 	}
 }
 

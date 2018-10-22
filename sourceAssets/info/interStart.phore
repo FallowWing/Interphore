@@ -46,9 +46,13 @@ exitButton.scaleX = exitButton.scaleY = 2;
 exitButton.x = gameWidth - exitButton.width*exitButton.scaleX - 16;
 exitButton.y = 16;
 exitButton.onRelease = function() {
+	playEffect("audio/ui/exit.ogg");
 	if (exitButton.alpha != 1) return;
 	preventNextCheckpoint = true;
 	gotoThirstyCaves();
+}
+exitButton.whileHovering = function() {
+	showTooltip("Exit (Resets progress!)");
 }
 
 var titleBg = addRectImage(gameWidth, 50, 0x2d354c);
