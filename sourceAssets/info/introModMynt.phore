@@ -458,12 +458,11 @@ queueTitle("Forgot in a regular way, not an amnesia way. I still remember these 
 queueCall(function() { setBackground(1, "writer/mynt/face/myntBod/1", CENTERED); });
 queueTitle("Oh well. Next time.");
 queueTitle("");
-queueDelay(3);
+queueDelay(1);
 queueTitle("Bleh.");
 queueDelay(1);
 queueTitle("");
 queueTitle("I feel like a zombie.");
-queueCall(function() { setBackground(1, "writer/mynt/face/myntBod/3", CENTERED); });
 queueTitle("How bout you?");
 queueCall(function() { setBackground(1, "writer/mynt/face/myntBod/10", CENTERED); });
 queueTitle("You look... a lot better than your grandma-self!");

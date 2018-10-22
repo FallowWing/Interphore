@@ -526,7 +526,7 @@ if (!watchCart) queueAddChoice("Spilled Paint...? You know what, nevermind. Have
 ---
 :cartWatch9
 !`
-specialTitle("And you are a motherless "+dog()+" grandma covered in pondwater.");
+specialTitle("And you are a motherless "+fox()+" grandma covered in pondwater.");
 queueTitle("I existed first. You are the abnormal one.");
 queueAddChoice("Have you seen our mom or not?", "cartWatch10");
 `
@@ -659,8 +659,8 @@ queueAddChoice("Thanks.", "cartWatch25");
 clear();
 bg.destroy();
 cartArt.destroy();
-
 setTitle("");
+
 var cartStanding = addImage("writer/characters/cart/cart2");
 cartStanding.x = gameWidth;
 cartStanding.y = gameHeight - cartStanding.height *1.05;

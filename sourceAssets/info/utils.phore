@@ -78,7 +78,7 @@ function Him(gender) {
 	return "nil gender";
 }
 
-function dog() {
+function fox() {
 	return data.species;
 }
 

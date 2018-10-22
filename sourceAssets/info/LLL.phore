@@ -33,7 +33,6 @@ tween(cartImg, 3, {x: gameWidth - cartImg.width * 1.1}, {ease: QUAD_OUT});
 Cartographer is on break. He's sprawled out on the couch, naked, with a little gadget pressed to his ear.
 
 !`
-clear();
 choicesPerPage = 1;
 data.heardTransmission = true;
 addChoice("Watcha listenin to, Cart? Beatles? Depeche Mode?", "trans1");
