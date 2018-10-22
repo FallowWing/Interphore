@@ -200,6 +200,14 @@ addChoice("Oh? So you're a painslut~?", "Oh? So you're a painslut~?", {icons: ["
 addChoice("Ah. I don't. Bye!", "loneLeaveEarly");
 `
 ---
+:loneLeaveEarly
+
+He blushes hard and swallows his bravery. Shame wells up to replace it.
+
+"Ah... you can go, it's alright."
+
+[Move along.|loneMoveAlong]
+---
 :Oh? So you're a painslut~?
 
 "Well... the other boys here have tried to talk me out of it... but I s-still think of myself that way, yes."

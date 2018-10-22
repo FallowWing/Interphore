@@ -94,7 +94,7 @@ function gotoEarth() {
 	var backgroundSpilled = addImage("writer/spilledPaintBg.png");
 	backgroundSpilled.y = gameHeight - backgroundSpilled.height;
 	backgroundSpilled.layer = 39; //Just below the lines on the node graph, which are at 40
-	tween(backgroundSpilled, 30, {y: 0}, {ease: QUAD_OUT, type: PINGPONG});
+	tween(backgroundSpilled, 30, {y: 0}, {ease: QUAD_OUT, type: PINGPONG, startDelay: 4});
 
 	if (!data.seenEarthCredit) {
 		data.seenEarthCredit = true;

@@ -19,6 +19,10 @@ addChoice("Check out THE BAR.", "Check out THE BAR.", {icons: ["Guest Writer", "
 
 You have to duck to pass through the door into the bar. Inside, it's like a nightclub for nymphs. A few nymphs and nymphets sit on stools at the bar. One ruddy red-pink girl has had more than a few drinks already, given the number of empty bottles and glasses around her. Opposite the bar is a dance floor where nymphs and a few other species are dancing with and grinding on each other in various states of undress. You're pretty sure that one otter's swim trunks have fallen far down enough that he's straight up fucking the nymph boy he's 'dancing' with. The music is a throbbing beat with lights flashing on the dance floor to the rhythm. There are dim lights kept on at all times, especially around the bar, but the strobing effect from the dance floor is still a little distracting.
 
+!`
+msg("This scene is cock-only for now! (WIP)");
+`
+
 [Take a seat at the bar.]
 [Go back.]
 ---
@@ -31,7 +35,6 @@ She catches you looking at her and makes eye contact. "Thish ain't a liberry," s
 The bartender, a male nymph, shrugs in response. "This is normal for her." 
 
 [Buy her a drink.]
-[Ask her about herself.]
 [Move along.]
 ---
 :Buy her a drink.
