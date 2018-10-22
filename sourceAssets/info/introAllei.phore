@@ -390,7 +390,7 @@ She flops face-first into the mess beneath her and passes out again.
 :Move along. :3
 
 !`
-gotoEarth();
+gotoArchiepelago();
 `
 
 END_PASSAGES
