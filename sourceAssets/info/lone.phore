@@ -660,7 +660,6 @@ He hugs you tightly. You lean down to rest your chin on his little head. His fre
 :loneMoveAlong
 
 !`
-if (music) music.destroy();
 gotoLLL();
 `
 

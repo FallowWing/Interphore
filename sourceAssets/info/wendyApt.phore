@@ -1234,7 +1234,6 @@ Mynt's face pops out of the window. She extracts a paw from her burrito and wave
 :End
 
 !`
-if (music) music.destroy();
 gotoEarth();
 `
 

@@ -1747,12 +1747,7 @@ Ren crushes him in a supermassive hug. Thelly squeaks. His fluffy tail helicopte
 :thellyMoveAlong
 
 !`
-if (music) music.destroy();
-
 gotoLLL();
 `
-
----
-:thellyEnd
 
 END_PASSAGES

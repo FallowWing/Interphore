@@ -1605,7 +1605,6 @@ Fair enough. I talk too much almost by definition.
 :cartParaMoveAlong
 
 !`
-if (music) music.destroy();
 gotoLLL();
 `
 

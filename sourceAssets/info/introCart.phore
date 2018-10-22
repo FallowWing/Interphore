@@ -1110,7 +1110,6 @@ Cart smiles hopefully and looks from one of you to the other, resting his chin o
 resetBackgroundMode(2);
 print("leaving intro");
 
-if (music) music.destroy();
 gotoLLL();
 `
 

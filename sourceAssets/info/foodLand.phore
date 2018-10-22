@@ -509,8 +509,7 @@ Lulu bolts, using your lap as a springboard for his hindpaws. He kicks you over 
 :foodLandMoveAlong
 
 !`
-if (music) music.destroy();
-gotoLLL();
+gotoEarth();
 `
 
 END_PASSAGES
