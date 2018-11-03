@@ -375,7 +375,7 @@ void runMod(char *serialData) {
 		if (c == '\n') lineNum++;
 		if ((c < 0 || c > 256) && (c != -30 && c != -128 && c != -108)) {
 			char *buf = (char *)Malloc(2048);
-			sprintf(buf, "msg(\"Warning: character (ascii %d) on line %d is invalid and is going to be replaced by _\", {smallFont: true, extraTime: 20});", c, lineNum);
+			sprintf(buf, "msg(\"Warning: character (ascii %d) on line %d is invalid and is going to be replaced by _\", {smallFont: true, extraTime: 20});", c, lineNum+1);
 			runJs(buf);
 			Free(buf);
 
