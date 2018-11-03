@@ -368,6 +368,21 @@ void updateGame() {
 void runMod(char *serialData) {
 	// printf("About to parse: %s\n", serialData);
 
+	int serialDataLen = strlen(serialData);
+	int lineNum = 0;
+	for (int i = 0; i < serialDataLen; i++) {
+		int c = serialData[i];
+		if (c == '\n') lineNum++;
+		if ((c < 0 || c > 256) && (c != -30 && c != -128 && c != -108)) {
+			char *buf = (char *)Malloc(2048);
+			sprintf(buf, "msg(\"Warning: character (ascii %d) on line %d is invalid and is going to be replaced by _\", {smallFont: true, extraTime: 20});", c, lineNum);
+			runJs(buf);
+			Free(buf);
+
+			serialData[i] = '_';
+		}
+	}
+
 	duk_get_global_string(jsContext, "runMod");
 	duk_push_string(jsContext, serialData);
 	duk_call(jsContext, 1);
