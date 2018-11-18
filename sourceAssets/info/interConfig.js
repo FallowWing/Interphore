@@ -1100,14 +1100,16 @@ function realUpdate() {
 		spr.y = gameHeight - spr.height;
 		spr.alpha = choice.enabled ? 1 : 0.5;
 		if (spr.hovering) spr.y += 5;
-		if (prevChoices.hovering) prevChoices.y = gameHeight - prevChoices.height + 5;
-		else prevChoices.y = gameHeight - prevChoices.height;
-		if (nextChoices.hovering) nextChoices.y = gameHeight - nextChoices.height + 5
-		else nextChoices.y = gameHeight - nextChoices.height;
-		if (nextChoices.justHovered || prevChoices.justHovered) playEffect("audio/ui/hoverChoiceButtons");
-
 		choiceIndexOnPage++;
 	}
+
+	if (prevChoices.hovering) prevChoices.y = gameHeight - prevChoices.height + 5
+	else prevChoices.y = gameHeight - prevChoices.height;
+
+	if (nextChoices.hovering) nextChoices.y = gameHeight - nextChoices.height + 5
+	else nextChoices.y = gameHeight - nextChoices.height;
+
+	if (nextChoices.justHovered || prevChoices.justHovered) playEffect("audio/ui/hoverChoiceButtons");
 
 	/// Images
 	images.forEach(function(img) {
