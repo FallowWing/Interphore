@@ -51,73 +51,335 @@ timer(8, function() { addChoice("I love you too, Mynt.", "I love you too, Mynt."
 :I love you too, Mynt.
 
 !`
-queueAddChoice("I can't believe it's you. Physically you.");
-`
-
----
-:I can't believe it's you. Physically you.
-
-!`
-queueTitle("Heh... my new body doesn't look too bad, does it?");
-queueTitle("I don't know how he made it physical and put me on Earth, though...");
-queueTitle("Something to do with red juice...");
-queueAddChoice("I don't care how you got here. I'm just glad you're here.");
-`
-
----
-:I don't care how you got here. I'm just glad you're here.
-
-!`
-queueTitle("I'm glad too, I...");
-queueTitle("Oh...!");
-queueCall(function() { setBackground(1, "writer/mynt/face/myntBod/7a", CENTERED); });
-queueTitle("Oh, Rebeca.");
-queueTitle("I thought I'd never see you again.");
 queueDelay(2);
-queueAddChoice("I REALLY didn't expect to see you again...");
+queueAddChoice("I can't believe it's you. Physically.");
 `
 
 ---
-:I REALLY didn't expect to see you again...
+:I can't believe it's you. Physically.
 
 !`
+queueTitle("This body isn't mine.");
+queueTitle("Yet! :3");
+queueTitle("I'm remote controlling it from the bomb shelter computer.");
+queueTitle("It's made out of pondwater! Cool huh??");
+queueTitle("Handy that the sum of my being can fit on a USB, huh? <3");
+queueTitle("Oh! You know where we are, right?");
+
+queueAddChoice("Uhhhh.");
+`
+
+---
+:Uhhhh.
+
+!`
+queueCall(function() { setBackground(0, "writer/shelterBg"); });
+queueTitle("");
+queueCall(function() { setBackground(1, ""); });
+queueDelay(2);
+queueTitle("We are right here!!!");
+queueTitle("Up on top of Earth's final visitor!");
+queueCall(function() { setBackground(1, "writer/mynt/face/myntBod/10", CENTERED); });
+queueDelay(2);
+queueTitle("");
+queueCall(function() { setBackground(2, "writer/myntBeca", CENTERED); });
+queueDelay(0.5);
+queueCall(function() { setBackground(2, ""); });
+queueDelay(0.5);
+queueCall(function() { setBackground(2, "writer/myntBeca", CENTERED); });
+queueDelay(0.5);
+queueCall(function() { setBackground(2, ""); });
+queueDelay(0.5);
+queueCall(function() { setBackground(2, "writer/myntBeca", CENTERED); });
+queueDelay(1.5);
+queueCall(function() { setBackground(1, "writer/mynt/face/myntBod/8a", CENTERED); });
+queueDelay(0.5);
+queueTitle("So! :3");
+queueDelay(2);
+queueTitle("So.");
+queueDelay(1);
+queueCall(function() { setBackground(2, ""); });
+queueDelay(1);
+queueTitle("I bet you're pretty much up to speed right.");
+
+queueAddChoice("What is this thing?!?!", "What is the meteorite.", {icons: ["Plot"]});
+queueAddChoice("Where do those stairs go.", "Where do those stairs go.", {icons: ["Plot"]});
+queueAddChoice("The air isn't thin enough up here.", "The air isn't thin enough up here.", {icons: ["Plot"]});
+queueAddChoice("I am exhausted. Hold me.", "I am exhausted. Hold me.", {icons: ["Love"]});
+`
+
+---
+:What is the meteorite.
+
+!`
+queueCall(function() { setBackground(0, "writer/spilledPaintBg"); });
+queueCall(function() { setBackground(1, ""); });
+queueTitle("Oh, he's nice. He's a Paraphore.");
+queueDelay(1);
+queueTitle("Well I haven't talked to HIM.");
+queueTitle("But I talked to the alien mob boss type guy who sent him, that's Mr. Eyeball.");
+queueTitle("He's chill. He just wants to give us eternal life.");
+queueTitle("And new bodies if we want em.");
+queueTitle("And freedom of travel throughout the multiverse.");
+queueTitle("And membership in his hivemind.");
+queueTitle("As long as you're okay with him narrating reality to you.");
+queueDelay(1);
+queueTitle("");
+queueDelay(2);
+queueCall(function() { setBackground(1, "writer/mynt/face/myntBod/8a", CENTERED); });
+queueTitle("Can we join?? Please???");
+
+choicesPerPassage = 2;
+queueAddChoice("Mynt I don't know about this.", "introRejoinNew");
+queueAddChoice("... I'll think about it.", "introRejoinNew");
+`
+
+---
+:Where do those stairs go.
+
+!`
+queueCall(function() { setBackground(1, "writer/mynt/face/myntBod/10", CENTERED); });
+queueTitle("Down to your bomb shelter, duh. You just walked out of there.");
+queueDelay(2);
+queueCall(function() { setBackground(1, "writer/mynt/face/myntBod/6", CENTERED); });
+queueTitle("Are you feeling okay? Got enough air?");
+choicesPerPassage = 1;
+queueAddChoice("Yeah I'm fine. Just good old alzies setting in.", "introRejoinNew");
+`
+
+---
+:I am exhausted. Hold me.
+
+!`
+queueTitle("Come here, then. <3");
+queueCall(function() { setBackground(1, ""); });
+queueTitle("Ooph.");
+queueTitle("Take er in here...");
+queueTitle("Steady as she goes.");
+queueDelay(1);
+queueTitle("Fuck, you're so rickety...");
+queueDelay(2);
+queueTitle("Mmmp~!");
+queueTitle("...");
+queueTitle("Am I squeezing too hard...?");
+queueDelay(2);
+
+choicesPerPassage = 2;
+queueAddChoice("No...", "exhausNo");
+queueAddChoice("Yes...", "exhausYes");
+`
+
+---
+:exhausNo
+
+!`
+queueTitle("OooooOOOoomph~!");
+queueAddChoice("OW! Okay too hard too hard.", "exhausNo2");
+`
+
+---
+:exhausNo2
+
+!`
+queueCall(function() { setBackground(1, "writer/mynt/face/myntBod/6", CENTERED); });
+queueTitle("Ooop. Sorry...");
+queueAddChoice("It's okay.", "introRejoinNew");
+`
+
+---
+:exhausYes
+
+!`
+queueCall(function() { setBackground(1, "writer/mynt/face/myntBod/6", CENTERED); });
+queueTitle("A-Ah!! Sorry...");
+queueAddChoice("It's okay.", "introRejoinNew");
+`
+
+---
+:The air isn't thin enough up here.
+
+!`
+queueCall(function() { setBackground(1, "writer/mynt/face/myntBod/6", CENTERED); });
+queueTitle("Slow down there, Ms. Chronique.");
+queueDelay(2);
+queueTitle("Can't believe you did THIS to yourself in the shelter.");
+queueTitle("And so many times...");
+
+choicesPerPassage = 2;
+queueAddChoice("Anyway.", "introRejoinNew");
+queueAddChoice("You wanna know why I did it?");
+`
+---
+:You wanna know why I did it?
+
+!`
+queueTitle("Mm?");
+
+choicesPerPassage = 2;
+queueAddChoice("To save power.");
+queueAddChoice("To get off.");
+`
+---
+:To save power.
+
+!`
+queueCall(function() { setBackground(1, "writer/mynt/face/myntBod/8a", CENTERED); });
+queueTitle("Awww man.");
+queueTitle("When you live.");
+
+choicesPerPassage = 2;
+queueAddChoice("To save power in the long run.", "thinAirRejoin");
+`
+---
+:To get off.
+
+!`
+queueCall(function() { setBackground(1, "writer/mynt/face/myntBod/6", CENTERED); });
+queueTitle("...");
+queueDelay(5);
+queueCall(function() { gotoPassage("introRejoinNew"); });
+`
+
+---
+:introRejoinNew
+
+!`
+queueCall(function() { setBackground(0, "writer/spilledPaintBg"); });
+queueCall(function() { setBackground(1, "writer/mynt/face/myntBod/10", CENTERED); });
+queueCall(function() { setBackground(2, ""); });
+queueTitle("Anyway.");
+queueTitle("How does my body look?");
+queueTitle("Not too pondwatery?");
+
+choicesPerPassage = 1;
+queueAddChoice("These ponds freak me out.");
+`
+
+---
+:These ponds freak me out.
+
+!`
+queueTitle("");
+choicesPerPassage = 1;
+queueAddChoice("You look fine now.");
+`
+
+---
+:You look fine now.
+
+!`
+choicesPerPassage = 1;
+queueAddChoice("But when you were climbing out, dripping red, half-baked...");
+`
+
+---
+:But when you were climbing out, dripping red, half-baked...
+
+!`
+choicesPerPassage = 1;
+queueCall(function() { setBackground(1, "writer/mynt/face/myntBod/6", CENTERED); });
+queueAddChoice("... Nevermind.", "NevermindNext");
+`
+
+---
+:NevermindNext
+
+!`
+choicesPerPassage = 1;
+queueAddChoice("How do I look.);
+`
+
+---
+:How do I look.
+
+!`
+queueCall(function() { setBackground(1, "writer/mynt/face/myntBod/10", CENTERED); });
+queueTitle("Oh you're fine!");
+queueTitle("Little stinky.");
+queueTitle("But.");
+queueTitle("Oh well!");
+queueTitle("Unavoidable when you spend your life underground!");
+queueDelay(1);
+queueTitle("I bet you crave a hot bath, granny.");
+queueDelay(2);
+queueTitle("Hey, why isn't your hair white?");
+queueAddChoice("It is white.");
+`
+
+---
+:It is white.
+
+!`
+queueTitle("");
+queueCall(function() { setBackground(1, "writer/mynt/face/myntBod/7a", CENTERED); });
+queueDelay(2);
+queueCall(function() { setBackground(1, "writer/mynt/face/myntBod/6", CENTERED); });
+queueTitle("... Ew.");
+queueDelay(2);
+queueCall(function() { setBackground(1, "writer/mynt/face/myntBod/7a", CENTERED); });
+queueTitle("Well, thankfully, we've got a hot bath right nearby!");
+queueTitle("You can clean a lot more than your body, too. <3");
+queueAddChoice("Yeah?");
+`
+
+---
+:Yeah?
+!`
+queueTitle("Yep. These alien red ponds right here?");
+queueTitle("It's like a character creator for real life.");
+queueTitle("There's some other details we can iron out later but uh.");
+queueTitle("You can basically edit your body or mind to whatever you want!!");
+queueTitle("Let's do it!!!!");
 queueTitle("Let's step into the red pond.");
 queueTitle("Together, okay?");
 //queueCall(function() { setBackground(1, "writer/mynt/face/myntBod/10", CENTERED); });
 queueTitle("Take my hand.");
-queueAddChoice("Why do we have to go in the pond?");
+queueAddChoice("Hoooold on, the details?");
 `
 
 ---
-:Why do we have to go in the pond?
+:Hoooold on, the details?
 
 !`
-queueTitle("Because I want to get rid of these thoughts.");
+queueTitle("Oh, you know, whatever! Stuff!");
+queueTitle("There's a whole Terms & Definitions to this shit.");
+queueTitle("Immortality, hivemind, amnesia, I don't know! We'll figure it out later.");
+queueTitle("I just want to get rid of these thoughts.");
 queueTitle("And you want to get rid of that crummy old body.");
+queueTitle("Let's do it together.");
+queueTitle("Let's join the alien meteorite.");
 queueTitle("Take my hand.");
-queueAddChoice("... But we'll forget everything.");
+queueAddChoice("Amnesia????");
 `
 
 
 ---
-:... But we'll forget everything.
+:Amnesia????
 
 !`
-queueTitle("That's the idea, silly...");
-queueAddChoice("For you, yeah. But isn't there any way I can get around that?", "forgNext");
+queueTitle("Oh, grow up!");
+queueTitle("You don't forget EVERYthing!");
+queueTitle("Just most things!");
+queueAddChoice("... Does it hurt?", "forgNext");
 `
 
 ---
 :forgNext
 
 !`
-queueTitle("Once we step into this pond, we'll dissolve into flesh tatters.");
-queueTitle("Our brains, too.");
+queueTitle("Doesn't hurt at ALL!");
+queueDelay(3);
+queueTitle("But uh...");
+queueDelay(2);
 queueCall(function() { setBackground(1, "writer/mynt/face/myntBod/6", CENTERED); });
-queueTitle("Forgetting is not optional.");
-//queueCall(function() { setBackground(1, "writer/mynt/face/myntBod/10", CENTERED); });
-queueTitle("Weren't you listening when Mr. Eyeball explained it?");
-queueAddChoice("Ah, yeah... Mr. Eyeball... I'm so out of it.", "forgNext2");
+queueTitle("We WILL dissolve into flesh tatters. So there's that.");
+queueTitle("It's a bit like diving into magma.");
+queueTitle("Happens so fast you don't feel a thing!! It's fine!! Don't worry!!");
+queueTitle("So.");
+queueCall(function() { setBackground(1, "writer/mynt/face/myntBod/8a", CENTERED); });
+queueTitle("Just make sure you get your WHOLE body submerged...");
+queueTitle("You really do not want to puss out halfway through...");
+queueAddChoice("I feel a little out of it. Maybe later?", "forgNext2");
 `
 
 ---
@@ -138,10 +400,15 @@ queueAddChoice("Gee thanks. -_-", "forgNext3");
 queueCall(function() { setBackground(1, "writer/mynt/face/myntBod/10", CENTERED); });
 queueTitle("If you're not proud of that, change it when you're in the pond.");
 queueTitle("I'm making some edits. You can too.");
-queueTitle("We can make our new selves together.");
+queueTitle("And I'm sorry, but my edits can't wait for 'maybe later.'");
+queueTitle("I'm jumping in now.");
 queueCall(function() { setBackground(1, "writer/mynt/face/myntBod/8a", CENTERED); });
+queueDelay(2);
+queueTitle("Come with me?");
 queueTitle("Please?");
 queueTitle("..........");
+queueTitle(".......");
+queueTitle("....");
 queueAddChoice("I'm still not sure.", "forgNext4");
 `
 
@@ -151,7 +418,9 @@ queueAddChoice("I'm still not sure.", "forgNext4");
 !`
 queueCall(function() { setBackground(1, "writer/mynt/face/myntBod/6", CENTERED); });
 queueTitle("Gah! Why not.");
-queueAddChoice("After we respawn, we might be strangers again. We might split up!", "forgNext5");
+
+choicesPerPassage = 1;
+queueAddChoice("We'll be amnesiacs. We'll be strangers to each other. We might split up!", "forgNext5");
 `
 
 ---
@@ -161,7 +430,6 @@ queueAddChoice("After we respawn, we might be strangers again. We might split up
 queueTitle("You know I'm way too clingy to let that happen.");
 
 choicesPerPage = 2;
-queueAddChoice("You'll get better.", "forgNext6");
 queueAddChoice("I guess you're right.", "forgNext6");
 `
 
@@ -173,10 +441,10 @@ queueAddChoice("I guess you're right.", "forgNext6");
 queueTitle("...");
 queueTitle("... Please, Rebeca.");
 
-if (rnd < 0.05) {
+if (rnd < 0.1) {
 	queueTitle("I hear them crying in the back of my skull.");
 } else {
-	queueTitle("I want to fix myself.");
+	queueTitle("I want to fix my dumb brain.");
 }
 queueAddChoice("Take her hand.", "... Take her hand.");
 `

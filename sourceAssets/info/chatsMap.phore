@@ -1,0 +1,115 @@
+print("arriving at chats map");
+
+if (music) music.destroy();
+var music = playMusic("audio/ambience/cell");
+music.name = "music";
+
+START_PASSAGES
+---
+:chatsMapStart
+
+---
+:meetingCart
+
+!`
+clear();
+execAsset("introCart.phore");
+gotoPassage("introModCartStart");
+data.metCart = true;
+`
+---
+:backLLL
+
+!`
+gotoThirstyCaves();
+`
+---
+:loreWhoring
+
+!`
+clear();
+execAsset("LLL.phore");
+gotoPassage("hubLLL");
+`
+---
+:femmeRens
+
+!`
+clear();
+execAsset("thelly.phore");
+gotoPassage("thellyModStart");
+`
+---
+:bullyingLone
+
+!`
+clear();
+execAsset("lone.phore");
+gotoPassage("loneModStart");
+`
+---
+:wetTransmission
+
+!`
+clear();
+execAsset("LLL.phore");
+gotoPassage("trans0");
+`
+---
+:wetCartography
+
+!`
+clear();
+execAsset("cartPara.phore");
+gotoPassage("cartParaModStart");
+`
+
+END_PASSAGES
+
+function gotoLLL() {
+	clearNodes();
+
+	submitNode("Back", "backLLL");
+	submitNode("Meeting Cart", "meetingCart");
+	submitNode("Femme Ren's", "femmeRens");
+	submitNode("Bullying Lone", "bullyingLone");
+	submitNode("Lore Whoring", "loreWhoring");
+	submitNode("Wet Transmission", "wetTransmission");
+	submitNode("Wet Cartography", "wetCartography");
+
+	attachNode("Back", "Meeting Cart", RIGHT);
+	attachNode("Meeting Cart", "Femme Ren's", BOTTOM);
+	attachNode("Femme Ren's", "Bullying Lone", BOTTOM);
+	attachNode("Meeting Cart", "Lore Whoring", RIGHT);
+	attachNode("Lore Whoring", "Wet Transmission", RIGHT);
+	attachNode("Wet Transmission", "Wet Cartography", RIGHT);
+
+	setNodeLocked("Femme Ren's", function() {
+		return data.metCart;
+	});
+
+	setNodeLocked("Bullying Lone", function() {
+		return data.metRen;
+	});
+
+
+	setNodeLocked("Lore Whoring", function() {
+		return data.metCart;
+	});
+
+	setNodeLocked("Wet Transmission", function() {
+		return data.metCart;
+	});
+
+	setNodeLocked("Wet Cartography", function() {
+		return data.heardTransmission;
+	});
+
+	gotoMap();
+
+	var layerSelect = addImage("writer/gcd.png");
+
+	setBackground(0, "writer/mainBg");
+}
+
+//Taro, Cade, Gryphon, and Kemp's truck cameo

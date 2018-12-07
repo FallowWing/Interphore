@@ -5,6 +5,69 @@ var music = playMusic("audio/ambience/violetMeteorite");
 music.name = "music";
 
 START_PASSAGES
+---
+:introCutscene
+
+!`
+setBackground(0, "writer/mainBg");
+
+//Map
+submitNode("L.L.L.", "LLL");
+submitNode("Spilled Paint", "earth");
+submitNode("Red Pond", "introArea");
+submitNode("Chats", "chats");
+submitNode("Archiepelago", "archiepelago");
+submitNode("L.L.L.", "LLL");
+
+attachNode("L.L.L.", "Spilled Paint", BOTTOM);
+attachNode("Spilled Paint", "Red Pond", RIGHT);
+attachNode("Spilled Paint", "Chats", LEFT);
+attachNode("Spilled Paint", "Archiepelago", BOTTOM);
+
+setNodeLocked("Archiepelago", function() {
+	return data.metCart;
+	});
+
+	setNodeLocked("Chats", function() {
+	return data.haveChatted;
+	});
+
+//Cutscene
+disableExit();
+var musicTemp = playMusic("audio/effect/mapTransition");
+musicTemp.name = "music";
+
+var redGoop = addImage("writer/mapTransition.png");
+redGoop.x = -redGoop.width;
+redGoop.y = -redGoop.height;
+
+var redGoop2 = addImage("writer/mapTransition.png");
+redGoop2.x = redGoop.x + redGoop2.width;
+redGoop2.y = redGoop.y;
+
+var redGoopMiddle = addRectImage(gameWidth * 2, gameHeight, 0xef5f5f);
+redGoopMiddle.x = redGoop.x;
+redGoopMiddle.temp = false;
+redGoopMiddle.y = redGoop.y - redGoopMiddle.height;
+
+tween(redGoop, 3, {y: gameHeight}, {ease: QUAD_IN});
+tween(redGoop2, 3, {y: gameHeight}, {ease: QUAD_IN});
+tween(redGoopMiddle, 3, {y: 0}, {ease: QUAD_IN});
+tween(redGoopMiddle, 2, {alpha: 0}, {startDelay: 3});
+
+tween(redGoop, 0.4, {x: 0}, {type: PINGPONG});
+tween(redGoop2, 0.4, {x: gameWidth}, {type: PINGPONG});
+
+timer(3, function() { 
+	enableExit();
+	gotoMap();
+});
+
+timer(5, function() {
+	redGoopMiddle.destroy();
+	if (musicTemp) musicTemp.destroy();
+});
+`
 :introArea
 
 You find a red pond, no matter where you are.
@@ -235,6 +298,11 @@ gotoPassage("scratchModStart");
 ---
 :LLL
 !`
+gotoChats();
+`
+---
+:LLL
+!`
 gotoLLL();
 `
 ---
@@ -253,22 +321,7 @@ END_PASSAGES
 function gotoThirstyCaves() {
 	clearNodes();
 
-	submitNode("L.L.L.", "LLL");
-	submitNode("Spilled Paint", "earth");
-	submitNode("Red Pond", "introArea");
-	submitNode("Archiepelago", "archiepelago");
-	
-	attachNode("L.L.L.", "Spilled Paint", BOTTOM);
-	attachNode("Spilled Paint", "Red Pond", RIGHT);
-	attachNode("Spilled Paint", "Archiepelago", BOTTOM);
-
-	setNodeLocked("Archiepelago", function() {
-		return data.metCart;
-  	});
-
-	gotoMap();
+  	gotoPassage("introCutscene");
 
 	var layerSelect = addImage("writer/layerSelect.png");
-
-	setBackground(0, "writer/mainBg");
 }

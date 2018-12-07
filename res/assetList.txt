@@ -147,6 +147,9 @@ img/writer/library2.spr
 img/writer/earth.png
 img/writer/earth.spr
 
+img/writer/mapTransition.png
+img/writer/mapTransition.spr
+
 img/writer/nodeChoice.png
 img/writer/nodeChoice.spr
 img/writer/choiceArrow.png
@@ -157,6 +160,8 @@ img/writer/thirstyCavesBg.png
 img/writer/thirstyCavesBg.spr
 img/writer/spilledPaintBg.png
 img/writer/spilledPaintBg.spr
+img/writer/shelterBg.png
+img/writer/shelterBg.spr
 img/writer/cartBg.png
 img/writer/cartBg.spr
 img/writer/mynt/bg/myntBg1.png
@@ -187,6 +192,14 @@ img/writer/mynt/face/myntBod/9.png
 img/writer/mynt/face/myntBod/9.spr
 img/writer/mynt/face/myntBod/10.png
 img/writer/mynt/face/myntBod/10.spr
+img/writer/characters/archie/arrival.png
+img/writer/characters/archie/arrival.spr
+img/writer/characters/archie/normal.png
+img/writer/characters/archie/normal.spr
+img/writer/characters/archie/creepy.png
+img/writer/characters/archie/creepy.spr
+img/writer/characters/archie/shy.png
+img/writer/characters/archie/shy.spr
 img/writer/characters/thelly/thelly.png
 img/writer/characters/thelly/thelly.spr
 img/writer/characters/taro/taro.png
@@ -228,6 +241,7 @@ img/ui/dialog/paraDialog.spr
 img/ui/dialog/wendyDialog.png
 img/ui/dialog/wendyDialog.spr
 
+audio/effect/mapTransition.ogg
 audio/effect/trashTransmission.ogg
 audio/effect/owlScream.ogg
 audio/effect/despairSting.ogg

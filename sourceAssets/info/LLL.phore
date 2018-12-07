@@ -11,7 +11,7 @@ addChoice("Move along.", function() {
 addChoice("Examine Paraphores", "examineParaphores");
 addChoice("Rules of Operation for Paraphores.");
 addChoice("Examine Spilled Paint", "layerSpilledPaint");
-addChoice("Examine L.L.L", "layerLLL");
+addChoice("Examine L.L.L.", "layerLLL");
 addChoice("Terms & Definitions", "Terms");
 
 
