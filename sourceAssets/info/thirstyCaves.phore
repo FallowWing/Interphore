@@ -26,48 +26,52 @@ attachNode("Spilled Paint", "Archiepelago", BOTTOM);
 
 setNodeLocked("Archiepelago", function() {
 	return data.metCart;
-	});
+});
 
 	setNodeLocked("Chats", function() {
 	return data.haveChatted;
-	});
+});
 
 //Cutscene
 disableExit();
-var musicTemp = playMusic("audio/effect/mapTransition");
-musicTemp.name = "music";
+var mapSFX = playMusic("audio/effect/mapTransition");
+mapSFX.name = "mapSFX";
 
 var redGoop = addImage("writer/mapTransition.png");
-redGoop.x = -redGoop.width;
+redGoop.temp = false;
 redGoop.y = -redGoop.height;
 
-var redGoop2 = addImage("writer/mapTransition.png");
-redGoop2.x = redGoop.x + redGoop2.width;
-redGoop2.y = redGoop.y;
+var redGoop2 = addRectImage(gameWidth, gameHeight, 0xd93c3c);
+redGoop2.temp = false;
+redGoop2.y = redGoop.y - redGoop2.height;
 
-var redGoopMiddle = addRectImage(gameWidth * 2, gameHeight, 0xef5f5f);
-redGoopMiddle.x = redGoop.x;
-redGoopMiddle.temp = false;
-redGoopMiddle.y = redGoop.y - redGoopMiddle.height;
+var redGoop3 = addImage("writer/mapTransition.png");
+redGoop3.temp = false;
+redGoop3.y = redGoop2.y;
+redGoop3.scaleY = -1;
 
-tween(redGoop, 3, {y: gameHeight}, {ease: QUAD_IN});
-tween(redGoop2, 3, {y: gameHeight}, {ease: QUAD_IN});
-tween(redGoopMiddle, 3, {y: 0}, {ease: QUAD_IN});
-tween(redGoopMiddle, 2, {alpha: 0}, {startDelay: 3});
+tween(redGoop, 2.5, {y: gameHeight + redGoop.height + redGoop2.height}, {ease: QUAD_IN_OUT});
+tween(redGoop2, 2.5, {y: gameHeight + redGoop2.height}, {ease: QUAD_IN_OUT});
+tween(redGoop3, 2.5, {y: gameHeight + redGoop2.height}, {ease: QUAD_IN_OUT});
 
-tween(redGoop, 0.4, {x: 0}, {type: PINGPONG});
-tween(redGoop2, 0.4, {x: gameWidth}, {type: PINGPONG});
-
-timer(3, function() { 
-	enableExit();
+timer(1.5, function() { 
 	gotoMap();
+	enableExit();
+	var layerSelect = addImage("writer/layerSelect.png");
+	layerSelect.alpha = 0;
+	layerSelect.y = -layerSelect.height;
+	tween(layerSelect, 2.5, {y: 0, alpha: 1}, {ease: QUINT_OUT});
 });
+
 
 timer(5, function() {
-	redGoopMiddle.destroy();
-	if (musicTemp) musicTemp.destroy();
+	if (redGoop) redGoop.destroy();
+	if (redGoop2) redGoop2.destroy();
+	if (redGoop3) redGoop3.destroy();
+	if (mapSFX) mapSFX.destroy();
 });
 `
+---
 :introArea
 
 You find a red pond, no matter where you are.
@@ -320,8 +324,5 @@ END_PASSAGES
 
 function gotoThirstyCaves() {
 	clearNodes();
-
   	gotoPassage("introCutscene");
-
-	var layerSelect = addImage("writer/layerSelect.png");
 }

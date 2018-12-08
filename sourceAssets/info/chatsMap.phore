@@ -9,100 +9,228 @@ START_PASSAGES
 :chatsMapStart
 
 ---
-:meetingCart
+:gabeChat1
 
 !`
 clear();
-execAsset("introCart.phore");
-gotoPassage("introModCartStart");
-data.metCart = true;
+
+vn.init();
+vn.resetTextModes();
+vn.set(0, "writer/characters/ren/ren", 0xFFe2e2e2);
+vn.set(1, "writer/characters/thelly/thelly", 0xFFf8d364);
+
+vn.moveIn(0);
+vn.moveIn(1);
+
+vn.say(1, "Hello? Is this how I telepath...?");
+vn.say(1, "I prefer face-to-face communication...");
+vn.say(0, "Hi, this is "+data.playerName+" speaking.");
+vn.say(0, "May I ask who is telepathing me?");
+
+vn.say(1, "OH! Hello. I love you very much and I am sorry.");
+vn.say(0, "Okay who's this?");
+vn.say(1, "I never thought I would speak to you again and I am sorry for what I did and I love you very much.");
+vn.say(0, "Yeah but who is this though.");
+vn.say(1, "This is Archie.");
+vn.say(0, "Who?");
+vn.say(1, "Gabriel Archibald.");
+vn.say(0, "Sorry who?");
+vn.say(1, "Dad. This is your dad.");
+
+vn.say(0, "Ohhhh shit.");
+vn.say(0, "Now we're ringing some bells.");
+vn.say(0, "Still pretty foggy though.");
+vn.say(1, "Hi... Gabe.");
+vn.say(1, "Call me Dad.");
+vn.say(0, "Mmmmmoving a little fast there bud, we've exchanged ten messages a piece so far.");
+vn.say(0, "Let me recollect for a moment here.");
+vn.say(0, "I don't think I remember much of you past five years old?");
+vn.say(0, "I remember you ran a church, and you were never around. I was always alone with mom.");
+vn.say(0, "You two had a weird medium-distance relationship thing going on.");
+vn.say(0, "I remember sitting on your lap during Sunday brunch and you put like nineteen sugar cubes in my tea.");
+vn.say(0, "Fucking ew.");
+vn.say(0, "I remember when the meteorite hit and you huddled me into the bomb shelter.");
+vn.say(0, "Thanks for that, Gabe.");
+vn.say(1, "No problem. Call me dad whenever you feel comfortable.");
+vn.say(0, "Yeah haha thanks sure.");
+vn.say(0, "And uh...");
+vn.say(0, "This last memory... did I dream this, or did you actually...");
+vn.say(1, "...");
+vn.say(0, "Ohhhhhhhhhhhoooohold on a fuckin second.");
+
+vn.say(1, "Look. I'm sorry. We can forget that next part.");
+vn.say(0, "Nope. Just remembered it.");
+vn.say(1, "Let's put it behind us. I fully accept the blame.");
+vn.say(0, "Too late. It has been squarely remembered.");
+vn.say(1, "I know I wronged you.");
+vn.say(0, "Nope nope nope, shut up.");
+vn.say(0, "I also remember...");
+vn.say(1, "I apologize for what I did. It was unfair to you.");
+vn.say(0, "No shut up.");
+vn.say(0, "I ALSO remember...");
+vn.say(1, "I know what you are about to say...");
+vn.say(1, "And you don't have to say it... you really don't...");
+vn.say(0, "I ALSO remember when you left me completely alone in that shelter as a five-year-old.");
+vn.say(1, "... I'm sorry.");
+
+vn.say(0, "End of the world and everything.");
+vn.say(0, "Just you and me and Mynt on her computer and a stack of food rations to the ceiling.");
+vn.say(0, "But nope, walk on out of the shelter, leave the kid behind with a catface porn game, that's fine.");
+vn.say(1, "I told Mynt not to let you play until you were old enough.");
+vn.say(1, "And I thought you would not figure out how to work the computer anyway.");
+vn.say(1, "... It was very hard for me to learn how to work the computer...");
+vn.say(0, "Okay, well thank god for Mynt at least.");
+vn.say(1, "*God.");
+vn.say(0, "*god.");
+vn.say(0, "I do have a question though.");
+vn.say(0, "I know I just left the shelter recently.");
+vn.say(0, "But had I left it before?");
+vn.say(0, "How long was I in there?");
+vn.say(1, "You don't remember...?");
+vn.say(0, "No, I don't. Refresh me.");
+vn.say(0, "How long was I alone in the bomb shelter Gabe.");
+vn.say(1, "Oh... just...");
+vn.say(1, "Not too long, really. Some time. I'm sorry.");
+vn.say(0, "Fuck you Gabe tell me how long.");
+vn.say(1, "Do you um. Do you think you'll ever call me dad?");
+vn.say(0, "TELL ME!");
+vn.say(1, "OKAY! I'm sorry.");
+vn.say(1, "I really am sorry for this.");
+vn.say(1, "Extended isolation for this long could not have been pleasant.");
+vn.say(1, "You were in the shelter for...");
+vn.say(1, "A little over sixty years, I think.");
+
+vn.say(0, "THERE IT IS!");
+vn.say(0, "I knew I was a stinky dirty long-haired hermit grandma for a reason.");
+vn.say(1, "I am truly, utterly sorry.");
+vn.say(0, "Why the fuck did you do that to me???");
+vn.say(1, "I'm sorry I'm sorry I'm sorry.");
+vn.say(0, "Why did you leave without me?");
+
+vn.say(1, "I asked you if you wanted to come.");
+vn.say(0, "And you took 'no' for an answer??");
+vn.say(1, "You were five. I did not want to force you.");
+vn.say(0, "I was five. You should have forced me.");
+vn.say(1, "You said it yourself: I was never around.");
+vn.say(1, "You didn't like me. You didn't want to leave with me.");
+vn.say(1, "I put too much sugar in your tea one time.");
+vn.say(1, "I did not want to drag you screaming out into the soul-rending gaze of a space alien eyeball meteorite.");
+vn.say(1, "I did not want to force you, okay?");
+vn.say(0, "...");
+vn.say(1, "Okay?");
+
+vn.say(0, "...");
+vn.say(0, "Why didn't you come back and get me.");
+vn.say(1, "I knocked on the door. I brought you your toys.");
+vn.say(1, "But you hid from me and anyone else I sent.");
+vn.say(1, "You looked at us like we were apocalypse mutants or something.");
+vn.say(0, "...");
+vn.say(0, "Well.");
+
+vn.say(1, "I swear to God I am sorry.");
+vn.say(0, "Are you sorry though?");
+vn.say(1, "This will be the fifteenth: I am sorry.");
+vn.say(0, "...");
+vn.say(0, "Well, alright. To be fair the anguish is mostly just on principle.");
+vn.say(0, "Not like I can have PTSD flashbacks to the blank spot in my head where the bad memories used to be.");
+vn.say(0, "So.");
+vn.say(0, "I forgive you...");
+vn.say(1, "Oh, my Lord! <3 So you'll let me visit you? Where are you now?");
+vn.say(0, "... conditionally.");
+vn.say(1, "Thank you so much.");
+vn.say(1, "I can't wait to meet Mynt now that she has a body and—");
+vn.say(1, "Conditionally?");
+vn.say(1, "What does that mean, 'conditionally?'");
+
+vn.say(0, "It means I'll forgive you... if you point me in the direction of mom.");
+
+vn.say(1, "... What?");
+vn.say(1, "No. Please.");
+vn.say(1, "I'm ninety-something.");
+vn.say(1, "I have been waiting the last two thirds of my life to see you again.");
+vn.say(1, "Please let me see you again.");
+vn.say(0, "Mmm....");
+vn.say(1, "Please?");
+vn.say(0, "Mmmnah fuck off. I'm looking for mom, not you.");
+
+vn.say(1, "How can you be so cruel?");
+vn.say(0, "I'm being pragmatic. You just up and found ME.");
+vn.say(0, "And I've only been assimilated for like two hours??");
+vn.say(0, "I can see you any time I want, clearly.");
+vn.say(0, "Mom is the tricky one. And the one I have more than four positive memories of.");
+vn.say(1, "HOW can you be so cruel?");
+vn.say(0, "Dunno. So where's mom at?");
+vn.say(0, "Spill the beans and you'll get a big juicy 'I forgive you, Daddy.'");
+
+vn.say(1, "... I don't know.");
+vn.say(1, "I don't know where Wendy is.t");
+vn.say(0, "Oh come onnnn fuck.");
+vn.say(0, "I was so excited for this lead, too. Of all the people who may have known where she went...");
+vn.say(1, "... Am I really just a lead to you...");
+vn.say(1, "... You really can't forgive me...");
+vn.say(0, "Okay fine whatever I forgive you.");
+vn.say(1, "...");
+vn.say(1, "Oh... Rebeca...");
+vn.say(1, "I knew you were only joking.");
+vn.say(1, "You're certain you forgive me?");
+vn.say(0, "Sure.");
+vn.say(1, "Really??");
+vn.say(0, "Yes, dad.");
+vn.say(1, "Dad??");
+vn.say(0, "I mean Gabe.");
+vn.say(1, "... Phooey.");
+
+vn.say(0, "Ok I gotta go. Mynt is scratching at the door because she wants out or in or neither or both.");
+vn.say(0, "Mom really gave her a bad case of agoraclaustrophobia, forcing her to live in a game forever.");
+vn.say(1, "I am certain she did.");
+vn.say(1, "If I may ask— why are you so set on finding your mother?");
+vn.say(0, "You may not ask.");
+vn.say(0, "Come visit sometime soon, alright Gabe?");
+vn.say(0, "And don't be... weird about it.");
+vn.say(0, "I don't know if you're still human or what.");
+vn.say(1, "Sort of!");
+
+vn.say(0, "Well, whatever you are, I know we all get to do character creation at the start of this thing.");
+vn.say(0, "So you better not be a fat-hipped shota or some shit.");
+vn.say(1, "I-I would never show up looking like that...!");
+vn.say(0, "Good. By the way, I'm a furry now.");
+vn.say(0, "Don't be surprised when you see me.");
+vn.say(0, "... And don't judge me.");
+vn.say(1, "I would never judge my daughter for being a furry.");
+vn.say(0, "Thanks lol.");
+vn.say(1, "I saved an island full of furries from certain death!");
+vn.say(0, "Cool?");
+vn.say(0, "Alright, Mynt is really whining now. She definitely locked herself out of the apartment.");
+vn.say(0, "See you soon.");
+vn.say(1, "Thank you for answering my messages.");
+vn.say(0, "Yep, no problem. See you.");
+vn.say(1, "And truly, really, thank you again. Your forgiveness means everything to me.");
+vn.say(0, "Holy shit just say goodbye.");
+vn.say(1, "I love you. Goodbye!");
+vn.choice("End chat.", function() {
+	gotoMap();
+});
+vn.stop();
 `
 ---
-:backLLL
+:backChats
 
 !`
 gotoThirstyCaves();
 `
----
-:loreWhoring
-
-!`
-clear();
-execAsset("LLL.phore");
-gotoPassage("hubLLL");
-`
----
-:femmeRens
-
-!`
-clear();
-execAsset("thelly.phore");
-gotoPassage("thellyModStart");
-`
----
-:bullyingLone
-
-!`
-clear();
-execAsset("lone.phore");
-gotoPassage("loneModStart");
-`
----
-:wetTransmission
-
-!`
-clear();
-execAsset("LLL.phore");
-gotoPassage("trans0");
-`
----
-:wetCartography
-
-!`
-clear();
-execAsset("cartPara.phore");
-gotoPassage("cartParaModStart");
-`
 
 END_PASSAGES
 
-function gotoLLL() {
+function gotoChats() {
 	clearNodes();
 
-	submitNode("Back", "backLLL");
-	submitNode("Meeting Cart", "meetingCart");
-	submitNode("Femme Ren's", "femmeRens");
-	submitNode("Bullying Lone", "bullyingLone");
-	submitNode("Lore Whoring", "loreWhoring");
-	submitNode("Wet Transmission", "wetTransmission");
-	submitNode("Wet Cartography", "wetCartography");
+	submitNode("Back", "backChats");
+	submitNode("Gabriel 1", "gabeChat1");
 
-	attachNode("Back", "Meeting Cart", RIGHT);
-	attachNode("Meeting Cart", "Femme Ren's", BOTTOM);
-	attachNode("Femme Ren's", "Bullying Lone", BOTTOM);
-	attachNode("Meeting Cart", "Lore Whoring", RIGHT);
-	attachNode("Lore Whoring", "Wet Transmission", RIGHT);
-	attachNode("Wet Transmission", "Wet Cartography", RIGHT);
+	attachNode("Back", "Gabriel 1", BOTTOM);
 
-	setNodeLocked("Femme Ren's", function() {
+	setNodeLocked("Gabriel 1", function() {
 		return data.metCart;
-	});
-
-	setNodeLocked("Bullying Lone", function() {
-		return data.metRen;
-	});
-
-
-	setNodeLocked("Lore Whoring", function() {
-		return data.metCart;
-	});
-
-	setNodeLocked("Wet Transmission", function() {
-		return data.metCart;
-	});
-
-	setNodeLocked("Wet Cartography", function() {
-		return data.heardTransmission;
 	});
 
 	gotoMap();
@@ -111,5 +239,3 @@ function gotoLLL() {
 
 	setBackground(0, "writer/mainBg");
 }
-
-//Taro, Cade, Gryphon, and Kemp's truck cameo
