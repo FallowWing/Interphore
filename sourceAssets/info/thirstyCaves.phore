@@ -6,72 +6,6 @@ music.name = "music";
 
 START_PASSAGES
 ---
-:introCutscene
-
-!`
-setBackground(0, "writer/mainBg");
-
-//Map
-submitNode("L.L.L.", "LLL");
-submitNode("Spilled Paint", "earth");
-submitNode("Red Pond", "introArea");
-submitNode("Chats", "chats");
-submitNode("Archiepelago", "archiepelago");
-submitNode("L.L.L.", "LLL");
-
-attachNode("L.L.L.", "Spilled Paint", BOTTOM);
-attachNode("Spilled Paint", "Red Pond", RIGHT);
-attachNode("Spilled Paint", "Chats", LEFT);
-attachNode("Spilled Paint", "Archiepelago", BOTTOM);
-
-setNodeLocked("Archiepelago", function() {
-	return data.metCart;
-});
-
-	setNodeLocked("Chats", function() {
-	return data.haveChatted;
-});
-
-//Cutscene
-disableExit();
-var mapSFX = playMusic("audio/effect/mapTransition");
-mapSFX.name = "mapSFX";
-
-var redGoop = addImage("writer/mapTransition.png");
-redGoop.temp = false;
-redGoop.y = -redGoop.height;
-
-var redGoop2 = addRectImage(gameWidth, gameHeight, 0xd93c3c);
-redGoop2.temp = false;
-redGoop2.y = redGoop.y - redGoop2.height;
-
-var redGoop3 = addImage("writer/mapTransition.png");
-redGoop3.temp = false;
-redGoop3.y = redGoop2.y;
-redGoop3.scaleY = -1;
-
-tween(redGoop, 2.5, {y: gameHeight + redGoop.height + redGoop2.height}, {ease: QUAD_IN_OUT});
-tween(redGoop2, 2.5, {y: gameHeight + redGoop2.height}, {ease: QUAD_IN_OUT});
-tween(redGoop3, 2.5, {y: gameHeight + redGoop2.height}, {ease: QUAD_IN_OUT});
-
-timer(1.5, function() { 
-	gotoMap();
-	enableExit();
-	var layerSelect = addImage("writer/layerSelect.png");
-	layerSelect.alpha = 0;
-	layerSelect.y = -layerSelect.height;
-	tween(layerSelect, 2.5, {y: 0, alpha: 1}, {ease: QUINT_OUT});
-});
-
-
-timer(5, function() {
-	if (redGoop) redGoop.destroy();
-	if (redGoop2) redGoop2.destroy();
-	if (redGoop3) redGoop3.destroy();
-	if (mapSFX) mapSFX.destroy();
-});
-`
----
 :introArea
 
 You find a red pond, no matter where you are.
@@ -323,6 +257,62 @@ gotoArchiepelago();
 END_PASSAGES
 
 function gotoThirstyCaves() {
+	disableExit();
+	clear();
 	clearNodes();
-  	gotoPassage("introCutscene");
+  	setBackground(0, "writer/mainBg");
+
+	//Map
+	submitNode("L.L.L.", "LLL");
+	submitNode("Spilled Paint", "earth");
+	submitNode("Red Pond", "introArea");
+	submitNode("Chats", "chats");
+	submitNode("Archiepelago", "archiepelago");
+	submitNode("L.L.L.", "LLL");
+
+	attachNode("L.L.L.", "Spilled Paint", BOTTOM);
+	attachNode("Spilled Paint", "Red Pond", RIGHT);
+	attachNode("Spilled Paint", "Chats", LEFT);
+	attachNode("Spilled Paint", "Archiepelago", BOTTOM);
+
+	setNodeLocked("Archiepelago", function() {
+		return data.metCart;
+	});
+
+		setNodeLocked("Chats", function() {
+		return data.haveChatted;
+	});
+
+	//Cutscene
+	playEffect("audio/effect/mapTransition");
+
+	var redGoop = addImage("writer/mapTransition.png");
+	redGoop.temp = false;
+	redGoop.y = -redGoop.height;
+
+	var redGoop2 = addRectImage(gameWidth, gameHeight, 0xd93c3c);
+	redGoop2.temp = false;
+	redGoop2.y = redGoop.y - redGoop2.height;
+
+	var redGoop3 = addImage("writer/mapTransition.png");
+	redGoop3.temp = false;
+	redGoop3.y = redGoop2.y;
+	redGoop3.scaleY = -1;
+
+	tween(redGoop, 2.5, {y: gameHeight + redGoop.height + redGoop2.height}, {ease: QUAD_IN_OUT});
+	tween(redGoop2, 2.5, {y: gameHeight + redGoop2.height}, {ease: QUAD_IN_OUT});
+	tween(redGoop3, 2.5, {y: gameHeight + redGoop2.height}, {ease: QUAD_IN_OUT});
+
+	timer(2.5, function() {
+		if (redGoop) redGoop.destroy();
+		if (redGoop2) redGoop2.destroy();
+		if (redGoop3) redGoop3.destroy();
+		gotoMap();
+		enableExit();
+
+		var layerSelect = addImage("writer/layerSelect.png");
+		layerSelect.alpha = 0;
+		layerSelect.y = -layerSelect.height;
+		tween(layerSelect, 1, {y: 0, alpha: 1}, {ease: QUINT_OUT});
+	});
 }
