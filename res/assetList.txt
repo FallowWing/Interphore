@@ -192,6 +192,14 @@ img/writer/mynt/face/myntBod/9.png
 img/writer/mynt/face/myntBod/9.spr
 img/writer/mynt/face/myntBod/10.png
 img/writer/mynt/face/myntBod/10.spr
+img/writer/characters/allei/allei.png
+img/writer/characters/allei/allei.spr
+img/writer/characters/allei/silhouette1.png
+img/writer/characters/allei/silhouette1.spr
+img/writer/characters/allei/silhouette2.png
+img/writer/characters/allei/silhouette2.spr
+img/writer/characters/allei/silhouette3.png
+img/writer/characters/allei/silhouette3.spr
 img/writer/characters/archie/arrival.png
 img/writer/characters/archie/arrival.spr
 img/writer/characters/archie/normal.png
@@ -208,6 +216,8 @@ img/writer/characters/ren/ren.png
 img/writer/characters/ren/ren.spr
 img/writer/characters/lone/lone.png
 img/writer/characters/lone/lone.spr
+img/writer/characters/lone/loneFramed.png
+img/writer/characters/lone/loneFramed.spr
 img/writer/characters/cart/cart.png
 img/writer/characters/cart/cart.spr
 img/writer/characters/cart/cart2.png
