@@ -219,6 +219,8 @@ vn.say = function(charNum, text, timeMulti) {
 	var textTime = 1 + text.length/100;
 	textTime *= timeMulti;
 	queueCall(function() { vn.sayNow(charNum, text, textTime); });
+	queueSkippableDelay(textTime);
+	queueCall(function() { vn.sayNow(charNum, text, 0); });
 	queuePause();
 }
 vn.sayNow = function(charNum, text, textTime) {

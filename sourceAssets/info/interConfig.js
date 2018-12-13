@@ -640,7 +640,15 @@ function queueDelay(amount) {
 	queuedCommands.push(command);
 }
 
-function queuePause(amount) {
+function queueSkippableDelay(amount) {
+	var command = {};
+	command.type = "delay";
+	command.addedTime = amount;
+	command.skippable = true;
+	queuedCommands.push(command);
+}
+
+function queuePause() {
 	var command = {};
 	command.type = "pause";
 	command.skippable = true;
