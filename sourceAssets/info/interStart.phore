@@ -120,6 +120,7 @@ var vn = {
 
 vn.init = function() {
 	queueCall(function() { vn.initNow(); });
+	vn.resetTextModes();
 }
 vn.initNow = function() {
 	vn.active = true;
