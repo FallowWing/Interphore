@@ -115,8 +115,6 @@ img/writer/icons/Vomit.spr
 img/writer/icons/Patreon-Commission.png
 img/writer/icons/Patreon-Commission.spr
 
-img/writer/mainBg.png
-img/writer/mainBg.spr
 img/writer/exit.png
 img/writer/exit.spr
 img/writer/restart.png
@@ -156,6 +154,14 @@ img/writer/choiceArrow.png
 img/writer/choiceArrow.spr
 img/writer/statusBox.png
 img/writer/statusBox.spr
+img/writer/redBg.png
+img/writer/redBg.spr
+img/writer/mainBg.png
+img/writer/mainBg.spr
+img/writer/islandBg.png
+img/writer/islandBg.spr
+img/writer/gcdBg.png
+img/writer/gcdBg.spr
 img/writer/thirstyCavesBg.png
 img/writer/thirstyCavesBg.spr
 img/writer/spilledPaintBg.png

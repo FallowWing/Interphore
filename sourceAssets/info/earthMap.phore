@@ -90,13 +90,16 @@ function gotoEarth() {
 	gotoMap();
 
 	var layerSelect = addImage("writer/mapTitles/earth.png");
+		layerSelect.layer = 39; //Just beneath node lines & boxes
 		layerSelect.alpha = 0;
 		layerSelect.y = -layerSelect.height;
 		tween(layerSelect, 1, {y: 0, alpha: 1}, {ease: QUINT_OUT});
 
+	setBackground(0, "writer/mainBg");
+
 	var backgroundSpilled = addImage("writer/spilledPaintBg.png");
 	backgroundSpilled.y = gameHeight - backgroundSpilled.height;
-	backgroundSpilled.layer = 39; //Just below the lines on the node graph, which are at 40
+	backgroundSpilled.layer = 38; //Below title
 	tween(backgroundSpilled, 30, {y: 0}, {ease: QUAD_OUT, type: PINGPONG, startDelay: 4});
 
 	if (!data.seenEarthCredit) {

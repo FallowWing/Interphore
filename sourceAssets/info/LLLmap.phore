@@ -108,11 +108,22 @@ function gotoLLL() {
 	gotoMap();
 
 	var layerSelect = addImage("writer/mapTitles/gcd.png");
+		layerSelect.layer = 39; //Just beneath node lines & boxes
 		layerSelect.alpha = 0;
 		layerSelect.y = -layerSelect.height;
 		tween(layerSelect, 1, {y: 0, alpha: 1}, {ease: QUINT_OUT});
 
 	setBackground(0, "writer/mainBg");
+
+	var backgroundLLL = addImage("writer/gcdBg.png");
+	backgroundLLL.y = gameHeight - backgroundLLL.height;
+	backgroundLLL.layer = 38; //Below title
+	tween(backgroundLLL, 30, {y: 0}, {ease: QUAD_OUT, type: PINGPONG, startDelay: 4});
+
+	if (!data.seenLLLCredit) {
+		data.seenLLLCredit = true;
+		msg("Art: Cubber");
+	}
 }
 
 //Taro, Cade, Gryphon, and Kemp's truck cameo

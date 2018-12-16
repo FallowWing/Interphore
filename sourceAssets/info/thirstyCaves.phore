@@ -260,7 +260,6 @@ function gotoThirstyCaves() {
 	disableExit();
 	clear();
 	clearNodes();
-  	setBackground(0, "writer/mainBg");
 
 	//Map
 	submitNode("L.L.L.", "LLL");
@@ -299,11 +298,17 @@ function gotoThirstyCaves() {
 	redGoop3.y = redGoop2.y;
 	redGoop3.scaleY = -1;
 
-	tween(redGoop, 2.5, {y: gameHeight + redGoop.height + redGoop2.height}, {ease: QUAD_IN_OUT});
-	tween(redGoop2, 2.5, {y: gameHeight + redGoop2.height}, {ease: QUAD_IN_OUT});
-	tween(redGoop3, 2.5, {y: gameHeight + redGoop2.height}, {ease: QUAD_IN_OUT});
+	var animDuration = 1.5;
 
-	timer(2.5, function() {
+	tween(redGoop, animDuration, {y: gameHeight + redGoop.height + redGoop2.height}, {ease: QUAD_IN_OUT});
+	tween(redGoop2, animDuration, {y: gameHeight + redGoop2.height}, {ease: QUAD_IN_OUT});
+	tween(redGoop3, animDuration, {y: gameHeight + redGoop2.height}, {ease: QUAD_IN_OUT});
+
+	timer(animDuration * 0.3, function() {
+		setBackground(0, "writer/redBg");
+	})
+
+	timer(1.5, function() {
 		if (redGoop) redGoop.destroy();
 		if (redGoop2) redGoop2.destroy();
 		if (redGoop3) redGoop3.destroy();
@@ -311,6 +316,7 @@ function gotoThirstyCaves() {
 		enableExit();
 
 		var layerSelect = addImage("writer/mapTitles/theRedSea.png");
+		layerSelect.layer = 39; //Just beneath node lines & boxes
 		layerSelect.alpha = 0;
 		layerSelect.y = -layerSelect.height;
 		tween(layerSelect, 1, {y: 0, alpha: 1}, {ease: QUINT_OUT});
