@@ -138,14 +138,14 @@ img/writer/notification.spr
 img/writer/writerChoice.png
 img/writer/writerChoice.spr
 
-img/writer/layerSelect.png
-img/writer/layerSelect.spr
-img/writer/gcd.png
-img/writer/gcd.spr
-img/writer/library2.png
-img/writer/library2.spr
-img/writer/earth.png
-img/writer/earth.spr
+img/writer/mapTitles/theRedSea.png
+img/writer/mapTitles/theRedSea.spr
+img/writer/mapTitles/gcd.png
+img/writer/mapTitles/gcd.spr
+img/writer/mapTitles/library2.png
+img/writer/mapTitles/library2.spr
+img/writer/mapTitles/earth.png
+img/writer/mapTitles/earth.spr
 
 img/writer/mapTransition.png
 img/writer/mapTransition.spr

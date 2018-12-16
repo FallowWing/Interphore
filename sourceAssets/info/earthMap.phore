@@ -89,7 +89,10 @@ function gotoEarth() {
 
 	gotoMap();
 
-	var layerSelect = addImage("writer/earth.png");
+	var layerSelect = addImage("writer/mapTitles/earth.png");
+		layerSelect.alpha = 0;
+		layerSelect.y = -layerSelect.height;
+		tween(layerSelect, 1, {y: 0, alpha: 1}, {ease: QUINT_OUT});
 
 	var backgroundSpilled = addImage("writer/spilledPaintBg.png");
 	backgroundSpilled.y = gameHeight - backgroundSpilled.height;

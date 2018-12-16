@@ -107,7 +107,10 @@ function gotoLLL() {
 
 	gotoMap();
 
-	var layerSelect = addImage("writer/gcd.png");
+	var layerSelect = addImage("writer/mapTitles/gcd.png");
+		layerSelect.alpha = 0;
+		layerSelect.y = -layerSelect.height;
+		tween(layerSelect, 1, {y: 0, alpha: 1}, {ease: QUINT_OUT});
 
 	setBackground(0, "writer/mainBg");
 }

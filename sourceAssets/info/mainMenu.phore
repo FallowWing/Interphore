@@ -28,7 +28,7 @@ var buttonPad = 20;
 var buttonTextLeftPad = 40;
 
 //Gray rects
-var titleRect = addRectImage(desiredWidth, 156, 0x302f32);
+var titleRect = add9SliceImage("img/writer/writerChoice.png", desiredWidth, 156, 5, 5, 10, 10);
 titleRect.alpha = 0;
 titleRect.y = -titleRect.height;
 container.addChild(titleRect);

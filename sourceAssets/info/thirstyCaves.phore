@@ -310,7 +310,7 @@ function gotoThirstyCaves() {
 		gotoMap();
 		enableExit();
 
-		var layerSelect = addImage("writer/layerSelect.png");
+		var layerSelect = addImage("writer/mapTitles/theRedSea.png");
 		layerSelect.alpha = 0;
 		layerSelect.y = -layerSelect.height;
 		tween(layerSelect, 1, {y: 0, alpha: 1}, {ease: QUINT_OUT});

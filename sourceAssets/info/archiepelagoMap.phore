@@ -51,7 +51,10 @@ function gotoArchiepelago() {
 
 	gotoMap();
 
-	var layerSelect = addImage("writer/library2.png");
+	var layerSelect = addImage("writer/mapTitles/library2.png");
+		layerSelect.alpha = 0;
+		layerSelect.y = -layerSelect.height;
+		tween(layerSelect, 1, {y: 0, alpha: 1}, {ease: QUINT_OUT});
 
 	setBackground(0, "writer/mainBg");
 }
