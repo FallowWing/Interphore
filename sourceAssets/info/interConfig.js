@@ -681,6 +681,8 @@ function msg(str, config) {
 	if (config.hugeTexture === undefined) config.hugeTexture = false;
 	if (config.extraTime === undefined) config.extraTime = 0;
 
+	if (config.silent === undefined) playEffect("audio/ui/msg");
+
 	var tf;
 
 	if (config.hugeTexture) {

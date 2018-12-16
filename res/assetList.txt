@@ -267,6 +267,14 @@ audio/effect/cartSlide/right/2.ogg
 audio/effect/cartSlide/left/1.ogg
 audio/effect/cartSlide/left/2.ogg
 
+audio/ui/msg/1.ogg
+audio/ui/msg/2.ogg
+audio/ui/msg/3.ogg
+audio/ui/rewards/boon/1.ogg
+audio/ui/rewards/boon/2.ogg
+audio/ui/rewards/boon/3.ogg
+audio/ui/rewards/party.ogg
+audio/ui/rewards/checkmark.ogg
 audio/ui/notification.ogg
 audio/ui/nextArrow.ogg
 audio/ui/backArrow.ogg
@@ -304,6 +312,7 @@ audio/ui/exit.ogg
 audio/ui/load.ogg
 audio/music/newVictim.ogg
 audio/music/newSelf.ogg
+audio/music/newEngine.ogg
 audio/music/nonLocal.ogg
 audio/ambience/violetMeteorite.ogg
 audio/ambience/cell.ogg
