@@ -283,6 +283,6 @@ attachNode("Story", "Extras (Buggy)", RIGHT);
 gotoPassage("Title Screen");
 setBackground(0, "writer/thirstyCavesBg");
 
-var music = playMusic("audio/music/newVictim");
+var music = playMusic("audio/music/newEngine");
 music.name = "music";
 music.looping = true;
