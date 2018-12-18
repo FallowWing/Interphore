@@ -154,6 +154,9 @@ img/writer/choiceArrow.png
 img/writer/choiceArrow.spr
 img/writer/statusBox.png
 img/writer/statusBox.spr
+img/writer/myntBeca.png
+img/writer/myntBeca.spr
+
 img/writer/redBg.png
 img/writer/redBg.spr
 img/writer/mainBg.png
@@ -170,6 +173,7 @@ img/writer/shelterBg.png
 img/writer/shelterBg.spr
 img/writer/cartBg.png
 img/writer/cartBg.spr
+
 img/writer/mynt/bg/myntBg1.png
 img/writer/mynt/bg/myntBg1.spr
 img/writer/mynt/bg/myntBg2.png

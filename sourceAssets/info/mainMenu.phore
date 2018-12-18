@@ -9,38 +9,67 @@ welcome
 ---
 :Title Screen
 !`
+disableExit();
 var container = addEmptyImage(1, 1);
 container.scaleX = gameWidth/desiredWidth;
 container.scaleY = gameHeight/desiredHeight;
 
-var bg = addImage("img/writer/intro/titleBG.png");
-bg.x = -70;
+var bgStrings = ["gcd", "spilledPaint", "island"];
+var ran = rndInt(0, bgStrings.length - 1);
+
+var bg = addImage("img/writer/"+bgStrings[ran]+"Bg.png");
+bg.tint = 0x66000000;
 bg.scaleX = 1.2;
 bg.scaleY = 1.2;
 
-tween(bg, 10, {scaleX: 1, scaleY: 1}, {type: PINGPONG, ease: QUAD_IN});
-tween(bg, 10, {x: 0}, {type: PINGPONG, ease: QUAD_IN_OUT});
-tween(bg, 12, {y: -70}, {type: PINGPONG, ease: QUAD_IN_OUT});
+if (bgStrings[ran] == "gcd") {
+	bg.y = -520;
+	tween(bg, 26, {scaleX: 1, scaleY: 1}, {type: PINGPONG, ease: QUAD_IN_OUT});
+	tween(bg, 16, {y: 0}, {type: PINGPONG, ease: QUAD_IN_OUT});
+} else if (bgStrings[ran] == "spilledPaint") {
+	bg.y = -520;
+	tween(bg, 24, {scaleX: 1, scaleY: 1}, {type: PINGPONG, ease: QUAD_IN_OUT});
+	tween(bg, 18, {y: 0}, {type: PINGPONG, ease: QUAD_IN_OUT});
+} else if (bgStrings[ran] == "island") {
+	bg.x = -30;
+	tween(bg, 15, {scaleX: 1, scaleY: 1}, {type: PINGPONG, ease: QUAD_IN_OUT});
+	tween(bg, 10, {x: 0}, {type: PINGPONG, ease: QUAD_IN_OUT});
+	tween(bg, 12, {y: -70}, {type: PINGPONG, ease: QUAD_IN_OUT});
+}
 
 var buttonWidth = 400;
-var buttonHeight = 50;
-var buttonPad = 20;
+var buttonHeight = 80;
+var buttonPad = 15;
 var buttonTextLeftPad = 40;
 
 //Gray rects
-var titleRect = add9SliceImage("img/writer/writerChoice.png", desiredWidth, 156, 5, 5, 10, 10);
+var titleRect = add9SliceImage("img/writer/writerChoice.png", 750, 156, 5, 5, 10, 10);
 titleRect.alpha = 0;
-titleRect.y = -titleRect.height;
+titleRect.x = 550;
+titleRect.y = 23;
 container.addChild(titleRect);
 
-tween(titleRect, 2, {y: 54, alpha: 1}, {ease: QUINT_OUT});
+titleRect.onHover = function() {
+	playEffect("audio/ui/hoverChoiceButtons");
+	titleRect.tint = 0x3303a3ff;
+}
 
-var taglineRect = addRectImage(desiredWidth, buttonHeight, 0x302f32);
+var taglines = ["sex, violence, and reading", "step into the pond", "post-apocalyptic amnesiac grandma furries", "finding wendy", "you basically just click buttons", "porno butt holes", "inherently pornographic organisms", "yiff yiff yiff yiff yiff yiff yiff", "fucking furries", "this is the only canon tagline", "you can assimilate me if you want, daddy"];
+var ranTagline = rndInt(0, taglines.length - 1);
+var chosenTagline = taglines[ranTagline];
+
+titleRect.whileHovering = function() {
+	showTooltip("<b>"+chosenTagline+"</b>");
+}
+
+tween(titleRect, 2, {alpha: 1}, {ease: QUINT_OUT});
+
+/*
+var taglineRect = addRectImage(desiredWidth, buttonHeight, 0x252525);
 taglineRect.y = 230;
 container.addChild(taglineRect);
 
-var taglines = ["sex, violence, and reading", "step into the pond", "sensual text misadventure", "post-apocalyptic amnesiac grandma furries", "finding wendy", "seven layer sex dip", "greater mama", "i can't believe it's not butt hair", "moby dink's revenge 2: the dinkening", "big boi spikes again: a volleyball text game", "ginormo kitten tiddies", "you basically just click buttons", "violent and disgusting (soon)", "porno butt holes", "inherently pornographic organisms", "yiff yiff yiff yiff yiff yiff yiff", "erotic furry text game", "partially customizable groin", "click the play button to begin clicking other buttons", "furry ero text game", "spilled paint", "fucking furries", "reality is a fingerpainting", "this is the only canon tagline", "you can assimilate me if you want, daddy"];
-var ran = rndInt(0, taglines.length);
+
 
 var taglineText = addEmptyImage(desiredWidth, buttonHeight);
 taglineText.setText(taglines[ran]);
@@ -51,10 +80,11 @@ taglineText.y = taglineRect.height/2 - taglineText.textHeight/2;
 taglineRect.addChild(taglineText);
 
 tween(taglineText, 3, {x: desiredWidth - taglineText.textWidth - 40, alpha: 1}, {ease: QUINT_OUT});
+*/
 
-var playRect = addRectImage(buttonWidth, buttonHeight, 0x302f32);
+var playRect = add9SliceImage("img/writer/writerChoice.png", buttonWidth, buttonHeight, 5, 5, 10, 10);
 playRect.x = desiredWidth - playRect.width;
-playRect.y = taglineRect.y + taglineRect.height + 50;
+playRect.y = 280;
 container.addChild(playRect);
 playRect.onRelease = function() {
 	getAudio("music").destroy();
@@ -70,7 +100,7 @@ playText.tint = 0xFF00a6fc;
 playText.y = playRect.height/2 - playText.textHeight/2;
 playRect.addChild(playText);
 
-var loadRect = addRectImage(buttonWidth, buttonHeight, 0x302f32);
+var loadRect = add9SliceImage("img/writer/writerChoice.png", buttonWidth, buttonHeight, 5, 5, 10, 10);
 loadRect.x = desiredWidth - loadRect.width; //gameWidth;
 loadRect.y = playRect.y + playRect.height + buttonPad;
 container.addChild(loadRect);
@@ -89,7 +119,7 @@ loadText.x = buttonTextLeftPad;
 loadText.y = loadRect.height/2 - loadText.textHeight/2;
 loadRect.addChild(loadText);
 
-var modRect = addRectImage(buttonWidth, buttonHeight, 0x302f32);
+var modRect = add9SliceImage("img/writer/writerChoice.png", buttonWidth, buttonHeight, 5, 5, 10, 10);
 modRect.x = desiredWidth - modRect.width;// desiredWidth;
 modRect.y = loadRect.y + loadRect.height + buttonPad;
 container.addChild(modRect);
@@ -106,7 +136,7 @@ modText.x = buttonTextLeftPad;
 modText.y = modRect.height/2 - modText.textHeight/2;
 modRect.addChild(modText);
 
-var extraRect = addRectImage(buttonWidth, buttonHeight, 0x302f32);
+var extraRect = add9SliceImage("img/writer/writerChoice.png", buttonWidth, buttonHeight, 5, 5, 10, 10);
 extraRect.x = desiredWidth - extraRect.width;// desiredWidth;
 extraRect.y = modRect.y + modRect.height + buttonPad;
 container.addChild(extraRect);
@@ -144,47 +174,52 @@ var extraTextTween = tween(extraText, 0.3, {x: buttonTextLeftPad + 20}, {ease: Q
 
 playRect.onHover = function() {
 	playEffect("audio/ui/hoverChoiceButtons");
-	playRect.tint = 0xFF375266;
+	playRect.tint = 0x3303a3ff;
 	playRectTween.reset();
 	playTextTween.reset();
 }
 
 loadRect.onHover = function() {
 	playEffect("audio/ui/hoverChoiceButtons");
-	loadRect.tint = 0xFF375266;
+	loadRect.tint = 0x3303a3ff;
 	loadRectTween.reset();
 	loadTextTween.reset();
 }
 
 modRect.onHover = function() {
 	playEffect("audio/ui/hoverChoiceButtons");
-	modRect.tint = 0xFF375266;
+	modRect.tint = 0x3303a3ff;
 	modRectTween.reset();
 	modTextTween.reset();
 }
 
 extraRect.onHover = function() {
 	playEffect("audio/ui/hoverChoiceButtons");
-	extraRect.tint = 0xFF375266;
+	extraRect.tint = 0x3303a3ff;
 	extraRectTween.reset();
 	extraTextTween.reset();
 }
 
-playRect.onUnHover = loadRect.onUnHover = modRect.onUnHover = extraRect.onUnHover = function() {
-	playRect.tint = loadRect.tint = modRect.tint = extraRect.tint = 0;
+playRect.onUnHover = loadRect.onUnHover = modRect.onUnHover = extraRect.onUnHover = titleRect.onUnHover = function() {
+	playRect.tint = loadRect.tint = modRect.tint = extraRect.tint = titleRect.tint = 0;
 	playEffect("audio/ui/hoverChoiceIcons");
 }
 
-var bottomRect = addRectImage(desiredWidth, buttonHeight*2, 0x302f32);
+/*
+var bottomRect = addRectImage(desiredWidth, buttonHeight*2, 0x252525);
 bottomRect.alpha = 0;
-bottomRect.tint = 0x302f32;
+bottomRect.tint = 0x252525;
 bottomRect.y = desiredHeight;
 container.addChild(bottomRect);
+
+tween(bottomRect, 2, {y: 625, alpha: 1}, {ease: QUINT_OUT});
+tween(bottomRect, 6, {scaleY: 1.2}, {type: PINGPONG, ease: QUAD_IN_OUT});
+*/
 
 var muteButton = addImage("writer/mute.png");
 muteButton.scaleY = muteButton.scaleX = 2;
 muteButton.alpha = 0;
-muteButton.x = desiredWidth - muteButton.width * muteButton.scaleX - 20;
+muteButton.x = 20;
 muteButton.y = desiredHeight - muteButton.height*muteButton.scaleY * 1.5;
 container.addChild(muteButton);
 muteButton.onRelease = function() {
@@ -196,7 +231,7 @@ muteButton.onRelease = function() {
 
 muteButton.onHover = function() {
 	playEffect("audio/ui/hoverChoiceButtons");
-	muteButton.tint = 0xFF375266;
+	muteButton.tint = 0x3303a3ff;
 }
 
 muteButton.onUnHover = function() {
@@ -204,9 +239,6 @@ muteButton.onUnHover = function() {
 }
 
 tween(muteButton, 3, {alpha: 1}, {ease: QUINT_OUT});
-
-tween(bottomRect, 2, {y: 625, alpha: 1}, {ease: QUINT_OUT});
-tween(bottomRect, 6, {scaleY: 1.2}, {type: PINGPONG, ease: QUAD_IN_OUT});
 
 //Text
 var text = addImage("img/writer/intro/titleText.png");
@@ -248,6 +280,8 @@ if (randomAsset === "img/writer/mynt/face/myntBod/10.png") cart.scaleX = cart.sc
 container.addChild(cart);
 
 tween(cart, 1.3, {x: 70, alpha: 1}, {ease: QUINT_OUT});
+tween(cart, 8, {y: 30}, {type: PINGPONG, ease: QUAD_IN_OUT});
+tween(cartBG, 5, {y: 0}, {type: PINGPONG, ease: QUAD_IN_OUT});
 tween(cartBG, 4, {x: 40}, {type: PINGPONG, ease: QUAD_IN_OUT});
 `
 
