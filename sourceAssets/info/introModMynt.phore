@@ -23,7 +23,6 @@ var music = playMusic("audio/ambience/violetMeteorite");
 music.name = "music";
 
 msg("18 or older only.");
-msg("Press Space to skip.");
 
 timer(2, function() { addChoice("Mynt...", "realStart"); });
 `
@@ -37,7 +36,7 @@ music2.name = "music2";
 
 var fader = addRectImage(gameWidth, gameHeight, 0x000000);
 fader.alpha = 1;
-
+msg("Press Space to skip.");
 tween(fader, 5, {alpha: 0}, {ease: QUAD_IN});
 
 setBackground(0, "writer/thirstyCavesBg");
@@ -63,8 +62,34 @@ queueTitle("This body isn't mine.");
 queueTitle("Yet! :3");
 queueTitle("I'm remote controlling it from the bomb shelter computer.");
 queueTitle("It's made out of pondwater! Cool huh??");
-queueTitle("Handy that the sum of my being can fit on a USB, huh? <3");
-queueTitle("Oh! You know where we are, right?");
+queueTitle("Handy that the sum of my being can fit on a USB, huh? Huh???? <3");
+
+choicesPerPassage = 1;
+queueAddChoice("Huh!", "Huh.Next");
+`
+
+---
+:Huh.Next
+
+!`
+queueTitle("");
+queueTitle("... You look kinda confused.");
+
+choicesPerPassage = 1;
+queueAddChoice("Just uh! I... am still getting used to this.", "Huh.Next2");
+`
+
+---
+:Huh.Next2
+
+!`
+queueTitle("Ehe... welcome to my life...");
+queueTitle("It's been overcomplex from day one.");
+queueTitle("And people still reduce it to 'So you're A.I. or something, right?'");
+queueTitle("Guh.");
+queueDelay(2);
+queueTitle("Say!");
+queueTitle("You do know where we are, right?");
 
 queueAddChoice("Uhhhh.");
 `
@@ -74,27 +99,33 @@ queueAddChoice("Uhhhh.");
 
 !`
 queueCall(function() { setBackground(0, "writer/shelterBg"); });
+queueTitle("I'm still a narrator, y'know! So don't worry.");
+queueTitle("I'll describe it to you so clearly you'll almost see it. Here:");
+queueDelay(1);
 queueTitle("");
 queueCall(function() { setBackground(1, ""); });
 queueDelay(2);
 queueTitle("We are right here!!!");
-queueTitle("Up on top of Earth's final visitor!");
-queueCall(function() { setBackground(1, "writer/mynt/face/myntBod/10", CENTERED); });
-queueDelay(2);
+queueTitle("Up on top of the Grey Meteorite!");
+queueDelay(1);
 queueTitle("");
-queueCall(function() { setBackground(2, "writer/myntBeca", CENTERED); });
-queueDelay(0.5);
-queueCall(function() { setBackground(2, ""); });
-queueDelay(0.5);
-queueCall(function() { setBackground(2, "writer/myntBeca", CENTERED); });
-queueDelay(0.5);
-queueCall(function() { setBackground(2, ""); });
-queueDelay(0.5);
-queueCall(function() { setBackground(2, "writer/myntBeca", CENTERED); });
-queueDelay(1.5);
+queueCall(function() { setBackground(2, "writer/myntBeca"); playEffect("audio/ui/msg/1"); });
+queueDelay(0.3);
+queueCall(function() { setBackground(2, ""); playEffect("audio/ui/msg/3"); });
+queueDelay(0.3);
+queueCall(function() { setBackground(2, "writer/myntBeca"); playEffect("audio/ui/msg/1"); });
+queueDelay(0.3);
+queueCall(function() { setBackground(2, ""); playEffect("audio/ui/msg/3"); });
+queueDelay(0.3);
+queueCall(function() { setBackground(2, "writer/myntBeca"); playEffect("audio/ui/msg/1"); });
+queueDelay(0.8);
+queueCall(function() { setBackground(2, ""); playEffect("audio/ui/msg/3"); });
 queueCall(function() { setBackground(1, "writer/mynt/face/myntBod/8a", CENTERED); });
-queueDelay(0.5);
-queueTitle("So! :3");
+queueDelay(0.4);
+queueTitle("He arrived on Earth forever ago. But he's still floatin.");
+queueTitle("Grey Meteorite...");
+queueTitle("That's this little guy's Official name, by the way. Mr. Eyeball told me.");
+queueTitle("The more you know! :3");
 queueDelay(2);
 queueTitle("So.");
 queueDelay(1);
@@ -102,7 +133,7 @@ queueCall(function() { setBackground(2, ""); });
 queueDelay(1);
 queueTitle("I bet you're pretty much up to speed right.");
 
-queueAddChoice("What is this thing?!?!", "What is the meteorite.", {icons: ["Plot"]});
+queueAddChoice("'Little guy'??? What is this thing?!?!", "What is the meteorite.", {icons: ["Plot"]});
 queueAddChoice("Where do those stairs go.", "Where do those stairs go.", {icons: ["Plot"]});
 queueAddChoice("The air isn't thin enough up here.", "The air isn't thin enough up here.", {icons: ["Plot"]});
 queueAddChoice("I am exhausted. Hold me.", "I am exhausted. Hold me.", {icons: ["Love"]});
@@ -112,26 +143,34 @@ queueAddChoice("I am exhausted. Hold me.", "I am exhausted. Hold me.", {icons: [
 :What is the meteorite.
 
 !`
+choicesPerPassage = 2;
 queueCall(function() { setBackground(0, "writer/spilledPaintBg"); });
-queueCall(function() { setBackground(1, ""); });
+queueCall(function() { setBackground(1, "writer/mynt/face/myntBod/10", CENTERED); });
 queueTitle("Oh, he's nice. He's a Paraphore.");
 queueDelay(1);
-queueTitle("Well I haven't talked to HIM.");
-queueTitle("But I talked to the alien mob boss type guy who sent him, that's Mr. Eyeball.");
+queueTitle("Well I haven't talked to HIM. Not the meteorite.");
+queueTitle("But I talked to the boss type guy who sent him. That's Mr. Eyeball.");
 queueTitle("He's chill. He just wants to give us eternal life.");
-queueTitle("And new bodies if we want em.");
+queueTitle("And new customizable bodies and minds if we want em.");
 queueTitle("And freedom of travel throughout the multiverse.");
-queueTitle("And membership in his hivemind.");
-queueTitle("As long as you're okay with him narrating reality to you.");
+queueTitle("And membership in the Interphore, his supraspatial hivemind... thingy.");
 queueDelay(1);
 queueTitle("");
 queueDelay(2);
 queueCall(function() { setBackground(1, "writer/mynt/face/myntBod/8a", CENTERED); });
 queueTitle("Can we join?? Please???");
 
-choicesPerPassage = 2;
-queueAddChoice("Mynt I don't know about this.", "introRejoinNew");
+queueAddChoice("Mynt I don't know about this.", "introRejoinUnsure");
 queueAddChoice("... I'll think about it.", "introRejoinNew");
+`
+
+---
+:introRejoinUnsure
+
+!`
+queueTitle("We'll talk about it more in a bit.");
+
+queueAddChoice("... Alright...", "introRejoinNew");
 `
 
 ---
@@ -200,10 +239,11 @@ queueAddChoice("It's okay.", "introRejoinNew");
 
 !`
 queueCall(function() { setBackground(1, "writer/mynt/face/myntBod/6", CENTERED); });
-queueTitle("Slow down there, Ms. Chronique.");
+queueTitle("Slow down on the oxygen dep there, Ms. Chronique.");
 queueDelay(2);
-queueTitle("Can't believe you did THIS to yourself in the shelter.");
+queueTitle("Can't believe you did THAT to yourself in the shelter.");
 queueTitle("And so many times...");
+queueTitle("'Once is too many, and a thousand is never enough.'");
 
 choicesPerPassage = 2;
 queueAddChoice("Anyway.", "introRejoinNew");
@@ -224,11 +264,12 @@ queueAddChoice("To get off.");
 
 !`
 queueCall(function() { setBackground(1, "writer/mynt/face/myntBod/8a", CENTERED); });
-queueTitle("Awww man.");
-queueTitle("When you live.");
+queueTitle("Awww.");
+queueTitle("Every breath you lost was a breath I took in my computer.");
+queueTitle("That's... sweet of you to endure that for me?");
 
-choicesPerPassage = 2;
-queueAddChoice("To save power in the long run.", "thinAirRejoin");
+choicesPerPassage = 1;
+queueAddChoice("Hey no problem.", "introRejoinNew");
 `
 ---
 :To get off.
@@ -249,7 +290,7 @@ queueCall(function() { setBackground(1, "writer/mynt/face/myntBod/10", CENTERED)
 queueCall(function() { setBackground(2, ""); });
 queueTitle("Anyway.");
 queueTitle("How does my body look?");
-queueTitle("Not too pondwatery?");
+queueTitle("Not too pondwater-y?");
 
 choicesPerPassage = 1;
 queueAddChoice("These ponds freak me out.");
@@ -269,7 +310,7 @@ queueAddChoice("You look fine now.");
 
 !`
 choicesPerPassage = 1;
-queueAddChoice("But when you were climbing out, dripping red, half-baked...");
+queueAddChoice("But when you were climbing out of the pond, dripping red, half-baked...");
 `
 
 ---
@@ -286,7 +327,7 @@ queueAddChoice("... Nevermind.", "NevermindNext");
 
 !`
 choicesPerPassage = 1;
-queueAddChoice("How do I look.);
+queueAddChoice("How do I look.");
 `
 
 ---
@@ -317,7 +358,7 @@ queueCall(function() { setBackground(1, "writer/mynt/face/myntBod/6", CENTERED);
 queueTitle("... Ew.");
 queueDelay(2);
 queueCall(function() { setBackground(1, "writer/mynt/face/myntBod/7a", CENTERED); });
-queueTitle("Well, thankfully, we've got a hot bath right nearby!");
+queueTitle("Well, thankfully, we've got a hot red bath right nearby!");
 queueTitle("You can clean a lot more than your body, too. <3");
 queueAddChoice("Yeah?");
 `
@@ -327,6 +368,7 @@ queueAddChoice("Yeah?");
 !`
 queueTitle("Yep. These alien red ponds right here?");
 queueTitle("It's like a character creator for real life.");
+queueTitle("Get stoked gamers.");
 queueTitle("There's some other details we can iron out later but uh.");
 queueTitle("You can basically edit your body or mind to whatever you want!!");
 queueTitle("Let's do it!!!!");
@@ -334,7 +376,7 @@ queueTitle("Let's step into the red pond.");
 queueTitle("Together, okay?");
 //queueCall(function() { setBackground(1, "writer/mynt/face/myntBod/10", CENTERED); });
 queueTitle("Take my hand.");
-queueAddChoice("Hoooold on, the details?");
+queueAddChoice("Hoooold on, what are the details?");
 `
 
 ---
@@ -344,12 +386,13 @@ queueAddChoice("Hoooold on, the details?");
 queueTitle("Oh, you know, whatever! Stuff!");
 queueTitle("There's a whole Terms & Definitions to this shit.");
 queueTitle("Immortality, hivemind, amnesia, I don't know! We'll figure it out later.");
+queueTitle("The truth is...");
 queueTitle("I just want to get rid of these thoughts.");
 queueTitle("And you want to get rid of that crummy old body.");
-queueTitle("Let's do it together.");
-queueTitle("Let's join the alien meteorite.");
+queueTitle("So let's do it together.");
+queueTitle("Let's join the Interphore.");
 queueTitle("Take my hand.");
-queueAddChoice("Amnesia????");
+queueAddChoice("Amnesia???? Sorry?");
 `
 
 
@@ -359,7 +402,7 @@ queueAddChoice("Amnesia????");
 !`
 queueTitle("Oh, grow up!");
 queueTitle("You don't forget EVERYthing!");
-queueTitle("Just most things!");
+queueTitle("Just... most things!");
 queueAddChoice("... Does it hurt?", "forgNext");
 `
 
@@ -369,17 +412,20 @@ queueAddChoice("... Does it hurt?", "forgNext");
 !`
 queueTitle("Doesn't hurt at ALL!");
 queueDelay(3);
-queueTitle("But uh...");
+queueTitle("If you commit.");
 queueDelay(2);
+queueTitle("Cause, uh.");
 queueCall(function() { setBackground(1, "writer/mynt/face/myntBod/6", CENTERED); });
-queueTitle("We WILL dissolve into flesh tatters. So there's that.");
 queueTitle("It's a bit like diving into magma.");
+queueTitle("We WILL technically dissolve into flesh tatters and the aliens will strip resources from our bodies.");
 queueTitle("Happens so fast you don't feel a thing!! It's fine!! Don't worry!!");
 queueTitle("So.");
 queueCall(function() { setBackground(1, "writer/mynt/face/myntBod/8a", CENTERED); });
 queueTitle("Just make sure you get your WHOLE body submerged...");
 queueTitle("You really do not want to puss out halfway through...");
-queueAddChoice("I feel a little out of it. Maybe later?", "forgNext2");
+
+choicesPerPassage = 1;
+queueAddChoice("You know what I feel a little out of it. Maybe later?", "forgNext2");
 `
 
 ---
@@ -409,6 +455,8 @@ queueTitle("Please?");
 queueTitle("..........");
 queueTitle(".......");
 queueTitle("....");
+
+choicesPerPassage = 1;
 queueAddChoice("I'm still not sure.", "forgNext4");
 `
 
@@ -441,7 +489,7 @@ queueAddChoice("I guess you're right.", "forgNext6");
 queueTitle("...");
 queueTitle("... Please, Rebeca.");
 
-if (rnd < 0.1) {
+if (rnd < 0.3) {
 	queueTitle("I hear them crying in the back of my skull.");
 } else {
 	queueTitle("I want to fix my dumb brain.");
@@ -455,6 +503,7 @@ queueAddChoice("Take her hand.", "... Take her hand.");
 !`
 queueCall(function() { setBackground(1, "writer/mynt/face/myntBod/8a", CENTERED); });
 queueTitle("Thank you.");
+queueDelay(2);
 queueTitle("Okay...");
 queueTitle("Don't let go...");
 queueTitle("Even when our fingers unravel!!");
@@ -827,7 +876,7 @@ You scooch your bare butt up onto a flat, table-sized boulder.
 
 You lay back.
 
-There are a lot of questions floating through your mind right now, such as "Where am I" and "Who is this cute cat" and "Why do I feel so utterly relaxed," but, instead of voicing any of those questions, you just enjoy the silence while it's still fresh.
+There are a lot of questions floating through your mind right now, such as "What did I just sign up for?" and "Who is this cute cat?" and "What happened from the time I was 5 years old til now?" but, instead of voicing any of those questions, you just enjoy the silence while it's still fresh.
 
 The hot stone feels good against your shoulder blades. Mynt crawls up next to you and flattens herself out, pressing her wet belly to the warmth. You imagine the evaporative sizzle of damp bellyfur against the rocks. Your eyes follow the curve of her spine, down to her tail and her glistening buttcheeks. Her tail sways back and forth at the speed of your resting heartbeat.
 
@@ -878,12 +927,13 @@ She realizes her finger is lodged in your belly button and extracts it with a ~p
 
 She lays on her side, facing you, one paw resting on her hip and the other propped up under her chin. She smiles and spreads her legs open an inch. Her `myntCock("half-hard dick", "pussy")` nuzzles your bare thigh.
 
-"Is that a good enough excuse?"
+"Is that a good enough excuse. <3"
 
-[Did our mom remarry or something? I don't remember having any half-siblings.]
+!`choicesPerPassage = 1;`
+[Did our mom remarry or something? I don't remember having half-siblings.]
 
 ---
-:Did our mom remarry or something? I don't remember having any half-siblings.
+:Did our mom remarry or something? I don't remember having half-siblings.
 
 Mynt stands up and shakes herself off. Droplets of crystal-clear pondwater spatter over your bare body, still warm.
 
