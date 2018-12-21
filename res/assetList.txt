@@ -238,6 +238,17 @@ img/writer/intro/titleBG.png
 img/writer/intro/titleBG.spr
 img/writer/intro/titleText.png
 img/writer/intro/titleText.spr
+img/writer/intro/kittIcon.png
+img/writer/intro/kittIcon.spr
+img/writer/intro/kittIconAlt.png
+img/writer/intro/kittIconAlt.spr
+img/writer/intro/fallowIcon.png
+img/writer/intro/fallowIcon.spr
+img/writer/intro/fallowIconAlt.png
+img/writer/intro/fallowIconAlt.spr
+img/writer/intro/patreonIcon.png
+img/writer/intro/patreonIcon.spr
+
 
 img/ui/main.png
 img/ui/main.spr

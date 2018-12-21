@@ -10,6 +10,8 @@ welcome
 :Title Screen
 !`
 disableExit();
+getAudio("music").destroy();
+
 var container = addEmptyImage(1, 1);
 container.scaleX = gameWidth/desiredWidth;
 container.scaleY = gameHeight/desiredHeight;
@@ -64,23 +66,110 @@ titleRect.whileHovering = function() {
 
 tween(titleRect, 2, {alpha: 1}, {ease: QUINT_OUT});
 
-/*
-var taglineRect = addRectImage(desiredWidth, buttonHeight, 0x252525);
-taglineRect.y = 230;
-container.addChild(taglineRect);
+//Icons
+
+var iconPad = 10;
+
+var patreonIcon = addImage("writer/intro/patreonIcon.png");
+patreonIcon.x = desiredWidth;
+patreonIcon.y = 250 - patreonIcon.height;
+container.addChild(patreonIcon);
+
+var altChanceKitt = "";
+var altChanceFallow = "";
+
+if (rndInt(0, 3) > 2) altChanceKitt = "Alt";
+if (rndInt(0, 3) > 2) altChanceFallow = "Alt";
+
+var kittIcon = addImage("writer/intro/kittIcon"+altChanceKitt+".png");
+kittIcon.x = desiredWidth;
+kittIcon.y = 250 - kittIcon.height;
+container.addChild(kittIcon);
+kittIcon.onRelease = function() {
+	getAudio("music").destroy();
+	playEffect("audio/ui/newChoiceClick");
+	gotoPassage("introModMyntStart");
+	clearNodes();
+}
+
+var fallowIcon = addImage("writer/intro/fallowIcon"+altChanceFallow+".png");
+fallowIcon.x = desiredWidth;
+fallowIcon.y = 250 - fallowIcon.height;
+container.addChild(fallowIcon);
+fallowIcon.onRelease = function() {
+	getAudio("music").destroy();
+	playEffect("audio/ui/newChoiceClick");
+	gotoPassage("introModMyntStart");
+	clearNodes();
+}
+
+kittIcon.scaleX = kittIcon.scaleY = fallowIcon.scaleX = fallowIcon.scaleY = patreonIcon.scaleX = patreonIcon.scaleY = 1.1;
+
+tween(patreonIcon, 2, {x: desiredWidth - patreonIcon.width - iconPad - kittIcon.width - iconPad - fallowIcon.width - iconPad}, {ease: QUART_OUT});
+tween(kittIcon, 2, {x: desiredWidth - kittIcon.width - iconPad - fallowIcon.width - iconPad}, {startDelay: 0.1, ease: QUART_OUT});
+tween(fallowIcon, 2, {x: desiredWidth - fallowIcon.width - iconPad}, {startDelay: 0.2, ease: QUART_OUT});
+
+var patreonIconTween = tween(patreonIcon, 0.1, {scaleY: 1, scaleX: 1});
+var patreonIconTween2 = tween(patreonIcon, 0.3, {y: 235 - patreonIcon.height}, {ease: QUINT_OUT});
+
+var kittIconTween = tween(kittIcon, 0.1, {scaleY: 1, scaleX: 1});
+var kittIconTween2 = tween(kittIcon, 0.3, {y: 235 - kittIcon.height}, {ease: QUINT_OUT});
+
+var fallowIconTween = tween(fallowIcon, 0.1, {scaleY: 1, scaleX: 1});
+var fallowIconTween2 = tween(fallowIcon, 0.3, {y: 235 - fallowIcon.height}, {ease: QUINT_OUT});
+
+patreonIcon.onRelease = function() {
+	msg("https://www.patreon.com/paraphore");
+}
+
+kittIcon.onRelease = function() {
+	msg("https://inkbunny.net/Kittery");
+}
+
+fallowIcon.onRelease = function() {
+	msg("https://inkbunny.net/FallowWing");
+}
+
+patreonIcon.whileHovering = function() {
+	patreonIcon.tint = 0x3303a3ff;
+	showTooltip("Patreon");
+}
+
+kittIcon.whileHovering = function() {
+	kittIcon.tint = 0x3303a3ff;
+	showTooltip("Writer — Kittery");
+}
+
+fallowIcon.whileHovering = function() {
+	fallowIcon.tint = 0x3303a3ff;
+	showTooltip("Coder — Fallow");
+}
+
+patreonIcon.onHover = function() {
+	playEffect("audio/ui/hoverChoiceButtons");
+	patreonIconTween.reset();
+	patreonIconTween2.reset();
+}
+
+kittIcon.onHover = function() {
+	playEffect("audio/ui/hoverChoiceButtons");
+	kittIconTween.reset();
+	kittIconTween2.reset();
+}
+
+fallowIcon.onHover = function() {
+	playEffect("audio/ui/hoverChoiceButtons");
+	fallowIconTween.reset();
+	fallowIconTween2.reset();
+}
+
+kittIcon.onUnHover = fallowIcon.onUnHover = patreonIcon.onUnHover = function() {
+	kittIcon.tint = fallowIcon.tint = patreonIcon.tint = 0;
+	playEffect("audio/ui/hoverChoiceIcons");
+}
 
 
-
-var taglineText = addEmptyImage(desiredWidth, buttonHeight);
-taglineText.setText(taglines[ran]);
-taglineText.tint = 0xFFeb3b3b;
-taglineText.alpha = 0;
-taglineText.x = desiredWidth - taglineText.textWidth - 140;
-taglineText.y = taglineRect.height/2 - taglineText.textHeight/2;
-taglineRect.addChild(taglineText);
-
-tween(taglineText, 3, {x: desiredWidth - taglineText.textWidth - 40, alpha: 1}, {ease: QUINT_OUT});
-*/
+//Play, Load, Mods, Extras
 
 var playRect = add9SliceImage("img/writer/writerChoice.png", buttonWidth, buttonHeight, 5, 5, 10, 10);
 playRect.x = desiredWidth - playRect.width;
@@ -159,17 +248,17 @@ tween(loadRect, 2.2, {x: desiredWidth - loadRect.width}, {ease: QUART_OUT});
 tween(modRect, 2.4, {x: desiredWidth - modRect.width}, {ease: QUART_OUT});
 tween(extraRect, 2.6, {x: desiredWidth - extraRect.width}, {ease: QUART_OUT});
 
-var playRectTween = tween(playRect, 0.1, {scaleX: 1.05});
-var playTextTween = tween(playText, 0.3, {x: buttonTextLeftPad + 20}, {ease: QUINT_OUT});
+var playRectTween = tween(playRect, 0.1, {scaleY: 1.05});
+var playTextTween = tween(playText, 0.3, {x: buttonTextLeftPad + 20, y: playText.y + 2}, {ease: QUINT_OUT});
 
-var loadRectTween = tween(loadRect, 0.1, {scaleX: 1.05});
-var loadTextTween = tween(loadText, 0.3, {x: buttonTextLeftPad + 20}, {ease: QUINT_OUT});
+var loadRectTween = tween(loadRect, 0.1, {scaleY: 1.05});
+var loadTextTween = tween(loadText, 0.3, {x: buttonTextLeftPad + 20, y: loadText.y + 2}, {ease: QUINT_OUT});
 
-var modRectTween = tween(modRect, 0.1, {scaleX: 1.05});
-var modTextTween = tween(modText, 0.3, {x: buttonTextLeftPad + 20}, {ease: QUINT_OUT});
+var modRectTween = tween(modRect, 0.1, {scaleY: 1.05});
+var modTextTween = tween(modText, 0.3, {x: buttonTextLeftPad + 20, y: modText.y + 2}, {ease: QUINT_OUT});
 
-var extraRectTween = tween(extraRect, 0.1, {scaleX: 1.05});
-var extraTextTween = tween(extraText, 0.3, {x: buttonTextLeftPad + 20}, {ease: QUINT_OUT});
+var extraRectTween = tween(extraRect, 0.1, {scaleY: 1.05});
+var extraTextTween = tween(extraText, 0.3, {x: buttonTextLeftPad + 20, y: extraText.y + 2}, {ease: QUINT_OUT});
 
 
 playRect.onHover = function() {
@@ -257,7 +346,7 @@ if (rndInt(0, 4) == 0) randomAsset = "img/writer/mynt/face/myntBod/10.png";
 var cartBG = addImage(randomAsset);
 cartBG.tint = 0xFF000000;
 cartBG.alpha = 0.30;
-cartBG.x = -cartBG.width;
+cartBG.x = 0;
 cartBG.y = -20;
 cartBG.smoothing = true;
 if (randomAsset === "img/writer/characters/cart/cart2.png") cartBG.scaleX = cartBG.scaleY = 1.6;
@@ -282,7 +371,7 @@ container.addChild(cart);
 tween(cart, 1.3, {x: 70, alpha: 1}, {ease: QUINT_OUT});
 tween(cart, 8, {y: 30}, {type: PINGPONG, ease: QUAD_IN_OUT});
 tween(cartBG, 5, {y: 0}, {type: PINGPONG, ease: QUAD_IN_OUT});
-tween(cartBG, 4, {x: 40}, {type: PINGPONG, ease: QUAD_IN_OUT});
+tween(cartBG, 4, {x: 20}, {type: PINGPONG, ease: QUAD_IN_OUT});
 `
 
 ---
