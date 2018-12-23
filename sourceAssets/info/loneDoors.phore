@@ -577,8 +577,8 @@ choicesPerPage = 1;
 
 !`
 choicesPerPage = 1;
+addChoice("... Please? :<", "loneDoors53", {icons: ["Blood"]});
 `
-[... Please? :<|loneDoors53]
 ---
 :loneDoors53
 
@@ -888,11 +888,23 @@ choicesPerPage = 1;
 ---
 :loneDoors79
 
-"No."
-
 Cart throws the door open. You fall onto your face at his feet.
 
-His little body— well, I say 'little' but compared to your tiny punching bag of a body he's actually a head taller— his relatively bigger body is clean and poised in the doorframe. No paint stains. He wasn't even getting any work done while you were out here grovelling at the door... must've just been listening to your adorable whines from the other side.
+"No."
+
+!`
+choicesPerPage = 1;
+
+var cartImg = addImage("assets/img/writer/characters/cart/cart2.png");
+cartImg.x = gameWidth / 2 - cartImg.width / 2;
+cartImg.y = gameHeight / 2 - cartImg.height / 2;
+msg("Art: Cubber");
+`
+[AAA|loneDoors79a]
+---
+:loneDoors79a
+
+His little body— well, I say 'little' but compared to your tiny punching bag of a body he's actually a head taller— his relatively bigger body appears in the doorframe, clean and poised. No paint stains. He wasn't even getting any work done while you were out here grovelling at the door... must've just been listening to your adorable whines from the other side.
 
 Cart saunters up to you and pokes your sore belly with his toe. You bite back a mini scream.
 
@@ -918,7 +930,7 @@ choicesPerPage = 1;
 
 You hold eye contact with the spot on his bangs where his eyes would be.
 
-He spits in your eye.
+He spits in your face.
 
 "Hehe. You are a little bitch, did you know that~?"
 
@@ -940,7 +952,7 @@ choicesPerPage = 1;
 ---
 :loneDoors83
 
-"Oh?" Cart seems uncomfortable. He waves it away. "We will talk about that later. Right now, I would like to focus on your body... despite your efforts today, I have to say: your body is too whole."
+"Oh?" Cart seems uncomfortable. He waves it away. "We will talk about that later. Right now, I would like to focus on your body... despite your efforts today, I have to say, it is too whole."
 
 Cart runs a palm over your bare shoulders, down your arms... no bruises or even any red marks on either smooth stretch of wool. "I would like to change that."
 
@@ -951,7 +963,7 @@ choicesPerPage = 1;
 ---
 :loneDoors84
 
-"Of course. Your personal information does not matter when you are such a little abuse rag, you know."
+"Of course. Your privacy does not matter when you are such a little abuse rag, you know."
 
 Cart pulls you up to your feet and dusts you off with a couple cute fwaps of his paw over your head, your shoulders, your nuts. He "dusts" your nuts off too hard, though. His fingertips smack into your tiny orbs and send them banging against each other and your inner thighs.
 
