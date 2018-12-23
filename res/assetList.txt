@@ -41,6 +41,11 @@ info/wendyApt.phore
 info/wendyApt2.phore
 info/thelly.phore
 info/lone.phore
+info/oliStream.phore
+info/loneDoors.phore
+info/hyenaFam.phore
+info/redMary.phore
+info/blackMansion.phore
 info/introCart.phore
 info/LLL.phore
 info/foodLand.phore
@@ -226,6 +231,8 @@ img/writer/characters/ren/ren.png
 img/writer/characters/ren/ren.spr
 img/writer/characters/lone/lone.png
 img/writer/characters/lone/lone.spr
+img/writer/characters/lone/loneRing.png
+img/writer/characters/lone/loneRing.spr
 img/writer/characters/lone/loneFramed.png
 img/writer/characters/lone/loneFramed.spr
 img/writer/characters/cart/cart.png
@@ -273,6 +280,7 @@ img/ui/dialog/wendyDialog.png
 img/ui/dialog/wendyDialog.spr
 
 audio/effect/mapTransition.ogg
+audio/effect/doorbell.ogg
 audio/effect/trashTransmission.ogg
 audio/effect/owlScream.ogg
 audio/effect/despairSting.ogg

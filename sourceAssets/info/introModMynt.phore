@@ -186,7 +186,7 @@ queueTitle("Corporeality...");
 queueCall(function() { setBackground(1, "writer/mynt/face/myntBod/8a", CENTERED); });
 queueTitle("... it's a real tingly feeling downstairs.");
 
-choicesPerPassage = 1;
+choicesPerPage = 1;
 queueAddChoice("Unf. <3", "unf");
 `
 
@@ -199,7 +199,7 @@ queueTitle("Let's take it slow, though... chat a bit first! Warm me up!");
 queueCall(function() { setBackground(1, "writer/mynt/face/myntBod/10", CENTERED); });
 queueTitle("Yeah??");
 
-choicesPerPassage = 1;
+choicesPerPage = 1;
 queueAddChoice("Sure~ I'm just excited to join the 238,855 mile high club.", "club");
 `
 
@@ -210,7 +210,7 @@ queueAddChoice("Sure~ I'm just excited to join the 238,855 mile high club.", "cl
 queueDelay(0.4);
 queueTitle("Sorry what?");
 
-choicesPerPassage = 1;
+choicesPerPage = 1;
 queueAddChoice("Cause... that's how high the moon is.", "club2");
 `
 
@@ -221,7 +221,7 @@ queueAddChoice("Cause... that's how high the moon is.", "club2");
 queueDelay(0.4);
 queueTitle("... How does that explain anything???? DX");
 
-choicesPerPassage = 1;
+choicesPerPage = 1;
 queueAddChoice("Cause... cause we're on the moon...?", "backThere");
 `
 
@@ -248,7 +248,7 @@ queueTitle("We'll get to that.");
 queueTitle("For now... yay! I am corporeal as fuck!!! And I'm here with you!");
 queueTitle("I can't believe I can actually SEE you now!!!! With EYES!!!! AAAA :D");
 
-choicesPerPassage = 1;
+choicesPerPage = 1;
 queueAddChoice("Huh!", "Huh.Next");
 `
 
@@ -259,7 +259,7 @@ queueAddChoice("Huh!", "Huh.Next");
 queueTitle("");
 queueTitle("... You look kinda confused.");
 
-choicesPerPassage = 1;
+choicesPerPage = 1;
 queueAddChoice("Just uh! I... am still getting used to this.", "Huh.Next2");
 `
 
@@ -361,7 +361,7 @@ queueAddChoice("I am exhausted. Hold me.", "I am exhausted. Hold me.", {icons: [
 :What is the meteorite.
 
 !`
-choicesPerPassage = 2;
+choicesPerPage = 2;
 queueCall(function() { setBackground(0, "writer/spilledPaintBg"); });
 queueCall(function() { setBackground(1, "writer/mynt/face/myntBod/10", CENTERED); });
 queueTitle("Oh, he's nice. He's a Paraphore.");
@@ -400,7 +400,7 @@ queueTitle("Down to your bomb shelter, duh. You just walked out of there.");
 queueDelay(2);
 queueCall(function() { setBackground(1, "writer/mynt/face/myntBod/6", CENTERED); });
 queueTitle("Are you feeling okay? Got enough air?");
-choicesPerPassage = 1;
+choicesPerPage = 1;
 queueAddChoice("Yeah I'm fine. Just good old alzies setting in.", "introRejoinNew");
 `
 
@@ -421,7 +421,7 @@ queueTitle("...");
 queueTitle("Am I squeezing too hard...?");
 queueDelay(2);
 
-choicesPerPassage = 2;
+choicesPerPage = 2;
 queueAddChoice("No...", "exhausNo");
 queueAddChoice("Yes...", "exhausYes");
 `
@@ -463,7 +463,7 @@ queueTitle("Can't believe you did THAT to yourself in the shelter.");
 queueTitle("And so many times...");
 queueTitle("'Once is too many, and a thousand is never enough.'");
 
-choicesPerPassage = 2;
+choicesPerPage = 2;
 queueAddChoice("Anyway.", "introRejoinNew");
 queueAddChoice("You wanna know why I did it?");
 `
@@ -473,7 +473,7 @@ queueAddChoice("You wanna know why I did it?");
 !`
 queueTitle("Mm?");
 
-choicesPerPassage = 2;
+choicesPerPage = 2;
 queueAddChoice("To save power.");
 queueAddChoice("To get off.");
 `
@@ -486,7 +486,7 @@ queueTitle("Awww.");
 queueTitle("Every breath you lost was a breath I took in my computer.");
 queueTitle("That's... sweet of you to endure that for me?");
 
-choicesPerPassage = 1;
+choicesPerPage = 1;
 queueAddChoice("Hey no problem.", "introRejoinNew");
 `
 ---
@@ -510,7 +510,7 @@ queueTitle("Anyway.");
 queueTitle("How does my body look?");
 queueTitle("Not too pondwater-y?");
 
-choicesPerPassage = 1;
+choicesPerPage = 1;
 queueAddChoice("These ponds freak me out.");
 `
 
@@ -519,7 +519,7 @@ queueAddChoice("These ponds freak me out.");
 
 !`
 queueTitle("");
-choicesPerPassage = 1;
+choicesPerPage = 1;
 queueAddChoice("You look fine now.");
 `
 
@@ -527,7 +527,7 @@ queueAddChoice("You look fine now.");
 :You look fine now.
 
 !`
-choicesPerPassage = 1;
+choicesPerPage = 1;
 queueAddChoice("But when you were climbing out of the pond, dripping red, half-baked...", "halfbaked");
 `
 
@@ -535,7 +535,7 @@ queueAddChoice("But when you were climbing out of the pond, dripping red, half-b
 :halfbaked
 
 !`
-choicesPerPassage = 1;
+choicesPerPage = 1;
 queueCall(function() { setBackground(1, "writer/mynt/face/myntBod/6", CENTERED); });
 queueAddChoice("... Nevermind.", "NevermindNext");
 `
@@ -544,7 +544,7 @@ queueAddChoice("... Nevermind.", "NevermindNext");
 :NevermindNext
 
 !`
-choicesPerPassage = 1;
+choicesPerPage = 1;
 queueAddChoice("How do I look.");
 `
 
@@ -644,7 +644,7 @@ queueCall(function() { setBackground(1, "writer/mynt/face/myntBod/8a", CENTERED)
 queueTitle("Just make sure you get your WHOLE body submerged...");
 queueTitle("You really do not want to puss out halfway through...");
 
-choicesPerPassage = 1;
+choicesPerPage = 1;
 queueAddChoice("You know what I feel a little out of it today. Maybe later?", "forgNext2");
 `
 
@@ -676,7 +676,7 @@ queueTitle("..........");
 queueTitle(".......");
 queueTitle("....");
 
-choicesPerPassage = 1;
+choicesPerPage = 1;
 queueAddChoice("I'm still not sure.", "forgNext4");
 `
 
@@ -687,7 +687,7 @@ queueAddChoice("I'm still not sure.", "forgNext4");
 queueCall(function() { setBackground(1, "writer/mynt/face/myntBod/6", CENTERED); });
 queueTitle("Gah! Why not.");
 
-choicesPerPassage = 1;
+choicesPerPage = 1;
 queueAddChoice("We'll be amnesiacs.", "forgNext4a");
 `
 
@@ -696,7 +696,7 @@ queueAddChoice("We'll be amnesiacs.", "forgNext4a");
 
 !`
 queueTitle("Just partially!");
-choicesPerPassage = 1;
+choicesPerPage = 1;
 queueAddChoice("We'll be strangers to each other.", "forgNext4b");
 `
 
@@ -705,7 +705,7 @@ queueAddChoice("We'll be strangers to each other.", "forgNext4b");
 
 !`
 queueTitle("Until we reacquaint ourselves~!");
-choicesPerPassage = 1;
+choicesPerPage = 1;
 queueAddChoice("We might split up.", "forgNext5");
 `
 
@@ -1214,7 +1214,7 @@ She lays on her side, facing you, one paw resting on her hip and the other propp
 
 "Is that a good enough excuse. <3"
 
-!`choicesPerPassage = 1;`
+!`choicesPerPage = 1;`
 [Did our mom remarry or something? I don't remember having half-siblings.]
 
 ---
@@ -1267,7 +1267,7 @@ Then she pulls off.
 "I hope you don't mind this," she purrs. "We only just reunited... and `gender("you're my brother", "you're my sister", "we're sorta-related")`... am I moving too fast? Is it uncouth to kiss your `gender("brother", "sister", "sibling")` on the first date...?"
 
 !`
-choicesPerPassage = 3;
+choicesPerPage = 3;
 addChoice("Mmmmmpah... no, it's okay... keep going.", "Mmmmmpah... no, it's okay... keep going.", {icons: ["Love"]});
 addChoice("First date~? I thought this was just an innocent dip in the amnesia pond.", "First date~?");
 addChoice("Maybe slow it down a bit.", "Maybe slow it down a bit.", {icons: ["Plot"]});

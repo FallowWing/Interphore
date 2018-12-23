@@ -144,10 +144,13 @@ All done, `data.playerName`.
 ---
 :Unlock everything
 
-Unlocked everything!
+Your cheat zone gets gaped the fuck out with hella cheats.
 
 !`
+msg("Unlocked everything!");
+playEffect("audio/ui/rewards/boon");
 data.unlockedDev = true;
+data.metLone = true;
 data.metCart = true;
 data.tookStairs = true;
 data.leftMynt = true;
@@ -227,7 +230,7 @@ gotoPassage("pickedSpecies");
 choicesPerPage = 6;
 `
 
-
+[choices per passage test|choicesbluhtest]
 [Back|scratchModStart]
 [Background Test|backgroundTest]
 [Input Text Test|inputTest]
@@ -247,7 +250,20 @@ choicesPerPage = 6;
 [Word wrap Test|wordWrapTest]
 [Rpg test|rpgTest]
 [Back|scratchModStart]
+---
+:choicesbluhtest
 
+!`
+choicesPerPage = 1;
+`
+[This should be size of screen|choicesbluhtest2]
+---
+:choicesbluhtest2
+
+!`
+choicesPerPage = 1;
+addChoice("this one too", "testsStart");
+`
 ---
 :thirstyCaves
 

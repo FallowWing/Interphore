@@ -48,6 +48,14 @@ execAsset("lone.phore");
 gotoPassage("loneModStart");
 `
 ---
+:loneDoors
+
+!`
+clear();
+execAsset("loneDoors.phore");
+gotoPassage("loneDoorsStart");
+`
+---
 :wetTransmission
 
 !`
@@ -73,6 +81,7 @@ function gotoLLL() {
 	submitNode("Meeting Cart", "meetingCart");
 	submitNode("Femme Ren's", "femmeRens");
 	submitNode("Bullying Lone", "bullyingLone");
+	submitNode("Looking for Trouble", "loneDoors");
 	submitNode("Lore Whoring", "loreWhoring");
 	submitNode("Wet Transmission", "wetTransmission");
 	submitNode("Wet Cartography", "wetCartography");
@@ -80,6 +89,7 @@ function gotoLLL() {
 	attachNode("Back", "Meeting Cart", RIGHT);
 	attachNode("Meeting Cart", "Femme Ren's", BOTTOM);
 	attachNode("Femme Ren's", "Bullying Lone", BOTTOM);
+	attachNode("Bullying Lone", "Looking for Trouble", BOTTOM);
 	attachNode("Meeting Cart", "Lore Whoring", RIGHT);
 	attachNode("Lore Whoring", "Wet Transmission", RIGHT);
 	attachNode("Wet Transmission", "Wet Cartography", RIGHT);
@@ -92,6 +102,9 @@ function gotoLLL() {
 		return data.metRen;
 	});
 
+	setNodeLocked("Looking for Trouble", function() {
+		return data.metLone;
+	});
 
 	setNodeLocked("Lore Whoring", function() {
 		return data.metCart;

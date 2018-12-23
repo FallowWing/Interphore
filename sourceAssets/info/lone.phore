@@ -11,7 +11,9 @@ You stroll down the hallway in Femme Ren's, looking for the exit.
 
 Seven boys have clustered around something in the corner of the hallway. They glance at you and hurry away, scattering into a hundred doors, cracks, and hidden passageways. One lifts up a loose plank in the floor and squeezes his little butt through the hole into a passage underneath.
 
-[Examine the corner.|lone01]
+!`
+addChoice("Examine the corner.", "lone01", {icons: ["Cub", "Male", "Art"]});
+`
 ---
 :lone01
 
