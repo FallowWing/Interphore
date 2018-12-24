@@ -10,8 +10,9 @@ The pond's "water" is an iridescent mix of blues and purples, whorls of differen
 Most of the people around the pond are nymphs with smooth hairless skin in varying hues of blue and purple and pink. You spot a few with exotic green and blue skin here and there. Some of the trees that hang over the pond were hollowed and turned into houses for the nymphs, and a particularly large tree has a sign hanging above its front door, built into the trunk: THE BAR.
 
 !`
+choicesPerPage = 2;
 msg("Guest Writer: Pyreaus");
-addChoice("Check out THE BAR.", "Check out THE BAR.", {icons: ["Guest Writer", "Female"]});
+addChoice("Check out THE BAR.", "Check out THE BAR.", {icons: ["Guest Writer", "Female", "Piss"]});
 `
 [Move along.|Move along. :3]
 ---
@@ -20,22 +21,64 @@ addChoice("Check out THE BAR.", "Check out THE BAR.", {icons: ["Guest Writer", "
 You have to duck to pass through the door into the bar. Inside, it's like a nightclub for nymphs. A few nymphs and nymphets sit on stools at the bar. One ruddy red-pink girl has had more than a few drinks already, given the number of empty bottles and glasses around her. Opposite the bar is a dance floor where nymphs and a few other species are dancing with and grinding on each other in various states of undress. You're pretty sure that one otter's swim trunks have fallen far down enough that he's straight up fucking the nymph boy he's 'dancing' with. The music is a throbbing beat with lights flashing on the dance floor to the rhythm. There are dim lights kept on at all times, especially around the bar, but the strobing effect from the dance floor is still a little distracting.
 
 !`
-msg("This scene is cock-only for now! (WIP)");
+choicesPerPage = 1;
 `
-
 [Take a seat at the bar.]
-[Go back.]
 ---
 :Take a seat at the bar.
 
-You move to an open seat at the bar and sit on a stool next to the ruddy nymphet in the process of drinking half the bar. She has pink skin and a pair of fairy-like wings on her back and the white one piece swimsuit she's wearing has an open back with far too little material. You can easily see the outline of her cherry red nipples through the front.
+A nymph stumbles up to the bar with her gaggle of girlfriends. 
 
-She catches you looking at her and makes eye contact. "Thish ain't a liberry," she slurs, the smell of alcohol heavy on her breath. "If you want a look at leasht buy ah girl ah drink." She turns to point at you, wobbles with the effort, then slumps back down onto the bar. .
+!`
+var alleiImg1 = addImage("writer/characters/allei/silhouette1");
+var alleiImg2 = addImage("writer/characters/allei/silhouette2");
+var alleiImg3 = addImage("writer/characters/allei/silhouette3");
+var alleiImgMain = addImage("writer/characters/allei/allei");
+
+alleiImg1.x = alleiImg2.x = alleiImg3.x = alleiImgMain.x = gameWidth;
+
+alleiImgMain.y = gameHeight / 2 - alleiImgMain.height / 2;
+alleiImg1.y = gameHeight / 2 - alleiImg1.height / 2;
+alleiImg2.y = gameHeight / 2 - alleiImg2.height / 2;
+alleiImg3.y = gameHeight / 2 - alleiImg3.height / 2;
+
+tween(alleiImgMain, 2, {x: gameWidth / 2 - alleiImgMain.width / 2}, {ease: QUAD_OUT});
+tween(alleiImg1, 1.6, {x: gameWidth / 2 - 350}, {startDelay: 0.1, ease: QUAD_OUT});
+tween(alleiImg2, 2.2, {x: gameWidth / 2 + 400}, {startDelay: 0.2, ease: QUAD_OUT});
+tween(alleiImg3, 2.4, {x: gameWidth / 2 + 100}, {startDelay: 0.3, ease: QUAD_OUT});
+
+msg("Artist: Fluffbug");
+choicesPerPage = 1;
+`
+
+[Look over...]
+---
+:Look over...
+
+You casually look over at them. They do the same to you, all at once.
+
+They side-eye you, this <i>stranger</i> with the nerve to wander into <i>their</i> bar, but they pretend they don't really care who you are.
+
+"Round six, Allei?" the bartender asks her.
+
+"Sheven... gimmie a cocktail. Any kind."
+
+[Ignore them, too.]
+---
+:Ignore them, too.
+
+You move to an open stool at the bar and pointedly look away. But you can't really ignore Allei...
+
+She's in the process of drinking half the bar. You drink <i>her</i> in a bit. She has pink skin and a pair of dragonfly wings on her back. Her black "swimsuit" has far too little material, so it's showing off tons of belly and back. You can easily see the outline of her cherry red nipples through her top.
+
+She catches you looking at her and makes eye contact. "Thish ain't a liberry," she slurs, the smell of alcohol heavy on her breath. "If you want a look at leasht buy ah girl ah drink." She turns to point at you, wobbles with the effort, then slumps back down onto the bar.
 
 The bartender, a male nymph, shrugs in response. "This is normal for her." 
 
+!`
+choicesPerPage = 1;
+`
 [Buy her a drink.]
-[Move along.]
 ---
 :Buy her a drink.
 
@@ -43,6 +86,9 @@ Well you're hardly planning to turn down the cute nymphet. You ask the bartender
 
 The currency here is something called 'capsules,' little pills made of organic material. I spawned some along with your body. Check your pockets.
 
+!`
+choicesPerPage = 1;
+`
 [Check my pockets...]
 ---
 :Check my pockets...
@@ -55,8 +101,18 @@ She takes the glass, stares at it, then glances back to the bartender. "Hey, thi
 
 "Thatsh better." Allei takes the glass as soon as it's presented to her and downs it in one chugging motion, making a bit of a mess of herself as it drools out the corners of her mouth. When she sets the empty glass back down on the bar, only an oily residue remains. With a content sigh Allei spins in her stool to face you. She uses too much momentum and wobbles drunkenly, flapping her wings in an attempt to avoid falling over. After stabilizing herself, Allei looks up at you and grabs clumsily at your wrist. "Letsh go somewhere more private."
 
-[Go somewhere more private.]
-[Move along.]
+!`
+if (data.genitals == "both") {
+	choicesPerPage = 2;
+	addChoice("Sure. (Fuck~)", "Go somewhere more private.", {icons: ["Male", "Female"]});
+	addChoice("Sure. (Scissor her~)", "Go somewhere more private.Fem", {icons: ["Female", "Female"]});
+} else {
+	choicesPerPage = 1;
+}
+if (data.genitals == "male") addChoice("Go somewhere more private.", "Go somewhere more private.", {icons: ["Male", "Female"]});
+if (data.genitals == "female") addChoice("Go somewhere more private.", "Go somewhere more private.Fem", {icons: ["Male", "Female"]});
+if (data.genitals === undefined) msg("You need to go set your genits!");
+`
 ---
 :Go somewhere more private.
 
@@ -72,11 +128,11 @@ The nymph's hands travel lower, gripping your balls, rolling each orb individual
 
 `data.genitals == "both" ? "With your cock now at full mast Allei finally releases her grip on your swollen orbs. One hand slides up to the root of your cock, the nymphet's hand too small to encompass the entirety of your meat. Her other hand slides downwards instead, your sack resting on her wrist as she teases the outside of your pussy with her palm." : "With your cock now at full mast Allei finally releases her grip on one of your swollen orbs. Her free hand slides up to the root of your cock, the nymphet's hand too small to encompass the entirety of your meat, while the other hand continues to massage your sack."` The nymph drools a little at the sight of your turgid dick and swiftly strokes upwards, `cockType("your knot swelling in her grip. She", "your barbs prickling her palm until she", "your cock swelling in her grip. She")` then presses her lips further down to try and get your entire glans into her little mouth with limited success. Her teeth graze you but she pushes deeper, letting out a 'glrk' sound when the head slips inside her mouth. She shifts her eyes up to look at you and `cockType("rolls her tongue around the underside of your dick.", "rolls her tongue around the underside of your dick, letting your barbs gently scrape at her in the process.", "rolls her tongue around the underside of your dick, using it to push your foreskin the rest of the way down.")`
 
-[Offer her another drink.]
 !`
+choicesPerPage = 2;
+addChoice("Offer her another drink.", "Offer her another drink.");
 addChoice("Offer her another 'drink.'", "Offer her another 'drink.'", {icons: ["Piss"]});
 `
-[Move along.]
 ---
 :Offer her another 'drink.'
 
@@ -90,6 +146,9 @@ The nymph gulps down the hot stream with half-lidded eyes, letting out lusty moa
 
 Finally, it tapers off and you let out a sigh of relief. Allei pulls back from your dick, coughing and drooling as she tries to clear the piss from her sinuses and throat. When she recovers she grins up at you, licking her lips. "Hahhh... thanksh for the drink... but now you're gonna make a cocktail in my belly, right?" She's pumping your dick with her piss-soaked hand as she leans forward to envelop the tip of your cock with her lips again.
 
+!`
+choicesPerPage = 1;
+`
 [Right~|Offer her another drink.]
 ---
 :Offer her another drink.
@@ -108,6 +167,9 @@ A fourth, then a fifth shot, and Allei's nose is oozing cum down her upper lip. 
 
 You just now realize about a dozen other nymphs are giving you the exact same look from different parts of the forest around you.
 
+!`
+choicesPerPage = 2;
+`
 [Say... hello?]
 [NOPENOPENOPE|Move along.]
 ---
@@ -132,10 +194,12 @@ Allei's other bodies crowd closer.
 Allei finishes cleaning the cum off her face then clears her 'own' throat. "So, sometimes, when I want to have some privacy where I don't hear everyone's thoughts at the same time, I go and get drunk." She shrugs. "The other girls all want to meet you too, though. Plus... since I'm already sobering up, I might as well add that I..." She leans forward and plants a kiss on your cheek. "... That I also process all the stimulation for them. So... if you wanna get down and dirty with a dozen or so nymphs at once, the sex feels fucking amazing for me. No problem if the whole hive mind shtick freaks you out though, don't do anything you aren't comfortable with."
 
 
-[Tell her I've always wanted to fuck an entire hivemind at once.]
-[Move along.]
+!`
+choicesPerPage = 1;
+`
+[I've always wanted to fuck an entire hivemind at once.]
 ---
-:Tell her I've always wanted to fuck an entire hivemind at once.
+:I've always wanted to fuck an entire hivemind at once.
 
 Allei raises her eyebrow at the response, an action mirrored by all the other girls. "Weeeell then."
 
@@ -152,6 +216,9 @@ Your eyes get lost in the maze of multicolored bodies. A few soft hands haul you
 "Now," Allei instructs from one of her many voices, "hold still. No offence... but I can definitely do this better than you can." 
 
 
+!`
+choicesPerPage = 2;
+`
 [Hold still.]
 [Nope outta here.|Move along.]
 ---
@@ -171,8 +238,10 @@ Your other arm is soon similarly pinned by a pussy, as are both of your legs. Ea
 
 Oh god, you realize, this <i>is</i> foreplay for her. How much more intense can this get!?
 
+!`
+choicesPerPage = 1;
+`
 [Get more intense!]
-[Move along.]
 ---
 :Get more intense!
 
@@ -184,6 +253,9 @@ Despite the obvious effort on Allei's part, fitting inside her is a slow process
 
 The progress into Allei is so slow it's excruciating. By the time half your glans is wedged in her pussy she has to take a break, her tiny quim already at its apparent limit. Thus Allei stops, blushing hard and drooling as she recovers. "F-fuuuuck... stud... your dick is thicker than my arm...!" She grunts out as she starts to rock her hips in a slow circle again. "Gonna take some work... mnff... to fit this thing..."
 
+!`
+choicesPerPage = 1;
+`
 [No kidding.]
 ---
 :No kidding.
@@ -192,6 +264,9 @@ The scent of nymph cuntslime wafts through the air all around you. You're pretty
 
 "Hey, stud. Mnnn... help me out a bit, would you?" Allei asks. "I need you to get me wetter..."
 
+!`
+choicesPerPage = 1;
+`
 [What? You're sopping wet!]
 ---
 :What? You're sopping wet!
@@ -208,8 +283,10 @@ The shrieking moan let out by every nymph simultaneously is enough to hurt your 
 
 Finally the body above you climbs off, freeing your face and giving you the chance to carefully look around again. Your vision is blurry but it seems like Allei wants you to watch as the group rides out the rest of their collective orgasm. Nearby two nearly identical nymphets rub eachother's pussies in perfect sync with those nimble little fingers, each movement scooping out more of that glimmering fuckgrease onto the forest floor..
 
+!`
+choicesPerPage = 1;
+`
 [Watch.]
-[Move along.]
 ---
 :Watch.
 
@@ -231,8 +308,10 @@ Allei is panting, her face beet red from the exertion. This is probably uncomfor
 
 "Hahh... mnf... oh man... this is the biggest dick... I've taken in ages..~" Allei mumbles, reaching down to rub the bump beneath her bellybutton. "Oh stud... nnf... I really wanna keep you..~ So... hah... you ready to fuck for... for real?"
 
+!`
+choicesPerPage = 1;
+`
 [Fuck her for real! Or, well, get fucked for real, anyway!]
-[Move along.]
 ---
 :Fuck her for real! Or, well, get fucked for real, anyway!
 
@@ -242,6 +321,9 @@ Allei plants her feet firmly on either side of your waist and squats to drop her
 
 As soon as she slides down again it looks like your dick is crushing her petals inwards instead, her vulva squeezing the sides of your dick hard and hiding any of that pink ring from view. It only appears again once she's travelling upwards once more. "F-fuck... hah... your cock keeps... rubbing my clit... when I push it in..~!" Allei moans out, her hands going up to her own breasts and tugging at her nipples. "S-shit... I'm gonna have to get you to... fuck me one on one... after I drink enough again... so you can fucking ruin this body..~"
 
+!`
+choicesPerPage = 2;
+`
 [URRGH FUCK YAH|Sounds like fun.]
 [Sounds like fun.]
 ---
@@ -253,6 +335,9 @@ Allei wordlessly looks back at the two bodies at her sides, both girls already m
 
 She leans upwards to kiss at your lips while the two girls behind her lift her by her thighs. Wind beats at your shimmerslime coated fur as Allei's wings beat rapidly to help keep her balanced now that she's, well, being lifted overtop your dick. Only the very tip still remains inside Allei as she asks: "G-gonna... give me every inch... right stud..~?" Allei asks, looking down at you past her belly, a little nervous.
 
+!`
+choicesPerPage = 1;
+`
 [Right. <3]
 ---
 :Right. <3
@@ -273,8 +358,10 @@ When things finally wind down, you're left heaving and gasping for breath. Allei
 
 You might be able to extricate yourself at this point...
 
+!`
+choicesPerPage = 1;
+`
 [Wind down.]
-[Move along.]
 ---
 :Wind down.
 
@@ -286,6 +373,9 @@ You might be able to extricate yourself at this point...
 
 She looks down, feeling you getting soft in her belly. She touches the cockbulge, then looks back at you. "Ohh no you don't, we're doing that again. If you can keep that up I won't need the booze! It was so... so <i>quiet</i>. Not even that... stupid drone in the back of my head... none of us could think about anything at all."
 
+!`
+choicesPerPage = 1;
+`
 [Maybe we should slow it down for a bit...]
 ---
 :Maybe we should slow it down for a bit...
@@ -294,6 +384,9 @@ Before you get the chance to protest, you feel a nymph at your groin, grabbing y
 
 The nymph's fingers dig deeper, finding your `hasBoth("prostate and g-spot", "prostate")`, ramming her tiny fingertips against `hasBoth("them", "it")` until you're throbbing hard again. "That's... hah... that's my stud... good and hard again already..~" Allei mumbles, palming the gutbump reaching well past her bellybutton. The cum you poured in earlier now drools out around the sides of your shaft in a thick, gooey puddle that mixes with Allei's own shimmering girl cum.
 
+!`
+choicesPerPage = 1;
+`
 [Next.|next1]
 ---
 :next1
@@ -305,10 +398,10 @@ Just a friendly reminder to skip this part if you like. Go ahead and wind down i
 Or, if you're into getting roughed up, you can just keep going.
 
 !`
+choicesPerPage = 2;
 addChoice("Fuck yeah! Keep going!", "Fuck yeah! Keep going!", {icons: ["Abuse"]});
 `
 [Wind down for real this time.]
-[Move along.]
 ---
 :Fuck yeah! Keep going!
 
@@ -324,6 +417,9 @@ The nymph laying between your legs suddenly squeezes your sack with both hands, 
 
 "N-nuh... not enough... wasn't long enough...!" she whines. "More...! Do it more! Harder..!"
 
+!`
+choicesPerPage = 1;
+`
 [... More?!|next2]
 ---
 :next2
@@ -334,6 +430,9 @@ Allei rides you again, even harder this time. The cyan nymph mounts your face wh
 
 The nymph queen grasps the girl's head, holding it tightly against her bean as she starts to move again, clenching hard and demanding more than your body is ready to give. You can feel your cum bubbling up again, but its passage is blocked by the tightly bound hairties. This causes your balls to swell up, sack turning red as a tomato, your dick soon following suit. The veins of your shaft throb outwards, the whole thing growing even harder and gaining some girth in the process. It darkens in colour from the overfill of blood apart from where Allei's powerful pussy is clenching hard enough to force the colour out, which only makes it redder around her vice-tight cuntlips. 
 
+!`
+choicesPerPage = 1;
+`
 [Oof <3|next2a]
 ---
 :next2a
@@ -348,6 +447,9 @@ The ties snap off as your cock bloats past the limit of the stretchy fabric. You
 
 Allei can seemingly feel what's coming... probably thanks to your dick twitching so hard it's like you're using her ovaries as speedbags. She speeds up the movements of her bodies to their limits, her own body all but blurring until she's slammed down to the utter root of your shaft in one powerful blow. `cockType("The final strokes of this act of sexual insanity not only sees her taking your knot but actually slamming herself up and down across it a dozen or so times until her battered pussy hilts utterly. Her vulva spreads out across your furry groin as if she was giving it a sloppy kiss.", "The final strokes of this act of sexual insanity see her bouncing so fast your barbs pull her womb completely inside out, her body blurring as she travels up and down your full length a dozen times until she's slammed to the utter hilt of your shaft. Her vulva spreads out across your furry groin as if she was giving it a sloppy kiss.", "The final strokes of this act of sexual insanity see her pummeling her own womb with the head of your cock to the point your dick is threatening to sock her in the jaw through her own bellybutton as she takes you to the utter hilt and back to the tip a dozen times over. Finally she takes the last stroke and roots you completely, her vulva spreads out across your furry groin as if she was giving it a sloppy kiss.")`
 
+!`
+choicesPerPage = 1;
+`
 [Cum.|next2b]
 ---
 :next2b
@@ -361,9 +463,9 @@ And again. And again. And again. You cum into Allei for over a minute straight. 
 As for Allei... it seems like she got what she wanted. Every nymph around you is limp on the ground, the only one moving is Allei's main body, and even then, she only twitches and shudders with a blissed out expression on her face. She didn't even pass out gracefully: her eyes are still open, half-lidded and rolled up from pleasure, her tongue hanging out of her mouth, her face covered in drool, snot and tears, her belly so swollen she looks like she's nine months pregnant.
 
 !`
+choicesPerPage = 1;
 addChoice("Wind down for real this time.", "Wind down for real this time.", {icons: ["Prolapse"]});
 `
-[Move along.]
 ---
 :Wind down for real this time.
 
@@ -373,6 +475,9 @@ You're surrounded by passed out nymphs. Allei is still stuffed onto you, but you
 
 Finally you get to your feet, wobbly, barely able to keep your balance. You contemplate trying to find your clothes somewhere in the pile of nymphs... but... fuck it, you can get new ones later.
 
+!`
+choicesPerPage = 1;
+`
 [Move along.|next3]
 ---
 :next3
@@ -385,9 +490,266 @@ She's still obviously having trouble controlling her body. "Come... mnff... visi
 
 She flops face-first into the mess beneath her and passes out again.
 
+!`
+choicesPerPage = 1;
+`
 [Thanks to you too. Move along. :3|Move along. :3]
 ---
 :Move along. :3
+
+!`
+gotoArchiepelago();
+`
+
+//Female player version
+---
+:Go somewhere more private.Fem
+
+You exit the bar as quickly as the nymph's wobbly legs will carry her. Once outside, you circle to the edge of the pond opposite the bar, where the water forms a stream that sloshes over grassy banks. "C'mere," Allei urges, pulling you along until you're both standing in the stream. The water here is up to Allei's neck, but it's only around your belly button.
+
+"Sh.. shit down, yer too tall." She pushes at your stomach until you take a seat on the edge of the riverbank.
+
+Once you're planted on your ass, Allei's hands clumsily go for the waistband of your swimwear. "Let'sh shee what we're workin' with heeere," she mumbles, then tilts her head. "I dunno wut it looksh like yet!" She declares to... someone. "Damnit the buzzsh ish wearing off already... let'sh hurry up."
+
+Allei grips tighter, yanking your bottoms down and exposing your slit to the air. "Hehe... fluffy muff," Allei mumbles as she peers at you. You do, indeed, have a fluffy muff, with your fur matted down a little from being confined in your undergarments so long. Satisfied with her inspection, Allei swiftly brings her mouth down over the roof of your mound, suckling strongly at the upper part of your vulva and forcing the blood flow there to gradually increase.
+
+Of course, given the specific area she's targeting, your clit swells faster than anything else, growing enough to poke a little ways out of its hood. Allei pulls back and grins up at you, reaching out with one hand and idly fiddling with your bean. "Geesh you musht be ash pent up ash I am." She teases, then leans back down, capturing your clit between her lips and flicking it aggressively with her tongue. Her hand travels downwards and starts to rub the outside of your mound aggressively. Her small fingers are surprisingly strong, pressing in the soft flesh of your outer lips and then parting them open to expose the pink interior to the air. You're already a little wet from the nymphet's skillful attentions.
+
+You wonder if she might still be thirsty...
+
+!`
+choicesPerPage = 2;
+addChoice("Offer her another drink.", "Offer her another drink.Fem");
+addChoice("Offer her another 'drink.'", "Offer her another 'drink.'Fem", {icons: ["Piss"]});
+`
+---
+:Offer her another 'drink.'Fem
+
+You mention to Allei that you could give her another drink, if she wants.
+
+She's confused. She looks down at your pussy, then back up at you. Allei's lips part from your folds and she nods fervently. She leans back down and presses her lips around your upper folds, your hood and peehole trapped in her mouth. It takes you a second to get the flow started, but you focus on relaxing your bladder for this piss-addicted nymphet and, eventually, your body listens to you.
+
+A silent moment passes. Allei looks a little worried that maybe you don't have a 'drink' to give her, but her confusion turns to contentment as that dam breaks and you start flooding her tiny mouth with your piss.
+
+The nymph gulps down the hot stream with half-lidded eyes, letting out lusty moans at the taste, but she can't keep up with your flow. Tears well in Allei's eyes and her cheeks bulge outwards from the pressure. It's eerily silent for a moment— before the sudden overflow of piss sprays out the corners of Allei's mouth and nose overwhelms the background noise.
+
+Finally, it tapers off and you let out a sigh of relief. Allei pulls back from your clam, coughing and drooling as she tries to clear the piss from her sinuses and throat. When she recovers she grins up at you, licking her lips. "Hahhh... thanksh for the drink... but now you're gonna make a cocktail in my belly, right?" She leans down, pressing her fingers in below her lips then going back to town on your clit.
+
+!`
+choicesPerPage = 1;
+`
+[Right~|Offer her another drink.Fem]
+---
+:Offer her another drink.Fem
+
+Allei's fingers work steadily into your clam, pumping slowly through your folds as she licks at your hood and prods your clit hidden inside. Allei's drool is all over your pussy by this point. Her sparkly nymph saliva sheens your mound with an iridescent glimmer. Each time Allei shoves her slender fingers inside of you she arches them upwards, blindly hunting down your g-spot. She's surprisingly strong. Each thrust of her hand shakes your body as her other knuckles press to your mound, now swollen with arousal and quite wet.
+
+With a lusty look in her eyes, Allei pulls back, breaking suction with your hood with an audible 'pop!' Her fingers extract themselves shortly after and she pops the digits into her mouth to suckle your juices off of them.
+
+Satisfied with your taste, Allei hocks a loogie of glitterspit into her palms, greasing up her fingers and applying one hand to your lonely pucker. She starts with a single finger, gradually working it inside your asshole as she rolls her tongue through your quim like a plough, scooping up your juices as they flow out and gulping them down happily. Her other hand moves up, pinching the base of your hood and exposing your clit so she can wrap it directly with her lips and suckle against it firmly.
+
+Allei's skills are bringing you ever closer to climax. A second finger joins the first in your ass and gradually pumps through your tender donut, her lips and tongue assaulting your clit and her now free hand joining the fray to piston-fuck your cunt with her index and middle fingers, each inwards thrust jamming the tip of each against your g-spot as if she wanted to pierce through it! Finally your body can hold out no longer under the endless assault and you begin to cum.
+
+Your muscles tense, your back arching which thrusts your hips towards Allei's face. You reach down with one arm, grabbing her head and holding it there as you buck towards her lips desperately. Your orgasm washes over you, sending shocks of pleasure thundering through your body, and your cunt begins to gush. Trickles of your juices splatter Allei's face and fill her mouth, then squirts and gushes, more and more of your cuntslime pouring out against her with each resonation of your orgasm.
+
+Finally it starts to taper off and you relax, letting go of Allei's head and slumping to the ground. Her lips, chin and jaw are just so coated in your femspunk that thick strings of the stuff are hanging down and wobbling in the light breeze near the stream. She's got an almost predatory look in her eyes as she gazes up at you past your muff.
+
+You just now realize about a dozen other nymphs are giving you the exact same look from different parts of the forest around you.
+
+!`
+choicesPerPage = 1;
+`
+[Say... hello?|Say... hello?Fem]
+---
+:Say... hello?Fem
+
+You greet the other nymphs, but you're met only with an eerie silence. They all seem empty and distracted.
+
+The silence shatters when she coughs up a few strands of your juice caught in her throat. As Allei wipes some of the slime off her face, she swirls the remainder around her tongue before finally and audibly swallowing it back down. "Ugh, stupid metabolism," she mutters.
+
+"Sorry about this," one of the other nymphs says. Allei starts to lick her lips.
+
+"It's quieter when I'm drunk, I can't hear everyone else," she says. Except her lips aren't moving. Each sentence comes out of a different nymph's mouth:
+
+"Having all these bodies can get kind of loud sometimes, you know? Now the booze wore off, and I must have brought the others here in the heat of the moment..."
+
+"I guess this must be kind of creepy. But uh... think about it like you and Mr. Eyeball. It's just a different kind of hivemind." 
+
+Allei's other bodies crowd closer.
+
+"Mr. Eyeball is basically 'talking for you' when you want to say or do something, right? All the female nymphs are part of my hivemind, so I can 'talk for them' from any of their bodies."
+
+Allei finishes cleaning the cum off her face and clears her 'own' throat. "So, sometimes, when I want to have some privacy where I don't hear everyone's thoughts at the same time, I go and get drunk." She shrugs. "The other girls all want to meet you too, though. Plus... since I'm already sobering up, I might as well add that I..." She leans forward and plants a kiss on your cheek. "... That I also process all the stimulation for them. So... if you wanna get down and dirty with a dozen or so nymphs at once, the sex feels fucking amazing for me. No problem if the whole hive mind shtick freaks you out though, don't do anything you aren't comfortable with."
+
+
+!`
+choicesPerPage = 1;
+`
+[I've always wanted to fuck an entire hivemind at once.|I've always wanted to fuck an entire hivemind at once.Fem]
+---
+:I've always wanted to fuck an entire hivemind at once.Fem
+
+Allei raises her eyebrow at the response, an action mirrored by all the other girls. "Weeeell then."
+
+She grins and pulls herself closer, lifts up your legs, then pins them at your sides. From there Allei climbs up and straddles your thighs so that she's pressed pussy-to-pussy with you. The nymphet looks up at you with bedroom eyes to declare: "Better hope you can keep up, hun, because if we get going, I'm not gonna stop till I can't hear anything in my head but the bliss."
+
+"Anyyyway, how about you meet the other girls round the pond then."
+
+"Oh just in case you're wondering... I obviously don't have <i>every</i> girl here right now. I'm not gonna make you fuck my entire species," Allei teases. "Well, unless you wanted to~ Maybe if you're into it, we could take you to my home layer some time."
+
+The other nymphs start crowding in, followed by even more that slip out from their hiding places in the bushes. You're pretty sure the entire female nymph population of Indigo Pond is right here, crowded around you. They come in various shapes, sizes and colours: some are only a couple feet tall. From your perspective on the ground it looks like the girl who just ate you out is the tallest of them. That particular ruddy pink nymphet seems to be Allei's main body, whereas  most of the girls have blue or purple skin. You do, however, spot a few wilder colours in the crowd such as greens, reds and pinks. Some have puffy, pouting cubcunts, others have flatter slits, some are pudgy, others are built like swimmers. Some have wings, some don't. Some are touching their slits, some are barely resisting the urge.
+
+Your eyes get lost in the maze of multicolored bodies. A few soft hands haul you further out of the stream, planting you on your back in the soft grass..
+
+"Now," Allei instructs from one of her many voices, "hold still. No offence... but I can definitely do this better than you can." 
+
+
+!`
+choicesPerPage = 2;
+`
+[Hold still.|Hold still.Fem]
+[Nope outta here.|Move along.]
+---
+:Hold still.Fem
+
+You hold still.
+
+You can feel the sensation of those little hands sliding over your body, pulling you out of your clothes and putting your arms out into a spread-eagle position. A soft pair of purple lips close over yours briefly; her tongue wrestles its way into your mouth, tastes your saliva, traces your gums, and then it's gone.
+
+You look down to see Allei's main body still atop your thighs. Her mound is already oozing arousal, vulva swollen and reddened from eating you out earlier. The rest of the nymph cunts are blushing with arousal too. You notice that their juices glimmer with an iridescent sheen where they stair their lips and fingers.
+
+"Look, you got my pussies all wet~" Allei teases as she settles lower, pressing her pouting outer lips against your upturned ones. She's surprisingly light against you as she rolls her hips in circles, your pussies wetly making out with eachother. Each roll of her hips towards you multiplies the pressure, forcing her pouty outer lips spread and make lurid noises as they grind against and through your own. Your combined fluids are already making messy bridges between the two of you.
+
+Your feel something warm at your right arm and glance over to see one of the smaller nymphs on her knees, straddling your wrist. She lowers herself enough to grind her slit over your fur, leaving a snail-trail of cuntslime in its wake, then she re-traces the trail and slides back the other way, building into a rhythmic back-and-forth motion. Without being asked to, the small nymph slides further forward as another comes in behind her. This one takes your hand and peels out two of your fingers so she can slide the extended digits into her slit. You feel the surprisingly cool embrace of her insides around them. With each pulse and squeeze of her walls fuck-grease oozes out and trails down the back of your wrist. She gradually takes your fingers deeper inside her with each motion of her hips, her body rapidly warming around them. The collective breath of the group hitches in the back of two dozen soft nymph throats.
+
+Your other arm is soon similarly pinned by a pussy, as are both of your legs. Each nymph is individually small and light, but their weight compounded with their subtle strength make escape nearly impossible. You're soon covered in horny childlike bodies pinning you to the forest floor as they use you like some kind of communal sex toy. Little pussies grind on your calves, a cunt wraps around your big toe. You can feel a cool pair of lips at your tailhole, gently kissing at it while Allei continues to lightly tease her slit against your own like this was all still foreplay for her.
+
+Oh god, you realize, this <i>is</i> foreplay for her. How much more intense can this get!?
+
+!`
+choicesPerPage = 1;
+`
+[Get more intense!|Get more intense!Fem]
+---
+:Get more intense!Fem
+
+Allei gives you an almost predatory look; flashing a sharp-toothed smile. She licks her lips and shifts a bit so another nymph can move in behind her. The new girl produces a knobbly and ridged sex toy, pressing it between the two of you so that as Allei rolls her hips she's mashing the other side of it between your mound and her own, the bumps and ridges catching on your inner folds as well as your hood. It jostles a little between you and you realize the new girl is wearing it as a strap on.
+
+"Well, it's not like putting it into you like it was my dick would get me off so I figured this way would work better for both of us." She answers an unspoken question. The new girl behind Allei presses up right behind her and starts to roll her hips in perfect timing with Allei's own movements to grind the toy along your pussy. Whenever she bounces against you it puts more pressure on the toy and makes its lower surface dig into your cunt harder.
+
+"I could get some more if you wanted~? I've got some vibes and pumps back home but it'd take me a little while to bring them. It'd probably be easier to just bring you there later! Mnnff~" She lets out a low moan, leaning more heavily overtop of you and palming  your tits, squeezing them roughly as she grinds harder against the two wedged between you. "Okay, I'm gonna start moving now, hun."
+
+!`
+choicesPerPage = 1;
+`
+[I'm ready!|I'm ready!Fem]
+---
+:I'm ready!Fem
+
+Allei gives you another little grin and the Nymph behind her suddenly starts to rapidly pump her hips, the toy going from not moving at all to thrusting back and forth like a piston, scraping between your spread-open cunts hard and fast. The sudden barrage of sensation makes you arch your back and open your mouth to moan, but before you can get a word out another Nymph straddles your head and plants her fat ass right on your face, forcing you to make out with her slit in the process.
+
+The scent of nymph cuntslime wafts through the air all around you. You're pretty sure that if you got up right now you'd look like you took a bath in glitter and bodyglide. Your head is pinned to the forest floor as Allei teasingly calls out: "Thaaat's it~ Put that mouth of yours... hah... to good use for me..!" The sound is muffled and you can't tell which body it's from anymore, not that it really matters. Your vision is totally obscured by the nymph sitting on you, her hips (so wide compared to the rest of her petite body!) and her plump ass and thighs. Her pussy thrusts against your lips and nose, smearing yet more shimmery juice on you.
+
+You don't really have a choice but to go down on her, so you start to lick, pressing your tongue into the slit mashed against your lips. Her vulva protrudes about an inch and allows you to scoop your tongue through it like a trough. Each motion gathers up the nymph's surprisingly sweet fuckgrease into your mouth so you can gulp it down. Her clit is hard and pokes your chin when she rocks forward, cuntlips almost swallowing your nose when she leans back.
+
+"T-thaa~t's... nnf~... that's it... st-tuUUhhd... hahh... yeah... make me cum... make me cuUUUhhm~! I'll... mnff... reward this... pretty cunt of yours if... if you... O-ohh~!"
+
+All of her bodies gasp in chorus as the pleasure chains from each body into Allei then back into the other girls again. Sexual electricity surges through the crowd, leaping from one nymph to the next with violent invisible arcs. "Oh! Oh... ffuuhhcckk!" She moans. Apparently she can't focus enough to talk through just one mouth anymore. Her words echo through every nymph at once, so you're surrounding by a choir of perfectly in-sync moans: "Yes! YeeeeEEhhsss! Yeshhh! Fuck! Yes... A-allmosht! Fuck! FuckfuckohgodCUMMMIIINNNGGG~!"
+
+The shrieking moan let out by every nymph simultaneously is enough to hurt your ears, but you can't really focus on that right now. You're more concerned with struggling for air. Nymphcunt bounces against your muzzle so hard you keep smacking the back of your head off the loamy forest floor. Once she starts to cum, you can only barely pull back far enough to breathe while your fur is drenched in the nymph's scent and utterly soaked with shimmering femcum. All the other bodies, whether or not they're directly engaged in sex, are cumming at the same time. Your arms and legs are soon coated in nymphet pussy juice and Allei's cunt squirts over the toy along with your waist. The group moan dies down to the ambient sound of every nymph around you rubbing their wet slits and shuddering in electric silence.
+
+Finally the body above you climbs off, freeing your face and giving you the chance to carefully look around again. Your vision is blurry, but it seems like Allei wants you to watch as the group rides out the rest of their collective orgasm. Nearby two nearly identical nymphets rub eachother's pussies in perfect sync with those nimble little fingers, each movement scooping out more of that glimmering fuckgrease onto the forest floor. The one behind Allei is yanking her own nipples and grind-fucking the toy between your cunts nice and slow.
+
+!`
+choicesPerPage = 1;
+`
+[Watch.|Watch.Fem]
+---
+:Watch.Fem
+
+"Hah... ohhh, that was a nice one, hun~"
+
+Allei manages to get enough of her attention back to use only a single voice again, with all the other nymphs staying quiet. "Mnnh, well... you ready for that reward I promised?" She asks, looking down at her messed cunt, the toy, then your pussy. "You never came there, huh? Sorry about that, I don't wanna make you feel left out so..." She starts to stand up, shifting a bit. The nymph behind her unstraps the large navy blue dildo and hands it to Allei's main body. "How about I show you how <i>I</i> like a good fuck?" 
+
+
+!`
+choicesPerPage = 1;
+`
+[U-Uh... sure~|U-Uh... sure~Fem]
+---
+:U-Uh... sure~Fem
+
+You quickly nod in response and Allei's face splits into a lusty smile that shows off far too much teeth. You can't help but feel like you're trapped in a spider's web here... in this case, though, the web is made of sexy girls and the web itself is threatening to prey upon you instead of a spider.
+
+The ruddy nymphet swiftly presses the portion of the toy on her side into her cunt, firmly tightens all the straps and slaps the navy blue cockhead against your sopping wet cunt. Jeez, now that you can get a good look at it, it's pretty big isn't it? Especially for someone Allei's size. Speaking of Allei, her gaze is locked on you as she lines the toy up, holding the end with her right hand and thumbing the tip down against your slit...
+
+She swiftly pushes down, the toy forcing open your waiting cunt and splitting your lips into a nice ring. The knobs bump and grind against your inner walls until the toy's first ridge catches your entrance. She barely pauses, just winding back a half inch and <i>slamming</i> forward to drive it further in! She's already bottoming you out but she keeps slamming her hips forward until her soft scale-like skin slaps into your messy fur. The rough pound-fucking has you panting and gasping, a light bump in your stomach from the toy compressing your womb upwards.
+
+Your eyes scrunch closed reflexively and you let out a grunt like you've been punched in the stomach. Mercifully, though, Allei pauses after getting the toy in to wait for you to catch your breath. "Oof~ Sorry if I went a bit rough on you, hun, I forget not everyone is built as tough as we are. Don't worry though..." She slooowly drags her hips back, sloughing your cuntslime out of your sopping quim as the toy spools out. "We'll take this..." She stands up a bit higher, letting your legs come up from where they had been pinned and holding you by the calves. "Nice and <i>rough</i>."
+
+!`
+choicesPerPage = 1;
+`
+[Take it hard~!|Take it hard~!Fem]
+---
+:Take it hard~!Fem
+
+Allei's hips slam down in one smooth motion, her tiny frame hiding enough strength to shake your bones as her groin collides with your larger ass. The nymphs grinding on your arms keep you locked in place for  Allei's powerful thrusting as she powers the toy in and out of you utterly without mercy. "Oof..! Nnfg~ Y-yeah if you... clench like that... the toy really hits my g-spot..~!" She pants out, already flushed and sweating a bit from the exertion.
+
+You're at least starting to adjust, even if the force with which Allei is using is bruising your ass and making your pussy ache. She's worked into such a perfect rhythm that you reflexively roll your hips back into her thrusts, your pussy clenching as she draws out, so as to make the toy grind harder inside her, and relaxing as she ploughs you deep enough to punch your cervix. Again and again a small bump forms in your belly beneath your fur.
+
+"Mnnff you like that don't you you little slut~?" Alle asks, licking her lips through shark-like teeth. "Maybe I'll take you back home after all and show you <i>all</i> my toys, huh~?" She obviously likes the fact that every thrust in forces you to let out a grunt or gasping moan, that your clit is perked and twitching, that your nipples are hard as diamonds and that you're gushing out fuckgrease like a busted pipe.
+
+"How about... mnnff... I get really serious~?"
+
+!`
+choicesPerPage = 1;
+`
+[Fuck yes!|Fuck yes!Fem]
+---
+:Fuck yes!Fem
+
+You moan out like a whore, all but begging her to fuck you harder. She cackles gleefully, her voice sweet and melodic. "Aww, at this rate I might want you as my pet instead of my lover." Allei teases. "But you got it, hun~ Time to show you what the Queen of Nymphets can do." She rolls your legs forward again, pushing you into a mating press postury with her legs straddling her hips and knees bowed. A pair of fingers lightly work into your ass as you're held there, stretching your pucker out enough that the tongue which comes next can easily work inside.
+
+Allei is all but standing overtop of you now, her toy aimed straight down at your skyward-facing cunt. "Here we go!" She calls out, dropping down low and grinding the toy inside then hauling her hips up and slamming back down, her ass bouncing off yours hard and fast. She's not tall enough to use the entire breadth of the toy, only yanking half out and slamming it back in, but her movements are so deceptively powerful that you still feel like you're being fucked by a jackhammer. The fact she keeps speeding up doesn't help that perception either!
+
+"O-oh yeah! Mnnff...h-hun~!... if you keep... clenching up... that's... oh that's a nice angle...~" She mumbles to herself, breath coming out in hard pants in time with her movements as her body rocks against yours. As Allei's arousal begins to mount again the other bodies start to grind on you once more, using your fingers and arms as toys.
+
+On some level Allei is still principally concerned with your pleasure, however, and a pair of soft nymph lips wrap around each of your nipples, suckling them hard and toying with your breasts. The nymph at your ass drills her tongue into it and a cute girl leans up and presses her lips to yours, giving you some messy kisses that spread glitterspit across your face.
+
+"Y-you... mn... gonna cum for me babe..~?" Allei all but demands.
+
+!`
+choicesPerPage = 1;
+`
+[Yes! <3|Yes! <3Fem]
+---
+:Yes! <3Fem
+
+"Damn right you... nf... are! G-go... ooohh~n... you little... furry slut... cum from me crushing you pussy with my... huge fucking nymph cock..!" Allei grunts out, obviously getting into the idea of ploughing you like this.
+
+Another nymph leans over your stomach, small hand reaching out and rapidly flicking your clit and hood back and forth along her fingers, the sudden surge of sensation bringing you sharply closer to climax. Allei pumps down faster, each rough insertion driving the breath from you but sending crashing waves of stimulation through your body.
+
+Finally you reach a peak, your mind figuratively standing on a cliff's edge. One solid thrust throws you hurtling off the edge into an ocean of pleasure. Rapturous waves of orgasmic bliss assault your mind and wash everything white. You feel like you're floating, even as your muscles burn, your entire body tensing and spasming, thrusting your hips towards Allei as your cunt twitches, gushes, and starts spraying out your juices like a yard sprinkler.
+
+The orgasm seems to go on forever, prolonged by the nymphets attending to your clit and ass but Allei has mercifully slowed her thrusts, pulling her toy free from your clam with a raucous 'SLUUUURP-POP!' as your cunt finally lets go, the exit met with another gush and spray of your juices. Your legs are let down and you collapse flat onto the ground.
+
+When things finally wind down, you're left heaving and gasping for breath. Allei's just as breathless, sitting on her rump with a proud grin on her face. The other nymphs are similarly coming down from the intense session...
+
+!`
+choicesPerPage = 1;
+`
+[Wind down.|Wind down.Fem]
+---
+:Wind down.Fem
+
+"Well... that was pretty fun, huh, hun? We should do that again some time," Allei declares, unfastening the toy from her waist and carefully tugging the other side out of herself. "Maybe we can try a few more toys. Though honestly seeing that slutty look on your face kind of makes me wish I had a nice fat cock mess up your pussy with. Hmmm."
+
+"Anyway~ I'm gonna head back to the bar. See you around, hun." Without any further fanfare the group picks themselves up, going back to what they were doing before. You're left exhausted and sore in the grass, coated nearly head to toe in cuntslime that glimmers in the low light.
+
+[Fwa... move along...|Move along.]
+---
+:Move along.
 
 !`
 gotoArchiepelago();

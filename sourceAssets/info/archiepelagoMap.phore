@@ -57,5 +57,13 @@ function gotoArchiepelago() {
 		layerSelect.y = -layerSelect.height;
 		tween(layerSelect, 1, {y: 0, alpha: 1}, {ease: QUINT_OUT});
 
-	setBackground(0, "writer/islandBg");
+	setBackground(0, "writer/mainBg");
+
+	var backgroundIsland = addImage("writer/islandBg.png");
+	backgroundIsland.layer = 38; //Below title
+
+	if (!data.seenIslandCredit) {
+		data.seenIslandCredit = true;
+		msg("Art: Cubber");
+	}
 }
