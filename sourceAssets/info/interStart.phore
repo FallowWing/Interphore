@@ -378,6 +378,8 @@ addSoundTweak("audio/effect/mapTransition", 1.5);
 addSoundTweak("audio/effect/adminGained", 0.05);
 addSoundTweak("audio/effect/despairSting", 0.8);
 addSoundTweak("audio/effect/owlScream", 0.2);
+addSoundTweak("audio/effect/buzzer", 0.2);
+addSoundTweak("audio/effect/buzzerSpam", 0.2);
 addSoundTweak("audio/effect/cartSlide/right/1", 0.5);
 addSoundTweak("audio/effect/cartSlide/right/2", 0.5);
 addSoundTweak("audio/effect/cartSlide/left/1", 0.5);

@@ -280,6 +280,8 @@ img/ui/dialog/wendyDialog.png
 img/ui/dialog/wendyDialog.spr
 
 audio/effect/mapTransition.ogg
+audio/effect/buzzer.ogg
+audio/effect/buzzerSpam.ogg
 audio/effect/doorbell.ogg
 audio/effect/trashTransmission.ogg
 audio/effect/owlScream.ogg

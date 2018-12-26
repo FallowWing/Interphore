@@ -7,6 +7,7 @@ The only thing in sight is that black mansion, looming.
 
 !`
 data.hasBathroomKey = false;
+
 addChoice("Examine mansion.", "blackBegin", {icons: ["Baby", "Toddler", "Male", "Female", "Intersex"]});
 addChoice("Move along.", "blackEnd");
 `
@@ -31,13 +32,25 @@ Assistants: Roddy, Som, Bins
 
 No one answers.
 
-[Spam it.|black2]
+!`
+disableExit();
+playEffect("audio/effect/buzzer.ogg");
+timer(2, function() {
+	enableExit();
+	addChoice("Spam it.", "black2");
+});
+`
 ---
 :black2
 
 <i>BzzzzBzzzzzzBBzzzzzBzzzzzzt.zzzzzBzzzzzzt.zzzzzt.zBzzzBzzzzzzzzBzzzt.zzzt.</i>
 
 Nope, nothing.
+
+!`
+playEffect("audio/effect/buzzerSpam");
+`
+
 
 [Break in?|black3]
 ---
@@ -909,7 +922,7 @@ You peek into the bath.
 
 Someone is in here. On the other side of the bathroom there's a tub...
 
-... a bubblebath filled with happy, sudsy babies, a bobbing rubber ducky, and, at the very far end... a hulking bull dude with dead fish eyes and a big tuft of suds balanced impeccably between his horns. A single hand breaks the surface of the bathwater, dripping, grabs the fluffy suds, and slowly brings it back down to the water.
+... a bubblebath filled with happy, sudsy babies, a bobbing rubber ducky, and, at the very far end... a hulking bull dude with dead fish eyes and a big tuft of suds balanced impeccably between his horns. His hand breaks the surface of the bathwater, grabs the crown of fluffy suds, and slowly brings it back down to the water.
 
 "Get out or I'm going to fucking murder you."
 
