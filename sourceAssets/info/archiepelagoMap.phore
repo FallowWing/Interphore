@@ -32,6 +32,15 @@ print("leaving archiepelagoMap");
 execAsset("introAllei.phore");
 gotoPassage("introAlleiStart");
 `
+---
+:blackMansion
+
+!`
+clear();
+print("leaving archiepelagoMap");
+execAsset("blackMansion.phore");
+gotoPassage("blackMansionStart");
+`
 
 END_PASSAGES
 
@@ -44,6 +53,9 @@ function gotoArchiepelago() {
 
 	submitNode("Indigo Pond", "indigoPond");
 	attachNode("Farm Island", "Indigo Pond", BOTTOM);
+
+	submitNode("Black Mansion", "blackMansion");
+	attachNode("Indigo Pond", "Black Mansion", BOTTOM);
 
 	setNodeLocked("Indigo Pond", function() {
 		return data.metPatch;

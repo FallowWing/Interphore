@@ -261,8 +261,12 @@ function addChoice(choiceText, result, config) {
 	spr.onHover = function() {
 		playEffect("audio/ui/hoverChoiceButtons");
 	}
+
 	spr.onRelease = function() {
-		if (!choice.enabled) return;
+		if (!choice.enabled) {
+			playEffect("audio/ui/nope");
+			return;
+		}
 
 		playEffect("audio/ui/bestChoiceClick");
 		if (typeof choice.result === "string") {
@@ -302,6 +306,12 @@ function addChoice(choiceText, result, config) {
 				icon.layer = CHOICE_TEXT_LAYER;
 				spr.addChild(icon);
 			});
+		}
+
+		if (config.tooltip) {
+			spr.whileHovering = function() {
+				showTooltip(config.tooltip);
+			}
 		}
 
 		if (config.enabled === undefined) config.enabled = true;
