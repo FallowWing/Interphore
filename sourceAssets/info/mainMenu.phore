@@ -89,23 +89,11 @@ var kittIcon = addImage("writer/intro/kittIcon"+altChanceKitt+".png");
 kittIcon.x = desiredWidth;
 kittIcon.y = 250 - kittIcon.height;
 container.addChild(kittIcon);
-kittIcon.onRelease = function() {
-	getAudio("music").destroy();
-	playEffect("audio/ui/newChoiceClick");
-	//gotoPassage("introModMyntStart");
-	//clearNodes();
-}
 
 var fallowIcon = addImage("writer/intro/fallowIcon"+altChanceFallow+".png");
 fallowIcon.x = desiredWidth;
 fallowIcon.y = 250 - fallowIcon.height;
 container.addChild(fallowIcon);
-fallowIcon.onRelease = function() {
-	getAudio("music").destroy();
-	playEffect("audio/ui/newChoiceClick");
-	//gotoPassage("introModMyntStart");
-	//clearNodes();
-}
 
 kittIcon.scaleX = kittIcon.scaleY = fallowIcon.scaleX = fallowIcon.scaleY = patreonIcon.scaleX = patreonIcon.scaleY = 1.1;
 
