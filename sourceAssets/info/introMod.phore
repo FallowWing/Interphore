@@ -12,7 +12,7 @@ setBackground(1, "writer/mynt/bg/myntBg2");
 setBackground(2, "writer/mynt/face/mynt", CENTERED);
 backgrounds[2].bobY = 0.5;
 
-var music = playMusic("audio/music/newVictim");
+var music = playMusic("audio/music/newEngine");
 music.name = "music";
 music.looping = true;
 

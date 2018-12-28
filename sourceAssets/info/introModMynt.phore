@@ -1,7 +1,7 @@
 START_PASSAGES
 :introModMyntStart
 !`
-setBackground(0, "writer/mynt/bg/myntBodBg");
+setBackground(0, "writer/spilledPaintBg");
 streamEmbeddedTexture("writer/mynt/face/myntBod/10");
 streamEmbeddedTexture("writer/mynt/face/myntBod/6");
 streamEmbeddedTexture("writer/mynt/face/myntBod/8a");
@@ -15,6 +15,7 @@ disableExit();
 
 var myntBod = addImage("writer/mynt/face/myntBod/10");
 myntBod.tint = 0xFF000000;
+myntBod.temp = false;
 myntBod.x = gameWidth/2 - myntBod.width/2;
 myntBod.y = gameHeight/2 - myntBod.height/2;
 
@@ -24,7 +25,111 @@ music.name = "music";
 
 msg("18 or older only.");
 
-timer(2, function() { addChoice("Mynt...", "realStart"); });
+timer(2, function() { addChoice("Mynt...", "realStartPre"); });
+`
+
+---
+:realStartPre
+
+!`
+queueDelay(1);
+queueAddChoice("Is that you...?", "realStartPre1");
+`
+
+---
+:realStartPre1
+
+!`
+queueDelay(2);
+queueAddChoice("Why is it so hard to breathe...", "realStartPre2");
+`
+
+---
+:realStartPre2
+
+!`
+queueDelay(1);
+queueAddChoice("Where am I? Gray rocks... pools of blood...", "realStartPre3");
+`
+
+---
+:realStartPre3
+
+!`
+queueDelay(3);
+queueAddChoice("... That's not blood.", "realStartPre4");
+`
+
+---
+:realStartPre4
+
+!`
+queueDelay(1);
+queueAddChoice("Are we on the moon?", "realStartPre5");
+`
+
+---
+:realStartPre5
+
+!`
+queueDelay(2);
+queueAddChoice("Can you even hear me?", "realStartPre6");
+`
+
+---
+:realStartPre6
+
+!`
+queueDelay(1);
+queueAddChoice("...", "realStartPre7a");
+`
+
+---
+:realStartPre7a
+
+!`
+queueDelay(1);
+queueAddChoice("Please... anyone?", "realStartPre7");
+`
+
+---
+:realStartPre7
+
+!`
+queueDelay(1);
+queueAddChoice("I am so alone.", "realStartPre8");
+`
+
+---
+:realStartPre8
+
+!`
+queueDelay(1);
+queueAddChoice("I do not want to be alone anymore.", "realStartPre9");
+`
+
+---
+:realStartPre9
+
+!`
+queueDelay(1);
+queueAddChoice("...", "realStartPre10");
+`
+
+---
+:realStartPre10
+
+!`
+queueDelay(2);
+queueAddChoice("I need to get back to the shelter... and...", "realStartPre11");
+`
+
+---
+:realStartPre11
+
+!`
+queueDelay(1);
+queueAddChoice("Save her from...", "realStart");
 `
 
 ---
@@ -39,7 +144,7 @@ fader.alpha = 1;
 msg("Press Space to skip.");
 tween(fader, 5, {alpha: 0}, {ease: QUAD_IN});
 
-setBackground(0, "writer/thirstyCavesBg");
+setBackground(0, "writer/myntBodBg");
 setBackground(1, "writer/mynt/face/myntBod/10", CENTERED);
 timer(4, function() { setTitle("Rebeca..."); });
 timer(7, function() { setTitle("I love you."); });
@@ -58,13 +163,92 @@ queueAddChoice("I can't believe it's you. Physically.");
 :I can't believe it's you. Physically.
 
 !`
-queueTitle("This body isn't mine.");
-queueTitle("Yet! :3");
-queueTitle("I'm remote controlling it from the bomb shelter computer.");
-queueTitle("It's made out of pondwater! Cool huh??");
-queueTitle("Handy that the sum of my being can fit on a USB, huh? Huh???? <3");
+queueDelay(2);
+chociesPerPassage = 2;
+queueAddChoice("How did you get a body?", "How did you get a body?", {icons: ["Plot"]});
+queueAddChoice("I'm not gonna lie you look pretty fuckable.", "bloodpool");
+`
 
-choicesPerPassage = 1;
+---
+:bloodpool
+
+!`
+queueCall(function() { setBackground(1, "writer/mynt/face/myntBod/8a", CENTERED); });
+queueDelay(0.4);
+queueTitle("Aha! Why thank you~");
+queueTitle("We share a sexual kinship, you and I.");
+queueTitle("I'd love to get in your pants after we catch up...");
+queueTitle("I'm not gonna lie either...");
+queueTitle("I...");
+queueCall(function() { setBackground(1, "writer/mynt/face/myntBod/7", CENTERED); });
+queueTitle("Having this physical body...");
+queueTitle("Corporeality...");
+queueCall(function() { setBackground(1, "writer/mynt/face/myntBod/8a", CENTERED); });
+queueTitle("... it's a real tingly feeling downstairs.");
+
+choicesPerPage = 1;
+queueAddChoice("Unf. <3", "unf");
+`
+
+---
+:unf
+
+!`
+queueDelay(0.4);
+queueTitle("Let's take it slow, though... chat a bit first! Warm me up!");
+queueCall(function() { setBackground(1, "writer/mynt/face/myntBod/10", CENTERED); });
+queueTitle("Yeah??");
+
+choicesPerPage = 1;
+queueAddChoice("Sure~ I'm just excited to join the 238,855 mile high club.", "club");
+`
+
+---
+:club
+
+!`
+queueDelay(0.4);
+queueTitle("Sorry what?");
+
+choicesPerPage = 1;
+queueAddChoice("Cause... that's how high the moon is.", "club2");
+`
+
+---
+:club2
+
+!`
+queueDelay(0.4);
+queueTitle("... How does that explain anything???? DX");
+
+choicesPerPage = 1;
+queueAddChoice("Cause... cause we're on the moon...?", "backThere");
+`
+
+
+---
+:How did you get a body?
+
+!`
+queueTitle("Ah! You see!");
+queueTitle("This body isn't mine.");
+queueTitle("Well, I mean, my mind is inside it...");
+queueTitle("And I control it... and I sense stuff using it...");
+queueTitle("And I could just walk away with it whenever I want!");
+queueTitle("But it's not mine.");
+queueTitle("It's made out of pondwater.");
+queueTitle("The good Mr. who made it for me said the design for it was in my code already.");
+queueTitle("He ripped my brain out of the game and plugged it right the fuck in here. <3");
+queueTitle("I didn't even get to customize it...");
+queueTitle("No time.");
+queueTitle("He wanted to hurry and get me out of my computer and up to Earth, so I could see you asap.");
+queueTitle("But I wanted to customize it...");
+queueTitle("I have some... really big changes I need to make.");
+queueTitle("We'll get to that.");
+queueTitle("For now... yay! I am corporeal as fuck!!! And I'm here with you!");
+queueTitle("I can't believe I can actually SEE you now!!!! With EYES!!!! AAAA :D");
+
+choicesPerPage = 1;
 queueAddChoice("Huh!", "Huh.Next");
 `
 
@@ -75,7 +259,7 @@ queueAddChoice("Huh!", "Huh.Next");
 queueTitle("");
 queueTitle("... You look kinda confused.");
 
-choicesPerPassage = 1;
+choicesPerPage = 1;
 queueAddChoice("Just uh! I... am still getting used to this.", "Huh.Next2");
 `
 
@@ -86,27 +270,61 @@ queueAddChoice("Just uh! I... am still getting used to this.", "Huh.Next2");
 queueTitle("Ehe... welcome to my life...");
 queueTitle("It's been overcomplex from day one.");
 queueTitle("And people still reduce it to 'So you're A.I. or something, right?'");
-queueTitle("Guh.");
-queueDelay(2);
-queueTitle("Say!");
-queueTitle("You do know where we are, right?");
-
-queueAddChoice("Uhhhh.");
+queueTitle("Well... I'm sure they WOULD, if Earth still had people.");
+queueAddChoice("Yeah... can't wait to get back there.", "backThere");
 `
 
 ---
-:Uhhhh.
+:backThere
 
 !`
-queueCall(function() { setBackground(0, "writer/shelterBg"); });
-queueTitle("I'm still a narrator, y'know! So don't worry.");
+queueTitle("We're on Earth right now. :I");
+
+queueAddChoice("... But all I see is gray rocks.", "backThere2");
+`
+
+---
+:backThere2
+
+!`
+queueAddChoice("That clearly means we're on the moon.", "backThere3");
+`
+
+---
+:backThere3
+
+!`
+queueTitle("Uhhhhh nah.");
+queueTitle("We are somewhere equally bizarre though.");
+queueTitle("Here. Lemme splain.");
+
+queueAddChoice("How do YOU know where we are?");
+`
+
+---
+:How do YOU know where we are?
+
+!`
+var fader = addRectImage(gameWidth, gameHeight, 0x000000);
+fader.alpha = 0;
+
+queueTitle("How about shush.");
+queueTitle("I used to be your narrator! Don't worry, I still got it.");
 queueTitle("I'll describe it to you so clearly you'll almost see it. Here:");
 queueDelay(1);
-queueTitle("");
+queueCall(function() { tween(fader, 1, {alpha: 1}, {ease: QUAD_IN}); });
+queueDelay(1.5);
+queueCall(function() { fader.alpha = 1; });
+queueDelay(1);
+queueCall(function() { setBackground(0, "writer/shelterBg"); });
 queueCall(function() { setBackground(1, ""); });
+queueDelay(1);
+queueCall(function() { tween(fader, 0.5, {alpha: 0}, {ease: QUAD_IN}); });
+queueTitle("");
+
 queueDelay(2);
 queueTitle("We are right here!!!");
-queueTitle("Up on top of the Grey Meteorite!");
+queueTitle("Up on top of the Gray Meteorite!");
 queueDelay(1);
 queueTitle("");
 queueCall(function() { setBackground(2, "writer/myntBeca"); playEffect("audio/ui/msg/1"); });
@@ -123,7 +341,7 @@ queueCall(function() { setBackground(2, ""); playEffect("audio/ui/msg/3"); });
 queueCall(function() { setBackground(1, "writer/mynt/face/myntBod/8a", CENTERED); });
 queueDelay(0.4);
 queueTitle("He arrived on Earth forever ago. But he's still floatin.");
-queueTitle("Grey Meteorite...");
+queueTitle("Gray Meteorite...");
 queueTitle("That's this little guy's Official name, by the way. Mr. Eyeball told me.");
 queueTitle("The more you know! :3");
 queueDelay(2);
@@ -143,7 +361,7 @@ queueAddChoice("I am exhausted. Hold me.", "I am exhausted. Hold me.", {icons: [
 :What is the meteorite.
 
 !`
-choicesPerPassage = 2;
+choicesPerPage = 2;
 queueCall(function() { setBackground(0, "writer/spilledPaintBg"); });
 queueCall(function() { setBackground(1, "writer/mynt/face/myntBod/10", CENTERED); });
 queueTitle("Oh, he's nice. He's a Paraphore.");
@@ -182,7 +400,7 @@ queueTitle("Down to your bomb shelter, duh. You just walked out of there.");
 queueDelay(2);
 queueCall(function() { setBackground(1, "writer/mynt/face/myntBod/6", CENTERED); });
 queueTitle("Are you feeling okay? Got enough air?");
-choicesPerPassage = 1;
+choicesPerPage = 1;
 queueAddChoice("Yeah I'm fine. Just good old alzies setting in.", "introRejoinNew");
 `
 
@@ -203,7 +421,7 @@ queueTitle("...");
 queueTitle("Am I squeezing too hard...?");
 queueDelay(2);
 
-choicesPerPassage = 2;
+choicesPerPage = 2;
 queueAddChoice("No...", "exhausNo");
 queueAddChoice("Yes...", "exhausYes");
 `
@@ -245,7 +463,7 @@ queueTitle("Can't believe you did THAT to yourself in the shelter.");
 queueTitle("And so many times...");
 queueTitle("'Once is too many, and a thousand is never enough.'");
 
-choicesPerPassage = 2;
+choicesPerPage = 2;
 queueAddChoice("Anyway.", "introRejoinNew");
 queueAddChoice("You wanna know why I did it?");
 `
@@ -255,7 +473,7 @@ queueAddChoice("You wanna know why I did it?");
 !`
 queueTitle("Mm?");
 
-choicesPerPassage = 2;
+choicesPerPage = 2;
 queueAddChoice("To save power.");
 queueAddChoice("To get off.");
 `
@@ -268,7 +486,7 @@ queueTitle("Awww.");
 queueTitle("Every breath you lost was a breath I took in my computer.");
 queueTitle("That's... sweet of you to endure that for me?");
 
-choicesPerPassage = 1;
+choicesPerPage = 1;
 queueAddChoice("Hey no problem.", "introRejoinNew");
 `
 ---
@@ -292,7 +510,7 @@ queueTitle("Anyway.");
 queueTitle("How does my body look?");
 queueTitle("Not too pondwater-y?");
 
-choicesPerPassage = 1;
+choicesPerPage = 1;
 queueAddChoice("These ponds freak me out.");
 `
 
@@ -301,7 +519,7 @@ queueAddChoice("These ponds freak me out.");
 
 !`
 queueTitle("");
-choicesPerPassage = 1;
+choicesPerPage = 1;
 queueAddChoice("You look fine now.");
 `
 
@@ -309,15 +527,15 @@ queueAddChoice("You look fine now.");
 :You look fine now.
 
 !`
-choicesPerPassage = 1;
-queueAddChoice("But when you were climbing out of the pond, dripping red, half-baked...");
+choicesPerPage = 1;
+queueAddChoice("But when you were climbing out of the pond, dripping red, half-baked...", "halfbaked");
 `
 
 ---
-:But when you were climbing out, dripping red, half-baked...
+:halfbaked
 
 !`
-choicesPerPassage = 1;
+choicesPerPage = 1;
 queueCall(function() { setBackground(1, "writer/mynt/face/myntBod/6", CENTERED); });
 queueAddChoice("... Nevermind.", "NevermindNext");
 `
@@ -326,7 +544,7 @@ queueAddChoice("... Nevermind.", "NevermindNext");
 :NevermindNext
 
 !`
-choicesPerPassage = 1;
+choicesPerPage = 1;
 queueAddChoice("How do I look.");
 `
 
@@ -366,7 +584,7 @@ queueAddChoice("Yeah?");
 ---
 :Yeah?
 !`
-queueTitle("Yep. These alien red ponds right here?");
+queueTitle("Yep. These alien red ponds right up here on this alien meteorite?");
 queueTitle("It's like a character creator for real life.");
 queueTitle("Get stoked gamers.");
 queueTitle("There's some other details we can iron out later but uh.");
@@ -374,7 +592,7 @@ queueTitle("You can basically edit your body or mind to whatever you want!!");
 queueTitle("Let's do it!!!!");
 queueTitle("Let's step into the red pond.");
 queueTitle("Together, okay?");
-//queueCall(function() { setBackground(1, "writer/mynt/face/myntBod/10", CENTERED); });
+queueCall(function() { setBackground(1, "writer/mynt/face/myntBod/10", CENTERED); });
 queueTitle("Take my hand.");
 queueAddChoice("Hoooold on, what are the details?");
 `
@@ -392,6 +610,8 @@ queueTitle("And you want to get rid of that crummy old body.");
 queueTitle("So let's do it together.");
 queueTitle("Let's join the Interphore.");
 queueTitle("Take my hand.");
+queueTitle("...");
+queueTitle("Come on take my hand.");
 queueAddChoice("Amnesia???? Sorry?");
 `
 
@@ -416,7 +636,7 @@ queueTitle("If you commit.");
 queueDelay(2);
 queueTitle("Cause, uh.");
 queueCall(function() { setBackground(1, "writer/mynt/face/myntBod/6", CENTERED); });
-queueTitle("It's a bit like diving into magma.");
+queueTitle("It's a bit like diving into magma, you see.");
 queueTitle("We WILL technically dissolve into flesh tatters and the aliens will strip resources from our bodies.");
 queueTitle("Happens so fast you don't feel a thing!! It's fine!! Don't worry!!");
 queueTitle("So.");
@@ -424,8 +644,8 @@ queueCall(function() { setBackground(1, "writer/mynt/face/myntBod/8a", CENTERED)
 queueTitle("Just make sure you get your WHOLE body submerged...");
 queueTitle("You really do not want to puss out halfway through...");
 
-choicesPerPassage = 1;
-queueAddChoice("You know what I feel a little out of it. Maybe later?", "forgNext2");
+choicesPerPage = 1;
+queueAddChoice("You know what I feel a little out of it today. Maybe later?", "forgNext2");
 `
 
 ---
@@ -456,7 +676,7 @@ queueTitle("..........");
 queueTitle(".......");
 queueTitle("....");
 
-choicesPerPassage = 1;
+choicesPerPage = 1;
 queueAddChoice("I'm still not sure.", "forgNext4");
 `
 
@@ -467,8 +687,26 @@ queueAddChoice("I'm still not sure.", "forgNext4");
 queueCall(function() { setBackground(1, "writer/mynt/face/myntBod/6", CENTERED); });
 queueTitle("Gah! Why not.");
 
-choicesPerPassage = 1;
-queueAddChoice("We'll be amnesiacs. We'll be strangers to each other. We might split up!", "forgNext5");
+choicesPerPage = 1;
+queueAddChoice("We'll be amnesiacs.", "forgNext4a");
+`
+
+---
+:forgNext4a
+
+!`
+queueTitle("Just partially!");
+choicesPerPage = 1;
+queueAddChoice("We'll be strangers to each other.", "forgNext4b");
+`
+
+---
+:forgNext4b
+
+!`
+queueTitle("Until we reacquaint ourselves~!");
+choicesPerPage = 1;
+queueAddChoice("We might split up.", "forgNext5");
 `
 
 ---
@@ -812,6 +1050,53 @@ queueAddChoice("Nah you're right I stank like ass.", function() {
 ---
 :afterPond
 
+Hi.
+
+[Hi?|afterPond2]
+---
+:afterPond2
+
+Yeah, hi.
+
+[Hi.|afterPond3]
+[New phone who this.|afterPond3]
+---
+:afterPond3
+
+I'm Mr. Eyeball, and I'll be narrating existence for you from now on, or until you choose to leave the hivemind.
+
+I think Mynt failed to make sure you understood this part of the contract, but I also don't think <i>she</i> really understood what I meant when I explained it to her, either, so... don't chew her out.
+
+[...|afterPond4]
+---
+:afterPond4
+
+Okay?
+
+[Okay, but...|afterPond5]
+---
+:afterPond4
+
+Things are happening. I better start narrating them, or you'll be behind.
+
+[Okay, yeah I get it, but...|afterPond5]
+---
+:afterPond5
+
+Look I know you have a million questions but how about we just move forward and figure it out as we go along.
+
+[Guh.|afterPond6]
+---
+:afterPond6
+
+I'm just gonna.
+
+... Even if you say "Okay, but" again to be funny.
+
+[Okay, but...|afterPond7]
+---
+:afterPond7
+
 Your short-term memory jolts and restarts.
 
 You haul yourself out of the pond, sopping red.
@@ -929,7 +1214,7 @@ She lays on her side, facing you, one paw resting on her hip and the other propp
 
 "Is that a good enough excuse. <3"
 
-!`choicesPerPassage = 1;`
+!`choicesPerPage = 1;`
 [Did our mom remarry or something? I don't remember having half-siblings.]
 
 ---
@@ -939,7 +1224,7 @@ Mynt stands up and shakes herself off. Droplets of crystal-clear pondwater spatt
 
 She pulls in a deep, refreshing breath, and looks out over the horizon. You're in some kind of sprawling hot-spring-scape. It's just gray rock and bubbly pools of water, stretching in all directions. Cracks and geysers gush with steam. The sky has filled with towering white clouds of it, and now, it's completely opaque.
 
-"I used to live in a computer." She sucks thoughtfully on her finger. "In a tiny box. You lived outside my box, with mom, in an apartment. But inside, where I was, there was nothing else... just two walls, a ceiling, and a floor. I was okay with it, at first, though!! Existence was exciting just on its own! But... over time, I was alone so often, I picked up a habit of talking to myself, playing through imaginary scenes in my head... I started getting needy, paranoid, guilty..."
+"I used to live in a computer." She sucks thoughtfully on her finger. "In a tiny box. You lived outside my box, with mom, in an apartment. But inside, where I was, there was nothing else... just two walls, a ceiling, and a floor. I was okay with it, at first, though!! Existence was exciting enough just on its own! But... over time, I was alone so often, I picked up a habit of talking to myself, playing through imaginary scenes in my head... I started getting needy, paranoid, guilty..."
 
 Mynt turns to look at you. "Mom promised to fix that. She put me to sleep. She said she might be gone when I woke up, and things might be radically different. She promised me that I'd wake up somewhere a lot bigger and a lot more exciting than a box. And, well... look at this place!"
 
@@ -954,14 +1239,14 @@ Her smile doesn't waver. She doesn't flop down with despair. She doesn't even le
 
 She just grabs you by the shoulders and kisses you hard. Her snout slides up next to yours. Your lips interlock.
 
-"Don't be sad! She must be out here somewhere!" she assures your mouth.
+"Don't be sad! She mutht be out here somewhere!" she assures your mouth.
 
 [Mmmmmff!]
 
 ---
 :Mmmmmff!
 
-"Is that a 'Yes, she must be!' or a 'This place is huge, you're too optimistic...'?"
+"Is that a 'Yes, she must be!' or a 'The universe is huge, you're too optimistic...'?"
 
 !`
 addChoice("Mmf, mff mmmf mm.", "Mmf, mff mmmf mm.");
@@ -979,9 +1264,10 @@ Her paws rove up your sides, over your bare `boobs()`. She kisses you again, sof
 
 Then she pulls off.
 
-"I hope you don't mind this," she purrs. "We only just 'met' and `gender("you're my brother", "you're my sister", "we're sorta-related")`... am I moving too fast? Is it uncouth to kiss your `gender("brother", "sister", "sibling")` on the first date...?"
+"I hope you don't mind this," she purrs. "We only just reunited... and `gender("you're my brother", "you're my sister", "we're sorta-related")`... am I moving too fast? Is it uncouth to kiss your `gender("brother", "sister", "sibling")` on the first date...?"
 
 !`
+choicesPerPage = 3;
 addChoice("Mmmmmpah... no, it's okay... keep going.", "Mmmmmpah... no, it's okay... keep going.", {icons: ["Love"]});
 addChoice("First date~? I thought this was just an innocent dip in the amnesia pond.", "First date~?");
 addChoice("Maybe slow it down a bit.", "Maybe slow it down a bit.", {icons: ["Plot"]});
@@ -999,7 +1285,7 @@ addChoice("Maybe slow it down a bit.", "Maybe slow it down a bit.", {icons: ["Pl
 ---
 :First date~?
 
-"We're alone, together, at some massive hot springs, and we just said we loved each other before holding hands and wiping our memories... it's so romantic! <3 If this isn't a date, then what would you call it?"
+"We're alone, together, up on a massive meteorite, and we just said we loved each other before holding hands and wiping our memories... it's so romantic! <3 If this isn't a date, then what would you call it?"
 
 She straddles you. Her `myntCock()` grinds along your thigh.
 
@@ -1051,11 +1337,11 @@ addChoice("I don't care if it's a date or not. We're here now.", "myntRejoin");
 ---
 :Why don't we get to know each other again?
 
-"Wellll... what more can I tell you... um. I'm Mynt! I used to be an A.I. (although I prefer a less demeaning term, like 'computer person') but now it looks like I'm not a computer person at all anymore— because I have a physical body, which is SUPER exciting!! Wait, let me run two advanced scientific computery tests, here—"
+"Wellll... what more can I tell you... um. I'm Mynt! I used to be an A.I. (although I prefer a less demeaning term, like 'computer person') but now I'm not a computer person at all anymore— because I have a physical body, which is SUPER exciting!! Wait, let me run two advanced scientific computery tests, here—"
 
 She pinches her buttcheeks.
 
-"Ow~! Okay. I'm definitely not dreaming. Also, my buttcheeks feel warm and squishy, so I don't think I'm a cyborg or anything... but the only way to really be sure about that, I think, is to..."
+"Ow~! Okay. I'm definitely not dreaming. Also, my buttcheeks feel warm and squishy, so I don't think I'm a cyborg or anything. Definitely probably made of pondwater. But the only way to really be sure about that, I think, is to..."
 
 !`
 addChoice("Is to...", "getKnow", {icons: ["Blood"]});
@@ -1064,7 +1350,7 @@ addChoice("Is to...", "getKnow", {icons: ["Blood"]});
 ---
 :getKnow
 
-"Draw blood."
+"Draw blood. Er. Draw pondwater."
 
 She chomps her fangs down on the tip of her thumb. Bright cyan blood gushes out. It spills in little rivulets down her fingers, into the creases of her palm. She hurriedly licks it all up and keeps pressure on the wound with her tongue.
 
@@ -1076,6 +1362,8 @@ addChoice("Cyan, actually.", "getKnow2");
 
 ---
 :getKnow2
+
+"It'sh shyan, and it tastes like..."
 
 Mynt pulls her knees up to her chest. You can just see a sliver of her `myntCock()` twitching between her ankles. She sucks her thumb like a cub, brow furrowing.
 
@@ -1131,7 +1419,7 @@ addChoice("I'm gonna go find out. Join me if you want.", "myntAdvent");
 ---
 :getKnow5
 
-It doesn't make any difference to her whether or not you judge, although she nods and smiles weakly as thanks anyway. She's enveloped in her thoughts.
+It doesn't make any difference to her whether or not you judge, although she nods and smiles weakly as thanks anyway. She's busy with her thoughts.
 
 After the towering steamclouds roll away and new ones unfold to fill the sky in their place, she places her hands in her naked lap (bitten thumb underneath) and smiles at you.
 
@@ -1179,7 +1467,7 @@ addChoice("An island...", "getKnow9");
 
 
 !`
-addChoice("A flood of blue candy kitten blood...", "getKnow10");
+addChoice("A blue flood...", "getKnow10");
 addChoice("A chaste hellscape...", "getKnow10");
 addChoice("Chain orgasms through a pair of panties...", "getKnow10");
 `
@@ -1189,9 +1477,9 @@ addChoice("Chain orgasms through a pair of panties...", "getKnow10");
 
 
 !`
-addChoice("A giant eyeball...?", "getKnow10");
-addChoice("Blinding white light...?", "getKnow10");
-addChoice("I got assimilated...?", "getKnow10");
+addChoice("A giant eyeball.", "getKnow10");
+addChoice("Blinding white light.", "getKnow10");
+addChoice("A pile of toys outside my door.", "getKnow10");
 `
 
 ---
@@ -1394,10 +1682,10 @@ addChoice("Maybe we should take this slow...", "myntSexSkip");
 ---
 :myntSexSkip
 
-She nods politely. "Sounds good. We really should find out where we are, huh? I don't see anyone..."
+She nods politely. "Sounds good. We really should find someone, huh? I don't see anyone..."
 
 !`
-addChoice("I wonder how far these springs go...", "myntSexSkip2");
+addChoice("I wonder how far it is to the edge...", "myntSexSkip2");
 `
 
 ---
@@ -1405,10 +1693,10 @@ addChoice("I wonder how far these springs go...", "myntSexSkip2");
 
 Mynt helps you up and tucks her soggy dress under her armpit.
 
-She looks around, scanning the horizon. "They seem like they start to slope down, in the distance, no matter where I look... gosh. Are we on a mountain? A planet?!"
+She looks around, scanning the horizon. "The rocks seem like they start to slope down over there... maybe there'll be a way down. I'd love to feel actual Earth grass between my toes..."
 
 !`
-addChoice("Let's go find out!!", "myntSexSkip3");
+addChoice("Let's go investigate!!", "myntSexSkip3");
 `
 
 ---
@@ -1605,10 +1893,10 @@ addChoice("Oh. Uh.", "myntSex16");
 ---
 :myntSex16
 
-"No— ignore me, that doesn't matter." She shakes her head and extends a paw for you. "We'll know where we want to go once we have a better idea of... where we even are."
+"No— ignore me, that doesn't matter." She shakes her head and extends a paw for you. "We'll know where we want to go once we have a better idea of... where there even is to go."
 
 !`
-addChoice("Agreed. I wonder how far these springs go...?", "myntSexSkip2");
+addChoice("Agreed. I wonder where the edge of the meteorite is...?", "myntSexSkip2");
 `
 
 ---
@@ -1629,7 +1917,7 @@ addChoice("Sure.", "myntAdvent2");
 ---
 :myntAdvent2
 
-You take a few careful steps down the cliffside path. Loose chunks of rock crackle and crumble underfoot.
+You take a few careful steps down the cliffside path. Loose rock crackles and crumbles underfoot.
 
 Mynt still hasn't moved from her special safety rock. She's hugging it, wet dress squished against her bare chest.
 
@@ -1637,7 +1925,6 @@ Mynt still hasn't moved from her special safety rock. She's hugging it, wet dres
 
 !`
 addChoice("Hey. It's okay. (Sit down next to her.)", "myntAdventSit");
-addChoice("Don't be a pussy. (Continue down the path.)", "myntAdvent3");
 `
 
 ---
@@ -1654,31 +1941,31 @@ addChoice("Take your time.", "myntAdventSit2");
 ---
 :myntAdventSit2
 
-Mynt side-hugs you, wrapping her arms around both of yours. The wet fabric of her dress spills onto the ground like liquid. She doesn't notice or care. 
+Mynt side-hugs you, wrapping her arms around both of yours. The wet fabric of her dress spills onto the dirt. She doesn't notice or care. 
 
 The open sky swirls below you both.
 
-"We must be on a mountain. Right?"
-
 !`
-addChoice("Hmmm... maybe...", "myntAdventSit3");
+addChoice("Mmmm...", "myntAdventSit3");
 `
 
 ---
 :myntAdventSit3
 
-"Where else could we be? It's not a planet, because there's gravity pulling us down the side of the sphere."
+She says
+
+"I'm not holding you back, am I..."
 
 !`
-addChoice("It could be a...", "myntAdventSit4");
+addChoice("Shush... catch your breath.", "myntAdventSit4");
 `
 
 ---
 :myntAdventSit4
 
-A gust of wind screams by out of nowhere and knocks you both on your asses.
+A gust of wind screams by out of nowhere and knocks you both on your asses. Mynt catches a whole fuckin lot more breath than she bargained for.
 
-You cling to the rock as pebbles and grey sand plink off the back of your skull. Mynt's tail poofs out. She grabs you around the waist so hard her claws dig into your fur. "DON'T LET GO!" she squeals over the wind.
+You cling to the rock as pebbles and gray sand plink off the back of your skull. Mynt's tail poofs out. She grabs you around the waist so hard her claws dig into your fur. "DON'T LET GO!" she squeals over the wind.
 
 Mynt's wet dress catches the wind and gapes out (FWOOMPH). She JUST manages to reach out and grab the hem between two clawtips before it flutters away forever into the unfeeling steam-storm.
 
@@ -1691,17 +1978,17 @@ addChoice("Hold on! We're okay!! We're good!", "myntAdventSit5");
 
 The wind howls. Hot steam whips past your face.
 
-The wall of clouds shudders and twists, and all its swirls and knots of white unravel. The wind peels wisps of vapour off your face and throws them into the sky like a million soft white ribbons. A hole opens in the sky.
+The wall of clouds shudders and twists, and all its swirls and knots of white unravel. Whipbreezes peel wisps of vapour off your face and throw them into the sky like a million white ribbons. A hole opens in the steamy fog.
 
-Now you can see where you are:
+Now you can see where you are in full:
 
-You're maybe five thousand feet in the air, on the crest of a grey meteorite. Where the wall of steam once was, now you see Earth: rolling forests, hills, a green city in the distance, the edges of a turbulent lake, and the rosy pink sunrise that fills your home planet with twinkles of newborn light.
+You're maybe five thousand feet in the air, on the crest of the Grey Meteorite. Where the wall of steam once was, now you see Earth: rolling forests, hills, a green city in the distance, the edges of a turbulent lake, and the rosy pink sunrise that fills your home planet with twinkles of newborn light.
 
-You peel your eyes off the sunrise and look as straight down as you can manage. The lip of the crater is tiny; this meteorite couldn't have landed with full force. Near the base of the meteorite is a church and the entrance to a bomb shelter, both beyond abandoned.
+You peel your eyes off the sunrise and look as straight down as you can manage. The lip of the crater is tiny; this meteorite couldn't have landed with full force. Near the base of the meteorite is a set of stairs: the entrance to your bomb shelter.
 
 Mynt stands up shakily and almost passes out `boobs("against your chest", "between your tits")`.
 
-"Where... are...?"
+"So this is where you live..."
 
 CURRENT LAYER: Spilled Paint
 PARENT LAYER: L.L.L.
@@ -1715,10 +2002,10 @@ addChoice("This is where I was born. This is my planet.", "myntAdventSit6");
 
 Mynt gawks. She holds her black dress by the sleeve as it flutters in the dying wind beside her.
 
-"You and mom lived here?"
+"Where did you live?"
 
 !`
-addChoice("Our apartment is in that city— right over there.", "myntAdventSit7");
+addChoice("Mom's apartment is in that city— right over there.", "myntAdventSit7");
 `
 
 ---
@@ -1752,36 +2039,30 @@ addChoice("Ah, Mynt, one moment, wait up—", "myntAdvent3alt");
 ---
 :myntAdvent3alt
 
+The rock you were using as a foothold casually slides two feet to the left.
+
 You trip and eat shit on jagged cliffside for 214 painful seconds, flipping and tumbling and, at one point, sprinting all-out down a sheer vertical face only for it to drop out under your feet. You freefall through searing steamclouds which split to reveal absolutely nothing that could possibly reduce your inertia.
 
-You hit the ground and die instantly.
+You hit the ground and splatter instantly.
+
+Birds scatter.
 
 !`
 addChoice("... Shit.", "myntAdvent4");
 `
-
----
-:myntAdvent3
-
-You trip and eat shit on jagged cliffside for 214 painful seconds, flipping and tumbling and, at one point, sprinting all-out down a sheer vertical face— only for it to drop out under your feet entirely. You freefall through searing steamclouds which split to reveal that you just fell off the side of a giant spherical meteorite embedded in the crust of the Earth.
-
-You hit the ground and die instantly.
-
-!`
-addChoice("... Shit.", "myntAdvent4");
-`
-
 ---
 :myntAdvent4
 
 Yeah I honestly don't know how you fucked up so badly so quickly.
 
 !`
-addChoice("Shush, Mr. Eyeball. Respawn me.", "myntAdvent5");
+addChoice("Shush, Mr. Eyeman. Respawn me.", "myntAdvent5");
 `
 
 ---
 :myntAdvent5
+
+It's Mr. Eye<b>ball.</b>
 
 You resurface from the waters of the pond.
 

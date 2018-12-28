@@ -1,19 +1,22 @@
 START_PASSAGES
-:loneDoorsIntro
-
-
+:loneDoorsStart
 
 !`
-choicesPerPassage = 1;
+var loneImg = addImage("assets/img/writer/characters/lone/lone.png");
+loneImg.x = gameWidth - loneImg.width;
+loneImg.y = gameHeight - loneImg.height;
+msg("Art: Spunkymutt");
+
+choicesPerPage = 1;
 `
-[Play as Lone.|loneDoors]
+[Play as Lone.|loneDoors1]
 ---
-:loneDoors
+:loneDoors1
 
 You are now an adorable, kinky goat boi moping around the sex dungeon city, aka the Gay Cub Dungeon (G.C.D) aka the L.L.L. aka Cart's home layer.
 
 !`
-choicesPerPassage = 1;
+choicesPerPage = 1;
 addChoice("Ruminate...", "loneIntroBro", {icons: ["Cub", "Male", "Abuse"]});
 `
 ---
@@ -26,87 +29,96 @@ You pout and thumb your nuts in deep thought.
 Rape is fine and good— and you're thankful for the guys that dicked you down in the street— but the moment you mentioned maybe sorta kinda wanting to get punched a little bit maybe, every single one of them softened up, pulled out, and left you unsatisfied.
 
 !`
-choicesPerPassage = 1;
+choicesPerPage = 1;
 `
-[Hummmmm...|loneDoors]
+[Hummmmm...|loneDoors2]
 ---
-:loneDoors
+:loneDoors2
 
 Hey little goat, I know a really mean cub, if you wanna ask him for abuse. He'll probs beat you up.
 
 !`
-choicesPerPassage = 1;
+choicesPerPage = 1;
 `
-[Nooo... I want an adult to do it.|loneDoors]
+[Nooo... I want an adult to do it.|loneDoors3]
 ---
-:loneDoors
+:loneDoors3
 
 Really? Why?
 
 !`
-choicesPerPassage = 1;
+choicesPerPage = 1;
 `
-[The size difference?? The pedo aspect? I don't know why.|loneDoors]
+[The size difference?? The pedo aspect? I don't know why.|loneDoors4]
 ---
-:loneDoors
+:loneDoors4
 
 Well, good luck, I guess. Let me know when you want directions to the mean cub.
 
 !`
-choicesPerPassage = 1;
+choicesPerPage = 1;
 `
-[I'm just gonna give try a few more doors...|loneDoors]
+[I'm just gonna give try a few more doors...|loneDoors5]
 ---
-:loneDoors
+:loneDoors5
 
 You get up off the sidewalk, butt still grimy, and clench one of your fuzzy fists. You vow to give it one more try.
 
 !`
-choicesPerPassage = 1;
+choicesPerPage = 1;
 `
-[There's gotta be a home waiting for me somewhere!!|loneDoors]
+[There's gotta be a home waiting for me somewhere!!|loneDoors6]
 ---
-:loneDoors
+:loneDoors6
 
 You stride to the next city block, butt and nutts jiggling with determination. The houses here are all derelict and half-abandoned. Fragmented cliques of men breathe heavy with their paws on their cocks. Half-lidded eyes ogle as you pass.
 
 !`
-choicesPerPassage = 1;
+choicesPerPage = 1;
 `
-[Ring a doorbell!!|loneDoors]
+[Ring a doorbell!!|loneDoors7]
 ---
-:loneDoors
+:loneDoors7
 
-*cute pic...*
+!`
+var loneImg = addImage("assets/img/writer/characters/lone/loneRing.png");
+loneImg.x = gameWidth - loneImg.width * 1.3;
+loneImg.y = - loneImg.height;
+
+tween(loneImg, 0.7, {y: 30}, {ease: QUAD_OUT});
+msg("Art: Spunkymutt");
+
+playEffect("audio/effect/doorbell");
+`
 
 Ding dong~!
 
 !`
-choicesPerPassage = 1;
+choicesPerPage = 1;
 `
-[Wait patiently. :3|loneDoors]
+[Wait patiently. :3|loneDoors8]
 ---
-:loneDoors
+:loneDoors8
 
 You wait on the doorstep. Urgent anxiety rises in your belly like the pressure of a full bladder. What if they don't like you? What if you're too much for them? What if you look kinda way too tiny for a twelve-year-old?
 
 !`
-choicesPerPassage = 1;
+choicesPerPage = 1;
 `
-[Stop it!! You're not helping!|loneDoors]
+[Stop it!! You're not helping!|loneDoors9]
 ---
-:loneDoors
+:loneDoors9
 
 Sorry lol.
 
 Heavy, dadly footsteps thunder down the stairs and stop just behind the closed door. Something moves behind the peephole.
 
 !`
-choicesPerPassage = 1;
+choicesPerPage = 1;
 `
-[Ah... hello? Is there anyone home...?|loneDoors]
+[Ah... hello? Is there anyone home...?|loneDoors10]
 ---
-:loneDoors
+:loneDoors10
 
 The door opens a crack. One eye glints over a taut door chain.
 
@@ -115,109 +127,109 @@ The door opens a crack. One eye glints over a taut door chain.
 You crumple under the oppression of that single glowing eye. You can feel this guy drinking your little body in.
 
 !`
-choicesPerPassage = 1;
+choicesPerPage = 1;
 `
-[Aha! Well! You see!|loneDoors]
+[Aha! Well! You see!|loneDoors11]
 ---
-:loneDoors
+:loneDoors11
 
 
 
 !`
-choicesPerPassage = 1;
+choicesPerPage = 1;
 `
-[Um...|loneDoors]
+[Um...|loneDoors12]
 ---
-:loneDoors
+:loneDoors12
 
 
 
 !`
-choicesPerPassage = 1;
+choicesPerPage = 1;
 `
-[My name is Lone.|loneDoors]
+[My name is Lone.|loneDoors13]
 ---
-:loneDoors
+:loneDoors13
 
 
 
 !`
-choicesPerPassage = 1;
+choicesPerPage = 1;
 `
-[I'm kind of new here! And uh... what I want is a little hard to explain...|loneDoors]
+[I'm kind of new here! And uh... what I want is a little hard to explain...|loneDoors14]
 ---
-:loneDoors
+:loneDoors14
 
 Quiet fapping noises from behind the door. Someone's dick is hard.
 
 "Mmm. You're shy. I like em shy. How old are you, kid?"
 
 !`
-choicesPerPassage = 1;
+choicesPerPage = 1;
 `
-[I'm twelve! :3|loneDoors]
+[I'm twelve! :3|loneDoors15]
 ---
-:loneDoors
+:loneDoors15
 
 The wet noises stop.
 
 "Wait, seriously?"
 
 !`
-choicesPerPassage = 1;
+choicesPerPage = 1;
 `
-[Well, of course not, my body is twelve. My mind is thousands of years old~|loneDoors]
+[Well, of course not, my body is twelve. My mind is thousands of years old~|loneDoors16]
 ---
-:loneDoors
+:loneDoors16
 
 The eye closes and a steamy sigh pours out from the door crack.
 
 "Oh, thank god. You never know with some of the boys from these other layers..."
 
 !`
-choicesPerPassage = 1;
+choicesPerPage = 1;
 `
-[So can I come in???|loneDoors]
+[So can I come in???|loneDoors17]
 ---
-:loneDoors
+:loneDoors17
 
 The eye opens and stares again.
 
 "You never said what you want."
 
 !`
-choicesPerPassage = 1;
+choicesPerPage = 1;
 `
-[Oh! Um.|loneDoors]
+[Oh! Um.|loneDoors18]
 ---
-:loneDoors
+:loneDoors18
 
 
 
 !`
-choicesPerPassage = 1;
+choicesPerPage = 1;
 `
-[I mean. I was looking for a home.|loneDoors]
+[I mean. I was looking for a home.|loneDoors19]
 ---
-:loneDoors
+:loneDoors19
 
 
 
 !`
-choicesPerPassage = 1;
+choicesPerPage = 1;
 `
-[But I like it rough. Really really rough.|loneDoors]
+[But I like it rough. Really really rough.|loneDoors20]
 ---
-:loneDoors
+:loneDoors20
 
 You squeeze your little legs together and pooch out your belly, making it look extra punchable. You slide your little paws behind the back of your head and lift your elbows. Your tiny fluffy armpits smell like flowers and world peace. You bat your eyelashes, smirk, and ask this complete stranger through a mischevious :3 shaped smile:
 
 !`
-choicesPerPassage = 1;
+choicesPerPage = 1;
 `
-[What are you into, dad? :3|loneDoors]
+[What are you into, dad? :3|loneDoors21]
 ---
-:loneDoors
+:loneDoors21
 
 The eye screws shut. A single splurt of spoo flies out the door crack.
 
@@ -226,11 +238,11 @@ The eye screws shut. A single splurt of spoo flies out the door crack.
 The door swings open... and what you see astonishes you.
 
 !`
-choicesPerPassage = 1;
+choicesPerPage = 1;
 `
-[!!!|loneDoors]
+[!!!|loneDoors22]
 ---
-:loneDoors
+:loneDoors22
 
 What looked like a shitty run-down apartment from the outside turns out to be a sparkling mansion on the inside. Beautiful flowing carpets follow spiral staircases up to four different floors of cushioned bedrooms.
 
@@ -243,11 +255,11 @@ He slams you down on a cold metal table.
 "I'm into everything. Everything."
 
 !`
-choicesPerPassage = 1;
+choicesPerPage = 1;
 `
-[O-Oh god... you mean <i>every</i>thing...?|loneDoors]
+[O-Oh god... you mean <i>every</i>thing...?|loneDoors23]
 ---
-:loneDoors
+:loneDoors23
 
 Now that your sore ass is stationary, you can get a good look at him.
 
@@ -258,20 +270,20 @@ His dick hangs veiny and fat at about 85% hardness, looming over your comparativ
 "I like bondage best," he whispers, and he pulls a fistful of leather straps out of nowhere.
 
 !`
-choicesPerPassage = 1;
+choicesPerPage = 1;
 `
-[O-Oh god...|loneDoors]
+[O-Oh god...|loneDoors24]
 ---
-:loneDoors
+:loneDoors24
 
 You have no choice at this point. You've just followed a total stranger into his basement and surrendered yourself to him. Even if he didn't tie you down, your little body would be completely at his mercy anyway. You're just a tiny cub. You feel like a piece of meat, laying on this bare table, painfully aware of how completely naked and helpless you are.
 
 !`
-choicesPerPassage = 1;
+choicesPerPage = 1;
 `
-[Please molest me! <3|loneDoors]
+[Please molest me! <3|loneDoors25]
 ---
-:loneDoors
+:loneDoors25
 
 "Shut the fuck up," he growls.
 
@@ -282,11 +294,11 @@ First he ties your ankles to your thighs and YANKS the straps tight. Your legs s
 His cock is fully hard now, twitching, puking pre, yearning up towards the ceiling. The harder it gets, the more of his shaft peels away from those heavy adult nuts. Now only the shadow of his towering dick obscures his sack; nutsweat glistens in the gloom, both balls ripe as grapefruits.
 
 !`
-choicesPerPassage = 1;
+choicesPerPage = 1;
 `
-[(Stay quiet, as instructed...)|loneDoors]
+[(Stay quiet, as instructed...)|loneDoors26]
 ---
-:loneDoors
+:loneDoors26
 
 You shut the fuck up.
 
@@ -299,31 +311,31 @@ You can't see anything. You grit your teeth and brace for the inevitable abuse.
 "You like it rough, huh?" he growls. He paps his cock on your neck. The pressure on your windpipe coaxes a few cute coughs out of you.
 
 !`
-choicesPerPassage = 1;
+choicesPerPage = 1;
 `
-[Yeah...|loneDoors]
+[Yeah...|loneDoors27]
 ---
-:loneDoors
+:loneDoors27
 
 "How rough?"
 
 His cock slaps down on your throat. You hack and gag with deep cough attacks.
 
 !`
-choicesPerPassage = 1;
+choicesPerPage = 1;
 `
-[Ack! A-A-aaack...|loneDoors]
+[Ack! A-A-aaack...|loneDoors28]
 ---
-:loneDoors
+:loneDoors28
 
 "Well? You want a home, don't you? Tell me how rough you like it." Another cockslap to the throat. "Answer me!"
 
 !`
-choicesPerPassage = 1;
+choicesPerPage = 1;
 `
-[A-ACK! UCK! Anything! You can do anything to me! I like it all!|loneDoors]
+[A-ACK! UCK! Anything! You can do anything to me! I like it all!|loneDoors29]
 ---
-:loneDoors
+:loneDoors29
 
 <i>Thwap.</i>
 
@@ -332,125 +344,125 @@ You throw your little chicken wing cub legs out to either side, which puts your 
 "Be specific. Tell me what you want, cunt."
 
 !`
-choicesPerPassage = 1;
+choicesPerPage = 1;
 `
-[U-Uuuugu... I want... I want...|loneDoors]
+[U-Uuuugu... I want... I want...|loneDoors30]
 ---
-:loneDoors
+:loneDoors30
 
 
 
 !`
-choicesPerPassage = 1;
+choicesPerPage = 1;
 `
-[I want you to beat me. <3|loneDoors]
+[I want you to beat me. <3|loneDoors31]
 ---
-:loneDoors
+:loneDoors31
 
 ...
 
 !`
-choicesPerPassage = 1;
+choicesPerPage = 1;
 `
-[...|loneDoors]
+[...|loneDoors32]
 ---
-:loneDoors
+:loneDoors32
 
 You're on the street again.
 
 He says he forgot he actually has an appointment later today, so he called off the bondage thing. 
 
 !`
-choicesPerPassage = 1;
+choicesPerPage = 1;
 `
-[What?!?!|loneDoors]
+[What?!?!|loneDoors33]
 ---
-:loneDoors
+:loneDoors33
 
 Yeah, he popped all the straps off and carried you back upstairs and threw you out the front door. It was all very awkward.
 
 At least you kind of caught a beating on the concrete steps out front...?
 
 !`
-choicesPerPassage = 1;
+choicesPerPage = 1;
 `
-[God DAMMIT|loneDoors]
+[God DAMMIT|loneDoors34]
 ---
-:loneDoors
+:loneDoors34
 
 What? I can't always keep you perfectly up to speed when he does something so sudden and unexpected. I'm trying my best. Jeez.
 
 !`
-choicesPerPassage = 1;
+choicesPerPage = 1;
 `
-[No not you|loneDoors]
+[No not you|loneDoors35]
 ---
-:loneDoors
+:loneDoors35
 
 Oh.
 
 !`
-choicesPerPassage = 1;
+choicesPerPage = 1;
 `
-[I just... I was really feeling that.|loneDoors]
+[I just... I was really feeling that.|loneDoors36]
 ---
-:loneDoors
+:loneDoors36
 
 Yeah, things were heating up. Darn shame, huh.
 
 !`
-choicesPerPassage = 1;
+choicesPerPage = 1;
 `
-[He said he was into everything...|loneDoors]
+[He said he was into everything...|loneDoors37]
 ---
-:loneDoors
+:loneDoors37
 
 I think when some people say "I'm into everything" they really mean "I'm into pee and bondage at most."
 
 !`
-choicesPerPassage = 1;
+choicesPerPage = 1;
 `
-[Ugh.|loneDoors]
+[Ugh.|loneDoors38]
 ---
-:loneDoors
+:loneDoors38
 
 You gonna try again?
 
 !`
-choicesPerPassage = 1;
+choicesPerPage = 1;
 `
-[Absolutely I am!!!|loneDoors]
+[Absolutely I am!!!|loneDoors39]
 ---
-:loneDoors
+:loneDoors39
 
 Okay here, let me help you.
 
 !`
-choicesPerPassage = 1;
+choicesPerPage = 1;
 `
-[Huh?|loneDoors]
+[Huh?|loneDoors40]
 ---
-:loneDoors
+:loneDoors40
 
 Someone just moved in here from your island. Maybe you remember him. His name is Cage, he's a big muscled bull dude with a mean streak.
 
 !`
-choicesPerPassage = 1;
+choicesPerPage = 1;
 `
-[Oooo... I can just barely remember him... he's here?!|loneDoors]
+[Oooo... I can just barely remember him... he's here?!|loneDoors41]
 ---
-:loneDoors
+:loneDoors41
 
 Yeah, just staying in a shitty condo while he figures his life out. Here. Let's go ring the doorbell.
 
 I gotta say, you look adorable when you ring doorbells.
 
 !`
-choicesPerPassage = 1;
+choicesPerPage = 1;
 `
-[Ehehe, thank you~|loneDoors]
+[Ehehe, thank you~|loneDoors42]
 ---
-:loneDoors
+:loneDoors42
 
 Okay. You scamper down the streets, little butt drawing attention wherever it jiggles, til you end up in a dead part of town that no one has walked through in literally a century.
 
@@ -459,22 +471,31 @@ Cage's place has no decoration. The only thing that sets his condo apart from th
 You wipe your cute feetpaws off on the front mat and reach for the doorbell.
 
 !`
-choicesPerPassage = 1;
+choicesPerPage = 1;
 `
-[Ring it.|loneDoors]
+[Ring it.|loneDoors43]
 ---
-:loneDoors
+:loneDoors43
 
-*cute art*
+!`
+var loneImg = addImage("assets/img/writer/characters/lone/loneRing.png");
+loneImg.x = gameWidth - loneImg.width * 1.3;
+loneImg.y = - loneImg.height;
+
+tween(loneImg, 0.4, {y: 30}, {ease: QUINT_OUT});
+msg("Art: Spunkymutt");
+
+playEffect("audio/effect/doorbell");
+`
 
 Ding dong~!
 
 !`
-choicesPerPassage = 1;
+choicesPerPage = 1;
 `
-[Wait patiently!|loneDoors]
+[Wait patiently!|loneDoors44]
 ---
-:loneDoors
+:loneDoors44
 
 You roll back on your heels and twiddle your weiner, waiting.
 
@@ -483,83 +504,83 @@ You roll back on your heels and twiddle your weiner, waiting.
 ... He doesn't even get up...
 
 !`
-choicesPerPassage = 1;
+choicesPerPage = 1;
 `
-[Did he not hear? Ring again.|loneDoors]
+[Did he not hear? Ring again.|loneDoors45]
 ---
-:loneDoors
+:loneDoors45
 
 Ding dooong~!
 
 !`
-choicesPerPassage = 1;
+choicesPerPage = 1;
 `
-[Okay now he heard me right?|loneDoors]
+[Okay now he heard me right?|loneDoors46]
 ---
-:loneDoors
+:loneDoors46
 
 ... The light in the window turns off. Pretty late for him to try and pretend he's not home.
 
 !`
-choicesPerPassage = 1;
+choicesPerPage = 1;
 `
-[Urrgh... bang on the door!!|loneDoors]
+[Urrgh... bang on the door!!|loneDoors47]
 ---
-:loneDoors
+:loneDoors47
 
 You beat the fuck out of Cage's front door with your tiny lil balled-up fists, <i>thwump thwump thwump!!!</i>
 
 !`
-choicesPerPassage = 1;
+choicesPerPage = 1;
 `
-[MR. CAAAAGE|loneDoors]
+[MR. CAAAAGE|loneDoors48]
 ---
-:loneDoors
+:loneDoors48
 
 His surname is Statt, actually.
 
 !`
-choicesPerPassage = 1;
+choicesPerPage = 1;
 `
-[MR. STAAAATTT|loneDoors]
+[MR. STAAAATTT|loneDoors49]
 ---
-:loneDoors
+:loneDoors49
 
 
 
 !`
-choicesPerPassage = 1;
+choicesPerPage = 1;
 `
-[PLEASE OPEN UP I'M LONELY AND I NEED A HOME|loneDoors]
+[PLEASE OPEN UP I'M LONELY AND I NEED A HOME|loneDoors50]
 ---
-:loneDoors
+:loneDoors50
 
 
 
 !`
-choicesPerPassage = 1;
+choicesPerPage = 1;
 `
-[CAN YOU PLEASE BEAT ME UP I NEED ADULT FISTS IN MY LITTLE CUB TUMMY|loneDoors]
+[CAN YOU PLEASE BEAT ME UP I NEED ADULT FISTS IN MY LITTLE CUB TUMMY|loneDoors51]
 ---
-:loneDoors
+:loneDoors51
 
 
 
 !`
-choicesPerPassage = 1;
+choicesPerPage = 1;
 `
-[PLEEEAAASE RAPE AND DESTROY MEEEeee|loneDoors]
+[PLEEEAAASE RAPE AND DESTROY MEEEeee|loneDoors52]
 ---
-:loneDoors
+:loneDoors52
 
 
 
 !`
-choicesPerPassage = 1;
+choicesPerPage = 1;
+addChoice("... Please? :<", "loneDoors53", {icons: ["Blood"]});
 `
-[... Please? :<|loneDoors]
 ---
-:loneDoors
+:loneDoors53
 
 You blink at the window. Something moves in the darkness.
 
@@ -570,33 +591,33 @@ Both your paws clap to your throbbing, broken nose. You take a few unsteady step
 Cage stands in the doorframe. You can't see his face or any of his body, just an outline of jutting muscles in the gloom. Puffs of black steam blow from his snout.
 
 !`
-choicesPerPassage = 1;
+choicesPerPage = 1;
 `
-[A-Ah! Thanks for answering!|loneDoors]
+[A-Ah! Thanks for answering!|loneDoors54]
 ---
-:loneDoors
+:loneDoors54
 
 "Who are you?"
 
 You clamber woozily to your feet and lean on the railing for support. Your shaky feetpaws take the stairs one at a time.
 
 !`
-choicesPerPassage = 1;
+choicesPerPage = 1;
 `
-[Hi, my name is Lone, and I'm lookin for a home, preferably one with an abusive dad, cause I like to get—|loneDoors]
+[Hi, my name is Lone, and I'm lookin for a home, preferably one with an abusive dad, cause I like to get—|loneDoors55]
 ---
-:loneDoors
+:loneDoors55
 
 "Cause you like to get fucked up, huh?"
 
 Cage grabs a fistful of scruff and lifts you up. You're eye-to-eye with his pissed-off face. You swing around limp and helpless, suspended in mid-air by his insurmountable dad strength. Hot jets of snout steam blast right up your snapped nose. You cringe and gag and try not to pee yourself with arousal/fear.
 
 !`
-choicesPerPassage = 1;
+choicesPerPage = 1;
 `
-[Y-Yeah! Yeah that's about right!|loneDoors]
+[Y-Yeah! Yeah that's about right!|loneDoors56]
 ---
-:loneDoors
+:loneDoors56
 
 He shakes a couple pitiful squeaks out of you. The wool of your scruff pulls taut and bunches between his fingers like panties up a little goat boy's asscrack. And Cage is just testing your threshold for abuse.
 
@@ -605,22 +626,22 @@ His face never pulls back. It fills your FOV. His eyes grope around in your soul
 "You want it?"
 
 !`
-choicesPerPassage = 1;
+choicesPerPage = 1;
 `
-[... Yes. I want it.|loneDoors]
+[... Yes. I want it.|loneDoors57]
 ---
-:loneDoors
+:loneDoors57
 
 You finally tear your eyes away from his and look down. Your little body dangles in the air in front of him. Your legs are slender twigs compared to his dadly tree trunks, and they're dwarfed even just by the size and girth of his cock, which twitches at full mast just inches away from your anxiously twiddling toes. Each of his nuts is bigger than your entire foot.
 
 "Eyes on me."
 
 !`
-choicesPerPassage = 1;
+choicesPerPage = 1;
 `
-[Eyes on him.|loneDoors]
+[Eyes on him.|loneDoors58]
 ---
-:loneDoors
+:loneDoors58
 
 You meet his eyes again. Something is different. He changed positions when you looked up.
 
@@ -631,11 +652,11 @@ His arm isn't where it used to be... it's pulled back. His elbow slides back pas
 Then he gut-punches you in your belly. Once and only once. Hard.
 
 !`
-choicesPerPassage = 1;
+choicesPerPage = 1;
 `
-[ACK <3|loneDoors]
+[ACK <3|loneDoors59]
 ---
-:loneDoors
+:loneDoors59
 
 The punch sends you spinning. Your whole body swings around. Your scruff torques out like the handles on a cheap grocery bag. Your chubby lil cub legs flop all loose on either side because they got yanked apart by the unforgiving, unseen, and molestatious grasp of centripetal force. The shockwave runs all the way around your midsection and violently ripples your assmeat, and it even travels up, forces its way through your fluttering heart as a palpitation, and crashes up into the crown of your skull.
 
@@ -648,42 +669,42 @@ He drops you on your little ass while you're still wheezing. This whole time his
 "You're cute. But you're too worthless for this shit. I know a way to dom you even harder."
 
 !`
-choicesPerPassage = 1;
+choicesPerPage = 1;
 `
-[O-Oh...?|loneDoors]
+[O-Oh...?|loneDoors60]
 ---
-:loneDoors
+:loneDoors60
 
 He slams the door shut and locks it.
 
 "Fuck off."
 
 !`
-choicesPerPassage = 1;
+choicesPerPage = 1;
 `
-[...|loneDoors]
+[...|loneDoors61]
 ---
-:loneDoors
+:loneDoors61
 
 You squirm on his porch. The light in his window flicks back on. Your heart drops as his silhouette starts to masturbate without you there to even suckle on his big, jiggling nuts.
 
 !`
-choicesPerPassage = 1;
+choicesPerPage = 1;
 `
-[Oh god... does this mean...|loneDoors]
+[Oh god... does this mean...|loneDoors62]
 ---
-:loneDoors
+:loneDoors62
 
 Yes. We've come full circle.
 
 You are so worthless you don't even deserve rape. In Cage's eyes, complete neglect is the only abuse you're fit for. 
 
 !`
-choicesPerPassage = 1;
+choicesPerPage = 1;
 `
-[Ow! Ow! Paradox boner!!|loneDoors]
+[Ow! Ow! Paradox boner!!|loneDoors63]
 ---
-:loneDoors
+:loneDoors63
 
 The following thought process repeats itself five times:
 
@@ -698,11 +719,11 @@ You think about how you don't deserve to get beaten up. Your mind flies off in a
 Your dick hardens and pops back out of your fuzzy sheath again, aaaaand you're back to square one.
 
 !`
-choicesPerPassage = 1;
+choicesPerPage = 1;
 `
-[No kidding...|loneDoors]
+[No kidding...|loneDoors64]
 ---
-:loneDoors
+:loneDoors64
 
 You decide against fixing your body up in a red pond. Instead, you wander the streets again. Doorbells get pushed. Strangers get lapdanced on. But now that you have a big, fat, sexy, ugly, alluring, repulsive, basketball-sized bruise decorating your little belly, you can't even attempt to ask most people if they like to beat up underaged boy bellies.
 
@@ -713,127 +734,127 @@ But. But. But. That's all you hear for the next couple hours of searching. You h
 ... There, moping on the streetcorner, you start to get hard over the fact that no one wants you...
 
 !`
-choicesPerPassage = 1;
+choicesPerPage = 1;
 `
-[Nnngh... god!!|loneDoors]
+[Nnngh... god!!|loneDoors65]
 ---
-:loneDoors
+:loneDoors65
 
 Real actual frustration and sadness kills your boner though. You run both paws over your little body, pressing on the bumps and bruises you had to fight so hard for, milking just a tiny bit more pain from them.
 
 !`
-choicesPerPassage = 1;
+choicesPerPage = 1;
 `
-[There's gotta be some place for me out here.|loneDoors]
+[There's gotta be some place for me out here.|loneDoors66]
 ---
-:loneDoors
+:loneDoors66
 
 Well, I don't know about a forever home, but like I said I know a mean cub.
 
 !`
-choicesPerPassage = 1;
+choicesPerPage = 1;
 `
-[Ugh.|loneDoors]
+[Ugh.|loneDoors67]
 ---
-:loneDoors
+:loneDoors67
 
 Still stuck on dads?
 
 !`
-choicesPerPassage = 1;
+choicesPerPage = 1;
 `
-[Well I want someone STRONG. Obviously. Not a cub.|loneDoors]
+[Well I want someone STRONG. Obviously. Not a cub.|loneDoors68]
 ---
-:loneDoors
+:loneDoors68
 
 His entire job revolves around a more physically intensive form of figure skating and he works ten hours a day.
 
 Trust me: if you want him to, he will gracefully, dextrously fuck you up.
 
 !`
-choicesPerPassage = 1;
+choicesPerPage = 1;
 `
-[...|loneDoors]
+[...|loneDoors69]
 ---
-:loneDoors
+:loneDoors69
 
 Oh <i>now</i> I've got your attention, huh.
 
 !`
-choicesPerPassage = 1;
+choicesPerPage = 1;
 `
-[... Well I guess I'll give him a shot, but I have low expectations...|loneDoors]
+[... Well I guess I'll give him a shot, but I have low expectations...|loneDoors70]
 ---
-:loneDoors
+:loneDoors70
 
 Fine by me. Here, his name's Cartographer, I'll guide you over to his place.
 
 !`
-choicesPerPassage = 1;
+choicesPerPage = 1;
 `
-[Oh that one!|loneDoors]
+[Oh that one!|loneDoors71]
 ---
-:loneDoors
+:loneDoors71
 
 After a polite knock, you stand outside the door to his map dome and grind your little thighs together with repressed anticipation.
 
 !`
-choicesPerPassage = 1;
+choicesPerPage = 1;
 `
-[Next next next...|loneDoors]
+[Next next next...|loneDoors72]
 ---
-:loneDoors
+:loneDoors72
 
 Hmmmm. He's a little busy right now. Not answering.
 
 !`
-choicesPerPassage = 1;
+choicesPerPage = 1;
 `
-[Uughh...|loneDoors]
+[Uughh...|loneDoors73]
 ---
-:loneDoors
+:loneDoors73
 
 Still not answering...
 
 !`
-choicesPerPassage = 1;
+choicesPerPage = 1;
 `
-[Uuuuughh...|loneDoors]
+[Uuuuughh...|loneDoors74]
 ---
-:loneDoors
+:loneDoors74
 
 Mmm.
 
 Maybe we should try another time. Sorry, I dragged you all the way out here for nothing.
 
 !`
-choicesPerPassage = 1;
+choicesPerPage = 1;
 `
-[Try knocking one more time?|loneDoors]
+[Try knocking one more time?|loneDoors75]
 ---
-:loneDoors
+:loneDoors75
 
 Knock knock. Knock knock knock.
 
 Your knocks get softer and sadder as they go on. No response.
 
 !`
-choicesPerPassage = 1;
+choicesPerPage = 1;
 `
-[Somehow even my lowest expectations were too high.|loneDoors]
+[Somehow even my lowest expectations were too high.|loneDoors76]
 ---
-:loneDoors
+:loneDoors76
 
 I guess so. Jeez, I am sorry. I really wasted your time here.
 
 Mmm. Not that it was worth much anyway.
 
 !`
-choicesPerPassage = 1;
+choicesPerPage = 1;
 `
-[...!!!|loneDoors]
+[...!!!|loneDoors77]
 ---
-:loneDoors
+:loneDoors77
 
 Suddenly, it clicks, and your little nuts tingle like they just got tased. They constrict into a single rounded coin purse shape, each nut hugging the other. Your cocklet slides out from its sheath and prods against Cart's cool metal door. You push your hips forward and hold them there, breathing, just breathing. The thought of how much it would hurt if this door just swung open right now and smashed into your little crotch...
 
@@ -852,116 +873,128 @@ Now, over all this time, you've sunken down to your knees. You're pathetic. You 
 Your voice shakes with emotion from the very pit of your stomach:
 
 !`
-choicesPerPassage = 1;
+choicesPerPage = 1;
 `
-[Hello...? Cart? Please... <i>please</i>...|loneDoors]
+[Hello...? Cart? Please... <i>please</i>...|loneDoors78]
 ---
-:loneDoors
+:loneDoors78
 
 
 
 !`
-choicesPerPassage = 1;
+choicesPerPage = 1;
 `
-[... please keep ignoring me!!! <3|loneDoors]
+[... please keep ignoring me!!! <3|loneDoors79]
 ---
-:loneDoors
-
-"No."
+:loneDoors79
 
 Cart throws the door open. You fall onto your face at his feet.
 
-His little body— well, I say 'little' but compared to your tiny punching bag of a body he's actually a head taller— his relatively bigger body is clean and poised in the doorframe. No paint stains. He wasn't even getting any work done while you were out here grovelling at the door... must've just been listening to your adorable whines from the other side.
+"No."
+
+!`
+choicesPerPage = 1;
+
+var cartImg = addImage("assets/img/writer/characters/cart/cart2.png");
+cartImg.x = gameWidth / 2 - cartImg.width / 2;
+cartImg.y = gameHeight / 2 - cartImg.height / 2;
+msg("Art: Cubber");
+`
+[AAA|loneDoors79a]
+---
+:loneDoors79a
+
+His little body— well, I say 'little' but compared to your tiny punching bag of a body he's actually a head taller— his relatively bigger body appears in the doorframe, clean and poised. No paint stains. He wasn't even getting any work done while you were out here grovelling at the door... must've just been listening to your adorable whines from the other side.
 
 Cart saunters up to you and pokes your sore belly with his toe. You bite back a mini scream.
 
 "Cute bruise. Eyeball filled me in before you got here. I hope you enjoyed the wait."
 
 !`
-choicesPerPassage = 1;
+choicesPerPage = 1;
 `
-[I... I very much did...|loneDoors]
+[I... I very much did...|loneDoors80]
 ---
-:loneDoors
+:loneDoors80
 
 You say that while you nod and look away from him. You're blushing blue and it's really cute.
 
 Cart tilts your chin up with a few fingers. "Look at me."
 
 !`
-choicesPerPassage = 1;
+choicesPerPage = 1;
 `
-[L-Look at him...|loneDoors]
+[L-Look at him...|loneDoors81]
 ---
-:loneDoors
+:loneDoors81
 
 You hold eye contact with the spot on his bangs where his eyes would be.
 
-He spits in your eye.
+He spits in your face.
 
 "Hehe. You are a little bitch, did you know that~?"
 
 You flinch back and blink rapidly as your eyes start to water. Ooey gooey strands of cub boi saliva interlace your eyelashes.
 
 !`
-choicesPerPassage = 1;
+choicesPerPage = 1;
 `
-[A-Ah! Thank you! Yes I am!!|loneDoors]
+[A-Ah! Thank you! Yes I am!!|loneDoors82]
 ---
-:loneDoors
+:loneDoors82
 
 "I heard you're looking for abuse."
 
 !`
-choicesPerPassage = 1;
+choicesPerPage = 1;
 `
-[I— yes— but, also, a home...|loneDoors]
+[I— yes— but, also, a home...|loneDoors83]
 ---
-:loneDoors
+:loneDoors83
 
-"Oh?" Cart seems uncomfortable. He waves it away. "We will talk about that later. Right now, I would like to focus on your body... despite your efforts today, I have to say: your body is too whole."
+"Oh?" Cart seems uncomfortable. He waves it away. "We will talk about that later. Right now, I would like to focus on your body... despite your efforts today, I have to say, it is too whole."
 
 Cart runs a palm over your bare shoulders, down your arms... no bruises or even any red marks on either smooth stretch of wool. "I would like to change that."
 
 !`
-choicesPerPassage = 1;
+choicesPerPage = 1;
 `
-[... He... He really told you everything, huh...|loneDoors]
+[... He... He really told you everything, huh...|loneDoors84]
 ---
-:loneDoors
+:loneDoors84
 
-"Of course. Your personal information does not matter when you are such a little abuse rag, you know."
+"Of course. Your privacy does not matter when you are such a little abuse rag, you know."
 
 Cart pulls you up to your feet and dusts you off with a couple cute fwaps of his paw over your head, your shoulders, your nuts. He "dusts" your nuts off too hard, though. His fingertips smack into your tiny orbs and send them banging against each other and your inner thighs.
 
 "You have sensitive nuts," he says matter-of-factly.
 
 !`
-choicesPerPassage = 1;
+choicesPerPage = 1;
 `
-[O-Ow... yes... I'm sorry...|loneDoors]
+[O-Ow... yes... I'm sorry...|loneDoors85]
 ---
-:loneDoors
+:loneDoors85
 
 "You should be! If they are sensitive, it is because you have not been trying hard enough to get them beaten."
 
 !`
-choicesPerPassage = 1;
+choicesPerPage = 1;
 `
-[B-But... I've been trying so hard... I searched all around town...|loneDoors]
+[B-But... I've been trying so hard... I searched all around town...|loneDoors86]
 ---
-:loneDoors
+:loneDoors86
 
 For the first time he breaks his collected little dom persona here and shows some real anger. It comes wailing up from his depths like a submarine distress signal.
 
 "Why did you not come here first? I am lonely."
 
 !`
-choicesPerPassage = 1;
+choicesPerPage = 1;
 `
-[Ah! Well— I... was looking for a more dadly type of abuser, I guess, I...|loneDoors]
+[Ah! Well— I... was looking for a more dadly type of abuser, I guess, I...|loneDoors87]
 ---
-:loneDoors
+:loneDoors87
 
 Warmth kisses your leg.
 
@@ -970,11 +1003,11 @@ You glance down. It's his cock, and it's about twice as big and thick as your pu
 "I <i>hate</i> dads."
 
 !`
-choicesPerPassage = 1;
+choicesPerPage = 1;
 `
-[Oh god I'm so sorry.|loneDoors]
+[Oh god I'm so sorry.|loneDoors88]
 ---
-:loneDoors
+:loneDoors88
 
 Cart slams you to the ground by your throat. He doesn't have to ask... you spread your legs out and expose your most vulnerable parts to him, because of course you do, that's what little abuse sponges are for. But Cart only spits on your twitchy cocklet and watches the shiny saliva glob roll around your shaft and dribble onto his real target: your belly.
 
@@ -989,11 +1022,11 @@ But you couldn't puke if you tried. His merciless grip crunches around your wind
 "I am going beat you to death," he purrs. Something about the lack of abbreviations is really hot to you. You look up at him through bulging eyes. Your airless, squished-up fish lips mime a single pointless word:
 
 !`
-choicesPerPassage = 1;
+choicesPerPage = 1;
 `
-[Please!!!!! <3|loneDoors]
+[Please!!!!! <3|loneDoors89]
 ---
-:loneDoors
+:loneDoors89
 
 Tears roll from your eyes as Cart chokes you out and dry humps your injured belly even blacker and bluer than it already was. His cock jets pre all over your bare, flat chest. He doesn't care. Actually he does care enough to reach down and rub it in, but he doesn't care beyond that. He holds his fingers up to your twitchy snout and lets off your throat for a moment so you can suck in the scent of his cocksnot. You practically take his fingers up your nostrils, you lean forward and huff on them that hard. He slaps you across the face for trying to snoutfuck his fingers like some kind of worthless degenerate, and your little head snaps to the side hard enough to give you a crick in your neck and hard enough to smash a pretty bruise into your cheekbone.
 
@@ -1002,11 +1035,11 @@ You're dazed. The world is turnwards and you're seeing out of the back of your b
 I may or may not have told him about the bondage husky you met earlier.
 
 !`
-choicesPerPassage = 1;
+choicesPerPage = 1;
 `
-[O-Oh god...|loneDoors]
+[O-Oh god...|loneDoors90]
 ---
-:loneDoors
+:loneDoors90
 
 I didn't lie, either: despite his mostly pudgy-looking cub body, Cart is an absolute fucking powerhouse. He already hit you in the face eight times and humped your belly concave before he even let you up off the ground— and now it seems like he only let you up in the first place just so he could yank your little paws behind your back, hold them above the plush curve of your rump, and tie them. By the way, I hope it's alright that I told him about the husky... oh, who am I kidding, no one gives a fuck about the privacy of a sexy little bloodstain like you. <3
 
@@ -1019,22 +1052,22 @@ You're hogtied. Totally immobilized. Done up like a regular ropebunny. Cart lets
 You look down at yourself. Silk hugs the sex lines that divide your belly from your fupa and hips. Your bonds hint at two puffy nipples and a sloppy, ruined belly button hidden just beneath the sheer fabric. His hot breath washes over your face as he reaches behind and grabs one last trailing piece of the silk.
 
 !`
-choicesPerPassage = 1;
+choicesPerPage = 1;
 `
-[W-What are you going to...|loneDoors]
+[W-What are you going to...|loneDoors91]
 ---
-:loneDoors
+:loneDoors91
 
 <i>CLICK.</i>
 
 <i>Whiiiiirrrr....</i>
 
 !`
-choicesPerPassage = 1;
+choicesPerPage = 1;
 `
-[What is... ?!|loneDoors]
+[What is... ?!|loneDoors92]
 ---
-:loneDoors
+:loneDoors92
 
 Anti-gravity kicks in. You kinda lost track of where exactly you were, but now you know for sure you're inside his map dome.
 
@@ -1043,212 +1076,212 @@ Anti-gravity kicks in. You kinda lost track of where exactly you were, but now y
 Cart kicks off from the ground and ties that last piece of silk to an anchor at the zenith of his map dome. You spend a single peaceful moment floating in the air before the gravity kicks back on and you basically do a mini bungee jump from the ceiling to the floor of this giant dome— except your harness isn't designed for comfort, it's designed to put as much pressure as possible on the most sensitive parts of your body.
 
 !`
-choicesPerPassage = 1;
+choicesPerPage = 1;
 `
-[OW!!!|loneDoors]
+[OW!!!|loneDoors93]
 ---
-:loneDoors
+:loneDoors93
 
 Cart giggles innocently in the doorway as you hit the end of your rope. Silk yanks so deep up your asscrack it disappears. Your nuts are split to either side of their sack and individually outlined in the fabric, which rides up between them so deep they look like two cheeks on a little mini ass; meanwhile, your cocklet is left free to bounce up and down adorably while the weight settles into place.
 
 !`
-choicesPerPassage = 1;
+choicesPerPage = 1;
 `
-[Gasp... pant... cry.|loneDoors]
+[Gasp... pant... cry.|loneDoors94]
 ---
-:loneDoors
+:loneDoors94
 
 The tears come easily. You sniffle and snoofle like a little bitch and squirm in your bonds. Cart walks back to you from across the room and gives you a bit of a shove, just to see how you take it.
 
 You don't take it well. The bonds jab into your armpits like a dad's thumbs when he picks you up. That simple push pulls a squawk out of you, and then another fresh wave of tears. With your face all bent up and ugly with despair, and with your hogtied, naked cub body swinging around the room hilariously, you plead for...
 
 !`
-choicesPerPassage = 1;
+choicesPerPage = 1;
 `
-[PLEASE MORE! ;w;|loneDoors]
+[PLEASE MORE! ;w;|loneDoors95]
 ---
-:loneDoors
+:loneDoors95
 
 Cart is enjoying himself. He rubs his knuckles against your cheek, smearing all those cute tears around.
 
 "What are you?"
 
 !`
-choicesPerPassage = 1;
+choicesPerPage = 1;
 `
-[I'mma... dumb slut...|loneDoors]
+[I'mma... dumb slut...|loneDoors96]
 ---
-:loneDoors
+:loneDoors96
 
 "Well, no, specifically what are you right now?"
 
 !`
-choicesPerPassage = 1;
+choicesPerPage = 1;
 `
-[...|loneDoors]
+[...|loneDoors97]
 ---
-:loneDoors
+:loneDoors97
 
 Your eyes follow the silk up to the ceiling. If it was really tight on your throat, you could say you're a little snuffcub who's hanging at the gallows... but you and I both know that's not the answer he's looking for.
 
 !`
-choicesPerPassage = 1;
+choicesPerPage = 1;
 `
-[I'm... I'm...|loneDoors]
+[I'm... I'm...|loneDoors98]
 ---
-:loneDoors
+:loneDoors98
 
 "You can say it. Do not feel ashamed."
 
 His knuckles jam against your cheek fat. Speaking through squished lips makes you sound completely stupid, but... he's waiting.
 
 !`
-choicesPerPassage = 1;
+choicesPerPage = 1;
 `
-[I'm...|loneDoors]
+[I'm...|loneDoors99]
 ---
-:loneDoors
+:loneDoors99
 
 
 
 !`
-choicesPerPassage = 1;
+choicesPerPage = 1;
 `
-[I'm a punching bag.|loneDoors]
+[I'm a punching bag.|loneDoors100]
 ---
-:loneDoors
+:loneDoors100
 
 "Correct."
 
 ... He just stands there and smiles at you. Nothing happens.
 
 !`
-choicesPerPassage = 1;
+choicesPerPage = 1;
 `
-[So... so please...|loneDoors]
+[So... so please...|loneDoors101]
 ---
-:loneDoors
+:loneDoors101
 
 "I will. Do not rush me."
 
 !`
-choicesPerPassage = 1;
+choicesPerPage = 1;
 `
-[I just... I've been waiting all this time for a good b-beating, and...|loneDoors]
+[I just... I've been waiting all this time for a good b-beating, and...|loneDoors102]
 ---
-:loneDoors
+:loneDoors102
 
 "And?"
 
 !`
-choicesPerPassage = 1;
+choicesPerPage = 1;
 `
-[A-And I just... get the feeling that...|loneDoors]
+[A-And I just... get the feeling that...|loneDoors103]
 ---
-:loneDoors
+:loneDoors103
 
 You meet the fox boy's eyeless gaze with tears and a quivering lip.
 
 !`
-choicesPerPassage = 1;
+choicesPerPage = 1;
 `
-[No matter how hard I try...|loneDoors]
+[No matter how hard I try...|loneDoors104]
 ---
-:loneDoors
+:loneDoors104
 
 
 
 !`
-choicesPerPassage = 1;
+choicesPerPage = 1;
 `
-[No one will ever really g-give it to me as hard as I want.|loneDoors]
+[No one will ever really g-give it to me as hard as I want.|loneDoors105]
 ---
-:loneDoors
+:loneDoors105
 
 "So what do you want me to do?"
 
 !`
-choicesPerPassage = 1;
+choicesPerPage = 1;
 `
-[I... p-please...|loneDoors]
+[I... p-please...|loneDoors106]
 ---
-:loneDoors
+:loneDoors106
 
 "Tell me what you want, Lone."
 
 !`
-choicesPerPassage = 1;
+choicesPerPage = 1;
 `
-[I just... want... abuse.|loneDoors]
+[I just... want... abuse.|loneDoors107]
 ---
-:loneDoors
+:loneDoors107
 
 Cart blinks and softens a bit. "Come on. You can be more descriptive than that."
 
 !`
-choicesPerPassage = 1;
+choicesPerPage = 1;
 `
-[PLEASE! I'VE BEen waiting so long and ugh I|loneDoors]
+[PLEASE! I'VE BEen waiting so long and ugh I|loneDoors108]
 ---
-:loneDoors
+:loneDoors108
 
 He slaps you, but not really hard enough to hurt. Just enough to remind you what's on the line here.
 
 "Give me specifics or else I will make you wait another hour for the pain you deserve."
 
 !`
-choicesPerPassage = 1;
+choicesPerPage = 1;
 `
-[PLEASE BEAT ME TIL I PISS MYSELF|loneDoors]
+[PLEASE BEAT ME TIL I PISS MYSELF|loneDoors109]
 ---
-:loneDoors
+:loneDoors109
 
 Cart crosses his arms and hardens. "There we go. More. Louder, too. I want the neighbours to hear you."
 
 !`
-choicesPerPassage = 1;
+choicesPerPage = 1;
 `
-[BREAK MY NOSE|loneDoors]
+[BREAK MY NOSE|loneDoors110]
 ---
-:loneDoors
+:loneDoors110
 
 "More. I am listening. More."
 
 !`
-choicesPerPassage = 1;
+choicesPerPage = 1;
 `
-[I'M YOUR PUNCHING BAG SO... So...|loneDoors]
+[I'M YOUR PUNCHING BAG SO... So...|loneDoors111]
 ---
-:loneDoors
+:loneDoors111
 
 He's right on the edge of cumming. His cocklet twitches and a fat pearl of pre forms at the tip.
 
 !`
-choicesPerPassage = 1;
+choicesPerPage = 1;
 `
-[So please make me swing.|loneDoors]
+[So please make me swing.|loneDoors112]
 ---
-:loneDoors
+:loneDoors112
 
 <b>POW!!!!!</b>
 
 !`
-choicesPerPassage = 1;
+choicesPerPage = 1;
 `
-[AAAAAAAAAAAA FUCK|loneDoors]
+[AAAAAAAAAAAA FUCK|loneDoors113]
 ---
-:loneDoors
+:loneDoors113
 
 He punched you right in the nose and it made the most adorable little <i>crick</i> sound. Blue blood splurts out in an arc as you spin out of control, like water from a yard sprinkler.
 
 You go flying to the other end of the room. Silk twists into a noose around your delicate throat. Cart wipes the cub snot off his fingers and lines up another fat punch, this time much lower... much, MUCH lower.
 
 !`
-choicesPerPassage = 1;
+choicesPerPage = 1;
 `
-[AAAAAaaaa—|loneDoors]
+[AAAAAaaaa—|loneDoors114]
 ---
-:loneDoors
+:loneDoors114
 
 <b>KER-FUCKEN-BLAMMO!!!!!!!!!!</b>
 
@@ -1261,11 +1294,11 @@ The force of his nut punch won't take you any further, though. You slowly swing 
 "What's wrong?" he asks. His face is happy and clean while yours is a bruised, tearstained mess. "You going to puss out?"
 
 !`
-choicesPerPassage = 1;
+choicesPerPage = 1;
 `
-[OHh GoDDD Fuc|loneDoors]
+[OHh GoDDD Fuc|loneDoors115]
 ---
-:loneDoors
+:loneDoors115
 
 Instead of punching you again, he catches you. The nausea in your beaten belly subsides now that you aren't swinging and spinning around non-stop.
 
@@ -1274,69 +1307,69 @@ You feel Cart's breath on your sensitive ear. He kisses your head.
 "Are you really okay with this, little goat?"
 
 !`
-choicesPerPassage = 1;
+choicesPerPage = 1;
 `
-[Iuhhh...|loneDoors]
+[Iuhhh...|loneDoors116]
 ---
-:loneDoors
+:loneDoors116
 
 "You are sure you want to keep going?"
 
 !`
-choicesPerPassage = 1;
+choicesPerPage = 1;
 `
-[Yuhhh... uhhh...|loneDoors]
+[Yuhhh... uhhh...|loneDoors117]
 ---
-:loneDoors
+:loneDoors117
 
 "I cannot really understand you, I have to be honest..."
 
 !`
-choicesPerPassage = 1;
+choicesPerPage = 1;
 `
-[Yuh!!! Yuh!!!|loneDoors]
+[Yuh!!! Yuh!!!|loneDoors118]
 ---
-:loneDoors
+:loneDoors118
 
 He smirks. His cock smears up against your little taint. Then... although you expect him to slide his hooded head down to nuzzle against your bare asshole, he doesn't. He moves his cockhead higher. Precum kisses your swollen nuts. The tiniest twinge of pain lances through them and right up your drooping shaft.
 
 "Well. You still have to piss for me."
 
 !`
-choicesPerPassage = 1;
+choicesPerPage = 1;
 `
-[UUuuuuuuuuhhhhggkk...|loneDoors]
+[UUuuuuuuuuhhhhggkk...|loneDoors119]
 ---
-:loneDoors
+:loneDoors119
 
 "That was a pretty sexy porn moan, you know that? Spoken like a true painslut."
 
 !`
-choicesPerPassage = 1;
+choicesPerPage = 1;
 `
-[Uuhhhhnnnn...|loneDoors]
+[Uuhhhhnnnn...|loneDoors120]
 ---
-:loneDoors
+:loneDoors120
 
 He hits you across the face again— same force as he's always been using, but now you're so desensitized you barely feel it. Your already broken nose snaps even farther to the side, and a sexy gush of cub blood decorates your chest.
 
 !`
-choicesPerPassage = 1;
+choicesPerPage = 1;
 `
-[Uhhhhgh...|loneDoors]
+[Uhhhhgh...|loneDoors121]
 ---
-:loneDoors
+:loneDoors121
 
 "Okay stop. I am bored of moans now."
 
 A kick to the nuts.
 
 !`
-choicesPerPassage = 1;
+choicesPerPage = 1;
 `
-[UuuuuuAAAAOW! OW OW OW!!!|loneDoors]
+[UuuuuuAAAAOW! OW OW OW!!!|loneDoors122]
 ---
-:loneDoors
+:loneDoors122
 
 "There we go." Cart's canines are showing. His maw closes around your lips and sucks the pain out while he braces a paw behind the back of your skull. You feel strangely loved when he embraces you like this, despite the constant burning throb of his cock smearing against your swollen sack.
 
@@ -1347,31 +1380,31 @@ He frowns.
 "Why have you not pissed yet?"
 
 !`
-choicesPerPassage = 1;
+choicesPerPage = 1;
 `
-[I'M SORRY I DUNNO I'M SORRY|loneDoors]
+[I'M SORRY I DUNNO I'M SORRY|loneDoors123]
 ---
-:loneDoors
+:loneDoors123
 
 He pinches your tiny dick between thumb and forefinger and jacks you off way too hard. Any chance of peeing dies when your boner comes back with a vengeance and the valve to your bladder naturally shuts as a result.
 
 "How much harder do I have to beat you?"
 
 !`
-choicesPerPassage = 1;
+choicesPerPage = 1;
 `
-[I DON'T KNOW!!! PLEASE|loneDoors]
+[I DON'T KNOW!!! PLEASE|loneDoors124]
 ---
-:loneDoors
+:loneDoors124
 
 "Or should I try something else?"
 
 !`
-choicesPerPassage = 1;
+choicesPerPage = 1;
 `
-[I DONt|loneDoors]
+[I DONt|loneDoors125]
 ---
-:loneDoors
+:loneDoors125
 
 White.
 
@@ -1402,38 +1435,38 @@ Write. White letters. Write. White letters.
 White.
 
 !`
-choicesPerPassage = 1;
+choicesPerPage = 1;
 `
-[    |loneDoors]
+[    |loneDoors126]
 ---
-:loneDoors
+:loneDoors126
 
 *fade to white*
 
 !`
-choicesPerPassage = 1;
+choicesPerPage = 1;
 `
-[  |loneDoors]
+[  |loneDoors127]
 ---
-:loneDoors
+:loneDoors127
 
 "You passed out for a second there," Cart whispers. "But it is ok. I did not show mercy."
 
 !`
-choicesPerPassage = 1;
+choicesPerPage = 1;
 `
-[I... AAACK|loneDoors]
+[I... AAACK|loneDoors128]
 ---
-:loneDoors
+:loneDoors128
 
 He's been raping you as hard as he can for fifteen minutes. Your ass is a total fucking mess. His paws have both closed around your throat, fingers tucked underneath the suffocating silk not to ease it off but just to pull it tighter. Your lil yanked-apart chicken wing thighs are peppered with more sexy bruises and welts than you had when you passed out. You hold onto yourself with all of the remaining activity you have left in your frontal lobe. Er, sorry, your *cute, sexy little underaged frontal lobe?
 
 !`
-choicesPerPassage = 1;
+choicesPerPage = 1;
 `
-[(... Not quite doing it for me)|loneDoors]
+[(... Not quite doing it for me)|loneDoors129]
 ---
-:loneDoors
+:loneDoors129
 
 (Noted. I won't call it your sexy little underaged frontal lobe again. Yeah, that is pretty out there. Anyway, back to the tame stuff:)
 
@@ -1444,22 +1477,22 @@ Cart screams right in your face. His spittle flecks your terrified black eyes. H
 Your head lolls forward, barely supported by a brain stem that stopped listening to outside stimulus eight punches ago. Your poor nuts have been beaten and crushed, not just by fists, but by the crushing thrusts of his hips, too, and now your sack looks like a big fat rotted black tomato hanging between your spread thighs. Cart drools at the sight of them... once so pure and tiny, now sloppy, swollen, and fucked up beyond recognition. It's still not enough for him, though. He doubles his raping speed and gives your nutsack a big, friendly <b>SQUEEZE!</b>
 
 !`
-choicesPerPassage = 1;
+choicesPerPage = 1;
 `
-[White.|loneDoors]
+[White.|loneDoors130]
 ---
-:loneDoors
+:loneDoors130
 
 Yes, you pass out a third time like a total bitch. Cart talks shit to your unconscious face. By the time you finally come around he's sliced your silk rope down from the ceiling ("You cannot even be a good punching bag without passing out, huh?") and left you to topple onto the ground in a crumpled, crying, bleeding pile of goat.
 
 He advances with zero mercy. Kicks bounce off your tailbone, your jiggly thighs, and your face whenever he feels like putting you out again. Whenever you stop squeaking so hard or start fading out again, he aims a few good stomps right on your loose, raped-open hole. It isn't long before he can fit his entire foot up your ass and Red Foreman you into an intermittent coma.
 
 !`
-choicesPerPassage = 1;
+choicesPerPage = 1;
 `
-[PleeEAAaaSSee MooOoooOOOre|loneDoors]
+[PleeEAAaaSSee MooOoooOOOre|loneDoors131]
 ---
-:loneDoors
+:loneDoors131
 
 You get a glimpse at Cart through the fog of rape and brain damage. He's sweaty, his perfect stylish hair is dishevelled, and for once he actually seems to be not extremely horny.
 
@@ -1468,11 +1501,11 @@ But he throws himself back into it. Namecalling, beating, ramming his cock back 
 No matter how hard he goes at you, not a single drop of yellow leaks from your cock.
 
 !`
-choicesPerPassage = 1;
+choicesPerPage = 1;
 `
-[PLEEeeEEAaaASE|loneDoors]
+[PLEEeeEEAaaASE|loneDoors132]
 ---
-:loneDoors
+:loneDoors132
 
 He loses it. "RRRRRAAAAGH! Why! Will! You! Not! PISS!"
 
@@ -1481,11 +1514,11 @@ In a fit of blind rage (maybe only because his hair covers his eyes) he punches 
 But he misses. Instead, his fist blasts through your rape-worn ass, which is hanging wide and loose as a fucking shirt sleeve, and his knuckles make direct contact with the inner wall of your bladder.
 
 !`
-choicesPerPassage = 1;
+choicesPerPage = 1;
 `
-[... BUH! <3|loneDoors]
+[... BUH! <3|loneDoors133]
 ---
-:loneDoors
+:loneDoors133
 
 "BUH! <3" you shout like a total cubtard.
 
@@ -1498,29 +1531,29 @@ Cart punches your bladder with renewed rage. He's shaking and exhausted. You can
 Your tiny cub body can't take any more of this abuse. It has to end sometime. This can't go on forever. You can't keep holding it.
 
 !`
-choicesPerPassage = 1;
+choicesPerPage = 1;
 `
-[B-Buhhh... urk... <3|loneDoors]
+[B-Buhhh... urk... <3|loneDoors134]
 ---
-:loneDoors
+:loneDoors134
 
 ... No, seriously, please stop holding it. He's exhausted.
 
 !`
-choicesPerPassage = 1;
+choicesPerPage = 1;
 `
-[...|loneDoors]
+[...|loneDoors135]
 ---
-:loneDoors
+:loneDoors135
 
 Dude please?
 
 !`
-choicesPerPassage = 1;
+choicesPerPage = 1;
 `
-[Alright okay, pee already!!|loneDoors]
+[Alright okay, pee already!!|loneDoors136]
 ---
-:loneDoors
+:loneDoors136
 
 Cart throws out a warbling war cry and drives his fist into your bladder one last time.
 
@@ -1529,11 +1562,11 @@ You squeak. Silk rips. Some pivotal link in the chain finally snapped, and now a
 Cart's angry cock appears in your face.
 
 !`
-choicesPerPassage = 1;
+choicesPerPage = 1;
 `
-[A... Ah... open.|loneDoors]
+[A... Ah... open.|loneDoors137]
 ---
-:loneDoors
+:loneDoors137
 
 Piss splashes into your open maw. He lowers his hips and dunks his cock inside your throat, barely even fucking it. He lurches forward. Both paws react late: they smack the ground and keep him upright just a second before his face would have collapsed to the ground.
 
@@ -1544,11 +1577,11 @@ His hips sink lower. You gag as cubdick slides right down your gullet. Your piss
 You stare at nothing and take his cock down your throat. You swallow on his cockhead and slide your tongue up around his hood, nursing on his hot pre. All that matters is re-energizing him just on the tiny chance that he'll be spunky enough to dish out a tiny bit more abuse after this. You don't even feel your own exhaustion— that's normal for an abuse sponge, that's deserved. Half-baked thoughts of daddy doms sleep-depriving you rise to mind... big musky dudes bullying you about how sexy those big bags under your eyes are... waking you up in the middle of the night for rape... You swallow hard on Cart's cock and secretly wish it was bigger, girthier, big enough to choke you out.
 
 !`
-choicesPerPassage = 1;
+choicesPerPage = 1;
 `
-[Cum.|loneDoors]
+[Cum.|loneDoors138]
 ---
-:loneDoors
+:loneDoors138
 
 Cart can barely keep himself upright anymore. Both of you cum at the same time.
 
@@ -1557,18 +1590,25 @@ Your black nuts twitch eight times, but nothing actually spurts out of your cock
 He unplugs. Fat strands of white link your open throat to his slit, which drools out two last dregs... and then finally shuts.
 
 !`
-choicesPerPassage = 1;
+choicesPerPage = 1;
 `
-[Phwa...|loneDoors]
+[Phwa...|loneDoors139]
 ---
-:loneDoors
+:loneDoors139
 
 You both fall the fuck over and gasp for breath. Blood, cum, and piss, and silk form a beautiful map on the parchment around you.
 
 "Thank... you..." Cart pants. "This was the last map... I needed to do... for today."
 
 !`
-choicesPerPassage = 1;
+choicesPerPage = 1;
 `
-[End.|loneDoors]
+[End. <3|loneDoors140]
 ---
+:loneDoors140
+
+!`
+gotoLLL();
+`
+
+END_PASSAGES

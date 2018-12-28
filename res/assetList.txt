@@ -41,6 +41,11 @@ info/wendyApt.phore
 info/wendyApt2.phore
 info/thelly.phore
 info/lone.phore
+info/oliStream.phore
+info/loneDoors.phore
+info/hyenaFam.phore
+info/redMary.phore
+info/blackMansion.phore
 info/introCart.phore
 info/LLL.phore
 info/foodLand.phore
@@ -226,6 +231,8 @@ img/writer/characters/ren/ren.png
 img/writer/characters/ren/ren.spr
 img/writer/characters/lone/lone.png
 img/writer/characters/lone/lone.spr
+img/writer/characters/lone/loneRing.png
+img/writer/characters/lone/loneRing.spr
 img/writer/characters/lone/loneFramed.png
 img/writer/characters/lone/loneFramed.spr
 img/writer/characters/cart/cart.png
@@ -273,6 +280,9 @@ img/ui/dialog/wendyDialog.png
 img/ui/dialog/wendyDialog.spr
 
 audio/effect/mapTransition.ogg
+audio/effect/buzzer.ogg
+audio/effect/buzzerSpam.ogg
+audio/effect/doorbell.ogg
 audio/effect/trashTransmission.ogg
 audio/effect/owlScream.ogg
 audio/effect/despairSting.ogg
@@ -282,6 +292,7 @@ audio/effect/cartSlide/right/2.ogg
 audio/effect/cartSlide/left/1.ogg
 audio/effect/cartSlide/left/2.ogg
 
+audio/ui/nope.ogg
 audio/ui/msg/1.ogg
 audio/ui/msg/2.ogg
 audio/ui/msg/3.ogg
@@ -325,8 +336,8 @@ audio/ui/tooltip/3.ogg
 audio/ui/restart.ogg
 audio/ui/exit.ogg
 audio/ui/load.ogg
-audio/music/newVictim.ogg
 audio/music/newSelf.ogg
+audio/music/bunnyLove.ogg
 audio/music/newEngine.ogg
 audio/music/nonLocal.ogg
 audio/ambience/violetMeteorite.ogg

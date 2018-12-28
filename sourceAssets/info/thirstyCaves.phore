@@ -15,10 +15,99 @@ If you jump in, you can change your body again.
 !`
 choicesPerPage = 2;
 addChoice("Jump in.", function() {
-	gotoPassage("Jump in.");
+	if (!data.shapeExperimented) {
+		gotoPassage("Jump in.Experiment");
+	} else {
+		gotoPassage("Jump in.");
+	}
 });
 `
 [Move along.]
+---
+:Jump in.Experiment
+
+You swan dive back into the red fluid and your body disintegrates. It feels kinda harsh and stingy at first because you hit it at a weird angle, but then it mellows out to a cool, tingly numbness. Feels like a menthol hot tub.
+
+Man, indefinity is so relaxing.
+
+!`
+data.shapeExperimented = true;
+choicesPerPage = 1;
+`
+
+[Shapeshift into a...|experiment1]
+---
+:experiment1
+
+You shapeshift into a...
+
+!`
+choicesPerPage = 3;
+`
+[Planet.|experimentPlanet]
+[Massive cock.|experimentCock]
+[Fundamental law.|experimentLaw]
+---
+:experimentPlanet
+
+Your belly balloons hard.
+
+Thousands of miles grow between your innie and your strained, ahegao face. You keel back and let your own gravitational field molest you. It pulls every part of your body down to perfect smoothness: your limbs, your head, all of it is flattened, every little detail of your face sinks into a stretched-flat plane of flesh so bloated it forms its own utterly erotic horizon. You feel so <b>full</b> and <b>heavy</b>. Eight thousand miles away, your `genitals("cock", "cunt", "cock and cunt")` squirt a `genitals("out a planet-wide cumstorm", "misty atmosphere's worth of pussyjuice", "out a planet-wide cumstorm and a misty atmosphere's worth of pussyjuice to go with it")`.
+
+!`
+choicesPerPage = 1;
+`
+[Holy shit really?|experimentRejoin]
+---
+:experimentCock
+
+Your chin and knees drop to the ground. Heat wracks your body. Your `hasBoobs("tits grind", "flat chest grinds")` hard against the edge of the pond as you struggle to pull yourself up and out, but it's pointless: your muscles are already melting into pure cum and cockmeat. The only muscle you need is the brand new one at the base of your spine which makes your whole body flex like a throbbing dick. Your maw puckers up, sour, then stretches out and overtakes your overstimulated nose to form one massive slit that hangs off the front of your face. Your eyes roll back and become smooth cockhead flesh.
+
+Your arms tuck up underneath you and meld together into a urethra already slick with gushes of precum. Downstairs, both knees slide out to either side, and your heels literally sink into your asscheeks, thighs and calves no longer used for movement or self-determination, no, now those muscles have been repurposed as the churning cum factory of two fat nuts the size of both of your legs.
+
+You try to wiggle forward. It's pointless. All you can do is flop around and burp adorable little gushes of precum all over yourself.
+
+!`
+choicesPerPage = 1;
+`
+[Holy shit really?|experimentRejoin]
+---
+:experimentLaw
+
+You become gravity. All of reality splays out before you. You keep shit together tight. You watch 100,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000 electrons whizz around their nuclei like a kid hunched over the most spastic pinball machine of all time and space. You crush planets and stars inside black hole fists. You sway in the salsa of a quintillion stable orbits, and for those orbits that keep life in the habitable zone of their star, you can almost see yourself throwing those little cuties a wink with each new year and each fresh twirl of your benevolent embrace.
+
+!`
+choicesPerPage = 1;
+`
+[Holy shit really?|experimentRejoin]
+---
+:experimentRejoin
+
+No you dink.
+
+!`
+choicesPerPage = 1;
+`
+[Awww fuck. Why not??|experiment2]
+---
+:experiment2
+
+Because red juice is not magical imagination sauce. It's versatile, but it's made of molecules like everything else. We collect resources by assimilating people, pool those resources among the hivemind, and you spend some of them when you make a new body for yourself. No one is allowed to hog the juice and make their bodies overlarge, overcomplex, or non-physical.
+
+!`
+choicesPerPage = 1;
+`
+[So no shenanigans. :c|experiment3]
+---
+:experiment3
+
+No shenanigans.
+
+!`
+choicesPerPage = 2;
+`
+[Fine... change my body for real this time.|Shapeshift.]
+[Fine... back.|Move along.]
 ---
 :Jump in.
 !`

@@ -32,6 +32,15 @@ print("leaving archiepelagoMap");
 execAsset("introAllei.phore");
 gotoPassage("introAlleiStart");
 `
+---
+:blackMansion
+
+!`
+clear();
+print("leaving archiepelagoMap");
+execAsset("blackMansion.phore");
+gotoPassage("blackMansionStart");
+`
 
 END_PASSAGES
 
@@ -45,6 +54,9 @@ function gotoArchiepelago() {
 	submitNode("Indigo Pond", "indigoPond");
 	attachNode("Farm Island", "Indigo Pond", BOTTOM);
 
+	submitNode("Black Mansion", "blackMansion");
+	attachNode("Indigo Pond", "Black Mansion", BOTTOM);
+
 	setNodeLocked("Indigo Pond", function() {
 		return data.metPatch;
   	});
@@ -57,5 +69,13 @@ function gotoArchiepelago() {
 		layerSelect.y = -layerSelect.height;
 		tween(layerSelect, 1, {y: 0, alpha: 1}, {ease: QUINT_OUT});
 
-	setBackground(0, "writer/islandBg");
+	setBackground(0, "writer/mainBg");
+
+	var backgroundIsland = addImage("writer/islandBg.png");
+	backgroundIsland.layer = 38; //Below title
+
+	if (!data.seenIslandCredit) {
+		data.seenIslandCredit = true;
+		msg("Art: Cubber");
+	}
 }
