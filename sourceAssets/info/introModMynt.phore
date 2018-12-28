@@ -1,7 +1,7 @@
 START_PASSAGES
 :introModMyntStart
 !`
-setBackground(0, "writer/mynt/bg/myntBodBg");
+setBackground(0, "writer/spilledPaintBg");
 streamEmbeddedTexture("writer/mynt/face/myntBod/10");
 streamEmbeddedTexture("writer/mynt/face/myntBod/6");
 streamEmbeddedTexture("writer/mynt/face/myntBod/8a");
@@ -144,7 +144,7 @@ fader.alpha = 1;
 msg("Press Space to skip.");
 tween(fader, 5, {alpha: 0}, {ease: QUAD_IN});
 
-setBackground(0, "writer/thirstyCavesBg");
+setBackground(0, "writer/myntBodBg");
 setBackground(1, "writer/mynt/face/myntBod/10", CENTERED);
 timer(4, function() { setTitle("Rebeca..."); });
 timer(7, function() { setTitle("I love you."); });

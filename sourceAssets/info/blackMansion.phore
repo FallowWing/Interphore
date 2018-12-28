@@ -1,15 +1,180 @@
 START_PASSAGES
 :blackMansionStart
 
-You step back from the shrine and peruse the forest island.
+You gracefully hop out of the red pond on the forest island. There's a black mansion in the distance that you kinda wanna check out.
 
-The only thing in sight is that black mansion, looming.
+But before you can head down into the trees, something catches your eye: a bull dude and a lamb boy three ponds down the way. They're arguing. The bull cradles something small in his arms.
+
+!`
+choicesPerPage = 3;
+addChoice("Eavesdrop.", "blackEaves1", {icons: ["Plot"]});
+addChoice("Skip.", "blackBeginPre");
+`
+---
+:blackEaves1
+
+Som crosses his little wooly lamb arms with absolute resolution. Cage puffs steam from his nostrils and shuffles on the spot with flimsy indecision.
+
+"... up your own ass with unfounded self-pity," Som says. "Let's just get in the pond and meet up with the rest of existence already."
+
+!`
+choicesPerPage = 1;
+`
+[...|blackEaves2]
+---
+:blackEaves2
+
+Cage doesn't want to go. He grumbles so quietly you can't hear him from this distance. He wants to stay. He's hypnotized by the little bundle in the crook of his elbow.
+
+"I can't just jump ship. I have to atone." His expression is hard to read. He's either truly ashamed of himself or he just really wants to be ashamed of himself, you can't tell.
+
+"Go ahead and try your last experiment, then," Som says. "I'm leaving. But I'm guaran-fucking-teeing you, it won't work. I did my homework. Inanimate objects can't get assimilated."
+
+!`
+choicesPerPage = 1;
+`
+[...|blackEaves3]
+---
+:blackEaves3
+
+Cage still isn't convinced...
+
+But Som has no patience left. He shrugs, pencil dives into the pond, and in a splash of red... he's gone.
+
+!`
+choicesPerPage = 1;
+`
+[...|blackEaves4]
+---
+:blackEaves4
+
+Cage kneels down at the edge of the pond. He peels the bundle out of his arms and drops it into the pond with a plunk.
+
+He waits. Muscles tense and relax. Eyebrows furl and unfurl. Different worries cross his mind.
+
+Nothing happens.
+
+!`
+choicesPerPage = 1;
+`
+[...|blackEaves5]
+---
+:blackEaves5
+
+Nothing. Really nothing. The little thing doesn't come back out with a fresh body of its own choosing. It doesn't even come back out the same way it went in. We stripped it of its resources. There's not even a ripple left for Cage to mourn over.
+
+!`
+choicesPerPage = 1;
+`
+[...|blackEaves6]
+---
+:blackEaves6
+
+Cage looks at his hands. His eyes are wet, but he won't cry.
+
+"I can't do them any good."
+
+!`
+choicesPerPage = 1;
+`
+[...|blackEaves7]
+---
+:blackEaves7
+
+His hands lock into fists. He glares at the sky.
+
+Som pops his head back out of the pond for just a second.
+
+"AH!?" Cage recoils. He almost poops himself in shock.
+
+Som chides him:
+
+"You don't <i>need</i> to do them any good if you never did them any harm in the first place, you mope. Come join me. There's even a gay cub dungeon two layers up!"
+
+... He slips back under the water, leaving Cage to collect himself and pretend he wasn't about to cry.
+
+!`
+choicesPerPage = 1;
+`
+[...|blackEaves8]
+---
+:blackEaves8
+
+... He thinks.
+
+!`
+choicesPerPage = 1;
+`
+[...|blackEaves9]
+---
+:blackEaves9
+
+He puts his head in his hands.
+
+!`
+choicesPerPage = 1;
+`
+[...|blackEaves10]
+---
+:blackEaves10
+
+Cage peels his fingers away to look at the glimmery red pond surface. He takes a step forward.
+
+!`
+choicesPerPage = 1;
+`
+[...|blackEaves11]
+---
+:blackEaves11
+
+... Then he pulls back. "Gay cub dungeon... sure, maybe some like minds there... but beyond that... good luck..."
+
+!`
+choicesPerPage = 1;
+`
+[...|blackEaves12]
+---
+:blackEaves12
+
+... Even though his tone is dark and hopeless, he still eyes the pond. Something clicks into place inside Cage, and his expression softens.
+
+"I just need a bath."
+
+!`
+choicesPerPage = 1;
+`
+[...|blackEaves13]
+---
+:blackEaves13
+
+He walks away, back to the forest island. The treeline swallows him.
+
+"One more bath..."
+
+!`
+choicesPerPage = 1;
+`
+[... Head on to the mansion.|blackBeginPre2]
+---
+:blackBeginPre
+
+You ignore the bull and the lamb. They can sort their own shit out. It's not long before the lamb jumps in the pond and the bull heads back down in your direction, anyway.
+
+!`
+choicesPerPage = 1;
+addChoice("Onward!", "blackBeginPre2");
+`
+---
+:blackBeginPre2
+
+You push forward through the forest, always looking for a sliver of black to guide you through the canopy.
+
+This mansion... the air around it shimmers with some kind of special protective hack. Sunlight glimmers off the brutal, sharp architecture. The whole place just screams "fuck off."
 
 !`
 data.hasBathroomKey = false;
-
-addChoice("Examine mansion.", "blackBegin", {icons: ["Baby", "Toddler", "Male", "Female", "Intersex"]});
-addChoice("Move along.", "blackEnd");
+choicesPerPage = 1;
+addChoice("Examine mansion.", "blackBegin", {icons: ["Baby", "Plot"]});
 `
 ---
 :blackBegin
@@ -49,8 +214,8 @@ Nope, nothing.
 
 !`
 playEffect("audio/effect/buzzerSpam");
+choicesPerPage = 1;
 `
-
 
 [Break in?|black3]
 ---
@@ -298,7 +463,7 @@ I just hope we aren't backsliding by doing this. Will it make them less sentient
 </i>
 
 !`
-addChoice("Skim more.", "blackBeds2", {icons: ["Plot"]});
+addChoice("Skim more.", "blackBeds2");
 addChoice("Back.", "blackHub");
 `
 ---
@@ -320,9 +485,35 @@ Okay I let Som build a gate and a fence and a whole noclip-proof exterior with a
 </i>
 
 !`
+choicesPerPage = 2;
 data.hasBathroomKey = true;
 msg("Got Bathroom Key!");
 `
+[Skip to the very last page.|blackBeds3]
+[Back.|blackHub]
+---
+:blackBeds3
+
+<i>Day 1,461,000 — Som leaving</i>
+
+My last assistant gave up on me. He wants to leave now that the red juice aliens are letting people into their special fucking club. I don't care. He was never on board with the Sanctuary's mission anyway.
+
+The Fuckmeat are helpless and vulnerable. No one will be here to look after them if I leave. And they deserve to be part of the club too. I will not leave without them. I owe it to them. I hurt them. I abused them. And he says everything I did was basically just masturbation with a fancy type of onahole?
+
+Fuck Som. Fuck that stupid lamb. I can't just leave. I will atone.
+
+I know. I'll drop one in the pond. Maybe they'll choose a feral body, or something simple like that, it doesn't matter what— the point is they will <b>choose</b> something. Fucking lamb. After that he will have to admit what I did to them was wrong.
+
+<i>Day 1,461,003 — Stressed and confused</i>
+
+Confirmed my worst fears. Even after all my work. The baby wasn't assimilated. Dropped it in the pond. Gone. No response.
+
+I need a bath.
+
+I'll try it. I'll try to join. It won't go well. I'll be the only babyfucker up there. There's no place for me anywhere.
+
+I don't know.
+
 [Back.|blackHub]
 ---
 :blackLounge

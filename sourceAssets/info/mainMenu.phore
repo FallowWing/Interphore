@@ -56,6 +56,10 @@ titleRect.onHover = function() {
 	titleRect.tint = 0x3303a3ff;
 }
 
+titleRect.onRelease = function() {
+	playEffect("audio/ui/nope");
+}
+
 var taglines = ["sex, violence, and reading", "step into the pond", "post-apocalyptic amnesiac grandma furries", "finding wendy", "you basically just click buttons", "porno butt holes", "inherently pornographic organisms", "yiff yiff yiff yiff yiff yiff yiff", "fucking furries", "this is the only canon tagline", "you can assimilate me if you want, daddy"];
 var ranTagline = rndInt(0, taglines.length - 1);
 var chosenTagline = taglines[ranTagline];

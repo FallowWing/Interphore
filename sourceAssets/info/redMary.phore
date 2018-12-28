@@ -1,6 +1,12 @@
 START_PASSAGES
 :redMary
 
+!`
+data.didMaryGreenhouse = false;
+data.didMarySupper = false;
+data.redAttemptedTheft = false;
+`
+
 Sunset filters through a 4000-year-old fucktangle of canopy. The ground is loose and hollow where the burrows of old roots have been re-gaped by new roots. All the trees are dead, some of them fallen, and another stand of trees has grown out of their corpses. If you look up, you see double-decker trunks: hearty trees rooted down and anchored into the tops of dead trees. Someone hacked the game's decay rate down so low that forests can now grow out of other forests you guess.
 
 Mynt started holding your hand at some point. She smiles at you through the gloom. She pinches her dress and lifts it whenever she has to waddle over a treacherous snarl of bramblesnatches.
@@ -949,86 +955,13 @@ Mynt pokes around in the greenhouse. You can see her bumbly shadow through the g
 [Examine greenhouse.|redMaryGreenhouse]
 [Examine bump.|redMaryBump]
 [Examine shrine.|redMaryShrine]
-[Okay I'm cool now.|redMarySupper]
----
-:redMaryGreenhouse
-
-Show in the greenhouse that there is trapdoor
-Show there is only one tiny dickflower left
-Play with it a bit
-
-[|redMaryGreenhouse]
----
-:redMaryGreenhouse
-
-You slip your fingers into a deep, intimate handle and coax the door forward on its greasy quiet hinges.
-
-Mynt is crouched at the other end in green light. Her dress looks like the same color as her fur.
-
-"There's a trapdoor."
-
-[Examine trapdoor.|redMaryGreenhouseSnoop]
-[Don't snoop.|redMaryGreenhouseNoSnoop]
----
-:redMaryGreenhouseNoSnoop
-
-She pulls her curious paw away from the latch. "It's locked anyway."
-
-[|redMaryGreenhouseRejoin]
----
-:redMaryGreenhouseSnoop
-
-You grope the heavy padlock and peek in its sexy keycrack.
-
-[|redMaryGreenhouseRejoin]
----
-:redMaryGreenhouseRejoin
-
-
-
-[|redMaryGreenhouse]
----
-:redMaryGreenhouse
-
-
-
-[|redMaryGreenhouse]
----
-:redMaryGreenhouse
-
-
-
-[|redMaryGreenhouse]
----
-:redMaryGreenhouse
-
-
-
-[|redMaryGreenhouse]
----
-:redMaryGreenhouse
-
-
-
-[|redMaryGreenhouse]
----
-:redMaryGreenhouse
-
-
-
-[|redMaryGreenhouse]
----
-:redMaryGreenhouse
-
-
-
-[|redMaryGreenhouse]
+[Okay I'm cool now. Let's go eat.|redMarySupper]
 ---
 :redMaryBump
 
 You go over and toe the bump.
 
-It's dirt.
+It's definitely dirt.
 
 [Prod dirt.|redMaryBump]
 ---
@@ -1051,58 +984,22 @@ Oh wait! This is a whole dirty magazine. It just featured a doujinshi mear the f
 The cover and back has been worn off. Besides the doujinshi, there's only a few ads and a hiatus notice at the back.
 
 <b>ALLEI'S ALLEY: FREE WOMEN'S HAIRCUTS!!!</b>
-<i>Need a trim? How bout just a shoulder to cry on? 8/10 assimilated women report unusually high amounts of stress during the transitionary period from landlocked mortal to free-roaming formless juicexistence, and 9/10 assimilated women report feeling BETTER after a visit to Allei's Alley for a cut, a wash, a dye, a perm, or even just a chat with the little nymph herself. Your hair is worth MORE than a passing thought in any old pond. Plus, come on, shampoo scalp massages feel so good.
+<i>Need a trim? How bout just a shoulder to cry on? 8/10 assimilated women report unusually high amounts of stress during the transitionary period from landlocked mortal to free-roaming formless juicexistence, and 9/10 assimilated women report feeling BETTER about their new state of being after a visit to Allei's Alley for a cut, a wash, a dye, a perm, or even just a chat with the little nymph herself. Your hair is worth MORE than a passing thought in any old pond. Shapeshifting is cheap and easy, sure, but you're limited by your own imagination. Let a professional unlock your hair's true potential! Plus, come on, shampoo scalp massages feel so good.
 
 Visit Indigo Pond on the Earth layer today for your appointment with Allei and her perky hairstylists!</i>
 
 <b>CALLIOPE: INDEFINITE HIATUS</b>
-<i>Allei is taking some time off to focus on barbering for a bit. Might not be a new issue of Calliope for a while. Please keep submitting your favorite yuri art and stories, and we'll have a great selection for the next issue!</i>
+<i>Allei is taking some time off as editor of the mag so she can focus on barbering for a bit. Might not be a new issue of Calliope for a while. Please keep submitting your favorite yuri art and stories, and we'll have a great selection for the next issue!</i>
 
-[|redMaryBump]
----
-:redMaryBump
-
-
-
-[|redMaryBump]
----
-:redMaryBump
-
-
-
-[|redMaryBump]
----
-:redMaryBump
-
-
-
-[|redMaryBump]
----
-:redMaryBump
-
-
-
-[|redMaryBump]
----
-:redMaryBump
-
-
-
-[|redMaryBump]
----
-:redMaryBump
-
-
-
-[|redMaryShrine]
+[Hm. Back.|redMaryBackyardHub]
 ---
 :redMaryShrine
 
-Well, not for <i>you</i> exactly, but for the version of you from this Ending. Your player model was rendered comatose through shenanigans I will not recap right now.
+You push through the foliage and come across yourself. Well, not <i>you</i>, but a player model you used to control, before you left the shelter.
 
-Your father's character is here, too. Your head is in his lap. You're both coated in wilting flowers. He's dressed in a suit, blind eyes on the sky. His skull rests against the base of an indestructible cross.
+It's gray and featureless and weathered by the millenia, but it's still softly breathing. Your father's character is here, too. Your head is in his lap. You're both coated in wilting flowers. He's dressed in a suit, blind eyes on the sky. His skull rests against the base of an indestructible cross.
 
-Both player models are asleep. They will never wake up again.
+Neither of you will ever wake up again.
 
 [Leave flowers.|redMaryShrine]
 ---
@@ -1112,29 +1009,512 @@ You brush the wilted flowers off and tuck a fresh white lily behind your ear and
 
 There.
 
+[...|redMaryBackyardHub]
+---
+:redMaryGreenhouse
+
+You slip your fingers into a deep, intimate handle and coax the door forward on its greasy quiet hinges.
+
+You poke your head in the greenhouse. It's peaceful and flowery in here. Wind makes the fogged glass patter in its frame.
+
+!`
+data.didMaryGreenhouse = true;
+`
+
+[Enter.|redMaryGreenhouse]
+---
+:redMaryGreenhouse
+
+Mynt is crouched at the other end in green light. Her dress looks like the same color as her fur.
+
+"There's a trapdoor..."
+
+[Examine trapdoor.|redMaryGreenhouseSnoop]
+[Don't snoop.|redMaryGreenhouseNoSnoop]
+---
+:redMaryGreenhouseNoSnoop
+
+She pulls her curious paw away from the latch. "It's locked anyway."
+
+[Wonder what's down there...|redMaryGreenhouseRejoin]
+---
+:redMaryGreenhouseSnoop
+
+You grope the heavy padlock and peek in its sexy keycrack. Looks super tight... unf... totally unpickable.
+
+[Wonder what's down there...|redMaryGreenhouseRejoin]
+---
+:redMaryGreenhouseRejoin
+
+Mynt forces herself to forget about it for now. She pokes and prods around the plants in their pots. Not even a speck of soil dares to leave the pots... all that dusty dirt stays exactly where it is supposed to stay. Every other surface in the greenhouse is spotless.
+
+Still, not even Mary is perfect. Mynt has been occupied by some little secret she found in a neglected crook behind the greenhouse door.
+
+She shoots you a sly look. "Hey, this is really something... come check this out."
+
+[Examine something?|redMaryGreenhouse]
+---
+:redMaryGreenhouse
+
+You half-shut the door on its whiny hinges... right behind it is... is...
+
+... It's an adorable, tiny, malnourished little dickflower poking up out of the corner of the greenhouse, where the glass walls meet the concrete floor.
+
+"Look!" Mynt squees, and pokes the bud of its bulbous head. The poor thing can barely twitch toward her.
+
+[Oh my god pet it.|redMaryGreenhouse]
+---
+:redMaryGreenhouse
+
+You run your fingers over the dickflower. It fattens up just a tiny bit, but there isn't really enough moisture in it for more than a half-chub.
+
+A voice comes from outside:
+
+"Stop snooping."
+
+[!!!|redMaryGreenhouse]
+---
+:redMaryGreenhouse
+
+You and Mynt both spin around, frozen with fear, expecting your worst fears to be confirmed by a shock of Mary's pure white fur.
+
+But it's not Mary. The little wolf girl stands in the doorway. Her eyes are dark, baggy, and serious.
+
+Theresa clutches a nervous fistful of her own chest fur and steps tentatively into the greenhouse. She looks back at the cabin behind her and its staring windows. Then she swallows her fear and hurries inside, shutting the glass door behind.
+
+"We weren't snooping! I promise!" Mynt whispers. She tries to jostle past Theresa and escape, but it's clear no one is leaving this greenhouse until the little wolf says so. Somewhere deep underneath her downtrodden, hollowed-out soul, a single tiny ember of self esteem still glows.
+
+"I don't care." She blocks the exit.
+
+Mynt whines and tries to squeeze past two more times, but Theresa kills the third attempt with a single dark look. Mynt backs off and grabs your wrist.
+
+[What do you want?|redMaryGreenhouse]
+---
+:redMaryGreenhouse
+
+Theresa opens the door a crack and makes sure no one is hiding outside.
+
+"I need to talk to you."
+
+[Talk, then.|redMaryGreenhouse]
+---
+:redMaryGreenhouse
+
+Theresa faces you.
+
+"I want to help you find your mom."
+
+[Oho. Whyzat.|redMaryGreenhouse]
+---
+:redMaryGreenhouse
+
+She looks murderous.
+
+"I need answers from her."
+
+[Ohhhhhhhhhh... hohhh...|redMaryGreenhouse]
+---
+:redMaryGreenhouse
+
+Mynt tries to gently interject:
+
+"What, um... what did she..."
+
+[...|redMaryGreenhouse]
+---
+:redMaryGreenhouse
+
+Theresa does not look away or change expression. The only part of her body that moves is her lips.
+
+"I need to know why she created me broken."
+
+[Oh.|redMaryGreenhouse]
+---
+:redMaryGreenhouse
+
+Mynt pales and waves her paw around in a pretty forced attempt at moving things along.
+
+"Ah— well! That's— hey, a reason is a reason is a reason. If the bunny shared any info with you, we'd love to hear it! Hey— we've got our own motivations, but in the end we're all just trying to track her down, right? A reason is a reason! Is a reason! We'd be happy to let you... help find... uh... what are you..."
+
+Something warm slams to your chest.
+
+[?!|redMaryGreenhouse]
+---
+:redMaryGreenhouse
+
+You look down.
+
+All you see is a crown of brown hair and two fluffy wolf ears`hasBoobs(" between your tits.", ".")` Theresa's shaky arms lock around your midsection.
+
+"Forgive me," she whispers. One of her paws wanders south. You can feel the soft pawbeans slide over your belly.
+
+"Wait—" Mynt can't get a coherent word out. Still, she isn't moving to stop this. "Are you allowed to..."
+
+!`
+choicesPerPage = 2;
+addChoice("Let her touch me.", "redMaryGreenhouseSex", {icons: ["Female", "Love"]});
+addChoice("Pull away.", "redMaryGreenhouseNoSex");
+`
+---
+:redMaryGreenhouseNoSex
+
+Theresa clings to the spot in the air where your body used to be. Her nose still twitches at the last few tendrils of your scent.
+
+She snaps out of it. Dread fattens the bags under her eyes. She holds herself.
+
+"That didn't happen. Right?"
+
+Mynt is just over in the corner like @_@. "I won't tell..."
+
+[Right. Never happened.|redMaryGreenhouseRejoin2]
+---
+:redMaryGreenhouseSex
+
+You stand perfectly still. This feels like a sacred but also dangerous moment. Like a wild lion just sprinted up to you only to stop dead in its tracks and just sniff at your throat instead of tearing it out.
+
+Theresa uses you as an anchor for her weak body. Violent shivers course from her heart to her extremeties and poof her fur out along the way.
+
+... <i>Pomf.</i>
+
+Her paw connects with your `genitals("tingly cockbulge", "cuntbulge", "tingly cockbulge")`.
+
+She moans into your `boobs()` and squeezes down hard. She's got a fat lump in her throat, for sure... you know because you can feel it sliding up and down against your bare fur, where her throat connects with you. She doesn't ask if you're okay with this or even murmur a plea for you to keep it secret. She can't compose thoughts right now. She just closes her eyes and takes what she can while she has this tiny opportunity.
+
+[It's okay...|redMaryGreenhouseSex2]
+---
+:redMaryGreenhouseSex2
+
+Mynt's face flushes with secondhand embarassment. "Should I... should I leave you guys to it, or..."
+
+"Stay," Theresa begs. "Watch."
+
+Mynt has to hide her face in her paws and lock her thighs together tight if she wants to suppress the squeal welling up from inside her. She just barely keeps her shit together. "Oh god. Oh fuck. We're done... if the bunny sees this... we're never gonna find mom. Oh. Fuck. We. Are. Done."
+
+Theresa can't care right now. She pulls big lungfuls of your scent into her chest. Her boobs aren't ginormo, but there's definitely a modest A-cup worth of wolfmeat there. You peer down at them as they rise and fall with her hurried breath.
+
+She stuffs her paw down your pants. Cool pawflesh connects with your `genitals("shaft", "cuntlips", "shaft")`. She throws her weight forward and forces you back against the glass wall. `genitals("A chub becomes an erection becomes a raging boner", "Your pussy leaks hard", "A chub becomes an erection becomes a raging boner")` thanks to her constant ravenous gropes. `genitals("Her fist closes around your bare cock and in a flurry she starts to jack you off", "Two digits slide inside you and curl around the spot where your cherry used to be", "Her fist closes around your bare cock and in a flurry she starts to jack you off")`... all the attention makes you grit your teeth and push your hips forward.
+
+Theresa heaves breath in and out like an animal. Her chest and throat and chin are all flattened up on your `boobs()` now. Thin coils of wolfdrool drop off her canines.
+
+[Hold onto her...|redMaryGreenhouseSex3]
+---
+:redMaryGreenhouseSex3
+
+Your hips buck automatically. You're sliding down the glass now. Something must be done. So... you reach down and close a gentle grip around the back of her little neck.
+
+She freezes. Mynt freezes too, just cause she's been so completely sucked into the situation.
+
+[Oh... take my hand off of her...|redMaryGreenhouseSex4]
+---
+:redMaryGreenhouseSex4
+
+It's too late, anyway. Theresa pulls your hand away herself. She yanks her paw out of your pants, too... and she's so terrified she doesn't even suck the `genitals("precum", "cuntslime", "precum")` off her fingers. She just wipes it off on the dickflower, which soaks the moisture up and throbs happily.
+
+"I'm sorry," she breathes. "I don't know why I did that. It just— just came out. I'm working on it. I'm sorry."
+
+[Don't be sorry...|redMaryGreenhouseRejoin2]
+---
+:redMaryGreenhouseRejoin2
+
+All three of you stand in silence. Something is suddenly very wrong and you all feel it.
+
+A pure tinkly question comes from outside the greenhouse, each syllable clear as three polished crystals: "The-re-saaa?"
+
+[...|redMaryGreenhouse]
+---
+:redMaryGreenhouse
+
+Theresa immediately yanks the dickflower out of the ground and hurries outside. She slams the glass door shut before Mary sees either of you.
+
+"There you are," Mary says.
+
+"I'm here. I was just weeding. Figured I would check in the greenhouse, too, just in case, and look..."
+
+"Oh! Ew... what is that?"
+
+"I don't know."
+
+"That was in the greenhouse?"
+
+"Growing through a crack behind the door, yes."
+
+"Oh, awful. Let me check inside, in case you missed others."
+
+"Wait, Mary— I don't think you need to—"
+
+[GRAB MYNT AND HIDE|redMaryGreenhouse]
+---
+:redMaryGreenhouse
+
+You scurry behind the door with Mynt. It flies open. She gets smacked right in the snout, but you're okay.
+
+Both of you hold your breath and watch Mary from behind. Those floppy bunny ears... those big, folded wings... they're unnaturally still. Mary sniffs around, shifts some pots...
+
+"No," she sighs. "Must be just the one. Put it on the ground."
+
+Theresa blinks. She was clutching the dickflower reverently to her chest. It only takes her a second to drop it and feign disgust.
+
+"Of course. Gross thing..."
+
+[...|redMaryGreenhouse]
+---
+
+Mary holds eye contact with Theresa. She raises her footpaw.
+
+Powerful lapine leg strength comes down on the withered little thing. With about five times more force than necessary and full unblinking eye contact the whole time, Mary drops her foot and crushes it. The head pops against the concrete. Green plant guts trickle down towards the door.
+
+She skips out into the backyard again. Theresa follows her silently.
+
+The greenhouse door shuts.
+
+[...|redMaryGreenhouse]
+---
+:redMaryGreenhouse
+
+...
+
+[...|redMaryGreenhouse]
+---
+:redMaryGreenhouse
+
+...
+
+[...|redMaryGreenhouse]
+---
+:redMaryGreenhouse
+
+
+You and Mynt are blue in the face. You peer through the glass and wait while Mary throws a soft red cloak over Theresa and walks her back inside. Only once the back door has been shut for ten full seconds... only then do you let your breath out.
+
+You both FWAHHHHHhhhh right down to the concrete in a toppled heap of nerves.
+
+"Fuck," Mynt gasps. She pulls her knees up to avoid touching the crushed dickflower. "Fuck. Too close. Too close."
+
+[That bunny is FUCKED.|redMaryGreenhouse]
+---
+:redMaryGreenhouse
+
+"She is," Mynt admits, head in her paws. "The way she just... <i>crushed</i> it... god. Yes, she's fucked, but we have to pretend she isn't. We have to expect more of this and account for it. We have to... oh, god. Let's just keep ourselves together... fuck. Just keep it together. We can't confront her..."
+
+!`
+choicesPerPage = 1;
+if (data.didMarySupper) {
+	addChoice("Let's just cool off and think about this. Move along.", "redMaryEnd");
+} else {
+	addChoice("Take a second to settle your stomach... then let's try and eat supper with her.", "redMarySupper");
+}
+`
+---
+:redMarySupper
+
+You and Mynt lock yourselves together in one last huddle.
+
+"We can do this," Mynt assures you. "No matter how much she... does what she does. We can stay cool, polite, and get the info we need. Right?"
+
+!`
+data.didMarySupper = true;
+`
+[Right. Of course we can.|redMarySupper]
+---
+:redMarySupper
+
+"Let's respect her. We're her guests, right?"
+
+[Right.|redMarySupper]
+---
+:redMarySupper
+
+"We just have to march in there and <b>NOT</b> chew her out. Right. Right?"
+
+[Right.|redMarySupper]
+---
+:redMarySupper
+
+Huddle <b>break!</b>
+
+Mynt claps her paws together and nods with pure finality. "Right!!!"
+
+She leads the way back inside.
+
+[Right!!!|redMarySupper]
+---
+:redMarySupper
+
+Soon all four of you are sitting at the kitchen table while grandma snores over her already empty bowl in the living room. You look down. The tablecloth is fine lace. On top sits four steamy bowls of veggie stew on carrot-patterned placemats. Spoons clack against the bowls. Lips slurp. Eyes wander anywhere but the seat across from them.
+
+... Hey. Theresa's bowl is only half full. You want to share a glance with Mynt to try and tip her off about that, but you can't get her to look at you. In fact, you can't get anyone to look at anyone else in the first place. Except...
+
+Mary props her chin up on an elbow and smiles at you, Mynt, and Theresa in turn. She never even looks down at her stew. Her eyes are always on one of you no matter what. For the first five minutes of this silent torture you and Mynt occasionally meet Mary's gaze... maybe ask her if she needs anything, maybe look right back in her face to try and get her to back down... but now you've learned that acknowledging her in any way will only prolong the silence.
+
+Mary waits until no one has attempted to look at her for ten minutes straight. Only now that she has established her dominance does she speak:
+
+"You're all so nervous!" She giggles. "Are you worried I might be lying about your mom? Well, I have proof. Look here."
+
+[Look there.|redMarySupper]
+---
+:redMarySupper
+
+Mynt and Theresa obey too.
+
+Mary has a tiny, ragged paper note pinched between her thumb and forefinger. It's written in your mom's handwriting, but you can't quite make out the words.
+
+[!!!|redMarySupper]
+---
+:redMarySupper
+
+Mynt almost knocks her stew over, she leans in so hard and fast. "What is that? Is that from Mom? What's it say? Did she leave it for us?"
+
+Mary tucks the note up into her wingfeathers before anyone can see what it says. She answers each question one-by-one, painfully slow:
+
+"Her goodbye note." A pause. "Yes, it's from Wendy." A long pause. "It says goodbye."
+
+Mary sips her stew for literally two full minutes.
+
+Then, while Mynt quivers with anticipation... Mary just says "Mmmh... tasty."
+
+Mynt's left eyelid twitches. <i>"Did she leave it for us?"</i>
+
+"Oh." Mary dabs at the corners of her maw with a napkin. "No, she left it for me. That was the last time we spoke."
+
+[Did she say where she was going or what.|redMarySupper]
+---
+:redMarySupper
+
+Mynt kicks you under the table and flashes you a look that says <i>Be fucking polite.</i>
+
+[Ahem, sorry. Would you mind telling us where mom was headed, Mary?|redMarySupper]
+---
+:redMarySupper
+
+Mary goes for another sip of creamy broth at that exact moment, funny enough. Weird that it lined up so well with your rudeness. Even after the long sip, she makes you wait for her to finish wiping her lips clean again. Theresa isn't eating her stew. She's enraptured by those shiny, feminine bunny lips... moisture still clings to them...
+
+Mary opens her mouth to answer, then pretends to be distracted. "It's rude to stare, pet."
+
+Theresa looks at the table and silences herself with frantic spoonfuls of stew. "Forgive me."
+
+"You're forgiven." Mary reaches across the table and, in a display of her good grace, plain for you and Mynt to see, she pats the back of Theresa's hand, which is palm-down on the table. Theresa's bicep clenches but she doesn't move her arm.
+
+[Can you answer my question please?|redMarySupper]
+---
+:redMarySupper
+
+"Wendy said she was headed to—"
+
+Mary eyes you hard.
+
+"Oh, you almost got me! Now, you should ease off. You're making me uncomfortable. As I said, I don't want to give away your mother's location until I know I can trust you."
+
+Mynt stomps on your toes under the table, her eyelid a-twitch-twitch-a-twitching...
+
+[I apologize. I didn't mean to make you uncomfortable.|redMarySupper]
+---
+:redMarySupper
+
+"It's fine! Thank you! Oh, you're forgiven, too!" Mary titters. She holds eye contact with you and reaches across the table.
+
+[Ugh... fuck. Keep my hand still.|redMarySupper]
+---
+:redMarySupper
+
+Mary relishes in your inner conflict. Despite how obviously uncomfortable this is for you, she takes her time to really give the back of your hand a good thorough pat or two.
+
+"There now," she whispers. Her fingers have something on them. Something wet, warm. You feel like you're about to gag... she's using you as a napkin. No one else notices. "There now."
+
 [...|redMarySupper]
 ---
 :redMarySupper
 
-/*
+Mynt places her paw on the table palm-down and promptly looks away. She pretends to be very interested in the grandfather clock over in the living room.
 
-Theresa hurries to collect you and stop you from snooping more
+Mary notices! She smiles to herself, wipes her fingers off, and places a few dainty pats on the back of Mynt's hand too.
 
-Take Mynt's pussy way out
-Plant the seed of Mom as God
-Mary drip feeds you info to keep you under her spell
-As you leave, Theresa pulls you aside into the greenhouse
-She is dark and serious and says she wants to help with Wendy too, she has unsettled business.
-Beca offers to let her come with to the HQ
-Theresa wants to sniff crotch instead
+"And God forgives <i>you</i>, Mynt, although you haven't done anything wrong in His eyes, I am sure."
 
-Mary appears in the greenhouse by snipping the dickflower (weeding refernce) and Theresa immediately stops slutting
-She tucks the red cloak around Theresa to symbolize something
-She walks her inside
+"Oh!" Mynt says, all surprised. "Thank you."
 
-*/
+[Welp I'm at my limit here.|redMarySupper]
+---
+:redMarySupper
 
-[|redMarySupper]
+Mary smiles hard at you. "Your limit?"
+
+"`His()` belly! Full! `gender("He is", "She is", "They're")` full right up to `his()` limit, oh man, that was some <i>creamy</i> stew right there Mary THANK you!!! Wasn't that tasty, `data.playerName`? Umf!"
+
+[Yeah super satisfying. I know my hunger is sated.|redMarySupper]
+---
+:redMarySupper
+
+
+
+[Can hardly even think of anything else I might want.|redMarySupper]
+---
+:redMarySupper
+
+
+
+[Maybe just some after-dinner discussion. Always love a good chat after I eat.|redMarySupper]
+---
+:redMarySupper
+
+
+
+[Say, Mary, how did you meet our mom?|redMarySupper]
+---
+:redMarySupper
+
+"That's quite enough!"
+
+Her chair screeches as she pushes it back from the table, collects all four bowls (Theresa wasn't even halfway finished) and cleans them off in the sink.
+
+"I said it twice already, and a third is where I draw the line. I won't be tossing out free information any time soon, and I would appreciate it very much if you did not try to force it from me, thank you. You may leave. Feel free to visit us again— any time you like. Any time at all."
+
+Mynt looks crestfallen.
+
+[...|redMarySupper]
+---
+:redMarySupper
+
+"We'll... we'll do that, thank you," Mynt says, and picks herself up off the table.
+
+Theresa hurries to help with the dishes. As soon as someone else offers to do the work, Mary drops the rag and the soap on the ground for Theresa to pick up. She graciously escorts you and Mynt out the kitchen, through the living room, and right onto the front porch.
+
+"I don't hold it against you, `data.playerName`. I understand you take a very hands-on approach to things, as all players must, but you've got quite a lot to learn when it comes to etiquette. Isn't that right, Mynt?"
+
+"Oh yes," Mynt fake-laughs. "Aha. Ahaha. I'll whip `him()` into shape before our next visit. Don't you worry!"
+
+[I really don't think I did anything that rude.|redMarySupper]
+---
+:redMarySupper
+
+All the ragged split-throat screams of Hell threaten to explode from beneath Mynt's controlled, polite tone: "Oh, maybe you didn't do anything <i>that</i> rude, but Mary is a sensitive person— all bunnies are quite sensitive— isn't that right, Mary?"
+
+"That's quite right." Mary nods, paws clasped behind her back. "I know it's not easy for you, `data.playerName`, but I'd be <b>so</b> thankful if you just went a little easier on me, next time." She tilts her head, both eyes painfully open. "Can you do that for me?"
+
+[I can try very, very hard.|redMarySupper]
+---
+:redMarySupper
+
+"Perfect."
+
+Mary waves goodbye and closes the door behind you.
+
+[...|redMarySupper]
+---
+:redMarySupper
+
+...
+
+[...|redMarySupper]
+---
+:redMarySupper
+
+You expect Mynt to go off on you, but she's past anger now. Her rage is too deep and too cold to be expressed.
+
+"At least we found a lead."
+
+She fixes you with a wan smile and gives you the silent treatment all the way back home.
+
+[Guh...|redMaryEnd]
 ---
 :redMarySteal
 
@@ -1148,6 +1528,9 @@ Mary stands up.
 
 "Where are you taking my—"
 
+!`
+data.redAttemptedTheft = true;
+`
 [Your slave?|redMarySteal]
 ---
 :redMarySteal
@@ -1190,9 +1573,9 @@ Theresa answers into Mary's chest: "I don't want to leave."
 
 Her big wolf belly growls hard.
 
-A splatter draws your eyes over to Mynt; she's wringing the stew out of her dress. The bowls left unspilled are Mary's and your own.
+A splatter draws your eyes over to Mynt: she's wringing the stew out of her dress. The bowls left unspilled are Mary's and your own.
 
-Her innocent bunny eyes light up. She's pleased with herself. Mary takes her stew in a palm and whispers a command to her pet:
+Mary's innocent bunny eyes light up with a special little idea. She's pleased with herself. Mary takes her stew in a palm and whispers a command to her pet:
 
 "Open."
 
@@ -1206,15 +1589,15 @@ Theresa's weak, quivering lips find the rim of the bowl. She latches on and chug
 ---
 :redMarySteal
 
-Mynt was staring at you, silently hoping for a sudden apology, but when you just keep making things worse, she snaps.
+Mynt was staring at you in the hope you might burst into a sudden apology, but when you just keep making things worse, she storms out and throws her hands in the air, inexpressibly exasperated.
 
-She's livid with you. She storms out and throws her hands in the air, inexpressibly exasperated.
+She's livid with you, if you couldn't tell there.
 
 [Am I seriously alone here?|redMarySteal]
 ---
 :redMarySteal
 
-Gramma snrks awake. "Eh? Who puked on the carpet. And where's my stew."
+Gramma <i>snrk</i>s awake. "Eh? Who puked on the carpet. And where's my stew."
 
 "In a moment," Mary reassures her. She walks a dazed, burping Theresa down the hall and back to the prayer room. The door shuts on her stare.
 
@@ -1230,28 +1613,6 @@ You set a fresh bowl in her lap. She licks her lips and mows down.
 ---
 :redMaryEnd
 
-Show in the greenhouse that there is trapdoor
-Show there is only one tiny dickflower left
-Play with it a bit
+!`gotoArchiepelago();`
 
-Show there is a lesbo mag buried in the backyard with more Allei info
-
-Show the shrine nearby and bit of island lore
-
-Theresa hurries to collect you and stop you from snooping more
-
-Take Mynt's pussy way out
-Plant the seed of Mom as God
-Mary drip feeds you info to keep you under her spell
-As you leave, Theresa pulls you aside into the greenhouse
-She is dark and serious and says she wants to help with Wendy too, she has unsettled business.
-Beca offers to let her come with to the HQ
-Theresa wants to sniff crotch instead
-
-Mary appears in the greenhouse by snipping the dickflower (weeding refernce) and Theresa immediately stops slutting
-She tucks the red cloak around Theresa to symbolize something
-She walks her inside
-
-mary is only religious because of her ego
-archie is great foil for this
-archie is also the perfect middle ground for helping red
+END_PASSAGES

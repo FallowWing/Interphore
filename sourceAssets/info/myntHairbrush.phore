@@ -1,0 +1,748 @@
+START_PASSAGES
+:myntTidbitIntro
+
+
+
+Mynt lazes around on the bed. Her paws flop at nothing while she hums the main menu melody. She looks over at the door sometimes, all hopeful.
+
+[Can I pet you a bit?|myntTidbit]
+---
+:myntTidbit
+
+"I'm a bit too sensitive today..." she tells the ceiling.
+
+[I have been doing it a lot, huh.|myntTidbit]
+---
+:myntTidbit
+
+"Yeah."
+
+She glances at the door again.
+
+There's a knock.
+
+Mynt flips onto all fours and falls off the bed in a wild scramble for the doorknob.
+
+"Mom?"
+
+[Answer it.|myntTidbit]
+---
+:myntTidbit
+
+You swing the door open and immediately clutch your nose and break eye contact. It's the crusty old angel woman from the room across the hall. She gives off the wretched stank of old flesh and stale reruns.
+
+"Oh." Mynt stands limp in the doorway. "It's you."
+
+[Hi. Have we shared names yet?|myntTidbit]
+---
+:myntTidbit
+
+"Names don't matter," she chides. "There are too many to remember. World is too complex now."
+
+Mynt is back on the bed, bored and deaf. She's reciting all the names she can remember under her breath out of spite.
+
+"Here," the old angel croaks. She drops a relatively un-crusty brush into your palm. Her eyes are reverent. "This awful trash is the only thing that matters. You take it. I need to go warm up."
+
+[Sweet free shit thanks.|myntTidbitRejoin]
+[Listen to Mynt.|characterNames]
+---
+:characterNames
+
+!`
+setBackground(0, "writer/mynt/bg/myntBodBg");
+setBackground(1, "writer/mynt/face/myntBod/2", CENTERED);
+
+queueTitle("From space...");
+queueTitle("Mr. Eyeball...");
+queueTitle("Cartographer...");
+queueTitle("...");
+queueCall(function() { setBackground(1, "writer/mynt/face/myntBod/3", CENTERED); });
+queueTitle("From the shelter...");
+queueTitle("Archie...");
+queueTitle("Gabriel...");
+queueTitle("Cade...");
+queueTitle("Mikey...");
+queueTitle("...");
+queueCall(function() { setBackground(1, "writer/mynt/face/myntBod/3", CENTERED); });
+queueTitle("From my adolescence...");
+queueTitle("Catnyp...");
+queueTitle("Cynnamon...");
+queueTitle("Vanylla...");
+queueTitle("...");
+queueCall(function() { setBackground(1, "writer/mynt/face/myntBod/2", CENTERED); });
+queueTitle("From my childhood...");
+queueTitle("Mynt...");
+queueTitle("Wendy...");
+queueCall(function() { setBackground(1, "writer/mynt/face/myntBod/3", CENTERED); });
+queueTitle("Rebeca...");
+queueDelay(2);
+queueTitle(data.playerName+".");
+queueDelay(2);
+queueCall(function() { setBackground(0, "writer/mainBg", CENTERED); });
+queueCall(function() { setBackground(1, "writer/mynt/face/myntBod/9", CENTERED); });
+queueTitle("Yes, you.");
+queueTitle("Quit staring at me.");
+queueChoice("Sorry.", "myntTidbitRejoin");
+`
+---
+:myntTidbitRejoin
+
+You touch the cool, polished handle of the brush. But you still aren't holding it. You zoned out for a second there. The angel forces herself to let go of her trash.
+
+"Just take it already."
+
+[Ah— thanks? What's this for again?|myntTidbit]
+---
+:myntTidbit
+
+!`
+msg("Got Weird Hairbrush!");
+`
+
+"For the ugly green cat," the angel guffaws. "My apartment is a mess, so I have to dump some of my trash off somewhere if I want to clean it up, don't I?"
+
+You blink, and you're already looking at the back of her wings. She's off down the hall and into her apartment in just a couple crusty moments.
+
+[...|myntTidbit]
+---
+:myntTidbit
+
+Mynt peeks out from behind you, outraged.
+
+"Did she fucking say I was <i>ugly?</i>"
+
+[Don't get caught up in little stuff like that. She gave us a welcoming gift!|myntTidbit]
+---
+:myntTidbit
+
+Mynt huffs. "I don't care about her crusty brush..."
+
+She turns away, exposing her neck, her back`if (rnd > 0.96) append(", her pussy, and her crack.") else append(".");`
+
+!`
+addChoice("Oh yeah? You don't care, do you?", "myntTidbitLove", {icons: ["Love"]});
+`
+---
+:myntTidbitLove
+
+Mynt huffs again and climbs onto the bed, not facing you. She’s laying in a belly-down position with her chin resting on a pillow and her arms wrapped around it. This leaves her butt sticking out into the air.
+
+[Climb onto the bed and onto her.|myntTidbit]
+---
+:myntTidbit
+
+You hike your knees up around her hips. Your belly and `hasBoobs("boobs", "chest")` lay flush with the curve of her spine. Mynt squirms under `hasBoobs("their squishy, grinding force", "your shadow")`. She grumbles into the pillow and wiggles her ass against your `genitals("bulge", "bare cunt", "bulge")` under the pretext of getting more comfortable.
+
+[Examine brushable spots.|myntTidbit]
+---
+:myntTidbit
+
+You look at Mynt with all the different exposed sections of her fur, each highlighted with a % chance for successful brushing.
+
+The back of her neck is completely exposed. The collar of her dress even rides low, a little, so you can just barely see the curves of fur where her shoulder blades start. You could fit the head of the brush between them and just go to town...
+
+But you survey the other spots first: the back crooks of her knees and a bit of soft-furred thighmeat peeking out from under her dress, a bit of her arms... her uh... her sexy arms, her juicy biceps(?)... well, now that you look at it, her dress actually covers a bit too much for a good brushing here.
+
+[Mynt, take it off.|myntTidbit]
+---
+:myntTidbit
+
+She gently removes her face from the pillow and tilts her head like a cat.
+
+"Take what off??"
+
+!`
+choicesPerPage = 2;
+`
+addChoice("Everything.", "myntTidbit");
+addChoice("Everything but the panties.", "myntTidbitPanties", {icons: ["Love", "Love", "Love"]});
+===
+:myntTidbitPanties
+
+Mynt peels the hem of her dress up on command.
+
+Her legs close. Her shy chin sinks down into the collar. She peeks out over it and blinks down at her exposed belly and `myntCock("the girlcock tent in her panties. Her cockhead nuzzles its way up under the waistband and peeks out, too, a single jiggly bead of pre on the tip. Wet cotton curves keep the form of her shaft on the way down to the two plump nuts between crushed thighs.", "the outline of her vulva through thin panties.
+
+Cotton. Soaked in aromatic girlcum, and conformed to the curves of her pussy. Her legs crush shut over it as she pulls the dress up, up higher...");`
+
+She pulls her dress up and exposes her belly and her flat chest. A couple folds later and it's on the bedsheets.
+
+[Pull them down myself.|myntTidbitPanties]
+---
+:myntTidbitPanties
+
+You grab the hair-thin waistband and yank them down to her knees. `myntCock("That happy cock flops out to greet you.", "Her bare cunt is exposed. Mynt quivers and her paw shoots down on reflex to hide her shame. She manages to hide her clit with a middle pawfinger, but the rest of her fingers just splay out and hug the contours of her lips, which is the opposite of hiding her shame: advertising it. Just below her middle finger a bead of oil forms and drools down between her lips.
+
+[Dive in.|myntTidbitPanties]
+---
+:myntTidbitPanties
+
+A paw strikes your forehead. Her eyes aren't on you, they're somewhere else....
+
+"Put that brush away first."
+
+[...|myntTidbitPanties]
+---
+:myntTidbitPanties
+
+
+
+[|myntTidbit]
+---
+:myntTidbit
+
+She flomps her head back down into the pillow.
+
+"Fuggawph."
+
+[Why are you so petulant today? Just be a good little bitch and expose yourself for a brushing.|myntTidbit]
+---
+:myntTidbit
+
+"Noh. Fuggawph."
+
+[Stop saying Fuggawph.|myntTidbit]
+---
+:myntTidbit
+
+She tries to swat the looming brush out of your hand.
+
+"Fuggawph."
+
+[Now I'm pissed.|myntTidbit]
+---
+:myntTidbit
+
+"Good."
+
+Mynt shuts her legs together tight, trapping the fabric of her dress skirt between those hefty feline thighs. She's too proud to reach back and pull the wedgie out of her asscrack, so every curve and dimple of her little cat rump has now been distinctly and exquisitely hugged by a layer of bunched fabric. Her attempt at modesty only `genitals("hardens you", "drives a stir through your cunt", "hardens you");`.
+
+"Is he sexualizing me??"
+
+Mynt glares at the ceiling, although I'm sure she would be glaring at me if she had any idea which direction I was in. 
+
+[Do you really not want a brushing?|myntTidbit]
+---
+:myntTidbit
+
+Mynt pouts over her shoulder. Her tail sways back and forth... and back... and... maybe... y'know, just a little bit... forth.
+
+[Come on. Just admit it.|myntTidbit]
+---
+:myntTidbit
+
+"I don't want a brushing from that crusty old brush!" Her face reunites with the pillow. "How bout that?"
+
+[Examine crust.|myntTidbit]
+---
+:myntTidbit
+
+The brush actually isn't crusty at all, as noted earlier, if you had been listening, Mynt.
+
+The old lady must have meticulously cleaned her trash before she decided to dump it off here.
+
+I'm surprised you haven't looked at this thing yet, actually. It's quite pretty.
+ 
+[Examine hairbrush.|myntTidbit]
+---
+:myntTidbit
+
+There are like double the amount of bristles you'd normally find on a hairbrush, so it's really good for fur or thick hair. Stare into the bristles too long and it begins to feel as if something is staring back at you, like a microscopic telescope, always in your periphery, always pointing directly at your eyes.
+
+You blink. You are dazzled by a glance at deep paranoia.
+
+[Examine hairbrush.|myntTidbit]
+---
+:myntTidbit
+
+What is an angel? What is a human? What is a furry? Is she ever going to get tired of Law & Order?
+
+These questions and more stream out of the heart of the bristles. Somehow a dim purple mandala snuck behind your vision. It forces the noise and floaters into hypnotic order.
+
+[Examine hairbrush.|myntTidbit]
+---
+:myntTidbit
+
+You are looking at the brush again and you don't remember how long it has been since you looked away.
+
+[Examine hairbrush.|myntTidbit]
+---
+:myntTidbit
+
+Each bristle is a black spike with a very soft, squishy bead on the end. The back of the brush is polished amethyst, glittery purple and white, smooth like it's been eroding at the bottom of a lake for millenia. The handle fits your pawpads perfectly, refreshing, cool. Gold bands rim the polished crystal grip. Even though you've only been holding it for five minutes, it's already soaked up your warmth.
+
+!`
+choicesPerPage = 2;
+`
+[Oh wow. Mynt ask him about the hairbrush he says cool shit.|myntTidbitAsk]
+[<b>DO NOT LOOK AT THE HAIRBRUSH.</b>|myntTidbitDONOT]
+---
+:myntTidbitAsk
+
+"I don't want to ask him about the stupid crusty hairbrush!!!"
+
+She's so frazzled her tail poofs a little bit.
+
+[Here.|myntTidbit]
+---
+:myntTidbit
+
+"What??? What here???"
+
+[Mynt. Just.|myntTidbit]
+---
+:myntTidbit
+
+She pouts.
+
+[Take her tail in my hand.|myntTidbit]
+---
+:myntTidbit
+
+You wrap your fingers around the base of her tail and squeeze. She makes the most adorable, restrained little noise into her pillow.
+
+You pull your paw down her tail, smoothing the fur out. Her tailmuscles twitch and flutter. She hasn't relaxed yet.
+
+[Press the brush to her tail base.|myntTidbit]
+---
+:myntTidbit
+
+You let the bristles kiss her tail.
+
+[Pull it down.|myntTidbit]
+---
+:myntTidbit
+
+With your paw for counterweight, you run the brush down her loooong, long tail, right... riiiiight to the very tip.
+
+Mynt is frozen.
+
+[How's that feel?|myntTidbit]
+---
+:myntTidbit
+
+She won't answer.
+
+[Come on. Does it feel okay at least?|myntTidbit]
+---
+:myntTidbit
+
+"Uuu..."
+
+[Uuu?|myntTidbit]
+---
+:myntTidbit
+
+"Uuuuuu..."
+
+[Spuh spuh spuh spit it out junior.|myntTidbit]
+---
+:myntTidbit
+
+She throws her head back and keens to the sky.
+
+"UuuuuUUUuUUUNYYAAAAAAA~!"
+
+[Jesus fucking christ.|myntTidbit]
+---
+:myntTidbit
+
+"J-Jen-ga..." she murmurs. "The t-t-tuhh-tuh-t-tower of my resolve c-c-cuh-cuhhh-cuhhhhh-c-collapsed."
+
+She throws her hips back against the brush and feels the cool bristles wipe across her bare skin underneath the fur. They're extra sharp and scratch every inch of her. Like a cat, she chases the brush around with her raised ass. Those icey bristles kiss the deep underside of her tailbase, where it curves down into buttcrack territory.
+
+"I feel so relaxed..."
+
+[Wow... look at your butt.|myntTidbit]
+---
+:myntTidbit
+
+She looks back at her own ass, which is still doing its thing.
+
+"Oh wuahhh... lookit that huhhh..."
+
+[Oh my god. Examine ass. <3|myntTidbit]
+---
+:myntTidbit
+
+You peep hard on that catbutt. Its soft and furry, and the coat is thin and clean enough to reflect speckles of light at the crest of each buttcheek. Its handle is a beautiful purple-white. The bristles glint in the cold indoor lighting.
+
+"Lookit that..."
+
+[Wait.|myntTidbitRejoin]
+---
+:myntTidbitDONOT
+
+"Aaah! What! What!"
+
+She does not compute. In her struggle to understand, Mynt looks directly at the hairbrush.
+
+"That hairbrush?"
+
+[YES NOW LOOK AWAY|myntTidbitLookaway]
+[You are a retard.|myntTidbitRetard]
+---
+:myntTidbitRetard
+
+"Hey, you don't say that."
+
+She's still looking at the amethyst handle.
+
+[STOP YOU SILLY FUCKING DINK|myntTidbitLookaway]
+[STOP Bro.|myntTidbitLookaway]
+---
+:myntTidbitLookaway
+
+She looks away, at you.
+
+But you're not looking at her.
+
+[Oh no. Look away.|myntTidbit]
+---
+:myntTidbit
+
+
+
+[Look away. I distracted myself.|myntTidbit]
+---
+:myntTidbit
+
+You put
+
+[...|myntTidbit]
+---
+:myntTidbit
+
+
+
+[I put?|myntTidbit]
+---
+:myntTidbit
+
+
+
+[I fucking put?|myntTidbit]
+---
+:myntTidbit
+
+Failure
+
+[...|myntTidbit]
+---
+:myntTidbit
+
+
+
+[|myntTidbit]
+---
+:myntTidbit
+
+
+
+[...|myntTidbit]
+---
+:myntTidbit
+
+
+
+[|myntTidbit]
+---
+:myntTidbit
+
+amethyst. You snuggle up with Mynt and stroke her bristl
+
+y fur. You wrap a reassuring grip around her hand
+
+le. You
+
+[I??????|myntTidbit]
+---
+:myntTidbit
+
+of wings wrapped around you.
+
+[Hello? Eyeball???|myntTidbit]
+---
+:myntTidbit
+
+Yes?
+
+[What the fuck was that.|myntTidbit]
+---
+:myntTidbit
+
+What was what.
+
+[You broke.|myntTidbit]
+---
+:myntTidbit
+
+Oh that. You got distracted.
+
+[I got distracted??|myntTidbit]
+---
+:myntTidbit
+
+Yeah, this hairbrush is evil or something.
+
+[WHY DIDN'T YOU MAKE THIS CLEAR EARLIER|myntTidbit]
+---
+:myntTidbit
+
+What am I a fucking walkthrough? That's not my job. Experiencing hardship is life.
+
+[Am I looking away now?|myntTidbit]
+---
+:myntTidbit
+
+You have been for the past five hours while you fucked and cuddled Mynt. You threw it to the side forever ago.
+
+[Well throw it out the window. Without looking at it.|myntTidbit]
+---
+:myntTidbit
+
+You throw it out the window without looking at it, okay? Calm down. It's a hairbrush.
+
+[Examine window.|myntTidbit]
+---
+:myntTidbit
+
+Oh, it's on the sill.
+
+[DUDE|myntTidbit]
+---
+:myntTidbit
+
+Damn that thing is evil.
+
+[OVERHAND IT|myntTidbit]
+---
+:myntTidbit
+
+Okay you fucking whip that thing right out the window. It's gone in an amethyst blur. You don't even stop to lean over the edge of the sill and watch it glitter in the dawn as it falls. You do not.
+
+[...|myntTidbit]
+---
+:myntTidbit
+
+I'm fucking with you.
+
+[I'm going to leave the Interphore if you ever do that shit again Mr.|myntTidbit]
+---
+:myntTidbit
+
+Alright, alright, cool it. You have to get used to this kind of thing though. For every wonderous little corner of reality there is a proportionately disturbed corner in the opposite direction.
+
+!`
+choicesPerPage = 1;
+`
+[Warn me about mindjacking hairbrushes next time and do not fuck with my sense of reality ever again I'm serious|myntTidbit]
+---
+:myntTidbit
+
+Understood.
+
+I might by accident though.
+
+[I'll try my best to forgive you.|myntTidbit]
+---
+:myntTidbit
+
+You're clutching the windowsill, veins popped out in your forehead and fingernails in the wood. You slowly un-clench each muscle in your body starting at your eyebrows and then melting all the way down to your curled toes.
+
+[Close the window.|myntTidbit]
+---
+:myntTidbit
+
+You close the window.
+
+[I am in control.|myntTidbit]
+---
+:myntTidbit
+
+"Yes you are."
+
+[     |myntTidbit]
+---
+:myntTidbit
+
+Mynt smiles at you. She's laying on her side, legs spread, propped up on one elbow, hairbrush over her left eye. Instead of that pure friendly white, there's just bristles stabbing toward your pupils, magnetized to the invisible line where your eyes connect with hers.
+
+!`
+choicesPerPage = 1;
+`
+[No.|myntTidbit]
+---
+:myntTidbit
+
+of wings wrapped around you.
+
+[    |myntTidbit]
+---
+:myntTidbit
+
+The angel grandma slaps you out of it.
+
+"I knew it! I knew it!"
+
+[AAAAAAAA|myntTidbit]
+---
+:myntTidbit
+
+You scream like a kid having a night terror.
+
+[AAAAAAAAAA AWHYW HYW HY|myntTidbit]
+---
+:myntTidbit
+
+She beats down on you, weak and crusty, her wings overstretched until they crumple against the ceiling and spew dust over your freshly cleaned apartment. Her eyes are glittery.
+
+"I knew you stole my brush!"
+
+[god WHY|myntTidbit]
+---
+:myntTidbit
+
+She tears it out of Mynt's arms. Mynt hangs on her last glimpse of it with huge puppy eyes.
+
+You know what, I'm gonna ask Cart about this thing. You two have been acting weird ever since you looked at it. And I assume something is like. Actually going on.
+
+[of COURSE SOMETHI|myntTidbit]
+---
+:myntTidbit
+
+Woooahkay, emergency teleported you both out of those bodies.
+
+He got back to me right away. That's unmapped.
+
+[Unmapped?|myntTidbit]
+---
+:myntTidbit
+
+It's a little layer.
+
+[It's a little layer.|myntTidbit]
+---
+:myntTidbit
+
+Yeah. A place with tiny hairbrush people and stuff. They drain attention like an ever-flushing toilet and suck heat through convection. They use both as a means to accelerate repopulation, you know, like to get off and fuck faster and harder, which in turn creates more life-sucking mini life forms.
+
+It's actually kind of hot if you want my honest opinion.
+
+[... So where are...?|myntTidbit]
+---
+:myntTidbit
+
+Okay you're back in the apartment. Antiphores extracted the hairbrush and arrested the grandma.
+
+[Don't hurt that grandma.|myntTidbit]
+---
+:myntTidbit
+
+We're not about to hurt a grandma.
+
+[She was under the spell too.|myntTidbit]
+---
+:myntTidbit
+
+Where do you think the life came from? It didn't start in a hairbrush I can guarantee you that.
+
+[Well I don't know.|myntTidbit]
+---
+:myntTidbit
+
+It probably cropped up in a place where there was a consistent excess of attention over a long timescale.
+
+[...|myntTidbit]
+---
+:myntTidbit
+
+You should go visit her more.
+
+[Oh my god.|myntTidbit]
+---
+:myntTidbit
+
+
+
+[It was born from her T.V. screen.|myntTidbit]
+---
+:myntTidbit
+
+Like I said, you have to get used to this stuff.
+
+[Oh god Mynt. Is Mynt okay?|myntTidbit]
+---
+:myntTidbit
+
+She's shaken herself out of it a bit and now she's scooting slowly away from you.
+
+"Don't touch me," she quavers. "Don't touch me with it again!"
+
+[Oh my god I am so sorry.|myntTidbit]
+---
+:myntTidbit
+
+She holds her head in her paws and curls up into the fetal position.
+
+Then she breathes in deep and remembers that her thoughts and feelings are just a small part of a much bigger structure with a lot more shit going on that isn't all weird and disturbing. Then she breathes out deep. She uncurls.
+
+"Phwa. It's alright, not your fault."
+
+[Oh thank you. >.<|myntTidbit]
+[Oh thank you. Seriously.|myntTidbit]
+---
+:myntTidbit
+
+She <i>sh-sh-sh-shaaakes</i> it all out, tail fwipping everywhere. She curls up on the bedsheets and sinks back down to her chest again.
+
+"You ever get sleep paralysis?"
+
+[Yeah. When I was little.|myntTidbitLittle]
+[Some games can feel like that.|myntTidbitRejoin]
+[I can't ever fall asleep watching T.V. again.|myntTidbitRejoin]
+---
+:myntTidbitLittle
+
+"Me too," she whispers. "Mom fixed it though. It was just a bug where, every time her computer went into sleep mode, I would bug out and keep trying to run commands that just got rejected over and over."
+
+[Where is mom.|myntTidbitRejoin]
+---
+:myntTidbitRejoin
+
+"Being in brushspace has the same helpless panic feeling."
+
+[It's gone now right?|myntTidbit]
+---
+:myntTidbit
+
+You both look around the room. You scan the cracks along the baseboards. You undo the light fixture and look inside. You peek your heads out into the hall and look both ways.
+
+You... finally... look out the window, down at the street. Nothing glitters. It's windy, cold early morning out here, so you stick your heads back inside and blame that.
+
+"So cold." Mynt brrrr-rr-rrs.
+
+[Ugh I know right better close and lock the window immediately haha.|myntTidbit]
+---
+:myntTidbit
+
+Click.
+
+You both sigh and collapse into each other's arms.
+
+[Phwa.|myntTidbit]
+---
+:myntTidbit
+
+... I feel really bad for what I did earlier. I'm sorry.
+
+I underestimated grandmas.
+
+[Phwaaa...|myntTidbit]
+---
+:myntTidbit
+
+Okay, I get it. I'll get back to narrating...
+
+[Phwwwwaaaaa...|myntTidbitEnd]
+---

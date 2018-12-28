@@ -336,8 +336,8 @@ audio/ui/tooltip/3.ogg
 audio/ui/restart.ogg
 audio/ui/exit.ogg
 audio/ui/load.ogg
-audio/music/newVictim.ogg
 audio/music/newSelf.ogg
+audio/music/bunnyLove.ogg
 audio/music/newEngine.ogg
 audio/music/nonLocal.ogg
 audio/ambience/violetMeteorite.ogg
