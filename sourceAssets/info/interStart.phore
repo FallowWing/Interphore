@@ -388,6 +388,7 @@ addSoundTweak("audio/effect/cartSlide/left/2", 0.5);
 addSoundTweak("audio/music/newVictim", 0.2);
 addSoundTweak("audio/music/newEngine", 0.4);
 addSoundTweak("audio/music/newSelf", 0.4);
+addSoundTweak("audio/music/bunnyLove", 0.4);
 addSoundTweak("audio/music/violetMeteorite", 0.1);
 addSoundTweak("audio/ambience/library", 0.2);
 addSoundTweak("audio/ambience/cell", 0.1);

@@ -92,8 +92,8 @@ container.addChild(kittIcon);
 kittIcon.onRelease = function() {
 	getAudio("music").destroy();
 	playEffect("audio/ui/newChoiceClick");
-	gotoPassage("introModMyntStart");
-	clearNodes();
+	//gotoPassage("introModMyntStart");
+	//clearNodes();
 }
 
 var fallowIcon = addImage("writer/intro/fallowIcon"+altChanceFallow+".png");
@@ -103,8 +103,8 @@ container.addChild(fallowIcon);
 fallowIcon.onRelease = function() {
 	getAudio("music").destroy();
 	playEffect("audio/ui/newChoiceClick");
-	gotoPassage("introModMyntStart");
-	clearNodes();
+	//gotoPassage("introModMyntStart");
+	//clearNodes();
 }
 
 kittIcon.scaleX = kittIcon.scaleY = fallowIcon.scaleX = fallowIcon.scaleY = patreonIcon.scaleX = patreonIcon.scaleY = 1.1;

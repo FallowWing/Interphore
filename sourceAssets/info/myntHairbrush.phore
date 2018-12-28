@@ -489,7 +489,7 @@ Yeah, this hairbrush is evil or something.
 ---
 :myntTidbit
 
-What am I a fucking walkthrough? That's not my job. Experiencing hardship is life.
+I'm not a walkthrough. I help out when I feel like it, fuck you.
 
 [Am I looking away now?|myntTidbit]
 ---
@@ -519,7 +519,7 @@ Damn that thing is evil.
 ---
 :myntTidbit
 
-Okay you fucking whip that thing right out the window. It's gone in an amethyst blur. You don't even stop to lean over the edge of the sill and watch it glitter in the dawn as it falls. You do not.
+Okay you whip that thing right out the window. It's gone in an amethyst blur. You don't even stop to lean over the edge of the sill and watch it glitter in the dawn as it falls. You do not.
 
 [...|myntTidbit]
 ---
@@ -527,7 +527,7 @@ Okay you fucking whip that thing right out the window. It's gone in an amethyst 
 
 I'm fucking with you.
 
-[I'm going to leave the Interphore if you ever do that shit again Mr.|myntTidbit]
+[I'm going to leave if you ever do that shit again Mr.|myntTidbit]
 ---
 :myntTidbit
 
@@ -548,7 +548,7 @@ I might by accident though.
 ---
 :myntTidbit
 
-You're clutching the windowsill, veins popped out in your forehead and fingernails in the wood. You slowly un-clench each muscle in your body starting at your eyebrows and then melting all the way down to your curled toes.
+You clutch at the windowsill, veins popped out in your forehead and fingernails in the wood. You slowly un-clench each muscle in your body, and relaxation melts down from your eyebrows to your curled toes.
 
 [Close the window.|myntTidbit]
 ---
@@ -566,7 +566,7 @@ You close the window.
 ---
 :myntTidbit
 
-Mynt smiles at you. She's laying on her side, legs spread, propped up on one elbow, hairbrush over her left eye. Instead of that pure friendly white, there's just bristles stabbing toward your pupils, magnetized to the invisible line where your eyes connect with hers.
+Mynt smiles at you. She's laying on her side, legs spread, propped up on one elbow, hairbrush in her lap.
 
 !`
 choicesPerPage = 1;

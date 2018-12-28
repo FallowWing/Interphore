@@ -41,6 +41,15 @@ print("leaving archiepelagoMap");
 execAsset("blackMansion.phore");
 gotoPassage("blackMansionStart");
 `
+---
+:redMaryNode
+
+!`
+clear();
+print("leaving archiepelagoMap");
+execAsset("redMary.phore");
+gotoPassage("redMaryStart");
+`
 
 END_PASSAGES
 
@@ -50,6 +59,9 @@ function gotoArchiepelago() {
 	submitNode("Back", "backArchie");
 	submitNode("Farm Island", "farmIsland");
 	attachNode("Back", "Farm Island", RIGHT);
+
+	submitNode("Theresa & Mary", "redMaryNode");
+	attachNode("Farm Island", "Theresa & Mary", RIGHT);
 
 	submitNode("Indigo Pond", "indigoPond");
 	attachNode("Farm Island", "Indigo Pond", BOTTOM);
