@@ -123,15 +123,15 @@ var fallowIconTween = tween(fallowIcon, 0.1, {scaleY: 1, scaleX: 1});
 var fallowIconTween2 = tween(fallowIcon, 0.3, {y: 235 - fallowIcon.height}, {ease: QUINT_OUT});
 
 patreonIcon.onRelease = function() {
-	msg("https://www.patreon.com/paraphore");
+	getUrl("https://www.patreon.com/paraphore");
 }
 
 kittIcon.onRelease = function() {
-	msg("https://inkbunny.net/Kittery");
+	getUrl("https://inkbunny.net/Kittery");
 }
 
 fallowIcon.onRelease = function() {
-	msg("https://inkbunny.net/FallowWing");
+	getUrl("https://inkbunny.net/FallowWing");
 }
 
 patreonIcon.whileHovering = function() {
