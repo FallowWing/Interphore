@@ -822,6 +822,10 @@ function keyJustPressed(keyCode) {
 	return keys[keyCode] == KEY_JUST_PRESSED;
 }
 
+function getUrl(url) {
+	getUrl_internal(url);
+}
+
 function hookTempUpdate(fn) {
 	tempUpdateFunctions.push(fn);
 }

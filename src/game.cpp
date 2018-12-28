@@ -74,6 +74,7 @@ duk_ret_t streamEmbeddedTexture(duk_context *ctx);
 duk_ret_t openSoftwareKeyboard(duk_context *ctx);
 duk_ret_t interRnd(duk_context *ctx);
 duk_ret_t iterTweens(duk_context *ctx);
+duk_ret_t getUrl(duk_context *ctx);
 
 duk_ret_t moveTextArea(duk_context *ctx);
 duk_ret_t resizeTextArea(duk_context *ctx);
@@ -148,6 +149,7 @@ void initGame() {
 	addJsFunction("openSoftwareKeyboard", openSoftwareKeyboard, 0);
 	addJsFunction("rnd_internal", interRnd, 0);
 	addJsFunction("iterTweens_internal", iterTweens, 1);
+	addJsFunction("getUrl_internal", getUrl, 1);
 
 	addJsFunction("addImage_internal", addImage, 1);
 	addJsFunction("addCanvasImage_internal", addCanvasImage, 3);
@@ -778,6 +780,16 @@ duk_ret_t iterTweens(duk_context *ctx) {
 		// 	printf("Got key %s, start: %0.1f end: %0.1f\n", keyNames[keysI], startValues[keysI], endValues[keysI]);
 		// }
 	}
+	return 0;
+}
+
+duk_ret_t getUrl(duk_context *ctx) {
+	const char *url = duk_get_string(ctx, -1);
+
+#ifdef SEMI_FLASH
+	gotoUrl(url);
+#endif
+
 	return 0;
 }
 
