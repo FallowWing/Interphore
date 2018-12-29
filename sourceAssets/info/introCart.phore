@@ -382,6 +382,9 @@ It's a cozy little antechamber. There are a few small cushioned chairs, cabinets
 
 Mynt wrings her dress nervously. "Is... I've been meaning to ask, sorry for all the questions, but, um. Is the librarian my god, too?"
 
+!`
+choicesPerPage = 1;
+`
 [And hey yeah what is um... does God have a name?]
 ---
 :And hey yeah what is um... does God have a name?
@@ -405,6 +408,9 @@ Mynt looks at you like she wants to make out really fucking badly.
 
 Her knees slide together and grind beneath her dress.
 
+!`
+choicesPerPage = 1;
+`
 [Hey!! I don't deserve that credit. I'm not omnipotent or omniscient.]
 ---
 :Hey!! I don't deserve that credit. I'm not omnipotent or omniscient.
@@ -1041,6 +1047,9 @@ choicesPerPage = 1;
 
 Cart draws little circles on Mynt's back with a deft pinky. She squirms and spins around. "Aaah~! Stop! That tickles! Stop— this is a serious moment for `data.playerName`..."
 
+!`
+choicesPerPage = 1;
+`
 [Why did you allow us to suffer in ignorance for so long?|booze5]
 ---
 :booze5

@@ -328,6 +328,8 @@ queueTitle("Ehe... welcome to my life...");
 queueTitle("It's been overcomplex from day one.");
 queueTitle("And people still reduce it to 'So you're A.I. or something, right?'");
 queueTitle("Well... I'm sure they WOULD, if Earth still had people.");
+
+choicesPerPage = 1;
 queueAddChoice("Yeah... can't wait to get back there.", "backThere");
 `
 
@@ -337,6 +339,7 @@ queueAddChoice("Yeah... can't wait to get back there.", "backThere");
 !`
 queueTitle("We're on Earth right now. :I");
 
+choicesPerPage = 1;
 queueAddChoice("... But all I see is gray rocks.", "backThere2");
 `
 
@@ -344,6 +347,7 @@ queueAddChoice("... But all I see is gray rocks.", "backThere2");
 :backThere2
 
 !`
+choicesPerPage = 1;
 queueAddChoice("That clearly means we're on the moon.", "backThere3");
 `
 
@@ -355,6 +359,7 @@ queueTitle("Uhhhhh nah.");
 queueTitle("We are somewhere equally bizarre though.");
 queueTitle("Here. Lemme splain.");
 
+choicesPerPage = 1;
 queueAddChoice("How do YOU know where we are?");
 `
 
@@ -450,6 +455,7 @@ queueDelay(2);
 queueCall(function() { setBackground(1, "writer/mynt/face/myntBod/8a", CENTERED); });
 queueTitle("Can we join?? Please???");
 
+choicesPerPage = 2;
 queueAddChoice("Mynt I don't know about this.", "introRejoinUnsure");
 queueAddChoice("... I'll think about it.", "introRejoinNew");
 `
@@ -460,6 +466,7 @@ queueAddChoice("... I'll think about it.", "introRejoinNew");
 !`
 queueTitle("We'll talk about it more in a bit.");
 
+choicesPerPage = 1;
 queueAddChoice("... Alright...", "introRejoinNew");
 `
 
@@ -503,6 +510,7 @@ queueAddChoice("Yes...", "exhausYes");
 
 !`
 queueTitle("OooooOOOoomph~!");
+choicesPerPage = 1;
 queueAddChoice("OW! Okay too hard too hard.", "exhausNo2");
 `
 
@@ -512,6 +520,7 @@ queueAddChoice("OW! Okay too hard too hard.", "exhausNo2");
 !`
 queueCall(function() { setBackground(1, "writer/mynt/face/myntBod/6", CENTERED); });
 queueTitle("Ooop. Sorry...");
+choicesPerPage = 1;
 queueAddChoice("It's okay.", "introRejoinNew");
 `
 
@@ -521,6 +530,7 @@ queueAddChoice("It's okay.", "introRejoinNew");
 !`
 queueCall(function() { setBackground(1, "writer/mynt/face/myntBod/6", CENTERED); });
 queueTitle("A-Ah!! Sorry...");
+choicesPerPage = 1;
 queueAddChoice("It's okay.", "introRejoinNew");
 `
 
@@ -634,6 +644,8 @@ queueDelay(1);
 queueTitle("I bet you crave a hot bath, granny.");
 queueDelay(2);
 queueTitle("Hey, why isn't your hair white?");
+
+choicesPerPage = 1;
 queueAddChoice("It is white.");
 `
 
@@ -650,6 +662,8 @@ queueDelay(2);
 queueCall(function() { setBackground(1, "writer/mynt/face/myntBod/8a", CENTERED); });
 queueTitle("Well, thankfully, we've got a hot red bath right nearby!");
 queueTitle("You can clean a lot more than your body, too. <3");
+
+choicesPerPage = 1;
 queueAddChoice("Yeah?");
 `
 
@@ -666,6 +680,8 @@ queueTitle("Let's step into the red pond.");
 queueTitle("Together, okay?");
 queueCall(function() { setBackground(1, "writer/mynt/face/myntBod/10", CENTERED); });
 queueTitle("Take my hand.");
+
+choicesPerPage = 1;
 queueAddChoice("Hoooold on, what are the details?");
 `
 
@@ -684,6 +700,8 @@ queueTitle("Let's join the Interphore.");
 queueTitle("Take my hand.");
 queueTitle("...");
 queueTitle("Come on take my hand.");
+
+choicesPerPage = 1;
 queueAddChoice("Amnesia???? Sorry?");
 `
 
@@ -695,6 +713,8 @@ queueAddChoice("Amnesia???? Sorry?");
 queueTitle("Oh, grow up!");
 queueTitle("You don't forget EVERYthing!");
 queueTitle("Just... most things!");
+
+choicesPerPage = 1;
 queueAddChoice("... Does it hurt?", "forgNext");
 `
 
@@ -710,6 +730,22 @@ queueTitle("Cause, uh.");
 queueCall(function() { setBackground(1, "writer/mynt/face/myntBod/6", CENTERED); });
 queueTitle("It's a bit like diving into magma, you see.");
 queueTitle("We dissolve into flesh tatters and the aliens strip resources from our bodies.");
+queueTitle("It already happened once when I was given this temp body here!");
+
+choicesPerPage = 1;
+queueAddChoice("Whycome I don't get a temp body.");
+`
+
+---
+:Whycome I don't get a temp body.
+
+!`
+queueTitle("Well, you already have flesh to work with. I was just code.");
+queueDelay(3);
+queueTitle("(That's what he told me, anyway, but...)");
+queueTitle("(I never actually saw you climb up here in the flesh...)");
+queueTitle("(We'll have to ask him later...)");
+queueTitle("But either way!! Jumping in doesn't hurt at ALL!");
 queueTitle("Happens so fast you don't feel a thing!! It's fine!! Don't worry!!");
 queueTitle("So.");
 queueCall(function() { setBackground(1, "writer/mynt/face/myntBod/8a", CENTERED); });
@@ -728,6 +764,8 @@ queueCall(function() { setBackground(1, "writer/mynt/face/myntBod/8a", CENTERED)
 queueTitle("That's okay. <3 You have plenty of reason to be out of it.");
 queueCall(function() { setBackground(1, "writer/mynt/face/myntBod/6", CENTERED); });
 queueTitle("I mean, you are pushing 80 with a learning disability and a history of hypoxia abuse...");
+
+choicesPerPage = 1;
 queueAddChoice("Gee thanks. -_-", "forgNext3");
 `
 
@@ -787,7 +825,7 @@ queueAddChoice("We might split up.", "forgNext5");
 !`
 queueTitle("You know I'm way too clingy to let that happen.");
 
-choicesPerPage = 2;
+choicesPerPage = 1;
 queueAddChoice("I guess you're right.", "forgNext6");
 `
 
@@ -804,6 +842,8 @@ if (rnd < 0.3) {
 } else {
 	queueTitle("I want to fix my dumb brain.");
 }
+
+choicesPerPage = 1;
 queueAddChoice("Take her hand.", "... Take her hand.");
 `
 
@@ -818,6 +858,8 @@ queueTitle("Okay...");
 queueTitle("Don't let go...");
 queueTitle("Even when our fingers unravel!!");
 queueTitle("Don't let go of me!");
+
+choicesPerPage = 1;
 queueAddChoice("I won't. I promise.");
 `
 
@@ -830,6 +872,8 @@ queueTitle("Ah... it's lapping at my toes.");
 queueTitle("It doesn't hurt... yet?");
 queueTitle("He said it was quick and painless...");
 queueTitle("Y-You feel the water on your junk? It's so warm!!");
+
+choicesPerPage = 1;
 queueAddChoice("Step into the pond.");
 `
 
@@ -883,6 +927,7 @@ if (data.genitals === "female" || data.genitals === "male" || data.genitals === 
 queueTitle("A-Ah... it's melting away... everything...");
 queueTitle("I thought I'd never be pure again...");
 
+choicesPerPage = 3;
 queueAddChoice("He.", function() {
 	data.gender = "male";
 	gotoPassage("afterGender");
@@ -964,6 +1009,7 @@ queueTitle("I think my name is Mynt.");
 queueCall(function() { setBackground(1, "writer/mynt/face/myntBod/3", CENTERED); });
 queueTitle("Is it Mynt? You called me Mynt earlier...");
 
+choicesPerPage = 1;
 queueAddChoice("You are Mynt.");
 `
 
@@ -1038,6 +1084,7 @@ addChoice("Cat.", function() {
 choicesPerPage = 2;
 
 if (data.species === "cat") {
+	choicesPerPage = 2;
 	setTitle("A cat! Like me!");
 
 	addChoice("Barbs.", function() {
@@ -1050,6 +1097,7 @@ if (data.species === "cat") {
 		gotoPassage("pickedSpecies");
 	});
 } else {
+	choicesPerPage = 2;
 	if (data.species === "fox") append("Aren't foxes supposed to be sluts...?");
 	if (data.species === "wolf") append("Wow... you're so cool and intimidating...!");
 	
@@ -1102,6 +1150,7 @@ queueTitle("Granted, you did spend 94% of your life in that shelter.");
 choicesPerPage = 2;
 
 queueAddChoice("I feel like I just finished eighteen hours of yoga.", function() {
+	setBackground(0, "writer/mainBg");
 	setBackground(1, "");
 	setBackground(2, "");
 	setTitle("");
@@ -1110,6 +1159,7 @@ queueAddChoice("I feel like I just finished eighteen hours of yoga.", function()
 	gotoPassage("afterPond");
 });
 queueAddChoice("Nah you're right I stank like ass.", function() {
+	setBackground(0, "writer/mainBg");
 	setBackground(1, "");
 	setBackground(2, "");
 	setTitle("");
@@ -2231,13 +2281,27 @@ Yeah I honestly don't know how you fucked up so badly so quickly.
 !`
 choicesPerPage = 1;
 addChoice("Respawn me.", "myntAdvent5");
-addChoice("Shush, Mr. Eyeman.", "myntAdvent5");
+addChoice("Shush, Mr. Eyeman.", "myntAdvent5ball");
+`
+
+---
+:myntAdvent5ball
+
+It's Mr. EyeBALL.
+
+You resurface from the waters of the pond.
+
+Since you aren't changing your body, just duplicating it, there will be no amnesia this time.
+
+!`
+choicesPerPage = 1;
+addChoice("Okay cool thanks. Go find Mynt.", "myntAdvent6");
 `
 
 ---
 :myntAdvent5
 
-It's Mr. Eye<b>ball.</b>
+It's Mr. EyeBALL.
 
 You resurface from the waters of the pond.
 
