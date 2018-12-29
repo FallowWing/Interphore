@@ -5,6 +5,9 @@ You come across a farmer fucking one of his watermelons. His face is twisted up 
 
 "Go on in," the farmer grunts, slapping his watermelon's fat ass. "There's a whole nother layer in me fruits."
 
+!`
+choicesPerPage = 2;
+`
 [... Head down one layer.|foodLand1]
 [Move along.|foodLandMoveAlong]
 ---
@@ -25,6 +28,7 @@ The watermelon wolf and the carrot bunny disappear around a corner.
 "Ugh", the cat says into the ground. "Stupid wolf... that bunny's gonna eat itself before he can get a bite in..."
 
 !`
+choicesPerPage = 2;
 addChoice("Help him up.", "foodLandHelp", {icons: ["Male", "Male", "Feral", "Candy Gore", "Hard Vore"]});
 addChoice("Move along.", "foodLandMoveAlong");
 `
@@ -39,6 +43,9 @@ You slide your paws under his armpits and haul him up. He's soft and malleable, 
 
 There's a Taro-shaped indent in the ground where he faceplanted. He hurries on, looking back at it shamefully.
 
+!`
+choicesPerPage = 2;
+`
 [Look around a bit.|foodLand2Look]
 [Follow him.|foodLand2]
 ---
@@ -54,6 +61,9 @@ You circle the tree. Something isn't adding up. Yes, it's a prostitution thing; 
 
 ... Hold on. Up at the very crest of the tree, there's a little bushel of hard candy bells, all connected to the licorice pulleys. You might want to come back to this later.
 
+!`
+choicesPerPage = 1;
+`
 [Hmmm... follow the potato cat for now.|foodLand2]
 ---
 :foodLand2
@@ -68,6 +78,9 @@ The wolf looks depressed as fuck, tail tucked between his chunky melon haunches 
 
 "Cheer up," Taro purrs, scratching behind those big green ears. "You can't catch every bunny."
 
+!`
+choicesPerPage = 1;
+`
 [Aww, is he sad?|foodLand3]
 ---
 :foodLand3
@@ -76,6 +89,9 @@ The wolf looks depressed as fuck, tail tucked between his chunky melon haunches 
 
 Taro smacks his wolf's fat melon butt. Lulu yelps adorably and closes his zig-zaggy jaws, looking up at his owner with needy eyes. His thick, striped tail swishes back and forth with anticipation. Apparently that's all it took to snap him out of his little funk.
 
+!`
+choicesPerPage = 1;
+`
 [Pet Lulu!!|foodLand4]
 ---
 :foodLand4
@@ -86,12 +102,18 @@ As soon as you reach toward Lulu, his maw locks up into a deadly growl. He may c
 
 "Ask before you pet someone's wolf!"
 
+!`
+choicesPerPage = 1;
+`
 [Ah!... Sorry. Can I pet Lulu?|foodLand4a]
 ---
 :foodLand4a
 
 "Let him sniff you first."
 
+!`
+choicesPerPage = 1;
+`
 [Hold out my paw.|foodLand4b]
 ---
 :foodLand4b
@@ -100,6 +122,9 @@ You hold your paw in front of Lulu's snout. He glares at you, sniffs a bit... sn
 
 "You're good," Taro whispers. Lulu occasionally side-eyes you. Tension still hovers in the air.
 
+!`
+choicesPerPage = 1;
+`
 [... Carefully, slowly pet the wolf's butt.|foodLand4c]
 ---
 :foodLand4c
@@ -118,6 +143,9 @@ Your petting wanders down each leg to Lulu's hind paws. You lift one up, careful
 
 Taro reads your expression perfectly. "You wanna eat him, don't you?"
 
+!`
+choicesPerPage = 1;
+`
 [... So what if I do.|foodLand5]
 ---
 :foodLand5
@@ -126,6 +154,9 @@ Taro shrugs.
 
 "So he's cute and tasty, just as I expected. Go ahead. We regenerate at will. Also, we're both assimilated, of course, so respawns are free and plentiful... you can be as hard as you like on us!"
 
+!`
+choicesPerPage = 1;
+`
 [But doesn't it hurt?|foodLand6]
 ---
 :foodLand6
@@ -136,6 +167,9 @@ While Taro explains this, he casually leans back on his palms and spreads his th
 
 You drop Lulu's paw for a second while you're talking. This distresses him. He repeatedly puts it back in your hand, tapping you, nudging you for more attention..
 
+!`
+choicesPerPage = 1;
+`
 [... Suck his paw a little.|foodLand7]
 ---
 :foodLand7
@@ -144,6 +178,9 @@ You slip his paw past your lips. It's so soft and smooth... you roll your tongue
 
 Taro watches you amusedly. "I thought I recognized you. We met on the island, before, but I guess you forget me now."
 
+!`
+choicesPerPage = 1;
+`
 [Mmmh... Mynt's island, right? I do forget.|foodLand8]
 ---
 :foodLand8
@@ -157,6 +194,9 @@ taroImg.y = gameHeight - taroImg.height;
 tween(taroImg, 3, {x: gameWidth - taroImg.width * 1.1}, {ease: QUAD_OUT});
 `
 
+!`
+choicesPerPage = 1;
+`
 [Nice to meetcha, Taro.|foodLand8a]
 ---
 :foodLand8a
@@ -164,6 +204,7 @@ tween(taroImg, 3, {x: gameWidth - taroImg.width * 1.1}, {ease: QUAD_OUT});
 He wraps one paw around the nape of your neck and grabs Lulu's forearm with the other. Gently, hardening just from the sight of it, Taro pushes his wolf's paw to the back of your throat and holds it there.
 
 !`
+choicesPerPage = 1;
 if (rnd > 0.95) {
 	addChoice("Succ...", "foodLandSuck");
 } else {
@@ -181,6 +222,9 @@ Lulu is getting worked up. He rolls on his back, careful not to dislodge his paw
 
 Your fingers roam over his wolfcock. The knot is big and sturdy, extra squeeze-able, and instead of a tapered tip he has a nice, rounded head like an eggplant. Through a tiny slit in the top, fruity pink pre leaks over his belly.
 
+!`
+choicesPerPage = 1;
+`
 [Squeeze and gnaw on the paw.|foodLand9]
 ---
 :foodLand9
@@ -193,6 +237,9 @@ You wrap your hand around the base of Lulu's cock and squeeze hard. It squirts p
 
 While you squeeze his cock, you can't help but close your jaws around his paw. Sugary-sweet watermelon juice squirts over your tongue. He shivers and yelps, putting on a show for you and Taro, jerking his paw away and, of course, breaking it up even more in the process. Those perfect little beans pop like grapes between your molars.
 
+!`
+choicesPerPage = 1;
+`
 [Myum... nyum nyum...|foodLand10]
 ---
 :foodLand10
@@ -201,6 +248,9 @@ While you squeeze his cock, you can't help but close your jaws around his paw. S
 
 Taro wraps his arm around Lulu's throat and pins him in a chokehold, his drooling, blissed-out face pressed right against Taro's juicy tatonuts. Taro lifts and gyrates his hips, smearing both nuts over Lulu's expression.
 
+!`
+choicesPerPage = 1;
+`
 [Bite down.|foodLand11]
 ---
 :foodLand11
@@ -215,6 +265,9 @@ Taro's whispery voice appears right behind your ear:
 
 "Swallow."
 
+!`
+choicesPerPage = 1;
+`
 [Swallow.|foodLand12]
 ---
 :foodLand12
@@ -227,6 +280,9 @@ You gulp it down. Taro pats your belly and takes his grip off your neck, allowin
 
 His face is exactly like ^w^. It's uncanny. His maw is just that ziggy-zaggy.
 
+!`
+choicesPerPage = 1;
+`
 [God, he's asking for it...|foodLand13]
 ---
 :foodLand13
@@ -248,6 +304,9 @@ if (data.genitals === "male" || data.genitals === "both") {
 
 Lulu shivers and obeys his master. His hind legs are taut and still. He lifts his ass as high as it'll go, perched on the tippy-toes of his back paws. You run your paws over both cheeks and peel them apart with your thumbs, inspecting him.
 
+!`
+choicesPerPage = 1;
+`
 [Lick it first.|foodLandEat]
 ---
 :foodLandEat
@@ -258,6 +317,9 @@ It's extremely hard to describe the scent. It's not musky, like a regular ass, b
 
 Taro kneels at the other end. He coaxes Lulu's maw open and grinds the head of his fat purple tatocock over that long, panting wolf tongue, slick and shiny pink like the heart of a ripe watermelon.
 
+!`
+choicesPerPage = 1;
+`
 [Dive in.|foodLandEat2]
 ---
 :foodLandEat2
@@ -276,6 +338,9 @@ None of this distracts you enough to slow your licks down. You work your tongue 
 
 Lulu whimpers pathetically.
 
+!`
+choicesPerPage = 1;
+`
 [Tonguefuck him~|foodLandEat3]
 ---
 :foodLandEat3
@@ -286,6 +351,9 @@ You yank his tail up so hard that it rips away from the base halfway. He yelps. 
 
 You don't even need to input a "Harder" command, I'm already on it. You let go of his mangled tail and slip two fingers from each paw as deep as you can into his poor, abused little butthole. Taro sees this, blinks, and immediately doubles over and cums down Lulu's throat at the thought of what you're about to do.
 
+!`
+choicesPerPage = 1;
+`
 [Split the melon~|foodLandEat4]
 ---
 :foodLandEat4
@@ -296,6 +364,9 @@ His insides are all the same shade of adorable, squishy, glittery wet pink. The 
 
 By now, Taro has collapsed on top of Lulu's head, panting. The tail-end of his orgasm trickles away. Lulu can hardly breathe with all that tatocock lodged down his windpipe. A pathetic attempt at breathing causes bright purple cum to splurt and gush from his crinkled snout.
 
+!`
+choicesPerPage = 1;
+`
 [Ahhh~ That was fun...|foodLandRejoin]
 ---
 :foodLandFuck
@@ -308,6 +379,9 @@ Meanwhile, you line your dick up along Lulu's crack and hotdog him with long, se
 
 Taro guides your paws to his cheeks. You squeeze em tight. A little whine leaks out of Lulu's mouth, muffled by dank tatosack.
 
+!`
+choicesPerPage = 1;
+`
 [Aim.|foodLandFuck2]
 ---
 :foodLandFuck2
@@ -318,6 +392,9 @@ Lulu's tail wags like crazy. He's very used to the sensation of cock pushing aga
 
 "Lick," he whispers. Lulu squeaks and starts slobbering right away. 
 
+!`
+choicesPerPage = 1;
+`
 [Push.|foodLandFuck3]
 ---
 :foodLandFuck3
@@ -326,6 +403,9 @@ You palm his cheeks apart, exposing all of his ass. Now it's plain to see how mu
 
 "Why are you being so gentle~?" Taro muses. He casually leans down, fixes you with bedroom eyes, and wraps his teeth around Lulu's ear. "Jush gif it to 'im," he mumbles.
 
+!`
+choicesPerPage = 1;
+`
 [Puuuuush!|foodLandFuck4]
 ---
 :foodLandFuck4
@@ -342,6 +422,9 @@ Taro is panting now, dry humping his pet's snout so hard it crunches and snaps. 
 
 Taro peeks over to see how you're doing and just groaaans at the sight of Lulu's absolutely wrecked hole~
 
+!`
+choicesPerPage = 1;
+`
 [Fuck him like a watermelon~|foodLandFuck5]
 ---
 :foodLandFuck5
@@ -354,6 +437,9 @@ Every time you hit a particularly stubborn inner wall of melonmeat, you wrestle 
 
 "YEEEEAAAHHHH!" Taro tears Lulu's other ear off in a feral daze. Pink juice strands hang in midair for one frozen moment. Lulu shudders right down to the tip of his tail and whines in sharp, high-pitched bursts, barely able to handle the vicious doublefuck. Oh— sorry, forgot to mention, a while ago Taro started throatfucking Lulu mercilessly. I just didn't want to interrupt the flow. Anyway, that's a thing that's happening.
 
+!`
+choicesPerPage = 1;
+`
 [RAPE HIM TO PIECES RRRAAAAAAGH|foodLandFuck6]
 ---
 :foodLandFuck6
@@ -362,6 +448,9 @@ The two of you tear the fuck into Lulu from all directions and angles. You hold 
 
 At some point you really lose track of what you're even fucking anymore; his hole has long since fallen apart under the constant cockbeating, and when it suddenly seems like he tightens up for no reason, you look down and realize you actually just pierced a new hole right in the middle of his plump buttcheek. Neither of you give a fuck. In fact, Taro reaches down and plugs two fingers into Lulu's brand new pussy alongside your cock, yanking it open even wider and revealing more delicious, juicy fuckbuttmeat inside.
 
+!`
+choicesPerPage = 1;
+`
 [RRRRRRRRAAAAAAAGHHH|foodLandFuck7]
 ---
 :foodLandFuck7
@@ -372,12 +461,18 @@ Taro sinks his fingers into Lulu's perfectly smooth belly and spreads it open fo
 
 Taro dives toward your cock, maw open.
 
+!`
+choicesPerPage = 1;
+`
 [Cum.|foodLandFuck8]
 ---
 :foodLandFuck8
 
 You clamp your teeth around Lulu's shoulder and throw your hips forward. Your cock slides out of his belly and right into Taro's waiting maw. Taro deepthroats you. He stuffs his face into Lulu's melonbelly and smears himself with juice, one eye half-shut, the other rolled-up into his skull. Taro's own orgasm comes and goes without disturbing his concentration— the cum basically just falls out of his twitching cock and puddles on the ground. He doesn't let it affect his blowjob. The soft inner tatoflesh of his throat is magnetized to your cock. Your asscheeks slap down into the puddle as you physically bounce Lulu off your lap with each vicious hump— if your teeth weren't sunken in his shoulder, pinning him helplessly in place for the rape, he would've flown off your cock five minutes ago.
 
+!`
+choicesPerPage = 1;
+`
 [Pull off! <3 Open his maw!|foodLandFuck9]
 ---
 :foodLandFuck9
@@ -396,6 +491,9 @@ Gluey ropes of white lace his chest, his throat, his open maw. When it fills up,
 
 Taro runs both paws all over his little wolfslut's shivering, barely-intact body. Taro gropes up the sides of his chest. Cum coagulates under his thumbs. He plugs them into Lulu's maw and cleans them off with a smirk and drooped eyelids.
 
+!`
+choicesPerPage = 1;
+`
 [Ahhh~ That was fun...|foodLandRejoin]
 ---
 :foodLandRejoin
@@ -408,6 +506,9 @@ Lulu is a twitchy, fucked-up mess. His breathing is soft and shallow. Now and ag
 
 Lulu whines and closes his eyes.
 
+!`
+choicesPerPage = 1;
+`
 [... Oh...|foodLandSnuffPre]
 ---
 :foodLandSnuffPre
@@ -430,18 +531,27 @@ Taro grabs his pet by the chin. "Stay still, okay cunt~? Time for a respawn!"
 
 Lulu's tail wags with all the strength he has left. He sticks his sticky, bright red tongue out and pants through a puppy smile.
 
+!`
+choicesPerPage = 1;
+`
 [Stomp the melon open~|foodLandSnuff]
 ---
 :foodLandSnuff
 
 You rest your footpaw on his head. You give the sole of your foot a bit of downward force, just enough to squeeze his skull and strain the rind a little. Then, with zero warning, you lift your foot up and bring it down on his face with a deep, chunky <i>crack</i>. It's as satisfying as busting open a real melon. Red juice gushes out and forms a puddle. His leg twitches one more time, then... nothing.
 
+!`
+choicesPerPage = 1;
+`
 [Next~?|foodLandRejoin2]
 ---
 :foodLandAvoid
 
 You look away while Taro does his thing.
 
+!`
+choicesPerPage = 1;
+`
 [Next~?|foodLandRejoin2]
 ---
 :foodLandSnuffTaro
@@ -462,6 +572,9 @@ Something breaks under his ass. Taro drops down an inch. Lulu's belly heaves onc
 
 Taro reaches down and plays with his limp wolfcock, yanking on it abusively. "There we go," he whispers.
 
+!`
+choicesPerPage = 1;
+`
 [Next~?|foodLandRejoin2]
 ---
 :foodLandRejoin2
@@ -478,12 +591,18 @@ Lulu doesn't give a shit. He wants to lick your face and he's going to. He slobb
 
 Taro's holding him up by his armpits. Lulu pants and smiles at you, all four paws splayed out.
 
+!`
+choicesPerPage = 1;
+`
 [I think he likes me~|foodLand14]
 ---
 :foodLand14
 
 Taro carefully sets him down. Lulu glances back, knowing he can't jump up on you again... so he sheepishly trots forward and rests his muzzle on your thigh, instead. His big, round wolf eyes latch onto yours. You're totally his alpha now.
 
+!`
+choicesPerPage = 1;
+`
 [Aww. Thanks for the sex, buddy.|foodLand15]
 ---
 :foodLand15
@@ -496,6 +615,9 @@ The orange blur stops—
 
 And it's the carrot bunny again. He looks around all twitchy, folds an ear over, nibbles it. Half his body has been nibbled away like this by now, but none of the important sprinting muscles— if anything, the rabbit has actually made himself faster by losing all that mass.
 
+!`
+choicesPerPage = 1;
+`
 [Uh oh.|foodLand16]
 ---
 :foodLand16
@@ -504,6 +626,9 @@ Lulu bolts, using your lap as a springboard for his hindpaws. He kicks you over 
 
 "HEY!" Taro stands up, trips over his sore feet, and lumbers after him. "See you another time, `data.playerName`— HEY! LU! GET THE FUCK BACK HERE!"
 
+!`
+choicesPerPage = 1;
+`
 [... Move along~|foodLandMoveAlong]
 ---
 :foodLandMoveAlong

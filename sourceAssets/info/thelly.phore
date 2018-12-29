@@ -8,6 +8,9 @@ You head back to the L.L.L. and push open the door to the cozy antechamber, just
 
 A teen boy sits on the couch.
 
+!`
+choicesPerPage = 2;
+`
 [Examine boy?|nextThelly1]
 [sdfsf|nextThellyMom]
 ---
@@ -25,6 +28,9 @@ You peel your gaze off his legs and look up. Those legs widen out into femmy thi
 
 Finally, you look him in the face. His eyes are milky red. He's staring past you, smiling.
 
+!`
+choicesPerPage = 1;
+`
 [Do I know you?|nextThelly2]
 ---
 :nextThelly2
@@ -33,6 +39,9 @@ Finally, you look him in the face. His eyes are milky red. He's staring past you
 
 He sits up straight and moves his paws off his lap to adjust the couch cushions. That reveals his cock, which is cooped up in a tiny cage.
 
+!`
+choicesPerPage = 1;
+`
 [Yes... how did you know? (Stare at his cock.)|nextThelly3pre]
 ---
 :nextThelly3pre
@@ -41,6 +50,9 @@ He crosses his legs, hiding it again. He runs a couple fingers down the undersid
 
 "A few hours ago, the big guys around here assimilated an island full of degenerate furries. Every islander had a choice: to jump in the red pond, join the Interphore, and lose most of their memories, or to return to their island. I think most of them chose to jump. Well, one of those furries who jumped was Thelly, a little golden retriever. He came up here to see Cart and get his bearings, just like you did. I came over on Cartographer's request. Thelly latched onto me right away. Does his name ring a bell?"
 
+!`
+choicesPerPage = 2;
+`
 [No.|nextThelly3no]
 [Yes.|nextThelly3yes]
 ---
@@ -48,18 +60,27 @@ He crosses his legs, hiding it again. He runs a couple fingers down the undersid
 
 "Makes sense. Your memories of each other should be gone."
 
+!`
+choicesPerPage = 1;
+`
 [How did he tell you all about me, then?|nextThelly3]
 ---
 :nextThelly3yes
 
 "Wow, really? I thought you had amnesia."
 
+!`
+choicesPerPage = 1;
+`
 [Yes.|nextThelly3yes2]
 ---
 :nextThelly3yes2
 
 "Are you just saying yes to every question I ask?"
 
+!`
+choicesPerPage = 1;
+`
 [Yes.|nextThelly3yes3]
 ---
 :nextThelly3yes3
@@ -68,6 +89,9 @@ He blinks.
 
 "Well, stop."
 
+!`
+choicesPerPage = 1;
+`
 [Okay sorry. No, my memories are gone.|nextThelly3yes4]
 ---
 :nextThelly3yes4
@@ -76,6 +100,9 @@ The cat smooths out his hair as a way to move past that.
 
 "Of course. His memories of you are gone, too."
 
+!`
+choicesPerPage = 1;
+`
 [How did he tell you all about me, then?|nextThelly3]
 ---
 :nextThelly3
@@ -84,6 +111,9 @@ The cat smooths out his hair as a way to move past that.
 
 He flashes a "lucky you" grin full of sharp cat teeth. "When Thelly got his bearings here, Cartographer just happened to mention that you and your green cat came by earlier, looking for Wendy. Now Thelly is obsessed with paying you back for all the happiness you gave him in his old life. We want to bring you back to my brothel and try to help you find her."
 
+!`
+choicesPerPage = 1;
+`
 [Help me find...|nextThelly3a]
 ---
 :nextThelly3a
@@ -92,6 +122,9 @@ He stands up. His caged, flaccid cock jiggles just above two tight nuts.
 
 "My name is Ren. I'm a cat. I run a brothel down the street. And I have some information that may help you find your mom."
 
+!`
+choicesPerPage = 1;
+`
 [Oh shit!?|nextThelly4]
 ---
 :nextThelly4
@@ -106,6 +139,9 @@ He zips past again, just a little brown blur against the creamy white canvas of 
 
 Ren glances over in Cart's general direction and nods. "She came by a long time ago. Months, maybe."
 
+!`
+choicesPerPage = 1;
+`
 [She looked like a chubby human nerd lady, right???|nextThelly4a]
 ---
 :nextThelly4a
@@ -114,12 +150,18 @@ Ren rolls his milky eyes.
 
 "Dunno. Somehow, I couldn't quite get a good look at her."
 
+!`
+choicesPerPage = 1;
+`
 [... Oh... oop.|nextThelly5a]
 ---
 :nextThelly5a
 
 "It's fine. Yeah, my boys said she looked just like that. Can you do me a favor?"
 
+!`
+choicesPerPage = 1;
+`
 [Probably!|nextThelly5]
 ---
 :nextThelly5
@@ -128,6 +170,9 @@ Ren blushes and looks down at his pure white bellyfur. His big tail slinks aroun
 
 "I want to bring you to my brothel and ask you some questions. Go through the records. But Thelly wants to see you again, too. Would it be alright if you said hi to him in exchange for your juicy mom info? He's just a little... busy, right now."
 
+!`
+choicesPerPage = 1;
+`
 [... He's already taking cocks there, isn't he.|nextThelly6]
 ---
 :nextThelly6
@@ -138,6 +183,9 @@ Ren goes bright red and starts to gesture vaguely.
 
 "Sorry, Cart— yeah, he's almost ready to work, just going through training now. You'll get a better idea if you come along. Shall we go?"
 
+!`
+choicesPerPage = 1;
+`
 [Lead the way!|nextThelly8]
 ---
 :nextThelly7Quit
@@ -146,6 +194,9 @@ Ren nods. "Just hug the back wall of the universe until you hit downtown, then g
 
 He saunters past you, hips swaying. "See you there."
 
+!`
+choicesPerPage = 1;
+`
 [Seeya.|thellyMoveAlong]
 ---
 :nextThelly8
@@ -154,6 +205,9 @@ Ren takes your paw in his and pulls you outside, back into the dungeon world. Hi
 
 Desperate boi moans echo through the streets. The muggy scent of sex and leather hits you. You have to really work to inhale. Ren flares his nostrils, pulling it in and savouring it. His naked body starts to glisten with the tiniest bit of condensed sex vapors.
 
+!`
+choicesPerPage = 1;
+`
 [So you think you saw my mom, huh?|nextThelly9]
 ---
 :nextThelly9
@@ -171,6 +225,7 @@ Ren steps back and composes himself with a breath. His eyelids droop. His red, u
 "Are you alright with my type? You'll come and see Thelly at least, won't you?"
 
 !`
+choicesPerPage = 2;
 addChoice("YES.", "nextThelly10", {icons: ["Cub", "Male"]});
 addChoice("Sure.", "nextThelly10", {icons: ["Cub", "Male"]});
 `
@@ -183,6 +238,9 @@ Ren looks like he wants to jump on the spot and clap like a little kittenfag. In
 
 Ren wipes the saliva off his lips with a forearm. "I sealed the deal, huh?"
 
+!`
+choicesPerPage = 1;
+`
 [I should be thanking you two. You're doing all this just to help me.|nextThelly11]
 ---
 :nextThelly11
@@ -191,6 +249,9 @@ He leads you down a street that follows the wall. Your footsteps patter over pav
 
 "It's no trouble," Ren says. "Business has been slow anyway."
 
+!`
+choicesPerPage = 1;
+`
 [That's too bad.|nextThelly12a]
 ---
 :nextThelly12a
@@ -203,6 +264,9 @@ You're staring now.
 
 "You can look as much as you want, okay? It's there to be stared at." He lets his cheek go. It claps back into place. "Just follow closely..."
 
+!`
+choicesPerPage = 1;
+`
 [I will...|nextThelly12]
 ---
 :nextThelly12
@@ -211,6 +275,9 @@ Ren always tests the cobble sidewalk with a toe-tip before he commits to steppin
 
 Ren only turns his head to look at them when they pass within earshot. Otherwise, his eyes stay unfocused and aimless.
 
+!`
+choicesPerPage = 2;
+`
 [Aren't you well-known, here?|nextThelly13]
 [Why don't you fix your blindness in a red pond, Ren?|nextThelly14]
 ---
@@ -220,6 +287,9 @@ Ren only turns his head to look at them when they pass within earshot. Otherwise
 
 He sucks it up and smiles anyway. "I just need to diversify, that's all."
 
+!`
+choicesPerPage = 1;
+`
 [Ahhh...|nextThelly15]
 ---
 :nextThelly14
@@ -228,6 +298,9 @@ He looks back over his shoulder and smiles at you. His milky irises glitter in t
 
 "I like myself better this way."
 
+!`
+choicesPerPage = 1;
+`
 [Ahh, good for you. :3|nextThelly15]
 ---
 :nextThelly15
@@ -236,12 +309,18 @@ You stroll downtown. Unlit neon signs hang off abandoned buildings like tangled 
 
 Ren smiles, embarrassed, as a thick-furred dude with a half-chub passes by and rolls his eyes at the cock cage.
 
+!`
+choicesPerPage = 1;
+`
 [What's his problem?|nextThelly16]
 ---
 :nextThelly16
 
 "Don't mind the locals... they're like that sometimes..."
 
+!`
+choicesPerPage = 1;
+`
 [Peek in the shop windows.|nextThelly17]
 ---
 :nextThelly17
@@ -250,6 +329,9 @@ You peek in the stores, restaurants, bars, clubs... almost everything is dark in
 
 Ren looks back apologetically. "Bit dreary, isn't it?" He looks forward with determination. "But we're almost there."
 
+!`
+choicesPerPage = 1;
+`
 [Next!|nextThelly18]
 ---
 :nextThelly18
@@ -260,6 +342,9 @@ You take a left past two dudes frotting in an alley, one of them pinning the oth
 
 Ren grins, genuinely thankful for the attention. "Finally..."
 
+!`
+choicesPerPage = 1;
+`
 [Next~?|nextThelly19]
 ---
 :nextThelly19
@@ -272,6 +357,9 @@ Ren tucks his buttcheeks back together and sighs to himself. His cock is still k
 
 He sighs and forces himself to take his paws off his butt. "But I gotta keep it together. We're almost there."
 
+!`
+choicesPerPage = 2;
+`
 [Yeah, keep it together. (Smack Ren's ass.)|nextThelly20]
 [Next.|nextThelly21]
 ---
@@ -285,6 +373,9 @@ Then... slowly... he exhales. He deflates. His whole body ripples with waves of 
 
 "Warn me next time," he whispers. Then he bites his lip. "On second thought, never warn me. My ass is public property."
 
+!`
+choicesPerPage = 1;
+`
 [Gotcha~|nextThelly21]
 ---
 :nextThelly21
@@ -300,6 +391,9 @@ Around the door, Ren and his boys have plastered bright pink signs, advertisemen
 
 He reaches under his cock cage and pulls out a special pink key. The cage slips off, necessarily, and he hooks it on one of his thigh straps for safekeeping.
 
+!`
+choicesPerPage = 3;
+`
 [Next?|nextThelly22]
 [Examine the ads.|nextThellyWall]
 [Oooh, it's multi-purpose.|nextThelly21a]
@@ -308,6 +402,9 @@ He reaches under his cock cage and pulls out a special pink key. The cage slips 
 
 "I just wear the cage when I go out. Helps me cut down on travel time when I'm not stopping to cum every five blocks. Also, it'll keep me nice and cooped up for Thelly..."
 
+!`
+choicesPerPage = 2;
+`
 [I see~|nextThelly22]
 [Examine the ads.|nextThellyWall]
 ---
@@ -332,6 +429,8 @@ Ever get the urge to grab a femboy by his ponytail and stuff his snout up agains
 
 Act on those urges at Femme Ren's BOY ABUSE NIGHT!! Next week on the 9th!! $20 entry fee.
 
+(Anything too rough gets you permabanned from the establishment.)
+
 (Ren scratched out $20 and put $10 instead. Then he scratched that out and put $5 instead.)
 
 <b>FREE WEEKEND</b>
@@ -343,18 +442,27 @@ Ren sees you looking. He toys absent-mindedly with his pink key, turning it over
 
 He holds the key out to you.
 
+!`
+choicesPerPage = 1;
+`
 [Next?|nextThelly22]
 ---
 :nextThelly22
 
 He dangles the key in front of your face.
 
+!`
+choicesPerPage = 1;
+`
 [Next!|nextThelly22a]
 ---
 :nextThelly22a
 
 He boops your snout with it.
 
+!`
+choicesPerPage = 1;
+`
 [Next.|nextThelly23]
 ---
 :nextThelly23
@@ -365,6 +473,9 @@ Ren places the key in your palm. It's still warm from being tucked between his n
 
 "Open the door for me."
 
+!`
+choicesPerPage = 1;
+`
 [Why?|nextThelly24]
 ---
 :nextThelly24
@@ -373,6 +484,9 @@ Ren smiles.
 
 "Just do it."
 
+!`
+choicesPerPage = 1;
+`
 [Alright I guess...|nextThelly25]
 ---
 :nextThelly25
@@ -381,6 +495,9 @@ You plug the little pink key into the door and twist. Something goes <i>clunk</i
 
 Ren sneakily moves behind you.
 
+!`
+choicesPerPage = 1;
+`
 [What, is something gonna jump out and fuck my a—|nextThelly26]
 ---
 :nextThelly26
@@ -391,6 +508,9 @@ The door swings open.
 
 Sunlight rapes your pupils. They were dilated from the dim dungeon streets. A cheer and a whoop blasts your ears from all directions— you can't even shield your constricting pupils, because a dozen pairs of little paws grab your wrists and arms and yank you into the sunshine.
 
+!`
+choicesPerPage = 1;
+`
 [AAAA what's going on|nextThelly27]
 ---
 :nextThelly27
@@ -421,6 +541,9 @@ He tries again: "Please... grope my throat...?"
 
 Ren nods. "Better. Keep working on it."
 
+!`
+choicesPerPage = 1;
+`
 [HELP FUCK I'M DROWNING IN CUTE BOYS|nextThelly28]
 ---
 :nextThelly28
@@ -445,6 +568,9 @@ He looks up at Ren with excited confusion. "The one from my sex island? Our new 
 
 "Oh!" He glances mischeviously at his friends. "We locked him in the training machine."
 
+!`
+choicesPerPage = 1;
+`
 [Uh oh.|nextThelly29]
 ---
 :nextThelly29
@@ -466,6 +592,7 @@ Ren pats his head. "Good boy. That's right. Cute boys with big butts deserve eve
 All his sluts agree, nod, cheer, hoot, nya, mewl, twerk, or indicate assent some other way.
 
 !`
+choicesPerPage = 2;
 addChoice("Show me this training machine immediately.", "nextThelly30Training", {icons: ["Cub", "Male"]});
 addChoice("Shouldn't we head to your office, Ren?", "nextThelly30Records", {icons: ["Plot"]});
 `
@@ -478,8 +605,10 @@ addChoice("Shouldn't we head to your office, Ren?", "nextThelly30Records", {icon
 
 "Good. Go."
 
-!`data.thellySkippedMachine = true;`
-
+!`
+choicesPerPage = 1;
+data.thellySkippedMachine = true;
+`
 [Next.|nextThelly31]
 ---
 :nextThelly30Training
@@ -492,8 +621,10 @@ The cubs blush and stop whispering.
 
 Ren takes you by your shoulder. "We'll go get him out before we head to my office. He's probably at his limit by now."
 
-!`data.thellySkippedMachine = false;`
-
+!`
+choicesPerPage = 1;
+data.thellySkippedMachine = false;
+`
 [Gotcha.|nextThelly31]
 ---
 :nextThelly31
@@ -502,6 +633,9 @@ Ren sends the boys on their way with another snap. The neat, sterile line-up imm
 
 "Just follow me. Keep your eyes on my ass. Don't get side-tracked. It's a maze in there."
 
+!`
+choicesPerPage = 1;
+`
 [Follow Ren!|nextThelly32]
 ---
 :nextThelly32
@@ -515,6 +649,7 @@ The hallways sometimes cut right through rooms full of squeaking, rocking bunk-b
 Some passageways through the maze of cozy rooms were clearly made for cubs only. You both have to stoop down or crawl through them. When you do, Ren's buttcheeks slide against each other, two inches in front of your nose. A faint mixture of wood, sweat, and boi assmusk fills your lungs until you pop out on the other end of the passageway and get a breath of fresh air.
 
 !`
+choicesPerPage = 1;
 if (data.thellySkippedMachine == false) {
 	addChoice("Are we there yet?", "nextThelly33Machine");
 } else {
@@ -538,6 +673,9 @@ His upper body flops out in front of you both, arms slack. He's panting, but his
 
 "Hulloh!" he gasps. "Yerbeca!"
 
+!`
+choicesPerPage = 1;
+`
 [Yes, I am apparently Rebeca.|machine2]
 ---
 :machine2
@@ -548,6 +686,9 @@ He sucks in some breath. Ren slips up to him gracefully and braces Thelly's smoo
 
 Now he can talk a little clearer: "You are... you must be. I've forgotten so much about you... but I know the important parts, thanks to past me and his journal..."
 
+!`
+choicesPerPage = 1;
+`
 [I wish I had thought to write my story down before I lost my memories. I'm flying blind, here.|machine3]
 ---
 :machine3
@@ -558,6 +699,9 @@ Ren kisses one of his floppy ears. "You can take it, pup..."
 
 "A-Ah... Ah... There's nothing wrong with flying blind, `data.playerName`... putting the pieces back together for yourself must be fun. Must be like ahh-ahhh... ah... a game!"
 
+!`
+choicesPerPage = 1;
+`
 [It's refreshing to approach my life from a new perspective, I guess!|machine4]
 ---
 :machine4
@@ -572,6 +716,9 @@ Ren squeezes his little paws. "Take it."
 
 "I don't care. Take it."
 
+!`
+choicesPerPage = 2;
+`
 [Yeah, puppycunt. Take it.|machine5]
 [I wonder what you wrote about me in your journal.|machine5]
 ---
@@ -589,6 +736,9 @@ Thelly's eyes roll up into his head. His long puppy tongue flops out on Ren's sh
 
 "Yesh," Thelly moans past the digit. "Not... eber..."
 
+!`
+choicesPerPage = 1;
+`
 [Wow.|machine6]
 ---
 :machine6
@@ -609,6 +759,9 @@ The wooden limbs unfold from the center outwards, like a blossoming rose, joints
 
 "Thank you," Thelly squeaks.
 
+!`
+choicesPerPage = 1;
+`
 [Kiss him on the cheek~|machine7]
 ---
 :machine7
@@ -623,6 +776,9 @@ Ren steps away. Thelly's knees wobble a little, but he holds himself up. His paw
 
 Thelly smiles. "In a few days, maybe!"
 
+!`
+choicesPerPage = 1;
+`
 [Let's sit down for a moment~|machine8]
 ---
 :machine8
@@ -633,12 +789,18 @@ Ren overestimated. Most boys can only take max speed and depth for three minutes
 
 Eventually Thelly feels comfortable enough to start walking, and the three of you head for Ren's office.
 
+!`
+choicesPerPage = 1;
+`
 [Next!|nextThelly33]
 ---
 :nextThelly33Records
 
 "This is what happens when you let twenty cubs build their own house. We'll tear it down and start fresh a third time someday... someday."
 
+!`
+choicesPerPage = 1;
+`
 [Ahhh.|nextThelly33]
 ---
 :nextThelly33
@@ -657,6 +819,9 @@ Some of the doors don't even go anywhere. Every now and then a boy will wander i
 
 "It can get a little hard to concentrate," Ren shouts above the constant traffic.
 
+!`
+choicesPerPage = 1;
+`
 [YEAH?|nextThelly34]
 ---
 :nextThelly34
@@ -673,11 +838,14 @@ With a stacatto wood-on-wood clatter, like a stick dragged along a fence, a hund
 
 You're left in perfect silence.
 
-!`if (data.thellySkippedMachine) {
+!`
+choicesPerPage = 1;
+if (data.thellySkippedMachine) {
 	addChoice("Oh wow. Handy little things, aren't they?", "nextThelly35");
 } else {
 	addChoice("Oh wow. Handy little things, aren't they?", "nextThelly35Rejoin");
-}`
+}
+`
 ---
 :nextThelly35
 
@@ -693,6 +861,9 @@ Ren strokes his back soothingly. "That's right. Swallow... you've got some on yo
 
 He wipes a finger across Thelly's maw, tucking the loose cum back inside. Thelly swallows again without hesitation.
 
+!`
+choicesPerPage = 1;
+`
 [Hi, Thelly.|nextThelly35Rejoin]
 ---
 :nextThelly35Rejoin
@@ -705,6 +876,9 @@ He pauses and blinks.
 
 "Oh, and— sorry, I never really made it formal." Thelly grabs your paw with both of his and squeezes it reassuringly. "I'm Thelly! Nice to meet you... for the second time, I guess...!? Nice to meet you again? Nice to meet you v2?"
 
+!`
+choicesPerPage = 1;
+`
 [Nice to meet you v2, Thelly.|nextThellyFucked]
 ---
 :nextThellyFucked
@@ -713,17 +887,24 @@ He nods eagerly, big puppy ears flopping. "My journal goes into... <i>great</i> 
 
 He takes a big breath. "Just know that you saved my life and the lives of all my friends!!"
 
+!`
+choicesPerPage = 1;
+`
 [I did?!|nextThellyFucked2]
 ---
 :nextThellyFucked2
 
 He nods nods nods so hard his ears are about to fall off. "You did!!"
 
+!`
+choicesPerPage = 1;
+`
 [Aw jeez, I'm the best.|nextThellyFucked3]
 ---
 :nextThellyFucked3
 
 !`
+choicesPerPage = 1;
 streamEmbeddedTexture("writer/characters/thelly/thelly");
 streamEmbeddedTexture("writer/characters/ren/ren");
 `
@@ -746,12 +927,18 @@ One says <i>Customer Records</i> and the other says <i>Applicant Records.</i> Th
 
 You step forward and run your fingers over his bare butt, slipping them easily underneath the waistband. Thelly breathes warm and heavy against your neck and just lets it happen.
 
+!`
+choicesPerPage = 1;
+`
 [So, when we knew each other... what were we?|nextThelly36b]
 ---
 :nextThelly36b
 
 "Oh! Um. Can you rephrase that...?"
 
+!`
+choicesPerPage = 1;
+`
 [We used to know each other. I saved your life apparently. But were we...|nextThelly36c]
 ---
 :nextThelly36c
@@ -762,6 +949,9 @@ The front of his panties are just barely holding on. They tent a little. He scoo
 
 "We weren't in a relationship, no. We barely even knew each other in the start. Mostly you just wandered around my island. I was in that computer game, with Mynt. You fucked me, and cuddled with me, and watched my dom do awful stuff to me..."
 
+!`
+choicesPerPage = 1;
+`
 [Your dom~?|nextThelly36d]
 ---
 :nextThelly36d
@@ -770,6 +960,9 @@ He pulls back. His snout boops yours.
 
 "Can I just tell the story~? I'll leave my panties down..."
 
+!`
+choicesPerPage = 2;
+`
 [Sure.|nextThelly36]
 [I think I'd rather focus on my mom right now, actually.|nextThellyDivert]
 ---
@@ -781,6 +974,9 @@ Ren slaps the folders shut and fixes his red eyes squarely and definitively on n
 
 "Found it."
 
+!`
+choicesPerPage = 1;
+`
 [Yes!!!|nextThellyMom]
 ---
 :nextThelly36
@@ -832,6 +1028,8 @@ queueTitle("The next moment he'd be stuck waist-deep in a pond somewhere.");
 queueTitle("Cold, alone, an hour away from anybody.");
 queueTitle("He spent a lot of time alone because of that.");
 queueDelay(2);
+
+choicesPerPage = 2;
 queueAddChoice("I see.", "nextThelly37");
 queueAddChoice("(Keep staring.)", "nextThelly37");
 
@@ -880,6 +1078,8 @@ queueCall(function() {
 	tween(thellyBod, 1, {scaleX: 0}, {ease: QUAD_IN});
 });
 queueDelay(2);
+
+choicesPerPage = 1;
 queueAddChoice(":o", "vnThelly");
 
 `
@@ -917,6 +1117,8 @@ vn.delay(1);
 vn.say(1, "Ah...", 1);
 vn.say(1, "I guess that's not really the most solid lead, is it?");
 vn.say(1, "Can you get any clues out of that?");
+
+choicesPerPage = 1;
 vn.choice("Hmmmm...", function() {
 	gotoPassage("vnThelly2");
 });
@@ -964,6 +1166,8 @@ vn.delay(1);
 vn.say(1, "Ah...", 1);
 vn.say(1, "I guess that's not really the most solid lead, is it?");
 vn.say(1, "Can you get any clues out of that?");
+
+choicesPerPage = 1;
 vn.choice("Hmmmm...", function() {
 	gotoPassage("vnThelly2");
 });
@@ -973,7 +1177,8 @@ vn.stop();
 :vnThelly2
 
 !`
-choicesPerPage = 2;
+choicesPerPage = 1;
+
 vn.say(0, "Remember:");
 vn.say(0, "It could've been the fake Wendy looking for the real one, or the other way around.");
 vn.choice("Yeah, gotta find a way to tell them apart...");
@@ -1042,6 +1247,7 @@ vn.say(0, "Actually, I had something else in mind.");
 vn.say(1, "Oh boy...", 2);
 vn.moveOut(0);
 vn.moveOut(1);
+
 vn.choice("Hmmmm...", function() {
 	gotoPassage("vnThellyEnd");
 });
@@ -1070,6 +1276,9 @@ He pats his desk.
 
 Thelly looks at you, performing helplessness, brow all furrowed, paws wringing. His excited little tail gives him away, though.
 
+!`
+choicesPerPage = 3;
+`
 [Go see your master.|thellySex]
 [Fuck you looking at puppyslut? (Smack his ass.)|thellySmack]
 [Welp, it's been fun, boys. I got what I came for. Seeya!|thellyMoveAlong]
@@ -1088,6 +1297,9 @@ Thelly just mewls "Please... one more..."
 
 He lifts his skirt with both paws and arches his back. His ass and nuts jiggle gently, begging for abuse.
 
+!`
+choicesPerPage = 2;
+`
 [Another one. Harder.|nextThellyAnother]
 [Mmm... nah~|nextThellyTease]
 ---
@@ -1097,6 +1309,9 @@ He pouts.
 
 ... He pouts a little more, hoping you'll change your mind. Then he drops his skirt again. The soft fabric flutters down over his asscheeks, clinging to their silhouette.
 
+!`
+choicesPerPage = 2;
+`
 [Now smack him.|nextThellyAnother]
 [Next.|nextThellyAnother2a]
 ---
@@ -1112,6 +1327,9 @@ Thelly sways on his high-heels and falls against Ren and the desk. The legs groa
 
 Ren grins like a feral, fangs out. "Awww, he couldn't take it."
 
+!`
+choicesPerPage = 2;
+`
 [Oops. Are you okay, Thelly?|nextThellyAnother2]
 [You like getting your ass beat you little slut?|nextThellyAnother2]
 ---
@@ -1125,6 +1343,9 @@ Ren slams a paw between his shoulder blades and shoves him to the ground on all 
 
 Thelly grunts, resting on his elbows. He shoots you a pitiful look and raises his hips. "I'm sorry. Sorry..."
 
+!`
+choicesPerPage = 1;
+`
 [Not sorry enough~|nextThellyAnother2a]
 ---
 :nextThellyAnother2a
@@ -1143,6 +1364,9 @@ Ren commands from above: "Ask nicely to sit on the desk with me, bitch."
 
 He gasps: "Please may I... sit on your desk, Ren...?"
 
+!`
+choicesPerPage = 1;
+`
 [Help him up.|nextThellyAnother3]
 ---
 :nextThellyAnother3
@@ -1157,6 +1381,9 @@ Although you can't see his bare butt anymore, you imagine you can feel the heat 
 
 Ren thanks you softly under his breath and takes the lead again.
 
+!`
+choicesPerPage = 1;
+`
 [Next.|thellySex2]
 ---
 :thellySex
@@ -1165,6 +1392,9 @@ Thelly's chin drops to his chest. His tail curls between his legs, and its fur m
 
 He trots over to the desk, obediently.
 
+!`
+choicesPerPage = 1;
+`
 [Good boy.|thellySex2]
 ---
 :thellySex2
@@ -1187,6 +1417,9 @@ Thelly squeaks. His ass <i>pomfs</i> onto the desk, beside Ren's. "Ah! Thank you
 
 "Try."
 
+!`
+choicesPerPage = 1;
+`
 [Next.|thellySex2a]
 ---
 :thellySex2a
@@ -1220,6 +1453,9 @@ Ren's grip on his hair tightens.
 
 Ren bites down on his throat.
 
+!`
+choicesPerPage = 1;
+`
 [How's that feel?|thellySex3]
 ---
 :thellySexHair
@@ -1244,12 +1480,18 @@ Thelly leaks with whimpers and precum. He grimaces. He gently lowers his head ba
 
 Ren bites down hard.
 
+!`
+choicesPerPage = 1;
+`
 [Oh god. You good, Thelly?|thellySex3]
 ---
 :thellySexPomf
 
 Get that meme shit out of here you nerd.
 
+!`
+choicesPerPage = 1;
+`
 [Oh come on let me do the meme. They'll love it.|thellySexPomf2]
 ---
 :thellySexPomf2
@@ -1258,24 +1500,36 @@ No, they'll have no idea what you're talking about. Unlike Mynt, I have certain 
 
 I'm not letting you do the meme because it's just going to be awkward for everybody.
 
+!`
+choicesPerPage = 1;
+`
 [Come on Mr. Eyeball.|thellySexPomf3]
 ---
 :thellySexPomf3
 
 I said no!
 
+!`
+choicesPerPage = 1;
+`
 [Gah, fine.|thellySexPomf4]
 ---
 :thellySexPomf4
 
 Pick something else for him to say. Personally, I'd suggest something like "I'm a cute puppy."
 
+!`
+choicesPerPage = 1;
+`
 [(I will myself super hard to do the pomf meme. Don't need any help from you.)|thellySexPomf5]
 ---
 :thellySexPomf5
 
 Good luck knowing if that even worked.
 
+!`
+choicesPerPage = 1;
+`
 [Come on. At least narrate their reactions.|thellySexPomf6]
 ---
 :thellySexPomf6
@@ -1284,6 +1538,9 @@ Ren and Thelly are both staring at you. Well, Thelly is. Ren is trying his best.
 
 "Pomf, what? Is that a meme or something?"
 
+!`
+choicesPerPage = 1;
+`
 [Yeah sorry I was just trying to be funny. Shit.|thellySexPomf7]
 ---
 :thellySexPomf7
@@ -1300,12 +1557,18 @@ Thelly tries it out anyway: "P-Pomf... what are we gonna do on the desk...?"
 
 Ren bites down hard.
 
+!`
+choicesPerPage = 1;
+`
 [Oooof.|thellySex3]
 ---
 :thellySexDumb
 
 Thelly pouts at you. "That's too mean."
 
+!`
+choicesPerPage = 1;
+`
 [I don't care. Say it.|thellySexDumb2]
 ---
 :thellySexDumb2
@@ -1320,6 +1583,9 @@ Ren feels the words come out, too. His teeth nuzzle Thelly's neck. Ren yanks his
 
 He bites down.
 
+!`
+choicesPerPage = 1;
+`
 [Oh god.|thellySex3]
 ---
 :thellySex3
@@ -1332,6 +1598,9 @@ Thelly's eyes snap open and he seizes control of himself again, like a truck dri
 
 "AH! GOOD! IT FEELS GOOD!"
 
+!`
+choicesPerPage = 1;
+`
 [Yeah? <3|thellySex3a]
 ---
 :thellySex3a
@@ -1348,12 +1617,18 @@ Thelly whimpers. "Yeah. And it hurt, too."
 
 Ren smirks with a fang hanging out of the corner of his maw. "Mmmh. Good. That's what you're for."
 
+!`
+choicesPerPage = 1;
+`
 [Slide up to them.|thellySex4]
 ---
 :thellySex4
 
 Your `genitals()` rub between their girly thighs. They hug you from both sides, kissing your neck and your cheeks and your `boobs()` with a flurry of utterly domesticated affection.
 
+!`
+choicesPerPage = 1;
+`
 [You've both got such big hips...|thellySex5]
 ---
 :thellySex5
@@ -1366,6 +1641,9 @@ He quivers in response, rocking his hips against the desk. If you rest your chin
 
 Ren peeks curiously at his own fat ass. "I feel like this little episode has been pretty butt-focused, too. We should end it on the same note..."
 
+!`
+choicesPerPage = 1;
+`
 [Oh~?|thellySex6]
 ---
 :thellySex6
@@ -1381,6 +1659,7 @@ Ren brings the cage down to Thelly's throbbing puppydick. The room fills with si
 By then, Thelly has softened up, and the still-warm cage slips right on. It locks into place with a click. Perfect fit.
 
 !`
+choicesPerPage = 1;
 if (data.genitals !== "female") addChoice("Watch.", "thellySex7");
 else addChoice("Grind on his ass.", "thellySex7");
 `
@@ -1412,6 +1691,7 @@ Thelly opens his mouth to reply—
 And Ren drop his ass down on the little pup's mouth, stuffing it full of taint. <3
 
 !`
+choicesPerPage = 1;
 addChoice("Watch.", "thellySex8");
 `
 ---
@@ -1424,6 +1704,7 @@ Ren's asscheeks slide down and split apart to take Thelly's whole face between t
 Cute puppy whimpers leak out just underneath Ren's tail.
 
 !`
+choicesPerPage = 1;
 if (data.genitals === "female") addChoice("Watch.", "thellySex9");
 else addChoice("Plunge inside.", "thellySex9a");
 `
@@ -1434,6 +1715,9 @@ You ram forward at max force. His hole is already loose and warmed up from the m
 
 Thelly squeals like a pitiful lil piglet as Ren refuses to let him off to acclimate. Thelly gags and gasps with the rhythm of your fuck. Every thrust forces the air from his already needy lungs.
 
+!`
+choicesPerPage = 1;
+`
 [Unf...|thellySex9]
 ---
 :thellySex9
@@ -1449,6 +1733,7 @@ Ren runs a paw over Thelly's bare chest and stomach, pinning him to the desk, an
 !`if (data.genitals !== "female") append("Your vicious thrusting does not help at all. Thelly's feet writhe and twitch as you hold his legs to the desk and fuck him so hard your end lifts a couple inches off the ground each time you plunge your dick up to his prostate and then slams back down just a second later. Your nuts bang against Thelly's bubbly buttcheeks while his own nuts bounce up and down happily in their sack, just below that pathetic, soft little puppydick~");`
 
 !`
+choicesPerPage = 1;
 addChoice("You gonna cum, Ren?", "thellySex10");
 `
 ---
@@ -1469,6 +1754,7 @@ Ren peels his ass off Thelly's face. It's coated with sweat and a couple white w
 Ren slides his knees back and plunges his dick down Thelly's throat all at once. He grabs you by the neck and kisses you hard as his unrelenting thrusts send Thelly's skull banging against the table. Ren doesn't care. He humps harder and faster. He feeds cock down Thelly's throat like it's a cunt and he wants it pregnant.
 
 !`
+choicesPerPage = 1;
 if (data.genitals !== "female") addChoice("Cum.", "thellySex10a");
 else addChoice("Cum.", "thellySex10b");
 `
@@ -1479,6 +1765,9 @@ You follow suit, meeting Ren's soft kiss and stuffing your tongue in his maw. He
 
 Neither of you show mercy. Thelly squirms and struggles on your dicks for show, but they aren't coming out until you're both satisfied. You lean into the kiss, tilting your head to prevent schnoz collision, and suck on Ren's tongue as your cockhead beats on Thelly's prostate and you both climax at once.
 
+!`
+choicesPerPage = 1;
+`
 [HNNNNNGH|thellySex10b]
 ---
 :thellySex10b
@@ -1486,6 +1775,7 @@ Neither of you show mercy. Thelly squirms and struggles on your dicks for show, 
 In moments Ren hits orgasm. He wraps an arm around your neck and holds you close, slamming his cock down over and over. He reaches down with his free paw and massages the massive, straining cockbulge in that tiny throat. Visible spurts of cum force their way down to his belly.
 
 !`
+choicesPerPage = 1;
 if (data.genitals !== "female") addChoice("Force it in.", "thellySex10c");
 else addChoice("Ahhh...", "thellySex10d");
 `
@@ -1497,6 +1787,9 @@ You force your cock in as deep as it'll go and cum. Thelly gurgles out a squeal,
 
 You both stay there for a full minute. The room is quiet except for Thelly's gagging and the sound of cum slowly trickling into his belly from both ends. It swells up a tiny bit. You and Ren can't resist... you both reach out and rub it with your paws, feeling the tightness in his golden fur and the warmth of your thick cum hidden just beneath it.
 
+!`
+choicesPerPage = 1;
+`
 [Phwahhh...|thellySex10d]
 ---
 :thellySex10d
@@ -1504,6 +1797,7 @@ You both stay there for a full minute. The room is quiet except for Thelly's gag
 "Aaahhh..." Ren sighs. He smiles at you. "So relaxed... I gotta go pee, but I don't wanna get up..."
 
 !`
+choicesPerPage = 2;
 addChoice("Piss down his throat, Ren. <3", "thellySexPiss", {icons: ["Piss"]});
 addChoice("Wind down.", "thellyWindDown");
 `
@@ -1531,6 +1825,7 @@ Ren grabs him by the throat. He screws his eyes shut and concentrates.
 "Open... that's... it... say aaahhhh."
 
 !`
+choicesPerPage = 2;
 if (data.genitals !== "female") addChoice("Piss up Thelly's butt. <3", "thellySexPiss2");
 else addChoice("Mmmf... next...", "thellySexPiss2a");
 addChoice("Wind down.", "thellyWindDown");
@@ -1540,6 +1835,9 @@ addChoice("Wind down.", "thellyWindDown");
 
 At the same instant, you release a jet of pee right up Thelly's ass. You aim it so the jet blasts against his prostate, stimulating it with force and warmth. Thelly's thighs smush together as hot golden trickles leak between them~
 
+!`
+choicesPerPage = 1;
+`
 [So warm...|thellySexPiss2a]
 ---
 :thellySexPiss2a
@@ -1554,12 +1852,18 @@ Eventually, the stream runs dry. Both you and Ren step away from the desk, panti
 
 "Th-Thank— hrk— Thanks, guys..."
 
+!`
+choicesPerPage = 1;
+`
 [Wind down~|thellyWindDown]
 ---
 :thellyWindDown
 
 After that intense, impromptu threesome, you all go through the records one last time. It doesn't yield much, though.
 
+!`
+choicesPerPage = 3;
+`
 [Customer Records.|thellyCust]
 [Applicant Records.|thellyApp]
 [Next.|thellyWindDown2]
@@ -1569,11 +1873,12 @@ After that intense, impromptu threesome, you all go through the records one last
 <b>Customer Records</b>
 === 9/8/2083 [The day the power went out in your bomb shelter.] ===
 
-<b>~~~</b> One surly lion. Gartrag.
+<b>~~~</b> Cartographer.
+	- Just got back from the island, needed to unwind after his vacation
     - Got the youngest for a night and left.
     - No trouble, but seemed like there easily could have been.
 
-<b>~~~</b> Two girls looking for a boy with blue skin.
+<b>~~~</b> Two girl nymphs looking for any boy nymph. None here.
 
 <b>~~~</b> An angry cow lady.
     - Disruptive. Bitch.
@@ -1587,7 +1892,7 @@ After that intense, impromptu threesome, you all go through the records one last
     - We kick her out with $50 tucked between her asscheeks and tell her to go jump in the pond and look around.
     - Someone will take her up on her offer, but not our employees. We're hurting on boipower as it is.
 
-<b>~~~</b> One crusty old angel looking for someone named Rebeca.
+<b>~~~</b> One crusty old angel guy looking for someone named Rebeca.
     - Stuck around for a bit too long.
     - Creepy.
 
@@ -1693,6 +1998,9 @@ After that intense, impromptu threesome, you all go through the records one last
 
 The weeks go on like this.
 
+!`
+choicesPerPage = 2;
+`
 [Customer Records.|thellyCust]
 [Next.|thellyWindDown2]
 ---
@@ -1716,6 +2024,9 @@ The boys up on the walkways finally disperse. A little bit of commotion starts u
 
 Thelly hugs him and doesn't say anything. He puts his face in Ren's chest floof.
 
+!`
+choicesPerPage = 1;
+`
 [Answer!|thellyWindDown4]
 ---
 :thellyWindDown4
@@ -1726,6 +2037,9 @@ Thelly pulls his face away, a little teary.
 
 "You're disabled," he says. "So..."
 
+!`
+choicesPerPage = 1;
+`
 [...|thellyWindDown5]
 ---
 :thellyWindDown5
@@ -1742,6 +2056,9 @@ Ren crushes him in a supermassive hug. Thelly squeaks. His fluffy tail helicopte
 
 "I'd love that, Thelly."
 
+!`
+choicesPerPage = 1;
+`
 [Move along.|thellyMoveAlong]
 ---
 :thellyMoveAlong

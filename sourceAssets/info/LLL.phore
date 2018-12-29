@@ -4,6 +4,7 @@ START_PASSAGES
 You're at the L.L.L.! Cartographer's little library, lounge room, and map dome.
 
 !`
+choicesPerPage = 5;
 addChoice("Move along.", function() {
 	clear();
 	gotoLLL();
@@ -102,7 +103,6 @@ choicesPerPage = 2;
 !`
 choicesPerPage = 1;
 `
-
 [You goofin wild on some sticky fresh Wank House bangers with a—|trans7]
 ---
 :trans7
@@ -112,17 +112,22 @@ choicesPerPage = 1;
 !`
 choicesPerPage = 1;
 `
-
 [Aw.|trans8]
 ---
 :trans8
 
 You twiddle your thumbs and sit on the couch next to him.
 
+!`
+choicesPerPage = 1;
+`
 [...|trans9]
 ---
 :trans9
 
+!`
+choicesPerPage = 1;
+`
 [So can I listen too, or...|trans10]
 ---
 :trans10
@@ -131,6 +136,9 @@ He holds the gadget to your ear.
 
 Up close, it's really dirty and greasy, and looks half-broken...
 
+!`
+choicesPerPage = 1;
+`
 [Listen to the transmission.|trans11]
 ---
 :trans11
@@ -156,6 +164,7 @@ timer(5, function() {
 
 !`
 enableExit();
+choicesPerPage = 1;
 if (musicTemp) musicTemp.destroy();
 `
 
@@ -168,7 +177,6 @@ if (musicTemp) musicTemp.destroy();
 !`
 choicesPerPage = 1;
 `
-
 [I'm not sure I'd describe them exactly like that, but... yeah, they sound drenched.|trans14]
 ---
 :trans14
@@ -177,6 +185,9 @@ Cart puts the gadget to his ear again and stares at the ceiling, legs crossed, f
 
 "I should map a route there. I do not know what they are saying, but it sounds like they need help."
 
+!`
+choicesPerPage = 1;
+`
 [Or they need a meal...|trans15]
 ---
 :trans15
@@ -185,6 +196,9 @@ He covers his crotch with a sly paw.
 
 "Yes. Maybe they would eat me as soon as I got there."
 
+!`
+choicesPerPage = 2;
+`
 [...|trans16]
 [Unh yeah... <3|trans16]
 ---
@@ -196,6 +210,9 @@ He scurries off to his map dome, bare feetpaws pitter-pattering, flicks on the a
 
 "Only one way to find out!"
 
+!`
+choicesPerPage = 1;
+`
 [Wasn't he supposed to be on break...?|hubLLL]
 ---
 :layerLLL
@@ -206,6 +223,9 @@ CHILD LAYERS: Spilled Paint (+87 children)
 PARAPHRASED TIMELINES:
 	> Redacted.
 
+!`
+choicesPerPage = 1;
+`
 [Back.|hubLLL]
 
 ---
@@ -247,6 +267,9 @@ Listed from oldest to newest.
 <b>Shapeshift:</b> Electron arrangement for Wendy Archibald's hard drive
 <b>Target:</b> Library2
 
+!`
+choicesPerPage = 1;
+`
 [Back.|hubLLL]
 ---
 :assimilationNotes
@@ -307,7 +330,10 @@ Listed from oldest to newest.
 		
 		- All characters are <b>INVALID</b> duplicates. No further assimilation possible
 		- 7 seeds assimilated by <i>Paraphore #143</i>
-		
+
+!`
+choicesPerPage = 3;
+`
 [Assimilation Notes.|assimilationNotes]
 [Can you sum this up for me?|dumbDown]
 [Back.|hubLLL]
@@ -317,6 +343,7 @@ Listed from oldest to newest.
 Sure.
 
 !`
+choicesPerPage = 1;
 var spr = addImage("img/writer/statusBox.png");
 spr.y = gameHeight/2 - spr.height/2;
 `
@@ -399,6 +426,9 @@ An immortal hivemind spanning multiple layers. Started by Mr. Eyeball. Travel be
 <i>Relevant Quote</i>
 "The Interphore's respawn point system allows you to emerge from any pond on the Paraphores."
 
+!`
+choicesPerPage = 2;
+`
 [Next.|terms2a]
 [Back.|hubLLL]
 ---
@@ -427,6 +457,9 @@ The founder of the Interphore and the narrator of your reality. His telepathic w
 <i>Relevant Quote</i>
 "Twenty billion years ago, Mr. Eyeball assimilated Cartographer, the first member of his hivemind."
 
+!`
+choicesPerPage = 2;
+`
 [Next.|terms2b]
 [Back.|hubLLL]
 ---
@@ -545,6 +578,9 @@ The Paraphores have six rules of operation:
 5. Know LETHAL and CORRUPTIVE warning signs.
 6. Have fun.
 
+!`
+choicesPerPage = 3;
+`
 [1. Record stories.]
 [2. Tell stories.]
 [3. After all stories have been recorded, open your eye.]
@@ -576,6 +612,11 @@ The Paraphores have six rules of operation:
 			2. HOSTILE: This layer's characters have injured Paraphores in the past.
 			3. LETHAL: This layer's characters are willing to slaughter Paraphores.
 			4. CORRUPTIVE: This layer's characters have dedicated themselves not only to the slaughter of individual Paraphores but to the destruction of the Interphore and all Paraphores it contains.
+
+
+!`
+choicesPerPage = 1;
+`
 [Back.|Rules of Operation for Paraphores.]
 ---
 :2. Tell stories.
@@ -588,6 +629,11 @@ The Paraphores have six rules of operation:
 	- The Interphore reserves the right to kill or incapacitate you at any time if the stories you tell are liable to leak highly secret information or liable to provide a pathway for a LETHAL or CORRUPTIVE layer's full-scale attack on the Interphore.
 	
 	- Likewise, choosing to spawn on layers that are still being recorded (and thus have not been marked as Safe) is dangerous for non-Paraphores as well. Any assimilated creatures who choose to spawn on layers WITHOUT any open-eye Paraphore may be left stranded on that layer if it ever receives an urgent LETHAL or CORRUPTIVE rating reclassification.
+
+
+!`
+choicesPerPage = 1;
+`
 [Back.|Rules of Operation for Paraphores.]
 ---
 :3. After all stories have been recorded, open your eye.
@@ -631,6 +677,10 @@ The Paraphores have six rules of operation:
 		- End-Class: End-Class layers are in the process of closing, either due to unpopularity, hostile characters, or simply because the Paraphore wishes to return to the Interphore and resume living as a regular assimilated creature instead of opening their eye. Spawning on these layers may be restricted or entirely stopped in the near future; it is YOUR responsibility to ensure you are not left stranded.
 		
 		- Test-Class: Test-Class layers are still pending a full 'safe' assessment; their Paraphore has not opened its eye yet. Spawning here is allowed as long as you accept the risk of death or confinement due to unforeseen complications.
+
+!`
+choicesPerPage = 1;
+`
 [Back.|Rules of Operation for Paraphores.]
 ---
 :4. No duplicates.
@@ -656,6 +706,9 @@ The Paraphores have six rules of operation:
 
 	The Outerphore is going through its first test run now. Please avoid assimilating even valid duplicates until the Outerphore has been confirmed to work. Even after testing, this exception is NOT a margin for error, a second chance, or any other excuse for you to lazily scoop up even one duplicate from the layers you paraphrase.
 
+!`
+choicesPerPage = 1;
+`
 [Back.|Rules of Operation for Paraphores.]
 ---
 :5. Know LETHAL and CORRUPTIVE warning signs.
@@ -703,6 +756,11 @@ The Paraphores have six rules of operation:
 	- ... refused to be killed when instructed?
 	- ... could not remain calm in the event of a Deadzone or Doppleganger check failure, a full-scale attack by the layer's characters, or the discovery of an anti-Interphore conspiracy?
 	- ... did not report any of the above when they had ample chance to?
+
+
+!`
+choicesPerPage = 1;
+`
 [Back.|Rules of Operation for Paraphores.]
 ---
 :6. Have fun.
@@ -712,6 +770,10 @@ The Paraphores have six rules of operation:
 	- On the other hand, your sacrifice will potentially save millions of souls from the prison of a fictional reality.
 	- 77 percent of Paraphores agree it is always worth it to open your eye if you can save even just one person from death or eternity in a lonely, isolated world.
 	- Remember that your enlistment as a Paraphore can be cancelled at any time prior to deployment.
+
+!`
+choicesPerPage = 1;
+`
 [Back.|Rules of Operation for Paraphores.]
 
 END_PASSAGES

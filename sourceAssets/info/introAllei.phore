@@ -63,6 +63,9 @@ They side-eye you, this <i>stranger</i> with the nerve to wander into <i>their</
 
 "Sheven... gimmie a cocktail. Any kind."
 
+!`
+choicesPerPage = 1;
+`
 [Ignore them, too.]
 ---
 :Ignore them, too.
@@ -111,7 +114,11 @@ if (data.genitals == "both") {
 }
 if (data.genitals == "male") addChoice("Go somewhere more private.", "Go somewhere more private.", {icons: ["Male", "Female"]});
 if (data.genitals == "female") addChoice("Go somewhere more private.", "Go somewhere more private.Fem", {icons: ["Male", "Female"]});
-if (data.genitals === undefined) msg("You need to go set your genits!");
+if (data.genitals === undefined) addChoice("Go set your variables you rube", function() {
+	clear();
+	execAsset("thirstyCaves.phore");
+	gotoPassage("Jump in.");
+});
 `
 ---
 :Go somewhere more private.
@@ -294,6 +301,9 @@ choicesPerPage = 1;
 
 Allei manages to get enough of her attention back to use only a single voice again, with all the other nymphs staying quiet. "Mnnh, well... you ready for that reward I promised?" She asks, looking down at her cunt and your dick beneath, then back up at you. "I bet you've never had a pussy as tight as mine wrap you to the root, huh? You hard for my loli pussy~?" She rolls her hips in circles a few more times. "Wanna watch your dick split my cunt and fuck my womb full of your baby batter~? If you ask nice I won't ride your face with one of my other bodies, so you can watch while it happens."
 
+!`
+choicesPerPage = 1;
+`
 [U-Uh... sure~]
 ---
 :U-Uh... sure~
@@ -747,6 +757,9 @@ choicesPerPage = 1;
 
 "Anyway~ I'm gonna head back to the bar. See you around, hun." Without any further fanfare the group picks themselves up, going back to what they were doing before. You're left exhausted and sore in the grass, coated nearly head to toe in cuntslime that glimmers in the low light.
 
+!`
+choicesPerPage = 1;
+`
 [Fwa... move along...|Move along.]
 ---
 :Move along.

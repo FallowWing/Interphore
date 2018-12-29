@@ -3,18 +3,27 @@ START_PASSAGES
 
 You roll by the L.L.L. to check on Cart's progress with his creepy transmission, but the door to his map dome is actually shut for once.
 
+!`
+choicesPerPage = 1;
+`
 [Hellooo~?|cartPara1]
 ---
 :cartPara1
 
 You press your ear to the door. There's the usual schlicky wet noise of painted paws sliding across paper. The sound pans from left ear to right, up and down, flying in complex revolutions around the dome.
 
+!`
+choicesPerPage = 1;
+`
 [I guess he's too busy to talk to me...|cartPara2]
 ---
 :cartPara2
 
 He gets like that when he's really focused. Want me to bug him for you?
 
+!`
+choicesPerPage = 1;
+`
 [Oh, no, I don't wanna interrupt or anythi—|cartPara3]
 ---
 :cartPara3
@@ -27,16 +36,25 @@ The door swings open. Cart looks pissed.
 
 "What? I am busy."
 
+!`
+choicesPerPage = 1;
+`
 [Okay first of all this isn't my fault actually but I—|cartPara4]
 ---
 :cartPara4
 
 "Get to the point."
 
+!`
+choicesPerPage = 1;
+`
 [I just wanted to check up on your progress that's all jeez!!|cartPara5]
 ---
 :cartPara5
 
+!`
+choicesPerPage = 1;
+`
 [What with the spooky transmission and stuff.|cartPara6]
 ---
 :cartPara6
@@ -45,6 +63,9 @@ The door swings open. Cart looks pissed.
 
 He pulls the gadget out from between his buttcheeks. It's still transmitting the same distressed groans and glorps and whines.
 
+!`
+choicesPerPage = 1;
+`
 [You can't map the way there...?|cartPara7]
 ---
 :cartPara7
@@ -57,6 +78,9 @@ He places his paw on the dome, smudging in a blue waypoint. The paint on his paw
 
 "See? Their gadget changes. My routes fall out of date too fast."
 
+!`
+choicesPerPage = 1;
+`
 [THEIR gadget?|cartPara8]
 ---
 :cartPara8
@@ -67,24 +91,36 @@ Cart seems to realize something. He drops to his butt, cross-legged, maw drooped
 
 "Nevermind. It is too hard to explain."
 
+!`
+choicesPerPage = 1;
+`
 [Hey.|cartPara9]
 ---
 :cartPara9
 
 He fiddles with the gadget and doesn't look at you.
 
+!`
+choicesPerPage = 1;
+`
 [I'm here to help!|cartPara10]
 ---
 :cartPara10
 
 "How can you help? You do not know anything."
 
+!`
+choicesPerPage = 1;
+`
 [... You can be a bit too blunt sometimes, you know.|cartPara11]
 ---
 :cartPara11
 
 "I am sorry. Let me rephrase that: it would take more effort for me to get you up to speed on the processes of map-making and paraphore dispatch than it would take to just do it myself."
 
+!`
+choicesPerPage = 1;
+`
 [Oh shut up. THEIR gadget. What does that mean.|cartPara12]
 ---
 :cartPara12
@@ -93,6 +129,9 @@ He pouts for a second...
 
 "They live inside it."
 
+!`
+choicesPerPage = 1;
+`
 [Oh! Wow. I thought they were just sending a transmission to it.|cartPara13]
 ---
 :cartPara13
@@ -105,46 +144,70 @@ He ignores that.
 
 "While you were gone, I did some digging, and their transmission is definitely coming from inside the transmitter itself."
 
+!`
+choicesPerPage = 1;
+`
 [Okay, so you're trying to map your way inside it. Kind of.|cartPara15]
 ---
 :cartPara15
 
 "Yes."
 
+!`
+choicesPerPage = 1;
+`
 [And what's your problem? What's stopping you?|cartPara16]
 ---
 :cartPara16
 
 "The machinery inside keeps shifting."
 
+!`
+choicesPerPage = 1;
+`
 [Why?|cartPara17]
 ---
 :cartPara17
 
 "I do not know."
 
+!`
+choicesPerPage = 1;
+`
 [You said it happened every time you got close.|cartPara18]
 ---
 :cartPara18
 
 "Yes."
 
+!`
+choicesPerPage = 1;
+`
 [Well then, obviously, YOU'RE the problem.|cartPara19]
 ---
 :cartPara19
 
 He glares at you. You can feel it even through his bangs.
 
+!`
+choicesPerPage = 1;
+`
 [Something happens when you get close to done but can't quite finish teh map.|cartPara20]
 ---
 :cartPara20
 
+!`
+choicesPerPage = 1;
+`
 [That something must cause the shifts.|cartPara21]
 ---
 :cartPara21
 
 ...
 
+!`
+choicesPerPage = 1;
+`
 [...|cartPara22]
 ---
 :cartPara22
@@ -153,6 +216,9 @@ Cart gets up in a whirl of fluid momentum and smacks his map. The canvas shakes 
 
 "I do not know! I do not know!!"
 
+!`
+choicesPerPage = 1;
+`
 [Jesus calm down kid.|cartPara23]
 ---
 :cartPara23
@@ -163,6 +229,9 @@ He clutches his hair and howls at the ceiling.
 
 "Kyaaaaa!"
 
+!`
+choicesPerPage = 1;
+`
 [Okay there, you got it out. Now calm down.|cartPara24]
 ---
 :cartPara24
@@ -171,14 +240,23 @@ He sniffles and releases his hair. His paws flop down to his naked hips.
 
 "Okay. I am sorry."
 
+!`
+choicesPerPage = 1;
+`
 [I got an idea.|cartPara25]
 ---
 :cartPara25
 
+!`
+choicesPerPage = 1;
+`
 [Let's watch for the exact moment it happens.|cartPara26]
 ---
 :cartPara26
 
+!`
+choicesPerPage = 1;
+`
 [Keep mapping and let me watch the transmission thingy.|cartPara27]
 ---
 :cartPara27
@@ -187,6 +265,9 @@ You take it from him with a bit of effort. He doesn't wanna let go. Up close, it
 
 The gadget calms down and settles into place again.
 
+!`
+choicesPerPage = 1;
+`
 [Tell me your secrets, you little fuck. (Smack it.)|cartPara28]
 ---
 :cartPara28
@@ -199,12 +280,18 @@ The speaker crackles and loses its signal. Static drowns everything else out.
 
 Cart frowns and diddles with a knob on the side until the frequency is close enough to separate the elemental voices from the white noise again. A fresh prickle of panic has distorted them: they all yipe and squeal and scream in their wet, throaty voices.
 
+!`
+choicesPerPage = 1;
+`
 [Ugh. It sounds bad in there.|cartPara29]
 ---
 :cartPara29
 
 "Oh, listen," Cart despairs. "They are suffering. We have to find a way down to their layer. What am I doing wrong... what, what, what..."
 
+!`
+choicesPerPage = 1;
+`
 [Fuck with it. Press the buttons and turn the knobs.|cartPara30]
 ---
 :cartPara30
@@ -219,6 +306,9 @@ The wet voices scream.
 
 "Oh <i>great</i>, now—"
 
+!`
+choicesPerPage = 1;
+`
 [... Wait. Look.|cartPara31]
 ---
 :cartPara31
@@ -231,6 +321,9 @@ He looks at his map.
 
 "I do not..."
 
+!`
+choicesPerPage = 1;
+`
 [SHUSH!!! ... Do it again. Now.|cartPara32]
 ---
 :cartPara32
@@ -243,6 +336,9 @@ The gadget completely re-aligns itself, and the voices scream and babble like th
 
 He reviews his paint. "I knew it! They moved again. Now the whole map is useless."
 
+!`
+choicesPerPage = 1;
+`
 [Listen, you need to stop stressing, it seems like every time you—|cartPara33]
 ---
 :cartPara33
@@ -251,6 +347,9 @@ He grabs you by the shoulders. This looks pretty ridiculous, since he's half you
 
 "Do you not see!" he says, shaking you ineffectively. His tail and ears perk hard.  "They evade aggression!"
 
+!`
+choicesPerPage = 2;
+`
 [Oh?! Hey! Like I said, stop stressing!|cartParaRegorn]
 [See?? I knew I could help.|cartParaRegorn]
 ---
@@ -261,6 +360,7 @@ He stands on his tippy toes and cranes his neck up.
 "Hurry! There is only one way to pin them down!"
 
 !`
+choicesPerPage = 1;
 addChoice("... Oh jeez.", "cartParaEffort", {icons: ["Cub", "Male", "Plot"]});
 `
 ---
@@ -272,6 +372,9 @@ When he pulls away, he drags two fingers through the film of saliva hanging from
 
 "Love!" he bursts, and happiness poofs his tail out. "Only loving cartography will route us down there! What an ingenious defense mechanism!"
 
+!`
+choicesPerPage = 1;
+`
 [Oooo.|cartPara34]
 ---
 :cartPara34
@@ -280,6 +383,9 @@ When he pulls away, he drags two fingers through the film of saliva hanging from
 
 He rests his chin on your chest, still hugging you. You look down. All you can see is his squished :3 face, his bangs, and the tops of his buttcheeks behind and below. You can't see the rest of his naked little body, you can only feel it as warmth against your legs and lower belly.
 
+!`
+choicesPerPage = 1;
+`
 [What uh... what do you need me to do?|cartPara35]
 ---
 :cartPara35
@@ -290,30 +396,45 @@ He pulls away from you.
 
 "Go into the antechamber. Take a left down the hallway you never noticed before. The paint room will be on your right. Grab whichever colors you have the most affection for. When you come back, I will be ready."
 
+!`
+choicesPerPage = 1;
+`
 [Yeah, but, I mean... what are we gonna do after that?|cartPara36]
 ---
 :cartPara36
 
 "We will have sex, of course."
 
+!`
+choicesPerPage = 1;
+`
 [Like on the ground in here?|cartPara37]
 ---
 :cartPara37
 
 He laughs and shakes his head. "In the air, silly."
 
+!`
+choicesPerPage = 1;
+`
 [OooOOOOoo.|cartPara38]
 ---
 :cartPara38
 
 He leads the way out of the dome. He takes you down the hallway and points you to the paint room while he takes a quick shower to wash the caked paint off his curves.
 
+!`
+choicesPerPage = 1;
+`
 [Let's see... my favorite colors...|cartPara39]
 ---
 :cartPara39
 
 You browse through glass beakers and vials of paint in his storage room. They kind of look like a rainbow of HP and mana potions.
 
+!`
+choicesPerPage = 1;
+`
 [Let's get some mint, some cherry, some blueberry...|cartPara40]
 ---
 :cartPara40
@@ -322,6 +443,9 @@ Cart pokes his head in, sopping wet and clean. He smothers his hair in a towel a
 
 "Three is fine." He gathers his hair into a ponytail, tie hanging from his lips. "I do not think the colors will matter beyond your feelings for them. Meet you in the dome, okay?"
 
+!`
+choicesPerPage = 1;
+`
 [Okay!! Oh man, this is exciting...|cartPara41]
 ---
 :cartPara41
@@ -330,12 +454,18 @@ Soon, you're both back in the mapping room. Cart presses a button and the whole 
 
 Cart sits his bare butt down and spreads his legs out shamelessly. He slides a couple fingers `genitals("down his taint, digging them deep up his buttcrack", "down over his nuts and squeezes them like he's testing their virility", "down his taint, digging them deep up his buttcrack")`.
 
+!`
+choicesPerPage = 1;
+`
 [Wait!|cartPara42]
 ---
 :cartPara42
 
 He smiles up at you and pats the floor. "What is it? I set a timer for the anti-grav, if that concerns you. It will come on about when we are done with our foreplay."
 
+!`
+choicesPerPage = 1;
+`
 [I was just wondering what position you wanted me in.|cartPara43]
 ---
 :cartPara43
@@ -347,6 +477,7 @@ His `genitals("fingers casually pop up his butthole, tugging on it, stretching i
 "What do you think?"
 
 !`
+choicesPerPassage = 1;
 if (data.genitals === "male") addChoice("You want my cock up there...?", "cartParaSit");
 if (data.genitals === "female") addChoice("You want me to ride that...?", "cartParaSit");
 if (data.genitals === "both") addChoice("You want my cock up there...?", "cartParaSit");
@@ -358,6 +489,9 @@ He nods, exquisitely satisfied with your choice.
 
 "Come. Sit. We do not have to do anything too serious yet. We should just wet our bristles."
 
+!`
+choicesPerPage = 1;
+`
 [Alright...|cartPara44]
 ---
 :cartPara44
@@ -366,6 +500,9 @@ He uncorks a little minty-green paint potion and pours a cup or so over his bare
 
 "Come on." He splashes around a bit, flecking you with it. "Have fun with it."
 
+!`
+choicesPerPage = 1;
+`
 [Ah, okay... smear some blue on my belly...|cartPara45]
 ---
 :cartPara45
@@ -374,12 +511,18 @@ You dunk your paw in the blueberry paint and smack your belly around a little. I
 
 "There you go," Cart says, smiling. He paps a paw on your `boobs()`, pulls it down, and its beans leave five distinct lines on your chest.
 
+!`
+choicesPerPage = 1;
+`
 [Paint him...|cartPara46]
 ---
 :cartPara46
 
 You grab handfuls of red, blue, and green. They mix into every shade of every color in your palms. Carefully, sitting on your heels and leaning forward, you run one paw up the sides of Cart's stomach. You slide them around his love handles, down over his blue-splattered butt. You scoot closer, chin hovering over his shoulder, and smear the small of his back...
 
+!`
+choicesPerPage = 1;
+`
 [I just hope I'm doing this right... I have no idea how to cartograph...|cartPara47]
 ---
 :cartPara47
@@ -390,6 +533,9 @@ He closes both paws around the nape of your neck and kisses you on the mouth.
 
 "— feel it."
 
+!`
+choicesPerPage = 1;
+`
 [A-Ah... okay, I can do that...|cartPara48]
 ---
 :cartPara48
@@ -404,6 +550,9 @@ Like the takeoff of a plane, or the first serious drop of a rollercoaster, your 
 
 Then they stop falling.
 
+!`
+choicesPerPage = 1;
+`
 [Oh my...|cartPara49]
 ---
 :cartPara49
@@ -412,6 +561,9 @@ Cart's deft little paws run over your `genitals("cock. He squeezes it like his f
 
 "Are you ready?"
 
+!`
+choicesPerPage = 1;
+`
 [I think so...|cartPara50]
 ---
 :cartPara50
@@ -420,6 +572,9 @@ Droplets of paint constellate around you like a galaxy around a supermassive bla
 
 You feel your body drifting sideways. Cart's face is your only anchor as the room begins to rotate.
 
+!`
+choicesPerPage = 1;
+`
 [... Okay... I'm alright...|cartPara51]
 ---
 :cartPara51
@@ -428,6 +583,9 @@ You feel your body drifting sideways. Cart's face is your only anchor as the roo
 
 Cart relaxes in the air, one hand behind his head, legs crossed, coin purse jiggling with the air currents.
 
+!`
+choicesPerPage = 1;
+`
 [Embrace him.|cartPara52]
 ---
 :cartPara52
@@ -440,6 +598,9 @@ You've been steadily rising this whole time. The ceiling comes up behind you. Yo
 
 His breath washes over your mouth. "We are about to make our first mark on the paper... make it a good one!"
 
+!`
+choicesPerPage = 1;
+`
 [Slip inside...|cartPara53]
 ---
 :cartPara53
@@ -454,12 +615,18 @@ Your hips connect. <i>Smack.</i> Beautiful, twirling strands of paint explode in
 
 Cart smiles at you like nothing's changed. His `genitals("butthole flexes around your shaft, but his body doesn't shiver or twitch", "cock throbs inside you, but he doesn't thrust", "butthole flexes around your shaft, but his body doesn't shiver or twitch")`. He pulls you in for a kiss so passionate that your bodies start to rotate in mid-air, devastating all sense of direction.
 
+!`
+choicesPerPage = 1;
+`
 [Close my eyes. Hold on tight. Thrust.|cartPara54]
 ---
 :cartPara54
 
 You block out the dizzying view and just feel the g-forces groping your body, pulling your fur on end, tugging wobbly globs of paint around. You wrap your arms around his flat chest and start swinging your hips back and forth, `genitals("feeding your cock up his welcoming little ass", "bullying his fupa into submission with relentless powerbottom thrusts", "feeding your cock up his welcoming little ass, painting the map with a squirt of cuntjuice")`. Still, he's not reacting much... his breathing is a little faster, that's it.
 
+!`
+choicesPerPage = 1;
+`
 [Rrrgh... fuck him!!|cartPara55]
 ---
 :cartPara55
@@ -470,6 +637,9 @@ You kick off the wall and `genitals("powerfuck his little body. Your nuts tighte
 
 "That— is it— keep going—" he gasps between thrusts. Behind you, his toes splay and wiggle, paint webbed between them. His extended knees lock. Each leg flies out in a different direction. `genitals("This makes it even easier for you to pound your dick in as deep as it can possibly go.", "", "This makes it even easier for you to pound your dick in as deep as it can possibly go.")`
 
+!`
+choicesPerPage = 1;
+`
 [Cum.|cartPara56]
 ---
 :cartPara56
@@ -482,12 +652,18 @@ You `genitals("ram your dick up his ass and pump it full of cum", "beat your hip
 
 "Yes!!!" Cart squeals, `genitals("bouncing his fat little bubblebutt so hard his nuts smack against your lower belly", "unplugging his cocklet from your lips and letting his cum fly off into the air", "bouncing his fat little bubblebutt so hard his nuts smack against your lower belly")`. "Oh, yes..."
 
+!`
+choicesPerPage = 1;
+`
 [I'm that good, huh? <3|cartPara57]
 ---
 :cartPara57
 
 "No, not that," he giggles. "I just meant 'Oh, yes, that waypoint is perfect!'"
 
+!`
+choicesPerPage = 1;
+`
 [Ah goddamnit...|cartPara58]
 ---
 :cartPara58
@@ -498,6 +674,9 @@ He plants a kiss on your neck, sucking the paint from it. The electric growl of 
 
 You unhook your fingers from the ceiling and fall in slow motion with Cart. Your butt hits the ground first, then the small of your back, then the rest of your spine curls down until, at last, the tile floor presses up against the base of your skull and the system's purr rumbles to a full stop.
 
+!`
+choicesPerPage = 1;
+`
 [Phwaaaa...|cartPara59]
 ---
 :cartPara59
@@ -508,12 +687,18 @@ Cart's straddling your waist. He's soft now, and his cute little rainbow-smeared
 
 The ghosts of your bodies intertwine with each other all around the map. A thighprint here, a bellyprint there. Long scratches lance the canvas where Cart dragged his fingers over it. Now that the anti-gravity is off, the paint drips a little.
 
+!`
+choicesPerPage = 1;
+`
 [Smooch him.|cartPara60]
 ---
 :cartPara60
 
 You grab the back of his skull and kiss him hard. Rainbows of paint pour over your embrace.
 
+!`
+choicesPerPage = 1;
+`
 [Did I do okay, Cart...?|cartPara61]
 ---
 :cartPara61
@@ -522,6 +707,9 @@ The collage of body marks and cumdrops seems completely unintelligible to you, b
 
 "Yes," Cart says. "You did amazing."
 
+!`
+choicesPerPage = 1;
+`
 [Glad to help!|cartPara62]
 ---
 :cartPara62
@@ -530,6 +718,9 @@ He hauls himself off of you, belly all soaked and shiny green. A little red drib
 
 Cart helps you up, sets his map dome to dry, and leads you to the showers, all without letting go of your hand for a second. He places his paws carefully on the slippery tile and drags you into a stall with him.
 
+!`
+choicesPerPage = 1;
+`
 [Scrub me down a bit, will ya...|cartPara63]
 ---
 :cartPara63
@@ -538,6 +729,9 @@ The warm water peels off layer after layer of color from your fur. A rainbow swi
 
 "How was it?" he asks, gently guiding a bar of soap up your buttcrack.
 
+!`
+choicesPerPage = 2;
+`
 [I'm a bit queasy...|cartParaQueasy]
 [I loved it!!|cartParaLove]
 ---
@@ -545,12 +739,18 @@ The warm water peels off layer after layer of color from your fur. A rainbow swi
 
 "I understand that. Well— your queasiness may save a whole layer of people. Well, wet people."
 
+!`
+choicesPerPage = 1;
+`
 [Don't you get queasy?|cartParaQ2]
 ---
 :cartParaQ2
 
 He slaps his belly. "Thankfully, not any more. I think taking dicks up to the pit of my belly for my whole life has also helped train me for that."
 
+!`
+choicesPerPage = 1;
+`
 [You just may be right...|cartParaRejohn]
 ---
 :cartParaLove
@@ -559,18 +759,27 @@ He smooches your solar plexus, face hidden, just a little floof of blue `boobs("
 
 "I did too."
 
+!`
+choicesPerPage = 1;
+`
 [Good. <3|cartParaRejohn]
 ---
 :cartParaRejohn
 
 You hit him back by soaping `genitals("his ass down, making sure not to get any suds in his fucked-raw butthole", "his little package down, making sure to be gentle with his soft, sensitive cocklet", "his ass down, making sure not to get any suds in his fucked-raw butthole")`. He purrs and sticks his butt out, chest and paws pressed to the tile wall.
 
+!`
+choicesPerPage = 1;
+`
 [So what's the next step here?|cartPara66]
 ---
 :cartPara66
 
 "Well, next is the paraphore dispatch part."
 
+!`
+choicesPerPage = 1;
+`
 [Ooo.|cartPara67]
 ---
 :cartPara67
@@ -581,46 +790,70 @@ You hit him back by soaping `genitals("his ass down, making sure not to get any 
 2. Record the surroundings down there until we are sure it is safe.
 3. Squirt out some red juice we can use as a spawn point."
 
+!`
+choicesPerPage = 1;
+`
 [Okay. (Dry off.)|cartPara68]
 ---
 :cartPara68
 
+!`
+choicesPerPage = 1;
+`
 [So that's it?|cartPara69]
 ---
 :cartPara69
 
 You step out of the shower and grab one of his towels (it's baby blue with a print of sexy boys on it).
 
+!`
+choicesPerPage = 1;
+`
 [That's what you got all huffy about earlier?|cartPara70]
 ---
 :cartPara70
 
 Cart towels his hair and trots after you, muttering something.
 
+!`
+choicesPerPage = 1;
+`
 [Sure took a lot of effort to get me up to speed, huh.|cartPara71]
 ---
 :cartPara71
 
 He mutters more.
 
+!`
+choicesPerPage = 1;
+`
 [What? Speak up.|cartPara72]
 ---
 :cartPara72
 
 "Sorry. That was all I said. Sorry. I see now that I was playing my own self."
 
+!`
+choicesPerPage = 1;
+`
 [Well, thanks. That was very mature of you to admit.|cartPara73]
 ---
 :cartPara73
 
 He curls his towel up and whips your butt with it.
 
+!`
+choicesPerPage = 1;
+`
 [OW hey the fuck man (Whip him back!!)|cartPara74]
 ---
 :cartPara74
 
 You crack his little asscheeks with the end of your towel. He squeaks and dodges left.
 
+!`
+choicesPerPage = 2;
+`
 [Attack left!|cartParaLeft]
 [Attack right!|cartParaRight]
 ---
@@ -628,6 +861,9 @@ You crack his little asscheeks with the end of your towel. He squeaks and dodges
 
 It was a feint. His cocky little :3 face is the last thing you see before he flashsteps away and whips you right in the middle of your back so hard you fall the fuck over.
 
+!`
+choicesPerPage = 1;
+`
 [AAAaa okay okay you win|cartParaLeft2]
 ---
 :cartParaLeft2
@@ -636,6 +872,9 @@ It was a feint. His cocky little :3 face is the last thing you see before he fla
 
 You scowl directly at the floor as his fluffy cub ass bounces on your head, his lil nuts papping your third eye.
 
+!`
+choicesPerPage = 1;
+`
 [3:<|cartParaLeft3]
 ---
 :cartParaLeft3
@@ -655,6 +894,9 @@ He attempts to feint right, sees that you have anticipated him, and tries to cha
 
 "Oog. You win."
 
+!`
+choicesPerPage = 2;
+`
 [Help him up.|cartParaHelp]
 [Teabag him.|cartParaTeabag]
 ---
@@ -662,6 +904,9 @@ He attempts to feint right, sees that you have anticipated him, and tries to cha
 
 You pull him to his feet by a paw. He's okay.
 
+!`
+choicesPerPage = 1;
+`
 [You okay?|cartParaRejurn]
 ---
 :cartParaTeabag
@@ -670,6 +915,9 @@ You drop your ass over his helpless face, `genitals("nuts swaying", "cunt gliste
 
 He stares up gleefully at your glorious butt as it sways and drops. "No, please," he mocks. "Such toxic behaviour. Such poor sportsmanship. Please, no."
 
+!`
+choicesPerPage = 1;
+`
 [Okay, now help him up~|cartParaHelp]
 ---
 :cartParaRejurn
@@ -682,10 +930,16 @@ After that, you both retire to the antechamber, and Cart whips out a laptop to m
 
 "Come back later," he says, tippa-tappa-typing away already. "I should have a volunteer lined up by then."
 
+!`
+choicesPerPage = 1;
+`
 [Gotcha, buddy.|cartPara76]
 ---
 :cartPara76
 
+!`
+choicesPerPage = 1;
+`
 [Go look at the map one more time.|cartPara77]
 ---
 :cartPara77
@@ -696,44 +950,71 @@ Hey. This map looks weird. You flash back to a childhood memory of sifting throu
 
 Something happens.
 
+!`
+choicesPerPage = 1;
+`
 [!!!|cartPara78]
 ---
 :cartPara78
 
 It finally clicks for you.
 
+!`
+choicesPerPage = 1;
+`
 [THAT'S IT!|cartPara79]
 ---
 :cartPara79
 
 Finally, you understand.
 
+!`
+choicesPerPage = 1;
+`
 [EUROOKA!|cartPara80]
 ---
 :cartPara80
 
 Eureka*
 
+!`
+choicesPerPage = 1;
+`
 [EUREKA!!|cartPara81]
 ---
 :cartPara81
 
+!`
+choicesPerPage = 1;
+`
 [I know how to read it!!!|cartPara82]
 ---
 :cartPara82
 
+!`
+choicesPerPage = 1;
+`
 [These aren't roads...|cartPara83]
 ---
 :cartPara83
 
+!`
+choicesPerPage = 1;
+`
 [They're circuits!|cartPara84]
 ---
 :cartPara84
 
+!`
+choicesPerPage = 1;
+`
 [And these aren't waypoints...|cartPara85]
 ---
 :cartPara85
 
+!`
+choicesPerPage = 1;
+`
 [They're electrons!!!|cartPara86]
 ---
 :cartPara86
@@ -742,6 +1023,9 @@ Cart appears behind you and pokes his face out around your left hip.
 
 "Why are you yelling at the map? We just established it will scare the elementals into shifting their gadget if you are too aggro. I bet you <i>want</i> to ruin it, so we have to have sex again. Is that right? You dirty `fox()`."
 
+!`
+choicesPerPage = 1;
+`
 [No shut up! I just realized! This isn't really a map, it's more like a wiring diagram, isn't it??|cartPara87]
 ---
 :cartPara87
@@ -750,6 +1034,9 @@ Cart blinks.
 
 "Of course. If you wanted to go down to their layer, you would need to shapeshift into electrons. So the map must reflect that. How else would you interact with machine creatures in a machine world?"
 
+!`
+choicesPerPage = 1;
+`
 [Oh man I'm so happy.|cartPara88]
 ---
 :cartPara88
@@ -758,18 +1045,30 @@ He tilts his head.
 
 "Why?"
 
+!`
+choicesPerPage = 1;
+`
 [Because, before, I was kind of just staring at a bunch of gorgeous gibberish.|cartPara89]
 ---
 :cartPara89
 
+!`
+choicesPerPage = 1;
+`
 [But now... oh, we really figured something out together. It's awesome! And it just randomly happened??|cartPara90]
 ---
 :cartPara90
 
+!`
+choicesPerPage = 1;
+`
 [We did it.|cartPara91]
 ---
 :cartPara91
 
+!`
+choicesPerPage = 1;
+`
 [We fucked so hard a wiring diagram came out.|cartPara92]
 ---
 :cartPara92
@@ -778,6 +1077,9 @@ Cart hugs your waist from behind. You can feel his heartbeat against your bare a
 
 "Cartography is magical, isn't it?" He inhales the small of your back.
 
+!`
+choicesPerPage = 1;
+`
 [It is. <3|cartPara93]
 ---
 :cartPara93
@@ -786,12 +1088,18 @@ Cart disengages and hurries back to his laptop.
 
 "I will hound these threads, now. We will rescue our wet little friends in no time!"
 
+!`
+choicesPerPage = 1;
+`
 [Gotcha.|cartPara94]
 ---
 :cartPara94
 
 You take one more look at the map, then turn and head for the door.
 
+!`
+choicesPerPage = 1;
+`
 [I'm gonna keep looking for my mom. I'll be back in a bit.|cartPara95]
 ---
 :cartPara95
@@ -800,14 +1108,23 @@ Cart peeks out over his laptop and waves.
 
 "See you then!"
 
+!`
+choicesPerPage = 1;
+`
 [Move along.|cartParaMoveAlong]
 ---
 :cartParaJourney
 
+!`
+choicesPerPage = 1;
+`
 [THAT'S IT!|cartParaJourney]
 ---
 :cartParaJourney
 
+!`
+choicesPerPage = 1;
+`
 [Peek at the Paraphorum.|cartParaJourney]
 ---
 :cartParaJourney
@@ -822,6 +1139,9 @@ It's probably the worst website design you've ever seen. Looks like a frankenste
 
 <i>Help I just signed up to be a Parafore how do I post here</i>
 
+!`
+choicesPerPage = 1;
+`
 [Huh.|cartParaJourney]
 ---
 :cartParaJourney
@@ -832,6 +1152,9 @@ Cart puts out a special, gilded sticky post.
 
 Somehow, no one replies. His post sits at the top of the forum, shiny and glittering, and the words 'mess and despair' cancel all of his traffic out.
 
+!`
+choicesPerPage = 1;
+`
 [... How long does it usually take before someone applies?|cartParaJourney]
 ---
 :cartParaJourney
@@ -840,6 +1163,9 @@ Somehow, no one replies. His post sits at the top of the forum, shiny and glitte
 
 The gadget has started whining again. The wet moans and whimpers come in waves.
 
+!`
+choicesPerPage = 1;
+`
 [Let's give it another fifteen minutes.|cartParaJourney]
 ---
 :cartParaJourney
@@ -850,6 +1176,9 @@ Cart stops touching himself. He bumps his own post over and over even though it'
 
 The voices are screaming now. Something bad is happening down there.
 
+!`
+choicesPerPage = 1;
+`
 [Fuck it, I'll go.|cartParaJourney]
 ---
 :cartParaJourney
@@ -858,6 +1187,9 @@ Cart slaps his laptop shut and takes you by the wrist.
 
 "Good. Come with me. We will get you suited up."
 
+!`
+choicesPerPage = 1;
+`
 [Wow. Not even an "Are you sure?"|cartParaJourney]
 ---
 :cartParaJourney
@@ -866,6 +1198,9 @@ Cart slaps his laptop shut and takes you by the wrist.
 
 He pulls you past the shower room to a little sacred pedestal bathtub filled with red juice. Without asking if you really are sure about this, he shoves you in.
 
+!`
+choicesPerPage = 1;
+`
 [Plunk.|cartParaJourney]
 ---
 :cartParaJourney
@@ -874,6 +1209,9 @@ Yes, your whole body goes <i>plunk</i> and dissolves. Cart jumps in too, and you
 
 "Can you hear me?" Cart asks you through me.
 
+!`
+choicesPerPage = 1;
+`
 [Yes.|cartParaJourney]
 ---
 :cartParaJourney
@@ -882,12 +1220,18 @@ Yes, your whole body goes <i>plunk</i> and dissolves. Cart jumps in too, and you
 
 He beams your mind an image of a circuit board. The circuit board falls away, revealing a few gossamer lines of raw electrons that would have fit it perfectly.
 
+!`
+choicesPerPage = 1;
+`
 [You want me to shapeshift into electrons?|cartParaJourney]
 ---
 :cartParaJourney
 
 "Yes. Make sure you match the arrangement exactly, or else you will not be able to interact with the beings inside their gadget."
 
+!`
+choicesPerPage = 1;
+`
 [Okay. Shapeshift into electrons, I guess.|cartParaJourney]
 ---
 :cartParaJourney
@@ -896,6 +1240,9 @@ Your new body slowly and delicately takes form. A lightness fills you up from th
 
 "Float to the surface."
 
+!`
+choicesPerPage = 1;
+`
 [Float to the surface.|cartParaJourney]
 ---
 :cartParaJourney
@@ -906,12 +1253,18 @@ He pulls himself out of the tub as a slender micro-monster with atomic tweezers 
 
 "Now your perspective should shift one layer down."
 
+!`
+choicesPerPage = 1;
+`
 [Shift, eh...|cartParaJourney]
 ---
 :cartParaJourney
 
 A black membrane swallows your feet. Darkness rises up to your neck, choking you, getting stuck under your chin, and then your whole head is submerged with a tiny <i>pop.</i>
 
+!`
+choicesPerPage = 1;
+`
 [...|cartParaJourney]
 ---
 :cartParaJourney
@@ -920,6 +1273,9 @@ Something must be wrong?
 
 It's black down here. It's just nothingness.
 
+!`
+choicesPerPage = 1;
+`
 [Stare into the void.|cartParaJourney]
 ---
 :cartParaJourney
@@ -930,18 +1286,27 @@ You look down at yourself. Your body is red liquid, of course, a perfect disguis
 
 You hope none of the inhabitants notice it, or your disguise will flop. If there are any inhabitants...?
 
+!`
+choicesPerPage = 1;
+`
 [Listen hard.|cartParaJourney]
 ---
 :cartParaJourney
 
 ...
 
+!`
+choicesPerPage = 1;
+`
 [...|cartParaJourney]
 ---
 :cartParaJourney
 
 A tiny <i>plip</i> comes from deep in the abyss. Sounds like a single drop of water falling into a cup.
 
+!`
+choicesPerPage = 1;
+`
 [Go toward it.|cartParaJourney]
 ---
 :cartParaJourney
@@ -950,6 +1315,9 @@ Your body flows effortlessly through the dark. It's not just empty space. The ai
 
 "When you see someone," Cart says from above, "stay still and hidden. Your job is not to save anyone right now. All Paraphores go through this stage when they first arrive at their target layer: you sit still and record the story until it goes stale."
 
+!`
+choicesPerPage = 1;
+`
 [I'm looking and listening, but there really isn't a story to tell...|cartParaJourney]
 ---
 :cartParaJourney
@@ -958,12 +1326,18 @@ Something appears in the distance. It's a glass sculpture. Looks melted, translu
 
 I'll let you take over partially. Go ahead and tell him.
 
+!`
+choicesPerPage = 1;
+`
 [It's uh... there's a memorial here.|cartParaJourney]
 ---
 :cartParaJourney
 
 A dozen more sculptures float into view. Fifty more. Hundreds more.
 
+!`
+choicesPerPage = 1;
+`
 [They left statues of their older generations.|cartParaJourney]
 ---
 :cartParaJourney
@@ -976,24 +1350,36 @@ You brush up against the membrane of a walled city. Faded murals and welcome ban
 
 <i>Please be nice, upper layer folks! We are a peaceful people!</i>
 
+!`
+choicesPerPage = 1;
+`
 [They've been expecting us for a while.|cartParaJourney]
 ---
 :cartParaJourney
 
 You float into the empty city. Canals sprawl in sophisticated, planned routes around the bowl-like buildings. Every water-tight door has nine locks on it. Trash and grease and black grime have swallowed absolutely everything.
 
+!`
+choicesPerPage = 1;
+`
 [I think they built the transmitter a long time ago.|cartParaJourney]
 ---
 :cartParaJourney
 
 The transmitter spikes out above the buildings. Looks like a cell tower, basically. There's a big strawberry-red light blinking on top, and near the bottom, a hundred generators churn through oil and spew smog all over their city.
 
+!`
+choicesPerPage = 1;
+`
 [They fucked themselves up with it.|cartParaJourney]
 ---
 :cartParaJourney
 
 You glance at political posters, now barely visible through a layer of pollution you could scrape off with your fingernail. They beg people to vote for <i>this</i> guy, who promises to find a new, cleaner way to power the transmitter, and other ones beg people to vote for <i>that</i> guy, who promises to quarantine the generators to the city's slums.
 
+!`
+choicesPerPage = 1;
+`
 [They really, really wanted to contact us. They kept the transmission going no matter what.|cartParaJourney]
 ---
 :cartParaJourney
@@ -1002,18 +1388,27 @@ Hold on.
 
 Someone's here.
 
+!`
+choicesPerPage = 1;
+`
 [Examine.|cartParaJourney]
 ---
 :cartParaJourney
 
 A black ooze gurgles pathetically at someone's doorstep. Maybe once it was clear and pure water, but now he's basically just a trash elemental.
 
+!`
+choicesPerPage = 1;
+`
 [Approach.|cartParaJourney]
 ---
 :cartParaJourney
 
 Cart flickers back into your head. "Remember: do not interfere."
 
+!`
+choicesPerPage = 1;
+`
 [I won't, I won't.|cartParaJourney]
 ---
 :cartParaJourney
@@ -1026,16 +1421,25 @@ He throws himself at the nine locks on the door, splashing around hopelessly, lo
 
 From every locked room of every locked building, a single voice moans.
 
+!`
+choicesPerPage = 1;
+`
 [Dear god.|cartParaJourney]
 ---
 :cartParaJourney
 
+!`
+choicesPerPage = 1;
+`
 [They're all shut-ins.|cartParaJourney]
 ---
 :cartParaJourney
 
 The ooze in front of you collapses into a little puddle of anxiety and self-hatred. You either hurt their feelings by calling them a shut-in, or you made them feel left out by reminding them that they are the only elemental <i>not</i> locked up, miserable and alone in their room.
 
+!`
+choicesPerPage = 1;
+`
 [Cart I gotta be honest, I don't think there's a story to record here.|cartParaJourney]
 ---
 :cartParaJourney
@@ -1046,6 +1450,9 @@ Your gut liquid starts to whirlpool inside you. You double over. Your palms spla
 
 Your belly bulges...
 
+!`
+choicesPerPage = 1;
+`
 [Oh god...|cartParaJourney]
 ---
 :cartParaJourney
@@ -1054,6 +1461,9 @@ Your belly bulges...
 
 He gets up and pats your belly. "Hi. We are down here, now, huh."
 
+!`
+choicesPerPage = 1;
+`
 [Yeah, we are! How did that happen again??|cartParaJourney]
 ---
 :cartParaJourney
@@ -1062,6 +1472,9 @@ He gets up and pats your belly. "Hi. We are down here, now, huh."
 
 He steps away from the trash elemental grovelling at the door and pats your belly. "You did good. This is the last step, now. Oh— did you enjoy giving birth to me like that?"
 
+!`
+choicesPerPage = 3;
+`
 [... Yes.|cartParaJourney]
 [... Maybe.|cartParaJourney]
 [No!?|cartParaJourney]
@@ -1072,6 +1485,9 @@ He pats your belly again, this time right on the eye marking. "Either way," he s
 
 He inches closer to the oozeling, poking it with his toe. "We'll get these poor guys cleaned up."
 
+!`
+choicesPerPage = 1;
+`
 [Open my belly eye.|cartParaJourney]
 ---
 :cartParaJourney
@@ -1082,6 +1498,9 @@ You stretch out and find a deep curve in your spine. The eye stirs and slowly pe
 
 The trashling, currently whining and bashing itself against the door, he goes still. His body slides over like a slug, magnetized to your staring stomach. He trickles to a stop at your feet, not touching them.
 
+!`
+choicesPerPage = 2;
+`
 [Woah.|cartParaJourney]
 [Belly dance.|cartParaBelly]
 ---
@@ -1091,26 +1510,41 @@ You start to groove a little, jiggling your slippery bod for the ooze, but he do
 
 "Stop that." Cart tries to grab your hips but his paws go right through them. "There's still one more step."
 
+!`
+choicesPerPage = 1;
+`
 [Whatzat?|cartParaJourney]
 ---
 :cartParaJourney
 
 "It has to decide whether to join us or not. Don't ever assimilate someone without their consent."
 
+!`
+choicesPerPage = 1;
+`
 [Ooh.|cartParaJourney]
 ---
 :cartParaJourney
 
+!`
+choicesPerPage = 1;
+`
 [Wanna come with me, little guy?|cartParaJourney]
 ---
 :cartParaJourney
 
+!`
+choicesPerPage = 1;
+`
 [Just hop in my red juice and you'll dissolve! (That's probably how it works right?)|cartParaJourney]
 ---
 :cartParaJourney
 
 Yes.
 
+!`
+choicesPerPage = 1;
+`
 [Come on~ Jump on in.|cartParaJourney]
 ---
 :cartParaJourney
@@ -1121,6 +1555,9 @@ The oozeling hesitates, still anxious, but after a moment he slides up your ankl
 
 You run your palms slowly down your legs. Any black grime globs either fall away or pop into your thighs and the crooks behind your kneecaps. The ooze is completely inside you now, and you can feel him poking around curiously.
 
+!`
+choicesPerPage = 1;
+`
 [A-Ah! It tickles!|cartParaJourney]
 ---
 :cartParaJourney
@@ -1133,6 +1570,9 @@ He launches himself off the ground and blasts your fuckin face off like a fire h
 
 I think he's saying thank you.
 
+!`
+choicesPerPage = 1;
+`
 [Awww! Hug him back!|cartParaJourney]
 ---
 :cartParaJourney
@@ -1141,24 +1581,36 @@ Your membrane bullies his out of the way. The two of you become one clear-opaque
 
 Cart taps your shoulder.
 
+!`
+choicesPerPage = 1;
+`
 [Mmmn? Goway, I call dibs on this water boi.|cartParaJourney]
 ---
 :cartParaJourney
 
 "Listen," is all Cart says.
 
+!`
+choicesPerPage = 1;
+`
 [Yes, I'm sure you have more lore to explain. In a bit I said.|cartParaJourney]
 ---
 :cartParaJourney
 
 He shakes his head. "Not to me. Just listen in general."
 
+!`
+choicesPerPage = 1;
+`
 [... Oh yeah.|cartParaJourney]
 ---
 :cartParaJourney
 
 The world is filled with muffled hikkikomori moaning.
 
+!`
+choicesPerPage = 2;
+`
 [Forgot there was a shitload of these little guys.|cartParaRejoin2]
 [Hikkikomori?|cartParaHikki]
 ---
@@ -1168,6 +1620,9 @@ Shut-ins.
 
 Sorry, I'm a weeb.
 
+!`
+choicesPerPage = 1;
+`
 [Ooooo right. This is just one.|cartParaRejoin2]
 ---
 :cartParaJourney
@@ -1182,6 +1637,9 @@ He slides up to the boi and tries his hand at the language:
 
 "Ablrbl! Ablrblrble! Brblrhl."
 
+!`
+choicesPerPage = 1;
+`
 [Dude come on I called dibs on him.|cartParaJourney]
 ---
 :cartParaJourney
@@ -1190,6 +1648,9 @@ Your water boi hurries off along the street. He stops at each door to sing like 
 
 Soon he passes out of sight.
 
+!`
+choicesPerPage = 1;
+`
 [Why'd you do that?? He was getting ready to fuck me for sure.|cartParaJourney]
 ---
 :cartParaJourney
@@ -1198,12 +1659,18 @@ Soon he passes out of sight.
 
 Oops. I thought that was a hug. Sorry. You could probably tell from the blrblrblrbl earlier that I'm not very well-versed in elemental culture.
 
+!`
+choicesPerPage = 1;
+`
 [Oh...|cartParaJourney]
 ---
 :cartParaJourney
 
 One by one, the trashbeings drag their sorry asses out of reclusion and into the blinding... near-darkness of their polluted city. They come to you in unwashed waves, crooning, groping for your holy crimson body.
 
+!`
+choicesPerPage = 1;
+`
 [Take it all. <3|cartParaJourney]
 ---
 :cartParaJourney
@@ -1212,6 +1679,9 @@ Without exception, you fuck everyone who presses into you. Black filth clogs you
 
 Cart cranes his neck, checking the black streets. One single trash child still cowers in the distance. Cart moves towards him, but he disappears, wracked by fear. "Leave it alone," he tells you. "It will come if it wants."
 
+!`
+choicesPerPage = 1;
+`
 [Okay...|cartParaJourney]
 ---
 :cartParaJourney
@@ -1220,12 +1690,18 @@ Slowly, all those wretched toilet screams around the city turn to echoes of scre
 
 Yes! I knew I guessed right. The very next thing they do is kneel before you, although for them it's more like puddle-ifying themselves before you. Reverence ripples through them physically.
 
+!`
+choicesPerPage = 1;
+`
 [Ah, my people, my children, at last! I have come to ferry you unto—|cartParaJourney]
 ---
 :cartParaJourney
 
 They have no idea what you're saying.
 
+!`
+choicesPerPage = 1;
+`
 [... Fuck Cart help|cartParaJourney]
 ---
 :cartParaJourney
@@ -1234,6 +1710,9 @@ Instead, he addresses them with a booming "BLRBLRBL!" and starts his own speech.
 
 "TRASH PEOPLE," he begins, and no one seems offended, "You have been assimilated into the Interphore. I know that does not mean anything to you right now, but hopefully, in the future, you will understand what you have become. Please dissolve yourselves in my... my associate's body and find the back wall of a layer called 'L.L.L.' That is where I live. I will meet you there. <i>Please</i> keep away from the couch and the shower room. No one is going to fish you out if you flow down the drain."
 
+!`
+choicesPerPage = 1;
+`
 [(Associate?? I thought we were friends at least...)|cartParaJourney]
 ---
 :cartParaJourney
@@ -1248,6 +1727,9 @@ They all fuse together and flow into you, a penetrating jet of water so clear an
 
 "Abrlblrb," they tell him. (Waiting on the translation.)
 
+!`
+choicesPerPage = 1;
+`
 [Next?|cartParaJourney]
 ---
 :cartParaJourney
@@ -1258,6 +1740,9 @@ Cart looks jittery and awkward, which is really saying something, since he usual
 
 (Still waiting.)
 
+!`
+choicesPerPage = 1;
+`
 [Hmmm.|cartParaJourney]
 ---
 :cartParaJourney
@@ -1268,6 +1753,9 @@ They're saying:
 
 "Please fix our world, God! We can help clean it if you only show us how!"
 
+!`
+choicesPerPage = 1;
+`
 [Aaaahh shit.|cartParaJourney]
 ---
 :cartParaJourney
@@ -1276,6 +1764,9 @@ They're saying:
 
 The crowd is silent. Not a single bubble moves.
 
+!`
+choicesPerPage = 1;
+`
 [...|cartParaJourney]
 ---
 :cartParaJourney
@@ -1284,18 +1775,27 @@ Cart fidgets.
 
 "So. I am sorry. But you ruined it. No one will be able to live here safely until you find a way to clean it."
 
+!`
+choicesPerPage = 1;
+`
 [Hey! If it's any consolation, um. (Wait tell Cart to translate this to them.)|cartParaJourney]
 ---
 :cartParaJourney
 
 Already on it.
 
+!`
+choicesPerPage = 1;
+`
 [If it's any consolation, there are tons and tons of cleaner layers out there!|cartParaJourney]
 ---
 :cartParaJourney
 
 
 
+!`
+choicesPerPage = 1;
+`
 [And lots of dirtier ones, too, if that's your thing~|cartParaJourney]
 ---
 :cartParaJourney
@@ -1304,12 +1804,18 @@ The elementals look at each other. Unfortunately, you don't think any of them ha
 
 Wait. Nope. Some of them are whispering about it in the back. Cart says they're gonna reclaim pollution during roleplay to help them deal with their past trauma.
 
+!`
+choicesPerPage = 1;
+`
 [Well, whatever your tastes,|cartParaJourney]
 ---
 :cartParaJourney
 
 
 
+!`
+choicesPerPage = 1;
+`
 [I'm sure there's a place for all of you up above, with us!|cartParaJourney]
 ---
 :cartParaJourney
@@ -1320,6 +1826,9 @@ They flow past you and Cart, reaching out to at least graze your holiness before
 
 "Big multiversal cool kids club, you are juice now, yeah there are some but not a ton, yes we heard your message and this is really happening, you cannot die now you will just respawn— good God, people, just shut up and fuck `data.playerName` until you dissolve, I will answer the rest of your questions at the L.L.L."
 
+!`
+choicesPerPage = 1;
+`
 [I can probably help and answer some! Maybe! Like two!|cartParaJourney]
 ---
 :cartParaJourney
@@ -1330,6 +1839,9 @@ You're left feeling extremely full, rubbing your big red eyeball belly, and stan
 
 A child crying in the distance.
 
+!`
+choicesPerPage = 1;
+`
 [Cart I think we missed one.|cartParaJourney]
 ---
 :cartParaJourney
@@ -1340,12 +1852,18 @@ Cart shrugs.
 
 Still, he walks (flows) towards it.
 
+!`
+choicesPerPage = 1;
+`
 [Follow.|cartParaJourney]
 ---
 :cartParaJourney
 
 It has crushed itself into the corner of an apartment piled up to the ceiling with dark sludge and soot. It burrows. Cart digs it out over and over, until it has nowhere else to go. It starts squealing and scrabbling at the room's metal floor. Its whole body is thick with tar, and its eyes are bleeding pockets of crude oil.
 
+!`
+choicesPerPage = 1;
+`
 [Come on. We have to save it. Look at the fucking thing.|cartParaJourney]
 ---
 :cartParaJourney
@@ -1356,24 +1874,36 @@ He re-emerges as himself, mostly, but when he lifts his bangs there's a camera e
 
 He snaps a picture of the screaming trash baby and quietly slips back inside you.
 
+!`
+choicesPerPage = 1;
+`
 [... But come on...|cartParaJourney]
 ---
 :cartParaJourney
 
 "You already said come on, and I have not came on," he says from within you. He's a little voice just below your heart. "It is hard. But it is your job. You volunteered."
 
+!`
+choicesPerPage = 1;
+`
 [I know, but...|cartParaJourney]
 ---
 :cartParaJourney
 
 "Are you coming back with me now?"
 
+!`
+choicesPerPage = 1;
+`
 [I'm just gonna see if I can't calm it down or something.|cartParaJourney]
 ---
 :cartParaJourney
 
 "I will meet you at the L.L.L., then."
 
+!`
+choicesPerPage = 1;
+`
 [Yeah, see you there...|cartParaJourney]
 ---
 :cartParaJourney
@@ -1386,29 +1916,44 @@ He snaps a picture of the screaming trash baby and quietly slips back inside you
 
 "Do not assimilate that trash baby."
 
+!`
+choicesPerPage = 1;
+`
 [I said I was just going to calm it down.|cartParaJourney]
 ---
 :cartParaJourney
 
 "You will not be able to communicate with it, calm or not."
 
+!`
+choicesPerPage = 1;
+`
 [Fine whatever.|cartParaJourney]
 ---
 :cartParaJourney
 
 
+!`
+choicesPerPage = 1;
+`
 [...|cartParaJourney]
 ---
 :cartParaJourney
 
 
 
+!`
+choicesPerPage = 1;
+`
 [Is he gone?|cartParaJourney]
 ---
 :cartParaJourney
 
 Yeah, he just teleported back to his bathtub. The elementals got into his paints and now he's gotta filter all their liquids out. It will be a while.
 
+!`
+choicesPerPage = 1;
+`
 [Okay let's see what we can do here...|cartParaJourney]
 ---
 :cartParaJourney
@@ -1417,6 +1962,9 @@ The trash baby thrashes and burrows its way through the muck the second you try 
 
 I advise against assimilating it.
 
+!`
+choicesPerPage = 2;
+`
 [Ugh. You too? This rule is dumb.|cartParaQuit]
 [Fuck what you thought, assimilate it.|cartParaAss]
 ---
@@ -1424,18 +1972,27 @@ I advise against assimilating it.
 
 I guess it is kind of dumb in cases like this.
 
+!`
+choicesPerPage = 1;
+`
 [You should have a clause for when there's a trash baby who can't communicate.|cartParaJourney]
 ---
 :cartParaJourney
 
 I'll work on it.
 
+!`
+choicesPerPage = 1;
+`
 [Thanks.|cartParaJourney]
 ---
 :cartParaJourney
 
 Are you ready to go now?
 
+!`
+choicesPerPage = 1;
+`
 [Beam me up.|cartParaJourney]
 ---
 :cartParaJourney
@@ -1446,18 +2003,27 @@ That's not the sound of me beaming you up, that's the sound of your liquid form 
 
 You leak out of the machinery  as a little red trickle one layer up. Your curves fill out into the shape they had before this adventure. It felt nice to be so thin, small, and light, but there's a pleasure to having some weight to your hips again, too.
 
+!`
+choicesPerPage = 1;
+`
 [Move along~|cartParaJourney]
 ---
 :cartParaJourneyAss
 
 This is against the rules. You should know, I refuse to narrate this. I do not want to enable you.
 
+!`
+choicesPerPage = 1;
+`
 [Oh yeah? Well how about I just THINK about doing it...|cartParaJourney]
 ---
 :cartParaJourney
 
 ...
 
+!`
+choicesPerPage = 1;
+`
 [Really... REALLY... hard...|cartParaJourney]
 ---
 :cartParaJourney
@@ -1468,80 +2034,122 @@ Now its body is dissolving against its will. It is panicking. It cannot keep a c
 
 I won't narrate that.
 
+!`
+choicesPerPage = 1;
+`
 [...|cartParaJourney]
 ---
 :cartParaJourney
 
 Not gonna lie, I'm pissed at you right now.
 
+!`
+choicesPerPage = 1;
+`
 [...|cartParaJourney]
 ---
 :cartParaJourney
 
+!`
+choicesPerPage = 1;
+`
 [So did it work, or...|cartParaJourney]
 ---
 :cartParaJourney
 
 Yes. You assimilated it. Now it can hop inside you and leave whenever it wants.
 
+!`
+choicesPerPage = 1;
+`
 [... Does it want to, or...|cartParaJourney]
 ---
 :cartParaJourney
 
 Its body is terror incarnate.
 
+!`
+choicesPerPage = 1;
+`
 [... So it doesn't want to, or...|cartParaJourney]
 ---
 :cartParaJourney
 
 It knows nothing but suffering and will know nothing but suffering until Cart gets here and cleans up after you.
 
+!`
+choicesPerPage = 1;
+`
 [... Look I'm sorry.|cartParaJourney]
 ---
 :cartParaJourney
 
 
 
+!`
+choicesPerPage = 1;
+`
 [...|cartParaJourney]
 ---
 :cartParaJourney
 
 
 
+!`
+choicesPerPage = 1;
+`
 [Okay you don't forgive me right now, I gotcha...|cartParaJourney]
 ---
 :cartParaJourney
 
 
 
+!`
+choicesPerPage = 1;
+`
 [...|cartParaJourney]
 ---
 :cartParaJourney
 
 
 
+!`
+choicesPerPage = 1;
+`
 [So um...|cartParaJourney]
 ---
 :cartParaJourney
 
+!`
+choicesPerPage = 1;
+`
 [Can you tell me more about it? Is it okay, besides like, embodying pure fear and all?|cartParaJourney]
 ---
 :cartParaJourney
 
 Consider yourself lucky that sight and sound are not mandatory for you right now.
 
+!`
+choicesPerPage = 1;
+`
 [It's that bad, huh.|cartParaJourney]
 ---
 :cartParaJourney
 
 It's awful.
 
+!`
+choicesPerPage = 1;
+`
 [... I don't know what else I can do besides saying sorry...|cartParaJourney]
 ---
 :cartParaJourney
 
 You can listen the next time we both assure you it is a bad idea to mess with a near-magical system that you have absolutely no understanding of.
 
+!`
+choicesPerPage = 1;
+`
 [Okay I promise I won't do that again.|cartParaJourney]
 ---
 :cartParaJourney
@@ -1550,6 +2158,9 @@ Thank you.
 
 Cart's here.
 
+!`
+choicesPerPage = 1;
+`
 [...|cartParaJourney]
 ---
 :cartParaJourney
@@ -1560,6 +2171,9 @@ He shows the screaming anxiety baby the picture he took earlier, when it was sti
 
 Cart squats there, in the sludge, holding the photo, and waits as long as it takes for the crying to slow and stop. It's a few hours.
 
+!`
+choicesPerPage = 1;
+`
 [Next...|cartParaJourney]
 ---
 :cartParaJourney
@@ -1568,18 +2182,27 @@ It stares up at him, wary. He lowers himself over it.
 
 He embraces it, absorbs it, and only then does he allow his body to change back to red juice. This time, its little mind is filled with the sight of Cart's body and memories of its own body. When it dissolves and reforms, it comes back out as sparkling, pure liquid.
 
+!`
+choicesPerPage = 1;
+`
 [...|cartParaJourney]
 ---
 :cartParaJourney
 
 Cart stands up and looks at you.
 
+!`
+choicesPerPage = 1;
+`
 [You don't have to chew me out. Mr. Eyeball already did it.|cartParaJourney]
 ---
 :cartParaJourney
 
 "I am not going to waste time on you. I have eighty elementals flooding the map archives as we speak."
 
+!`
+choicesPerPage = 1;
+`
 [I...|cartParaJourney]
 ---
 :cartParaJourney
@@ -1588,18 +2211,27 @@ Cart stands up and looks at you.
 
 He shoves himself back into you and leaves.
 
+!`
+choicesPerPage = 1;
+`
 [x_x|cartParaJourney]
 ---
 :cartParaJourney
 
 Well, I'm feeling a lot better now, and personally I thought the way he worded that was pretty funny.
 
+!`
+choicesPerPage = 1;
+`
 [Shut up man.|cartParaJourney]
 ---
 :cartParaJourney
 
 Fair enough. I talk too much almost by definition.
 
+!`
+choicesPerPage = 1;
+`
 [Move along.|cartParaMoveAlong]
 ---
 :cartParaMoveAlong

@@ -4,7 +4,9 @@ START_PASSAGES
 !`
 data.tookStairs = false;
 data.leftMynt = true;
-setBackground(0, "img/writer/mainBg");`
+setBackground(0, "img/writer/mainBg");
+choicesPerPage = 1;
+`
 
 You and Mynt come to the double-doors of 322 Peachpit Road, a shitty apartment complex.
 
@@ -26,6 +28,9 @@ Mynt presses Wendy's button. There's a little beep and a spark from the back of 
 
 The glass door to the main lobby is locked and shattered. Mynt ducks through after she grimaces and punches a bit more of it out with a sleeve balled over her fist.
 
+!`
+choicesPerPage = 1;
+`
 [Follow.]
 ---
 :Follow.
@@ -34,6 +39,7 @@ The glass door to the main lobby is locked and shattered. Mynt ducks through aft
 if (music) music.destroy();
 var music = playMusic("audio/ambience/cell");
 music.name = "music";
+choicesPerPage = 2;
 `
 
 The lobby is silent and sunny.
@@ -69,6 +75,9 @@ It's empty, stained, dark. The lights burnt out a while ago. None of the buttons
 
 Mynt trudges inside, looking at the ground. She wrings her paws in front of her lap.
 
+!`
+choicesPerPage = 2;
+`
 [It's not our fault.]
 [Step inside.]
 ---
@@ -76,12 +85,18 @@ Mynt trudges inside, looking at the ground. She wrings her paws in front of her 
 
 "Whose fault could it be?" she responds immediately. "It was my idea."
 
+!`
+choicesPerPage = 1;
+`
 [It's their fault for building a nest in an elevator shaft.]
 ---
 :It's their fault for building a nest in an elevator shaft.
 
 "They're just— they were just dumb animals. Nothing is their fault."
 
+!`
+choicesPerPage = 1;
+`
 [...]
 ---
 :...
@@ -92,6 +107,9 @@ She forces a smile.
 
 "Come on, step in. Their ghosts would be scandalized if we took the stairs after that."
 
+!`
+choicesPerPage = 1;
+`
 [Step inside.]
 ---
 :Step inside.
@@ -105,6 +123,9 @@ Mynt holds her thumb up to your face. A tiny blue dot hovers in front of you in 
 
 "Look," she says. "My blood glows, too."
 
+!`
+choicesPerPage = 1;
+`
 [What could it mean...]
 ---
 :What could it mean...
@@ -115,6 +136,9 @@ After a short, silent, pitch-black ride to the top, you step out of the elevator
 
 You both look down the hallway. All the lights have gone now. There's only a stained, cracked window at the very end. Numbers from 70-79 run down the walls.
 
+!`
+choicesPerPage = 1;
+`
 [Next.|I dunno.]
 ---
 :The stairs would be safer.
@@ -123,6 +147,9 @@ You both look down the hallway. All the lights have gone now. There's only a sta
 
 "Right," she says, eyeing the burnt-out tubes in the flourescent lights. "We don't want the power cutting out halfway up."
 
+!`
+choicesPerPage = 1;
+`
 [Next.|next1]
 ---
 :next1
@@ -133,6 +160,9 @@ By the time you reach floor seven, you're both panting and wincing with exertion
 
 "It feels good," Mynt pants, "to have a body."
 
+!`
+choicesPerPage = 1;
+`
 [It feels good to have a young, cute body.]
 ---
 :It feels good to have a young, cute body.
@@ -145,6 +175,9 @@ You both look down the hallway. All the lights have gone now. There's only a sta
 
 Numbers from 70-79 run down the walls.
 
+!`
+choicesPerPage = 1;
+`
 [Next.|I dunno.]
 ---
 :I dunno.
@@ -152,6 +185,10 @@ Numbers from 70-79 run down the walls.
 Mynt leads the way, running, without looking backwards once.
 
 Room 70 looks lived-in, room 71 is pitch black...
+
+!`
+choicesPerPage = 1;
+`
 [Run after her!!]
 ---
 :Run after her!!
@@ -160,6 +197,9 @@ She apologizes over her shoulder and does not let you catch up.
 
 Room 73 has something shiny pink under the bed, room 74 smells like shit...
 
+!`
+choicesPerPage = 2;
+`
 [Wait up.]
 [Wait up you dink.|Wait up.]
 ---
@@ -171,9 +211,7 @@ Room 75 with the sound of gunshots on a T.V., room 76, which is completely empty
 
 !`
 choicesPerPage = 2;
-
 `
-
 [Someone lives here. Is it mom?|checkMom]
 [This place is abandoned. Mom's probably not here.]
 ---
@@ -187,6 +225,9 @@ It's perched on a pile of what looks like dirty laundry.
 
 Whatever it is, it has wings.
 
+!`
+choicesPerPage = 1;
+`
 [THAT'S NOT MOM|notMom]
 ---
 :notMom
@@ -197,6 +238,9 @@ Mynt has no idea what you just saw and doesn't care right now.
 
 "Do you think she's still here, in her apartment? What if she's just past the door?"
 
+!`
+choicesPerPage = 1;
+`
 [I don't... I dunno. That would be too easy.|This place is abandoned. Mom's probably not here.]
 ---
 :This place is abandoned. Mom's probably not here.
@@ -219,6 +263,9 @@ There is no light or movement inside.
 
 The apartment is an empty shithole.
 
+!`
+choicesPerPage = 1;
+`
 [Hug her.]
 ---
 :Hug her.
@@ -229,6 +276,9 @@ She doesn't hug back, but she does relax a little.
 
 "Was it weird of me to shoulder-check the door open? I got too excited."
 
+!`
+choicesPerPage = 1;
+`
 [It's okay. We'll find her somewhere.]
 ---
 :It's okay. We'll find her somewhere.
@@ -241,6 +291,9 @@ Half-used kleenex boxes, stained plates, a billion dust-caked toys, trophies, ma
 
 Mynt whimpers: "If her dead body is buried in here somewhere, I'll snap..."
 
+!`
+choicesPerPage = 1;
+`
 [If she's up here with us, she'd just respawn if she died.]
 ---
 :If she's up here with us, she'd just respawn if she died.
@@ -253,6 +306,9 @@ The inside of the apartment smells how it looks. A thousand different pungent st
 
 "She's not here."
 
+!`
+choicesPerPage = 1;
+`
 [See? It's fine. And we know where to wait for her.]
 ---
 :See? It's fine. And we know where to wait for her.
@@ -261,6 +317,9 @@ Mynt cocks her head and looks all frustrated and worked up. Her tail flicks with
 
 "You want to <i>stay</i> here...?"
 
+!`
+choicesPerPage = 1;
+`
 [Why not? We have to set up home base somewhere.]
 ---
 :Why not? We have to set up home base somewhere.
@@ -269,6 +328,9 @@ She squints at you.
 
 "Yeah... but..."
 
+!`
+choicesPerPage = 1;
+`
 [We might as well pick the one place she might come back to.]
 ---
 :We might as well pick the one place she might come back to.
@@ -279,18 +341,27 @@ She winces.
 
 "It's a dump."
 
+!`
+choicesPerPage = 1;
+`
 [It's always been messy. Let's just clean it out, then.]
 ---
 :It's always been messy. Let's just clean it out, then.
 
 "You grew up in <i>this—?</i> You... wait, <i>clean it out?!</i> Do you know how long it will—"
 
+!`
+choicesPerPage = 1;
+`
 [Mynt.]
 ---
 :Mynt.
 
 "What?"
 
+!`
+choicesPerPage = 1;
+`
 [We're not really here.]
 ---
 :We're not really here.
@@ -299,18 +370,27 @@ She winces.
 
 "What do you mean? This is real."
 
+!`
+choicesPerPage = 1;
+`
 [Of course it's real. But our minds are not really, physically here.]
 ---
 :Of course it's real. But our minds are not really, physically here.
 
 "How do you know that?"
 
+!`
+choicesPerPage = 1;
+`
 [I just suddenly remembered how to do something.]
 ---
 :I just suddenly remembered how to do something.
 
 ...
 
+!`
+choicesPerPage = 1;
+`
 [Next x2.|next2]
 ---
 :next2
@@ -321,14 +401,19 @@ Mynt blinks.
 
 "Do what?"
 
+!`
+choicesPerPage = 1;
+`
 [I just did it.]
 ---
 :I just did it.
 
 She puts on a face like |:< and clearly doesn't get it at all.
 
+!`
+choicesPerPage = 1;
+`
 [I timeskipped. Try it. Just tell Mr. Eyeball to go Next x3.|next3]
-
 ---
 :next3
 
@@ -342,6 +427,9 @@ She clutches her head and tries to come up with some new existential scaffolding
 
 "No... wait... hold on..."
 
+!`
+choicesPerPage = 1;
+`
 [You really never noticed that everything was being narrated into your head?]
 ---
 :You really never noticed that everything was being narrated into your head?
@@ -352,6 +440,9 @@ Mynt pauses, deeply frustrated at the goddamn mishmash hodgepodge trainwreck tha
 
 "I really thought... this was just what real life was like... a narrator, and reading, and commands..."
 
+!`
+choicesPerPage = 1;
+`
 [I'm pretty used to it, too. I really hadn't questioned it much til now.]
 ---
 :I'm pretty used to it, too. I really hadn't questioned it much til now.
@@ -360,6 +451,9 @@ She looks at her paws.
 
 "What does this mean, then? What are we?"
 
+!`
+choicesPerPage = 1;
+`
 [We're still us. We just experience the world through Mr. Eyeball now, that's all.]
 ---
 :We're still us. We just experience the world through Mr. Eyeball now, that's all.
@@ -376,6 +470,9 @@ Mynt shakes her head and tells me to shut up.
 
 "`data.playerName`, you don't want to stay on Earth with me forever, do you?"
 
+!`
+choicesPerPage = 2;
+`
 [Maybe.]
 [No.|Maybe.]
 ---
@@ -385,16 +482,25 @@ She gulps. The heaps of trash, knick-knacks, toiletries, and pizza boxes surroun
 
 "I feel restless."
 
+!`
+choicesPerPage = 1;
+`
 [I've got just the thing for that.]
 ---
 :I've got just the thing for that.
 
 "... What?"
 
+!`
+choicesPerPage = 1;
+`
 [It's the only reason I brought up timeskipping in the first place:]
 ---
 :It's the only reason I brought up timeskipping in the first place:
 
+!`
+choicesPerPage = 1;
+`
 [Clean out the apartment.]
 ---
 :Clean out the apartment.
@@ -409,6 +515,9 @@ You tend to take smaller loads and carry them more carefully; On the other hand,
 
 You guys don't throw out everything, though. Mynt starts a pile of keepsakes and maybe-keepsakes outside the front door, including a journal, some nudie magazines, some trophies, a little too many stuffed animals than a grown woman should have... 
 
+!`
+choicesPerPage = 1;
+`
 [Next next next, yadda yadda, ez game...]
 ---
 :Next next next, yadda yadda, ez game...
@@ -417,6 +526,9 @@ Basically an entire day's worth of moments pass. Mynt looks for the computer she
 
 What remains is a roomful of spiders and stains. Mynt digs out some cleaning chemicals and a couple sponges from the maid's long-abandoned cart and sets to work genociding all the dirt and bacteria caked into the floors and walls. Meanwhile, you get a broom and knock the cobwebs off the ceiling, wipe the windows with some glass cleaner, and give the carpet a deep and thorough soap soak. To unwind, you both tie towels to your feet and squish around on the soft, sudsy wet carpet to help it dry out a little faster.
 
+!`
+choicesPerPage = 1;
+`
 [See? Easy. All we had to do was read a couple paragraphs in our heads.]
 ---
 :See? Easy. All we had to do was read a couple paragraphs in our heads.
@@ -425,6 +537,9 @@ Mynt flops down on a fresh mattress. The bedframe you stole from two rooms over 
 
 "Come here," she sighs, exhausted. She reaches for you.
 
+!`
+choicesPerPage = 1;
+`
 [Fall into her arms.]
 ---
 :Fall into her arms.
@@ -433,6 +548,9 @@ You flop down on the bed and slide your `boobs()` into place against her warm, f
 
 She pulls you in for a good squeezer. "It smells like a dentist's office in here."
 
+!`
+choicesPerPage = 1;
+`
 [I like it better than the fuckin garbo stench though.]
 ---
 :I like it better than the fuckin garbo stench though.
@@ -445,6 +563,9 @@ Soon, the chemical smell wafts out the window and the open door. It leaves pure,
 
 "Are you sniffing my fur?" she asks, turning her nose up at you.
 
+!`
+choicesPerPage = 1;
+`
 [And what if I am.]
 ---
 :And what if I am.
@@ -453,6 +574,9 @@ She smirks and slips one of Wendy's crinkled nudie mags out from the chest of he
 
 "What if you are? Unsolicited sniffs are rude. You'll have to face the consequences."
 
+!`
+choicesPerPage = 1;
+`
 [What are the consequences?]
 ---
 :What are the consequences?
@@ -461,6 +585,9 @@ She rolls it up and whacks you with it.
 
 "Bad `fox()`! Bad!"
 
+!`
+choicesPerPage = 1;
+`
 [Ow fuck stop!]
 ---
 :Ow fuck stop!
@@ -469,6 +596,9 @@ She just shakes her head, over-frazzled, and kisses you.
 
 "Okay, fine, don't play along. I'll just ask. Wanna look at this dirty magazine with me?"
 
+!`
+choicesPerPage = 1;
+`
 [Sure~]
 ---
 :Sure~
@@ -484,6 +614,9 @@ Mynt's eyes go wide. `myntCock("Her dress tents.", "She shifts her legs to grind
 
 "Well," she says, "`genitals("I'm definitely at least bi.", "I guess mom and I both like that kinda thing...", "I'm definitely at least bi.")`"
 
+!`
+choicesPerPage = 1;
+`
 [Read the blurbs...]
 ---
 :Read the blurbs...
@@ -497,18 +630,27 @@ Mynt's eyes go wide. `myntCock("Her dress tents.", "She shifts her legs to grind
 <b>THE APOCALYPSE</b>
 <i>A giant meteorite landed on Earth without destroying anything and then it slowly assimilated everyone into a multiversal shapeshifting hivemind that calls itself the Interphore. What kind of body do you want? Are you going to opt in or out of your same-sex attractions, and why? Fill out our short questionnaire on pg. 22 for a chance to win a tour of six popular girls-only layers— hosted by Cartographer himself!</i>
 
+!`
+choicesPerPage = 1;
+`
 [Huh.|nextMag1]
 ---
 :nextMag1
 
 "So that's where we swam together," Mynt says, jabbing a finger at the word <i>meteorite.</i>
 
+!`
+choicesPerPage = 1;
+`
 [Right. Gosh, how old is this magazine?]
 ---
 :Right. Gosh, how old is this magazine?
 
 Mynt checks inside the cover. "This is the... May edition..."
 
+!`
+choicesPerPage = 1;
+`
 [May when?]
 ---
 :May when?
@@ -517,18 +659,27 @@ She squints.
 
 "2020. Three years after impact." She flips through the mag, skimming over everything that isn't porn. "Do you remember your birthday?"
 
+!`
+choicesPerPage = 1;
+`
 [I was born in 2012.]
 ---
 :I was born in 2012.
 
 "And you were an old lady, before we swam together. Maybe like 70+?"
 
+!`
+choicesPerPage = 1;
+`
 [Something like that.]
 ---
 :Something like that.
 
 "I guess the girls-only tour contest is probably over by now, then..."
 
+!`
+choicesPerPage = 1;
+`
 [That's what you're concerned about?!]
 ---
 :That's what you're concerned about?!
@@ -539,6 +690,9 @@ A two-page spread derails her train of thought: girls, girls, girls, and then a 
 
 "Wooooow," Mynt whistles. `myntCock("She smushes her hardening cock down between her thighs.", "A paw wanders down under her dress and rearranges her panties for comfort.")` "So many girls..."
 
+!`
+choicesPerPage = 1;
+`
 [So many bitches.]
 ---
 :So many bitches.
@@ -553,6 +707,9 @@ She flips another page.
 
 "Ah! What the—"
 
+!`
+choicesPerPage = 1;
+`
 [What is it?]
 ---
 :What is it?
@@ -567,6 +724,9 @@ It wasn't even close to winning. You think they just put it in the yuri collage 
 
 Mynt immediately flips to the back of the mag and scans for a list of people who entered the contest. There's nothing. You guess copyright and crediting practices did kind of go out the window when everyone's identity liquified and humanity scattered into a thousand different planes of existence.
 
+!`
+choicesPerPage = 1;
+`
 [Fuck. How can we track her down?]
 ---
 :Fuck. How can we track her down?
@@ -577,11 +737,17 @@ Mynt tears the magazine up, searching for clues. She sniffs fat girl asses, inqu
 
 Nothing.
 
+!`
+choicesPerPage = 1;
+`
 [Where was this published?]
 ---
 :Where was this published?
 
 "Kittery, Maine," Mynt says, pointing to the fine print on the inside of the cover.
+
+!`
+choicesPerPage = 1;
 
 [Hmmmmmmmmm.]
 ---
@@ -591,11 +757,17 @@ She sighs and folds the magazine up in her lap. A nymph girl winks up at her fro
 
 "DO YOU KNOW WHAT THIS MEANS?" she explodes.
 
+!`
+choicesPerPage = 1;
+
 [AAAAH FUCK what what does the sexy nymph mean]
 ---
 :AAAAH FUCK what what does the sexy nymph mean
 
 "No, not that— the fact that she had this magazine at all. It means she came back here after impact! She visited her apartment, at least! She didn't just fly off into space forever!!!"
+
+!`
+choicesPerPage = 1;
 
 [Ooo that is kind of promising, isn't it?]
 ---
@@ -603,17 +775,26 @@ She sighs and folds the magazine up in her lap. A nymph girl winks up at her fro
 
 "Although... this magazine is so old. Maybe she hasn't been here in half a century..."
 
+!`
+choicesPerPage = 1;
+
 [Still, if she came back once, she might again.]
 ---
 :Still, if she came back once, she might again.
 
 Mynt's eyebrows lock down and imaginary jets of steam puff from her nose. "Exactly."
 
+!`
+choicesPerPage = 1;
+
 [One of us should go visit Kittery, and the other should stay here.]
 ---
 :One of us should go visit Kittery, and the other should stay here.
 
 "I'm going."
+
+!`
+choicesPerPage = 1;
 
 [What— I don't even get a say?!]
 ---
@@ -623,6 +804,9 @@ She winces.
 
 "Can I please be the one to go?"
 
+!`
+choicesPerPage = 1;
+
 [...|nextGo]
 ---
 :nextGo
@@ -631,11 +815,17 @@ She wraps a hand around your hips. The saucy girl on the back of Wendy's magazin
 
 "Pleeaaaase?"
 
+!`
+choicesPerPage = 1;
+
 [Mmmm...]
 ---
 :Mmmm...
 
 "Pleeeeeeeeeeaaase?"
+
+!`
+choicesPerPage = 1;
 
 [I'll think about it.]
 ---
@@ -651,11 +841,17 @@ The sun has set now. Cool, dusky air rolls in through the open window and stirs 
 
 She lowers her maw to your neck and brushes it with her lips. "If we're gonna part again soon, let's make the most of this evening, okay?"
 
+!`
+choicesPerPage = 1;
+
 [Okay...]
 ---
 :Okay...
 
 Her lips close on your sensitive neck. She sucks gently.
+
+!`
+choicesPerPage = 1;
 
 [I assume you want to top...?]
 ---
@@ -665,6 +861,9 @@ She slams her hips down on yours and growls into your neck.
 
 The bedframe squeaks with inanimate excitement.
 
+!`
+choicesPerPage = 1;
+
 [I'll take that as a yes.]
 ---
 :I'll take that as a yes.
@@ -673,7 +872,8 @@ You lift your chin a little and stare at the stucco ceiling, once dripping dust,
 
 "Mmmngh?" Mynt asks. She reaches back and pulls her dress up until you can see each mound of her asscheeks peeking out, threaded by panties. Downstairs, her `myntCock("cock is tenting them; a tiny bead of pre forms on the fabric and drips onto your bare crotch", "cunt's all bunched up in their fabric. She pinches it and tugs it out, revealing a couple thin juice stains")`.
 
-!`if (data.myntCock && (data.genitals == "male" || data.genitals == "both")) addChoice("Frot.", "frot1");
+!`
+if (data.myntCock && (data.genitals == "male" || data.genitals == "both")) addChoice("Frot.", "frot1");
 if (!data.myntCock && (data.genitals == "female" || data.genitals == "both")) addChoice("Scissor.", "scissor1");
 if (!data.myntCock && (data.genitals == "male" || data.genitals == "both")) addChoice("Dry hump her cunt.", "vaginal1");
 if (data.myntCock && (data.genitals == "female" || data.genitals == "both")) addChoice("Spread my cunt for her~", "vaginalSub1");
@@ -681,7 +881,8 @@ if (data.genitals === undefined) addChoice("Go set your variables you rube", fun
 	clear();
 	execAsset("thirstyCaves.phore");
 	gotoPassage("Jump in.");
-});`
+});
+`
 
 ---
 :frot1
@@ -690,6 +891,9 @@ You buck your bare dick up along the bulge in her panties. Her whole cock quiver
 
 "Harder," she grunts in your ear.
 
+!`
+choicesPerPage = 1;
+`
 [Harder.|frot2]
 ---
 :frot2
@@ -702,6 +906,9 @@ The first couple thrusts are slow. Your warm sausages slide and turn together li
 
 Mynt gasps and pulls off your neck, hips working automatically now. She doesn't even have to think about frotting your cock, her body just does it for her.
 
+!`
+choicesPerPage = 1;
+`
 [Harder!|frot3]
 ---
 :frot3
@@ -712,6 +919,9 @@ Mynt bites down on your shoulder now. She squeaks with raw desperation. You wrap
 
 Her jaws tighten. Her ass sticks up in the air. She thrusts down one last time.
 
+!`
+choicesPerPage = 1;
+`
 [Cum.|cum1]
 ---
 :scissor1
@@ -730,6 +940,9 @@ She slides both paws under your asscheeks, honks them, and pulls your hips up to
 
 Mynt slams her hips down. The bedframe groans. The wind picks up and whips past the window, howling. Her cuntlips mash together with yours, interlocking, sliding around, throbbing. Your combined trickles of cuntjuice run down onto the bed and puddle up beneath your asscheeks. You just cleaned it, but neither of you care. All that matters is the intense link of heat and wet between your kissing cunts.
 
+!`
+choicesPerPage = 1;
+`
 [Harder.|scissor2]
 ---
 :scissor2
@@ -738,6 +951,9 @@ Mynt lavishes kisses `boobs("between your tits", "over your bare chest")`. Her b
 
 Your cunts make out with each other. Sloppy <i>schlick</i> noises compete even with the howling wind. The window swings around and bangs against its frame a couple times. Mynt kisses higher and higher, up your throat, your chin, until she's locked both sets of her lips to yours.
 
+!`
+choicesPerPage = 1;
+`
 [Harder!|scissor3]
 ---
 :scissor3
@@ -748,6 +964,9 @@ Below the tight intersection of your bellies, you can't see anything, but you ca
 
 Heat trickles down your buttcrack. Her whole body tightens up. She breaks the kiss, blushes, and buries her face in your chest. A little <i>Ahhn</i> leaks out against you. Just above the small of her back, her asscheeks jiggle like jello on a subwoofer with each feral thrust, and you know she must be right on the edge...
 
+!`
+choicesPerPage = 1;
+`
 [Cum.|cum1]
 ---
 :vaginal1
@@ -768,6 +987,9 @@ She lines your head up to her clit and grinds on it for a moment. Her breath alm
 
 Mynt slams her cunt down to the base on your cock, flexing and twitching her inner muscles just above your taut nutsack.
 
+!`
+choicesPerPage = 1;
+`
 [Harder.|vaginal2]
 ---
 :vaginal2
@@ -784,6 +1006,9 @@ You can't match her rhythm, because there is no rhythm, but you try to match her
 
 Her cuntlips smack against your fupa and the sensitive bits of skin around the base of your dick, including that little squishy divot where your nuts meet your shaft. Every smack sends pangs of pleasure up your spinal column, directly into the most carnal parts of your mind— the parts built up over millions of years of mammalian sex, the same parts that urged every single one of your ancestors to seek out pussy and fuck it hard.
 
+!`
+choicesPerPage = 1;
+`
 [Harder!|vaginal3]
 ---
 :vaginal3
@@ -798,6 +1023,9 @@ Sweat drops hang from her chin and belly button.
 
 She looks you in the eyes.
 
+!`
+choicesPerPage = 1;
+`
 [Cum.|cum1]
 ---
 :vaginalSub1
@@ -818,6 +1046,9 @@ Then her paw closes gently on your throat.
 
 "Stay still."
 
+!`
+choicesPerPage = 1;
+`
 [Harder.|vaginalSub2]
 ---
 :vaginalSub2
@@ -828,6 +1059,9 @@ Then she slides it back in, slowly. Out. In. Out. Every time it's the full lengt
 
 "You want it harder, huh..." Mynt slows down even more. Her paw tightens on your neck, pinning you to the bed. "I think I'll take my sweet old time..."
 
+!`
+choicesPerPage = 1;
+`
 [Harder! Please!!|vaginalSub3]
 ---
 :vaginalSub3
@@ -842,6 +1076,9 @@ A particularly rude hump snaps you back to reality. Mynt's drooling through grit
 
 "Open up," she growls, as if your cunt isn't already split wide on the entire length of her cock. She releases your throat to close a clawed grip around each of your shoulders, then yanks on them, smashing your cunt against the base of her dick just so she can sink it an extra eighth of an inch deeper.
 
+!`
+choicesPerPage = 1;
+`
 [Cum.|cum1]
 ---
 :cum1
@@ -856,8 +1093,10 @@ You both disengage. She rolls off of you and lands panting on her back. The shee
 
 "Thank," Mynt pants, "you."
 
+!`
+choicesPerPage = 1;
+`
 [No prob. <3 Wind down.|windDown1]
-
 ---
 :windDown1
 
@@ -865,6 +1104,9 @@ Mynt hobbles off the bed, dripping. She flops her upper body out the apartment w
 
 "Ooooh," she pipes up, after a minute of cooling off. "The city is beautiful..."
 
+!`
+choicesPerPage = 1;
+`
 [Go see...|windDown2]
 ---
 :windDown2
@@ -875,18 +1117,27 @@ The lights are almost all burnt out, so light pollution is barely even there. Co
 
 At first she seems excited about that, but then her brow furrows a little, and her purrs die out. Her ass bumps yours and nuzzles with it. "A little too huge. But— hey, why'd they take care of some random lights, but not all of them...? There's no way all those bulbs lasted all these years without maintenance."
 
+!`
+choicesPerPage = 1;
+`
 [... Hold the fuck on.|windDown3]
 ---
 :windDown3
 
 "Hmmmm~?"
 
+!`
+choicesPerPage = 1;
+`
 [Maybe they're not random.|windDown4a]
 ---
 :windDown4a
 
 She squints. "Hmmmm? They're just scattered everywhere. What do you mean, they're not random?"
 
+!`
+choicesPerPage = 1;
+`
 [Mr. Eyeball, describe the city as seen from the pond on the meteorite.|windDown4]
 ---
 :windDown4
@@ -897,6 +1148,9 @@ If you looked at the city from up there right now, the only lights that people h
 
 FREE.
 
+!`
+choicesPerPage = 1;
+`
 [God have mercy on us all.|windDown5]
 ---
 :windDown5
@@ -911,6 +1165,9 @@ She looks at you.
 
 "Or something like that. Right?"
 
+!`
+choicesPerPage = 1;
+`
 [I guess we can ask Mom when we find her.|windDown5a]
 ---
 :windDown5a
@@ -919,24 +1176,36 @@ She giggles and slides off the windowsill— no, not over the edge, back inside.
 
 "I guess we can."
 
+!`
+choicesPerPage = 1;
+`
 [Maybe it's just a victory thing. Like, 'yay, we're free! We've escaped our mama planet!']
 ---
 :Maybe it's just a victory thing. Like, 'yay, we're free! We've escaped our mama planet!'
 
 She pouts. "But that doesn't sound as cute."
 
+!`
+choicesPerPage = 1;
+`
 [Humanity isn't very cute.|windDown6]
 ---
 :windDown6
 
 She sticks her tongue out at you. "I disagree."
 
+!`
+choicesPerPage = 1;
+`
 [Smooch it.|windDown7]
 ---
 :windDown7
 
 You peck her tongue. She recoils in shock, like you just hit her.
 
+!`
+choicesPerPage = 1;
+`
 [Ahaha~|windDown8]
 ---
 :windDown8
@@ -949,16 +1218,25 @@ She wanders around the empty apartment, wringing her dress. Her panties still la
 
 "So..."
 
+!`
+choicesPerPage = 1;
+`
 [So...|windDown9]
 ---
 :windDown9
 
+!`
+choicesPerPage = 1;
+`
 [So you want to go to Kittery.]
 ---
 :So you want to go to Kittery.
 
 "Yes," she says carefully, sitting on the bed. "I want to be the one to sniff Mom out, if there's sniffing to be done."
 
+!`
+choicesPerPage = 1;
+`
 [And you want me to wait here for her, in case she comes back.]
 ---
 :And you want me to wait here for her, in case she comes back.
@@ -967,6 +1245,9 @@ She wanders around the empty apartment, wringing her dress. Her panties still la
 
 She pauses to look over the bare, scoured walls. "Also, we need to decorate. Badly."
 
+!`
+choicesPerPage = 1;
+`
 [Welllll. Alright, I guess.]
 ---
 :Welllll. Alright, I guess.
@@ -975,6 +1256,9 @@ She blinks.
 
 "Wait actually?"
 
+!`
+choicesPerPage = 1;
+`
 [Yeah. I'll let you go.]
 ---
 :Yeah. I'll let you go.
@@ -983,6 +1267,9 @@ You're expecting her to explode with excitement, but her smile just flickers to 
 
 "Aha... ah, wow, that was easy... I was ready to launch into a full banter sesh. Guess um. Guess I'll just be going, then."
 
+!`
+choicesPerPage = 1;
+`
 [Yep. Seeya later. Love you.]
 ---
 :Yep. Seeya later. Love you.
@@ -991,6 +1278,9 @@ You're expecting her to explode with excitement, but her smile just flickers to 
 
 "Oh..." she says, weakly. It's just a soft croak in the pit of her throat.
 
+!`
+choicesPerPage = 1;
+`
 [What's wrong?|end1]
 ---
 :end1
@@ -1001,12 +1291,18 @@ She pulls her head back inside quickly. Her claws tighten on the windowsill.
 
 "We never learned the name of this city, did we?"
 
+!`
+choicesPerPage = 1;
+`
 [No, we didn't. Mr. Eyeball, can you help us out?]
 ---
 :No, we didn't. Mr. Eyeball, can you help us out?
 
 I'm not omniscient. I don't know the name of every city on every bumfuck layer in the middle of nowhere.
 
+!`
+choicesPerPage = 1;
+`
 [Wow, tone down the sass please.]
 ---
 :Wow, tone down the sass please.
@@ -1017,6 +1313,9 @@ For some reason she feels the need to stare at the ceiling, like I'm above her i
 
 You're in a city two thousand miles away from Kittery. It's six hundred and thirty hours away on foot, or about a month. I can timeskip it for you if you use the Next command, or you can kill yourself and respawn at any fixed point in the layer— including a point two thousand miles away, if you wanted.
 
+!`
+choicesPerPage = 1;
+`
 [Welp, that settles it. Mynt, lemme push you out the window.]
 ---
 :Welp, that settles it. Mynt, lemme push you out the window.
@@ -1025,12 +1324,18 @@ You're in a city two thousand miles away from Kittery. It's six hundred and thir
 
 She scrambles onto the bed, tail poofed, ears back, muscles primed for flight.
 
+!`
+choicesPerPage = 1;
+`
 [I was just joking...]
 ---
 :I was just joking...
 
 She relaxes slightly. "It's... not that. I'm fine with dying. It's just..."
 
+!`
+choicesPerPage = 1;
+`
 [You're fine with dying, but something else is stopping you?]
 ---
 :You're fine with dying, but something else is stopping you?
@@ -1039,6 +1344,9 @@ She wrings her paws over her tail, manually un-poofing it.
 
 "It's just... that... I mean... well..."
 
+!`
+choicesPerPage = 1;
+`
 [Spuh spuh spuh spit it out junior.]
 ---
 :Spuh spuh spuh spit it out junior.
@@ -1061,6 +1369,9 @@ In kilometres or miles?
 
 One light year is 5,900,000,000,000 miles.
 
+!`
+choicesPerPage = 1;
+`
 [Oh shit.|end2]
 ---
 :end2
@@ -1069,6 +1380,7 @@ One light year is 5,900,000,000,000 miles.
 if (music) music.destroy();
 var music = playMusic("audio/ambience/library");
 music.name = "music";
+choicesPerPassage = 1;
 `
 
 Mynt burrows under the sheets of the bed and becomes a shivering lump in two seconds.
@@ -1081,12 +1393,18 @@ Mynt burrows under the sheets of the bed and becomes a shivering lump in two sec
 
 "It's too ginormo out there!!!"
 
+!`
+choicesPerPage = 1;
+`
 [Whaaat? But you were all excited about that earlier!]
 ---
 :Whaaat? But you were all excited about that earlier!
 
 "I didn't— until I looked at the sky, I didn't— it's <i>way too big!!!!</i> How did you LIVE here?! Weren't you scared of falling off the planet, into all that endless black?!"
 
+!`
+choicesPerPage = 1;
+`
 [That's not how gravity works.]
 ---
 :That's not how gravity works.
@@ -1095,12 +1413,18 @@ Her voice comes out muffled from underneath several covers, now:
 
 "Your universal constants could shift at any time!!! Don't get so comfortable!!!!!!"
 
+!`
+choicesPerPage = 1;
+`
 [Cool it with the exclamation marks. I'll go.]
 ---
 :Cool it with the exclamation marks. I'll go.
 
 "Okay!!!!!!!!!!!! Thank you!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! Sorry!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
 
+!`
+choicesPerPage = 1;
+`
 [Jeez. And I wanted to go in the first place, too.]
 ---
 :Jeez. And I wanted to go in the first place, too.
@@ -1108,12 +1432,19 @@ Her voice comes out muffled from underneath several covers, now:
 She peeks her head out from the end of the bed.
 
 "I'm sorry! I really am!"
+
+!`
+choicesPerPage = 1;
+`
 [It's fine, it's fine. Go get some dildos and some flowers for the room while I'm gone, ya?]
 ---
 :It's fine, it's fine. Go get some dildos and some flowers for the room while I'm gone, ya?
 
 "Okay," she says, smiling weakly. Her perky ears tent the blankets. "I'll see if I can find some pink paint or something, too. Let's really gay up the place!"
 
+!`
+choicesPerPage = 1;
+`
 [Lol, sounds good.]
 ---
 :Lol, sounds good.
@@ -1122,12 +1453,18 @@ She slips back under the blankets.
 
 "Okay. Good. Thanks again. I'm just gonna um... I just need a second to calm down, here..."
 
+!`
+choicesPerPage = 1;
+`
 [Gotcha. I'm gonna go through those keepsakes out front, then I'll jump out the window.]
 ---
 :Gotcha. I'm gonna go through those keepsakes out front, then I'll jump out the window.
 
 "Ehe... okay... tell me if you find any new mom lore, yeah...?"
 
+!`
+choicesPerPage = 1;
+`
 [I will.|end3]
 ---
 :end3
@@ -1138,6 +1475,9 @@ The hall is completely black. You hadn't really noticed how dark it was, since t
 
 The darkness doesn't make it easy to sort through this pile of maybe-not-junk. You end up just feeling over most things... soft, fuzzy... hard, metallic... crinkly paper...
 
+!`
+choicesPerPage = 3;
+`
 [Examine fuzzy thing.]
 [Examine metal thing.]
 [Examine paper thing.]
@@ -1156,6 +1496,10 @@ You run your hands through the pile again.
 You squeeze and play with the little fuzzy thing, hoping that it's not alive and consequently that you aren't molesting it. You grope two ears, a little butt, a tiny tail. If you squint and hold it up to the faint light from the apartment, you can just barely tell it's green.
 
 It's a stuffed kitten.
+
+!`
+choicesPerPage = 1;
+`
 [Back.|examineHub]
 ---
 :Examine metal thing.
@@ -1164,12 +1508,18 @@ You squint in the dark, turning the metal thing over in your palms.
 
 It's got a very curvy, smooth shape to it... and a big thick plastic base, too. Must be a trophy. You can't quite read the inscription, but you get the feeling Wendy never played sports.
 
+!`
+choicesPerPage = 1;
+`
 [Back.|examineHub]
 ---
 :Examine paper thing.
 
 It's a note. Even if you hold it up to the starlight, you can't make out the hurried, complex handwriting.
 
+!`
+choicesPerPage = 1;
+`
 [Back.|examineHub]
 
 ---
@@ -1179,6 +1529,9 @@ You head back into the room.
 
 "Find any lore?" the bed asks you.
 
+!`
+choicesPerPage = 1;
+`
 [Nothing juicy.]
 ---
 :Nothing juicy.
@@ -1187,6 +1540,9 @@ The bed sighs.
 
 "Aw. That sucks. But hey... I feel a little better now!"
 
+!`
+choicesPerPage = 1;
+`
 [Oh yeah? Brave enough to come out and see me off?]
 ---
 :Oh yeah? Brave enough to come out and see me off?
@@ -1197,6 +1553,9 @@ Mynt toddles over to you and wraps you up in her burrito. She kisses you on the 
 
 "You're jumping now?"
 
+!`
+choicesPerPage = 1;
+`
 [Mhm. Unless you wanna throw me off the roof or something fun.]
 ---
 :Mhm. Unless you wanna throw me off the roof or something fun.
@@ -1205,6 +1564,9 @@ She retracts into her burrito like a cock into its foreskin.
 
 "Um... no walls... no ceiling... no thank you..."
 
+!`
+choicesPerPage = 1;
+`
 [Then off I go!]
 ---
 :Then off I go!
@@ -1213,10 +1575,16 @@ She opens the window for you with her face, since her arms are immobilized.
 
 "Okay... stay safe, yeah?"
 
+!`
+choicesPerPage = 1;
+`
 [I will.|end5]
 ---
 :end5
 
+!`
+choicesPerPage = 1;
+`
 [Take a running start and jump out the fucking window.]
 ---
 :Take a running start and jump out the fucking window.
@@ -1229,6 +1597,9 @@ Mynt's face pops out of the window. She extracts a paw from her burrito and wave
 
 "I'll clean you up!" Mynt assures your corpse.
 
+!`
+choicesPerPage = 1;
+`
 [Next.|End]
 ---
 :End

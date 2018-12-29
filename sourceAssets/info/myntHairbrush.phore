@@ -1,16 +1,20 @@
 START_PASSAGES
 :myntTidbitIntro
 
-
-
 Mynt lazes around on the bed. Her paws flop at nothing while she hums the main menu melody. She looks over at the door sometimes, all hopeful.
 
+!`
+choicesPerPage = 1;
+`
 [Can I pet you a bit?|myntTidbit]
 ---
 :myntTidbit
 
 "I'm a bit too sensitive today..." she tells the ceiling.
 
+!`
+choicesPerPage = 1;
+`
 [I have been doing it a lot, huh.|myntTidbit]
 ---
 :myntTidbit
@@ -25,6 +29,9 @@ Mynt flips onto all fours and falls off the bed in a wild scramble for the doork
 
 "Mom?"
 
+!`
+choicesPerPage = 1;
+`
 [Answer it.|myntTidbit]
 ---
 :myntTidbit
@@ -33,6 +40,9 @@ You swing the door open and immediately clutch your nose and break eye contact. 
 
 "Oh." Mynt stands limp in the doorway. "It's you."
 
+!`
+choicesPerPage = 1;
+`
 [Hi. Have we shared names yet?|myntTidbit]
 ---
 :myntTidbit
@@ -43,6 +53,10 @@ Mynt is back on the bed, bored and deaf. She's reciting all the names she can re
 
 "Here," the old angel croaks. She drops a relatively un-crusty brush into your palm. Her eyes are reverent. "This awful trash is the only thing that matters. You take it. I need to go warm up."
 
+
+!`
+choicesPerPage = 2;
+`
 [Sweet free shit thanks.|myntTidbitRejoin]
 [Listen to Mynt.|characterNames]
 ---
@@ -51,6 +65,8 @@ Mynt is back on the bed, bored and deaf. She's reciting all the names she can re
 !`
 setBackground(0, "writer/mynt/bg/myntBodBg");
 setBackground(1, "writer/mynt/face/myntBod/2", CENTERED);
+
+choicesPerPage = 1;
 
 queueTitle("From space...");
 queueTitle("Mr. Eyeball...");
@@ -91,6 +107,9 @@ You touch the cool, polished handle of the brush. But you still aren't holding i
 
 "Just take it already."
 
+!`
+choicesPerPage = 1;
+`
 [Ah— thanks? What's this for again?|myntTidbit]
 ---
 :myntTidbit
@@ -103,6 +122,9 @@ msg("Got Weird Hairbrush!");
 
 You blink, and you're already looking at the back of her wings. She's off down the hall and into her apartment in just a couple crusty moments.
 
+!`
+choicesPerPage = 1;
+`
 [...|myntTidbit]
 ---
 :myntTidbit
@@ -111,6 +133,9 @@ Mynt peeks out from behind you, outraged.
 
 "Did she fucking say I was <i>ugly?</i>"
 
+!`
+choicesPerPage = 1;
+`
 [Don't get caught up in little stuff like that. She gave us a welcoming gift!|myntTidbit]
 ---
 :myntTidbit
@@ -120,6 +145,7 @@ Mynt huffs. "I don't care about her crusty brush..."
 She turns away, exposing her neck, her back`if (rnd > 0.96) append(", her pussy, and her crack.") else append(".");`
 
 !`
+choicesPerPage = 1;
 addChoice("Oh yeah? You don't care, do you?", "myntTidbitLove", {icons: ["Love"]});
 `
 ---
@@ -127,12 +153,18 @@ addChoice("Oh yeah? You don't care, do you?", "myntTidbitLove", {icons: ["Love"]
 
 Mynt huffs again and climbs onto the bed, not facing you. She’s laying in a belly-down position with her chin resting on a pillow and her arms wrapped around it. This leaves her butt sticking out into the air.
 
+!`
+choicesPerPage = 1;
+`
 [Climb onto the bed and onto her.|myntTidbit]
 ---
 :myntTidbit
 
 You hike your knees up around her hips. Your belly and `boobs("boobs", "chest")` lay flush with the curve of her spine. Mynt squirms under `hasBoobs("their squishy, grinding force", "your shadow")`. She grumbles into the pillow and wiggles her ass against your `genitals("bulge", "bare cunt", "bulge")` under the pretext of getting more comfortable.
 
+!`
+choicesPerPage = 1;
+`
 [Examine brushable spots.|myntTidbit]
 ---
 :myntTidbit
@@ -143,6 +175,9 @@ The back of her neck is completely exposed. The collar of her dress even rides l
 
 But you survey the other spots first: the back crooks of her knees and a bit of soft-furred thighmeat peeking out from under her dress, a bit of her arms... her uh... her sexy arms, her juicy biceps(?)... well, now that you look at it, her dress actually covers a bit too much for a good brushing here.
 
+!`
+choicesPerPage = 1;
+`
 [Mynt, take it off.|myntTidbit]
 ---
 :myntTidbit
@@ -154,7 +189,7 @@ She gently removes her face from the pillow and tilts her head like a cat.
 !`
 choicesPerPage = 2;
 `
-addChoice("Everything.", "myntTidbit");
+addChoice("Everything.", "myntTidbitRejoiner");
 addChoice("Everything but the panties.", "myntTidbitPanties", {icons: ["Love", "Love", "Love"]});
 ===
 :myntTidbitPanties
@@ -167,12 +202,18 @@ Cotton. Soaked in aromatic girlcum, and conformed to the curves of her pussy. He
 
 She pulls her dress up and exposes her belly and her flat chest. A couple folds later and it's on the bedsheets.
 
+!`
+choicesPerPage = 1;
+`
 [Pull them down myself.|myntTidbitPanties]
 ---
 :myntTidbitPanties
 
 You grab the hair-thin waistband and yank them down to her knees. `myntCock("That happy cock flops out to greet you.", "Her bare cunt is exposed. Mynt quivers and her paw shoots down on reflex to hide her shame. She manages to hide her clit with a middle pawfinger, but the rest of her fingers just splay out and hug the contours of her lips, which is the opposite of hiding her shame: advertising it. Just below her middle finger a bead of oil forms and drools down between her lips.
 
+!`
+choicesPerPage = 1;
+`
 [Dive in.|myntTidbitPanties]
 ---
 :myntTidbitPanties
@@ -181,26 +222,38 @@ A paw strikes your forehead. Her eyes aren't on you, they're somewhere else....
 
 "Put that brush away first."
 
+!`
+choicesPerPage = 1;
+`
 [...|myntTidbitPanties]
 ---
 :myntTidbitPanties
 
+"... If you don't, then you better just..."
 
-
-[|myntTidbit]
+!`
+choicesPerPage = 1;
+`
+[...|myntTidbitRejoiner]
 ---
-:myntTidbit
+:myntTidbitRejoiner
 
 She flomps her head back down into the pillow.
 
 "Fuggawph."
 
+!`
+choicesPerPage = 1;
+`
 [Why are you so petulant today? Just be a good little bitch and expose yourself for a brushing.|myntTidbit]
 ---
 :myntTidbit
 
 "Noh. Fuggawph."
 
+!`
+choicesPerPage = 1;
+`
 [Stop saying Fuggawph.|myntTidbit]
 ---
 :myntTidbit
@@ -209,6 +262,9 @@ She tries to swat the looming brush out of your hand.
 
 "Fuggawph."
 
+!`
+choicesPerPage = 1;
+`
 [Now I'm pissed.|myntTidbit]
 ---
 :myntTidbit
@@ -221,18 +277,27 @@ Mynt shuts her legs together tight, trapping the fabric of her dress skirt betwe
 
 Mynt glares at the ceiling, although I'm sure she would be glaring at me if she had any idea which direction I was in. 
 
+!`
+choicesPerPage = 1;
+`
 [Do you really not want a brushing?|myntTidbit]
 ---
 :myntTidbit
 
 Mynt pouts over her shoulder. Her tail sways back and forth... and back... and... maybe... y'know, just a little bit... forth.
 
+!`
+choicesPerPage = 1;
+`
 [Come on. Just admit it.|myntTidbit]
 ---
 :myntTidbit
 
 "I don't want a brushing from that crusty old brush!" Her face reunites with the pillow. "How bout that?"
 
+!`
+choicesPerPage = 1;
+`
 [Examine crust.|myntTidbit]
 ---
 :myntTidbit
@@ -243,6 +308,9 @@ The old lady must have meticulously cleaned her trash before she decided to dump
 
 I'm surprised you haven't looked at this thing yet, actually. It's quite pretty.
  
+!`
+choicesPerPage = 1;
+`
 [Examine hairbrush.|myntTidbit]
 ---
 :myntTidbit
@@ -251,6 +319,9 @@ There are like double the amount of bristles you'd normally find on a hairbrush,
 
 You blink. You are dazzled by a glance at deep paranoia.
 
+!`
+choicesPerPage = 1;
+`
 [Examine hairbrush.|myntTidbit]
 ---
 :myntTidbit
@@ -259,12 +330,18 @@ What is an angel? What is a human? What is a furry? Is she ever going to get tir
 
 These questions and more stream out of the heart of the bristles. Somehow a dim purple mandala snuck behind your vision. It forces the noise and floaters into hypnotic order.
 
+!`
+choicesPerPage = 1;
+`
 [Examine hairbrush.|myntTidbit]
 ---
 :myntTidbit
 
 You are looking at the brush again and you don't remember how long it has been since you looked away.
 
+!`
+choicesPerPage = 1;
+`
 [Examine hairbrush.|myntTidbit]
 ---
 :myntTidbit
@@ -283,18 +360,27 @@ choicesPerPage = 2;
 
 She's so frazzled her tail poofs a little bit.
 
+!`
+choicesPerPage = 1;
+`
 [Here.|myntTidbit]
 ---
 :myntTidbit
 
 "What??? What here???"
 
+!`
+choicesPerPage = 1;
+`
 [Mynt. Just.|myntTidbit]
 ---
 :myntTidbit
 
 She pouts.
 
+!`
+choicesPerPage = 1;
+`
 [Take her tail in my hand.|myntTidbit]
 ---
 :myntTidbit
@@ -303,12 +389,18 @@ You wrap your fingers around the base of her tail and squeeze. She makes the mos
 
 You pull your paw down her tail, smoothing the fur out. Her tailmuscles twitch and flutter. She hasn't relaxed yet.
 
+!`
+choicesPerPage = 1;
+`
 [Press the brush to her tail base.|myntTidbit]
 ---
 :myntTidbit
 
 You let the bristles kiss her tail.
 
+!`
+choicesPerPage = 1;
+`
 [Pull it down.|myntTidbit]
 ---
 :myntTidbit
@@ -317,24 +409,36 @@ With your paw for counterweight, you run the brush down her loooong, long tail, 
 
 Mynt is frozen.
 
+!`
+choicesPerPage = 1;
+`
 [How's that feel?|myntTidbit]
 ---
 :myntTidbit
 
 She won't answer.
 
+!`
+choicesPerPage = 1;
+`
 [Come on. Does it feel okay at least?|myntTidbit]
 ---
 :myntTidbit
 
 "Uuu..."
 
+!`
+choicesPerPage = 1;
+`
 [Uuu?|myntTidbit]
 ---
 :myntTidbit
 
 "Uuuuuu..."
 
+!`
+choicesPerPage = 1;
+`
 [Spuh spuh spuh spit it out junior.|myntTidbit]
 ---
 :myntTidbit
@@ -343,6 +447,9 @@ She throws her head back and keens to the sky.
 
 "UuuuuUUUuUUUNYYAAAAAAA~!"
 
+!`
+choicesPerPage = 1;
+`
 [Jesus fucking christ.|myntTidbit]
 ---
 :myntTidbit
@@ -353,6 +460,9 @@ She throws her hips back against the brush and feels the cool bristles wipe acro
 
 "I feel so relaxed..."
 
+!`
+choicesPerPage = 1;
+`
 [Wow... look at your butt.|myntTidbit]
 ---
 :myntTidbit
@@ -361,6 +471,9 @@ She looks back at her own ass, which is still doing its thing.
 
 "Oh wuahhh... lookit that huhhh..."
 
+!`
+choicesPerPage = 1;
+`
 [Oh my god. Examine ass. <3|myntTidbit]
 ---
 :myntTidbit
@@ -369,6 +482,9 @@ You peep hard on that catbutt. Its soft and furry, and the coat is thin and clea
 
 "Lookit that..."
 
+!`
+choicesPerPage = 1;
+`
 [Wait.|myntTidbitRejoin]
 ---
 :myntTidbitDONOT
@@ -379,6 +495,10 @@ She does not compute. In her struggle to understand, Mynt looks directly at the 
 
 "That hairbrush?"
 
+
+!`
+choicesPerPage = 2;
+`
 [YES NOW LOOK AWAY|myntTidbitLookaway]
 [You are a retard.|myntTidbitRetard]
 ---
@@ -388,6 +508,9 @@ She does not compute. In her struggle to understand, Mynt looks directly at the 
 
 She's still looking at the amethyst handle.
 
+!`
+choicesPerPage = 2;
+`
 [STOP YOU SILLY FUCKING DINK|myntTidbitLookaway]
 [STOP Bro.|myntTidbitLookaway]
 ---
@@ -397,54 +520,81 @@ She looks away, at you.
 
 But you're not looking at her.
 
+!`
+choicesPerPage = 1;
+`
 [Oh no. Look away.|myntTidbit]
 ---
 :myntTidbit
 
 
 
+!`
+choicesPerPage = 1;
+`
 [Look away. I distracted myself.|myntTidbit]
 ---
 :myntTidbit
 
 You put
 
+!`
+choicesPerPage = 1;
+`
 [...|myntTidbit]
 ---
 :myntTidbit
 
 
 
+!`
+choicesPerPage = 1;
+`
 [I put?|myntTidbit]
 ---
 :myntTidbit
 
 
 
+!`
+choicesPerPage = 1;
+`
 [I fucking put?|myntTidbit]
 ---
 :myntTidbit
 
 Failure
 
+!`
+choicesPerPage = 1;
+`
 [...|myntTidbit]
 ---
 :myntTidbit
 
 
 
-[|myntTidbit]
----
-:myntTidbit
-
-
-
+!`
+choicesPerPage = 1;
+`
 [...|myntTidbit]
 ---
 :myntTidbit
 
 
 
+!`
+choicesPerPage = 1;
+`
+[...|myntTidbit]
+---
+:myntTidbit
+
+
+
+!`
+choicesPerPage = 1;
+`
 [|myntTidbit]
 ---
 :myntTidbit
@@ -455,78 +605,117 @@ y fur. You wrap a reassuring grip around her hand
 
 le. You
 
+!`
+choicesPerPage = 1;
+`
 [I??????|myntTidbit]
 ---
 :myntTidbit
 
 of wings wrapped around you.
 
+!`
+choicesPerPage = 1;
+`
 [Hello? Eyeball???|myntTidbit]
 ---
 :myntTidbit
 
 Yes?
 
+!`
+choicesPerPage = 1;
+`
 [What the fuck was that.|myntTidbit]
 ---
 :myntTidbit
 
 What was what.
 
+!`
+choicesPerPage = 1;
+`
 [You broke.|myntTidbit]
 ---
 :myntTidbit
 
 Oh that. You got distracted.
 
+!`
+choicesPerPage = 1;
+`
 [I got distracted??|myntTidbit]
 ---
 :myntTidbit
 
 Yeah, this hairbrush is evil or something.
 
+!`
+choicesPerPage = 1;
+`
 [WHY DIDN'T YOU MAKE THIS CLEAR EARLIER|myntTidbit]
 ---
 :myntTidbit
 
 I'm not a walkthrough. I help out when I feel like it, fuck you.
 
+!`
+choicesPerPage = 1;
+`
 [Am I looking away now?|myntTidbit]
 ---
 :myntTidbit
 
 You have been for the past five hours while you fucked and cuddled Mynt. You threw it to the side forever ago.
 
+!`
+choicesPerPage = 1;
+`
 [Well throw it out the window. Without looking at it.|myntTidbit]
 ---
 :myntTidbit
 
 You throw it out the window without looking at it, okay? Calm down. It's a hairbrush.
 
+!`
+choicesPerPage = 1;
+`
 [Examine window.|myntTidbit]
 ---
 :myntTidbit
 
 Oh, it's on the sill.
 
+!`
+choicesPerPage = 1;
+`
 [DUDE|myntTidbit]
 ---
 :myntTidbit
 
 Damn that thing is evil.
 
+!`
+choicesPerPage = 1;
+`
 [OVERHAND IT|myntTidbit]
 ---
 :myntTidbit
 
 Okay you whip that thing right out the window. It's gone in an amethyst blur. You don't even stop to lean over the edge of the sill and watch it glitter in the dawn as it falls. You do not.
 
+!`
+choicesPerPage = 1;
+`
 [...|myntTidbit]
 ---
 :myntTidbit
 
 I'm fucking with you.
 
+!`
+choicesPerPage = 1;
+`
 [I'm going to leave if you ever do that shit again Mr.|myntTidbit]
 ---
 :myntTidbit
@@ -535,7 +724,10 @@ Alright, alright, cool it. You have to get used to this kind of thing though. Fo
 
 !`
 choicesPerPage = 1;
-`
+
+!`
+choicesPerPage = 1;
+``
 [Warn me about mindjacking hairbrushes next time and do not fuck with my sense of reality ever again I'm serious|myntTidbit]
 ---
 :myntTidbit
@@ -544,24 +736,36 @@ Understood.
 
 I might by accident though.
 
+!`
+choicesPerPage = 1;
+`
 [I'll try my best to forgive you.|myntTidbit]
 ---
 :myntTidbit
 
 You clutch at the windowsill, veins popped out in your forehead and fingernails in the wood. You slowly un-clench each muscle in your body, and relaxation melts down from your eyebrows to your curled toes.
 
+!`
+choicesPerPage = 1;
+`
 [Close the window.|myntTidbit]
 ---
 :myntTidbit
 
 You close the window.
 
+!`
+choicesPerPage = 1;
+`
 [I am in control.|myntTidbit]
 ---
 :myntTidbit
 
 "Yes you are."
 
+!`
+choicesPerPage = 1;
+`
 [     |myntTidbit]
 ---
 :myntTidbit
@@ -570,13 +774,19 @@ Mynt smiles at you. She's laying on her side, legs spread, propped up on one elb
 
 !`
 choicesPerPage = 1;
-`
+
+!`
+choicesPerPage = 1;
+``
 [No.|myntTidbit]
 ---
 :myntTidbit
 
 of wings wrapped around you.
 
+!`
+choicesPerPage = 1;
+`
 [    |myntTidbit]
 ---
 :myntTidbit
@@ -585,12 +795,18 @@ The angel grandma slaps you out of it.
 
 "I knew it! I knew it!"
 
+!`
+choicesPerPage = 1;
+`
 [AAAAAAAA|myntTidbit]
 ---
 :myntTidbit
 
 You scream like a kid having a night terror.
 
+!`
+choicesPerPage = 1;
+`
 [AAAAAAAAAA AWHYW HYW HY|myntTidbit]
 ---
 :myntTidbit
@@ -599,6 +815,9 @@ She beats down on you, weak and crusty, her wings overstretched until they crump
 
 "I knew you stole my brush!"
 
+!`
+choicesPerPage = 1;
+`
 [god WHY|myntTidbit]
 ---
 :myntTidbit
@@ -607,6 +826,9 @@ She tears it out of Mynt's arms. Mynt hangs on her last glimpse of it with huge 
 
 You know what, I'm gonna ask Cart about this thing. You two have been acting weird ever since you looked at it. And I assume something is like. Actually going on.
 
+!`
+choicesPerPage = 1;
+`
 [of COURSE SOMETHI|myntTidbit]
 ---
 :myntTidbit
@@ -615,12 +837,18 @@ Woooahkay, emergency teleported you both out of those bodies.
 
 He got back to me right away. That's unmapped.
 
+!`
+choicesPerPage = 1;
+`
 [Unmapped?|myntTidbit]
 ---
 :myntTidbit
 
 It's a little layer.
 
+!`
+choicesPerPage = 1;
+`
 [It's a little layer.|myntTidbit]
 ---
 :myntTidbit
@@ -629,48 +857,72 @@ Yeah. A place with tiny hairbrush people and stuff. They drain attention like an
 
 It's actually kind of hot if you want my honest opinion.
 
+!`
+choicesPerPage = 1;
+`
 [... So where are...?|myntTidbit]
 ---
 :myntTidbit
 
 Okay you're back in the apartment. Antiphores extracted the hairbrush and arrested the grandma.
 
+!`
+choicesPerPage = 1;
+`
 [Don't hurt that grandma.|myntTidbit]
 ---
 :myntTidbit
 
 We're not about to hurt a grandma.
 
+!`
+choicesPerPage = 1;
+`
 [She was under the spell too.|myntTidbit]
 ---
 :myntTidbit
 
 Where do you think the life came from? It didn't start in a hairbrush I can guarantee you that.
 
+!`
+choicesPerPage = 1;
+`
 [Well I don't know.|myntTidbit]
 ---
 :myntTidbit
 
 It probably cropped up in a place where there was a consistent excess of attention over a long timescale.
 
+!`
+choicesPerPage = 1;
+`
 [...|myntTidbit]
 ---
 :myntTidbit
 
 You should go visit her more.
 
+!`
+choicesPerPage = 1;
+`
 [Oh my god.|myntTidbit]
 ---
 :myntTidbit
 
 
 
+!`
+choicesPerPage = 1;
+`
 [It was born from her T.V. screen.|myntTidbit]
 ---
 :myntTidbit
 
 Like I said, you have to get used to this stuff.
 
+!`
+choicesPerPage = 1;
+`
 [Oh god Mynt. Is Mynt okay?|myntTidbit]
 ---
 :myntTidbit
@@ -679,6 +931,9 @@ She's shaken herself out of it a bit and now she's scooting slowly away from you
 
 "Don't touch me," she quavers. "Don't touch me with it again!"
 
+!`
+choicesPerPage = 1;
+`
 [Oh my god I am so sorry.|myntTidbit]
 ---
 :myntTidbit
@@ -689,6 +944,9 @@ Then she breathes in deep and remembers that her thoughts and feelings are just 
 
 "Phwa. It's alright, not your fault."
 
+!`
+choicesPerPage = 2;
+`
 [Oh thank you. >.<|myntTidbit]
 [Oh thank you. Seriously.|myntTidbit]
 ---
@@ -698,20 +956,29 @@ She <i>sh-sh-sh-shaaakes</i> it all out, tail fwipping everywhere. She curls up 
 
 "You ever get sleep paralysis?"
 
+!`
+choicesPerPage = 3;
+`
 [Yeah. When I was little.|myntTidbitLittle]
-[Some games can feel like that.|myntTidbitRejoin]
+[Only if I stared at the screen all night.|myntTidbitRejoin]
 [I can't ever fall asleep watching T.V. again.|myntTidbitRejoin]
 ---
 :myntTidbitLittle
 
 "Me too," she whispers. "Mom fixed it though. It was just a bug where, every time her computer went into sleep mode, I would bug out and keep trying to run commands that just got rejected over and over."
 
+!`
+choicesPerPage = 1;
+`
 [Where is mom.|myntTidbitRejoin]
 ---
 :myntTidbitRejoin
 
 "Being in brushspace has the same helpless panic feeling."
 
+!`
+choicesPerPage = 1;
+`
 [It's gone now right?|myntTidbit]
 ---
 :myntTidbit
@@ -722,6 +989,9 @@ You... finally... look out the window, down at the street. Nothing glitters. It'
 
 "So cold." Mynt brrrr-rr-rrs.
 
+!`
+choicesPerPage = 1;
+`
 [Ugh I know right better close and lock the window immediately haha.|myntTidbit]
 ---
 :myntTidbit
@@ -730,6 +1000,9 @@ Click.
 
 You both sigh and collapse into each other's arms.
 
+!`
+choicesPerPage = 1;
+`
 [Phwa.|myntTidbit]
 ---
 :myntTidbit
@@ -738,11 +1011,17 @@ You both sigh and collapse into each other's arms.
 
 I underestimated grandmas.
 
+!`
+choicesPerPage = 1;
+`
 [Phwaaa...|myntTidbit]
 ---
 :myntTidbit
 
 Okay, I get it. I'll get back to narrating...
 
+!`
+choicesPerPage = 1;
+`
 [Phwwwwaaaaa...|myntTidbitEnd]
 ---

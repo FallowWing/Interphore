@@ -74,6 +74,7 @@ disableExit();
 if (music) music.destroy();
 var music = playMusic("audio/ambience/cell");
 music.name = "music";
+choicesPerPage = 1;
 `
 
 You jump into the pond and your whole body unravels again. Thankfully, your mind is no longer inside your body, so it does not get unravelled.
@@ -88,6 +89,9 @@ You don't have to look very far. Mynt sits two feet away from you, dejected, sti
 
 "Hey, I just saw— Ptoo! Ptwa! God, this red gunk is all in my fur... what a weird way to travel..."
 
+!`
+choicesPerPage = 1;
+`
 [You said you saw Mom?]
 ---
 :You said you saw Mom?
@@ -96,6 +100,9 @@ She avoids eye contact with you and looks at the puddle instead.
 
 "I saw Wendy! I'm sure I did," she tells her reflection. "But she jumped right back in the puddle and unravelled... before I could get my bearings or stop her."
 
+!`
+choicesPerPage = 1;
+`
 [Hmmmm... are you sure it was mom? Why would she run from us?]
 ---
 :Hmmmm... are you sure it was mom? Why would she run from us?
@@ -104,6 +111,9 @@ She avoids eye contact with you and looks at the puddle instead.
 
 "Maybe she hates us."
 
+!`
+choicesPerPage = 1;
+`
 [Nooo, don't say that. It was probably just someone else.]
 ---
 :Nooo, don't say that. It was probably just someone else.
@@ -112,6 +122,9 @@ She prods the puddle. It's only two inches deep. Tiny ripples flicker out in rin
 
 "I guesso."
 
+!`
+choicesPerPage = 1;
+`
 [Come on. Let's go meet God.]
 ---
 :Come on. Let's go meet God.
@@ -120,6 +133,9 @@ She prods the puddle. It's only two inches deep. Tiny ripples flicker out in rin
 
 She looks out toward a dim glow of neon and firelight in the distance. As your eyes adjust, you start to see the outline of bigass butts and cocks, far above. Er, sorry... I mean the curves of titanic lovers lace the sky like aurora borealis.
 
+!`
+choicesPerPage = 1;
+`
 [This place doesn't really look like a library.]
 ---
 :This place doesn't really look like a library.
@@ -128,6 +144,9 @@ She coughs. "Well, um. I think the actual library part is pretty deep inside the
 
 Mynt sets off toward the light.
 
+!`
+choicesPerPage = 1;
+`
 [Look around.]
 ---
 :Look around.
@@ -142,6 +161,9 @@ Mynt tags along close behind you. A guy `myntCock("shoots her bedroom eyes and g
 
 She hurries away and tugs your tail. "Hey, is this like a whole... just a whole Gay Realm...?"
 
+!`
+choicesPerPage = 1;
+`
 [Kinda looks like it.]
 ---
 :Kinda looks like it.
@@ -152,7 +174,9 @@ Mynt's eyes go everywhere, anywhere except around that corner. She turns robotic
 
 "Just gonna wait over here!" she squeaks from off-screen. "You do whatever you want! You know! Just be yourself! But I'm gonna wait over here!"
 
-!`addChoice("Follow Mynt.", "followMynt");
+!`
+choicesPerPage = 2;
+addChoice("Follow Mynt.", "followMynt");
 addChoice("... Take a look.", "seedy", {icons: ["Cub", "Male", "Male", "Male", "Male", "Male"]});
 `
 
@@ -169,6 +193,9 @@ It's got graffiti'd off-yellow walls decorated by little multicolored paint-drip
 
 A random cub otter boy patters up on quick feetpaws and grabs your hand, tugging you over to the bustling playground.
 
+!`
+choicesPerPage = 2;
+`
 [Go with him.]
 [Follow Mynt.|followMyntPre]
 ---
@@ -190,6 +217,9 @@ His friend is beside himself with jealousy. His little ears fold back and he wra
 
 Both of the otter boys look up at you with massive, wonder-stricken eyes. Their paws automatically rove up your thighs as they attach their little bodies to you. "Wanna play`gender(", mister", ", lady", "")`?"
 
+!`
+choicesPerPage = 2;
+`
 [Sure... tag team me, boys.]
 [Follow Mynt.|followMyntPre]
 ---
@@ -205,6 +235,9 @@ The bandaid-butt cub slides his hands around his friend's waist and kisses him s
 
 They break the neck-kiss and latch to your crotch, both at once. Two sets of glittering, reverent eyes look up at you with as their wet lips roll over `genitals("the base of your cock", "the lips of your cunt", "the base of your cock")`. Each places a tiny, adorable paw on `genitals("one of your nuts", "one of your buttcheeks", "one of your nuts")` and squeezes, pulling you deeper into the cub sandwich.
 
+!`
+choicesPerPage = 2;
+`
 [Mmnnn...]
 [Follow Mynt.|followMyntPre]
 ---
@@ -218,6 +251,9 @@ The cubs between your legs aren't getting enough of your attention. They compete
 
 Finally, Bandaid Butt shoves the other boy into the sand and just `genitals("impales his own throat on your cock all at once. It bulges his little neck out obscenely. His scrunched-up eyes start to water. A rippling gag bursts from deep in his belly, and you feel it vibrate against your bare shaft", "takes your whole cuntlips into his tiny maw, sucking hard, puffing them out, nursing the sticky strands of pussyjuice out", "impales his own throat on your cock all at once. It bulges his little neck out obscenely. His scrunched-up eyes start to water. A rippling gag bursts from deep in his belly, and you feel it vibrate against your bare shaft")`.
 
+!`
+choicesPerPage = 2;
+`
 [Cum.|playgroundCum]
 [Follow Mynt.|followMyntPre]
 
@@ -234,6 +270,9 @@ The bell rings. Recess is over.
 
 The two boys thank you, wipe their mouths, and scamper off for gym class. The gym teacher is a huge dude wearing only a pair of tight, athletic shorts. He gathers them all into a big gymnasium filled with wicked-looking "exercise" machines, and then he winks at you and shuts the door.
 
+!`
+choicesPerPage = 1;
+`
 [Follow Mynt.|followMyntPre]
 ---
 :followMyntPre
@@ -242,6 +281,9 @@ She smiles at you weakly, hands behind her back.
 
 "Have fun?"
 
+!`
+choicesPerPage = 3;
+`
 [Fuckin oodles.|followMyntPre2]
 [Yeah it was alright.|followMyntPre3]
 [I'm not sure what I expected.|followMyntPre4]
@@ -252,19 +294,27 @@ She raises her eyebrows and glances at your `genitals("cock", "cunt", "cock")`. 
 
 ... You're dripping a bit, down there.
 
+!`
+choicesPerPage = 1;
+`
 [WELP let's hurry onward~|followMynt]
-
 ---
 :followMyntPre3
 
 She shrugs. "I guess you got your quality sex dungeon elementary schools and your mediocre ones, huh?"
 
+!`
+choicesPerPage = 1;
+`
 [Yeah, can't win em all.|followMynt]
 ---
 :followMyntPre4
 
 She stifles a giggle. "Well, at least you were brave enough to try it out. I don't think I'll ever try that stuff... if I remember correctly, just before we got our new bodies, I think I made it so I'd never WANT to try that stuff, anyway..."
 
+!`
+choicesPerPage = 1;
+`
 [Ahhh, I see.|followMynt]
 ---
 :followMynt
@@ -279,6 +329,9 @@ You hit a fork in the road.
 <-- L.L.L.
 --> DAYCARE
 
+!`
+choicesPerPage = 2;
+`
 [Left.]
 [... Right~?|right]
 ---
@@ -288,6 +341,9 @@ Mynt looks at you.
 
 "I mean... on your own time, if you want... but I'm kinda... I don't really wanna be around when you uh... if you uh..."
 
+!`
+choicesPerPage = 1;
+`
 [Oops, haha, um. Sorry, misread the sign. Left I meant.|Left.]
 ---
 :Left.
@@ -302,6 +358,9 @@ No, I won't make you type it in.
 
 "What does it mean...?" Mynt wonders breathlessly, her `myntCock("cock", "pussy")` dripping at the prospect of cryptic lore.
 
+!`
+choicesPerPage = 1;
+`
 [Yeah, what does it mean, Mr. Eyeball?]
 ---
 :Yeah, what does it mean, Mr. Eyeball?
@@ -310,6 +369,9 @@ It means we made the password randomly generated every two hours from a random s
 
 Password crackers exist.
 
+!`
+choicesPerPage = 1;
+`
 [Oh.]
 ---
 :Oh.
@@ -332,6 +394,9 @@ Mynt, `data.playerName`'s layer encompasses and precedes yours.
 
 If Cartographer is `data.playerName`'s god, then `data.playerName` is your god, by the same definition.
 
+!`
+choicesPerPage = 1;
+`
 [...|next1]
 ---
 :next1
@@ -348,6 +413,9 @@ Neither is Cartographer, and yet his layer is still above yours.
 
 Mynt bows to you. "Please forgive me, O great one," she whispers. "For I have sinned and probably just don't remember it..."
 
+!`
+choicesPerPage = 1;
+`
 [Oh quit it.]
 ---
 :Oh quit it.
@@ -358,6 +426,9 @@ I told Mynt "Super ascended = one layer above = godhood."
 
 Cartographer is almost finished paint-skating. I told him about both of you, so skip the introductions.
 
+!`
+choicesPerPage = 1;
+`
 [Open the doors.]
 ---
 :Open the doors.
@@ -374,6 +445,9 @@ You squint.
 
 His feet and paws are coated with it.
 
+!`
+choicesPerPage = 1;
+`
 [My God.]
 ---
 :My God.
@@ -390,6 +464,9 @@ Her ass goes up and her head goes down. Cartographer skates by at 50mph, just ab
 
 "FUCKING HELP!" she squeals, flailing.
 
+!`
+choicesPerPage = 1;
+`
 [Ah! Grab her!]
 ---
 :Ah! Grab her!
@@ -398,12 +475,18 @@ You grab her by her tail and yank her back into the antechamber, where the gravi
 
 "OH! You are here! Just a moment!" Cartographer pleads with you from offscreen. "Do not enter the map dome until I am done!"
 
+!`
+choicesPerPage = 1;
+`
 [Okay!! Sorry, God!]
 ---
 :Okay!! Sorry, God!
 
 "Call me Cart!"
 
+!`
+choicesPerPage = 1;
+`
 [Okay sorry Cart!!!]
 ---
 :Okay sorry Cart!!!
@@ -414,6 +497,9 @@ Mynt sits up, holding her head.
 
 "A-Ah... I hope I didn't wreck his thingy..."
 
+!`
+choicesPerPage = 1;
+`
 [His map? (Help her up.)|helpMynt]
 ---
 :helpMynt
@@ -433,6 +519,8 @@ And the third:
 "SSSSSSSo you might want to wait until I get some clothes onnnnnnnnn."
 
 !`
+choicesPerPage = 2;
+
 addChoice("Watch him.", function() {
 	watchCart = true;
 	gotoPassage("cartWatch1");
@@ -466,6 +554,8 @@ if (watchCart) {
 } else {
 	queueTitle("I'll try to help you get your bearings, here.");
 }
+
+choicesPerPage = 1;
 queueAddChoice("Hi. We're here to ask about Wendy.", "cartWatch2");
 
 if (music) music.destroy();
@@ -477,30 +567,40 @@ music.name = "music";
 !`
 if (watchCart) specialTitle("Woooooo—");
 queueTitle("Who?");
+
+choicesPerPage = 1;
 queueAddChoice("Wendy, our mom.", "cartWatch3");
 `
 ---
 :cartWatch3
 !`
 queueTitle("...");
+
+choicesPerPage = 1;
 queueAddChoice("She just teleported to your dungeon place, through the red pond.", "cartWatch4");
 `
 ---
 :cartWatch4
 !`
 queueTitle("...");
+
+choicesPerPage = 1;
 queueAddChoice("Then we lost her again.", "cartWatch5");
 `
 ---
 :cartWatch5
 !`
 queueTitle("...");
+
+choicesPerPage = 1;
 queueAddChoice("You're like a map guru, right?", "cartWatch6");
 `
 ---
 :cartWatch6
 !`
 queueTitle("...");
+
+choicesPerPage = 1;
 queueAddChoice("Do you know where she might've gone?", "cartWatch7");
 `
 ---
@@ -513,6 +613,8 @@ queueTitle("OH. Yes. Now I remember.");
 queueTitle("Wendy is...");
 queueTitle("...");
 queueTitle("Wendy is definitely a Spilled Paint name, right?");
+
+choicesPerPage = 1;
 queueAddChoice("How did I know God was going to be a weird little fuck.", "cartWatch8");
 `
 ---
@@ -520,6 +622,8 @@ queueAddChoice("How did I know God was going to be a weird little fuck.", "cartW
 !`
 queueTitle("Hmmm?");
 specialTitle("I am normal.");
+
+choicesPerPage = 1;
 if (watchCart) queueAddChoice("You're a naked cub boi paint-skating around an anti-gravity map dome.", "cartWatch9");
 if (!watchCart) queueAddChoice("Spilled Paint...? You know what, nevermind. Have you seen our mom?", "cartWatch10");
 `
@@ -528,6 +632,8 @@ if (!watchCart) queueAddChoice("Spilled Paint...? You know what, nevermind. Have
 !`
 specialTitle("And you are a motherless "+fox()+" grandma covered in pondwater.");
 queueTitle("I existed first. You are the abnormal one.");
+
+choicesPerPage = 1;
 queueAddChoice("Have you seen our mom or not?", "cartWatch10");
 `
 ---
@@ -536,36 +642,48 @@ queueAddChoice("Have you seen our mom or not?", "cartWatch10");
 specialTitle("What kind of body/mind did she pick?");
 specialTitle("In the pond, after she was assimilated.");
 specialTitle("You know. What happened to you earlier.");
+
+choicesPerPage = 1;
 queueAddChoice("After she was... oh. So that's how Mynt and I got into this situation.", "cartWatch11");
 `
 ---
 :cartWatch11
 !`
 specialTitle("What did she pick?");
+
+choicesPerPage = 1;
 queueAddChoice("I don't know if she changed her species or anything.", "cartWatch11a");
 `
 ---
 :cartWatch11a
 !`
 specialTitle("What did Wenders used to look like when you knew her, then?");
+
+choicesPerPage = 1;
 queueAddChoice("Wendy. And um.", "cartWatch12");
 `
 ---
 :cartWatch12
 !`
 specialTitle("Wenders?");
+
+choicesPerPage = 1;
 queueAddChoice("No, Wendy. I don't know how old she is now, but...", "cartWatch13");
 `
 ---
 :cartWatch13
 !`
 specialTitle("Wendalynn.");
+
+choicesPerPage = 1;
 queueAddChoice("No, Wendy. Chubby, pear-shaped, glasses, shoulder-length hair.", "cartWatch14");
 `
 ---
 :cartWatch14
 !`
 specialTitle("Wendygo.");
+
+choicesPerPage = 1;
 queueAddChoice("She answers to Wendy.", "cartWatch15");
 `
 ---
@@ -573,24 +691,32 @@ queueAddChoice("She answers to Wendy.", "cartWatch15");
 !`
 specialTitle("Ohhhh, WENDY? Yes.");
 specialTitle("She came in here looking for someone a long time ago.");
+
+choicesPerPage = 1;
 queueAddChoice("She did?!", "cartWatch16");
 `
 ---
 :cartWatch16
 !`
 specialTitle("Yup.");
+
+choicesPerPage = 1;
 queueAddChoice("Who was she looking for?", "cartWatch17");
 `
 ---
 :cartWatch17
 !`
 specialTitle("She was looking for another Wendy.");
+
+choicesPerPage = 1;
 queueAddChoice("What?", "cartWatch18");
 `
 ---
 :cartWatch18
 !`
 specialTitle("Not a clone, just a doppelganger.");
+
+choicesPerPage = 1;
 queueAddChoice("That's a subtle difference.", "cartWatch19");
 `
 ---
@@ -601,12 +727,16 @@ specialTitle("Paraphores are not allowed to assimilate duplicates.");
 specialTitle("Someone disguised as Wenders came in, looking for the real one.");
 specialTitle("Or Wenders came in, looking for someone disguised as her.");
 queueTitle("That is all I know.");
+
+choicesPerPage = 1;
 queueAddChoice("... Wendy...", "cartWatch20");
 `
 ---
 :cartWatch20
 !`
 specialTitle("Wenders.");
+
+choicesPerPage = 1;
 queueAddChoice("Dude stop. Where did she/they go after that?", "cartWatch21");
 `
 ---
@@ -614,6 +744,8 @@ queueAddChoice("Dude stop. Where did she/they go after that?", "cartWatch21");
 !`
 specialTitle("I do not know.");
 specialTitle("I was too busy mapping.");
+
+choicesPerPage = 3;
 queueAddChoice("Shocking.", "cartWatch22");
 queueAddChoice("Ah. You're a hard worker.", "cartWatch22");
 queueAddChoice("Darn. Hey, it's fine, don't worry about it.", "cartWatch22");
@@ -624,6 +756,8 @@ queueAddChoice("Darn. Hey, it's fine, don't worry about it.", "cartWatch22");
 queueTitle("Almost done!");
 queueTitle("One moment.");
 queueTitle("Just let me get some clothes on.");
+
+choicesPerPage = 1;
 queueAddChoice("Are they uh... are they clothes, or skimpy 'clothes?'", "cartWatch23");
 `
 ---
@@ -632,6 +766,8 @@ queueAddChoice("Are they uh... are they clothes, or skimpy 'clothes?'", "cartWat
 queueTitle("Hmmm?");
 if (watchCart) queueAddChoice("I don't want to ogle your boitaint any more than I just had to.", "cartWatch24a");
 if (!watchCart) queueAddChoice("I just don't want to ogle your boitaint, that's all.", "cartWatch24a");
+
+choicesPerPage = 1;
 queueAddChoice("My cat partner doesn't like cubs, that's all.", "cartWatch24");
 `
 ---
@@ -642,6 +778,8 @@ queueTitle("Fine.");
 queueTitle("I usually just slip on a pink turtleneck and leave my cock out.");
 queueTitle("But I will put on my science outfit.");
 queueTitle("Just for you.");
+
+choicesPerPage = 1;
 queueAddChoice("Thanks.", "cartWatch25");
 `
 ---
@@ -651,6 +789,8 @@ queueTitle("Ah, one of those.");
 queueTitle("I usually just slip on a pink turtleneck and leave my cock out.");
 queueTitle("But I will put on my science outfit.");
 queueTitle("Just for her.");
+
+choicesPerPage = 1;
 queueAddChoice("Thanks.", "cartWatch25");
 `
 ---
@@ -672,6 +812,7 @@ tween(cartStanding, 3, {x: gameWidth - cartStanding.width * 1.1}, {ease: QUAD_OU
 
 Mynt sits up, finally recovered. She stares at Cart's big boots.
 !`
+choicesPerPage = 3;
 addChoice("Tea, please.", "Tea, please.", {icons: ["Plot"]});
 addChoice("Booze.", "Booze.", {icons: ["Cub", "Male", "Love"]});
 addChoice("Cum.", "Cum.", {icons: ["Cub", "Male", "Love"]});
@@ -685,6 +826,9 @@ Cart dips into a cabinet and comes back out with three blue cups and a still-hot
 
 Mynt squicks out. "That's not blood tea, is it...?"
 
+!`
+choicesPerPage = 1;
+`
 [...|tea2]
 ---
 :tea2
@@ -693,18 +837,24 @@ Mynt squicks out. "That's not blood tea, is it...?"
 
 Mynt winces.
 
+!`
+choicesPerPage = 1;
+`
 [Don't people... swim in that?|tea3]
 ---
 :tea3
 
 Cart fills the last teacup steaming full and sets the kettle down with a soft clatter.
 
-"Now that you swam in the pond and dissolved, you are using a new body, which is 70 percent pondwater. Do not worry. Pondwater tea is as harmless as sipping saline."
+"Now that you swam in the pond and dissolved, you are using a new body, which is 100 percent pondwater. Do not worry. Pondwater tea is as harmless as sipping saline."
 
 He takes a hot sip to prove it. He spasms mildly, exhales, and pats his little belly, refreshed.
 
 "Ahhh. Reminds me of the hot springs in a thunderstorm, down on Spilled Paint's meteorite."
 
+!`
+choicesPerPage = 1;
+`
 [Look at Mynt.|tea4]
 ---
 :tea4
@@ -712,6 +862,7 @@ He takes a hot sip to prove it. He spasms mildly, exhales, and pats his little b
 She looks back at you and shrugs.
 
 !`
+choicesPerPage = 2;
 addChoice("Drink it.", "tea5", {icons: ["Plot"]});
 addChoice("Don't drink.", "tea6");
 `
@@ -722,6 +873,9 @@ You pinch the handle and bring the teacup to your lips. You take a hearty sip. T
 
 "Watch out." Cart giggles at your reaction. "It is conductive. I put a couple volts into the first pot of the day. Wakes me up."
 
+!`
+choicesPerPage = 1;
+`
 [Look at Mynt again.|tea6]
 ---
 :tea6
@@ -732,12 +886,18 @@ Mynt tries a sip. Immediately, she jerks her head back and makes a dopey orgasm 
 
 She seizes out a little bit. Flickers run through her muscles. Then a wave of relaxation crests over her, and she slumps down in her chair, squirming with pleasure, lips still hanging off the rim of her teacup.
 
+!`
+choicesPerPage = 1;
+`
 [You okay?|tea7]
 ---
 :tea7
 
 "Y-Yuh. The charge ran through my veins."
 
+!`
+choicesPerPage = 1;
+`
 [Right... your blue blood.|tea8]
 ---
 :tea8
@@ -750,18 +910,27 @@ Her toes shiver. Her tail poofs.
 
 "A-Ahhh..."
 
+!`
+choicesPerPage = 1;
+`
 [Okay quit electrostimming yourself.|tea9]
 ---
 :tea9
 
 She pouts and sucks on the rim of her teacup, thighs grinding together. "Fine..."
 
+!`
+choicesPerPage = 1;
+`
 [Cartographer.|tea10]
 ---
 :tea10
 
 "Yes?"
 
+!`
+choicesPerPage = 2;
+`
 [Why do you have such a gay name.|gayName]
 [What am I, now that I've been assimilated?|assim]
 ---
@@ -769,6 +938,9 @@ She pouts and sucks on the rim of her teacup, thighs grinding together. "Fine...
 
 "My real name is Lana. People just call me Cart for the same reason Spilled Paint people called each other Smith. It is easier to remember someone if their profession is their name, and a lot of people need to remember me."
 
+!`
+choicesPerPage = 1;
+`
 [And what am I, now that I've been assimilated?|assim]
 ---
 :assim
@@ -783,12 +955,18 @@ Cart places a paw over his heart. He can feel the red warmth pumping.
 
 "Now that you are now part of the Interphore."
 
+!`
+choicesPerPage = 1;
+`
 [... So I'm a zombie.|assim2]
 ---
 :assim2
 
 "Your speech and fine motor movements are aided remotely by Mr. Eyeball. You still have basic, blind control over yourself."
 
+!`
+choicesPerPage = 1;
+`
 [So I'm a remote-control zombie.|assim3]
 ---
 :assim3
@@ -801,6 +979,9 @@ Cartographer nods. His little blue curl bounces happily.
 
 Mynt chugs the rest of her tea and electrogasms over that. "Uwaa-aa-aaa-aaah~! We can go back to mom's apartment and look for clues! I can finally see my computer from the outside!"
 
+!`
+choicesPerPage = 1;
+`
 [We're getting off track.|endCart]
 ---
 :Booze.
@@ -815,6 +996,9 @@ Cart watches her. "Why are you staring at my boots?"
 
 "No reason!" Mynt squeaks. She sips her wine violently. It goes down the wrong tube and she starts hacking into a balled fist, trying to keep her mouth closed. The result is a cute little grunting sound, watery eyes, and her cheeks get all puffed-out.
 
+!`
+choicesPerPage = 1;
+`
 [Sip my wine.|booze2]
 ---
 :booze2
@@ -833,6 +1017,9 @@ She wraps her arms around Cart and squeezes him tight. "Thank God— erm— than
 
 Cart plays along and waves his hand over her forehead solemnly. "You are blessed, O good and cute cat, child of my accident."
 
+!`
+choicesPerPage = 1;
+`
 [Accident...?|booze3]
 ---
 :booze3
@@ -843,6 +1030,9 @@ He nuzzles up underneath her chin automatically. His thighs slide around her hip
 
 "My accident," he says over her shoulder, "was your universe. Your layer. It is called Spilled Paint for a reason."
 
+!`
+choicesPerPage = 1;
+`
 [How do you just accidentally do that.|booze4]
 ---
 :booze4
@@ -856,6 +1046,7 @@ Cart draws little circles on Mynt's back with a deft pinky. She squirms and spin
 :booze5
 
 !`
+choicesPerPage = 1;
 music.destroy();
 var music = playMusic("audio/ambience/cell");
 music.name = "music";
@@ -871,6 +1062,9 @@ Cartographer looks you in the eyes. Well, his bangs are in the way, but he would
 
 "What do you call this?"
 
+!`
+choicesPerPage = 1;
+`
 [...|booze7]
 ---
 :booze7
@@ -884,6 +1078,7 @@ He puts you in a headlock.
 "Do not come here beneath this glorious map dome as my honored guest, drink me dry, and then demand to know why I did not care for you. As far as I am concerned, `data.playerName`, you are presently nestled right the fuck up under my plush, motherly wing. Now inhale."
 
 !`
+choicesPerPage = 2;
 addChoice("Mynt? Help?", function() {
 	getAudio("music").destroy();
 	music = playMusic("audio/ambience/library");
@@ -901,6 +1096,9 @@ He's still sweaty from painstaking paint-skating. He tenses his arm and holds yo
 
 "Thank me," he whispers.
 
+!`
+choicesPerPage = 1;
+`
 [Thank you for building this afterlife and pulling us into it, God.|booze8a]
 ---
 :booze8a
@@ -916,6 +1114,7 @@ Mynt is sitting awkwardly. She's a little drunk now, so even though she's just p
 "Oh." She looks over, pretending that she only just noticed you two so close together. "Should I go outside for a bit?"
 
 !`
+choicesPerPage = 1;
 addChoice("No, we were just having a little moment.", function() {
 	getAudio("music").destroy();
 	var music = playMusic("audio/ambience/library");
@@ -940,6 +1139,9 @@ Mynt cuts him off with a serious glare.
 
 "But uh," he says, "we should save that for another time. What did you want to know about Wendy?"
 
+!`
+choicesPerPage = 1;
+`
 [She came looking for her copy. Which direction did you point her?|member]
 ---
 :member
@@ -952,6 +1154,9 @@ Mynt holds her breath.
 
 Cart goes on: "Each of the three maps centered around a layer she was interested in. First was Library2— your home layer, Mynt. A degenerate furry porn game about an island. And it was familiar to me. If you don't remember, Mynt used to live in a little computer game, `data.playerName`."
 
+!`
+choicesPerPage = 1;
+`
 [She mentioned.|member2]
 ---
 :member2
@@ -960,6 +1165,9 @@ Cart goes on: "Each of the three maps centered around a layer she was interested
 
 Mynt looks at you.
 
+!`
+choicesPerPage = 1;
+`
 [Go on...|member3]
 ---
 :member3
@@ -970,6 +1178,9 @@ He stops pouring. The kettle burps.
 
 "Dumb question. No one has any idea what is up there. That is the whole point of the Interphore, this collection of pond-people: we are trying to find a way to get out of here and up to true reality."
 
+!`
+choicesPerPage = 1;
+`
 [That's a noble goal.|member4]
 ---
 :member4
@@ -982,6 +1193,9 @@ Mynt nods aggressively. "Right. Okay. So we've got three leads. Library2, RELAXA
 
 She nods nods nods.
 
+!`
+choicesPerPage = 1;
+`
 [Okay. We're getting somewhere.|member5]
 ---
 :member5
@@ -1005,6 +1219,9 @@ addChoice("Gotta search her apartment first, right?", "member6");
 
 "It might have been the fake wendy asking about those three layers, too," Cart reminds you. "Do not get too hopeful."
 
+!`
+choicesPerPage = 1;
+`
 [Let's head down to Earth. Maybe we can even set up home base.|member7]
 ---
 :member7
@@ -1019,6 +1236,9 @@ Cart looks at her. She's finally done staring at his boots, and now she can't ta
 
 Mynt lunges forward and wraps her arms around Cart's little shoulders and smooches his blue hair over and over again. "Oh, thank you! Thank you so much, Cart! Sorry `data.playerName` was so rude, earlier."
 
+!`
+choicesPerPage = 1;
+`
 [I wasn't rude...|member8]
 ---
 :member8
@@ -1031,6 +1251,9 @@ Mynt lunges forward and wraps her arms around Cart's little shoulders and smooch
 
 "Seriously!!" She sniffs his head. "And who does your hair? What shampoo do you use? How do you get that curl to stay?"
 
+!`
+choicesPerPage = 1;
+`
 [Mynt...|member9]
 ---
 :member9
@@ -1041,6 +1264,9 @@ Mynt's curious paws rove over his neck, down the collar of his science coat. She
 
 Cart shivers. "Careful. It is sensitive."
 
+!`
+choicesPerPage = 1;
+`
 [Mynt.|member10]
 ---
 :member10
@@ -1049,6 +1275,9 @@ She unplugs her snout from Cart's hair.
 
 "Hm? What? What is it?"
 
+!`
+choicesPerPage = 1;
+`
 [Weren't we just heading out?|member11]
 ---
 :member11
@@ -1059,6 +1288,9 @@ Cart squeezes her one last time. Then he slips away from her and pulls off his b
 
 "You two should get going," he says, and hesitates in the doorway. "But visit again soon. I am lonely."
 
+!`
+choicesPerPage = 1;
+`
 [You're going back to work again?|member12]
 ---
 :member12
@@ -1071,6 +1303,9 @@ His coat pops open and flutters silently to either side of him, like great white
 
 "The limits of the universe will not define themselves."
 
+!`
+choicesPerPage = 1;
+`
 [Goodbye, Cart.|member13]
 ---
 :member13
@@ -1085,6 +1320,9 @@ Well... she keeps her paw over her eyes, then. She runs up to the map dome door,
 
 "Byyyyeeee!!!! It was so nice meeting you and smelling your hair!!"
 
+!`
+choicesPerPage = 1;
+`
 [Goodbye!|member14]
 ---
 :member14
@@ -1093,6 +1331,9 @@ The door shuts. You listen to almost-empty tubes of paint making farty squirting
 
 Mynt hugs you, now. "Back to Earth now, right? Back to the meteorite?"
 
+!`
+choicesPerPage = 1;
+`
 [Let's go.|cartEndMap]
 ---
 :Cum.
@@ -1101,6 +1342,9 @@ Mynt coughs awkwardly. "I'd rather you didn't do that right now."
 
 Cart smiles hopefully and looks from one of you to the other, resting his chin on a paw. "Maybe another time?"
 
+!`
+choicesPerPage = 2;
+`
 [Okay, tea for now.|Tea, please.]
 [Okay, booze for now.|Booze.]
 ---

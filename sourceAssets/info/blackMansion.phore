@@ -189,6 +189,9 @@ Founder: Septrica Mauze
 Assistants: Roddy, Som, Bins
 </i>
 
+!`
+choicesPerPage = 1;
+`
 [Push the button.|black1]
 ---
 :black1
@@ -198,6 +201,7 @@ Assistants: Roddy, Som, Bins
 No one answers.
 
 !`
+choicesPerPage = 1;
 disableExit();
 playEffect("audio/effect/buzzer.ogg");
 timer(2, function() {
@@ -223,32 +227,50 @@ choicesPerPage = 1;
 
 You look at the jagged, hacked-in defense systems. No, before you even consider that, you look at the nasty spikes at the top of the gate. No, wait, before you even consider <i>that,</i> you look at the absolute lack of any foothold anywhere around the entire perimeter.
 
+!`
+choicesPerPage = 1;
+`
 [Hmmmm...|black4]
 ---
 :black4
 
 I know how to get in if you want.
 
+!`
+choicesPerPage = 1;
+`
 [Oh??|black5]
 ---
 :black5
 
 Set your respawn point inside and then kill yourself.
 
+!`
+choicesPerPage = 1;
+`
 [Ooooooo.|black6]
 ---
 :black6
 
+!`
+choicesPerPage = 1;
+`
 [Uhhh sure, set it in there. Is that how I do it? Just say that?|black7]
 ---
 :black7
 
 Yeah pretty much. Okay, it's set.
 
+!`
+choicesPerPage = 1;
+`
 [Now let's see...|black8]
 ---
 :black8
 
+!`
+choicesPerPage = 1;
+`
 [Grab the gate and rattle it around a bit.|black9]
 ---
 :black9
@@ -257,12 +279,18 @@ You place one square nanometer of fingertip on the gate.
 
 Eighteen anti-tank missiles launch from the crest of the mansion, curve over the spired rooftop, triangulate your position, and gib your ass into a crater. The only part of you left intact is a few clumps of dazed subatomic particles whirling through the air.
 
+!`
+choicesPerPage = 1;
+`
 [Wew.|black10]
 ---
 :black10
 
 You respawn in total darkness.
 
+!`
+choicesPerPage = 1;
+`
 [Ah... grope for a light.|black11]
 ---
 :black11
@@ -271,6 +299,9 @@ You respawn in total darkness.
 
 You're surrounded by the ruins of an old mansion. Unlike the pristine outer walls of the mansion, everything inside was clearly put together by hand— and it's not bad, you mean, the wooden spiral staircase is treated oak, still shiny and solid, and the rooms are all intact, but none of it has the unnatural gleam of hacked perfection that you found on the outside.
 
+!`
+choicesPerPage = 1;
+`
 [Explore!|black12]
 ---
 :black12
@@ -280,6 +311,7 @@ The silky carpet threads between your bare toes as you drift from room to room, 
 You pass by rooms packed with cribs arranged into rainbow rows by the color of their sheets, rooms filled with innocent toys, some with not-so-innocent toys, kitchens with high-chairs, bathrooms, lounges, dens, and finally a little kindergarten classroom. Journals and paperwork are strewn around everywhere.
 
 !`
+choicesPerPage = 1;
 addChoice("Examine classroom.", "blackClass", {icons: ["Baby", "Plot"]});
 `
 ---
@@ -342,6 +374,9 @@ The armadillo drools and tries to spread her legs. Cage pinches them closed by h
 
 "Hello."
 
+!`
+choicesPerPage = 1;
+`
 [What am I watching.|blackClass2]
 ---
 :blackClass2
@@ -356,6 +391,9 @@ Cage grabs a bright pink little toy shaped like a butterfly. He shakes it and th
 
 No special response. Just more babbling.
 
+!`
+choicesPerPage = 1;
+`
 [...|blackClass3]
 ---
 :blackClass3
@@ -368,6 +406,9 @@ Cage looks at her. He raises his hand again, pointedly. His eyebrows peak in the
 
 She rolls onto her belly and presents her little ass for what she must assume is a spanking or something. Why else would Cage's hand be up in the air like that?
 
+!`
+choicesPerPage = 1;
+`
 [...|blackClass4]
 ---
 :blackClass4
@@ -386,6 +427,9 @@ Cage is silent.
 
 "I don't know. Somewhere around three k."
 
+!`
+choicesPerPage = 1;
+`
 [...|blackClass5]
 ---
 :blackClass5
@@ -402,6 +446,9 @@ Cage sits, big muscular thighs spread, eyes empty, his cheek resting on a fist.
 
 Cage frowns at the floor.
 
+!`
+choicesPerPage = 1;
+`
 [...|blackClass6]
 ---
 :blackClass6
@@ -418,6 +465,9 @@ Cage bats his hand away. "Shut up. I know. I just fat-fingered it is all."
 
 The video ends.
 
+!`
+choicesPerPage = 1;
+`
 [Back.|blackHub]
 ---
 :blackBeds
@@ -428,6 +478,9 @@ Framed pictures rest on the endtables in here. You look at a group photo with So
 
 Cage has the same exact expression in every single picture. The others show him bottle-feeding a fuckmeat and looking pissed at the cameraman, sitting criss-cross applesauce in the grass and playing with a little squad of happy babies while he looks pissed at the cameraman, and, finally, Cage snoozing peacefully, all sprawled out on his queen-sized bed, with babies cuddled up to his abs and biceps, nuzzling their furry little snouts into any warm crevice they can find (armpits, thighs, under his heavy nuts, everything) while he looks pissed at the cameraman even though his eyes are shut. Must be dreaming about being pissed at the cameraman.
 
+!`
+choicesPerPage = 1;
+`
 [Check the other rooms.|blackBeds]
 ---
 :blackBeds
@@ -440,6 +493,9 @@ Each crib in these impure rooms has a mobile hanging over it, those little chand
 
 There's a few journals for you to skim through, too.
 
+!`
+choicesPerPage = 2;
+`
 [Skim em then.|blackBeds1]
 [Back.|blackHub]
 ---
@@ -463,6 +519,7 @@ I just hope we aren't backsliding by doing this. Will it make them less sentient
 </i>
 
 !`
+choicesPerPage = 2;
 addChoice("Skim more.", "blackBeds2");
 addChoice("Back.", "blackHub");
 `
@@ -514,6 +571,9 @@ I'll try it. I'll try to join. It won't go well. I'll be the only babyfucker up 
 
 I don't know.
 
+!`
+choicesPerPage = 1;
+`
 [Back.|blackHub]
 ---
 :blackLounge
@@ -539,6 +599,9 @@ addChoice("... Yes.", "blackLoungeYes", {icons: ["Baby", "Abuse", "Gore", "Plot"
 
 Let's skip it then.
 
+!`
+choicesPerPage = 1;
+`
 [Back.|blackHub]
 ---
 :blackLoungeSummary
@@ -547,12 +610,18 @@ I'll summarize the videos for you:
 
 This bull dude and his lamb assisstant try a bunch of different experiments to reduce the libido of these little baby NPCs in the hopes that it will leave some room in their code for sentience to take root. It doesn't work.
 
+!`
+choicesPerPage = 1;
+`
 [Gotcha.|blackHub]
 ---
 :blackLoungeYes
 
 Understood. I'll do my best.
 
+!`
+choicesPerPage = 1;
+`
 [Thanks~|blackLoungeHub]
 ---
 :blackLoungeHub
@@ -588,6 +657,9 @@ Cage replies from behind the camera. "Ready."
 
 "We're ready, we're ready. Here's the gel."
 
+!`
+choicesPerPage = 2;
+`
 [Next.|blackLoungeCast2]
 [Back.|blackLoungeHub]
 ---
@@ -607,6 +679,9 @@ Cage ignores him and smears the rest of the gel over that babydick without care 
 
 Cage's hands pull out of frame, leaving only the fuckmeat. He stares vacantly up at the lens and grinds his little thighs together, giggling at the sound the gel makes when it squishes around his little taint and nuts.
 
+!`
+choicesPerPage = 2;
+`
 [Next.|blackLoungeCast3]
 [Back.|blackLoungeHub]
 ---
@@ -618,6 +693,9 @@ The lamb slides into view for a second, grabs each tiny ankle, and pulls them ap
 
 Cage hesitates.
 
+!`
+choicesPerPage = 2;
+`
 [Next.|blackLoungeCast4]
 [Back.|blackLoungeHub]
 ---
@@ -641,6 +719,9 @@ Cage hesitates.
 
 The lamb doesn't have anything else to say.
 
+!`
+choicesPerPage = 2;
+`
 [Next...|blackLoungeCast5]
 [Back.|blackLoungeHub]
 ---
@@ -654,6 +735,9 @@ A minute of silence passes, besides the fuckmeat's excited babbling. He keeps ro
 
 The lamb shrugs. "It's not <i>going</i> to work... but sure, we gotta try it."
 
+!`
+choicesPerPage = 2;
+`
 [Next.|blackLoungeCast6]
 [Back.|blackLoungeHub]
 ---
@@ -679,6 +763,9 @@ A wooly lamb hand enters the frame and gestures at the fox's babydick sharply. "
 
 ...
 
+!`
+choicesPerPage = 2;
+`
 [Next|blackLoungeCast7]
 [Back.|blackLoungeHub]
 ---
@@ -692,6 +779,9 @@ The shiny blade reappears downstairs, and instead of hovering gently underneath 
 
 Cage starts saying something, weakly, and then just drops it.
 
+!`
+choicesPerPage = 2;
+`
 [Next.|blackLoungeCast8]
 [Back.|blackLoungeHub]
 ---
@@ -711,6 +801,9 @@ Baby blood has started to pool on the plastic, soaking the fox's ass and thighs 
 
 "Hang tight hun," Som tells the squirmy, needy little thing. "Just one more bit to go."
 
+!`
+choicesPerPage = 2;
+`
 [Next.|blackLoungeCast9]
 [Back.|blackLoungeHub]
 ---
@@ -722,6 +815,9 @@ Som pinches the baby's shaft in two fingers. He tugs on it a little too hard, pu
 
 "There we go." He tosses the scalpel aside with a clatter, the nuts and cocklet aside with a squish, and heads off camera to go wash his hands. "Test him. Notice any difference? Is he less of a mindless painslut and more of a thinking, acting, living being now?"
 
+!`
+choicesPerPage = 1;
+`
 [Next.|blackLoungeCast10]
 ---
 :blackLoungeCast10
@@ -734,6 +830,9 @@ Cage frowns and pulls the baby's wrists away again.
 
 "No. It didn't work. There's no difference."
 
+!`
+choicesPerPage = 1;
+`
 [Back.|blackLoungeHub]
 ---
 :blackLoungeBrain
@@ -748,6 +847,9 @@ Cage pokes his snout in from offscreen.
 
 "What are you doing?"
 
+!`
+choicesPerPage = 2;
+`
 [What is he doing...?|blackLoungeBrain2]
 [Back.|blackLoungeHub]
 ---
@@ -759,6 +861,9 @@ Som palms the baby's little skull. His fingers wrap all the way around from the 
 
 "I'm uncomfortable," Cage says openly. "Stop."
 
+!`
+choicesPerPage = 2;
+`
 [...|blackLoungeBrain3]
 [Back.|blackLoungeHub]
 ---
@@ -778,6 +883,9 @@ Som dry humps away, tongue out, big shitty smile on his face. There's a lot of p
 
 "I'm in," he says again, one eye half closed, sneezing raw bovine sweat vapor out of his face in shimmering, sexy clouds. "Hackerlamb... unf... gonna mess with the source co... ooode..."
 
+!`
+choicesPerPage = 2;
+`
 [!?!|blackLoungeBrain4]
 [Back.|blackLoungeHub]
 ---
@@ -789,6 +897,9 @@ She's clapping and slurping the shiny lambcum off her face with a big dumb expre
 
 Clap clap clap. Soft fur is papping against soft fur.
 
+!`
+choicesPerPage = 2;
+`
 [Look down.|blackLoungeBrain5]
 [Back.|blackLoungeHub]
 ---
@@ -800,6 +911,9 @@ Clap clap clap.
 
 Now that the camera has looked down, you see the source of the rhythmic bare-fur noises:
 
+!`
+choicesPerPage = 2;
+`
 [Next.|blackLoungeBrain6]
 [Back.|blackLoungeHub]
 ---
@@ -809,6 +923,9 @@ You have such a dirty mind. Nobody is humping anybody.
 
 It's her. The air is tickling her bare brain through the thumbhole in her skull, and she's really hyper and happy about it in general, so the dumb little NPC has been smacking her tiny lil undeveloped legs together. The clapping noise happens when the bulbs of her pawpads collide. 
 
+!`
+choicesPerPage = 2;
+`
 [...|blackLoungeBrain7]
 [Back.|blackLoungeHub]
 ---
@@ -820,6 +937,9 @@ Som finally comes down from the musk high and pulls himself up to his elbows on 
 
 "You... are the reason... we never make any progress... with these things."
 
+!`
+choicesPerPage = 2;
+`
 [...|blackLoungeBrain8]
 [Back.|blackLoungeHub]
 ---
@@ -831,6 +951,9 @@ Som finally comes down from the musk high and pulls himself up to his elbows on 
 
 He leaves.
 
+!`
+choicesPerPage = 2;
+`
 [...|blackLoungeBrain9]
 [Back.|blackLoungeHub]
 ---
@@ -838,6 +961,9 @@ He leaves.
 
 Cage stands around twiddling his massive bull dick.
 
+!`
+choicesPerPage = 2;
+`
 [...|blackLoungeBrain10]
 [Back.|blackLoungeHub]
 ---
@@ -845,6 +971,9 @@ Cage stands around twiddling his massive bull dick.
 
 He eyes the baby, still babbling and being stupid in general. She looks up at him with big glassy eyes and bucks her hips. The big, gaped-out hole in the crown of her head pukes blood in rhythmic splurts like the spout of an orange juice carton held sideways.
 
+!`
+choicesPerPage = 2;
+`
 [...|blackLoungeBrain11]
 [Back.|blackLoungeHub]
 ---
@@ -856,6 +985,9 @@ His cock is so huge and hard it towers up past his belly button. One hand wander
 
 He blows steam out of his nose. The baby coos up at him, fuzzy gray cuntfur swollen, blushed, and wet. The pain from her skull is being systematically converted into pure pleasure by the nature of her programming. Cage's fingers lock just underneath the lip of his cockhead. Pre coats them in seconds.
 
+!`
+choicesPerPage = 2;
+`
 [...|blackLoungeBrain12]
 [Back.|blackLoungeHub]
 ---
@@ -865,6 +997,9 @@ He pushes his cock down between his thighs and closes them. He's ashamed. He wen
 
 "Don't worry," he grunts to himself or to her. She responds by reaching over lazily and trying to paw at his asscheeks. He doesn't let her.
 
+!`
+choicesPerPage = 1;
+`
 [Back.|blackLoungeHub]
 ---
 :blackLoungeElectro
@@ -893,7 +1028,11 @@ Marie is perplexed. "But he always used to get up at six. He was such a hardass 
 
 "Oh, his ass has been softening for millenia now." Som waggles a finger over his shoulder, screwdriver in his maw, head in the machine. "But forget his new bedtime. That's not the most disturbing part."
 
+!`
+choicesPerPage = 2;
+`
 [...|blackLoungeElectro2]
+[Back.|blackLoungeHub]
 ---
 :blackLoungeElectro2
 
@@ -911,7 +1050,11 @@ He shoots a look right at her, gray with dread.
 
 "You really wanna know?"
 
+!`
+choicesPerPage = 2;
+`
 [...|blackLoungeElectro3]
+[Back.|blackLoungeHub]
 ---
 :blackLoungeElectro3
 
@@ -933,7 +1076,11 @@ Marie almost drops the baby. Her tits fly everywhere. "No!" she screams— and s
 
 Through a silent shrug and a piteous frown, Som implies something like "It's disturbing, but there are just some things in this world we can never understand."
 
+!`
+choicesPerPage = 2;
+`
 [...|blackLoungeElectro4]
+[Back.|blackLoungeHub]
 ---
 :blackLoungeElectro4
 
@@ -951,7 +1098,11 @@ Som grabs the little cunt's cock and nuts in a fist. He yanks on them, milking a
 
 "I only like dick," he repeats.
 
+!`
+choicesPerPage = 2;
+`
 [...|blackLoungeElectro5]
+[Back.|blackLoungeHub]
 ---
 :blackLoungeElectro5
 
@@ -975,7 +1126,11 @@ Marie is still quiet. She covers her chest with her arm and looks away from the 
 
 Som exhales through shut lips. "Pahhhh. Let's just get this over with. How many volts should we start him at?"
 
+!`
+choicesPerPage = 2;
+`
 [...|blackLoungeElectro6]
+[Back.|blackLoungeHub]
 ---
 :blackLoungeElectro6
 
@@ -989,7 +1144,11 @@ Som smirks and hardens. Marie rolls her eyes. She gets up off the reclined chair
 
 "See you," Som purrs.
 
+!`
+choicesPerPage = 2;
+`
 [...|blackLoungeElectro7]
+[Back.|blackLoungeHub]
 ---
 :blackLoungeElectro7
 
@@ -1000,6 +1159,7 @@ Som opens his legs wider. The camera watches his asscheeks peel apart to reveal 
 He takes the— oh, jeez. Sorry. This went in a direction I didn't expect. My kink symbols can't always be perfectly accurate...
 
 !`
+choicesPerPage = 3;
 addChoice("Next.", "blackLoungeElectroScat", {icons: ["Raunch"]});
 addChoice("Fast forward.", "blackLoungeElectroRejoin");
 addChoice("Back.", "blackLoungeHub");
@@ -1017,7 +1177,11 @@ Som slams the baby to the chair, pinned by his tiny throat. The baby's face slow
 
 Som smacks him in the face a couple times, just being abusive for fun. An actual airborne <i>splurt</i> of cub pre falls from his cock, which is now tucked cutely between those soft baby thighs. Som smacks him again, and again, hanging on the sound of each sharp breath the boy gasps into his little lungs.
 
+!`
+choicesPerPage = 2;
+`
 [...|blackLoungeElectroRejoin]
+[Back.|blackLoungeHub]
 ---
 :blackLoungeElectroRejoin
 
@@ -1035,7 +1199,11 @@ Som's delicate, graceful typist's fingers pinch the dial. Slowly, and with a low
 
 "Mmmm... you heard Marie, right? This is normal for an adult."
 
+!`
+choicesPerPage = 2;
+`
 [...|blackLoungeElectro8]
+[Back.|blackLoungeHub]
 ---
 :blackLoungeElectro8
 
@@ -1045,7 +1213,11 @@ He shoves the baby's face in the camera hard.
 
 250... 260.... 270.
 
+!`
+choicesPerPage = 2;
+`
 [...|blackLoungeElectro9]
+[Back.|blackLoungeHub]
 ---
 :blackLoungeElectro9
 
@@ -1059,7 +1231,11 @@ Oh. You get it. The knob is nice and big and round and shiny. Babyslut programmi
 
 That little paw cranks the voltage up to 540 volts, as high as it can possibly go.
 
+!`
+choicesPerPage = 2;
+`
 [...|blackLoungeElectro10]
+[Back.|blackLoungeHub]
 ---
 :blackLoungeElectro10
 
@@ -1069,7 +1245,11 @@ In no time Som has the baby strapped up with electrodes all over his sexy little
 
 "Yeah, you're fucking ready alright..."
 
+!`
+choicesPerPage = 2;
+`
 [...|blackLoungeElectro11]
+[Back.|blackLoungeHub]
 ---
 :blackLoungeElectro11
 
@@ -1087,7 +1267,11 @@ Som doesn't turn the machine off. He doubles down and cums his shorts hard. "You
 
 "Fuck fuck fuck!" Som's dick bursts up through the waistband of his shorts and shoots hot cum in an arc above the baby's face. "It's like riding on a rumbly fucking controller! <3"
 
+!`
+choicesPerPage = 2;
+`
 [...|blackLoungeElectro12]
+[Back.|blackLoungeHub]
 ---
 :blackLoungeElectro12
 
@@ -1099,12 +1283,19 @@ He poses for the camera with the roasted babytard between his legs, cuddling up 
 
 "Hello," Som says to him. The baby's eyes are empty. "Hello."
 
+!`
+choicesPerPage = 2;
+`
 [...|blackLoungeElectro13]
+[Back.|blackLoungeHub]
 ---
 :blackLoungeElectro13
 
 No response.
 
+!`
+choicesPerPage = 1;
+`
 [...|blackLoungeHub]
 ---
 :blackBath
@@ -1117,6 +1308,9 @@ Someone is in here. On the other side of the bathroom there's a tub...
 
 "Get out or I'm going to fucking murder you."
 
+!`
+choicesPerPage = 1;
+`
 [GET OUT IMMEDIATELY|blackEnd]
 ---
 :blackEnd

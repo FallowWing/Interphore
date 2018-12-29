@@ -9,6 +9,8 @@ Mynt started holding your hand at some point. She smiles at you through the gloo
 data.didMaryGreenhouse = false;
 data.didMarySupper = false;
 data.redAttemptedTheft = false;
+
+choicesPerPage = 1;
 `
 
 
@@ -18,24 +20,36 @@ data.redAttemptedTheft = false;
 
 She playfully bumps shoulders with you as you walk side-by-side down a crunchy trail of crushed bark and branches. "The ceiling is low."
 
+!`
+choicesPerPage = 1;
+`
 [The canopy.|redMary2]
 ---
 :redMary2
 
 "Yeah that. But it's not too low, either."
 
+!`
+choicesPerPage = 1;
+`
 [How's the sliding scale of agora vs. claustro?|redMary3]
 ---
 :redMary3
 
 "I can't see the sky, so that helps! I'm in the middle. I'm good."
 
+!`
+choicesPerPage = 1;
+`
 [Good.|redMary4]
 ---
 :redMary4
 
 The main trail through Bright Forest was beaten deeper and deeper by foot traffic over the millenia. It started to get a little too deep, like a mini-canyon, so the forestfolk used their OP admin powers to fell a couple hundred trees as big as redwoods and slide them into the canyon like hot dogs into a tight bun. Must have been a pretty anime moment. You hope they made all the cuts at once in a flurry of invisible admin hacks and then stood perfectly still in a suave pose while the trees collapsed around them.
 
+!`
+choicesPerPage = 1;
+`
 [... Are you into naruto, Mr. Eyeball?|redMary5]
 ---
 :redMary5
@@ -46,18 +60,27 @@ You climb on top of a big curvy log with ease. You have no problem stretching yo
 
 Mynt twiddles her pawthumbs and looks up at you, scared.
 
+!`
+choicesPerPage = 1;
+`
 [Hop back down.|redMary6]
 ---
 :redMary6
 
 "No— I just needed a second to get ready, you don't have to—"
 
+!`
+choicesPerPage = 1;
+`
 [Lift her up.|redMary7]
 ---
 :redMary7
 
 You slide your paws around her waist and haul her butt up onto one of the logs. They're bigass logs, twice as tall as you are, so you can only boost her so high. Mynt freaks out and scrabbles for a grip, but the bark is only rough on the sides... these logs are filling a path, don't forget, so the bark on top has been worn smooth and shiny over time. Her poor fat ass just slides right back down ("uuuaaAAAAH"), claws leaving furrows in the wood. Both cheeks collide with your face. Shredded treeflesh showers you.
 
+!`
+choicesPerPage = 1;
+`
 [Pfmph.|redMary8]
 ---
 :redMary8
@@ -66,6 +89,9 @@ She looks down over her shoulder and her rump. Her `myntCock()` bulge smashes up
 
 "`data.playerName`, just like, just scooch a little over to—"
 
+!`
+choicesPerPage = 1;
+`
 [Okay yep, here, I'm just gonna lift your leg—|redMary9]
 ---
 :redMary9
@@ -87,6 +113,9 @@ She's upside down now, with one hand on your collarbone and the other on your `b
 
 Mynt doesn't care. Her paws are too busy to fix them. She leaves her panties as they are, showing entirely too much jiggly cat ass. She reaches a footpaw over to the opposite side of the log, claws out, searching for purchase in the bark.
 
+!`
+choicesPerPage = 1;
+`
 [— can you just— if you can just— could you—|redMary11]
 ---
 :redMary11
@@ -97,6 +126,9 @@ You both exhale.
 
 She's got both hands and knees on the log all at the same time, miraculously, and none of them are about to slide off. She flops onto her belly, paws and feet hanging off the sides, chin smushed to the bark, pancaked, panting.
 
+!`
+choicesPerPage = 1;
+`
 [Okay. There. We did it.|redMary12]
 ---
 :redMary12
@@ -110,18 +142,27 @@ choicesPerPage = 1;
 ---
 :redMary13
 
+!`
+choicesPerPage = 1;
+`
 [Okay now it's my turn to climb on the log.|redMary14]
 ---
 :redMary14
 
 ... She's ignoring you and hoping you'll fuck up as hard as she did.
 
+!`
+choicesPerPage = 1;
+`
 [I said: now it's MY turn.|redMary15]
 ---
 :redMary15
 
 Mynt groans.
 
+!`
+choicesPerPage = 2;
+`
 [You lummox.|redMaryLummox]
 [Hey what the fuck I just helped you. Now you help me!!|redMaryHelp]
 ---
@@ -129,18 +170,27 @@ Mynt groans.
 
 She scowls over the rim of the log, just her eyes. "What's that supposed to mean?"
 
+!`
+choicesPerPage = 1;
+`
 [You don't know what lummox means?|redMaryLummox]
 ---
 :redMaryLummox
 
 "No??"
 
+!`
+choicesPerPage = 1;
+`
 [Wow. You really are a lummox.|redMaryLummox]
 ---
 :redMaryLummox
 
 "So a lummox is the type of person to not know what lummox means huh?? I think I get the message."
 
+!`
+choicesPerPage = 1;
+`
 [Ascend the log.|redMaryLummox]
 ---
 :redMaryLummox
@@ -149,42 +199,63 @@ You do a sick wall-jump off a nearby trunk and lock into the landing on one knee
 
 Mynt scowls at you and almost falls off the log again just trying to stand up and balance.
 
+!`
+choicesPerPage = 1;
+`
 [Why are we here again?|redMaryLummox]
 ---
 :redMaryLummox
 
 "We're searching for mom, you boob. Or anyone who might have seen mom. You absolute clodhopper."
 
+!`
+choicesPerPage = 1;
+`
 [What's that supposed to mean?|redMaryLummox]
 ---
 :redMaryLummox
 
 She ignores your banter bait and leads the way down the log path, taking care to keep her feets along the center of each log. Her dress bounces and sways. Crispy-fresh forest air plays with the hem.
 
+!`
+choicesPerPage = 1;
+`
 [Why do you think she was interested in the Archiepelago? This layer?|redMaryLummox]
 ---
 :redMaryLummox
 
 "Cause she programmed it. It's a whole game she made, and I used to oversee it."
 
+!`
+choicesPerPage = 1;
+`
 [Ahh. And I played this game from up on my layer.|redMaryLummox]
 ---
 :redMaryLummox
 
 "Yuh."
 
+!`
+choicesPerPage = 1;
+`
 [I wish I could remember this place. Was it fun?|redMaryLummox]
 ---
 :redMaryLummox
 
 "It was alright, but it had a lot of bugs and in my opinion there were way too many characters with not enough development devoted to each one."
 
+!`
+choicesPerPage = 1;
+`
 [Islanders, you mean.|redMaryLummox]
 ---
 :redMaryLummox
 
 "Yeah islanders."
 
+!`
+choicesPerPage = 1;
+`
 [You clown.|redMaryLummox]
 ---
 :redMaryLummox
@@ -193,12 +264,18 @@ Mynt snake-eyes you over her shoulder.
 
 "Knock it off, you dirty fucking quipster."
 
+!`
+choicesPerPage = 1;
+`
 [Excuse me???|redMaryLummox]
 ---
 :redMaryLummox
 
 "You heard me."
 
+!`
+choicesPerPage = 1;
+`
 [3:<|redMaryLummox]
 ---
 :redMaryLummox
@@ -207,6 +284,9 @@ She puts her eyes back on the road.
 
 "Everything fell apart here cause of the bugs, and eventually the islanders revolted, hacked their own game, killed me, and gave themselves admin. It's been like a Dragonball Z episode in here ever since probably. People flying around throwing planets at each other. I'm surprised they kept a chain of islands intact."
 
+!`
+choicesPerPage = 3;
+`
 [Maybe mom came back here to fix her bugs.|redMaryLummoxBugs]
 [Maybe mom wanted in on those powers.|redMaryLummoxPower]
 [Maybe mom missed you.|redMaryLummoxMiss]
@@ -215,6 +295,9 @@ She puts her eyes back on the road.
 
 "The islanders probably already fixed everything better than she could have."
 
+!`
+choicesPerPage = 1;
+`
 [Mmm.|redMaryLummoxRejoin]
 ---
 :redMaryLummoxPower
@@ -223,12 +306,18 @@ She puts her eyes back on the road.
 
 Memories of the red pond leak back into your mind and the sloshing high water mark overtakes your hippocampus.
 
+!`
+choicesPerPage = 1;
+`
 [Mmm. I remember.|redMaryLummoxRejoin]
 ---
 :redMaryLummoxMiss
 
 "If she wanted to see me again, she came to the wrong timeline here."
 
+!`
+choicesPerPage = 1;
+`
 [Mmm.|redMaryLummoxRejoin]
 ---
 :redMaryLummoxRejoin
@@ -241,6 +330,9 @@ She cups her paws to her maw and yawns:
 
 ...
 
+!`
+choicesPerPage = 2;
+`
 [Listen.|redMaryLummoxMom]
 [I don't think that's even worth doing?|redMaryLummoxMom]
 ---
@@ -252,6 +344,9 @@ The trees whisper conspiratorily around you. You hear wingbeats from off in the 
 
 "MooooOOOOOOOOOOOOOOOOOOOoooooOOOOOOOOooooOOOOOOOOOoooooommmmmmm..."
 
+!`
+choicesPerPage = 1;
+`
 [Okay stop it you're making me sad.|redMaryLummox]
 ---
 :redMaryLummox
@@ -262,18 +357,27 @@ Mynt turns back to you with an apologetic smile. At least she isn't crying or an
 
 She blinks. Her eyes fix to a spot above your right shoulder.
 
+!`
+choicesPerPage = 1;
+`
 [Turn around?!|redMaryRejoinLog]
 ---
 :redMaryHelp
 
 "You needed more help than I did. I was keeping you anchored for half of that struggle."
 
+!`
+choicesPerPage = 1;
+`
 [I literally supported your ass with my face.|redMaryHelp]
 ---
 :redMaryHelp
 
 She huffs.
 
+!`
+choicesPerPage = 1;
+`
 [And at least I was trying! You're just laying there like a lump.|redMaryHelp]
 ---
 :redMaryHelp
@@ -282,12 +386,18 @@ Mynt sighs and climbs shakily back to her hands and knees.
 
 She offers a hand, glaring at you.
 
+!`
+choicesPerPage = 1;
+`
 [Alright... plant my feet on the side, stay steady and slow...|redMaryHelp]
 ---
 :redMaryHelp
 
 Her claws strain against the wood. She grits her teeth.
 
+!`
+choicesPerPage = 1;
+`
 [Easy now...|redMaryHelp]
 ---
 :redMaryHelp
@@ -296,12 +406,18 @@ Beads of sweat roll down her forehead. She blinks them out of her eyes.
 
 You take one step up the side of the log... two... three...
 
+!`
+choicesPerPage = 1;
+`
 [Steady as she goes...|redMaryHelp]
 ---
 :redMaryHelp
 
 Mynt wobbles. You feel her hand slip an inch out of yours.
 
+!`
+choicesPerPage = 1;
+`
 [EASY NOW... STEADY AS SHE GOES...|redMaryHelp]
 ---
 :redMaryHelp
@@ -310,30 +426,45 @@ She keeps her shit together. She retakes the lost inch and more by grabbing your
 
 "You're so fucking fat," she wheezes.
 
+!`
+choicesPerPage = 1;
+`
 [Maybe I put on a little too much...|redMaryHelp]
 ---
 :redMaryHelp
 
 
 
+!`
+choicesPerPage = 1;
+`
 [When I picked this new bod, I was sick of being sickly and thin and old.|redMaryHelp]
 ---
 :redMaryHelp
 
 You hear wingbeats from off in the distance somewhere.
 
+!`
+choicesPerPage = 1;
+`
 [I kinda wanted to get that youthful plumpness, you know?|redMaryHelp]
 ---
 :redMaryHelp
 
 
 
+!`
+choicesPerPage = 1;
+`
 [So I juiced myself up. At least around the hips.|redMaryHelp]
 ---
 :redMaryHelp
 
 She responds with a contemptuous grunt. "Mmmmmhm."
 
+!`
+choicesPerPage = 1;
+`
 [I'm not that fat. Am I that fat?|redMaryHelp]
 ---
 :redMaryHelp
@@ -342,24 +473,36 @@ Mynt's arms have started to shake with the effort. She steadies herself for one 
 
 "You're fine. Stay strong. We got you."
 
+!`
+choicesPerPage = 1;
+`
 [I figured I'd be lounging around having sex with everyone, not climbing logs.|redMaryHelp]
 ---
 :redMaryHelp
 
 
 
+!`
+choicesPerPage = 1;
+`
 [If we make it through this log adventure together I'll edit my ass to be a bit more petite.|redMaryHelp]
 ---
 :redMaryHelp
 
 
 
+!`
+choicesPerPage = 1;
+`
 [Promise!|redMaryHelp]
 ---
 :redMaryHelp
 
 Her canines jut out. "Talk less. Climb more. And keep your—" she pauses to pull in a deep, strained breath, eyes shut— "keep your ass how it is, I like it plump. Usually. Not right now. But usually."
 
+!`
+choicesPerPage = 1;
+`
 [Oop sorry. Okay.|redMaryHelp]
 ---
 :redMaryHelp
@@ -372,18 +515,27 @@ A quiet voice from behind:
 
 Mynt's eyes go wide and flick to a point in the air over your left shoulder. She gasps and lets go of you. You topple down and crack your skull open on a rock.
 
+!`
+choicesPerPage = 1;
+`
 [OW|redMaryHelp]
 ---
 :redMaryHelp
 
 Where would you like to respawn? You can set your respawn point anywhere.
 
+!`
+choicesPerPage = 1;
+`
 ['Anywhere' sounds good.|redMaryHelp]
 ---
 :redMaryHelp
 
 You respawn behind a nearby tree.
 
+!`
+choicesPerPage = 1;
+`
 [Who's there? Assess the danger.|redMaryRejoinLog]
 ---
 :redMaryRejoinLog
@@ -398,6 +550,9 @@ Looks like an innocent little bunny girl with a basket full of grey glowberries.
 
 It takes Mynt a second to understand what she's talking about. Then she blushes at the ground and nods.
 
+!`
+choicesPerPage = 1;
+`
 [You know Mynt?|redMary16]
 ---
 :redMary16
@@ -406,12 +561,18 @@ She sets the basket down and ties her mess of blonde hair up into a bun. She's c
 
 She finishes her bun and pats it for good luck. "I know both of you. You're Mynt— and you're `data.playerName`, formerly Rebeca. Right?"
 
+!`
+choicesPerPage = 1;
+`
 [(I want to talk to Mynt directly, Mr. Eyeball.)|redMary17]
 ---
 :redMary17
 
 Gotcha. I'll open a chat.
 
+!`
+choicesPerPage = 1;
+`
 [Hey Mynt.|redMary18]
 ---
 :redMary18
@@ -471,6 +632,9 @@ The bunny is waiting patiently, basket at her hip.
 
 She holds the basket out to you both, handle resting on two lazy fingers.
 
+!`
+choicesPerPage = 1;
+`
 [No thanks.|redMary19]
 ---
 :redMary19
@@ -479,6 +643,9 @@ Mynt glances at you. "Yes— No. Sorry. None for me either."
 
 The bunny smiles, eyes closed, and adjusts her fresh bun. "Worried I put something in them, huh?"
 
+!`
+choicesPerPage = 1;
+`
 [Nah, we're just not hungry.|redMary20]
 ---
 :redMary20
@@ -487,6 +654,9 @@ The bunny smiles, eyes closed, and adjusts her fresh bun. "Worried I put somethi
 
 Mynt side-eyes you and swallows. There's still a few bark shards in her sweaty fur.
 
+!`
+choicesPerPage = 1;
+`
 [... Sure. You know where we could get a drink?|redMary21]
 ---
 :redMary21
@@ -499,6 +669,9 @@ She turns her back to you and skips down the log path. The basket bounces merril
 
 "I'm Mary," she says over her shoulder, and her wingtips disappear around a tree trunk ahead.
 
+!`
+choicesPerPage = 1;
+`
 [... Follow.|redMary22]
 ---
 :redMary22
@@ -511,6 +684,7 @@ Mary beckons you inside and holds the heavy oak door open.
 var music = playMusic("audio/music/bunnyLove");
 music.name = "music";
 music.looping = true;
+choicesPerPage = 1;
 `
 [Proceed with caution.|redMary23]
 ---
@@ -524,6 +698,9 @@ It's so perfect. Spotless. The shag carpet smells like fur and comfort. The fire
 
 Gramma waves to you both and gestures flaccidly to the kitchen. "Oh, ohh. Welcome. Course. Course. Lots. Cold now, though."
 
+!`
+choicesPerPage = 2;
+`
 [Where's the wolf?|redMaryWolf]
 [What kind of tea is it?|redMaryTea]
 ---
@@ -531,12 +708,18 @@ Gramma waves to you both and gestures flaccidly to the kitchen. "Oh, ohh. Welcom
 
 "She's praying," Mary flaps at the air with her paw. "She'll come out and meet you when she's done."
 
+!`
+choicesPerPage = 1;
+`
 [Alright.|redMaryRejoin]
 ---
 :redMaryTea
 
 "Snagweed. Just eradicated the last of it from our backyard. Pernicious little plant— strangles mice, you know." She winces. "But it does make a delicious tea."
 
+!`
+choicesPerPage = 1;
+`
 [I see!|redMaryRejoin]
 ---
 :redMaryRejoin
@@ -547,12 +730,18 @@ Mynt finds a home for her ass on the big plush couch. She smooths her dress out 
 
 "You're naked."
 
+!`
+choicesPerPage = 1;
+`
 [... So?|redMary24]
 ---
 :redMary24
 
 "So don't you feel out of place? They're both wearing clothes..."
 
+!`
+choicesPerPage = 1;
+`
 [Stretch out.|redMary25]
 ---
 :redMary25
@@ -561,6 +750,9 @@ You throw your interlaced fingers to the ceiling and grunt, hips twisted, `boobs
 
 Mynt is mortified. "Stop!" she hisses. "You're going to scar her if she wakes up!!"
 
+!`
+choicesPerPage = 1;
+`
 [Unnnngh... feels so good...|redMary26]
 ---
 :redMary26
@@ -571,6 +763,9 @@ Her thwaps backfire: instead of stopping you, they send tantilizing ripples thro
 
 A weak little voice comes from behind you: "Oh."
 
+!`
+choicesPerPage = 1;
+`
 [Oop fuck. Sorry Mary. I wasn't trying to be lewd I swear.|redMary27]
 ---
 :redMary27
@@ -584,6 +779,7 @@ She struggles to get any words out of her maw. Her eyes have sunken into the bac
 She absolutely cannot take her eyes off your bare ass.
 
 !`
+choicesPerPage = 2;
 addChoice("Hi. I'm "+data.playerName+".", "redMaryName");
 addChoice("Who are you?", "redMaryWho");
 `
@@ -592,22 +788,31 @@ addChoice("Who are you?", "redMaryWho");
 
 "I used to know you," she says.
 
+!`
+choicesPerPage = 1;
+`
 [Ah yeah. I changed my name and body. Did we fuck a lot?|redMaryRejoin2]
 ---
 :redMaryWho
 
-"Theresa," she croaks. "I used to know you."
+"Red," she croaks. "I used to know you."
 
+!`
+choicesPerPage = 1;
+`
 [Ah yeah. I changed my name and body. Did we fuck a lot?|redMaryRejoin2]
 ---
 :redMaryRejoin2
 
 She clams up and blushes.
 
-Mary pops her head out of the kitchen. "Oh, Theresa. I'll make some tea for you too." She is completely unfazed by your exposed ass. "Sugar? Cream? Either of you?"
+Mary pops her head out of the kitchen. "Oh, Red. I'll make some tea for you too." She is completely unfazed by your exposed ass. "Sugar? Cream? Either of you?"
 
 "Lots of both please!" Mynt slowly backs away to the opposite end of the couch, as if that'll put some distance between her reputation and your sexy pose.
 
+!`
+choicesPerPage = 4;
+`
 [Just sugar.|redMarySugar]
 [Just cream.|redMaryCream]
 [Both for me too, please.|redMaryBoth]
@@ -615,72 +820,99 @@ Mary pops her head out of the kitchen. "Oh, Theresa. I'll make some tea for you 
 ---
 :redMarySugar
 
-Mary shoots you a painfully polite smile. "Sugar? Perfect. To each `his()` own. Theresa— wash up. You stink."
+Mary shoots you a painfully polite smile. "Sugar? Perfect. To each `his()` own. Red— wash up. You stink."
 
 You blink. The little wolf is gone before Mary even finishes her sentence.
 
+!`
+choicesPerPage = 1;
+`
 [Can we help in any way?|redMaryRejoin3]
 ---
 :redMaryCream
 
-Mary claps her paws together and rubs them good. "Just cream! Excellent taste. Even a thimble of sugar is too much for us, but we can handle some cream as long as Theresa's stomach isn't hurting her. Oh, and Theresa— wash up. You stink."
+Mary claps her paws together and rubs them good. "Just cream! Excellent taste. Even a thimble of sugar is too much for us, but we can handle some cream as long as Red's stomach isn't hurting her. Oh, and Red— wash up. You stink."
 
 You blink. The little wolf is gone before Mary even finishes her sentence.
 
+!`
+choicesPerPage = 1;
+`
 [Can we help in any way?|redMaryRejoin3]
 ---
 :redMaryBoth
 
-Mary gives you a sterile nod. "You both seem very sweet, you know that? Heh. Theresa— wash up. You stink."
+Mary gives you a sterile nod. "You both seem very sweet, you know that? Heh. Red— wash up. You stink."
 
 You blink. The little wolf is gone before Mary even finishes her sentence.
 
+!`
+choicesPerPage = 1;
+`
 [Can we help in any way?|redMaryRejoin3]
 ---
 :redMaryNeither
 
-Mary flashes you an approving smile. "Theresa and I like our tea the same way. How funny is that? Speaking of..." She turns to the wolf girl. "Wash up. You stink a little bit."
+Mary flashes you an approving smile. "Red and I like our tea the same way. How funny is that? Speaking of..." She turns to the wolf girl. "Wash up. You stink a little bit."
 
 You blink. The little wolf is gone before Mary even finishes her sentence.
 
+!`
+choicesPerPage = 1;
+`
 [Can we help in any way?|redMaryRejoin3]
 ---
 :redMaryRejoin3
 
 "Absolutely not. You're our guests!"
 
+!`
+choicesPerPage = 1;
+`
 [Alright!|redMary28]
 ---
 :redMary28
 
-You stop flaunting your body in the middle of the living room and take a seat next to Mynt on the couch. Over the next twenty minutes, a flurry of activity surrounds you. Theresa comes out of the hallway smelling like fresh flowers. She hauls the bubbly stew off the fireplace, her whole body locked in a half-squat all the way to the kitchen, weak and thin where muscle should be. Mary carries the much lighter kettle over from the kitchen and hooks it up to the fire. Gramma falls asleep and wakes up about eight times. She never actually turns a page of the Bible in her lap, she just starts reading from the top over and over again.
+You stop flaunting your body in the middle of the living room and take a seat next to Mynt on the couch. Over the next twenty minutes, a flurry of activity surrounds you. Red comes out of the hallway smelling like fresh flowers. She hauls the bubbly stew off the fireplace, her whole body locked in a half-squat all the way to the kitchen, weak and thin where muscle should be. Mary carries the much lighter kettle over from the kitchen and hooks it up to the fire. Gramma falls asleep and wakes up about eight times. She never actually turns a page of the Bible in her lap, she just starts reading from the top over and over again.
 
 Soon two steaming cups of tea land in your laps, and everyone drops into a comfy spot around the fire. Gramma is asleep for good now. Mynt tries to sip it too fast and burns her lip with a little squeak.
 
+!`
+choicesPerPage = 1;
+`
 [Interesting little cabin. How long you guys been here?|redMary29]
 ---
 :redMary29
 
 Mary assumes you're talking to her. "Four thousand years or so."
 
-[Ahhh yeah. You like it here, Theresa?|redMary30]
+!`
+choicesPerPage = 1;
+`
+[Ahhh yeah. You like it here, Red?|redMary30]
 ---
 :redMary30
 
-"Oh, she loves it!" Mary titters. She touches a few dainty fingers to her lips and stifles that meteoric rush of mirth. She looks at Theresa.
+"Oh, she loves it!" Mary titters. She touches a few dainty fingers to her lips and stifles that meteoric rush of mirth. She looks at Red.
 
 "That's right."
 
+!`
+choicesPerPage = 1;
+`
 [Mmmmhm.|redMary31]
 ---
 :redMary31
 
-Mary nudges Theresa's leg.
+Mary nudges Red's leg.
 
 "Oh—" her wolf tail twitches to high alert— "Will you stay and have some stew?"
 
 Mary follows up right on cue: "It's got carrots, celery, potato chunks, peas—"
 
+!`
+choicesPerPage = 1;
+`
 [We're actually just stopping by while we search for our Mom.|redMary32]
 ---
 :redMary32
@@ -689,18 +921,27 @@ Mynt backs you up: "Yes!!! Um— have you seen a chubby old nerd woman named Wen
 
 Mary nods, slowly, without moving her eyes from your face.
 
+!`
+choicesPerPage = 1;
+`
 [You've seen her.|redMary33]
 ---
 :redMary33
 
 "Yes."
 
+!`
+choicesPerPage = 1;
+`
 [You're sure it was her???|redMary34]
 ---
 :redMary34
 
 "Yes. We spoke at length."
 
+!`
+choicesPerPage = 1;
+`
 [Oh my god.|redMary35]
 ---
 :redMary35
@@ -709,14 +950,20 @@ Mynt almost spills her tea as she goes to set it down on the table. She pulls he
 
 "Oh, that's— VERY important to us! Don't mind `data.playerName` being so naked, please, I'm sorry about that. You'll tell us everything, right?? Will you? Thank you so much for the tea and of course we'll stay for stew. Sorry again if `data.playerName` is too immodest! Honestly," she side-eyes you, "I told `him()` not to pick such a big butt when `he()` jumped in the pond, but nooo."
 
-[>:[ (Quit trying so hard. Don't just give away our game plan here.)|redMary36]
+!`
+choicesPerPage = 1;
+`
+[(Quit trying so hard. Don't just give away our game plan here.)|redMary36]
 ---
 :redMary36
 
-Mary sips her tea, slow and patient. Theresa vibrates in the background, eyes unfocused. She doesn't seem to be very good at staying still. 
+Mary sips her tea, slow and patient. Red vibrates in the background, eyes unfocused. She doesn't seem to be very good at staying still. 
 
 Mynt shoots you a grave expression like "Don't fuck this up for us!!!" but remains desperately cheery otherwise. "Ehe— yes. So. You'll tell us, right, Mary?"
 
+!`
+choicesPerPage = 1;
+`
 [Look at Mary.|redMary37]
 ---
 :redMary37
@@ -725,6 +972,9 @@ She hasn't moved a planck length.
 
 "Well,"
 
+!`
+choicesPerPage = 1;
+`
 [(See Mynt you fucking blew it.)|redMary38]
 ---
 :redMary38
@@ -733,6 +983,9 @@ She hasn't moved a planck length.
 
 Mynt bites her lip.
 
+!`
+choicesPerPage = 1;
+`
 [We're Wendy's children. Sort of. She birthed me, but she coded Mynt.|redMary39]
 ---
 :redMary39
@@ -741,36 +994,44 @@ Mynt bites her lip.
 
 Mynt nods and laughs, "Yeah! That makes sense. Haha. Totally understandable. We just figured we'd ask, and... you know..." Her face says she does not understand at all.
 
+!`
+choicesPerPage = 1;
+`
 [Has anyone else passed by to ask about her?|redMary40]
 ---
 :redMary40
 
-"A man," Theresa pipes up, although "piping up" for her means talking slightly above a whisper: "A man with her body."
+"A man," Red pipes up, although "piping up" for her means talking slightly above a whisper: "A man with her body."
 
 Mynt's eyes light up. "A doppelganger!!!!!!!!!"
 
+!`
+choicesPerPage = 1;
+`
 [He's stalking her in her own body...|redMary41wait]
 ---
 :redMary41wait
 
 !`
-msg("Fake Wendy ");
+choicesPerPage = 1;
 `
-
 [Cart saw him.|redMary41]
 ---
 :redMary41
 
 
+!`
+choicesPerPage = 1;
+`
 [Is that right, Mary?|redMary41]
 ---
 :redMary41
 
-Theresa looks at the carpet and covers her mouth. Mary can't formulate an expression for a split second— her face is just slack with confusion while she stares at Theresa, who looks petrified. Something happened while you were talking there, but you didn't see. Theresa apologizes for piping up earlier.
+Red looks at the carpet and covers her mouth. Mary can't formulate an expression for a split second— her face is just slack with confusion while she stares at Red, who looks petrified. Something happened while you were talking there, but you didn't see. Red apologizes for piping up earlier.
 
-"Ahh," Mary says wistfully, "She's filling in some of the blanks on her own, there. We don't really know who they were. All we know is they wanted the same information you do. And, later— Theresa, get the stew."
+"Ahh," Mary says wistfully, "She's filling in some of the blanks on her own, there. We don't really know who they were. All we know is they wanted the same information you do. And, later— Red, get the stew."
 
-Theresa stands up. "I'll go get it. Please stay, you two. I'm slow. Forgive me."
+Red stands up. "I'll go get it. Please stay, you two. I'm slow. Forgive me."
 
 Mary keeps talking.
 
@@ -786,6 +1047,9 @@ choicesPerPage = 2;
 
 Mary grimaces. "There are so many bad people out there."
 
+!`
+choicesPerPage = 1;
+`
 [I bet.|redMaryRejoin4]
 ---
 :redMaryUnderstand
@@ -796,28 +1060,37 @@ Then she pats Mynt's. "I'm sorry, hun. I could tell how bad you miss your mom."
 
 "Hey! Y'know. I get it. You're cautious! It's okay..." Mynt swallows and shrugs.
 
+!`
+choicesPerPage = 1;
+`
 [How can we prove we're trustworthy?|redMaryRejoin4a]
 ---
 :redMaryRejoin4a
 
 "We'll talk about that later. Here comes the stew."
 
-"And Theresa, with it," Mynt reminds her gently.
+"And Red, with it," Mynt reminds her gently.
 
+!`
+choicesPerPage = 1;
+`
 [Next.|redMaryRejoin4]
 ---
 :redMaryRejoin4
 
-Theresa totters around the corner with two fat oven mitts on her paws and the sloshing stew. It's embarrassing to watch. You all sit uncomfortably and listen to the rhythm of Gramma's lazy snores while Theresa breaks her little back lugging the cast-iron pot over to the table. She clunks it down on a little tea cozy, rattling your cups in their saucers.
+Red totters around the corner with two fat oven mitts on her paws and the sloshing stew. It's embarrassing to watch. You all sit uncomfortably and listen to the rhythm of Gramma's lazy snores while Red breaks her little back lugging the cast-iron pot over to the table. She clunks it down on a little tea cozy, rattling your cups in their saucers.
 
-Theresa does her best to conceal how heavy she's breathing by using her nose, but everyone can see her chest rising and falling, her nostrils flaring. She smiles apologetically and sits down.
+Red does her best to conceal how heavy she's breathing by using her nose, but everyone can see her chest rising and falling, her nostrils flaring. She smiles apologetically and sits down.
 
 Mary ladles some chunky veggie stew into two heaping bowls for you and Mynt.
 
 Then she serves herself a half-filled bowl.
 
-Then she serves Theresa a half-filled bowl.
+Then she serves Red a half-filled bowl.
 
+!`
+choicesPerPage = 1;
+`
 [We didn't say we were staying yet.|redMary42]
 ---
 :redMary42
@@ -826,6 +1099,9 @@ Mary looks right at you. Her eyes narrow.
 
 "Stay."
 
+!`
+choicesPerPage = 1;
+`
 [Leave.|redMary43]
 ---
 :redMary43
@@ -834,7 +1110,7 @@ You drag Mynt up from the couch. Vapour from your bowls of broth frame the trio 
 
 Mary smiles. "You need a moment alone. I get it! No worries."
 
-Theresa has her head down.
+Red has her head down.
 
 Gramma snores.
 
@@ -846,6 +1122,7 @@ And as you pull her out the door, her claws dig into the frame. "We'll just be a
 
 !`
 getAudio("music").destroy();
+choicesPerPage = 1;
 `
 [Huddle up.|redMary44]
 ---
@@ -853,36 +1130,54 @@ getAudio("music").destroy();
 
 You pull Mynt away from the open front door, around back to the greenhouse, and lock your hands on her shoulders. Your heads face the weedless, uniform-height grass of Mary's back lawn.
 
+!`
+choicesPerPage = 1;
+`
 [There is something seriously fucked about that rabbit.|redMary45]
 ---
 :redMary45
 
 "She has wings." Mynt scours the grass with her blank eyes. "What does that mean?"
 
+!`
+choicesPerPage = 1;
+`
 [Do you not know what angel wings look like?|redMary46]
 ---
 :redMary46
 
 "Of course I do!" she snaps. "What does it <i>mean</i> that she's an angel?"
 
+!`
+choicesPerPage = 1;
+`
 [Means she's self-important?|redMary47]
 ---
 :redMary47
 
 Mynt smacks you upside the head.
 
+!`
+choicesPerPage = 1;
+`
 [Hey OW!|redMary48]
 ---
 :redMary48
 
 "It means she's <i>religious</i>!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
 
+!`
+choicesPerPage = 1;
+`
 [So what?!|redMary49]
 ---
 :redMary49
 
 "SO DON'T FLAUNT YOUR ASS AT HER!!!"
 
+!`
+choicesPerPage = 1;
+`
 [OKAY JEEZ.|redMary50]
 ---
 :redMary50
@@ -893,6 +1188,9 @@ Mynt turns around, arms crossed, with a huff.
 
 She spins around and jabs a finger at you, almost touching your chin, which forces you to back up til your shoulder blades bounce off the greenhouse glass with a rickety <i>thump</i>— "and it turns out she DID know something, which YOU almost jeopardized with your rude ass! Be thankful she isn't even colder to us than she already has been!!!"
 
+!`
+choicesPerPage = 2;
+`
 [But I don't like her.|redMaryNoSorry]
 [... Okay, sorry. I'm sorry.|redMarySorry]
 ---
@@ -900,6 +1198,9 @@ She spins around and jabs a finger at you, almost touching your chin, which forc
 
 "Neither do I! She's creepy as fuck! But she knows Mom!"
 
+!`
+choicesPerPage = 2;
+`
 [That poor wolf though. I just want to hug her.|redMaryNoSorry]
 [Alright I'm sorry.|redMarySorry]
 ---
@@ -907,12 +1208,18 @@ She spins around and jabs a finger at you, almost touching your chin, which forc
 
 Mynt flaps her arms like some kinda freak maniac. "DO NOT HUG THAT WOLF LOLI!"
 
-[Mynt, she's definitely over 18.|redMaryNoSorry2]
+!`
+choicesPerPage = 1;
+`
+[Mynt, she's definitely over 18. The author said so. I mean the narrator. I mean Mr. Eyeball.|redMaryNoSorry2]
 ---
 :redMaryNoSorry2
 
 "Yes I know, but she probably just aged herself up in the pond— listen, everyone knows hugging isn't a proper Christian thing to do! You'll piss off the bunny even more! Promise me you won't do anything to ruin our chances of finding mom, okay?!"
 
+!`
+choicesPerPage = 2;
+`
 [Don't you have any compassion?|redMaryNoSorry3]
 [Alright I'm sorry. I promise I won't piss the bunny off.|redMarySorry]
 ---
@@ -922,6 +1229,9 @@ She jabs a finger at you.
 
 "Yes— but..." Mynt's finger goes flaccid. "You don't get someone out of a bad relationship by directly, openly antagonizing their abuser. That just makes it worse for her when we inevitably leave."
 
+!`
+choicesPerPage = 2;
+`
 [We're just gonna leave the wolf here?|redMaryNoSorry4]
 [... You're right. I'm sorry.|redMarySorry]
 ---
@@ -929,6 +1239,9 @@ She jabs a finger at you.
 
 "She'll NEVER tell us what she knows if you do that!! You can't go stealing emaciated wolf lolis from random cabins!!!!"
 
+!`
+choicesPerPage = 2;
+`
 [Watch me.|redMarySteal]
 [...|redMarySorryPre]
 ---
@@ -936,6 +1249,9 @@ She jabs a finger at you.
 
 Mynt stares at you like 3:< and expects an apology immediately.
 
+!`
+choicesPerPage = 2;
+`
 [... Watch me.|redMarySteal]
 [... I'm sorry.|redMarySorry]
 ---
@@ -945,24 +1261,36 @@ She walks off a bit and kicks a chunk of dirt out of Mary's perfect lawn.
 
 "I don't like it any more than you do. But this is what we gotta do. We gotta cool down out here and then we gotta march back inside and kiss her ass hard for that juicy mom lore. Yeah?"
 
+!`
+choicesPerPage = 1;
+`
 [Ugh... yeah.|redMarySorry2]
 ---
 :redMarySorry2
 
 "I can't believe you up and dragged me out like that, I'm starting to seriously doubt how cool— how cool are you?" She flips around, accusatory again. "How smooth are you playing it right now?"
 
+!`
+choicesPerPage = 1;
+`
 [I'm playing it smooth I swear!!|redMarySorry3]
 ---
 :redMarySorry3
 
 She drops her finger like a gavel. "Not smooth enough."
 
+!`
+choicesPerPage = 1;
+`
 [I'll play it smoother then?|redMarySorry4]
 ---
 :redMarySorry4
 
 "'Stay' she says, and 'Leave' you snap back at her— you know something? You're peanut butter right now. I need you to be virgin olive oil."
 
+!`
+choicesPerPage = 2;
+`
 [Alright!! I'll be olive oil. Fuck, get off my back.|redMarySorryRejoiner]
 [Hehe virgin.|redMarySorryRejoiner]
 ---
@@ -974,6 +1302,9 @@ She kisses you on the forehead and claps both paws around your face. She holds y
 
 "We can do this."
 
+!`
+choicesPerPage = 1;
+`
 [Yes we can.|redMaryBackyard]
 ---
 :redMaryBackyard
@@ -982,6 +1313,9 @@ Mynt disengages and looks around this backyard for the first time. "I'm gonna co
 
 A sturdy, happy, circular wooden fence protects this perfect little cabin from the mess of the forest around it. Anti-noclip barriers shimmer in the air above the property line. Any curious branches that try to grow through the barrier get slowly vaporized. There's a greenhouse, a cellar door, and stained-glass windows decorated with saints and demons.
 
+!`
+choicesPerPage = 1;
+`
 [Look around.|redMaryBackyardHub]
 ---
 :redMaryBackyardHub
@@ -990,6 +1324,9 @@ You scout for anything interesting.
 
 Mynt pokes around in the greenhouse. You can see her bumbly shadow through the glass. There's also a weird little bump in the otherwise perfect lawn and a colorful shrine off a ways into the forest.
 
+!`
+choicesPerPage = 4;
+`
 [Examine greenhouse.|redMaryGreenhouse]
 [Examine bump.|redMaryBump]
 [Examine shrine.|redMaryShrine]
@@ -1001,12 +1338,18 @@ You go over and toe the bump.
 
 It's definitely dirt.
 
+!`
+choicesPerPage = 1;
+`
 [Prod dirt.|redMaryBump1]
 ---
 :redMaryBump1
 
 You prod dirt.
 
+!`
+choicesPerPage = 1;
+`
 [Dig dirt.|redMaryBump2]
 ---
 :redMaryBump2
@@ -1015,6 +1358,9 @@ You jam your fingers into the loose earth and pull out a forbidden doujinshi. Th
 
 Oh wait! This is a whole dirty magazine. It just featured a doujinshi mear the front.
 
+!`
+choicesPerPage = 1;
+`
 [Flutter the pages.|redMaryBump3]
 ---
 :redMaryBump3
@@ -1029,6 +1375,9 @@ Visit Indigo Pond on the Earth layer today for your appointment with Allei and h
 <b>CALLIOPE: INDEFINITE HIATUS</b>
 <i>Allei is taking some time off as editor of the mag so she can focus on barbering for a bit. Might not be a new issue of Calliope for a while. Please keep submitting your favorite yuri art and stories, and we'll have a great selection for the next issue!</i>
 
+!`
+choicesPerPage = 1;
+`
 [Hm. Back.|redMaryBackyardHub]
 ---
 :redMaryShrine
@@ -1039,6 +1388,9 @@ It's gray and featureless and weathered by the millenia, but it's still softly b
 
 Neither of you will ever wake up again.
 
+!`
+choicesPerPage = 1;
+`
 [Leave flowers.|redMaryShrine2]
 ---
 :redMaryShrine2
@@ -1047,6 +1399,9 @@ You brush the wilted flowers off and tuck a fresh white lily behind your ear and
 
 There.
 
+!`
+choicesPerPage = 1;
+`
 [...|redMaryBackyardHub]
 ---
 :redMaryGreenhouse
@@ -1057,6 +1412,7 @@ You poke your head inside. It's peaceful in here, and it smells nice. Wind makes
 
 !`
 data.didMaryGreenhouse = true;
+choicesPerPage = 1;
 `
 [Enter.|redMaryGreenhouse1]
 ---
@@ -1066,6 +1422,9 @@ Mynt is crouched at the other end in green light. Her dress looks like the same 
 
 "There's a trapdoor..."
 
+!`
+choicesPerPage = 2;
+`
 [Examine trapdoor.|redMaryGreenhouseSnoop]
 [Don't snoop.|redMaryGreenhouseNoSnoop]
 ---
@@ -1073,12 +1432,18 @@ Mynt is crouched at the other end in green light. Her dress looks like the same 
 
 She pulls her curious paw away from the latch. "It's locked anyway."
 
+!`
+choicesPerPage = 1;
+`
 [Wonder what's down there...|redMaryGreenhouseRejoin]
 ---
 :redMaryGreenhouseSnoop
 
 You grope the heavy padlock and peek in its sexy keycrack. Looks super tight... unf... totally unpickable.
 
+!`
+choicesPerPage = 1;
+`
 [Wonder what's down there...|redMaryGreenhouseRejoin]
 ---
 :redMaryGreenhouseRejoin
@@ -1089,6 +1454,9 @@ Still, not even Mary is perfect. Mynt has been occupied by some little secret sh
 
 She shoots you a sly look. "Hey, this is really something... come check this out."
 
+!`
+choicesPerPage = 1;
+`
 [Examine something?|redMaryGreenhouse2]
 ---
 :redMaryGreenhouse2
@@ -1099,6 +1467,9 @@ You half-shut the door on its whiny hinges... right behind it is... is...
 
 "Look!" Mynt squees, and pokes the bud of its bulbous head. The poor thing can barely twitch toward her.
 
+!`
+choicesPerPage = 1;
+`
 [Oh my god pet it.|redMaryGreenhouse3]
 ---
 :redMaryGreenhouse3
@@ -1109,6 +1480,9 @@ A voice comes from outside:
 
 "Stop snooping."
 
+!`
+choicesPerPage = 1;
+`
 [!!!|redMaryGreenhouse4]
 ---
 :redMaryGreenhouse4
@@ -1117,30 +1491,39 @@ You and Mynt both spin around, frozen with fear, expecting your worst fears to b
 
 But it's not Mary. The little wolf girl stands in the doorway. Her eyes are dark, baggy, and serious.
 
-Theresa clutches a nervous fistful of her own chest fur and steps tentatively into the greenhouse. She looks back at the cabin behind her and its staring windows. Then she swallows her fear and hurries inside, shutting the glass door behind.
+Red clutches a nervous fistful of her own chest fur and steps tentatively into the greenhouse. She looks back at the cabin behind her and its staring windows. Then she swallows her fear and hurries inside, shutting the glass door behind.
 
-"We weren't snooping! I promise!" Mynt whispers. She tries to jostle past Theresa and escape, but it's clear no one is leaving this greenhouse until the little wolf says so. Somewhere deep underneath her downtrodden, hollowed-out soul, a single tiny ember of self esteem still glows.
+"We weren't snooping! I promise!" Mynt whispers. She tries to jostle past Red and escape, but it's clear no one is leaving this greenhouse until the little wolf says so. Somewhere deep underneath her downtrodden, hollowed-out soul, a single tiny ember of self esteem still glows.
 
 "I don't care." She blocks the exit.
 
-Mynt whines and tries to squeeze past two more times, but Theresa kills the third attempt with a single dark look. Mynt backs off and grabs your wrist.
+Mynt whines and tries to squeeze past two more times, but Red kills the third attempt with a single dark look. Mynt backs off and grabs your wrist.
 
+!`
+choicesPerPage = 1;
+`
 [What do you want?|redMaryGreenhouse5]
 ---
 :redMaryGreenhouse5
 
-Theresa opens the door a crack and makes sure no one is hiding outside.
+Red opens the door a crack and makes sure no one is hiding outside.
 
 "I need to talk to you."
 
+!`
+choicesPerPage = 1;
+`
 [Talk, then.|redMaryGreenhouse6]
 ---
 :redMaryGreenhouse6
 
-Theresa faces you.
+Red faces you.
 
 "I want to help you find your mom."
 
+!`
+choicesPerPage = 1;
+`
 [Oho. Whyzat.|redMaryGreenhouse7]
 ---
 :redMaryGreenhouse7
@@ -1149,6 +1532,9 @@ She looks murderous.
 
 "Because I need answers."
 
+!`
+choicesPerPage = 1;
+`
 [...|redMaryGreenhouse8]
 ---
 :redMaryGreenhouse8
@@ -1157,14 +1543,20 @@ Mynt tries to gently interject:
 
 "What, um... what did she..."
 
+!`
+choicesPerPage = 1;
+`
 [...|redMaryGreenhouse9]
 ---
 :redMaryGreenhouse9
 
-Theresa does not look away or change expression. The only part of her body that moves is her lips.
+Red does not look away or change expression. The only part of her body that moves is her lips.
 
 "I need to know why she created me broken."
 
+!`
+choicesPerPage = 1;
+`
 [Oh.|redMaryGreenhouse10]
 ---
 :redMaryGreenhouse10
@@ -1175,13 +1567,16 @@ Mynt pales and waves her paw around in a pretty forced attempt at moving things 
 
 Something warm slams to your chest.
 
+!`
+choicesPerPage = 1;
+`
 [?!|redMaryGreenhouse11]
 ---
 :redMaryGreenhouse11
 
 You look down.
 
-All you see is a crown of brown hair and two fluffy wolf ears`boobs(" between your tits.", ".")` Theresa's shaky arms lock around your midsection.
+All you see is a crown of brown hair and two fluffy wolf ears`boobs(" between your tits.", ".")` Red's shaky arms lock around your midsection.
 
 "Forgive me," she whispers. One of her paws wanders south. You can feel the soft pawbeans slide over your belly.
 
@@ -1195,7 +1590,7 @@ addChoice("Pull away.", "redMaryGreenhouseNoSex");
 ---
 :redMaryGreenhouseNoSex
 
-Theresa clings to the spot in the air where your body used to be. Her nose still twitches at the last few tendrils of your scent.
+Red clings to the spot in the air where your body used to be. Her nose still twitches at the last few tendrils of your scent.
 
 She snaps out of it. Dread fattens the bags under her eyes. She holds herself.
 
@@ -1203,13 +1598,17 @@ She snaps out of it. Dread fattens the bags under her eyes. She holds herself.
 
 Mynt is just over in the corner like @_@. "I won't tell..."
 
+
+!`
+choicesPerPage = 1;
+`
 [Right. Never happened.|redMaryGreenhouseRejoin2]
 ---
 :redMaryGreenhouseSex
 
 You stand perfectly still. This feels like a sacred but also dangerous moment. Like a wild lion just sprinted up to you only to stop dead in its tracks and just sniff at your throat instead of tearing it out.
 
-Theresa uses you as an anchor for her weak body. Violent shivers course from her heart to her extremeties and poof her fur out along the way.
+Red uses you as an anchor for her weak body. Violent shivers course from her heart to her extremeties and poof her fur out along the way.
 
 ... <i>Pomf.</i>
 
@@ -1217,22 +1616,30 @@ Her paw connects with your `genitals("tingly cockbulge", "cuntbulge", "tingly co
 
 She whimpers into your `boobs()` and squeezes down hard. She's got a fat lump in her throat, for sure... you know because you can feel it sliding up and down against your bare fur, where her throat touches you. She doesn't ask if you're okay with this or even murmur a plea for you to keep it secret. She can't compose thoughts right now. She just closes her eyes and takes what she can while she has this tiny opportunity.
 
+
+!`
+choicesPerPage = 1;
+`
 [It's okay...|redMaryGreenhouseSex2]
 ---
 :redMaryGreenhouseSex2
 
 Mynt's face flushes with secondhand embarassment. "Should I... should I leave you guys to it, or..."
 
-"Stay," Theresa begs. "Watch."
+"Stay," Red begs. "Watch."
 
 Mynt has to hide her face in her paws and lock her thighs together tight if she wants to suppress the squeal welling up from inside her. She just barely keeps her shit together. "Oh god. Oh fuck. We're done... if the bunny sees this... we're never gonna find mom. Oh. Fuck. We. Are. Done."
 
-Theresa can't care right now. She pulls big lungfuls of your scent into her chest. Her boobs aren't ginormo, but there's definitely a modest A-cup worth of wolfmeat there. You peer down at them as they rise and fall with her hurried breath.
+Red can't care right now. She pulls big lungfuls of your scent into her chest. Her boobs aren't ginormo, but there's definitely a modest A-cup worth of wolfmeat there. You peer down at them as they rise and fall with her hurried breath.
 
 She stuffs her paw down your pants. Cool pawflesh connects with your `genitals("shaft", "cuntlips", "shaft")`. She throws her weight forward and forces you back against the glass wall. `genitals("A chub becomes an erection becomes a raging boner", "Your pussy leaks hard", "A chub becomes an erection becomes a raging boner")` thanks to her constant ravenous gropes. `genitals("Her fist closes around your bare cock and in a flurry she starts to jack you off", "Two digits slide inside you and curl around the spot where your cherry used to be", "Her fist closes around your bare cock and in a flurry she starts to jack you off")`... all the attention makes you grit your teeth and push your hips forward.
 
-Theresa heaves breath in and out like an animal. Her chest and throat and chin are all flattened up on your `boobs()` now. Thin coils of wolfdrool drop off her canines.
+Red heaves breath in and out like an animal. Her chest and throat and chin are all flattened up on your `boobs()` now. Thin coils of wolfdrool drop off her canines.
 
+
+!`
+choicesPerPage = 1;
+`
 [Hold onto her...|redMaryGreenhouseSex3]
 ---
 :redMaryGreenhouseSex3
@@ -1241,14 +1648,22 @@ Your hips buck automatically. You're sliding down the glass now. Something must 
 
 She freezes. Mynt freezes too, just cause she's been so completely sucked into the situation.
 
+
+!`
+choicesPerPage = 1;
+`
 [Oh... take my hand off of her...|redMaryGreenhouseSex4]
 ---
 :redMaryGreenhouseSex4
 
-It's too late, anyway. Theresa pulls your hand away herself. She yanks her paw out of your pants, too... and she's so terrified she doesn't even suck the `genitals("precum", "cuntslime", "precum")` off her fingers. She just wipes it off on the dickflower, which soaks the moisture up and throbs happily.
+It's too late, anyway. Red pulls your hand away herself. She yanks her paw out of your pants, too... and she's so terrified she doesn't even suck the `genitals("precum", "cuntslime", "precum")` off her fingers. She just wipes it off on the dickflower, which soaks the moisture up and throbs happily.
 
 "I'm sorry," she breathes. "I don't know why I did that. It just— just came out. I'm working on it. I'm sorry."
 
+
+!`
+choicesPerPage = 1;
+`
 [Don't be sorry...|redMaryGreenhouseRejoin2]
 ---
 :redMaryGreenhouseRejoin2
@@ -1257,11 +1672,15 @@ All three of you stand in silence. Something is suddenly very wrong and you all 
 
 A pure tinkly question comes from outside the greenhouse, each syllable clear as three polished crystals: "The-re-saaa?"
 
+
+!`
+choicesPerPage = 1;
+`
 [...|redMaryGreenhouse12]
 ---
 :redMaryGreenhouse12
 
-Theresa immediately yanks the dickflower out of the ground and hurries outside. She slams the glass door shut before Mary sees either of you.
+Red immediately yanks the dickflower out of the ground and hurries outside. She slams the glass door shut before Mary sees either of you.
 
 "There you are," Mary says.
 
@@ -1279,6 +1698,10 @@ Theresa immediately yanks the dickflower out of the ground and hurries outside. 
 
 "Wait, Mary— I don't think you need to—"
 
+
+!`
+choicesPerPage = 1;
+`
 [GRAB MYNT AND HIDE|redMaryGreenhouse13]
 ---
 :redMaryGreenhouse13
@@ -1289,45 +1712,65 @@ Both of you hold your breath and watch Mary from behind. Those floppy bunny ears
 
 "No," she sighs. "Must be just the one. Put it on the ground."
 
-Theresa blinks. She was clutching the dickflower reverently to her chest. It only takes her a second to drop it and feign disgust.
+Red blinks. She was clutching the dickflower reverently to her chest. It only takes her a second to drop it and feign disgust.
 
 "Of course. Gross thing..."
 
+
+!`
+choicesPerPage = 1;
+`
 [...|redMaryGreenhouse14]
 ---
 :redMaryGreenhouse14
 
-Mary holds eye contact with Theresa. She raises her footpaw.
+Mary holds eye contact with Red. She raises her footpaw.
 
 Powerful lapine leg strength comes down on the withered little thing. With about five times more force than necessary and full unblinking eye contact the whole time, Mary drops her foot and crushes it. The head pops against the concrete. Green plant guts trickle down towards the door.
 
-She skips out into the backyard again. Theresa follows her silently.
+She skips out into the backyard again. Red follows her silently.
 
 The greenhouse door shuts.
 
+
+!`
+choicesPerPage = 1;
+`
 [...|redMaryGreenhouse15]
 ---
 :redMaryGreenhouse15
 
 ...
 
+
+!`
+choicesPerPage = 1;
+`
 [...|redMaryGreenhouse16]
 ---
 :redMaryGreenhouse16
 
 ...
 
+
+!`
+choicesPerPage = 1;
+`
 [...|redMaryGreenhouse17]
 ---
 :redMaryGreenhouse17
 
 
-You and Mynt are blue in the face. You peer through the glass and wait while Mary throws a soft red cloak over Theresa and walks her back inside. Only once the back door has been shut for ten full seconds... only then do you let your breath out.
+You and Mynt are blue in the face. You peer through the glass and wait while Mary throws a soft red cloak over Red and walks her back inside. Only once the back door has been shut for ten full seconds... only then do you let your breath out.
 
 You both FWAHHHHHhhhh right down to the concrete in a toppled heap of nerves.
 
 "Fuck," Mynt gasps. She pulls her knees up to avoid touching the crushed dickflower. "Fuck. Too close. Too close."
 
+
+!`
+choicesPerPage = 1;
+`
 [That bunny is FUCKED.|redMaryGreenhouse18]
 ---
 :redMaryGreenhouse18
@@ -1351,6 +1794,7 @@ You and Mynt lock yourselves together in one last huddle.
 
 !`
 data.didMarySupper = true;
+choicesPerPage = 1;
 `
 [Right. Of course we can.|redMarySupper1]
 ---
@@ -1358,12 +1802,18 @@ data.didMarySupper = true;
 
 "Let's respect her. We're her guests, right?"
 
+!`
+choicesPerPage = 1;
+`
 [Right.|redMarySupper2]
 ---
 :redMarySupper2
 
 "We just have to march in there and <b>NOT</b> chew her out. Right. Right?"
 
+!`
+choicesPerPage = 1;
+`
 [Right.|redMarySupper3]
 ---
 :redMarySupper3
@@ -1374,28 +1824,37 @@ Mynt claps her paws together and nods with pure finality. "Right!!!"
 
 She leads the way back inside.
 
+!`
+choicesPerPage = 1;
+`
 [Right!!!|redMarySupper4]
 ---
 :redMarySupper4
 
 Soon all four of you are sitting at the kitchen table while grandma snores over her already empty bowl in the living room. You look down. The tablecloth is fine lace. On top sits four steamy bowls of veggie stew on carrot-patterned placemats. Spoons clack against the bowls. Lips slurp. Eyes wander anywhere but the seat across from them.
 
-... Hey. Theresa's bowl is only half full. You want to share a glance with Mynt to try and tip her off about that, but you can't get her to look at you. In fact, you can't get anyone to look at anyone else in the first place. Except...
+... Hey. Red's bowl is only half full. You want to share a glance with Mynt to try and tip her off about that, but you can't get her to look at you. In fact, you can't get anyone to look at anyone else in the first place. Except...
 
-Mary props her chin up on an elbow and smiles at you, Mynt, and Theresa in turn. She never even looks down at her stew. Her eyes are always on one of you no matter what. For the first five minutes of this silent torture you and Mynt occasionally meet Mary's gaze... maybe ask her if she needs anything, maybe look right back in her face to try and get her to back down... but now you've learned that acknowledging her in any way will only prolong the silence.
+Mary props her chin up on an elbow and smiles at you, Mynt, and Red in turn. She never even looks down at her stew. Her eyes are always on one of you no matter what. For the first five minutes of this silent torture you and Mynt occasionally meet Mary's gaze... maybe ask her if she needs anything, maybe look right back in her face to try and get her to back down... but now you've learned that acknowledging her in any way will only prolong the silence.
 
 Mary waits until no one has attempted to look at her for ten minutes straight. Only now that she has established her dominance does she speak:
 
 "You're all so nervous!" She giggles. "Are you worried I might be lying about your mom? Well, I have proof. Look here."
 
+!`
+choicesPerPage = 1;
+`
 [Look there.|redMarySupper5]
 ---
 :redMarySupper5
 
-Mynt and Theresa obey too.
+Mynt and Red obey too.
 
 Mary has a tiny, ragged paper note pinched between her thumb and forefinger. It's written in your mom's handwriting, but you can't quite make out the words.
 
+!`
+choicesPerPage = 1;
+`
 [!!!|redMarySupper6]
 ---
 :redMarySupper6
@@ -1414,24 +1873,33 @@ Mynt's left eyelid twitches. <i>"Did she leave it for us?"</i>
 
 "Oh." Mary dabs at the corners of her maw with a napkin. "No, she left it for me. That was the last time we spoke."
 
+!`
+choicesPerPage = 1;
+`
 [Did she say where she was going or what.|redMarySupper7]
 ---
 :redMarySupper7
 
 Mynt kicks you under the table and flashes you a look that says <i>Be fucking polite.</i>
 
+!`
+choicesPerPage = 1;
+`
 [Ahem, sorry. Would you mind telling us where mom was headed, Mary?|redMarySupper8]
 ---
 :redMarySupper8
 
-Mary goes for another sip of creamy broth at that exact moment, funny enough. Weird that it lined up so well with your rudeness. Even after the long sip, she makes you wait for her to finish wiping her lips clean again. Theresa isn't eating her stew. She's enraptured by those shiny, feminine bunny lips... moisture still clings to them...
+Mary goes for another sip of creamy broth at that exact moment, funny enough. Weird that it lined up so well with your rudeness. Even after the long sip, she makes you wait for her to finish wiping her lips clean again. Red isn't eating her stew. She's enraptured by those shiny, feminine bunny lips... moisture still clings to them...
 
 Mary opens her mouth to answer, then pretends to be distracted. "It's rude to stare, pet."
 
-Theresa looks at the table and silences herself with frantic spoonfuls of stew. "Forgive me."
+Red looks at the table and silences herself with frantic spoonfuls of stew. "Forgive me."
 
-"You're forgiven." Mary reaches across the table and, in a display of her good grace, plain for you and Mynt to see, she pats the back of Theresa's hand, which is palm-down on the table. Theresa's bicep clenches but she doesn't move her arm.
+"You're forgiven." Mary reaches across the table and, in a display of her good grace, plain for you and Mynt to see, she pats the back of Red's hand, which is palm-down on the table. Red's bicep clenches but she doesn't move her arm.
 
+!`
+choicesPerPage = 1;
+`
 [Can you answer my question please?|redMarySupper9]
 ---
 :redMarySupper9
@@ -1444,12 +1912,18 @@ Mary eyes you hard.
 
 Mynt stomps on your toes under the table, her eyelid a-twitch-twitch-a-twitching...
 
+!`
+choicesPerPage = 1;
+`
 [I apologize. I didn't mean to make you uncomfortable.|redMarySupper10]
 ---
 :redMarySupper10
 
 "It's fine! Thank you! Oh, you're forgiven, too!" Mary titters. She holds eye contact with you and reaches across the table.
 
+!`
+choicesPerPage = 1;
+`
 [Ugh... fuck. Keep my hand still.|redMarySupper11]
 ---
 :redMarySupper11
@@ -1458,6 +1932,9 @@ Mary relishes in your inner conflict. Despite how obviously uncomfortable this i
 
 "There now," she whispers. Her fingers have something on them. Something wet, warm. You feel like you're about to gag... she's using you as a napkin. No one else notices. "There now."
 
+!`
+choicesPerPage = 1;
+`
 [...|redMarySupper12]
 ---
 :redMarySupper12
@@ -1470,6 +1947,9 @@ Mary notices! She smiles to herself, wipes her fingers off, and places a few dai
 
 "Oh!" Mynt says, all surprised. "Thank you."
 
+!`
+choicesPerPage = 1;
+`
 [Welp I'm at my limit here.|redMarySupper13]
 ---
 :redMarySupper13
@@ -1478,48 +1958,66 @@ Mary smiles hard at you. "Your limit?"
 
 "`His()` belly! Full! `gender("He is", "She is", "They're")` full right up to `his()` limit, oh man, that was some <i>creamy</i> stew right there Mary THANK you!!! Wasn't that tasty, `data.playerName`? Umf!"
 
+!`
+choicesPerPage = 1;
+`
 [Yeah super satisfying. I know my hunger is sated.|redMarySupper14]
 ---
 :redMarySupper14
 
 
 
+!`
+choicesPerPage = 1;
+`
 [Can hardly even think of anything else I might want.|redMarySupper15]
 ---
 :redMarySupper15
 
 
 
+!`
+choicesPerPage = 1;
+`
 [Maybe just some after-dinner discussion. Always love a good chat after I eat.|redMarySupper16]
 ---
 :redMarySupper16
 
 
 
+!`
+choicesPerPage = 1;
+`
 [Say, Mary, how did you meet our mom?|redMarySupper17]
 ---
 :redMarySupper17
 
 "That's quite enough!"
 
-Her chair screeches as she pushes it back from the table, collects all four bowls (Theresa wasn't even halfway finished) and cleans them off in the sink.
+Her chair screeches as she pushes it back from the table, collects all four bowls (Red wasn't even halfway finished) and cleans them off in the sink.
 
 "I said it twice already, and a third is where I draw the line. I won't be tossing out free information any time soon, and I would appreciate it very much if you did not try to force it from me, thank you. You may leave. Feel free to visit us again— any time you like. Any time at all."
 
 Mynt looks crestfallen.
 
+!`
+choicesPerPage = 1;
+`
 [...|redMarySupper18]
 ---
 :redMarySupper18
 
 "We'll... we'll do that, thank you," Mynt says, and picks herself up off the table.
 
-Theresa hurries to help with the dishes. As soon as someone else offers to do the work, Mary drops the rag and the soap on the ground for Theresa to pick up. She graciously escorts you and Mynt out the kitchen, through the living room, and right onto the front porch.
+Red hurries to help with the dishes. As soon as someone else offers to do the work, Mary drops the rag and the soap on the ground for Red to pick up. She graciously escorts you and Mynt out the kitchen, through the living room, and right onto the front porch.
 
 "I don't hold it against you, `data.playerName`. I understand you take a very hands-on approach to things, as all players must, but you've got quite a lot to learn when it comes to etiquette. Isn't that right, Mynt?"
 
 "Oh yes," Mynt fake-laughs. "Aha. Ahaha. I'll whip `him()` into shape before our next visit. Don't you worry!"
 
+!`
+choicesPerPage = 1;
+`
 [I really don't think I did anything that rude.|redMarySupper19]
 ---
 :redMarySupper19
@@ -1528,6 +2026,9 @@ All the ragged split-throat screams of Hell threaten to explode from beneath Myn
 
 "That's quite right." Mary nods, paws clasped behind her back. "I know it's not easy for you, `data.playerName`, but I'd be <b>so</b> thankful if you just went a little easier on me, next time." She tilts her head, both eyes painfully open. "Can you do that for me?"
 
+!`
+choicesPerPage = 1;
+`
 [I can try very, very hard.|redMarySupper20]
 ---
 :redMarySupper20
@@ -1536,12 +2037,18 @@ All the ragged split-throat screams of Hell threaten to explode from beneath Myn
 
 Mary waves goodbye and closes the door behind you.
 
+!`
+choicesPerPage = 1;
+`
 [...|redMarySupper21]
 ---
 :redMarySupper21
 
 ...
 
+!`
+choicesPerPage = 1;
+`
 [...|redMarySupper22]
 ---
 :redMarySupper22
@@ -1552,11 +2059,14 @@ You expect Mynt to go off on you, but she's past anger now. Her rage is too deep
 
 You get the silent treatment all the way back home.
 
+!`
+choicesPerPage = 1;
+`
 [Guh...|redMaryEnd]
 ---
 :redMarySteal
 
-You march back inside the cabin, grab Theresa by her weak little wrist, and pull her outside.
+You march back inside the cabin, grab Red by her weak little wrist, and pull her outside.
 
 Mynt is frayed at the ends with stress. She sprints after you, bangs her face off the doorframe, and falls over, all while apologizing nonstop.
 
@@ -1568,6 +2078,7 @@ Mary stands up.
 
 !`
 data.redAttemptedTheft = true;
+choicesPerPage = 1;
 `
 [Your slave?|redMarySteal2]
 ---
@@ -1575,21 +2086,27 @@ data.redAttemptedTheft = true;
 
 "— my pet?"
 
-The instant you cross the threshold and the crisp forest air slaps Theresa in the face, something clicks in her mentally and she sinks her claws into your wrist and yanks her body away. She hurries back across the cabin, feet pattering off the carpet, and throws herself into Mary's waiting arms, crying uncontrollably.
+The instant you cross the threshold and the crisp forest air slaps Red in the face, something clicks in her mentally and she sinks her claws into your wrist and yanks her body away. She hurries back across the cabin, feet pattering off the carpet, and throws herself into Mary's waiting arms, crying uncontrollably.
 
 Mynt stumbles to her feet and knocks a bunch of stew off the living room table, eyes pointing in opposite directions. Hot soup sizzles on the once perfectly clean carpet, and bowls circle her feet as they roll to a stop. "Sorry— won't happen again. Please don't... mom lore..."
 
-Mary closes her wings and surrounds Theresa in a cocoon of soft white feathers. Two white bunny lips :3 meet the wolf's dirt-brown forehead. Mary's eyes close. "Shhh-shhh-shhh-shhhhhhhhhhhh," she whispers hypnotically, bare nose nuzzling those two fluffy wolf ears. The affection sends electric relief down the length of Theresa's tail.  "It wasn't your fault you crossed the doorway. `data.playerName` surely didn't think this through."
+Mary closes her wings and surrounds Red in a cocoon of soft white feathers. Two white bunny lips :3 meet the wolf's dirt-brown forehead. Mary's eyes close. "Shhh-shhh-shhh-shhhhhhhhhhhh," she whispers hypnotically, bare nose nuzzling those two fluffy wolf ears. The affection sends electric relief down the length of Red's tail.  "It wasn't your fault you crossed the doorway. `data.playerName` surely didn't think this through."
 
+!`
+choicesPerPage = 1;
+`
 [...|redMarySteal3]
 ---
 :redMarySteal3
 
 "Mom lore..." Mynt drops to her knees in the stew puddle. "You won't tell us now, will you..."
 
-"Of course not," Mary says. She pins Theresa's head to her flat chest.
+"Of course not," Mary says. She pins Red's head to her flat chest.
 
-[Theresa, do you want to leave?|redMarySteal4]
+!`
+choicesPerPage = 1;
+`
+[Red, do you want to leave?|redMarySteal4]
 ---
 :redMarySteal4
 
@@ -1597,14 +2114,20 @@ She opens her mouth and fixes a puffy eye on you sideways.
 
 Mary pulls her head back down. "No she doesn't."
 
+!`
+choicesPerPage = 1;
+`
 [Let her answer.|redMarySteal5]
 ---
 :redMarySteal5
 
 Mary shuts up.
 
-Theresa answers into Mary's chest: "I don't want to leave."
+Red answers into Mary's chest: "I don't want to leave."
 
+!`
+choicesPerPage = 1;
+`
 [Alright. Well.|redMarySteal6]
 ---
 :redMarySteal6
@@ -1617,12 +2140,18 @@ Mary's innocent bunny eyes light up with a special little idea. She's pleased wi
 
 "Open."
 
+!`
+choicesPerPage = 1;
+`
 [Oh come on.|redMarySteal7]
 ---
 :redMarySteal7
 
-Theresa's weak, quivering lips find the rim of the bowl. She latches on and chugs heartily. Stew trickles down the soft fur of her chin and bare throat. Mary holds the back of her skull and listens to the wet gulps and the sound of those fearsome little canines mashing up all the boiled-soft veggie chunks. "There now... I'll give you mine... I'll give you mine."
+Red's weak, quivering lips find the rim of the bowl. She latches on and chugs heartily. Stew trickles down the soft fur of her chin and bare throat. Mary holds the back of her skull and listens to the wet gulps and the sound of those fearsome little canines mashing up all the boiled-soft veggie chunks. "There now... I'll give you mine... I'll give you mine."
 
+!`
+choicesPerPage = 1;
+`
 [This is fucked. Mynt tell me this isn't fucked.|redMarySteal8]
 ---
 :redMarySteal8
@@ -1631,14 +2160,20 @@ Mynt was staring at you in the hope you might burst into a sudden apology, but w
 
 She's livid with you, if you couldn't tell there.
 
+!`
+choicesPerPage = 1;
+`
 [Am I seriously alone here?|redMarySteal9]
 ---
 :redMarySteal9
 
 Gramma <i>snrk</i>s awake. "Eh? Who puked on the carpet. And where's my stew."
 
-"In a moment," Mary reassures her. She walks a dazed, burping Theresa down the hall and back to the prayer room. The door shuts on her stare.
+"In a moment," Mary reassures her. She walks a dazed, burping Red down the hall and back to the prayer room. The door shuts on her stare.
 
+!`
+choicesPerPage = 1;
+`
 [... Get gramma some stew...|redMaryStealEnd]
 ---
 :redMaryStealEnd
@@ -1647,6 +2182,9 @@ You set a fresh bowl in her lap. She licks her lips and mows down.
 
 "Oh, thank you. Come visit again. I don't know what went wrong... I know my granddaughter can be overbearing... mm... she makes a good stew, though..."
 
+!`
+choicesPerPage = 1;
+`
 [We'll be back. Sorry about this.|redMaryEnd]
 ---
 :redMaryEnd

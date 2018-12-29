@@ -5,18 +5,27 @@ START_PASSAGES
 
 What will you do now, Mynt?
 
+!`
+choicesPerPage = 1;
+`
 [Ahh gosh... I dunno!!|myntDeco1]
 ---
 :myntDeco1
 
 You sit on the edge of the bed. It's still warm and a little spattered with sex juices.
 
+!`
+choicesPerPage = 1;
+`
 [... Well, sniff those for starters. >:3|myntDeco2]
 ---
 :myntDeco2
 
 You press your nose to the sheets and inhale gently. `data.playerName`'s scent tickles the back of your throat.
 
+!`
+choicesPerPage = 1;
+`
 [A-Ah...|myntDeco3]
 ---
 :myntDeco3
@@ -25,48 +34,75 @@ One of your paws automatically curls into a fistful of bedsheets. Your long tail
 
 You kinda kneel and half-hang off the side of the bed, chin pressed to the mattress, cheeks squishing up cutely.
 
-!`addChoice("I miss "+data.playerName+" already...", "myntDeco4");`
+!`
+choicesPerPage = 1;
+addChoice("I miss "+data.playerName+" already...", "myntDeco4");
+`
 ---
 :myntDeco4
 
 Eventually, you get so used to `his()` scent, you can't even smell it anymore.
 
+!`
+choicesPerPage = 1;
+`
 [BAH!|myntDeco5]
 ---
 :myntDeco5
 
 You get off the bed and say "bah." (sic)
 
+!`
+choicesPerPage = 1;
+`
 [What am I supposed to do here!!|myntDeco6]
 ---
 :myntDeco6
 
 Supposed to?
 
+!`
+choicesPerPage = 1;
+`
 [How can I help find mom when I'm cooped up in this apartment?!|myntDeco7]
 ---
 :myntDeco7
 
 Not every moment has to be about finding your mom, Mynt.
 
+!`
+choicesPerPage = 1;
+`
 [I guess not... but still.|myntDeco8]
 ---
 :myntDeco8
 
+!`
+choicesPerPage = 1;
+`
 [I feel so trapped in here...|myntDeco9]
 ---
 :myntDeco9
 
+!`
+choicesPerPage = 1;
+`
 [Like the walls are getting tighter, you know?|myntDeco10]
 ---
 :myntDeco10
 
+!`
+choicesPerPage = 1;
+`
 [I gotta get out...|myntDeco11]
 ---
 :myntDeco11
 
 Weren't you feeling agoraphobic earlier? And now you're feeling claustrophobic?
 
+!`
+choicesPerPage = 1;
+`
 [I guess?!!??!?|myntDeco12]
 ---
 :myntDeco12
@@ -76,13 +112,15 @@ Maybe you should go sit in the doorway.
 !`
 choicesPerPage = 1;
 `
-
 [Shut up. I need to do something. I'm restless. I'm gonna keep searching for mom!|myntDeco13]
 ---
 :myntDeco13
 
 Mmmm... how about, instead...
 
+!`
+choicesPerPage = 1;
+`
 [...|myntDeco14]
 ---
 :myntDeco14
@@ -91,30 +129,45 @@ Instead you could just take a few hours to settle into your new home.
 
 You know. Relax.
 
+!`
+choicesPerPage = 1;
+`
 [Fuck that shit!! I'd rather—|myntDeco15]
 ---
 :myntDeco15
 
 In fact, I'm going to <i>make</i> you relax.
 
+!`
+choicesPerPage = 1;
+`
 [— die than stop looking for... sorry what hmm?|myntDeco16]
 ---
 :myntDeco16
 
 Go ahead. Try your best to look for her. Will your body to go searching with all your willpower. It'll move.
 
+!`
+choicesPerPage = 1;
+`
 [...|myntDeco17]
 ---
 :myntDeco17
 
 But without my narration, you'll have no idea where you're going.
 
+!`
+choicesPerPage = 1;
+`
 [... You'd really keep my sensory info from me?|myntDeco18]
 ---
 :myntDeco18
 
 If you're so intent on stressing yourself out, yeah, I would.
 
+!`
+choicesPerPage = 1;
+`
 [WHAT! Doesn't this infringe on my free will??|myntDeco19]
 ---
 :myntDeco19
@@ -123,18 +176,27 @@ I'm not infringing on anything. Go ahead and find another way to perceive your s
 
 And I definitely won't tell you once you actually find it, either.
 
+!`
+choicesPerPage = 1;
+`
 [BAH!!!!|myntDeco20]
 ---
 :myntDeco20
 
 Agree to take a break now?
 
+!`
+choicesPerPage = 1;
+`
 [Fine.|myntDeco21]
 ---
 :myntDeco21
 
 Awesome. I'm something of an interior decorator, myself. Why don't we spruce this place up for `data.playerName`?
 
+!`
+choicesPerPage = 1;
+`
 [Actually no it's not fine!! You're holding my soul HOSTAGE!!!!|myntDeco22]
 ---
 :myntDeco22
@@ -143,18 +205,27 @@ Should we repaint, too?
 
 I'll call Cartographer up, he'd be thrilled.
 
+!`
+choicesPerPage = 1;
+`
 [LET ME DO WHAT I WANT WITH MY OWN EYES AND EARS!!|myntDeco23]
 ---
 :myntDeco23
 
 Actually, you borrowed those from my red pond. <i>Your</i> old eyes and ears were just code on a computer. Remember that whole part where you're able to walk and talk with `data.playerName` in a physical body on Earth?
 
+!`
+choicesPerPage = 1;
+`
 [And stop sassing me too!!|myntDeco24]
 ---
 :myntDeco24
 
 I'm thinking a nice peachy orange. Maybe blue for the bathroom.
 
+!`
+choicesPerPage = 1;
+`
 [I'm gonna will my deaf blind body out the window in a second here.|myntDeco25]
 ---
 :myntDeco25
@@ -163,32 +234,50 @@ Okay, you know what? Let's compromise.
 
 You can search the apartment building for mom clues. I'll give you thirty minutes. But then you gotta spruce this place up.
 
+!`
+choicesPerPage = 1;
+`
 [...|myntDeco26]
 ---
 :myntDeco26
 
 I just can't stand narrating such a plain, boring space, especially if it's going to be your home base.
 
+!`
+choicesPerPage = 1;
+`
 [... I dunnooo...|myntDeco27]
 ---
 :myntDeco27
 
 Seriously, it's a bed and four blank walls. Get some taste.
 
+!`
+choicesPerPage = 1;
+`
 [...|myntDeco28]
 ---
 :myntDeco28
 
+!`
+choicesPerPage = 1;
+`
 [I've got some questions to ask later... but...|myntDeco29]
 ---
 :myntDeco29
 
+!`
+choicesPerPage = 1;
+`
 [Okay fine, deal.|myntDeco30]
 ---
 :myntDeco30
 
 Excellent. Cart will be on his way soon.
 
+!`
+choicesPerPage = 1;
+`
 [Let's check some other apartments on this floor.|myntDeco31]
 ---
 :myntDeco31
@@ -236,6 +325,9 @@ choicesPerPage = 8;
 
 This room has been heavily looted. There's a smashed cabinet in the back with no wine glasses in it, a couch with no cushions, and a big empty square on the wall where the T.V. used to be.
 
+!`
+choicesPerPage = 1;
+`
 [Back.|myntDecoHall]
 ---
 :75
@@ -250,6 +342,9 @@ She gestures at you with a wine glass in her spindly hand.
 
 "Goway," she croaks, and the red wine swishes around in a slow circle. She doesn't take her eyes off the T.V. "I'm busy."
 
+!`
+choicesPerPage = 1;
+`
 [Have you seen a chubby nerd lady anytime recently?|75wendy]
 ---
 :75wendy
@@ -260,16 +355,25 @@ She points her beady, pure little angel eyes at you.
 
 "Skidaddle."
 
+!`
+choicesPerPage = 1;
+`
 [Can I just ask one question?|75a]
 ---
 :75a
 
+!`
+choicesPerPage = 1;
+`
 [... Uh... how long have you uh... how long have you been watching Law & Order?|75a]
 ---
 :75a
 
 "Decades," she says, patting her corpse pile lovingly. "Whenever I get close to starvin, I just chug wine til I get alcohol poisoning, then I pop back up here. S'easy. Now goway."
 
+!`
+choicesPerPage = 1;
+`
 [But... aren't you tired of Law & Order by now?|75b]
 ---
 :75b
@@ -278,6 +382,9 @@ She stink-eyes you.
 
 "You talkin shit about Law & Order?"
 
+!`
+choicesPerPage = 1;
+`
 [No! No, gosh, no, uh...|75c]
 ---
 :75c
@@ -287,7 +394,6 @@ She downs her wine glass and fills another one. The T.V. chatters at her. Someth
 !`
 choicesPerPage = 1;
 `
-
 [See um, me and my uh— my friend and I just moved in next door, and we're looking for—|75d]
 ---
 :75d
@@ -298,6 +404,9 @@ She howls at you and spreads her wings with a gale of lunar dust. They fill the 
 
 "YOU'RE MAKING ME MISS THE GOOD PART OF MY SHOW!"
 
+!`
+choicesPerPage = 1;
+`
 [AAAH JESUS SORRY I'LL GO fuck lady|myntDecoHall]
 ---
 :74
@@ -318,12 +427,18 @@ addChoice("Back.", "myntDecoHall");
 
 The rank, earthy—
 
+!`
+choicesPerPage = 1;
+`
 [Nope can't do it.|myntDecoShit2]
 ---
 :myntDecoShit2
 
 Aww.
 
+!`
+choicesPerPage = 1;
+`
 [Back.|myntDecoHall]
 ---
 :73
@@ -334,6 +449,9 @@ But if you look under the bed, you find a cute little pink shoebox stuffed with.
 
 $20,000 cash!
 
+!`
+choicesPerPage = 1;
+`
 [OH SHIT?! WOOOOO—|73a]
 ---
 :73a
@@ -352,6 +470,9 @@ choicesPerPage = 2;
 
 You don't even want to hear about our economy lore.
 
+!`
+choicesPerPage = 1;
+`
 [Back.|myntDecoHall]
 ---
 :72
@@ -367,7 +488,6 @@ The femboys didn't get pasted over in many places. Seems like the tenant slowed 
 !`
 choicesPerPage = 3;
 addChoice("... Take one of the Kanna posters.", "72a", {icons: ["Cub", "Female"]});
-addChoice("Back.", "myntDecoHall");
 addChoice("Haha FBI haha lol.", "myntDecoHall");
 addChoice("Back.", "myntDecoHall");
 `
@@ -401,6 +521,9 @@ This room is pitch black. The window has been smeared over with feces. The door 
 
 ... As your eyes adjust to the dark, you see the walls, shattered by hypergraphia. A million speculations, a couple dozen conjectures, and no conclusion. Every single word carved or written or smeared onto the walls is trying to get to the truth about me, my hivemind, and the meteorite.
 
+!`
+choicesPerPage = 1;
+`
 [Jesus...|71a]
 ---
 :71a
@@ -409,6 +532,9 @@ Hey, they had the chance join the Interphore and ask me whatever they wanted, bu
 
 What can I say. I'm a terrifying enigma. Welcome to my twisted mind.
 
+!`
+choicesPerPage = 1;
+`
 [... Mmmmmmhm.|myntDecoHall]
 ---
 :70
@@ -421,12 +547,16 @@ There's also a note on the bed:
 
 <i>Feel free to steal my stuff or squat here. I'm driving down to Ohio to find my dad. Then we're probably gonna jump in the pond and explore the multiverse together. Bye!</i>
 
+!`
+choicesPerPage = 1;
+`
 [Ooo... steal everything.|70a]
 ---
 :70a
 
 !`
 data.decoratedApartment = true;
+choicesPerPage = 1;
 `
 
 You steal all their shit and set it up in your apartment. The computer was an absolute pain in the ass, but I'll save you the tedium. Looks like their username was "shotaluvr69."
@@ -437,6 +567,7 @@ You steal all their shit and set it up in your apartment. The computer was an ab
 
 !`
 if (data.tookStairs) {
+	choicesPerPage = 2;
 	append("As you head back to the room, you hear a chittering coming from the elevator.");
 	addChoice("... Investigate.", "myntDecoAnimal");
 	addChoice("Meh, go back to the room.", "myntDecoRoomRejoin");
@@ -455,12 +586,18 @@ But if you look straight up...
 
 There's a tiny little beady-eyed family of... of...
 
+!`
+choicesPerPage = 1;
+`
 [Of...?!|myntDecoAnimal2]
 ---
 :myntDecoAnimal2
 
 A family of yous.
 
+!`
+choicesPerPage = 1;
+`
 [Of mes.|myntDecoAnimal3]
 ---
 :myntDecoAnimal3
@@ -469,6 +606,9 @@ Yes.
 
 They're all anthropomorphic green cats with white eyes and black dresses. They chitter to each other and glance down at you. They crawl around the bottom of the elevator car, long claws hooked into the metal. Their nests are deep and tunnel into the apartment building's concrete walls with twisted, looping, fucked-up passageways.
 
+!`
+choicesPerPage = 1;
+`
 [Wha|myntDecoAnimal3a]
 ---
 :myntDecoAnimal3a
@@ -477,6 +617,7 @@ One of them unhooks its claws and hangs its upper body down to get a better look
 
 !`
 queueCall(function() { playEffect("audio/effect/owlScream"); });
+choicesPerPage = 1;
 `
 
 [CLOSE THE FUCKING DOORS|myntDecoAnimal4]
@@ -485,18 +626,27 @@ queueCall(function() { playEffect("audio/effect/owlScream"); });
 
 Good call. You slam them shut and run away from your elevator doppelgangers as fast as you can.
 
+!`
+choicesPerPage = 1;
+`
 [WHYYYYYY. WHYYYYY ARE THEY EXIST|myntDecoAnimal4a]
 ---
 :myntDecoAnimal4a
 
 They must have migrated here from another layer. This definitely isn't their natural habitat.
 
+!`
+choicesPerPage = 1;
+`
 [WHAT ARE THEY|myntDecoAnimal5]
 ---
 :myntDecoAnimal5
 
 Calm down, calm down. Don't worry, they're just dumb ferals. They won't hurt you unless you challenge their territory like that again.
 
+!`
+choicesPerPage = 1;
+`
 [WHAT KIND OF FERAL|myntDecoAnimal6]
 ---
 :myntDecoAnimal6
@@ -505,6 +655,9 @@ Let's just save it for later, alright?
 
 Relaaax. That was the deal, remember? You gotta relax.
 
+!`
+choicesPerPage = 1;
+`
 [Uuurrrrrk...|myntDecoAnimal7]
 ---
 :myntDecoAnimal7
@@ -518,6 +671,9 @@ choicesPerPage = 1;
 ---
 :myntDecoAnimal8
 
+!`
+choicesPerPage = 1;
+`
 [I'd feel a lot better...|myntDecoAnimal9]
 ---
 :myntDecoAnimal9
@@ -526,6 +682,9 @@ Mmm... okay, but then we move on.
 
 They're called feral chimeras.
 
+!`
+choicesPerPage = 1;
+`
 [Okay thanks. Okay.|myntDecoAnimal9]
 ---
 :myntDecoAnimal9
@@ -534,14 +693,19 @@ You collapsed on the hallway carpet, and now you're catching your breath.
 
 You good?
 
+!`
+choicesPerPage = 1;
+`
 [I'm okay. I'm good. Wew. Fuck that. Fuck those.|myntDecoAnimal10]
 ---
 :myntDecoAnimal10
 
 Good. Let's head back to the nice safe apartment.
 
+!`
+choicesPerPage = 1;
+`
 [Yes please...|myntDecoRoomRejoin]
-
 ---
 :myntDecoRoomRejoin
 
@@ -549,12 +713,18 @@ You flop down on the `data.decoratedApartment ? "blue bedsheets, flick on the la
 
 The excitement of your grand expedition into the hallway is still carrying you comfortably through some mild claustrophobic compunction. Endorphins rush through your little cat brain. Ambient sweat builds up between your back, your butt, and the bedsheets.
 
+!`
+choicesPerPage = 1;
+`
 [Phwahh...|myntDeco32]
 ---
 :myntDeco32
 
 Your thirty minutes is up, by the way, so don't bother getting up until Cart arrives.
 
+!`
+choicesPerPage = 1;
+`
 [I'm relaxed, I'm relaxed...|myntDeco33]
 ---
 :myntDeco33
@@ -563,6 +733,9 @@ You grind your thighs together, smushing the soft black fabric of your dress bet
 
 You trail a couple fuzzy fingers over the eye symbol on the belly of the dress.
 
+!`
+choicesPerPage = 1;
+`
 [Breathe in.|myntDeco34]
 ---
 :myntDeco34
@@ -571,96 +744,144 @@ You breathe in.
 
 Try to stay in sync here. It will feel good, trust me.
 
+!`
+choicesPerPage = 1;
+`
 [Breathe out.|myntDeco35]
 ---
 :myntDeco35
 
 You breathe out.
 
+!`
+choicesPerPage = 1;
+`
 [Breathe in.|myntDeco36]
 ---
 :myntDeco36
 
 You breathe in.
 
+!`
+choicesPerPage = 1;
+`
 [Breathe out.|myntDeco37]
 ---
 :myntDeco37
 
 You breathe out.
 
+!`
+choicesPerPage = 1;
+`
 [Breathe in.|myntDeco38]
 ---
 :myntDeco38
 
 You breathe in.
 
+!`
+choicesPerPage = 1;
+`
 [Breathe out.|myntDeco39]
 ---
 :myntDeco39
 
 You breathe out.
 
+!`
+choicesPerPage = 1;
+`
 [Breathe in.|myntDeco40]
 ---
 :myntDeco40
 
 You breathe in.
 
+!`
+choicesPerPage = 1;
+`
 [Breathe out.|myntDeco41]
 ---
 :myntDeco41
 
 You breathe out.
 
+!`
+choicesPerPage = 1;
+`
 [Breathe in.|myntDeco42]
 ---
 :myntDeco42
 
 You breathe in.
 
+!`
+choicesPerPage = 1;
+`
 [Breathe out.|myntDeco43]
 ---
 :myntDeco43
 
 You breathe out.
 
+!`
+choicesPerPage = 1;
+`
 [Breathe in.|myntDeco44]
 ---
 :myntDeco44
 
 You breathe in.
 
+!`
+choicesPerPage = 1;
+`
 [Breathe out.|myntDeco45]
 ---
 :myntDeco45
 
 You breathe out.
 
+!`
+choicesPerPage = 1;
+`
 [Breathe in.|myntDeco46]
 ---
 :myntDeco46
 
 You breathe in.
 
+!`
+choicesPerPage = 1;
+`
 [Breathe out.|myntDeco47]
 ---
 :myntDeco47
 
 You breathe out.
 
+!`
+choicesPerPage = 1;
+`
 [Ah, this feels nice.|myntDeco48]
 ---
 :myntDeco48
 
 Told you.
 
+!`
+choicesPerPage = 1;
+`
 [Thanks for making me do this, Mr. Eyeball...|myntDeco49]
 ---
 :myntDeco49
 
 No problem, Mynt.
 
+!`
+choicesPerPage = 1;
+`
 [Would you mind if I touched myself a little?|myntDeco50]
 ---
 :myntDeco50
@@ -669,10 +890,16 @@ Thanks for asking, but there's no need to ask. I don't usually get this conversa
 
 I guess I just like talking to you.
 
+!`
+choicesPerPage = 1;
+`
 [Awh...|myntDeco51]
 ---
 :myntDeco51
 
+!`
+choicesPerPage = 1;
+`
 [Well, if you don't mind, then...|myntDeco52]
 ---
 :myntDeco52
@@ -681,6 +908,9 @@ You slide your fingers down between your thighs, pushing them apart. You cup `my
 
 It `myntCock("perks up", "dampens")` immediately. You softly swirl your fingers around the mound, dipping them deep into the crevices between your junk and your legs, then straining to reach down and slide your middle finger along the crease of your `myntCock("taint", "buttcrack")`.
 
+!`
+choicesPerPage = 1;
+`
 [Ahh... tug panties down...|myntDeco53]
 ---
 :myntDeco53
@@ -690,6 +920,7 @@ You pinch your panties between two fingers and pull them down your thighs, right
 With your `myntCock("cock", "cunt")` out in the open air now, you can't resist a rough palmjob. You slam the heel of your palm down on the `myntCock("base of your shaft", "little perky part where your clit pokes out")` and grind it back and forth, testing the give. Your fingers naturally `myntCock("wrap around the shaft", "find the curves of your pussy and follow them")`.
 
 !`
+choicesPerPage = 1;
 if (data.stoleKanna) addChoice("Maybe try looking at the loli poster...", "myntDecoLoli", {icons: ["Cub", "Female"]});
 addChoice("Edge a bit...", "myntDeco54");
 `
@@ -700,6 +931,9 @@ You try it out for the sake of trying it out and ogle Kanna's fat thighs.
 
 The artist who drew this poster put extra love into the hem of Kanna's dress as it ruffles and folds cutely between her belly and her legs, wedging into the tight little triangle there. Her expression is vacant and curious, as usual, so it looks like she's just placidly allowing this to happen. Your eyes drift down and linger on her bare feet, the tiny, rounded, squishy little toes like mini-marshmellows, the—
 
+!`
+choicesPerPage = 1;
+`
 [Mmmm nope, still not into it... phew...|myntDeco54]
 ---
 :myntDeco54
@@ -710,18 +944,27 @@ The open window breathes fresh air over your body as ambient sweat builds up. Yo
 
 Heat rises up to your face. You blush blue. Your bangs are messy and hang in your eyes but you don't care. You buck your hips up into your hand, ass slamming down on the backswing. Without even meaning to, you start vocalizing a bit: just tiny squeaks, nothing that anyone else would hear from another apartment, but loud enough to make you feel ashamed of yourself for sure.
 
+!`
+choicesPerPage = 1;
+`
 [Ah... ah!! Ah! <3 It's so dirty with you watching!!|myntDeco55]
 ---
 :myntDeco55
 
 I'm glad you're an exhibitionist, because Cart just busted into the room and caught you with your panties down.
 
+!`
+choicesPerPage = 1;
+`
 [AAAAAHHHHH FUKC|myntDeco56]
 ---
 :myntDeco56
 
 Cart sits his little naked butt on your bed and smiles at you. "`data.decoratedApartment ? "Cool lava lamp. Reminds me of a map." : "That lonely without your sister, huh?"`"
 
+!`
+choicesPerPage = 1;
+`
 [AHHhnh... gah! Pull up my panties!|myntDeco57]
 ---
 :myntDeco57
@@ -737,18 +980,27 @@ choicesPerPage = 1;
 
 "Itch," he purrs. "Scratching your itch."
 
+!`
+choicesPerPage = 1;
+`
 [Well, haha, not just any itch, you see, it was specifically on my crotch and—|myntDeco59]
 ---
 :myntDeco59
 
 "We all have the itch, Mynt, it is not anything to be ashamed of."
 
+!`
+choicesPerPage = 1;
+`
 [Ahaaahhhhhhhh... yeah... um...|myntDeco60]
 ---
 :myntDeco60
 
 He pats your shaky legs reassuringly. "I brought some of my paints. And I brought some regular kinds, too, but I like mine better."
 
+!`
+choicesPerPage = 1;
+`
 [Is that so? Hahhh... what colors did you bring?|myntDeco61]
 ---
 :myntDeco61
@@ -757,6 +1009,9 @@ He disappears into the hall for a moment and comes back with a couple paint cans
 
 "I brought feral orange and introspective blue. Oh, and a bunch of other boring colors that do not have any special effects."
 
+!`
+choicesPerPage = 1;
+`
 [Oooo... lemme get uhhh...|myntDecoPaints]
 ---
 :myntDecoPaints
@@ -773,12 +1028,18 @@ choicesPerPage = 5;
 
 "It is distilled from the gasses of a sentient, feral sun. Glows softly at night. Staring at it for too long will temporarily turn you into a wild animal. Great for sex."
 
+!`
+choicesPerPage = 1;
+`
 [I see...|myntDecoPaints]
 ---
 :myntDecoBlue
 
 "It is composed of enzymes which were painfully extracted from the gut of a man left in solitary confinement for millenia. Staring at it really passes the time. Great for taking a shit."
 
+!`
+choicesPerPage = 1;
+`
 [I uh... I see...|myntDecoPaints]
 ---
 :myntDecoPick
@@ -786,6 +1047,7 @@ choicesPerPage = 5;
 Cart waits eagerly for your pick.
 
 !`
+choicesPerPage = 2;
 
 addChoice("Orange in the bedroom, blue in the bathroom.", function() {
 	data.aptOrange = true;
@@ -803,18 +1065,27 @@ addChoice("Blue in the bedroom, orange in the bathroom.", function() {
 
 "Excellent choice!"
 
+!`
+choicesPerPage = 1;
+`
 [Thanks, I thought about it for like two seconds.|myntDeco62]
 ---
 :myntDeco62
 
 Cart cranks the lids off his paint cans and daintily dips his fingers in the `data.aptOrange ? "bright orange paint. It swirls around his digits in shades from sunset to dawn, like a melted creamsicle" : "cool blue paint. It shies away from his probing digits, but some paint still gets stuck on them"`.
 
+!`
+choicesPerPage = 1;
+`
 [Oh, you didn't bring paintbrushes?|myntDeco63]
 ---
 :myntDeco63
 
 "You expected me to?"
 
+!`
+choicesPerPage = 1;
+`
 [... I guess I didn't, now that I think about it...|myntDeco64]
 ---
 :myntDeco64
@@ -823,6 +1094,9 @@ Cart splays his paws and presses them to the bedroom wall. Then he drags the fir
 
 "What is wrong?" he asks you over his shoulder. "Are you afraid to get your paws dirty?"
 
+!`
+choicesPerPage = 1;
+`
 [No, it's not that, it's just...|myntDeco65]
 ---
 :myntDeco65
@@ -831,6 +1105,9 @@ He wiggles his ass. His little fox tail sways back and forth, perked up.
 
 "I did bring my clothes, you know. I just did not want to get them dirty while we paint."
 
+!`
+choicesPerPage = 1;
+`
 [No, it's not that either...|myntDeco66]
 ---
 :myntDeco66
@@ -839,6 +1116,9 @@ He turns back to the wall, stands on his tippy toes, and smears in a few more pa
 
 "Then what is wrong?"
 
+!`
+choicesPerPage = 1;
+`
 [I just feel like I'm wasting your time. (Help him out.)|myntDeco67]
 ---
 :myntDeco67
@@ -846,7 +1126,6 @@ He turns back to the wall, stands on his tippy toes, and smears in a few more pa
 You dip your paws in the `data.aptOrange ? "warm orange" : "cool blue"`. It feels like `data.aptOrange ? "sunshine" : "numbing menthol"` on your fingers.
 
 "I am here to help you relax," Cart says. "That is not a waste of time."
-
 
 !`
 choicesPerPage = 1;
@@ -857,6 +1136,9 @@ choicesPerPage = 1;
 
 "You would be right. I do not usually leave work for something like this."
 
+!`
+choicesPerPage = 1;
+`
 [Then why did you?|myntDeco69]
 ---
 :myntDeco69
@@ -865,6 +1147,9 @@ Cart shrugs.
 
 "I am too invested in your quest. I wanted to see Wendy's apartment."
 
+!`
+choicesPerPage = 1;
+`
 [That can't be the whole reason...|myntDeco70]
 ---
 :myntDeco70
@@ -875,6 +1160,9 @@ Cart boops your nose. Now you have a spot of `data.aptOrange ? "orange" : "blue"
 
 "I also just enjoy spending time with you."
 
+!`
+choicesPerPage = 1;
+`
 [Oh, Cart...|myntDeco71]
 ---
 :myntDeco71
@@ -883,24 +1171,36 @@ Cart climbs on your shoulders for a moment so he can smear some paint up to the 
 
 "Ah... so hard to reach... have you not considered putting in some anti-gravity, like my map dome?"
 
+!`
+choicesPerPage = 1;
+`
 [Ah, no, I don't think we need... um...|myntDeco72]
 ---
 :myntDeco72
 
 "It is too weird. I understand."
 
+!`
+choicesPerPage = 1;
+`
 [Yeah sorry. :< I like gravity.|myntDeco73]
 ---
 :myntDeco73
 
 He waves a painted paw. "No matter, no matter."
 
+!`
+choicesPerPage = 1;
+`
 [Hey um... another thing I gotta ask...|myntDeco74]
 ---
 :myntDeco74
 
 "Yes?"
 
+!`
+choicesPerPage = 1;
+`
 [Who does your hair??????|myntDeco75]
 ---
 :myntDeco75
@@ -909,18 +1209,27 @@ He waves a painted paw. "No matter, no matter."
 
 He hops off your shoulders with a cute little <i>oomph</i> and starts fingerpainting another wall.
 
+!`
+choicesPerPage = 1;
+`
 [Ahhh, I see! Well he does a good job!|myntDeco76]
 ---
 :myntDeco76
 
 "She, actually."
 
+!`
+choicesPerPage = 1;
+`
 [She! She does a good job.|myntDeco77]
 ---
 :myntDeco77
 
 "Yes."
 
+!`
+choicesPerPage = 1;
+`
 [...|myntDeco78]
 ---
 :myntDeco78
@@ -929,16 +1238,25 @@ You finish the rest of the main room and the bathroom without exchanging more th
 
 There's something hypnotizing about fingerpainting: the feel of the smooth liquid between your fingers, the pressure of your pawpads against a hard surface... The parts you paint are fairly straightforward in terms of texture, basically just smudgy pawprints, but Cart's sections are curvy, sexy stormfronts of paint, each smear of a pawbean perfectly calculated in harmony with all others, even yours.
 
+!`
+choicesPerPage = 1;
+`
 [Woooow, Cart, you're so good...|myntDeco79]
 ---
 :myntDeco79
 
 "Thank you. Do you feel more relaxed, now?"
 
+!`
+choicesPerPage = 1;
+`
 [Yes. Yes x100.|myntDeco80]
 ---
 :myntDeco80
 
+!`
+choicesPerPage = 1;
+`
 [My fingers are a little sticky though...|myntDeco81]
 ---
 :myntDeco81
@@ -947,6 +1265,9 @@ Cart grabs one of your paws and stuffs it in his little mouth.
 
 He looks up at you, although he is blinded by his hair, and happily sucks your fingers clean.
 
+!`
+choicesPerPage = 1;
+`
 [A-AHHH NO THAT'S TOO LEWD|myntDeco82]
 ---
 :myntDeco82
@@ -957,12 +1278,18 @@ He pretends like he's going to pull off for a second, but then he grabs your wri
 
 "Too late," he burps. "Already cleaned both."
 
+!`
+choicesPerPage = 1;
+`
 [D-Doesn't that taste gross...|myntDeco83]
 ---
 :myntDeco83
 
 "Yes," he purrs, licking his own fingers like he just finished a meal. "It is not very healthy, either."
 
+!`
+choicesPerPage = 1;
+`
 [Then why...|myntDeco84]
 ---
 :myntDeco84
@@ -973,12 +1300,18 @@ He pretends like he's going to pull off for a second, but then he grabs your wri
 
 "Back to work for me~"
 
+!`
+choicesPerPage = 1;
+`
 [...|myntDeco85]
 ---
 :myntDeco85
 
 Gotta love that kid.
 
+!`
+choicesPerPage = 1;
+`
 [I... I need to lay down again.|myntDecoEnd]
 ---
 :myntDecoEnd
@@ -986,6 +1319,7 @@ Gotta love that kid.
 You sprawl out on the paint-flecked bed and focus on your breathing again.
 
 !`
+choicesPerPage = 1;
 addChoice(data.playerName+", please come back soon...", "myntDecoEnd2");
 `
 ---

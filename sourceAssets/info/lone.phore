@@ -12,6 +12,7 @@ You stroll down the hallway in Femme Ren's, looking for the exit.
 Seven boys have clustered around something in the corner of the hallway. They glance at you and hurry away, scattering into a hundred doors, cracks, and hidden passageways. One lifts up a loose plank in the floor and squeezes his little butt through the hole into a passage underneath.
 
 !`
+choicesPerPage = 1;
 addChoice("Examine the corner.", "lone01", {icons: ["Cub", "Male", "Art"]});
 `
 ---
@@ -24,6 +25,7 @@ var loneImg = addImage("assets/img/writer/characters/lone/lone.png");
 loneImg.x = gameWidth - loneImg.width;
 loneImg.y = gameHeight - loneImg.height;
 msg("Art: Spunkymutt");
+choicesPerPage = 1;
 `
 
 [You okay man?|lone02]
@@ -44,6 +46,9 @@ You look back to the corner, and he's gone.
 
 "Sorry, nevermind! I'm fine!" he squeaks from inside his bedroom.
 
+!`
+choicesPerPage = 1;
+`
 [Investigate.]
 ---
 :Investigate.
@@ -58,8 +63,9 @@ He doesn't say anything. His horizontal goat pupils flick to the door and back, 
 
 "I ah... s-sorry to bother you `gender("mister", "miss", "O honored customer")`, I didn't mean to look so pitiful and needy in the corner there... and you were heading for the exit, too, so you probably don't even wanna be here at all— when I paused back there, I was actually gonna give you some directions, but then I changed my mind and ran in here and shut my door— because— because I figured you were busy and I'd just be wasting your time."
 
-!`choicesPerPage = 1;`
-
+!`
+choicesPerPage = 1;
+`
 [Oh, go ahead and direct me. I'm pretty lost in here, honestly.|lone1]
 ---
 :lone1
@@ -70,12 +76,18 @@ He nods carefully. Then he realizes his little tapered cock and his fuzzy nuts a
 
 "Keep going down the hall the way you were going. Whenever you hit a fork, take the option with the most upward stairs. Once you can't find a path with any stairs at all, jump in the nearest dumbwaiter and just slide down the shaft. (Don't worry about falling, it's easy to hold on! I fall all the time, of course, but that's just cause I'm a weirdo...)"
 
+!`
+choicesPerPage = 1;
+`
 [Okay. And the exit will be at the bottom of the shaft?|lone2]
 ---
 :lone2
 
 "Almost. Once you hit the bottom, just take seven lefts and six rights. The order doesn't matter."
 
+!`
+choicesPerPage = 1;
+`
 [How could the order not matter?|lone3]
 ---
 :lone3
@@ -84,6 +96,9 @@ He shrugs and tucks his chin down against his chest, looking away. He's clearly 
 
 "I don't know, okay?... That's just the way it is around here..."
 
+!`
+choicesPerPage = 1;
+`
 [Ah. Sorry, I didn't mean to sound curt.|lone4]
 ---
 :lone4
@@ -92,30 +107,45 @@ He rubs his toes together.
 
 "It's fine..."
 
+!`
+choicesPerPage = 1;
+`
 [Welp, thanks. Seeya.|lone5]
 ---
 :lone5
 
 "Wait!" he squeaks.
 
+!`
+choicesPerPage = 1;
+`
 [What?|lone6]
 ---
 :lone6
 
 "I h-heard that you uh..." The little goat stammers at you and trails off into a rush of muted, indistinct vowels.
 
+!`
+choicesPerPage = 1;
+`
 [Go on. It's okay.|lone7]
 ---
 :lone7
 
 He blushes bright cyan. "Thank you. I just wanted to thank you."
 
+!`
+choicesPerPage = 1;
+`
 [You heard that I what?|lone7a]
 ---
 :lone7a
 
 "Oh, I don't want to say, it's dumb. You probably don't even remember."
 
+!`
+choicesPerPage = 2;
+`
 [Tell me.|lone7b]
 [Tell me you little goat fuck.|lone7c]
 ---
@@ -125,6 +155,9 @@ He's been staring at the floor this whole time, face pointed down, and his head 
 
 "I heard that you were the one who saved my island. That's all."
 
+!`
+choicesPerPage = 1;
+`
 [Are you from the same place as Thelly, too?|loneThelly]
 ---
 :lone7c
@@ -133,12 +166,18 @@ He's been staring at the floor this whole time, face pointed down. Now he tenses
 
 "I'm not a fuck...! I just... I just heard that you were the one who saved my island. That's all."
 
+!`
+choicesPerPage = 1;
+`
 [Are you from the same place as Thelly, too?|loneThelly]
 ---
 :loneThelly
 
 "Yeah. The computer game?"
 
+!`
+choicesPerPage = 1;
+`
 [God, how many boys did I fuck on this forgotten isle.]
 ---
 :God, how many boys did I fuck on this forgotten isle.
@@ -147,6 +186,9 @@ He's been staring at the floor this whole time, face pointed down. Now he tenses
 
 He grinds his thighs together.
 
+!`
+choicesPerPage = 1;
+`
 [Let's change that. (Approach.)|lone8a]
 ---
 :lone8a
@@ -155,6 +197,9 @@ He grinds his thighs together.
 
 As you saunter over to his bed, you realize how little he really is. Your head is about the same height as his soft, squeeze-able nuts and sheath, both small even for a twelve-year-old. He's got big hips for his age, but his chest and belly are thin, tiny, and his throat is so skinny you might even be able to wrap a clenched paw around it.
 
+!`
+choicesPerPage = 1;
+`
 [Nice to meet you. What's your name?]
 ---
 :Nice to meet you. What's your name?
@@ -163,30 +208,45 @@ He holds eye contact comfortably now, soaking in the praise. His wooly maw twitc
 
 "Ah y-yes, yes, I'm uh... Lone. It's r-really really really really really really good to meet you too!"
 
+!`
+choicesPerPage = 1;
+`
 [Touch his legs.]
 ---
 :Touch his legs.
 
 You step right up to his bunk bed and run your hands over his fluffy, wobbly knees, over his thighs. Your fingertips kiss his belly.
 
+!`
+choicesPerPage = 1;
+`
 [So where did you live on this video game island?]
 ---
 :So where did you live on this video game island?
 
 "The city," he says, and throws in a nervous smirk.
 
+!`
+choicesPerPage = 1;
+`
 [Oh, yeah. Cool.]
 ---
 :Oh, yeah. Cool.
 
 "Have you heard about it?"
 
+!`
+choicesPerPage = 1;
+`
 [Why don't you refresh me?]
 ---
 :Why don't you refresh me?
 
 He shivers as you rub up and down, spreading his thighs a little. His toes twitch. "It um... there was a lot of sexual violence, basically... that about sums the place up."
 
+!`
+choicesPerPage = 1;
+`
 [Oooh. Did you move away?]
 ---
 :Oooh. Did you move away?
@@ -198,6 +258,7 @@ He leans forward with a rush of bravery, cheeks glowing, and whispers in your ea
 "I moved <i>in</i> to the city. Because I... I like it brutal."
 
 !`
+choicesPerPage = 2;
 addChoice("Oh? So you're a painslut~?", "Oh? So you're a painslut~?", {icons: ["Cub", "Male", "Abuse"]});
 addChoice("Ah. I don't. Bye!", "loneLeaveEarly");
 `
@@ -208,6 +269,9 @@ He blushes hard and swallows his bravery. Shame wells up to replace it.
 
 "Ah... you can go, it's alright."
 
+!`
+choicesPerPage = 1;
+`
 [Move along.|loneMoveAlong]
 ---
 :Oh? So you're a painslut~?
@@ -216,12 +280,18 @@ He blushes hard and swallows his bravery. Shame wells up to replace it.
 
 He gently takes your wrists, folds your fingers down into fists, and runs your knuckles over his bare thighs and belly. His breath is shallow and audible. Despite his crippling shyness, your knuckles feel too good against his bare wool for him to stop or apologize. The pit of his sheath's opening splits to reveal a slow peek at his tapered cubcock.
 
+!`
+choicesPerPage = 1;
+`
 [So the other boys don't like you.]
 ---
 :So the other boys don't like you.
 
 "I-It's not that they're mean to me or anything! It's just ah... the other boys in this brothel, they don't like the... the kind of stuff I miss about the city."
 
+!`
+choicesPerPage = 1;
+`
 [So the other boys don't like your tastes.]
 ---
 :So the other boys don't like your tastes.
@@ -234,6 +304,9 @@ He turns his cheek to the side just slightly. His paws squeeze your fists with a
 
 "It's okay," he whispers. "I want it."
 
+!`
+choicesPerPage = 1;
+`
 [You want me to hurt you?|lone8]
 ---
 :lone8
@@ -242,6 +315,9 @@ He turns his cheek to the side just slightly. His paws squeeze your fists with a
 
 "I-If you don't mind, of course..."
 
+!`
+choicesPerPage = 2;
+`
 [Punch him in the face.]
 [Well that's nice but I better get going seeya.|loneLeaveEarly]
 ---
@@ -257,6 +333,9 @@ Then, slowly, his cock starts to slide out of its sheath. Pitiful whimpers leak 
 
 Lone sniffles hard. Tears trickle down that pretty little welt. Teartracks lace his flat chest.
 
+!`
+choicesPerPage = 1;
+`
 [... You okay, Lone?]
 ---
 :... You okay, Lone?
@@ -267,12 +346,18 @@ His cock is throbbing against his belly, fat at the base and smaller near the ti
 
 "T-Thank you..." A rasp of pained breath passes through his quivery lips.
 
+!`
+choicesPerPage = 1;
+`
 [Was that what you've been missing from back home?]
 ---
 :Was that what you've been missing from back home?
 
 "Y-Yes... ex-actly... ex... actly..." he sniffles and wipes his face with a pawful of cute pink blanket patterned with smiling cartoon animals and words like SLUT and WHORE. Since his paws are so busy, he leaves his belly and legs completely undefended while he's blinded by the blanket.
 
+!`
+choicesPerPage = 1;
+`
 [Punch that cute stomach.]
 ---
 :Punch that cute stomach.
@@ -295,6 +380,9 @@ Other boys peek through the door and the ceiling boards.
 
 Lone apologizes breathlessly to every one of them. Some boys don't even say anything— as soon as they see it's Lone doing the yowling, they just roll their eyes and keep walking.
 
+!`
+choicesPerPage = 1;
+`
 [Drag this cute punching bag off his bed.]
 ---
 :Drag this cute punching bag off his bed.
@@ -307,6 +395,9 @@ He topples onto the hardwood in a swirl of blankets and tears, hitting the floor
 
 "Please, I—"
 
+!`
+choicesPerPage = 1;
+`
 [Get up.]
 ---
 :Get up.
@@ -321,6 +412,9 @@ You wrap those floppy goat ears up in a fist and yank Lone to his feet. He stumb
 
 "T-That huuuurts!" he whines like a little bitch, smiling at you in complete contradiction with himself. Even though he's clearly suffering harder than ever, his cock won't go down. You yank on his heavy little nutsack and watch the pre splurt from his dick in response.
 
+!`
+choicesPerPage = 1;
+`
 [You're a little painslut, aren'tcha~]
 ---
 :You're a little painslut, aren'tcha~
@@ -329,18 +423,27 @@ You wrap those floppy goat ears up in a fist and yank Lone to his feet. He stumb
 
 It seems almost hard for him to speak and listen at this point. His ears twitch in your fist. His breath comes in safe little gasps, easy on the ribcage.
 
+!`
+choicesPerPage = 1;
+`
 [Yank his head around for fun.|lone9]
 ---
 :lone9
 
 Lone pretends to struggle as you tug on his ears, scrabbling pathetically at your clenched fingers. He squeaks and screams "NO! NO!" and clenches his little buttcheeks down on your thigh as you pull his tiny skull around left and right, back and forth, always making sure his ears are as taut as possible in your grip.
 
+!`
+choicesPerPage = 1;
+`
 [Are you gonna be a good lil cubcunt for me?|lone10]
 ---
 :lone10
 
 "Yes!!"
 
+!`
+choicesPerPage = 1;
+`
 [Huh?|lone11]
 ---
 :lone11
@@ -353,6 +456,9 @@ Lone pretends to struggle as you tug on his ears, scrabbling pathetically at you
 
 "Someone told Ren," says another. "You're outta here."
 
+!`
+choicesPerPage = 1;
+`
 [... Uh oh...|lone12]
 ---
 :lone12
@@ -365,6 +471,9 @@ Ren feels his way into the room. The boys guide him and clear a path in the crow
 
 "Y-Yes," Lone whispers. "It's me. I'm right here. I'm sorry. I didn't think `data.playerName` was going to h-hit me that hard... oh, this is my fault..."
 
+!`
+choicesPerPage = 1;
+`
 [Did we break something, Ren?|lone13]
 ---
 :lone13
@@ -377,6 +486,9 @@ Ren gestures lazily at the ceiling. "Two bedrooms, six hallways, and a couple do
 
 The tattler sinks back into the shadows of the crowd.
 
+!`
+choicesPerPage = 3;
+`
 [Next.|lone14]
 [Sit down kid.|lone14]
 [Yeah, Ren already knows, you little cunt.|lone14]
@@ -387,6 +499,9 @@ Ren turns to you and Lone now. His eyes are absolute zero.
 
 "Really inconsiderate of you both. I welcomed you into my house of sticks, and you huffed and puffed and gave it structural damage."
 
+!`
+choicesPerPage = 1;
+`
 [Hey, I'm sorry. Lone, don't apologize, this is my fault.|lone14a]
 ---
 :lone14a
@@ -403,6 +518,9 @@ The corners of Ren's maw tighten.
 
 "`data.playerName`, if you know the way out, please show Lone back to the dungeon. You're still welcome here, of course."
 
+!`
+choicesPerPage = 1;
+`
 [No! This was all my fault.|lone15]
 ---
 :lone15
@@ -413,6 +531,9 @@ Ren looks in your direction.
 
 Lone is still bent over, sobbing and shaking.
 
+!`
+choicesPerPage = 1;
+`
 [... He did bring it up, yeah.|lone16]
 ---
 :lone16
@@ -427,6 +548,9 @@ He takes your paw shakily.
 
 "You know the way to the exit, right?"
 
+!`
+choicesPerPage = 1;
+`
 [Yeah.|lone17]
 ---
 :lone17
@@ -443,6 +567,9 @@ The boys all start to stammer.
 
 "I think the hallways leading there were the ones that got squished, so, uh, so we can't show you..."
 
+!`
+choicesPerPage = 1;
+`
 [Leave.|lone18]
 ---
 :lone18
@@ -455,6 +582,9 @@ The boys all start to stammer.
 
 "Inside or outside, I shouldn't have seduced you into beating me..."
 
+!`
+choicesPerPage = 1;
+`
 [Well I don't know about that part.|lone20]
 ---
 :lone20
@@ -463,6 +593,9 @@ He glances up at you and back down quickly. He locks his chubby thighs together 
 
 "No, it's bad... I should just change myself in the pond..."
 
+!`
+choicesPerPage = 2;
+`
 [Maybe you should.|loneQuit]
 [Meh, fuck that shit.|lone21]
 ---
@@ -474,6 +607,9 @@ He pulls his knees up to his face, nose and chin wedged between them. His poofy 
 
 He stands up. His little butt is smudged with street grime.
 
+!`
+choicesPerPage = 1;
+`
 [You gonna go now?|loneQuit2]
 ---
 :loneQuit2
@@ -484,24 +620,36 @@ He fidgets and glances at your paws.
 
 He trots away from you, down a long street that ends in a mess of rotted, empty buildings. His white wool contrasts hard against their darkness. Soon, he's too far away for you to even see his bruises.
 
+!`
+choicesPerPage = 1;
+`
 [Move along.|loneMoveAlong]
 ---
 :lone21
 
 He tilts his head.
 
+!`
+choicesPerPage = 1;
+`
 [Don't go jump in the pond and edit your brain over some petty structural damage.|lone22]
 ---
 :lone22
 
 "But... it's not petty... it's stopping me from finding a new home..."
 
+!`
+choicesPerPage = 1;
+`
 [There are probably tons of people out there who need a goat boi to abuse.|lone23]
 ---
 :lone23
 
 "Nuh uh... no one wants me. I'm s-so gross and fucked up..."
 
+!`
+choicesPerPage = 1;
+`
 [Oh stop fucking whining.|lone24]
 ---
 :lone24
@@ -510,6 +658,9 @@ His eyes widen and his legs tense with shivers.
 
 "S-Sorry..."
 
+!`
+choicesPerPage = 1;
+`
 [Come here. Show me that belly.|lone25]
 ---
 :lone25
@@ -519,6 +670,7 @@ Lone squeaks with real fear, but he obeys. He watches you carefully as he pulls 
 "Wh-What are you gonna—"
 
 !`
+choicesPerPage = 1;
 addChoice("You're cute and good. (Beat him.)", "lone26", {icons: ["Abuse", "Blood", "Gore"]});
 `
 ---
@@ -532,6 +684,9 @@ After that, you stand over him in complete control. You look down. His tiny body
 
 "Thank you," he gasps, inhaling street stank. "Th-Thank—"
 
+!`
+choicesPerPage = 1;
+`
 [It's okay to like pain. (Curbstomp! :3)|lone27]
 ---
 :lone27
@@ -542,6 +697,9 @@ You bring your foot down on the back of his skull, right between his tiny nubbly
 
 A couple dads walk by and ask if everything is alright. Lone gurgles like a retard and peels his swollen asscheeks open, showing them how badly his little donut needs more punches. They walk away in disgust.
 
+!`
+choicesPerPage = 1;
+`
 [Ignore them. (Rape him.)|lone28]
 ---
 :lone28
@@ -552,13 +710,19 @@ Lone turns his cute, broken face over his shoulder, lip split, eyes black, eyeli
 
 "Is it in y-yet?"
 
+!`
+choicesPerPage = 1;
+`
 [GrRRRRR!! Rape harder!!|lone29]
 ---
 :lone29
 
 You slam your palm down on the dent in the back of his head, grab a fistful of goat hide, and bash his screaming, sobbing face into the concrete while you rape your `genitals("cock", "fist", "cock")` up into his belly.
 
-!`addChoice("HARDER!! <b>HARDER!!!</b> YOU'RE A <b>GREAT</b> PERSON OKAY YOU LITTLE CUBCUNT!?", "lone30", {icons: ["Love"]});`
+!`
+choicesPerPage = 1;
+addChoice("HARDER!! <b>HARDER!!!</b> YOU'RE A <b>GREAT</b> PERSON OKAY YOU LITTLE CUBCUNT!?", "lone30", {icons: ["Love"]});
+`
 ---
 :lone30
 
@@ -573,7 +737,8 @@ He's been thrashing this whole time, but now, suddenly, he goes still. You hear 
 "S-S-Something buh-b-broke," he croaks throat a crunched throat. "K-Kuh-Kill me. R-Ruh-Re... Respawn."
 
 !`
-addChoice("Cum. (Kill him.)", "loneKill", {icons: ["Love", "Snuff"]});
+choicesPerPage = 1;
+addChoice("Cum. (And more...)", "loneKill", {icons: ["Love", "Snuff"]});
 addChoice("Cum. (Spare him.)", "loneSpare");
 `
 ---
@@ -585,6 +750,9 @@ Then you pull out. No more beating, no more praise.
 
 He's sprawled out like a little puddle of goat, halfway on the sidewalk and halfway on the street. His poor asshole is about the size of a coke can.
 
+!`
+choicesPerPage = 1;
+`
 [I'm gonna head out now, hun. (Kiss his cheek.)|loneSpare2]
 ---
 :loneSpare2
@@ -593,12 +761,18 @@ You lean down and smooch his blistered cheek.
 
 He croaks something quiet and muffled into the ground.
 
+!`
+choicesPerPage = 1;
+`
 [What was that~?|loneSpare3]
 ---
 :loneSpare3
 
 "W-When I... find my... home..."
 
+!`
+choicesPerPage = 1;
+`
 [Yes?|loneSpare4]
 ---
 :loneSpare4
@@ -609,6 +783,9 @@ His bloodshot eyes lock on yours. The sensitive little goat bitch is crying for 
 
 "Please visit me!!"
 
+!`
+choicesPerPage = 1;
+`
 [I will. <3|loneMoveAlong]
 ---
 :loneKill
@@ -623,12 +800,18 @@ Then he dies. <3
 
 You rape his corpse for another twenty minutes anyway.
 
+!`
+choicesPerPage = 1;
+`
 [Phwaa...|loneKill2]
 ---
 :loneKill2
 
 When he respawns, he steps out of the door to Femme Ren's again, blushing hard. "Forgot my respawn point was still set in there... they all thought I was trying to sneak back in or something. Ugh..."
 
+!`
+choicesPerPage = 1;
+`
 [Ah. Are you feeling better though?|loneKill3]
 ---
 :loneKill3
@@ -637,18 +820,27 @@ He runs his paws over his tiny body, feeling all the fresh, unblemished fur. He 
 
 "Y-Yes..."
 
+!`
+choicesPerPage = 1;
+`
 [Well good. :>|loneKill4]
 ---
 :loneKill4
 
 He turns away from you and watches a dad and his son crossing over the street, just two tiny faraway specks among the towering gray of the downtown buildings.
 
+!`
+choicesPerPage = 1;
+`
 [What did you croak at me just before you died?|loneKill5]
 ---
 :loneKill5
 
 "Oh, I just said..." he pauses and blushes. "I just said when I find my... home, wherever it is..."
 
+!`
+choicesPerPage = 1;
+`
 [Mmmmh?|loneKill6]
 ---
 :loneKill6
@@ -657,6 +849,9 @@ He turns away from you and watches a dad and his son crossing over the street, j
 
 He hugs you tightly. You lean down to rest your chin on his little head. His fresh wool smells like pine.
 
+!`
+choicesPerPage = 1;
+`
 [I will. <3|loneMoveAlong]
 ---
 :loneMoveAlong

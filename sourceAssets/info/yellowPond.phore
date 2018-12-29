@@ -9,6 +9,7 @@ A gaggle of nymphs pass you, all boys. They push their little bodies through a c
 
 !`
 data.metPatch = true;
+choicesPerPage = 2;
 addChoice("Follow them.", "Follow them.", {icons: ["Cub", "Male", "Male", "Male", "Piss"]});
 addChoice("Move along.", "yellowPondMoveAlong");
 `
@@ -25,6 +26,9 @@ You squeeze your fat ass through the same passageway. You can hear their convers
 
 You hit a fork in the tunnel. One path leads down, into a drippy, knee-high crawlspace... the other one curves up so steeply you'll have to climb it. Their voices sound like they're coming from the crawlspace... they're getting quieter, more echo-y.
 
+!`
+choicesPerPage = 1;
+`
 [Take the lower path.]
 ---
 :Take the lower path.
@@ -56,12 +60,18 @@ You can go right, left, down, or up.
 
 You wander for hours like this, repeatedly pondering over pointless choices. Sometimes you think you might hear the boys talking down one path or another, but every time you try to follow them, you just end up even more lost.
 
+!`
+choicesPerPage = 1;
+`
 [... Hold on. Try heading in the opposite direction.|nextIndigo2]
 ---
 :nextIndigo2
 
 ... You come to a fork. Down the left path, nymph voices eagerly discussing which booze makes you pee fastest. Down the right, more dripping water and silence.
 
+!`
+choicesPerPage = 1;
+`
 [Yeah. Take the right.|nextIndigo3]
 ---
 :nextIndigo3
@@ -71,6 +81,9 @@ It's an underground pond. There are nymphs everywhere, mostly boys. They're all 
 
 ... This pond is totally different from the red ones. The water is a steamy, murky yellow...
 
+!`
+choicesPerPage = 1;
+`
 [Go for a dip.]
 ---
 :Go for a dip.
@@ -82,6 +95,9 @@ You dunk your toe in the piss, first. It's hypnotically warm. The rest of your f
 
 You breathe a deep sigh of relief and slide down to your waist in the pisspond. You keep your paws clenched tight on the edge, though, because you're not sure if you wanna dunk your whole head in or not, yet...
 
+!`
+choicesPerPage = 1;
+`
 [Submerge myself.]
 ---
 :Submerge myself.
@@ -90,12 +106,18 @@ Your arms relax. You let go.
 
 With a single plunk, your body slips below the surface.
 
+!`
+choicesPerPage = 1;
+`
 [How is it...?]
 ---
 :How is it...?
 
 Mmmm. You can't open your eyes or your mouth... and the absolute last thing you want to do is get some up your nose... but besides those things, it's utter peace. You float, weightless in the darkness, and let the warm currents roll around you. Soft, gentle pairs of nymph feet brush past you sometimes. One of the swimmers even "accidentally" pulls himself up to the surface with one of your arms, and you can feel his belly and cock grinding up against you as he rises.
 
+!`
+choicesPerPage = 1;
+`
 [Resurface.]
 ---
 :Resurface.
@@ -104,11 +126,17 @@ You break the surface like a swimsuit model, throwing your head back with an arc
 
 Two nymph boys immediately swim over. "You're pretty," one of them mumbles. You can see his little stiffy inches away from your leg, blurred through the murky pond ripples. The other nods and treads water behind his friend.
 
+!`
+choicesPerPage = 1;
+`
 [Mmm? You really think so~?]
 ---
 :Mmm? You really think so~?
 "Yeh," he mumbles again. He inches forward, cautious.
 
+!`
+choicesPerPage = 1;
+`
 [Grab his butt and pull him closer.]
 ---
 :Grab his butt and pull him closer.
@@ -118,6 +146,9 @@ As you pull him closer yet, his cock and nuts squish up against your thigh. One 
 
 His friend hovers on the edge, unsure if he's invited.
 
+!`
+choicesPerPage = 1;
+`
 [Come on. It's okay. Hey, why don't you break the ice and hotdog me~?]
 ---
 :Come on. It's okay. Hey, why don't you break the ice and hotdog me~?
@@ -131,6 +162,9 @@ He quivers against you. A low whimper escapes from his throat, just behind your 
 
 "Don't they, though~?" his friend says, squeezing your ass with a wink. You're pretty confused... his shy friend hadn't raised his voice above a whisper. There was no possible way he could have heard it.
 
+!`
+choicesPerPage = 1;
+`
 [You can move up and down a little, y'know.]
 ---
 :You can move up and down a little, y'know.
@@ -143,6 +177,9 @@ The braver one starts humping your leg like a puppy. His own foreskin slides loo
 
 The shy one pipes up: "He's trying to say that... um... nymph pee is an afrodesio... aphrodesiak... aphrodesiac hallucinogem. Hallucinogen. I mean."
 
+!`
+choicesPerPage = 1;
+`
 [Oh shit. I think I already got some in my mouth...]
 ---
 :Oh shit. I think I already got some in my mouth...
@@ -152,6 +189,9 @@ To punctuate that, he leans forward and closes his maw gently around your throat
 
 The shy one is starting to get a little more comfortable. He bucks his hips at a steady rhythm now, driving his nymphcock up against your hole. You can even feel his soft lil foreskin slipping and sliding against you. He pushes it forward, trying to get you started, but you're not really warmed up or lubed enough, yet, so he just ends up sticking his tongue out, grabbing his dick by the base, and repeatedly poking you in the butthole. One time he pokes too hard and it bends the wrong way. He sucks air through his sharp, predatory nymph fangs and says "Ooooow~..." like a subby little herbivore.
 
+!`
+choicesPerPage = 1;
+`
 [Is there a private section somewhere in here? I don't wanna get too wrinkly... or too high...]
 ---
 :Is there a private section somewhere in here? I don't wanna get too wrinkly... or too high...
@@ -168,35 +208,53 @@ He takes you by the paw. Together, you pass through a tinkly little curtain of b
 
 You look over your shoulder one last time, before you pass through the curtain into the private rooms. Every single nymph turns back to whatever they were doing in perfect sync.
 
+!`
+choicesPerPage = 1;
+`
 [... Hm.]
 ---
 :... Hm.
 "Whatcha lookin at?" the brave one asks, pressing himself against your chest with the pretense of looking over your shoulder.
 
+!`
+choicesPerPage = 1;
+`
 [Why is everyone staring at me?]
 ---
 :Why is everyone staring at me?
 
 "Because you're not one of us, silly."
 
+!`
+choicesPerPage = 1;
+`
 [Yeah, but... they're like robots...]
 ---
 :Yeah, but... they're like robots...
 
 "We uh." He smiles awkwardly. "We just... have a very strong sense of community, that's all."
 
+!`
+choicesPerPage = 1;
+`
 [Really?]
 ---
 :Really?
 
 "Okay no," he admits. "It's a bit more complicated. I'll explain after we double team you, okay~?"
 
+!`
+choicesPerPage = 1;
+`
 [Oh shit I'm getting double teamed!?]
 ---
 :Oh shit I'm getting double teamed!?
 
 "We just sandwiched you between our hips and dry-humped you for like ten minutes, and now we're gonna take you to a private area... of course you're getting double teamed."
 
+!`
+choicesPerPage = 2;
+`
 [Oh, of course! Of course!]
 [Move along.|yellowPondMoveAlong]
 ---
@@ -216,12 +274,18 @@ Between them, they've left a space about the size of your asscheeks.
 
 "Sit," they command you in unison.
 
+!`
+choicesPerPage = 1;
+`
 [Sit.]
 ---
 :Sit.
 
 You scooch your ass between them. Your thighs grind gently against theirs.
 
+!`
+choicesPerPage = 1;
+`
 [Are... are those drinks hallucinogenic, too?]
 ---
 :Are... are those drinks hallucinogenic, too?
@@ -230,6 +294,9 @@ You scooch your ass between them. Your thighs grind gently against theirs.
 
 "They're just booze," the brave one guffaws. "Want one?"
 
+!`
+choicesPerPage = 1;
+`
 [Sure. Liquor me up.]
 ---
 :Sure. Liquor me up.
@@ -239,6 +306,7 @@ He pulls two out: a blue one for himself, and a bright pink one for his friend.
 "What flavor?" he asks you.
 
 !`
+choicesPerPage = 3;
 addChoice("Cherry.", function() {
 	data.drinkFlavor = "cherry";
 	gotoPassage("choseColor");
@@ -259,12 +327,18 @@ addChoice("Mint.", function() {
 
 He scoops up a chilly `data.drinkFlavor` cooler and brings all three back over to the bed.
 
+!`
+choicesPerPage = 1;
+`
 [Grab my drink.]
 ---
 :Grab my drink.
 
 You reach for it, but he pulls away. "Ah ah ah," he says, grinning. "You're the guest. That means we have to feed it to you. Nymph culture dictates that the host must feed all guests their first drink. So... open."
 
+!`
+choicesPerPage = 1;
+`
 [... Open.]
 ---
 :... Open.
@@ -277,6 +351,9 @@ He bites the bottlecap off with his fearsome canines and brings the bottle's lip
 
 The brave one slips the bottle past your lips and makes you suck on it like a baby as sweet, carbonated liquor trickles down against the back of your throat and pools there until you work up the courage to start guzzling it. "Nonsense," he says. "There's a lot of history behind this custom!"
 
+!`
+choicesPerPage = 1;
+`
 [Swallow.]
 ---
 :Swallow.
@@ -287,6 +364,9 @@ You start drinking. It burns, and you try to tap out and get a breath at one poi
 
 "Don't care. He loves this."
 
+!`
+choicesPerPage = 1;
+`
 [Polish it off.]
 ---
 :Polish it off.
@@ -297,6 +377,9 @@ He lets go. After being restrained for so long, your neck feels loose and weight
 
 "There," he says. "Tradition upheld. That wasn't so bad, was it? Do you feel the buzz coming on?"
 
+!`
+choicesPerPage = 1;
+`
 [Mmmn... a little...]
 ---
 :Mmmn... a little...
@@ -307,7 +390,10 @@ The shy one squirms, still holding his thighs together. "I can hear it sloshing 
 
 "Oh! That's right! You still gotta pee, don't you~?"
 
-!`addChoice("How old is that custom?", "custom", {icons: ["Plot"]});`
+!`
+choiesPerPage = 2;
+addChoice("How old is that custom?", "custom", {icons: ["Plot"]});
+`
 [I could go for another drink...]
 ---
 :custom
@@ -318,6 +404,9 @@ The shy one squirms, still holding his thighs together. "I can hear it sloshing 
 
 He presses down on his cocklet with both paws, trying to contain the bursting pressure. His piss-dripping thighs rub together desperately. "Oh, no... I really gotta go..."
 
+!`
+choicesPerPage = 1;
+`
 [I could go for another drink...]
 ---
 :I could go for another drink...
@@ -328,19 +417,33 @@ He presses down on his cocklet with both paws, trying to contain the bursting pr
 
 "Why not~? That's what `he()` is, if `hes()` offering to chug your pee..."
 
+!`
+choicesPerPage = 2;
+`
 [I don't mind being called a urinal.]
 [No namecalls pls.]
 ---
 :No namecalls pls.
-!`data.nameCalls = false;`
+!`
+choicesPerPage = 1;
+data.nameCalls = false;
+`
+
 "Fiiiine..."
+
 [Next.|peeDrink]
 ---
 :I don't mind being called a urinal.
-!`data.nameCalls = true;`
+!`
+data.nameCalls = true;
+`
 "See? Told you. Total urinal."
 
 The shy one tries to contain his happiness and fails utterly. A mischievous little smile leaks over his lips. "I... I guess `he()` really is a urinal..."
+
+!`
+choicesPerPage = 1;
+`
 [Next.|peeDrink]
 ---
 :peeDrink
@@ -349,6 +452,9 @@ You lay back on the bed, thanks to a firm paw that pushes down against your ches
 
 The shy one finally stops squishing his thighs together. He spreads them wide and crawls over you, hands and knees, until his hips are hovering just above your face. His cocklet hangs down above your mouth, half-hard. A little precum pearl is trapped in his slit.
 
+!`
+choicesPerPage = 1;
+`
 [Slurp that pre.]
 ---
 :Slurp that pre.
@@ -361,6 +467,9 @@ The brave nymph grabs his friend's hips with both paws and yanks them down, forc
 
 The shy nymph protests and whines and whimpers, but he can't resist the warmth of your throat. His cock throbs hard against your tongue, and a bursting warmth starts to flow over the bulge of his little urethra. "Thrust," his friend demands. He starts shoving the shy one's ass, pushing it down, trying to feed your throat a couple more inches.
 
+!`
+choicesPerPage = 1;
+`
 [Glrk~|nextBoys]
 ---
 :nextBoys
@@ -375,6 +484,9 @@ Your vision re-focuses. The shy nymph stands above, looking worried. Beside him,
 
 "That's it," the brave one whispers to his friend. "`data.nameCalls?"Shake the last dregs out. That's what you do when you're finished using a urinal, y'know...":"Feels good, doesn't it...?"`"
 
+!`
+choicesPerPage = 1;
+`
 [Mmmn~! Thanks, that was tasty!]
 ---
 :Mmmn~! Thanks, that was tasty!
@@ -385,6 +497,9 @@ Your vision re-focuses. The shy nymph stands above, looking worried. Beside him,
 
 Together, the three of you sip your drinks and fool around or a while. It feels nice to just grope whichever cute lil nutsack or asscheek you want, whenever you want, and it feels nice to have the same done to yourself, too. As your drunken conversations wind on, you find yourself in a lot of different positions: sitting with your back against the wall and the shy nymph's face buried between your thighs, listening to him slurp at your `genitals("nuts", "cuntlips", "nuts and cuntlips")`... standing, with one boy `genitals("throating your dick", "tonguefucking you", "throating your dick")` while the other stuffs his face between your asscheeks and rims you... sitting all in a row, casually masturbating each other while you argue about which nymph traditions should remain in practice and which should be tossed out entirely...
 
+!`
+choicesPerPage = 1;
+`
 [Next?|nextIndigo4]
 ---
 :nextIndigo4
@@ -403,6 +518,9 @@ You can feel it percolating inside you: all that nymph piss you just chugged, pl
 
 The brave nymph throws a leg over your hips and straddles them. "Yeah, what we said."
 
+!`
+choicesPerPage = 1;
+`
 [Next...|nextIndigo5]
 ---
 :nextIndigo5
@@ -419,6 +537,9 @@ You pick a wall and stare at it. The intricate, crumbly rock patterns seem to cr
 
 "No it's not~ It's fun!"
 
+!`
+choicesPerPage = 1;
+`
 [Huhhhh?]
 ---
 :Huhhhh?
@@ -443,7 +564,10 @@ Their two curious faces appear above you. You reach out, languid and sloppy from
 
 "Hey," they say in unison. Honestly, you can't tell the brave one and the shy one apart anymore. "Do you already know what we're talking about?"
 
-!`addChoice("You're both... the same...?", "You're both... the same...?", {icons: ["Plot"]});`
+!`
+choicesPerPage = 2;
+addChoice("You're both... the same...?", "You're both... the same...?", {icons: ["Plot"]});
+`
 [I'm not sure... (End.)]
 ---
 :I'm not sure... (End.)
@@ -454,6 +578,9 @@ Their two curious faces appear above you. You reach out, languid and sloppy from
 
 "We decided you're too fucked up to hear it right now," the brave one winces. "Maybe later."
 
+!`
+choicesPerPage = 1;
+`
 [Hey um I was thinking very much a lot about how I am going to get out of here.]
 ---
 :Hey um I was thinking very much a lot about how I am going to get out of here.
@@ -464,16 +591,19 @@ They look at each other. Some time has apparently passed without you noticing, b
 
 "Something about leaving," says the other one.
 
+!`
+choicesPerPage = 1;
+`
 [I don't know how to leave. The passageways shift.]
 ---
 :I don't know how to leave. The passageways shift.
 
 They blink and look at each other. "Just think 'Move along...'?"
 
+!`
+choicesPerPage = 1;
+`
 [Move along.|yellowPondMoveAlong]
----
-:rejoinNymphBoys
-
 ---
 :You're both... the same...?
 
@@ -497,13 +627,16 @@ They blink and look at each other. "Just think 'Move along...'?"
 
 "Understand?"
 
-[But one of you was shy and the other one was brave?]
+!`
+choicesPerPage = 1;
+`
+[But one of you was shy and the other one was confident?]
 ---
-:But one of you was shy and the other one was brave?
+:But one of you was shy and the other one was confident?
 
 They blush and look at each other. Every single movement is mirrored impeccably between the two of them. They even blink in sync.
 
-"We um..." says the brave one, and trails off into mumbles to prove his point.
+"We um..." says the confident one, and trails off into mumbles to prove his point.
 
 "We like to roleplay," says the shy one, smiling and rubbing his cock against your thigh in slow circles. "Mmmm... now that the jig is up... I LOVED it when you sucked on my foreskin, earlier~ Wanted to gush about it right then and there, but I couldn't break character..."
 
@@ -511,12 +644,18 @@ They blush and look at each other. Every single movement is mirrored impeccably 
 
 "You/I/we was/were, wasn't/weren't you/I/we~?"
 
+!`
+choicesPerPage = 1;
+`
 [Oh my god stop I get it.]
 ---
 :Oh my god stop I get it.
 
 Patch shuts up and literally smirks at himself. "I'll just stick with 'I' from now on, okay?"
 
+!`
+choicesPerPage = 1;
+`
 [Sure. Hey, thanks for hanging out with me, you guys. I mean you guy.]
 ---
 :Sure. Hey, thanks for hanging out with me, you guys. I mean you guy.
@@ -531,6 +670,9 @@ Together, you walk back out into the bar and pond area. Now, the crowds all smil
 
 "Hi," the whole room says together. "I hope this isn't awkward."
 
+!`
+choicesPerPage = 1;
+`
 [It's... I'm slowly getting used to it. The orgy potential is insane.]
 ---
 :It's... I'm slowly getting used to it. The orgy potential is insane.
@@ -539,6 +681,9 @@ Patch laughs. The cave echoes with dozens of soft, tinkling, faggy nymph voices.
 
 Five or so nymphs shyly approach and rub your body down with hot, fresh handtowels, cleaning the pee and sweat from it. So many paws, all sliding over your fur, dipping deep into your armpits, between your thighs, feeling you up eeeeeverywhere... it's unlike anything you've ever felt before. Even though it's all just one mind, you blush hard and shiver like it really is just a crowd of strangers molesting you all at once.
 
+!`
+choicesPerPage = 1;
+`
 [Move along.|yellowPondMoveAlong]
 ---
 :yellowPondMoveAlong

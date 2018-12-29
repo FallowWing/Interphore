@@ -60,8 +60,8 @@ function gotoArchiepelago() {
 	submitNode("Farm Island", "farmIsland");
 	attachNode("Back", "Farm Island", RIGHT);
 
-	submitNode("Theresa & Mary", "redMaryNode");
-	attachNode("Farm Island", "Theresa & Mary", RIGHT);
+	submitNode("Red & Mary", "redMaryNode");
+	attachNode("Farm Island", "Red & Mary", RIGHT);
 
 	submitNode("Indigo Pond", "indigoPond");
 	attachNode("Farm Island", "Indigo Pond", BOTTOM);

@@ -7,6 +7,9 @@ Around the circular space are stalls and booths catering to tourists, reminding 
 
 From this central plaza there are more amusements laid out, a map near the fountain indicating which way to go to get to the other sections of the amusement park.
 
+!`
+choicesPerPage = 1;
+`
 [Check out the map.]
 ---
 :Check out the map.
@@ -17,6 +20,9 @@ The woman is wearing a green jacket with gold trim that hangs down to her rump, 
 
 She doesn't seem to have noticed you yet.
 
+!`
+choicesPerPage = 1;
+`
 [Approach the woman.]
 ---
 :Approach the woman.
@@ -25,6 +31,9 @@ You decide to approach the unusual woman, so you make your way over to where she
 
 You clear your throat as you get close to draw her attention and she glances up from the map, looking over in your direction with eyes the color of molten gold, the pupil of each a black vertical slit. She tilts her head, her auburn hair cascading to the side, which seems to catch her off guard as she tries to blow it off her nose and lips, then just straightens up and adjusts it with a hand. "Uhhh, you need something?" she asks, her voice gruff but still friendly.
 
+!`
+choicesPerPage = 1;
+`
 [Ask her if it hurt when she fell from heaven, as cheesily as humanly possible.]
 ---
 :Ask her if it hurt when she fell from heaven, as cheesily as humanly possible.
@@ -33,6 +42,9 @@ You proceed to drop the greatest (and only) pickup line you can think of, which 
 
 Those golden eyes narrow, the tall woman staring you down. At first you think she might be angry but, after an awkwardly long pause, she bursts into laughter loud enough to make you jump backwards reflexively. "Wow, that is, uh, just terrible," she manages to gasp out while still chuckling. "Where did you even learn pick up lines that bad?"
 
+!`
+choicesPerPage = 1;
+`
 [I had a lame dad.]
 ---
 :I had a lame dad.
@@ -43,6 +55,9 @@ Unable to help yourself, you ask her why her hair is proving to be such a proble
 
 Her hand reaches out, suddenly plopping atop your head and petting your fur. "And doing stuff like this. I heard you furry people like being pet and it's kinda nice to rub your fur." It occurs to you at this point you've been looking up to see her this whole time, the woman standing head and shoulders taller than you. Given all the cubs you hang around with, you feel weird to be the smaller one for once.
 
+!`
+choicesPerPage = 1;
+`
 [Score! Now all you have to do is get her to pet you more!]
 ---
 :Score!
@@ -53,8 +68,11 @@ You ignore the question of what her original body may have been and instead focu
 
 You're surprised, briefly, before you're distracted by cozy pets again, the feeling of her talons carefully kneading through your fur and rubbing your head is amazing. Weren't you supposed to be asking her out? Well...whatever, it's the same end result...
 
+!`
+choicesPerPage = 1;
+`
 [Yes please!]
-[Nah, I changed my mind/Move Along]
+[Nah, I changed my mind|Move along.Chrys]
 ---
 :Yes please!
 
