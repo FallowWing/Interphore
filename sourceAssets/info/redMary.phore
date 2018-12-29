@@ -461,6 +461,10 @@ vn.stop();
 ---
 :redMaryVnEnd
 
+!`
+vn.deinit();
+`
+
 The bunny is waiting patiently, basket at her hip.
 
 "You're both welcome to a snack, if you like."
@@ -649,7 +653,7 @@ You blink. The little wolf is gone before Mary even finishes her sentence.
 ---
 :redMary28
 
-You stop flaunting your body in the middle of the living room and take a seat next to Mynt on the couch. Over the next twenty minutes, a flurry of activity surrounds you. Theresa comes out of the hallway smelling like fresh flowers and hauls the bubbling stew off the fireplace, weak flab straining where her powerful carnivore muscles should be. Mary carries the much lighter kettle over from the kitchen and hooks it up to the fire. Gramma falls asleep and wakes up about eight times. She never actually turns a page of the Bible in her lap, she just starts reading from the top over and over again.
+You stop flaunting your body in the middle of the living room and take a seat next to Mynt on the couch. Over the next twenty minutes, a flurry of activity surrounds you. Theresa comes out of the hallway smelling like fresh flowers. She hauls the bubbly stew off the fireplace, her whole body locked in a half-squat all the way to the kitchen, weak and thin where muscle should be. Mary carries the much lighter kettle over from the kitchen and hooks it up to the fire. Gramma falls asleep and wakes up about eight times. She never actually turns a page of the Bible in her lap, she just starts reading from the top over and over again.
 
 Soon two steaming cups of tea land in your laps, and everyone drops into a comfy spot around the fire. Gramma is asleep for good now. Mynt tries to sip it too fast and burns her lip with a little squeak.
 
@@ -745,13 +749,26 @@ Mynt nods and laughs, "Yeah! That makes sense. Haha. Totally understandable. We 
 
 Mynt's eyes light up. "A doppelganger!!!!!!!!!"
 
+[He's stalking her in her own body...|redMary41wait]
+---
+:redMary41wait
+
+!`
+msg("Fake Wendy ");
+`
+
+[Cart saw him.|redMary41]
+---
+:redMary41
+
+
 [Is that right, Mary?|redMary41]
 ---
 :redMary41
 
-Theresa looks at the carpet and covers her mouth. Mary can't formulate an expression for a split second— her face is just slack with confusion, staring at Theresa. Then she shakes herself out of it, violently, her body tightening like someone who just got tased.
+Theresa looks at the carpet and covers her mouth. Mary can't formulate an expression for a split second— her face is just slack with confusion while she stares at Theresa, who looks petrified. Something happened while you were talking there, but you didn't see. Theresa apologizes for piping up earlier.
 
-"Ahh," she says wistfully, "She's filling in some of the blanks on her own, there. We don't really know who they were. All we know is they wanted the same information you do. And, later— Theresa, get the stew."
+"Ahh," Mary says wistfully, "She's filling in some of the blanks on her own, there. We don't really know who they were. All we know is they wanted the same information you do. And, later— Theresa, get the stew."
 
 Theresa stands up. "I'll go get it. Please stay, you two. I'm slow. Forgive me."
 
@@ -759,6 +776,9 @@ Mary keeps talking.
 
 "Thank you, hun— Later, the imposter implied they were <i>stalking</i> Wendy. Can you imagine? You understand why we're being careful this time, can't you?"
 
+!`
+choicesPerPage = 2;
+`
 [I can imagine.|redMaryImagine]
 [I can understand.|redMaryUnderstand]
 ---
@@ -784,6 +804,7 @@ Then she pats Mynt's. "I'm sorry, hun. I could tell how bad you miss your mom."
 
 "And Theresa, with it," Mynt reminds her gently.
 
+[Next.|redMaryRejoin4]
 ---
 :redMaryRejoin4
 
@@ -1160,7 +1181,7 @@ Something warm slams to your chest.
 
 You look down.
 
-All you see is a crown of brown hair and two fluffy wolf ears`hasBoobs(" between your tits.", ".")` Theresa's shaky arms lock around your midsection.
+All you see is a crown of brown hair and two fluffy wolf ears`boobs(" between your tits.", ".")` Theresa's shaky arms lock around your midsection.
 
 "Forgive me," she whispers. One of her paws wanders south. You can feel the soft pawbeans slide over your belly.
 

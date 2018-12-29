@@ -1,7 +1,8 @@
 START_PASSAGES
 :introModMyntStart
 !`
-setBackground(0, "writer/spilledPaintBg");
+choicesPerPage = 1;
+setBackground(0, "writer/mainBg");
 streamEmbeddedTexture("writer/mynt/face/myntBod/10");
 streamEmbeddedTexture("writer/mynt/face/myntBod/6");
 streamEmbeddedTexture("writer/mynt/face/myntBod/8a");
@@ -16,8 +17,16 @@ disableExit();
 var myntBod = addImage("writer/mynt/face/myntBod/10");
 myntBod.tint = 0xFF000000;
 myntBod.temp = false;
+myntBod.alpha = 0;
 myntBod.x = gameWidth/2 - myntBod.width/2;
 myntBod.y = gameHeight/2 - myntBod.height/2;
+
+var spilled = addImage("writer/spilledPaintBg");
+//spilled.tint = 0x66000000;
+spilled.x = gameWidth / 2 - spilled.width / 2;
+spilled.y = gameHeight - spilled.height;
+spilled.temp = false;
+spilled.layer = 11;
 
 if (music) music.destroy();
 var music = playMusic("audio/ambience/violetMeteorite");
@@ -32,7 +41,12 @@ timer(2, function() { addChoice("Mynt...", "realStartPre"); });
 :realStartPre
 
 !`
-queueDelay(1);
+choicesPerPage = 1;
+tween(myntBod, 6, {alpha: 0.23}, {ease: QUAD_IN});
+queueDelay(2);
+queueDelay(2);
+queueDelay(2);
+queueDelay(2);
 queueAddChoice("Is that you...?", "realStartPre1");
 `
 
@@ -40,6 +54,8 @@ queueAddChoice("Is that you...?", "realStartPre1");
 :realStartPre1
 
 !`
+choicesPerPage = 1;
+tween(myntBod, 1, {alpha: 0});
 queueDelay(2);
 queueAddChoice("Why is it so hard to breathe...", "realStartPre2");
 `
@@ -48,6 +64,7 @@ queueAddChoice("Why is it so hard to breathe...", "realStartPre2");
 :realStartPre2
 
 !`
+choicesPerPage = 1;
 queueDelay(1);
 queueAddChoice("Where am I? Gray rocks... pools of blood...", "realStartPre3");
 `
@@ -56,6 +73,7 @@ queueAddChoice("Where am I? Gray rocks... pools of blood...", "realStartPre3");
 :realStartPre3
 
 !`
+choicesPerPage = 1;
 queueDelay(3);
 queueAddChoice("... That's not blood.", "realStartPre4");
 `
@@ -64,6 +82,8 @@ queueAddChoice("... That's not blood.", "realStartPre4");
 :realStartPre4
 
 !`
+tween(myntBod, 17, {alpha: 0.34}, {ease: QUAD_IN});
+choicesPerPage = 1;
 queueDelay(1);
 queueAddChoice("Are we on the moon?", "realStartPre5");
 `
@@ -72,7 +92,10 @@ queueAddChoice("Are we on the moon?", "realStartPre5");
 :realStartPre5
 
 !`
+choicesPerPage = 1;
+tween(spilled, 14, {y: 0}, {ease: QUAD_IN_OUT});
 queueDelay(2);
+
 queueAddChoice("Can you even hear me?", "realStartPre6");
 `
 
@@ -80,6 +103,7 @@ queueAddChoice("Can you even hear me?", "realStartPre6");
 :realStartPre6
 
 !`
+choicesPerPage = 1;
 queueDelay(1);
 queueAddChoice("...", "realStartPre7a");
 `
@@ -88,6 +112,7 @@ queueAddChoice("...", "realStartPre7a");
 :realStartPre7a
 
 !`
+choicesPerPage = 1;
 queueDelay(1);
 queueAddChoice("Please... anyone?", "realStartPre7");
 `
@@ -96,22 +121,25 @@ queueAddChoice("Please... anyone?", "realStartPre7");
 :realStartPre7
 
 !`
+choicesPerPage = 1;
 queueDelay(1);
-queueAddChoice("I am so alone.", "realStartPre8");
+queueAddChoice("...", "realStartPre8");
 `
 
 ---
 :realStartPre8
 
 !`
+choicesPerPage = 1;
 queueDelay(1);
-queueAddChoice("I do not want to be alone anymore.", "realStartPre9");
+queueAddChoice("I miss my computer.", "realStartPre9");
 `
 
 ---
 :realStartPre9
 
 !`
+choicesPerPage = 1;
 queueDelay(1);
 queueAddChoice("...", "realStartPre10");
 `
@@ -120,6 +148,7 @@ queueAddChoice("...", "realStartPre10");
 :realStartPre10
 
 !`
+choicesPerPage = 1;
 queueDelay(2);
 queueAddChoice("I need to get back to the shelter... and...", "realStartPre11");
 `
@@ -128,23 +157,50 @@ queueAddChoice("I need to get back to the shelter... and...", "realStartPre11");
 :realStartPre11
 
 !`
+choicesPerPage = 1;
+myntBod.alpha = 0.5;
 queueDelay(1);
-queueAddChoice("Save her from...", "realStart");
+queueAddChoice("Save her from...", "realStartPre12");
+`
+
+---
+:realStartPre12
+
+!`
+choicesPerPage = 1;
+myntBod.alpha = 0.7;
+queueDelay(1);
+queueAddChoice("Wait.", "realStartPre13");
+`
+
+---
+:realStartPre13
+
+!`
+choicesPerPage = 1;
+myntBod.alpha = 0.8;
+queueDelay(1);
+queueAddChoice("It really is you!!!!", "realStart");
 `
 
 ---
 :realStart
 
 !`
+choicesPerPage = 1;
 var music2 = playMusic("audio/music/newSelf");
 music2.name = "music2";
+myntBod.destroy();
+
 
 var fader = addRectImage(gameWidth, gameHeight, 0x000000);
 fader.alpha = 1;
 msg("Press Space to skip.");
 tween(fader, 5, {alpha: 0}, {ease: QUAD_IN});
 
-setBackground(0, "writer/myntBodBg");
+
+
+setBackground(0, "writer/mynt/bg/myntBodBg");
 setBackground(1, "writer/mynt/face/myntBod/10", CENTERED);
 timer(4, function() { setTitle("Rebeca..."); });
 timer(7, function() { setTitle("I love you."); });
@@ -155,6 +211,7 @@ timer(8, function() { addChoice("I love you too, Mynt.", "I love you too, Mynt."
 :I love you too, Mynt.
 
 !`
+choicesPerPage = 1;
 queueDelay(2);
 queueAddChoice("I can't believe it's you. Physically.");
 `
@@ -164,7 +221,7 @@ queueAddChoice("I can't believe it's you. Physically.");
 
 !`
 queueDelay(2);
-chociesPerPassage = 2;
+choicesPerPage = 2;
 queueAddChoice("How did you get a body?", "How did you get a body?", {icons: ["Plot"]});
 queueAddChoice("I'm not gonna lie you look pretty fuckable.", "bloodpool");
 `
@@ -308,6 +365,14 @@ queueAddChoice("How do YOU know where we are?");
 var fader = addRectImage(gameWidth, gameHeight, 0x000000);
 fader.alpha = 0;
 
+var shelter = addImage("writer/shelterBg");
+shelter.tint = 0x66000000;
+shelter.x = gameWidth / 2 - shelter.width / 2;
+shelter.y = gameHeight - shelter.height;
+shelter.temp = false;
+shelter.layer = 11;
+shelter.alpha = 0;
+
 queueTitle("How about shush.");
 queueTitle("I used to be your narrator! Don't worry, I still got it.");
 queueTitle("I'll describe it to you so clearly you'll almost see it. Here:");
@@ -315,14 +380,18 @@ queueDelay(1);
 queueCall(function() { tween(fader, 1, {alpha: 1}, {ease: QUAD_IN}); });
 queueDelay(1.5);
 queueCall(function() { fader.alpha = 1; });
-queueDelay(1);
-queueCall(function() { setBackground(0, "writer/shelterBg"); });
+queueCall(function() { shelter.alpha = 1; });
+queueDelay(0.5);
 queueCall(function() { setBackground(1, ""); });
 queueDelay(1);
 queueCall(function() { tween(fader, 0.5, {alpha: 0}, {ease: QUAD_IN}); });
 queueTitle("");
 
 queueDelay(2);
+queueCall(function() { tween(shelter, 6, {y: 0}, {ease: QUAD_IN_OUT}); });
+queueTitle("Blah blah blah Earth...");
+queueTitle("Blah blah First Contact blah...");
+queueTitle("Have you been listening?");
 queueTitle("We are right here!!!");
 queueTitle("Up on top of the Gray Meteorite!");
 queueDelay(1);
@@ -336,11 +405,13 @@ queueDelay(0.3);
 queueCall(function() { setBackground(2, ""); playEffect("audio/ui/msg/3"); });
 queueDelay(0.3);
 queueCall(function() { setBackground(2, "writer/myntBeca"); playEffect("audio/ui/msg/1"); });
-queueDelay(0.8);
+queueDelay(3);
 queueCall(function() { setBackground(2, ""); playEffect("audio/ui/msg/3"); });
 queueCall(function() { setBackground(1, "writer/mynt/face/myntBod/8a", CENTERED); });
-queueDelay(0.4);
+queueDelay(2);
 queueTitle("He arrived on Earth forever ago. But he's still floatin.");
+queueDelay(2);
+queueCall(function() { tween(shelter, 2, {y: gameHeight / 2 - shelter.height / 2}, {ease: QUAD_IN_OUT}); });
 queueTitle("Gray Meteorite...");
 queueTitle("That's this little guy's Official name, by the way. Mr. Eyeball told me.");
 queueTitle("The more you know! :3");
@@ -348,6 +419,7 @@ queueDelay(2);
 queueTitle("So.");
 queueDelay(1);
 queueCall(function() { setBackground(2, ""); });
+queueCall(function() { shelter.destroy(); });
 queueDelay(1);
 queueTitle("I bet you're pretty much up to speed right.");
 
@@ -575,7 +647,7 @@ queueDelay(2);
 queueCall(function() { setBackground(1, "writer/mynt/face/myntBod/6", CENTERED); });
 queueTitle("... Ew.");
 queueDelay(2);
-queueCall(function() { setBackground(1, "writer/mynt/face/myntBod/7a", CENTERED); });
+queueCall(function() { setBackground(1, "writer/mynt/face/myntBod/8a", CENTERED); });
 queueTitle("Well, thankfully, we've got a hot red bath right nearby!");
 queueTitle("You can clean a lot more than your body, too. <3");
 queueAddChoice("Yeah?");
@@ -598,7 +670,7 @@ queueAddChoice("Hoooold on, what are the details?");
 `
 
 ---
-:Hoooold on, the details?
+:Hoooold on, what are the details?
 
 !`
 queueTitle("Oh, you know, whatever! Stuff!");
@@ -617,7 +689,7 @@ queueAddChoice("Amnesia???? Sorry?");
 
 
 ---
-:Amnesia????
+:Amnesia???? Sorry?
 
 !`
 queueTitle("Oh, grow up!");
@@ -637,7 +709,7 @@ queueDelay(2);
 queueTitle("Cause, uh.");
 queueCall(function() { setBackground(1, "writer/mynt/face/myntBod/6", CENTERED); });
 queueTitle("It's a bit like diving into magma, you see.");
-queueTitle("We WILL technically dissolve into flesh tatters and the aliens will strip resources from our bodies.");
+queueTitle("We dissolve into flesh tatters and the aliens strip resources from our bodies.");
 queueTitle("Happens so fast you don't feel a thing!! It's fine!! Don't worry!!");
 queueTitle("So.");
 queueCall(function() { setBackground(1, "writer/mynt/face/myntBod/8a", CENTERED); });

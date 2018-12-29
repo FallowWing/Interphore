@@ -605,11 +605,11 @@ function cancelTweens(source) {
 }
 
 function setTitle(text) {
-	tween(titleTf, 0.20, {scaleY: 0}, {ease: QUINT_OUT});
-	tween(titleTf, 0.25, {alpha: 0}, {onComplete: function() {
+	tween(titleTf, 0.12, {scaleY: 0}, {ease: QUINT_OUT});
+	tween(titleTf, 0.1, {alpha: 0}, {onComplete: function() {
 		titleTf.setText(text);
-		tween(titleTf, 0.25, {alpha: 1});
-		tween(titleTf, 0.3, {scaleY: 1}, {ease: QUINT_OUT});
+		tween(titleTf, 0.1, {alpha: 1});
+		tween(titleTf, 0.12, {scaleY: 1}, {ease: QUINT_OUT});
 		playEffect("audio/ui/myntTalk");
 	}});
 }
