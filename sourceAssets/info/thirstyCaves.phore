@@ -353,20 +353,20 @@ function gotoThirstyCaves() {
 	submitNode("L.L.L.", "LLL");
 	submitNode("Spilled Paint", "earth");
 	submitNode("Red Pond", "introArea");
-	submitNode("Chats", "chats");
+	submitNode("Chats (Coming Soon)", "chats");
 	submitNode("Archiepelago", "archiepelago");
 	submitNode("L.L.L.", "LLL");
 
 	attachNode("L.L.L.", "Spilled Paint", BOTTOM);
 	attachNode("Spilled Paint", "Red Pond", RIGHT);
-	attachNode("Spilled Paint", "Chats", LEFT);
+	attachNode("Spilled Paint", "Chats (Coming Soon)", LEFT);
 	attachNode("Spilled Paint", "Archiepelago", BOTTOM);
 
 	setNodeLocked("Archiepelago", function() {
 		return data.metCart;
 	});
 
-		setNodeLocked("Chats", function() {
+		setNodeLocked("Chats (Coming Soon)", function() {
 		return data.haveChatted;
 	});
 

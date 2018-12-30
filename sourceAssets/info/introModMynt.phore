@@ -93,7 +93,7 @@ queueAddChoice("Are we on the moon?", "realStartPre5");
 
 !`
 choicesPerPage = 1;
-tween(spilled, 14, {y: 0}, {ease: QUAD_IN_OUT});
+//tween(spilled, 14, {y: 0}, {ease: QUAD_IN_OUT});
 queueDelay(2);
 
 queueAddChoice("Can you even hear me?", "realStartPre6");
@@ -192,13 +192,9 @@ var music2 = playMusic("audio/music/newSelf");
 music2.name = "music2";
 myntBod.destroy();
 
-
 var fader = addRectImage(gameWidth, gameHeight, 0x000000);
 fader.alpha = 1;
-msg("Press Space to skip.");
 tween(fader, 5, {alpha: 0}, {ease: QUAD_IN});
-
-
 
 setBackground(0, "writer/mynt/bg/myntBodBg");
 setBackground(1, "writer/mynt/face/myntBod/10", CENTERED);
@@ -211,6 +207,7 @@ timer(8, function() { addChoice("I love you too, Mynt.", "I love you too, Mynt."
 :I love you too, Mynt.
 
 !`
+msg("Press Space to skip.");
 choicesPerPage = 1;
 queueDelay(2);
 queueAddChoice("I can't believe it's you. Physically.");
@@ -416,7 +413,7 @@ queueCall(function() { setBackground(1, "writer/mynt/face/myntBod/8a", CENTERED)
 queueDelay(2);
 queueTitle("He arrived on Earth forever ago. But he's still floatin.");
 queueDelay(2);
-queueCall(function() { tween(shelter, 2, {y: gameHeight / 2 - shelter.height / 2}, {ease: QUAD_IN_OUT}); });
+queueCall(function() { tween(shelter, 2, {y: gameHeight - shelter.height}, {ease: QUAD_IN_OUT}); });
 queueTitle("Gray Meteorite...");
 queueTitle("That's this little guy's Official name, by the way. Mr. Eyeball told me.");
 queueTitle("The more you know! :3");
@@ -634,6 +631,35 @@ queueAddChoice("How do I look.");
 :How do I look.
 
 !`
+setBackground(1, "");
+queueTitle("");
+choicesPerPage = 1;
+
+var oldBeca2 = addImage("writer/characters/rebeca/oldBeca");
+oldBeca2.x = gameWidth / 2 - oldBeca2.width / 2;
+oldBeca2.y = gameHeight / 2 - oldBeca2.height / 2;
+oldBeca2.alpha = 0;
+oldBeca2.tint = 0xFF000000;
+
+var oldBeca = addImage("writer/characters/rebeca/oldBeca");
+oldBeca.x = gameWidth / 2 - oldBeca.width / 2;
+oldBeca.y = gameHeight / 2 - oldBeca.height / 2;
+oldBeca.alpha = 0;
+
+tween(oldBeca2, 1, {alpha: 1}, {startDelay: 1});
+tween(oldBeca, 4, {alpha: 1}, {startDelay: 3});
+timer(6.1, function() { tween(oldBeca2, 1, {alpha: 0}); });
+
+timer(8, function() {
+	addChoice("I'm crusty aren't I.", "Howdolook2");
+});
+`
+
+---
+:Howdolook2
+
+!`
+playEffect("audio/ui/msg/3");
 queueCall(function() { setBackground(1, "writer/mynt/face/myntBod/10", CENTERED); });
 queueTitle("Oh you're fine!");
 queueTitle("Little stinky.");
@@ -950,6 +976,7 @@ queueTitle("Don't let go...");
 queueTitle("Don't let... go...");
 queueTitle("Don't let...");
 queueCall(function() {
+	spilled.destroy();
 	music2.destroy();
 	getAudio("music2").destroy();
 });
