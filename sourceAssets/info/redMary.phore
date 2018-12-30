@@ -14,7 +14,7 @@ choicesPerPage = 1;
 `
 
 
-[How you holding up?|redMary1]
+[How you holding up?|redMary18]
 ---
 :redMary1
 
@@ -580,38 +580,59 @@ choicesPerPage = 1;
 !`
 vn.init();
 vn.resetTextModes();
-vn.set(0, "writer/mynt/face/myntBod/10", 0xFF99ffd6);
-vn.set(1, "writer/characters/thelly/thelly", 0xFFf8d364);
+vn.set(1, "writer/mynt/face/myntBod/10", 0xFF99ffd6);
+vn.set(0, "writer/characters/rebeca/rebeca/base", 0xFF9d9d9d);
 
-choicesPerPage = 1;
-vn.moveIn(0);
-vn.say(0, "Yes??", 1);
+choicesPerPage = 2;
 vn.moveIn(1);
-vn.say(1, "Do you know or remember this lil rabbit?", 1.5);
-vn.say(0, "I don't think so.");
-vn.say(1, "Me neither.", 1.5);
+vn.say(1, "Yes??", 1);
+vn.moveIn(0);
+vn.choice("Do you know or remember this lil rabbit?");
+vn.stop();
+
+vn.say(1, "I don't think so.");
+vn.choice("Me neither.");
+vn.stop();
+
 vn.delay(1);
-vn.say(0, "Do we trust her? She looked at me funny.");
-vn.say(1, "I don't see why we shouldn't. Maybe she's seen Mom.");
-vn.say(0, "Maybe...");
+vn.say(1, "Do we trust her? She looked at me funny.");
+vn.choice("I don't see why we shouldn't. Maybe she's seen Mom.");
+vn.stop();
+
+vn.say(1, "Maybe...");
+vn.choice("...");
+vn.stop();
+
+vn.say(1, "She seems a little... taut. Did Eyeball tell you about her shoulder blades?");
+vn.choice("Oh he filled me right in about the shoulder blades. She's tense.");
+vn.stop();
+
 vn.say(1, "...", 1.5);
-vn.say(0, "She seems a little... taut. Did Eyeball tell you about her shoulder blades?");
-vn.say(1, "Oh he filled me right in about the shoulder blades. She's tense.");
-vn.say(0, "...", 1.5);
-vn.say(1, "...", 2);
-vn.say(0, "She's probably just nervous!!", 0.5);
-vn.say(0, "Let's trust her for now.");
+
+vn.choice("...");
+vn.stop();
+
+vn.say(1, "She's probably just nervous!!", 0.5);
+vn.say(1, "Let's trust her for now.");
 vn.delay(1);
-vn.say(1, "Alriiight.", 2);
-vn.say(1, "For now.", 1);
-vn.say(0, "Just be cool. Play it cool. You know.", 1);
-vn.say(0, "Real cool and chill like. Steady as she goes.", 1);
-vn.say(0, "Play it smoooooooth.", 0.6);
-vn.say(1, "Don't talk so fast and nervous.", 2);
-vn.say(0, "Right. Sorry.", 0.6);
-vn.say(0, "Play it...", 1.3);
-vn.say(0, "Suuuuuuuuuuaaaaaaaavvvvvvve.", 5);
-vn.say(1, "Let's do this.", 1);
+vn.choice("Alriiight.");
+vn.stop();
+
+vn.choice("For now.");
+vn.stop();
+
+vn.say(1, "Just be cool. Play it cool. You know.", 1);
+vn.say(1, "Real cool and chill like. Steady as she goes.", 0.8);
+vn.say(1, "Play it smoooooooth.", 0.2);
+vn.choice("Don't talk so fast and nervous.");
+vn.stop();
+
+vn.say(1, "Right. Sorry.", 0.6);
+vn.say(1, "Play it...", 1);
+vn.say(1, "Suuuuuuuuuuaaaaaaaavvvvvvve.", 5);
+vn.choice("Let's do this.");
+vn.stop();
+
 vn.moveOut(0);
 vn.moveOut(1);
 vn.choice("End chat.", function() {
@@ -1078,7 +1099,7 @@ choicesPerPage = 1;
 ---
 :redMaryRejoin4
 
-Red totters around the corner with two fat oven mitts on her paws and the sloshing stew. It's embarrassing to watch. You all sit uncomfortably and listen to the rhythm of Gramma's lazy snores while Red breaks her little back lugging the cast-iron pot over to the table. She clunks it down on a little tea cozy, rattling your cups in their saucers.
+Red totters around the corner with two fat oven mitts on her paws and the sloshing stew. It's embarrassing to watch. You all sit uncomfortably and listen to the rhythm of Gramma's lazy snores while Red breaks her little back lugging the cast-iron pot over to the table. She clunks it down on a little tea cozy, rattling your cups in their saucers. Mary does not thank her.
 
 Red does her best to conceal how heavy she's breathing by using her nose, but everyone can see her chest rising and falling, her nostrils flaring. She smiles apologetically and sits down.
 
@@ -1095,7 +1116,7 @@ choicesPerPage = 1;
 ---
 :redMary42
 
-Mary looks right at you. Her eyes narrow.
+Theresa looks at the ground and breathes. Mary looks right at you. 
 
 "Stay."
 
@@ -1122,6 +1143,7 @@ And as you pull her out the door, her claws dig into the frame. "We'll just be a
 
 !`
 getAudio("music").destroy();
+if (music) music.destroy();
 choicesPerPage = 1;
 `
 [Huddle up.|redMary44]
