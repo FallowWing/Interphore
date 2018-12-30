@@ -34,10 +34,6 @@ music.name = "music";
 
 msg("18 or older only.");
 
-//@TODO: REMOVE
-var music2 = playMusic("audio/music/newSelf");
-music2.name = "music2";
-
 timer(2, function() { addChoice("Mynt...", "realStartPre"); });
 `
 
@@ -950,11 +946,11 @@ youngBeca.alpha = 0;
 tween(youngBeca, 1.5, {alpha: 1}, {startDelay: 2});
 tween(youngBeca, 3, {x: gameWidth / 2 - youngBeca.width / 2 - nudge}, {ease: QUINT_OUT, startDelay: 2});
 
-var boobs = addImage("writer/characters/rebeca/rebeca/boobs");
-boobs.x = gameWidth / 2 - youngBeca.width / 2 - nudge;
-boobs.y = youngBeca.y;
-boobs.alpha = 0;
-boobs.temp = false;
+var boobsImg = addImage("writer/characters/rebeca/rebeca/boobs");
+boobsImg.x = gameWidth / 2 - youngBeca.width / 2 - nudge;
+boobsImg.y = youngBeca.y;
+boobsImg.alpha = 0;
+boobsImg.temp = false;
 
 queueDelay(1);
 queueDelay(1);
@@ -971,13 +967,13 @@ queueCall(function() {
 :pondGenits2
 
 !`
-if (data.hasBoobs) boobs.alpha = 1;
-if (!data.hasBoobs) boobs.alpha = 0;
+if (data.hasBoobs) boobsImg.alpha = 1;
+if (!data.hasBoobs) boobsImg.alpha = 0;
 
 if (!data.hasBoobs) queueAddChoice("Boobs.", function() {
 	setBackground(1, "");
 	data.hasBoobs = true;
-	tween(boobs, 1, {alpha: 1});
+	tween(boobsImg, 1, {alpha: 1});
 	playEffect("audio/ui/rewards/checkmark");
 	setTitle("They're so perky...");
 	gotoPassage("pondGenits2");
@@ -1010,7 +1006,7 @@ if (data.genitals !== "male" && data.genitals !== "both") queueAddChoice("Cock."
 if (data.genitals !== "male" && data.genitals !== "female" && data.genitals !== "both" && !data.hasBoobs) queueAddChoice("Everything.", function() {
 	setBackground(1, "");
 	setTitle("Oh, wow! So greedy...");
-	tween(boobs, 2, {alpha: 1});
+	tween(boobsImg, 2, {alpha: 1});
 	playEffect("audio/ui/rewards/checkmark");
 	data.hasBoobs = true;
 	data.genitals = "both";
@@ -1026,23 +1022,24 @@ queueTitle("A-Ah... it's melting away... everything...");
 queueTitle("I thought I'd never be pure again...");
 queueTitle("");
 
-var eyelashes = addImage("writer/characters/rebeca/rebeca/eyelashes");
-eyelashes.x = youngBeca.x;
-eyelashes.y = youngBeca.y;
-eyelashes.temp = false;
-eyelashes.alpha = 0;
+var boyEyes = addImage("writer/characters/rebeca/rebeca/eyelashes");
+boyEyes.x = youngBeca.x;
+boyEyes.y = youngBeca.y;
+boyEyes.temp = false;
+boyEyes.alpha = 0;
 
 choicesPerPage = 3;
 queueAddChoice("He.", function() {
 	data.gender = "male";
-	data.eyelashes = false;
+	data.boyEyes = true;
+	boyEyes.alpha = 1;
 	gotoPassage("afterGender");
 });
 
 queueAddChoice("She.", function() {
 	data.gender = "female";
-	data.eyelashes = true;
-	eyelashes.alpha = 1;
+	data.boyEyes = false;
+	boyEyes.alpha = 0;
 	gotoPassage("afterGender");
 });
 
@@ -1071,19 +1068,19 @@ msg("Eye— nevermind right now. Want girly eyelashes??");
 choicesPerPage = 3;
 addChoice("Me too.", function() {
 	msg("Whatever. Do it yourself later.");
-	eyelashes.alpha = 0;
-	data.eyelashes = false;
+	boyEyes.alpha = 0;
+	data.boyEyes = false;
 	gotoPassage("afterGender");
 });
 addChoice("Yes eyelashes.", function() {
-	eyelashes.alpha = 1;
+	boyEyes.alpha = 0;
 	playEffect("audio/ui/rewards/checkmark");
-	data.eyelashes = true;
+	data.boyEyes = false;
 	gotoPassage("afterGender");
 });
 addChoice("No eyelashes please.", function() {
-	data.eyelashes = false;
-	eyelashes.alpha = 0;
+	data.boyEyes = true;
+	boyEyes.alpha = 1;
 	gotoPassage("afterGender");
 });
 `
@@ -1094,8 +1091,8 @@ queueDelay(1);
 queueDelay(1);
 queueCall(function() {
 	youngBeca.alpha = 0;
-	boobs.alpha = 0;
-	eyelashes.alpha = 0;
+	boobsImg.alpha = 0;
+	boyEyes.alpha = 0;
 });
 queueCall(function() { setBackground(1, "writer/mynt/face/myntBod/2", CENTERED); });
 queueTitle("...");
@@ -1205,8 +1202,8 @@ furryBeca.alpha = 0;
 
 youngBeca.destroy();
 
-eyelashes.x = furryBeca.x;
-boobs.x = furryBeca.x;
+boyEyes.x = furryBeca.x;
+boobsImg.x = furryBeca.x;
 
 if (rnd > 0.9) {
 	queueTitle("And... are you furry trash, too...?");
@@ -1286,7 +1283,7 @@ if (data.species === "cat") {
 playEffect("audio/ui/rewards/party");
 tween(furryBeca, 1, {alpha: 1});
 if (data.hasBoobs) tween(boobs, 1, {alpha: 1});
-if (data.eyelashes) tween(eyelashes, 1, {alpha: 1});
+if (data.boyEyes) tween(boyEyes, 1, {alpha: 0});
 
 if (data.species === "bunny") {
 	queueTitle("Oooo, lookit those floppy ears.");
@@ -1354,8 +1351,8 @@ queueAddChoice("I'm finally trash.", "pickedSpecies2");
 
 !`
 furryBeca.destroy();
-boobs.destroy();
-eyelashes.destroy();
+boobsImg.destroy();
+boyEyes.destroy();
 
 choicesPerPage = 1;
 queueAddChoice("What cute new body did you get?", "pickedSpecies3");
@@ -1373,6 +1370,7 @@ queueAddChoice("This feels like opening presents.", "pickedSpecies4");
 :pickedSpecies4
 
 !`
+queueTitle("I feel like a zombie.");
 queueCall(function() { setBackground(1, "writer/mynt/face/myntBod/9", CENTERED); });
 queueTitle("AAAA I forgot to change my body to a cute new one!!");
 queueTitle("Forgot in a regular way, not an amnesia way. I still remember these recent moments.");
@@ -1383,8 +1381,6 @@ queueDelay(1);
 queueTitle("Bleh.");
 queueDelay(1);
 queueTitle("");
-queueTitle("I feel like a zombie.");
-queueTitle("How bout you?");
 queueCall(function() { setBackground(1, "writer/mynt/face/myntBod/10", CENTERED); });
 queueTitle("You look... a lot better than your grandma-self!");
 queueTitle("Not as crusty.");
@@ -1421,6 +1417,7 @@ queueAddChoice("Nah you're right I stank like ass.", function() {
 Hi.
 
 !`
+setBackground(1, "");
 choicesPerPage = 1;
 `
 [Hi?|afterPond2]

@@ -207,6 +207,8 @@ img/writer/mynt/face/myntBod/9.png
 img/writer/mynt/face/myntBod/9.spr
 img/writer/mynt/face/myntBod/10.png
 img/writer/mynt/face/myntBod/10.spr
+img/writer/mynt/face/myntBod/11.png
+img/writer/mynt/face/myntBod/11.spr
 img/writer/characters/rebeca/oldBeca.png
 img/writer/characters/rebeca/oldBeca.spr
 img/writer/characters/rebeca/rebeca/base.png

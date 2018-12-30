@@ -578,12 +578,77 @@ choicesPerPage = 1;
 :redMary18
 
 !`
+choicesPerPage = 2;
+
 vn.init();
 vn.resetTextModes();
-vn.set(1, "writer/mynt/face/myntBod/10", 0xFF99ffd6);
+vn.set(1, "writer/mynt/face/myntBod/11", 0xFF99ffd6);
 vn.set(0, "writer/characters/rebeca/rebeca/base", 0xFF9d9d9d);
 
-choicesPerPage = 2;
+queueCall(function() {
+	var beca = vn.chars[0].sprite;
+
+	if (data.boyEyes) {
+		var boyEyes = addImage("writer/characters/rebeca/rebeca/eyelashes");
+		boyEyes.layer = beca.layer + 1;
+		beca.addChild(boyEyes);
+	}
+
+	if (data.hasBoobs) {
+		var boobsImg = addImage("writer/characters/rebeca/rebeca/boobs");
+		boobsImg.layer = beca.layer + 1;
+		beca.addChild(boobsImg);
+	}
+
+	if (data.species === undefined) data.species = "cat";
+
+	if (data.species === "bunny") {
+		var ears = addImage("writer/characters/rebeca/rebeca/bunnyEars");
+		var tail = addImage("writer/characters/rebeca/rebeca/bunnyTail");
+		
+		beca.addChild(ears);
+		beca.addChild(tail);
+		ears.layer = beca.layer + 2;
+		tail.layer = beca.layer - 1;
+	}
+
+	if (data.species === "fox") {
+		var ears = addImage("writer/characters/rebeca/rebeca/nonBunnyEars");
+		var tail = addImage("writer/characters/rebeca/rebeca/foxTail");
+		
+		beca.addChild(ears);
+		beca.addChild(tail);
+		ears.layer = beca.layer + 2;
+		tail.layer = beca.layer - 1;
+	}
+
+	if (data.species === "wolf") {
+		var ears = addImage("writer/characters/rebeca/rebeca/nonBunnyEars");
+		var tail = addImage("writer/characters/rebeca/rebeca/wolfTail");
+		
+		beca.addChild(ears);
+		beca.addChild(tail);
+		ears.layer = beca.layer + 2;
+		tail.layer = beca.layer - 1;
+	}
+
+	if (data.species === "cat") {
+		var ears = addImage("writer/characters/rebeca/rebeca/nonBunnyEars");
+		var tail = addImage("writer/characters/rebeca/rebeca/catTail");
+		
+		beca.addChild(ears);
+		beca.addChild(tail);
+		ears.layer = beca.layer + 2;
+		tail.layer = beca.layer - 1;
+	}
+});
+
+queueCall(function() { 
+	var mynt = vn.chars[1].sprite;
+
+	mynt.scaleX = 1.2;
+	mynt.scaleY = 1.2;
+});
 vn.moveIn(1);
 vn.say(1, "Yes??", 1);
 vn.moveIn(0);
@@ -612,6 +677,15 @@ vn.say(1, "...", 1.5);
 vn.choice("...");
 vn.stop();
 
+vn.moveOut(1);
+vn.set(1, "writer/mynt/face/myntBod/10", 0xFF99ffd6);
+queueCall(function() { 
+	var mynt = vn.chars[1].sprite;
+
+	mynt.scaleX = 1.2;
+	mynt.scaleY = 1.2;
+});
+vn.moveIn(1);
 vn.say(1, "She's probably just nervous!!", 0.5);
 vn.say(1, "Let's trust her for now.");
 vn.delay(1);
@@ -621,14 +695,42 @@ vn.stop();
 vn.choice("For now.");
 vn.stop();
 
+vn.moveOut(1);
+vn.set(1, "writer/mynt/face/myntBod/11", 0xFF99ffd6);
+queueCall(function() { 
+	var mynt = vn.chars[1].sprite;
+
+	mynt.scaleX = 1.2;
+	mynt.scaleY = 1.2;
+});
+vn.moveIn(1);
 vn.say(1, "Just be cool. Play it cool. You know.", 1);
 vn.say(1, "Real cool and chill like. Steady as she goes.", 0.8);
 vn.say(1, "Play it smoooooooth.", 0.2);
 vn.choice("Don't talk so fast and nervous.");
 vn.stop();
 
+vn.moveOut(1);
+vn.set(1, "writer/mynt/face/myntBod/6", 0xFF99ffd6);
+queueCall(function() { 
+	var mynt = vn.chars[1].sprite;
+
+	mynt.scaleX = 1.2;
+	mynt.scaleY = 1.2;
+});
+vn.moveIn(1);
 vn.say(1, "Right. Sorry.", 0.6);
 vn.say(1, "Play it...", 1);
+
+vn.moveOut(1);
+vn.set(1, "writer/mynt/face/myntBod/10", 0xFF99ffd6);
+queueCall(function() { 
+	var mynt = vn.chars[1].sprite;
+
+	mynt.scaleX = 1.2;
+	mynt.scaleY = 1.2;
+});
+vn.moveIn(1);
 vn.say(1, "Suuuuuuuuuuaaaaaaaavvvvvvve.", 5);
 vn.choice("Let's do this.");
 vn.stop();
@@ -643,10 +745,6 @@ vn.stop();
 ---
 :redMaryVnEnd
 
-!`
-vn.deinit();
-`
-
 The bunny is waiting patiently, basket at her hip.
 
 "You're both welcome to a snack, if you like."
@@ -654,6 +752,7 @@ The bunny is waiting patiently, basket at her hip.
 She holds the basket out to you both, handle resting on two lazy fingers.
 
 !`
+vn.deinit();
 choicesPerPage = 1;
 `
 [No thanks.|redMary19]
