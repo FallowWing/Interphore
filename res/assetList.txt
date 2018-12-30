@@ -211,10 +211,14 @@ img/writer/characters/rebeca/oldBeca.png
 img/writer/characters/rebeca/oldBeca.spr
 img/writer/characters/rebeca/rebeca/base.png
 img/writer/characters/rebeca/rebeca/base.spr
+img/writer/characters/rebeca/rebeca/human.png
+img/writer/characters/rebeca/rebeca/human.spr
 img/writer/characters/rebeca/rebeca/catTail.png
 img/writer/characters/rebeca/rebeca/catTail.spr
-img/writer/characters/rebeca/rebeca/canineTail.png
-img/writer/characters/rebeca/rebeca/canineTail.spr
+img/writer/characters/rebeca/rebeca/wolfTail.png
+img/writer/characters/rebeca/rebeca/wolfTail.spr
+img/writer/characters/rebeca/rebeca/foxTail.png
+img/writer/characters/rebeca/rebeca/foxTail.spr
 img/writer/characters/rebeca/rebeca/bunnyTail.png
 img/writer/characters/rebeca/rebeca/bunnyTail.spr
 img/writer/characters/rebeca/rebeca/bunnyEars.png

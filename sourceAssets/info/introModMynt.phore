@@ -34,6 +34,10 @@ music.name = "music";
 
 msg("18 or older only.");
 
+//@TODO: REMOVE
+var music2 = playMusic("audio/music/newSelf");
+music2.name = "music2";
+
 timer(2, function() { addChoice("Mynt...", "realStartPre"); });
 `
 
@@ -907,16 +911,80 @@ queueAddChoice("Step into the pond.");
 :Step into the pond.
 
 !`
+setBackground(0, "writer/redBg");
+tween(spilled, 5, {alpha: 0}, {ease: QUAD_OUT});
+timer(5, function() { spilled.destroy(); });
+
 playEffect("audio/effect/adminGained");
 setBackground(1, "");
+queueTitle("");
+queueDelay(1);
+queueDelay(1);
+
+choicesPerPage = 1;
+var oldBeca = addImage("writer/characters/rebeca/oldBeca");
+oldBeca.x = gameWidth / 2 - oldBeca.width / 2;
+oldBeca.y = gameHeight / 2 - oldBeca.height / 2;
+oldBeca.temp = false;
+oldBeca.alpha = 0;
+tween(oldBeca, 2, {alpha: 1}, {ease: QUAD_IN});
+
+timer(2, function() { addChoice("Be young.", "pondGenits"); });
+`
+---
+:pondGenits
+
+!`
+tween(oldBeca, 1.5, {alpha: 0}, {ease: QUAD_OUT});
+tween(oldBeca, 3, {x: gameWidth}, {ease: QUAD_IN});
+timer(1.5, function() { oldBeca.destroy(); });
+playEffect("audio/ui/rewards/boon/1");
+
+var youngBeca = addImage("writer/characters/rebeca/rebeca/human");
+var nudge = 100;
+youngBeca.x = gameWidth / 2 - youngBeca.width / 2 - nudge * 2;
+youngBeca.y = gameHeight / 2 - youngBeca.height / 2 - 50;
+youngBeca.temp = false;
+youngBeca.alpha = 0;
+
+tween(youngBeca, 1.5, {alpha: 1}, {startDelay: 2});
+tween(youngBeca, 3, {x: gameWidth / 2 - youngBeca.width / 2 - nudge}, {ease: QUINT_OUT, startDelay: 2});
+
+var boobs = addImage("writer/characters/rebeca/rebeca/boobs");
+boobs.x = gameWidth / 2 - youngBeca.width / 2 - nudge;
+boobs.y = youngBeca.y;
+boobs.alpha = 0;
+boobs.temp = false;
+
+queueDelay(1);
+queueDelay(1);
+queueDelay(1);
+queueDelay(1);
+queueCall(function() { 
+	addChoice("YESSss <3 I'm not sore anymore!!!", "pondGenits2");
+	addChoice("Time to pimp my ride.", "pondGenits2");
+	addChoice("I wonder if I want a weiner jostling between my legs...", "pondGenits2");
+	addChoice("Next.", "pondGenits2");
+});
+
+---
+:pondGenits2
+
+!`
+if (data.hasBoobs) boobs.alpha = 1;
+if (!data.hasBoobs) boobs.alpha = 0;
 
 if (!data.hasBoobs) queueAddChoice("Boobs.", function() {
+	setBackground(1, "");
 	data.hasBoobs = true;
+	tween(boobs, 1, {alpha: 1});
+	playEffect("audio/ui/rewards/checkmark");
 	setTitle("They're so perky...");
-	gotoPassage("Step into the pond.");
+	gotoPassage("pondGenits2");
 });
 
 if (data.genitals !== "female" && data.genitals !== "both") queueAddChoice("Cunt.", function() {
+	setBackground(1, "");
 	if (data.genitals === "male") {
 		data.genitals = "both";
 		setTitle("Ahhh, both...");
@@ -924,10 +992,11 @@ if (data.genitals !== "female" && data.genitals !== "both") queueAddChoice("Cunt
 		data.genitals = "female";
 		setTitle("Mmm... keeping that part, are ya...");
 	}
-	gotoPassage("Step into the pond.");
+	gotoPassage("pondGenits2");
 });
 
 if (data.genitals !== "male" && data.genitals !== "both") queueAddChoice("Cock.", function() {
+	setBackground(1, "");
 	if (data.genitals === "female") {
 		data.genitals = "both";
 		setTitle("Ahhh, both...");
@@ -935,11 +1004,14 @@ if (data.genitals !== "male" && data.genitals !== "both") queueAddChoice("Cock."
 		data.genitals = "male";
 		setTitle("Mmm... switching out that part, are ya...");
 	}
-	gotoPassage("Step into the pond.");
+	gotoPassage("pondGenits2");
 });
 
 if (data.genitals !== "male" && data.genitals !== "female" && data.genitals !== "both" && !data.hasBoobs) queueAddChoice("Everything.", function() {
+	setBackground(1, "");
 	setTitle("Oh, wow! So greedy...");
+	tween(boobs, 2, {alpha: 1});
+	playEffect("audio/ui/rewards/checkmark");
 	data.hasBoobs = true;
 	data.genitals = "both";
 	gotoPassage("pondNext");
@@ -952,43 +1024,102 @@ if (data.genitals === "female" || data.genitals === "male" || data.genitals === 
 !`
 queueTitle("A-Ah... it's melting away... everything...");
 queueTitle("I thought I'd never be pure again...");
+queueTitle("");
+
+var eyelashes = addImage("writer/characters/rebeca/rebeca/eyelashes");
+eyelashes.x = youngBeca.x;
+eyelashes.y = youngBeca.y;
+eyelashes.temp = false;
+eyelashes.alpha = 0;
 
 choicesPerPage = 3;
 queueAddChoice("He.", function() {
 	data.gender = "male";
+	data.eyelashes = false;
 	gotoPassage("afterGender");
 });
 
 queueAddChoice("She.", function() {
 	data.gender = "female";
+	data.eyelashes = true;
+	eyelashes.alpha = 1;
 	gotoPassage("afterGender");
 });
 
 queueAddChoice("They.", function() {
 	data.gender = "both";
+	gotoPassage("afterGenderThey");
+});
+`
+---
+:afterGenderThey
+
+!`
+msg("Do you want big eyelashes or no?");
+
+choicesPerPage = 1;
+addChoice("Sorry who is this?");
+`
+---
+:Sorry who is this?
+
+!`
+queueCall(function() { playEffect("audio/effect/despairSting"); });
+queueTitle("I feel my memories slipping...");
+msg("Eye— nevermind right now. Want girly eyelashes??");
+
+choicesPerPage = 3;
+addChoice("Me too.", function() {
+	msg("Whatever. Do it yourself later.");
+	eyelashes.alpha = 0;
+	data.eyelashes = false;
+	gotoPassage("afterGender");
+});
+addChoice("Yes eyelashes.", function() {
+	eyelashes.alpha = 1;
+	playEffect("audio/ui/rewards/checkmark");
+	data.eyelashes = true;
+	gotoPassage("afterGender");
+});
+addChoice("No eyelashes please.", function() {
+	data.eyelashes = false;
+	eyelashes.alpha = 0;
 	gotoPassage("afterGender");
 });
 `
 ---
 :afterGender
 !`
+queueDelay(1);
+queueDelay(1);
+queueCall(function() {
+	youngBeca.alpha = 0;
+	boobs.alpha = 0;
+	eyelashes.alpha = 0;
+});
+queueCall(function() { setBackground(1, "writer/mynt/face/myntBod/2", CENTERED); });
+queueTitle("...");
+queueDelay(1);
 queueTitle("Don't let go...");
 queueTitle("Don't let... go...");
+queueDelay(1);
 queueTitle("Don't let...");
 queueCall(function() {
-	spilled.destroy();
+	setBackground(1, "writer/mynt/face/myntBod/3", CENTERED);
 	music2.destroy();
 	getAudio("music2").destroy();
+	playEffect("audio/ui/rewards/checkmark");
 });
 queueDelay(2);
 queueCall(function() { playEffect("audio/effect/despairSting"); });
 queueDelay(2);
 queueTitle("...............");
+queueCall(function() { setBackground(1, "writer/mynt/face/myntBod/1", CENTERED); });
 queueDelay(1);
 queueTitle("");
 queueDelay(1);
-queueCall(function() { setBackground(1, "writer/mynt/face/myntBod/3", CENTERED); });
 queueDelay(2);
+
 queueTitle("Who are you? Weren't we just speaking? Are you Rebeca?");
 queueDelay(2);
 
@@ -1066,6 +1197,17 @@ queueAddChoice("Stay as I am.", "furryTrash");
 !`
 queueCall(function() { setBackground(1, "writer/mynt/face/myntBod/3", CENTERED); });
 
+var furryBeca = addImage("writer/characters/rebeca/rebeca/base");
+furryBeca.x = youngBeca.x;
+furryBeca.y = youngBeca.y;
+furryBeca.temp = false;
+furryBeca.alpha = 0;
+
+youngBeca.destroy();
+
+eyelashes.x = furryBeca.x;
+boobs.x = furryBeca.x;
+
 if (rnd > 0.9) {
 	queueTitle("And... are you furry trash, too...?");
 } else {
@@ -1112,7 +1254,6 @@ choicesPerPage = 2;
 
 if (data.species === "cat") {
 	choicesPerPage = 2;
-	setTitle("A cat! Like me!");
 
 	addChoice("Barbs.", function() {
 		data.hasBarbs = true;
@@ -1125,8 +1266,6 @@ if (data.species === "cat") {
 	});
 } else {
 	choicesPerPage = 2;
-	if (data.species === "fox") append("Aren't foxes supposed to be sluts...?");
-	if (data.species === "wolf") append("Wow... you're so cool and intimidating...!");
 	
 	addChoice("Knot.", function() {
 		data.hasKnot = true;
@@ -1144,16 +1283,96 @@ if (data.species === "cat") {
 :pickedSpecies
 
 !`
-queueCall(function() { setBackground(1, "writer/mynt/face/myntBod/8a", CENTERED); });
+playEffect("audio/ui/rewards/party");
+tween(furryBeca, 1, {alpha: 1});
+if (data.hasBoobs) tween(boobs, 1, {alpha: 1});
+if (data.eyelashes) tween(eyelashes, 1, {alpha: 1});
 
 if (data.species === "bunny") {
 	queueTitle("Oooo, lookit those floppy ears.");
-} else if (data.genitals === "female") {
-	if (data.species === "fox") queueTitle("Aren't foxes supposed to be sluts...?");
-	if (data.species === "wolf") queueTitle("Wow... you're so cool and intimidating...!");
-	if (data.species === "cat") queueTitle("A cat! Like me!");
+
+	var ears = addImage("writer/characters/rebeca/rebeca/bunnyEars");
+	ears.x = furryBeca.x;
+	ears.y = furryBeca.y;
+
+	var tail = addImage("writer/characters/rebeca/rebeca/bunnyTail");
+	tail.x = furryBeca.x;
+	tail.y = furryBeca.y;
 }
 
+if (data.species === "fox") {
+	queueTitle("Aren't foxes supposed to be sluts...?");
+
+	var ears = addImage("writer/characters/rebeca/rebeca/nonBunnyEars");
+	ears.x = furryBeca.x;
+	ears.y = furryBeca.y;
+
+	var tail = addImage("writer/characters/rebeca/rebeca/foxTail");
+	tail.x = furryBeca.x;
+	tail.y = furryBeca.y;
+}
+
+if (data.species === "wolf") {
+	queueTitle("Wow... you're so cool and intimidating...!");
+
+	var ears = addImage("writer/characters/rebeca/rebeca/nonBunnyEars");
+	ears.x = furryBeca.x;
+	ears.y = furryBeca.y;
+
+	var tail = addImage("writer/characters/rebeca/rebeca/wolfTail");
+	tail.x = furryBeca.x;
+	tail.y = furryBeca.y;
+}
+
+if (data.species === "cat") {
+	queueTitle("A cat! Like me!");
+
+	var ears = addImage("writer/characters/rebeca/rebeca/nonBunnyEars");
+	ears.x = furryBeca.x;
+	ears.y = furryBeca.y;
+
+	var tail = addImage("writer/characters/rebeca/rebeca/catTail");
+	tail.x = furryBeca.x;
+	tail.y = furryBeca.y;
+}
+
+ears.layer = furryBeca.layer + 1;
+tail.layer = furryBeca.layer - 1;
+
+queueTitle("");
+queueDelay(2);
+queueDelay(2);
+
+choicesPerPage = 2;
+queueAddChoice("I finally get to be who I am inside. <3", "pickedSpecies2");
+queueAddChoice("I'm finally trash.", "pickedSpecies2");
+`
+
+
+---
+:pickedSpecies2
+
+!`
+furryBeca.destroy();
+boobs.destroy();
+eyelashes.destroy();
+
+choicesPerPage = 1;
+queueAddChoice("What cute new body did you get?", "pickedSpecies3");
+`
+
+---
+:pickedSpecies3
+
+!`
+choicesPerPage = 1;
+queueAddChoice("This feels like opening presents.", "pickedSpecies4");
+`
+
+---
+:pickedSpecies4
+
+!`
 queueCall(function() { setBackground(1, "writer/mynt/face/myntBod/9", CENTERED); });
 queueTitle("AAAA I forgot to change my body to a cute new one!!");
 queueTitle("Forgot in a regular way, not an amnesia way. I still remember these recent moments.");
