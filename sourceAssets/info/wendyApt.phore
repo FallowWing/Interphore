@@ -699,6 +699,9 @@ choicesPerPage = 1;
 
 "Hmm?"
 
+!`
+choicesPerPage = 1;
+`
 [Oh. Sorry. I guess Mr. Eyeball narrates the world a little different for everybody.]
 ---
 :Oh. Sorry. I guess Mr. Eyeball narrates the world a little different for everybody.
@@ -748,7 +751,7 @@ choicesPerPage = 1;
 
 !`
 choicesPerPage = 1;
-
+`
 [Hmmmmmmmmm.]
 ---
 :Hmmmmmmmmm.
@@ -759,7 +762,7 @@ She sighs and folds the magazine up in her lap. A nymph girl winks up at her fro
 
 !`
 choicesPerPage = 1;
-
+`
 [AAAAH FUCK what what does the sexy nymph mean]
 ---
 :AAAAH FUCK what what does the sexy nymph mean
@@ -768,7 +771,7 @@ choicesPerPage = 1;
 
 !`
 choicesPerPage = 1;
-
+`
 [Ooo that is kind of promising, isn't it?]
 ---
 :Ooo that is kind of promising, isn't it?
@@ -777,7 +780,7 @@ choicesPerPage = 1;
 
 !`
 choicesPerPage = 1;
-
+`
 [Still, if she came back once, she might again.]
 ---
 :Still, if she came back once, she might again.
@@ -786,7 +789,7 @@ Mynt's eyebrows lock down and imaginary jets of steam puff from her nose. "Exact
 
 !`
 choicesPerPage = 1;
-
+`
 [One of us should go visit Kittery, and the other should stay here.]
 ---
 :One of us should go visit Kittery, and the other should stay here.
@@ -795,7 +798,7 @@ choicesPerPage = 1;
 
 !`
 choicesPerPage = 1;
-
+`
 [What— I don't even get a say?!]
 ---
 :What— I don't even get a say?!
@@ -806,7 +809,7 @@ She winces.
 
 !`
 choicesPerPage = 1;
-
+`
 [...|nextGo]
 ---
 :nextGo
@@ -817,7 +820,7 @@ She wraps a hand around your hips. The saucy girl on the back of Wendy's magazin
 
 !`
 choicesPerPage = 1;
-
+`
 [Mmmm...]
 ---
 :Mmmm...
@@ -826,7 +829,7 @@ choicesPerPage = 1;
 
 !`
 choicesPerPage = 1;
-
+`
 [I'll think about it.]
 ---
 :I'll think about it.
@@ -843,7 +846,7 @@ She lowers her maw to your neck and brushes it with her lips. "If we're gonna pa
 
 !`
 choicesPerPage = 1;
-
+`
 [Okay...]
 ---
 :Okay...
@@ -852,7 +855,7 @@ Her lips close on your sensitive neck. She sucks gently.
 
 !`
 choicesPerPage = 1;
-
+`
 [I assume you want to top...?]
 ---
 :I assume you want to top...?
@@ -863,7 +866,7 @@ The bedframe squeaks with inanimate excitement.
 
 !`
 choicesPerPage = 1;
-
+`
 [I'll take that as a yes.]
 ---
 :I'll take that as a yes.
@@ -873,6 +876,7 @@ You lift your chin a little and stare at the stucco ceiling, once dripping dust,
 "Mmmngh?" Mynt asks. She reaches back and pulls her dress up until you can see each mound of her asscheeks peeking out, threaded by panties. Downstairs, her `myntCock("cock is tenting them; a tiny bead of pre forms on the fabric and drips onto your bare crotch", "cunt's all bunched up in their fabric. She pinches it and tugs it out, revealing a couple thin juice stains")`.
 
 !`
+choicesPerPage = 1;
 if (data.myntCock && (data.genitals == "male" || data.genitals == "both")) addChoice("Frot.", "frot1");
 if (!data.myntCock && (data.genitals == "female" || data.genitals == "both")) addChoice("Scissor.", "scissor1");
 if (!data.myntCock && (data.genitals == "male" || data.genitals == "both")) addChoice("Dry hump her cunt.", "vaginal1");
@@ -1600,9 +1604,9 @@ Mynt's face pops out of the window. She extracts a paw from her burrito and wave
 !`
 choicesPerPage = 1;
 `
-[Next.|End]
+[Next.|endWendyApt]
 ---
-:End
+:endWendyApt
 
 !`
 gotoEarth();
