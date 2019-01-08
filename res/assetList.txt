@@ -89,6 +89,8 @@ img/writer/icons/Hyper.png
 img/writer/icons/Hyper.spr
 img/writer/icons/Intersex.png
 img/writer/icons/Intersex.spr
+img/writer/icons/Incest.png
+img/writer/icons/Incest.spr
 img/writer/icons/Love.png
 img/writer/icons/Love.spr
 img/writer/icons/Music.png

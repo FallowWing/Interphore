@@ -291,20 +291,29 @@ function addChoice(choiceText, result, config) {
 		if (config.icons) {
 			config.icons.forEach(function(iconName, i) {
 				var icon = addImage(iconDatabase[iconName]);
-				if (isAndroid) {
-					icon.scaleX = icon.scaleY = 2;
-					icon.onRelease = function() {
-						msg(config.icons[i]);
-					}
-				} else {
-					icon.whileHovering = function() {
-						showTooltip(config.icons[i]);
-					}
-				}
-				icon.x = i * icon.width * icon.scaleY;
-				icon.y = -icon.height * icon.scaleY;
+				if (isAndroid) icon.scaleX = icon.scaleY = 2;
+
+				icon.x = i * icon.width * icon.scaleX + 2;
+				icon.y = -icon.height * icon.scaleY - 2;
 				icon.layer = CHOICE_TEXT_LAYER;
 				spr.addChild(icon);
+
+				icon.onRelease = function() {
+					msg(config.icons[i]);
+				}
+
+				icon.onHover = function() {
+					playEffect("audio/ui/hoverChoiceIcons");
+				}
+
+				icon.whileHovering = function() {
+					showTooltip(config.icons[i]);
+					icon.y = (-icon.height * icon.scaleY - 2) - 4;
+				}
+
+				icon.onUnHover = function() {
+					icon.y = -icon.height * icon.scaleY - 2;
+				}
 			});
 		}
 
@@ -476,6 +485,7 @@ function saveCheckpoint() {
 
 function saveGame() {
 	msg("Game Saved");
+	playEffect("audio/ui/rewards/checkmark");
 	saveGame_internal(checkpointStr);
 }
 
@@ -646,6 +656,7 @@ function queueCall(func) {
 function queueDelay(amount) {
 	var command = {};
 	command.type = "delay";
+	command.skippable = true;
 	command.addedTime = amount;
 	queuedCommands.push(command);
 }

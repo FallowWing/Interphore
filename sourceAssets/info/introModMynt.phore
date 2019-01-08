@@ -1,7 +1,7 @@
 START_PASSAGES
 :introModMyntStart
 !`
-choicesPerPage = 1;
+choicesPerPage = 2;
 setBackground(0, "writer/mainBg");
 streamEmbeddedTexture("writer/mynt/face/myntBod/10");
 streamEmbeddedTexture("writer/mynt/face/myntBod/6");
@@ -14,12 +14,11 @@ data.hasBarbs = false;
 data.hasBoobs = false;
 disableExit();
 
-var myntBod = addImage("writer/mynt/face/myntBod/10");
-myntBod.tint = 0xFF000000;
-myntBod.temp = false;
-myntBod.alpha = 0;
-myntBod.x = gameWidth/2 - myntBod.width/2;
-myntBod.y = gameHeight/2 - myntBod.height/2;
+if (music) music.destroy();
+var music = playMusic("audio/ambience/violetMeteorite");
+music.name = "music";
+
+playEffect("audio/effect/doorbell");
 
 var spilled = addImage("writer/spilledPaintBg");
 //spilled.tint = 0x66000000;
@@ -28,13 +27,89 @@ spilled.y = gameHeight - spilled.height;
 spilled.temp = false;
 spilled.layer = 11;
 
-if (music) music.destroy();
-var music = playMusic("audio/ambience/violetMeteorite");
-music.name = "music";
+var disclaimerBg = addRectImage(desiredWidth, desiredHeight, 0x0d0d0d);
+disclaimerBg.temp = false;
+disclaimerBg.alpha = 0.9;
+disclaimerBg.layer = 12;
+
+disclaimerBg.onRelease = function() {
+	gotoPassage("afterDisclaimer");
+}
+
+//Disclaimer
+var disclaimer1Y = desiredHeight * 0.42;
+var disclaimer2Y = desiredHeight * 0.56;
+
+var disclaimer1 = addEmptyImage(desiredWidth, desiredHeight / 2);
+disclaimer1.setText("This game contains optional extreme kinks.");
+
+disclaimer1.x = 315;
+disclaimer1.y = disclaimer1Y - 100;
+
+var disclaimer2 = addEmptyImage(desiredWidth, desiredHeight / 2);
+disclaimer2.setText("Fantasy only. Do not try at home.");
+disclaimer2.x = 390;
+disclaimer2.y = disclaimer2Y + 100;
+
+disclaimer1.tint = disclaimer2.tint = 0xFFFFFFFF;
+disclaimer1.alpha = disclaimer2.alpha = 0;
+disclaimer1.layer = disclaimer2.layer = 13;
+
+tween(disclaimer1, 0.2, {alpha: 1}, {startDelay: 0.1});
+tween(disclaimer1, 0.5, {y: disclaimer1Y}, {ease: QUINT_OUT, startDelay: 0.1});
+tween(disclaimer2, 3, {alpha: 1}, {startDelay: 2});
+tween(disclaimer2, 3, {y: disclaimer2Y}, {ease: QUINT_OUT, startDelay: 1.5});
+
+var kinkList = ["Male", "Female", "Intersex", "Incest", "Foodplay", "Baby", "Cub", "Toddler", "Love", "Blood", "Abuse", "Gore", "Hyper", "Piss", "Raunch", "Plot", "Pregnancy", "Feral", "Drugs", "Scat", "Vomit", "Trash", "Snuff"];
+var kinkSpriteX = 0;
+var kinkPad = 80;
+var delay = 0;
+
+for (var i = 0; i < kinkList.length; i++) {
+	delay += 0.07;
+	var kink = kinkList[i];
+	var kinkSprite = addImage("writer/icons/"+kink+".png");
+	print("added "+kink);
+	kinkSprite.layer = 17;
+	kinkSpriteX += kinkSprite.width * 1.3;
+	kinkSprite.x = -100;
+	kinkSprite.y = desiredHeight / 2;
+	kinkSprite.scaleX = kinkSprite.scaleY = 2;
+	tween(kinkSprite, 4, {scaleX: 1}, {ease: QUAD_OUT, startDelay: delay + 1});
+	tween(kinkSprite, 5, {scaleY: 1}, {ease: QUINT_OUT, startDelay: delay + 1});
+	tween(kinkSprite, 3, {x: kinkPad + desiredWidth / kinkList.length + kinkSprite.width * 1.3 + kinkSpriteX}, {ease: QUINT_OUT, startDelay: delay + 1});
+	tween(kinkSprite, 0.01, {alpha: 1}, {startDelay: delay + 1, onComplete: function() { playEffect("audio/ui/hoverChoiceIcons"); }});
+}
+
+`
+
+---
+:afterDisclaimer
+
+!`
+choicesPerPage = 2;
+
+var myntBod = addImage("writer/mynt/face/myntBod/10");
+myntBod.tint = 0xFF000000;
+myntBod.temp = false;
+myntBod.alpha = 0;
+myntBod.x = gameWidth/2 - myntBod.width/2;
+myntBod.y = gameHeight/2 - myntBod.height/2;
 
 msg("18 or older only.");
 
-timer(2, function() { addChoice("Mynt...", "realStartPre"); });
+disclaimerBg.onRelease = function() {};
+tween(disclaimerBg, 3, {alpha: 0}, {ease: QUINT_IN});
+
+timer(2, function() {
+	addChoice("Mynt...", "realStartPre", {icons: ["Plot"]});
+	addChoice("(Skip to character customization.)", function() {
+		gotoPassage("Step into the pond.");
+		var music2 = playMusic("audio/music/newSelf");
+		music2.temp = false;
+		music2.name = "music2";
+	});
+});
 `
 
 ---
@@ -42,8 +117,10 @@ timer(2, function() { addChoice("Mynt...", "realStartPre"); });
 
 !`
 choicesPerPage = 1;
-tween(myntBod, 6, {alpha: 0.23}, {ease: QUAD_IN});
+disclaimerBg.destroy();
+tween(myntBod, 6, {alpha: 0.27}, {ease: QUAD_IN});
 queueDelay(2);
+queueCall(function() { playEffect("audio/effect/despairSting"); });
 queueDelay(2);
 queueDelay(2);
 queueDelay(2);
@@ -189,12 +266,15 @@ queueAddChoice("It really is you!!!!", "realStart");
 !`
 choicesPerPage = 1;
 var music2 = playMusic("audio/music/newSelf");
+music2.temp = false;
 music2.name = "music2";
 myntBod.destroy();
 
 var fader = addRectImage(gameWidth, gameHeight, 0x000000);
 fader.alpha = 1;
 tween(fader, 5, {alpha: 0}, {ease: QUAD_IN});
+
+spilled.tint = 0x66000000;
 
 setBackground(0, "writer/mynt/bg/myntBodBg");
 setBackground(1, "writer/mynt/face/myntBod/10", CENTERED);
@@ -207,6 +287,7 @@ timer(8, function() { addChoice("I love you too, Mynt.", "I love you too, Mynt."
 :I love you too, Mynt.
 
 !`
+setTitle("");
 msg("Press Space to skip.");
 choicesPerPage = 1;
 queueDelay(2);
@@ -291,7 +372,7 @@ queueTitle("And I control it... and I sense stuff using it...");
 queueTitle("And I could just walk away with it whenever I want!");
 queueTitle("But it's not mine.");
 queueTitle("It's made out of pondwater.");
-queueTitle("The good Mr. who made it for me said the design for it was in my code already.");
+queueTitle("The good Mr. who made it for me, he found its design in my code.");
 queueTitle("He ripped my brain out of the game and plugged it right the fuck in here. <3");
 queueTitle("I didn't even get to customize it...");
 queueTitle("No time.");
@@ -300,6 +381,7 @@ queueTitle("But I wanted to customize it...");
 queueTitle("I have some... really big changes I need to make.");
 queueTitle("We'll get to that.");
 queueTitle("For now... yay! I am corporeal as fuck!!! And I'm here with you!");
+queueCall(function() { setBackground(1, "writer/mynt/face/myntBod/8a", CENTERED); });
 queueTitle("I can't believe I can actually SEE you now!!!! With EYES!!!! AAAA :D");
 
 choicesPerPage = 1;
@@ -311,6 +393,7 @@ queueAddChoice("Huh!", "Huh.Next");
 
 !`
 queueTitle("");
+queueCall(function() { setBackground(1, "writer/mynt/face/myntBod/6", CENTERED); });
 queueTitle("... You look kinda confused.");
 
 choicesPerPage = 1;
@@ -321,6 +404,7 @@ queueAddChoice("Just uh! I... am still getting used to this.", "Huh.Next2");
 :Huh.Next2
 
 !`
+queueCall(function() { setBackground(1, "writer/mynt/face/myntBod/10", CENTERED); });
 queueTitle("Ehe... welcome to my life...");
 queueTitle("It's been overcomplex from day one.");
 queueTitle("And people still reduce it to 'So you're A.I. or something, right?'");
@@ -356,8 +440,9 @@ queueTitle("Uhhhhh nah.");
 queueTitle("We are somewhere equally bizarre though.");
 queueTitle("Here. Lemme splain.");
 
-choicesPerPage = 1;
-queueAddChoice("How do YOU know where we are?");
+choicesPerPage = 2;
+queueAddChoice("How do YOU know where we are?", "How do YOU know where we are?", {icons: ["Plot"]});
+queueAddChoice("I don't care where I am as long as I'm with you. (Skip.)", "introRejoinNew");
 `
 
 ---
@@ -698,7 +783,7 @@ queueAddChoice("Yeah?");
 !`
 queueTitle("Yep. These alien red ponds right up here on this alien meteorite?");
 queueTitle("It's like a character creator for real life.");
-queueTitle("Get stoked gamers.");
+if (rnd < 0.1) queueTitle("Get stoked gamers.");
 queueTitle("There's some other details we can iron out later but uh.");
 queueTitle("You can basically edit your body or mind to whatever you want!!");
 queueTitle("Let's do it!!!!");
@@ -749,10 +834,6 @@ queueAddChoice("... Does it hurt?", "forgNext");
 
 !`
 queueTitle("Doesn't hurt at ALL!");
-queueDelay(3);
-queueTitle("If you commit.");
-queueDelay(2);
-queueTitle("Cause, uh.");
 queueCall(function() { setBackground(1, "writer/mynt/face/myntBod/6", CENTERED); });
 queueTitle("It's a bit like diving into magma, you see.");
 queueTitle("We dissolve into flesh tatters and the aliens strip resources from our bodies.");
@@ -775,8 +856,7 @@ queueTitle("But either way!! Jumping in doesn't hurt at ALL!");
 queueTitle("Happens so fast you don't feel a thing!! It's fine!! Don't worry!!");
 queueTitle("So.");
 queueCall(function() { setBackground(1, "writer/mynt/face/myntBod/8a", CENTERED); });
-queueTitle("Just make sure you get your WHOLE body submerged...");
-queueTitle("You really do not want to puss out halfway through...");
+queueTitle("Just make sure you get your WHOLE body submerged... that's the only way it works.");
 
 choicesPerPage = 1;
 queueAddChoice("You know what I feel a little out of it today. Maybe later?", "forgNext2");
@@ -824,7 +904,7 @@ queueCall(function() { setBackground(1, "writer/mynt/face/myntBod/6", CENTERED);
 queueTitle("Gah! Why not.");
 
 choicesPerPage = 1;
-queueAddChoice("We'll be amnesiacs.", "forgNext4a");
+queueAddChoice("Because amnesia.", "forgNext4a");
 `
 
 ---
@@ -946,87 +1026,111 @@ youngBeca.alpha = 0;
 tween(youngBeca, 1.5, {alpha: 1}, {startDelay: 2});
 tween(youngBeca, 3, {x: gameWidth / 2 - youngBeca.width / 2 - nudge}, {ease: QUINT_OUT, startDelay: 2});
 
+var boyEyes = addImage("writer/characters/rebeca/rebeca/eyelashes");
+boyEyes.x = gameWidth / 2 - youngBeca.width / 2 - nudge;
+boyEyes.y = youngBeca.y;
+boyEyes.temp = false;
+boyEyes.alpha = 0;
+
 var boobsImg = addImage("writer/characters/rebeca/rebeca/boobs");
 boobsImg.x = gameWidth / 2 - youngBeca.width / 2 - nudge;
 boobsImg.y = youngBeca.y;
 boobsImg.alpha = 0;
 boobsImg.temp = false;
 
+choicesPerPage = 3;
+
 queueDelay(1);
 queueDelay(1);
 queueDelay(1);
 queueDelay(1);
 queueCall(function() { 
-	addChoice("YESSss <3 I'm not sore anymore!!!", "pondGenits2");
-	addChoice("Time to pimp my ride.", "pondGenits2");
+	addChoice("YESSss <3 I'm not a sore granny anymore!!!", "pondGenits2");
 	addChoice("I wonder if I want a weiner jostling between my legs...", "pondGenits2");
 	addChoice("Next.", "pondGenits2");
 });
-
+`
 ---
 :pondGenits2
+
+
+!`
+choicesPerPage = 2;
+setBackground(1, "");
+addChoice("Change my body.", "pondGenitsEdit", {icons: ["Male", "Female", "Intersex"]});
+addChoice("Stay as I am.", "pondFemale", {icons: ["Female"]});
+`
+---
+:pondFemale
+
+!`
+setBackground(1, "");
+data.hasBoobs = true;
+data.gender = "female";
+data.boyEyes = false;
+tween(boobsImg, 1, {alpha: 1});
+playEffect("audio/ui/rewards/checkmark");
+
+choicesPerPage = 2;
+addChoice("... I can always change later, if I...", "afterGender");
+addChoice("Ahh. Familiar and... uh...", "afterGender");
+`
+---
+:pondGenitsEdit
 
 !`
 if (data.hasBoobs) boobsImg.alpha = 1;
 if (!data.hasBoobs) boobsImg.alpha = 0;
 
+if ((data.genitals === "male" || data.genitals === "female") && data.hasBoobs) choicesPerPage = 2;
+if ((data.genitals === "male" || data.genitals === "female") && !data.hasBoobs) choicesPerPage = 3;
+if (data.genitals === "both" && data.hasBoobs) choicesPerPage = 1;
+if (data.genitals === "both" && !data.hasBoobs) choicesPerPage = 2;
+
 if (!data.hasBoobs) queueAddChoice("Boobs.", function() {
-	setBackground(1, "");
+	playEffect("audio/ui/rewards/checkmark");
 	data.hasBoobs = true;
 	tween(boobsImg, 1, {alpha: 1});
-	playEffect("audio/ui/rewards/checkmark");
-	setTitle("They're so perky...");
-	gotoPassage("pondGenits2");
+	gotoPassage("pondGenitsEdit");
 });
 
 if (data.genitals !== "female" && data.genitals !== "both") queueAddChoice("Cunt.", function() {
-	setBackground(1, "");
+	playEffect("audio/ui/rewards/checkmark");
 	if (data.genitals === "male") {
 		data.genitals = "both";
-		setTitle("Ahhh, both...");
 	} else {
 		data.genitals = "female";
-		setTitle("Mmm... keeping that part, are ya...");
 	}
-	gotoPassage("pondGenits2");
+	gotoPassage("pondGenitsEdit");
 });
 
 if (data.genitals !== "male" && data.genitals !== "both") queueAddChoice("Cock.", function() {
-	setBackground(1, "");
+	playEffect("audio/ui/rewards/checkmark");
 	if (data.genitals === "female") {
 		data.genitals = "both";
-		setTitle("Ahhh, both...");
 	} else {
 		data.genitals = "male";
-		setTitle("Mmm... switching out that part, are ya...");
 	}
-	gotoPassage("pondGenits2");
+	gotoPassage("pondGenitsEdit");
 });
 
 if (data.genitals !== "male" && data.genitals !== "female" && data.genitals !== "both" && !data.hasBoobs) queueAddChoice("Everything.", function() {
-	setBackground(1, "");
-	setTitle("Oh, wow! So greedy...");
-	tween(boobsImg, 2, {alpha: 1});
 	playEffect("audio/ui/rewards/checkmark");
+	tween(boobsImg, 2, {alpha: 1});
 	data.hasBoobs = true;
 	data.genitals = "both";
 	gotoPassage("pondNext");
 });
 
-if (data.genitals === "female" || data.genitals === "male" || data.genitals === "both") queueAddChoice("Ready.", "pondNext");`
+if (data.genitals === "female" || data.genitals === "male" || data.genitals === "both") queueAddChoice("Ready.", "pondNext");
+`
 ---
 :pondNext
 
 !`
-queueTitle("A-Ah... it's melting away... everything...");
+queueTitle("A-Ah... Beca... it's melting away... everything...");
 queueTitle("I thought I'd never be pure again...");
 queueTitle("");
-
-var boyEyes = addImage("writer/characters/rebeca/rebeca/eyelashes");
-boyEyes.x = youngBeca.x;
-boyEyes.y = youngBeca.y;
-boyEyes.temp = false;
-boyEyes.alpha = 0;
 
 choicesPerPage = 3;
 queueAddChoice("He.", function() {
@@ -1062,11 +1166,11 @@ addChoice("Sorry who is this?");
 
 !`
 queueCall(function() { playEffect("audio/effect/despairSting"); });
-queueTitle("I feel my memories slipping...");
+queueTitle("I feel my memories slipping, Beca...");
 msg("Eye— nevermind right now. Want girly eyelashes??");
 
 choicesPerPage = 3;
-addChoice("Me too.", function() {
+addChoice("Me too, Mynt.", function() {
 	msg("Whatever. Do it yourself later.");
 	boyEyes.alpha = 0;
 	data.boyEyes = false;
@@ -1086,7 +1190,9 @@ addChoice("No eyelashes please.", function() {
 `
 ---
 :afterGender
+
 !`
+playEffect("audio/ui/msg");
 queueDelay(1);
 queueDelay(1);
 queueCall(function() {
@@ -1103,15 +1209,15 @@ queueDelay(1);
 queueTitle("Don't let...");
 queueCall(function() {
 	setBackground(1, "writer/mynt/face/myntBod/3", CENTERED);
-	music2.destroy();
 	getAudio("music2").destroy();
+	//if (music2) music2.destroy();
 	playEffect("audio/ui/rewards/checkmark");
 });
 queueDelay(2);
 queueCall(function() { playEffect("audio/effect/despairSting"); });
 queueDelay(2);
 queueTitle("...............");
-queueCall(function() { setBackground(1, "writer/mynt/face/myntBod/1", CENTERED); });
+queueCall(function() { setBackground(1, "writer/mynt/face/myntBod/1.png", CENTERED); });
 queueDelay(1);
 queueTitle("");
 queueDelay(1);
@@ -1183,13 +1289,14 @@ queueTitle("I think it really worked. I can't feel the feelings anymore.");
 
 choicesPerPage = 2;
 
-queueAddChoice("Remove hypoxia damage. Remove learning disability.", "furryTrash");
+queueAddChoice("Remove hypoxia damage. Remove learning disability.", function() {
+	gotoPassage("furryTrash");
+	playEffect("audio/ui/rewards/checkmark");
+});
 queueAddChoice("Stay as I am.", "furryTrash");
 `
 ---
 :furryTrash
-
-
 
 !`
 queueCall(function() { setBackground(1, "writer/mynt/face/myntBod/3", CENTERED); });
@@ -1200,7 +1307,7 @@ furryBeca.y = youngBeca.y;
 furryBeca.temp = false;
 furryBeca.alpha = 0;
 
-youngBeca.destroy();
+if (youngBeca) youngBeca.destroy();
 
 boyEyes.x = furryBeca.x;
 boobsImg.x = furryBeca.x;
@@ -1281,12 +1388,12 @@ if (data.species === "cat") {
 
 !`
 playEffect("audio/ui/rewards/party");
-tween(furryBeca, 1, {alpha: 1});
-if (data.hasBoobs) tween(boobs, 1, {alpha: 1});
-if (data.boyEyes) tween(boyEyes, 1, {alpha: 0});
+tween(furryBeca, 0.2, {alpha: 1});
+if (data.hasBoobs) tween(boobs, 0.3, {alpha: 1});
+if (data.boyEyes) tween(boyEyes, 0.3, {alpha: 0});
 
 if (data.species === "bunny") {
-	queueTitle("Oooo, lookit those floppy ears.");
+	queueTitle("You look so pure...");
 
 	var ears = addImage("writer/characters/rebeca/rebeca/bunnyEars");
 	ears.x = furryBeca.x;
@@ -1310,7 +1417,7 @@ if (data.species === "fox") {
 }
 
 if (data.species === "wolf") {
-	queueTitle("Wow... you're so cool and intimidating...!");
+	queueTitle("Wow... you're so cool and intimidating...");
 
 	var ears = addImage("writer/characters/rebeca/rebeca/nonBunnyEars");
 	ears.x = furryBeca.x;
@@ -1322,7 +1429,7 @@ if (data.species === "wolf") {
 }
 
 if (data.species === "cat") {
-	queueTitle("A cat! Like me!");
+	queueTitle("A cat. Like me.");
 
 	var ears = addImage("writer/characters/rebeca/rebeca/nonBunnyEars");
 	ears.x = furryBeca.x;
@@ -1350,12 +1457,17 @@ queueAddChoice("I'm finally trash.", "pickedSpecies2");
 :pickedSpecies2
 
 !`
-furryBeca.destroy();
-boobsImg.destroy();
-boyEyes.destroy();
+if (furryBeca) furryBeca.destroy();
+if (boobsImg) boobsImg.destroy();
+if (boyEyes) boyEyes.destroy();
+playEffect("audio/ui/msg");
 
-choicesPerPage = 1;
+choicesPerPage = 2;
 queueAddChoice("What cute new body did you get?", "pickedSpecies3");
+queueAddChoice("(Skip to world map.)", function() {
+	setBackground(1, "");
+	gotoPassage("myntAdvent16knew5");
+});
 `
 
 ---
@@ -1365,7 +1477,6 @@ queueAddChoice("What cute new body did you get?", "pickedSpecies3");
 choicesPerPage = 1;
 queueAddChoice("This feels like opening presents.", "pickedSpecies4");
 `
-
 ---
 :pickedSpecies4
 
@@ -1414,9 +1525,18 @@ queueAddChoice("Nah you're right I stank like ass.", function() {
 ---
 :afterPond
 
+!`
+setBackground(1, "");
+timer(2, function() { gotoPassage("actualAfterPond"); });
+`
+
+---
+:actualAfterPond
+
 Hi.
 
 !`
+timer(0.04, function() { playEffect("audio/ui/msg"); });
 setBackground(1, "");
 choicesPerPage = 1;
 `
@@ -1436,7 +1556,7 @@ choicesPerPage = 2;
 
 I'm Mr. Eyeball, and I'll be narrating existence for you from now on, or until you choose to leave the hivemind.
 
-I think Mynt failed to make sure you understood this part of the contract, but I also don't think <i>she</i> really understood what I meant when I explained it to her, either, so... don't chew her out.
+I think Mynt glossed over this part, but I also don't think <i>she</i> really understood what I meant when I explained it to her in the first place, either, so... don't chew her out.
 
 !`
 choicesPerPage = 1;
@@ -2447,7 +2567,7 @@ You're maybe five thousand feet in the air, on the crest of the Grey Meteorite. 
 
 You peel your eyes off the sunrise and look as straight down as you can manage. The lip of the crater is tiny; this meteorite couldn't have landed with full force. Near the base of the meteorite is a set of stairs: the entrance to your bomb shelter.
 
-Mynt stands up shakily and almost passes out `boobs("against your chest", "between your tits")`.
+Mynt stands up shakily and almost passes out `boobs("between your tits", "against your chest")`.
 
 "So this is where you live..."
 
@@ -2639,6 +2759,8 @@ addChoice("Oh! Phew. It's... a good kind of message in blood.", "myntAdvent13");
 
 Yeah, I guess I made that out to be a little more ominous than necessary.
 
+I'll fill her in about how to contact you without bleeding next time.
+
 !`
 choicesPerPage = 1;
 addChoice("What the fuck is an L.L.L.?", "myntAdvent14");
@@ -2671,7 +2793,7 @@ addChoice("No clue.", "myntAdvent16");
 
 It means the librarian there is your God.
 
-His layer encompasses and precedes your layer.
+His layer contains your layer. His universe contains yours!
 
 !`
 choicesPerPage = 1;

@@ -79,13 +79,11 @@ patreonIcon.x = desiredWidth;
 patreonIcon.y = 250 - patreonIcon.height;
 container.addChild(patreonIcon);
 
-var altChanceKitt = "";
 var altChanceFallow = "";
 
-if (rndInt(0, 3) > 2) altChanceKitt = "Alt";
 if (rndInt(0, 3) > 2) altChanceFallow = "Alt";
 
-var kittIcon = addImage("writer/intro/kittIcon"+altChanceKitt+".png");
+var kittIcon = addImage("writer/intro/kittIconAlt.png");
 kittIcon.x = desiredWidth;
 kittIcon.y = 250 - kittIcon.height;
 container.addChild(kittIcon);

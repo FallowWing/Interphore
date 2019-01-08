@@ -13,6 +13,7 @@ You find a red pond, no matter where you are.
 If you jump in, you can change your body again.
 
 !`
+setBackground(0, "writer/mainBg");
 choicesPerPage = 2;
 addChoice("Jump in.", function() {
 	if (!data.shapeExperimented) {
@@ -61,9 +62,9 @@ choicesPerPage = 1;
 ---
 :experimentCock
 
-Your chin and knees drop to the ground. Heat wracks your body. Your `boobs("tits grind", "flat chest grinds")` hard against the edge of the pond as you struggle to pull yourself up and out, but it's pointless: your muscles are already melting into pure cum and cockmeat. The only muscle you need is the brand new one at the base of your spine which makes your whole body flex like a throbbing dick. Your maw puckers up, sour, then stretches out and overtakes your overstimulated nose to form one massive slit that hangs off the front of your face. Your eyes roll back and become smooth cockhead flesh.
+Your chin and knees drop to the ground. Heat wracks your body. Your `boobs("tits grind", "flat chest grinds")` hard against the edge of the pond as you struggle to pull yourself up and out, but it's pointless: your muscles are already melting into pure cum and cockmeat. The only muscle you need is the brand new one at the base of your spine which makes your whole body flex like a throbbing dick. Your maw puckers up, sour, then stretches out and overtakes your nose to form one massive slit that hangs off the front of your face. Your eyes roll back and become smooth cockhead flesh.
 
-Your arms tuck up underneath you and meld together into a urethra already slick with gushes of precum. Downstairs, both knees slide out to either side, and your heels literally sink into your asscheeks, thighs and calves no longer used for movement or self-determination, no, now those muscles have been repurposed as the churning cum factory of two fat nuts the size of both of your legs.
+Living cocks don't need motor control. Your arms tuck up underneath you and meld together into a urethra already slick with gushes of precum. Downstairs, both knees slide out to either side, and your heels literally sink into your asscheeks, thighs and calves no longer used for movement or self-determination, no, now those muscles have been repurposed as the churning cum factory of two fat nuts the size of both of your legs.
 
 You try to wiggle forward. It's pointless. All you can do is flop around and burp adorable little gushes of precum all over yourself.
 
@@ -175,11 +176,13 @@ choicesPerPage = 3;
 
 addChoice("He.", function() {
 	data.gender = "male";
+	data.boyEyes = true;
 	gotoPassage("Shapeshift.3");
 });
 
 addChoice("She.", function() {
 	data.gender = "female";
+	data.boyEyes = false;
 	gotoPassage("Shapeshift.3");
 });
 

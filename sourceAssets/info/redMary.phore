@@ -50,7 +50,7 @@ The main trail through Bright Forest was beaten deeper and deeper by foot traffi
 !`
 choicesPerPage = 1;
 `
-[... Are you into naruto, Mr. Eyeball?|redMary5]
+[... Are you into Naruto, Mr. Eyeball?|redMary5]
 ---
 :redMary5
 
@@ -559,9 +559,14 @@ choicesPerPage = 1;
 
 She sets the basket down and ties her mess of blonde hair up into a bun. She's comfortable and in control. Definitely over 18. Maybe just a little excited, underneath her collected exterior. Her chest is flat and covered by a long-sleeved sweater, which you only noticed now because you're so desensitized to sex and nudity. Her modest slacks conceal any hint of a cuntbulge.
 
-She finishes her bun and pats it for good luck. "I know both of you. You're Mynt— and you're `data.playerName`, formerly Rebeca. Right?"
+She finishes her bun and pats it for good luck. She explains that she left an anti-amnesia journal for herself. You were both in it.
 
-!`
+She declares it: you're Mynt and !`if (data.playerName === "Rebeca" || data.playerName === "rebeca") {
+	append("Rebeca.");
+} else {
+	append(data.playerName + ", formerly Rebeca.");
+}
+
 choicesPerPage = 1;
 `
 [(I want to talk to Mynt directly, Mr. Eyeball.)|redMary17]
