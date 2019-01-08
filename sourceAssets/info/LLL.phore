@@ -103,7 +103,7 @@ choicesPerPage = 2;
 !`
 choicesPerPage = 1;
 `
-[You goofin wild on some sticky fresh Wank House bangers with a—|trans7]
+[You goofin wild on some sticky fresh Wank House bangers with a~~|trans7]
 ---
 :trans7
 
@@ -216,7 +216,7 @@ choicesPerPage = 1;
 [Wasn't he supposed to be on break...?|hubLLL]
 ---
 :layerLLL
-LAYER NAME: L.L.L. — formerly G.C.D. (GAY CUB DUNGEON)
+LAYER NAME: L.L.L. ~~ formerly G.C.D. (GAY CUB DUNGEON)
 PARENT LAYER: The Red Sea
 PARENT ENTITY: Mr. Eyeball
 CHILD LAYERS: Spilled Paint (+87 children)
@@ -633,6 +633,6 @@ Remember that your enlistment as a Paraphore can be cancelled at any time prior 
 !`
 choicesPerPage = 1;
 `
-[Back.|Rules of Operation for Paraphores.]
+[Back.|hubLLL]
 
 END_PASSAGES

@@ -110,7 +110,7 @@ You touch the cool, polished handle of the brush. But you still aren't holding i
 !`
 choicesPerPage = 1;
 `
-[Ah— thanks? What's this for again?|myntTidbit]
+[Ah~~ thanks? What's this for again?|myntTidbit]
 ---
 :myntTidbit
 

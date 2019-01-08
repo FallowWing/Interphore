@@ -138,7 +138,7 @@ vn.say(0, "I forgive you...");
 vn.say(1, "Oh, my Lord! <3 So you'll let me visit you? Where are you now?");
 vn.say(0, "... conditionally.");
 vn.say(1, "Thank you so much.");
-vn.say(1, "I can't wait to meet Mynt now that she has a body and—");
+vn.say(1, "I can't wait to meet Mynt now that she has a body and~~");
 vn.say(1, "Conditionally?");
 vn.say(1, "What does that mean, 'conditionally?'");
 
@@ -183,7 +183,7 @@ vn.say(1, "... Phooey.");
 vn.say(0, "Ok I gotta go. Mynt is scratching at the door because she wants out or in or neither or both.");
 vn.say(0, "Mom really gave her a bad case of agoraclaustrophobia, forcing her to live in a game forever.");
 vn.say(1, "I am certain she did.");
-vn.say(1, "If I may ask— why are you so set on finding your mother?");
+vn.say(1, "If I may ask~~ why are you so set on finding your mother?");
 vn.say(0, "You may not ask.");
 vn.say(0, "Come visit sometime soon, alright Gabe?");
 vn.say(0, "And don't be... weird about it.");

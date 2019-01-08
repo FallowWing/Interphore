@@ -127,12 +127,12 @@ patreonIcon.whileHovering = function() {
 
 kittIcon.whileHovering = function() {
 	kittIcon.tint = 0x3303a3ff;
-	showTooltip("Writer — Kittery");
+	showTooltip("Writer ~~ Kittery");
 }
 
 fallowIcon.whileHovering = function() {
 	fallowIcon.tint = 0x3303a3ff;
-	showTooltip("Coder — Fallow");
+	showTooltip("Coder ~~ Fallow");
 }
 
 patreonIcon.onHover = function() {

@@ -297,7 +297,7 @@ choicesPerPage = 1;
 
 <i>Click.</i>
 
-You're surrounded by the ruins of an old mansion. Unlike the pristine outer walls of the mansion, everything inside was clearly put together by hand— and it's not bad, you mean, the wooden spiral staircase is treated oak, still shiny and solid, and the rooms are all intact, but none of it has the unnatural gleam of hacked perfection that you found on the outside.
+You're surrounded by the ruins of an old mansion. Unlike the pristine outer walls of the mansion, everything inside was clearly put together by hand~~ and it's not bad, you mean, the wooden spiral staircase is treated oak, still shiny and solid, and the rooms are all intact, but none of it has the unnatural gleam of hacked perfection that you found on the outside.
 
 !`
 choicesPerPage = 1;
@@ -355,7 +355,7 @@ The snout pulls away to reveal Cage, a hunky bull with dead fish eyes and jets o
 
 A lamb's paw slides in from offscreen. He shows you a title card:
 
-<i>Day 1,103,760 — Fuckmeat enlightenment attempt #578
+<i>Day 1,103,760 ~~ Fuckmeat enlightenment attempt #578
 Carried out by: Cage & Som</i>
 
 Cage reaches out of frame and comes back with a cute little drooling, babbling baby armadillo girl tucked into the crook of his elbow. He jerks his chin at the lamb offscreen. "So it's going now, right?"
@@ -453,13 +453,13 @@ choicesPerPage = 1;
 ---
 :blackClass6
 
-Som hurries to add: "But— it seemed like she almost mirrored your palm, there. Maybe twenty more years <b>if</b> we focus only on her— and <b>if</b> it's possible at all to make Fuckmeat more than dumb baby-shaped NPCs, which I uh... I still don't think it is possible."
+Som hurries to add: "But~~ it seemed like she almost mirrored your palm, there. Maybe twenty more years <b>if</b> we focus only on her~~ and <b>if</b> it's possible at all to make Fuckmeat more than dumb baby-shaped NPCs, which I uh... I still don't think it is possible."
 
 Cage abruptly stands up and punches one of the camera's buttons with his thumb. The video stutters and refocuses. His dramatic exit falls flat.
 
 "Fuckin..." He fumbles around with the buttons. The camera scrolls through sepia and negative color modes for a second.
 
-The lamb's fingers slide into frame. "Here. See? The button to stop recording is the big one with the—"
+The lamb's fingers slide into frame. "Here. See? The button to stop recording is the big one with the~~"
 
 Cage bats his hand away. "Shut up. I know. I just fat-fingered it is all."
 
@@ -503,13 +503,13 @@ choicesPerPage = 2;
 
 It's terse and to-the-point. Cage must have written it.
 
-<i>Day 448,930 — Finally giving up
+<i>Day 448,930 ~~ Finally giving up
 
 Kept six nurseries near our bedrooms with the original room layout and design. When they learn sentience we will have those ready for them. Should be within the next 1k if we work hard. I hope so anyway. Som is doubtful.
 
 Their libido is keeping them up all night every night now. Can't sleep myself. So. Finally gave in and let Som corrupt the rest of the rooms. Had Lana over to paint the walls with porn too. Dunno why he is so into painting lately. Maybe the little ones will actually sleep through the night now that they all have goddamn cock chandeliers to stare at. Doubt it though.
 
-Day 448,931 — Goddamnit
+Day 448,931 ~~ Goddamnit
 
 The cock chandeliers worked. They tire themselves out reaching for them. So I don't have to listen to the whining all night anymore.
 
@@ -528,15 +528,15 @@ addChoice("Back.", "blackHub");
 
 This one is extra worn and dusty. Looks four thousand years old. You peel apart the crusty pages and a little key falls out. It's got a rubber ducky charm on it and it kind of smells bad...
 
-<i>Day 87 — Nearing completion
+<i>Day 87 ~~ Nearing completion
 
 Everyone keeps telling me to use admin powers or let them use theirs to finish the sanctuary. Fuck that. I said I was going to build it by hand and I am going to build it by hand. This is the only way I can atone.
 
-Day 88 — Goddamnit
+Day 88 ~~ Goddamnit
 
 I do need a defense system. Fuckmeat do not respawn. Unless I want all my hard work to periodically go down the shitter when Septrica and Marie sneak over for baby snuff rampages I will have to find some way to keep everyone out.
 
-Day 89 — Goddamnit x2
+Day 89 ~~ Goddamnit x2
 
 Okay I let Som build a gate and a fence and a whole noclip-proof exterior with admin. I feel dirty. I will build more rooms inside to make up for it. I guess. How am I supposed to atone like this?
 </i>
@@ -551,7 +551,7 @@ msg("Got Bathroom Key!");
 ---
 :blackBeds3
 
-<i>Day 1,461,000 — Som leaving</i>
+<i>Day 1,461,000 ~~ Som leaving</i>
 
 My last assistant gave up on me. He wants to leave now that the red juice aliens are letting people into their special fucking club. I don't care. He was never on board with the Sanctuary's mission anyway.
 
@@ -559,9 +559,9 @@ The Fuckmeat are helpless and vulnerable. No one will be here to look after them
 
 Fuck Som. Fuck that stupid lamb. I can't just leave. I will atone.
 
-I know. I'll drop one in the pond. Maybe they'll choose a feral body, or something simple like that, it doesn't matter what— the point is they will <b>choose</b> something. Fucking lamb. After that he will have to admit what I did to them was wrong.
+I know. I'll drop one in the pond. Maybe they'll choose a feral body, or something simple like that, it doesn't matter what~~ the point is they will <b>choose</b> something. Fucking lamb. After that he will have to admit what I did to them was wrong.
 
-<i>Day 1,461,003 — Stressed and confused</i>
+<i>Day 1,461,003 ~~ Stressed and confused</i>
 
 Confirmed my worst fears. Even after all my work. The baby wasn't assimilated. Dropped it in the pond. Gone. No response.
 
@@ -582,9 +582,9 @@ You head to the lounge.
 
 Here's the clock you heard earlier, ticking happily away with no one around to hear it. The couches are super duper comfy. You drop your ass in one and sink into cushions that embrace you like the womb. There's another T.V. here, a big fancy one, and some extremely dark videos:
 
-<i>Libido suppression attempt #1</i> — Castration
-<i>Libido suppression attempt #2</i> — Brain fingerfuck
-<i>Libido suppression attempt #3</i>— Electrotherapy
+Libido suppression attempt #1 ~~ Castration
+Libido suppression attempt #2 ~~ Brain fingerfuck
+Libido suppression attempt #3~~ Electrotherapy
 
 Before I narrate any of these, are you even into this at all?
 
@@ -626,9 +626,9 @@ choicesPerPage = 1;
 ---
 :blackLoungeHub
 
-<i>Libido suppression attempt #1</i> — Castration
-<i>Libido suppression attempt #2</i> — Brain fingerfuck
-<i>Libido suppression attempt #3</i>— Electrotherapy
+<i>Libido suppression attempt #1</i> ~~ Castration
+<i>Libido suppression attempt #2</i> ~~ Brain fingerfuck
+<i>Libido suppression attempt #3</i>~~ Electrotherapy
 
 !`
 addChoice("Attempt #1.", "blackLoungeCast", {icons: ["Baby", "Male", "Gore", "Gore", "Gore"]});
@@ -671,7 +671,7 @@ He lowers his hands to the boy's waist, cupping each thigh in a palm, and works 
 
 "You're not getting into it, are you?" the lamb asks.
 
-Cage snaps back at him. "Of course not. This is just my way of helping— of making him more comfortable, and. You know."
+Cage snaps back at him. "Of course not. This is just my way of helping~~ of making him more comfortable, and. You know."
 
 "Mmmmmmhm."
 
@@ -745,7 +745,7 @@ choicesPerPage = 2;
 
 ... Still, he holds the scalpel there. He can't do it.
 
-The lamb gently takes his hands off the fuckmeat's chest, letting him free to rock around and try to cut himself on the scalpel. Cage pulls it away, his hand shaking. "Fuckin little... he won't stay still, that's the problem, if he would just—"
+The lamb gently takes his hands off the fuckmeat's chest, letting him free to rock around and try to cut himself on the scalpel. Cage pulls it away, his hand shaking. "Fuckin little... he won't stay still, that's the problem, if he would just~~"
 
 "Give me that."
 
@@ -795,7 +795,7 @@ choicesPerPage = 2;
 
 Som whistles casually while he grabs both nuts in a crushing grip, yanks them away from the fox's groin, and slashes the whole sack free, leaving a deep red hole just below his cocklet. His tiny paws wander down and try to fingerfuck his new pussy. Som tsks. "Grab him."
 
-Cage's big strong dad hands close around the baby's wrists. He pulls the arms out to either side and holds them there, being as gentle as he possibly can. A bit too gentle— the fuckmeat easily pulls his paw away and reaches back down to drive three fingers up his wound, his cute face going all ahegao. Cage quickly pulls them out and pins them properly to the crib.
+Cage's big strong dad hands close around the baby's wrists. He pulls the arms out to either side and holds them there, being as gentle as he possibly can. A bit too gentle~~ the fuckmeat easily pulls his paw away and reaches back down to drive three fingers up his wound, his cute face going all ahegao. Cage quickly pulls them out and pins them properly to the crib.
 
 Baby blood has started to pool on the plastic, soaking the fox's ass and thighs red.
 
@@ -822,7 +822,7 @@ choicesPerPage = 1;
 ---
 :blackLoungeCast10
 
-Cage leans down and sniffs him, blasting the kid's face with a few chuffs of hot air from his snout. As soon as Cage lets go of his arms, those little paws jump right back down to his new pussy and start violently molesting it without hesitation. His lil digits sink easily into his own carved-up babymeat, exploring the depths of the first deep vertical slice that Som made— and now you realize why he made it. With that cunt-shaped wound in place, his weak wrists and fingers barely have to strain to fuck himself; he can drive them as deep as he wants, displace as much loose cockmeat and blood as he wants, all he has to do is shove his fingers into the hole Som made for him and yank it apart a little wider.
+Cage leans down and sniffs him, blasting the kid's face with a few chuffs of hot air from his snout. As soon as Cage lets go of his arms, those little paws jump right back down to his new pussy and start violently molesting it without hesitation. His lil digits sink easily into his own carved-up babymeat, exploring the depths of the first deep vertical slice that Som made~~ and now you realize why he made it. With that cunt-shaped wound in place, his weak wrists and fingers barely have to strain to fuck himself; he can drive them as deep as he wants, displace as much loose cockmeat and blood as he wants, all he has to do is shove his fingers into the hole Som made for him and yank it apart a little wider.
 
 "Cawk," he babbles stupidly, fingerfucking himself. Sticky, shiny red gushes over his paws. His blank eyes roll to the side and stare at the spot where you know Cage's crotch must be. He reaches one tiny red paw out, groping for it.
 
@@ -945,7 +945,7 @@ choicesPerPage = 2;
 ---
 :blackLoungeBrain8
 
-"It didn't work." Cage pauses a full minute between everything he says: some terse one-word absolutes, some "It wouldn't have worked anyway" type stuff, some condemnations of Som's conscience, some stuff like "I shouldn't have tried to work with a dumb sexy cubtard like you" type stuff, some half-boners when he accidentally gets a little too <b>ANGRY DAD</b> towards his lamb cub— all mixed in with lots of confident and earnest attempts to justify elbowing an underaged boy in the face.
+"It didn't work." Cage pauses a full minute between everything he says: some terse one-word absolutes, some "It wouldn't have worked anyway" type stuff, some condemnations of Som's conscience, some stuff like "I shouldn't have tried to work with a dumb sexy cubtard like you" type stuff, some half-boners when he accidentally gets a little too <b>ANGRY DAD</b> towards his lamb cub~~ all mixed in with lots of confident and earnest attempts to justify elbowing an underaged boy in the face.
 
 "Go fuck yourself," Som grumbles. "Finish the experiment on your own."
 
@@ -1070,9 +1070,9 @@ They glance at the door, then at each other. Som's story tiptoes forward in a wh
 
 "Get to the point!" Marie quavers on tenterhooks.
 
-"The creepiest part was." Som pauses. "The creepiest part was... he wasn't even <b>hard.</b>"
+"The creepiest part was." Som pauses. "The creepiest part was... he wasn't even hard."
 
-Marie almost drops the baby. Her tits fly everywhere. "No!" she screams— and she barely manages to restrain her voice and push the "o!" down under her breath a moment after her initial shriek. "No," she whispers again, to make it official. "No."
+Marie almost drops the baby. Her tits fly everywhere. "No!" she screams~~ and she barely manages to restrain her voice and push the "o!" down under her breath a moment after her initial shriek. "No," she whispers again, to make it official. "No."
 
 Through a silent shrug and a piteous frown, Som implies something like "It's disturbing, but there are just some things in this world we can never understand."
 
@@ -1090,7 +1090,7 @@ They chat and gossip a bit more as the experiment gets underway. All three of yo
 
 "There's one right there." She jerks her head at the baby. "But you seem so preoccupied with my chest, don't you?"
 
-"That's cause you keep— mmfgph!— that's cause you keep wrapping them around my head!!"
+"That's cause you keep~~ mmfgph!~~ that's cause you keep wrapping them around my head!!"
 
 He unplugs her nipples from his snout and hurries over to the reclined, cushioned chair. It's adult-sized, so the baby boy looks especially tiny laying on his back in the middle.
 
@@ -1106,7 +1106,7 @@ choicesPerPage = 2;
 ---
 :blackLoungeElectro5
 
-Marie lounges on the chair— after shoving the baby over with her thighs, of course. She drums her fingers on his skull like he's an object.
+Marie lounges on the chair~~ after shoving the baby over with her thighs, of course. She drums her fingers on his skull like he's an object.
 
 "What's this supposed to be for again?"
 
@@ -1114,7 +1114,7 @@ Som lets go of the kid's junk: his handful of soft, plush shaft and nuts is all 
 
 "We're gonna electroshock him. And uh. Somehow, magically, that's supposed to make him sentient."
 
-Marie struggles to follow. "But the code—"
+Marie struggles to follow. "But the code~~"
 
 "Yeah, the code, the code," Som waves his hand. "I've told him. He doesn't care."
 
@@ -1156,7 +1156,7 @@ It's just him and the baby now. He lays on the medical chair, naked. His cock tw
 
 Som opens his legs wider. The camera watches his asscheeks peel apart to reveal a taut little cub donut.
 
-He takes the— oh, jeez. Sorry. This went in a direction I didn't expect. My kink symbols can't always be perfectly accurate...
+He takes the~~ oh, jeez. Sorry. This went in a direction I didn't expect. My kink symbols can't always be perfectly accurate...
 
 !`
 choicesPerPage = 3;
@@ -1221,7 +1221,7 @@ choicesPerPage = 2;
 ---
 :blackLoungeElectro9
 
-Som slides a whole finger up the baby's ass. It strains at the entrance for a second, tight beyond tight, til his fingertip finally pops in. That boicunt eats the middle and bottom knuckle in a blink. He burps and reaches for the knob Som is playing with, curious. He bats at it with a pudgy paw— which Som watches closely.
+Som slides a whole finger up the baby's ass. It strains at the entrance for a second, tight beyond tight, til his fingertip finally pops in. That boicunt eats the middle and bottom knuckle in a blink. He burps and reaches for the knob Som is playing with, curious. He bats at it with a pudgy paw~~ which Som watches closely.
 
 "Oh~?" Som practically meows. He touches himself carefully and intimately. "You want to pick, huh? Dumb baby. Pick, then."
 

@@ -132,7 +132,7 @@ You know. Relax.
 !`
 choicesPerPage = 1;
 `
-[Fuck that shit!! I'd rather—|myntDeco15]
+[Fuck that shit!! I'd rather~~|myntDeco15]
 ---
 :myntDeco15
 
@@ -141,7 +141,7 @@ In fact, I'm going to <i>make</i> you relax.
 !`
 choicesPerPage = 1;
 `
-[— die than stop looking for... sorry what hmm?|myntDeco16]
+[~~ die than stop looking for... sorry what hmm?|myntDeco16]
 ---
 :myntDeco16
 
@@ -394,7 +394,7 @@ She downs her wine glass and fills another one. The T.V. chatters at her. Someth
 !`
 choicesPerPage = 1;
 `
-[See um, me and my uh— my friend and I just moved in next door, and we're looking for—|75d]
+[See um, me and my uh~~ my friend and I just moved in next door, and we're looking for~~|75d]
 ---
 :75d
 
@@ -425,7 +425,7 @@ addChoice("Back.", "myntDecoHall");
 ---
 :myntDecoShit
 
-The rank, earthy—
+The rank, earthy~~
 
 !`
 choicesPerPage = 1;
@@ -452,7 +452,7 @@ $20,000 cash!
 !`
 choicesPerPage = 1;
 `
-[OH SHIT?! WOOOOO—|73a]
+[OH SHIT?! WOOOOO~~|73a]
 ---
 :73a
 
@@ -929,7 +929,7 @@ addChoice("Edge a bit...", "myntDeco54");
 
 You try it out for the sake of trying it out and ogle Kanna's fat thighs.
 
-The artist who drew this poster put extra love into the hem of Kanna's dress as it ruffles and folds cutely between her belly and her legs, wedging into the tight little triangle there. Her expression is vacant and curious, as usual, so it looks like she's just placidly allowing this to happen. Your eyes drift down and linger on her bare feet, the tiny, rounded, squishy little toes like mini-marshmellows, the—
+The artist who drew this poster put extra love into the hem of Kanna's dress as it ruffles and folds cutely between her belly and her legs, wedging into the tight little triangle there. Her expression is vacant and curious, as usual, so it looks like she's just placidly allowing this to happen. Your eyes drift down and linger on her bare feet, the tiny, rounded, squishy little toes like mini-marshmellows, the~~
 
 !`
 choicesPerPage = 1;
@@ -974,7 +974,7 @@ You hurriedly pull them up and hide your shame from Cart, who swings his legs ba
 !`
 choicesPerPage = 1;
 `
-[H-Hi, Cart! Nice to see you again! Haha! You just caught me scratching my—|myntDeco58]
+[H-Hi, Cart! Nice to see you again! Haha! You just caught me scratching my~~|myntDeco58]
 ---
 :myntDeco58
 
@@ -983,7 +983,7 @@ choicesPerPage = 1;
 !`
 choicesPerPage = 1;
 `
-[Well, haha, not just any itch, you see, it was specifically on my crotch and—|myntDeco59]
+[Well, haha, not just any itch, you see, it was specifically on my crotch and~~|myntDeco59]
 ---
 :myntDeco59
 
