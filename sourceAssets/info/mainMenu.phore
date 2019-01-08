@@ -39,7 +39,7 @@ if (bgStrings[ran] == "gcd") {
 	tween(bg, 12, {y: -70}, {type: PINGPONG, ease: QUAD_IN_OUT});
 }
 
-var buttonWidth = 400;
+var buttonWidth = 300;
 var buttonHeight = 80;
 var buttonPad = 15;
 var buttonTextLeftPad = 40;

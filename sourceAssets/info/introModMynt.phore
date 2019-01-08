@@ -9,6 +9,8 @@ streamEmbeddedTexture("writer/mynt/face/myntBod/8a");
 data.gender = "";
 data.genitals = "";
 data.playerName = "";
+data.species = "";
+data.boyEyes = false;
 data.hasKnot = false;
 data.hasBarbs = false;
 data.hasBoobs = false;
@@ -1090,7 +1092,7 @@ if (data.genitals === "both" && !data.hasBoobs) choicesPerPage = 2;
 if (!data.hasBoobs) queueAddChoice("Boobs.", function() {
 	playEffect("audio/ui/rewards/checkmark");
 	data.hasBoobs = true;
-	tween(boobsImg, 1, {alpha: 1});
+	boobsImg.alpha = 1;
 	gotoPassage("pondGenitsEdit");
 });
 
@@ -1116,7 +1118,7 @@ if (data.genitals !== "male" && data.genitals !== "both") queueAddChoice("Cock."
 
 if (data.genitals !== "male" && data.genitals !== "female" && data.genitals !== "both" && !data.hasBoobs) queueAddChoice("Everything.", function() {
 	playEffect("audio/ui/rewards/checkmark");
-	tween(boobsImg, 2, {alpha: 1});
+	boobsImg.alpha = 1;
 	data.hasBoobs = true;
 	data.genitals = "both";
 	gotoPassage("pondNext");
@@ -1192,14 +1194,13 @@ addChoice("No eyelashes please.", function() {
 :afterGender
 
 !`
+youngBeca.alpha = 0;
+boobsImg.alpha = 0;
+boyEyes.alpha = 0;
+
 playEffect("audio/ui/msg");
 queueDelay(1);
 queueDelay(1);
-queueCall(function() {
-	youngBeca.alpha = 0;
-	boobsImg.alpha = 0;
-	boyEyes.alpha = 0;
-});
 queueCall(function() { setBackground(1, "writer/mynt/face/myntBod/2", CENTERED); });
 queueTitle("...");
 queueDelay(1);
@@ -1256,7 +1257,7 @@ queueCall(function() {
 :afterName
 !`
 if (data.playerName !== "Dankpaw" && data.playerName !== "Rebeca" && data.playerName !== "Phae") data.playerName = lastInput;
-if (data.playerName === "") data.playerName = "Nameless";
+if (data.playerName === "" || data.playerName === undefined) data.playerName = "Nameless";
 
 queueCall(function() { setBackground(1, "writer/mynt/face/myntBod/2", CENTERED); });
 queueTitle("... I see!!");

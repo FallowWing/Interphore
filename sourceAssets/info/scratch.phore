@@ -9,9 +9,76 @@ setBackground(0, "img/writer/mainBg");
 setBackground(1, "");
 //choicesPerPage = 4;
 `
-WIP Dev Menu
+Dev Menu
 
-Make sure you play through the intro or go to Hub and visit Red Pond to set your player variables.
+!`if (data.playerName === "" || data.playerName === undefined) append("Hi, no-name. Make sure you play through the intro or go to Hub and visit Red Pond to set your player variables."); else append("Hi "+data.playerName);`
+
+Changelog 0.1.3
+~~~~~~~~~~~~~~~
+
+> Added Lone sequel: Looking for Trouble
+- Lil goat boi tries to find a home that satisfies his peculiar needs
+- Found in L.L.L. after you do the first Lone scene (or after you use the unlock everything cheat)
+
+> Added Cage & Som: Black Mansion
+- Plotty and hyperkinky, the return of Fuckmeat
+- Found in Archiepelago
+
+> Added Red & Mary
+- New and improved wolf & bunny yuri! They're not cubs anymore...? Who talked who into that I wonder...
+- Found in Archiepelago
+
+> Gender, genitals, and species selection revamped with new art
+
+> Souped up Mynt intro heavily, as is tradition. More branches and more context for wtf is going on
+
+> Added a new f/f branch to the Indigo Pond guest scene by Pyreaus, for players with cunt. Scene now supports m/f and f/f. This game isn't just for fags you know
+
+> UI
+- New title screen + new track by Rocket: New Engine
+- Polished map titles
+- Polished node buttons
+- New world map transition animation + sfx
+
+> Art
+- All Mynt art has now been HD-ified by Cubber!!!
+- New holding dress Mynt expression by Cubber
+- Old Rebeca by Cubber
+- Young Rebeca by Cubber
+- Furry Rebeca + all species variants by Cubber
+- Added Lone ringing doorbell by Spunkymutt
+- Added Allei + friends by fluffbug
+- Added L.L.L. / G.C.D. background by Cubber
+- Edited and re-used old Gray Meteorite by Cubber
+- Archiepelago / Library2 background by Cubber
+- Small MyntBeca indicator by Kittery
+- The Red Sea background by Kittery
+
+> Audio
+- Added new track by Rocket: Love Bunny
+- New title screen music by Rocket & edited to shit by Kittery
+- Added "nope" sfx for disabled buttons
+- Dingdong sfx
+- Buzzer sfx
+- Satisfying reward sfx
+- Notification sfx
+- World Map sfx
+
+> Misc
+- Choice icons now play a hover sound, move, and expand when you hover them
+- Reworked the "Rules of Operation for Paraphores" in the L.L.L. for clarity
+- New kink warning stolen partially from Paraphore
+- Fixed not being able to skip delays during cutscenes
+- Minor edits in many places
+- Added the ability to shapeshift into a planet, a massive cock, or a fundamental law of nature to the Red Pond node
+- Vague "Layer Select" title changed to "The Red Sea"
+- Added choice button tooltip function
+- Disabled choice buttons now play sfx when clicked
+- Fixed 1000 mis-sized choice buttons across the whole game one by one
+- The "unlock everything" cheat now plays a satisfying reward noise and msg
+- Msgs now have sfx
+
+As always, thanks so much for your support!!!! <3
 
 [Mods|modsStart]
 [Cheats|cheatsStart]

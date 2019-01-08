@@ -15,34 +15,33 @@ If you jump in, you can change your body again.
 !`
 setBackground(0, "writer/mainBg");
 choicesPerPage = 2;
-addChoice("Jump in.", function() {
-	if (!data.shapeExperimented) {
-		gotoPassage("Jump in.Experiment");
-	} else {
-		gotoPassage("Jump in.");
-	}
-});
+addChoice("Jump in.");
 `
 [Move along.]
 ---
-:Jump in.Experiment
+:Jump in.
 
 You swan dive back into the red fluid and your body disintegrates. It feels kinda harsh and stingy at first because you hit it at a weird angle, but then it mellows out to a cool, tingly numbness. Feels like a menthol hot tub.
 
 Man, indefinity is so relaxing.
 
 !`
-data.shapeExperimented = true;
-choicesPerPage = 1;
+if (!data.shapeExperimented) {
+	choicesPerPage = 2;
+	addChoice("Let's try something...", "experiment1");
+	addChoice("Shapeshift.");
+} else {
+	choicesPerPage = 1;
+	addChoice("Shapeshift.");
+}
 `
-
-[Shapeshift into a...|experiment1]
 ---
 :experiment1
 
 You shapeshift into a...
 
 !`
+data.shapeExperimented = true;
 choicesPerPage = 3;
 `
 [Planet.|experimentPlanet]
@@ -110,62 +109,93 @@ choicesPerPage = 2;
 [Fine... change my body for real this time.|Shapeshift.]
 [Fine... back.|Move along.]
 ---
-:Jump in.
+:Shapeshift.
+
 !`
 data.genitals = "";
 data.hasBoobs = false;
 data.gender = "";
+data.boyEyes = false;
 data.playerName = "";
 data.hasKnot = false;
 data.hasBarbs = false;
 data.species = "";
 disableExit();
+
+var youngBeca = addImage("writer/characters/rebeca/rebeca/base");
+
+youngBeca.x = gameWidth / 2 - youngBeca.width / 2;
+youngBeca.y = gameHeight / 2 - youngBeca.height / 2 - 50;
+youngBeca.temp = false;
+youngBeca.alpha = 0;
+
+tween(youngBeca, 1, {alpha: 1});
+
+var boyEyes = addImage("writer/characters/rebeca/rebeca/eyelashes");
+boyEyes.x = youngBeca.x;
+boyEyes.y = youngBeca.y;
+boyEyes.temp = false;
+boyEyes.alpha = 0;
+
+var boobsImg = addImage("writer/characters/rebeca/rebeca/boobs");
+boobsImg.x = youngBeca.x;
+boobsImg.y = youngBeca.y;
+boobsImg.alpha = 0;
+boobsImg.temp = false;
+
+timer(1, function() { gotoPassage("Shapeshift.Actual"); });
 `
-
-You swan dive back into the red fluid and your body disintegrates. It feels kinda harsh and stingy at first because you hit it at a weird angle, but then it mellows out to a cool, tingly numbness. Feels like a menthol hot tub.
-
-Man, indefinity is so relaxing.
-
-!`
-choicesPerPage = 1;
-`
-[Shapeshift.]
 ---
-:Shapeshift.
+:Shapeshift.Actual
 
 You reach down and fiddle with yourself.
 
 !`
-if (!data.hasBoobs) addChoice("Boobs.", function() {
+if (data.hasBoobs) boobsImg.alpha = 1;
+if (!data.hasBoobs) boobsImg.alpha = 0;
+
+if ((data.genitals === "male" || data.genitals === "female") && data.hasBoobs) choicesPerPage = 2;
+if ((data.genitals === "male" || data.genitals === "female") && !data.hasBoobs) choicesPerPage = 3;
+if (data.genitals === "both" && data.hasBoobs) choicesPerPage = 1;
+if (data.genitals === "both" && !data.hasBoobs) choicesPerPage = 2;
+
+if (!data.hasBoobs) queueAddChoice("Boobs.", function() {
+	playEffect("audio/ui/rewards/checkmark");
 	data.hasBoobs = true;
-	gotoPassage("Shapeshift.");
+	boobsImg.alpha = 1;
+	gotoPassage("Shapeshift.Actual");
 });
 
-if (data.genitals !== "female" && data.genitals !== "both") addChoice("Cunt.", function() {
+if (data.genitals !== "female" && data.genitals !== "both") queueAddChoice("Cunt.", function() {
+	playEffect("audio/ui/rewards/checkmark");
 	if (data.genitals === "male") {
 		data.genitals = "both";
 	} else {
 		data.genitals = "female";
 	}
-	gotoPassage("Shapeshift.");
+	gotoPassage("Shapeshift.Actual");
 });
 
-if (data.genitals !== "male" && data.genitals !== "both") addChoice("Cock.", function() {
+if (data.genitals !== "male" && data.genitals !== "both") queueAddChoice("Cock.", function() {
+	playEffect("audio/ui/rewards/checkmark");
 	if (data.genitals === "female") {
 		data.genitals = "both";
 	} else {
 		data.genitals = "male";
 	}
-	gotoPassage("Shapeshift.");
+	gotoPassage("Shapeshift.Actual");
 });
 
-if (data.genitals !== "male" && data.genitals !== "female" && data.genitals !== "both" && !data.hasBoobs) addChoice("Everything.", function() {
+if (data.genitals !== "male" && data.genitals !== "female" && data.genitals !== "both" && !data.hasBoobs) queueAddChoice("Everything.", function() {
+	playEffect("audio/ui/rewards/checkmark");
+	boobsImg.alpha = 1;
 	data.hasBoobs = true;
 	data.genitals = "both";
 	gotoPassage("Shapeshift.2");
 });
 
-if (data.genitals === "female" || data.genitals === "male" || data.genitals === "both") addChoice("Ready.", "Shapeshift.2");`
+if (data.genitals === "female" || data.genitals === "male" || data.genitals === "both") queueAddChoice("Ready.", "Shapeshift.2");
+`
 ---
 :Shapeshift.2
 
@@ -174,27 +204,49 @@ You reach inside yourself and try to find your true identity.
 !`
 choicesPerPage = 3;
 
-addChoice("He.", function() {
+queueAddChoice("He.", function() {
 	data.gender = "male";
 	data.boyEyes = true;
+	boyEyes.alpha = 1;
 	gotoPassage("Shapeshift.3");
 });
 
-addChoice("She.", function() {
+queueAddChoice("She.", function() {
 	data.gender = "female";
+	data.boyEyes = false;
+	boyEyes.alpha = 0;
+	gotoPassage("Shapeshift.3");
+});
+
+queueAddChoice("They.", function() {
+	data.gender = "both";
+	gotoPassage("eyelashesClarify");
+});
+`
+---
+:eyelashesClarify
+
+Do you want big eyelashes though?
+
+!`
+choicesPerPage = 2;
+
+addChoice("Yes eyelashes.", function() {
+	boyEyes.alpha = 0;
+	playEffect("audio/ui/rewards/checkmark");
 	data.boyEyes = false;
 	gotoPassage("Shapeshift.3");
 });
-
-addChoice("They.", function() {
-	data.gender = "both";
+addChoice("No eyelashes please.", function() {
+	data.boyEyes = true;
+	boyEyes.alpha = 1;
 	gotoPassage("Shapeshift.3");
 });
 `
 ---
 :Shapeshift.3
 
-You try to think of a good label to slap on this tight lil package.
+You brainstorm a good label to slap on this tight lil package.
 
 !`
 addInputField();
@@ -221,43 +273,102 @@ addChoice("Phae.", function() {
 ---
 :Shapeshift.4
 
-You contemplate your new fursona. "Original character," you think to yourself, "please do not steal."
+You contemplate your new fursona, `data.playerName`.
+
+"Original character," you think to yourself, "please do not steal."
 
 !`
+playEffect("audio/ui/rewards/checkmark");
+if (data.playerName !== "Dankpaw" && data.playerName !== "Rebeca" && data.playerName !== "Phae") data.playerName = lastInput;
+if (data.playerName === "" || data.playerName === undefined) data.playerName = "Nameless";
+
 addChoice("Fox.", function() {
 	data.species = "fox";
 	if (data.genitals === "male" || data.genitals === "both") {
-		gotoPassage("ShapeshiftClarify");
+		gotoPassage("ShapeshiftSpeciesClarify");
 	} else {
-		gotoPassage("Shapeshift.5");
+		gotoPassage("ShapeshiftSpecies");
 	}
 });
 
 addChoice("Wolf.", function() {
 	data.species = "wolf";
 	if (data.genitals === "male" || data.genitals === "both") {
-		gotoPassage("ShapeshiftClarify");
+		gotoPassage("ShapeshiftSpeciesClarify");
 	} else {
-		gotoPassage("Shapeshift.5");
+		gotoPassage("ShapeshiftSpecies");
 	}
 });
 
 addChoice("Bunny.", function() {
 	data.species = "bunny";
-	gotoPassage("Shapeshift.5");
+	gotoPassage("ShapeshiftSpecies");
 });
 
 addChoice("Cat.", function() {
 	data.species = "cat";
 	if (data.genitals === "male" || data.genitals === "both") {
-		gotoPassage("ShapeshiftClarify");
+		gotoPassage("ShapeshiftSpeciesClarify");
 	} else {
-		gotoPassage("Shapeshift.5");
+		gotoPassage("ShapeshiftSpecies");
 	}
 });
 `
+
 ---
-:ShapeshiftClarify
+:ShapeshiftSpecies
+
+!`
+playEffect("audio/ui/rewards/checkmark");
+if (data.species === "bunny") {
+	var ears = addImage("writer/characters/rebeca/rebeca/bunnyEars");
+	ears.x = youngBeca.x;
+	ears.y = youngBeca.y;
+
+	var tail = addImage("writer/characters/rebeca/rebeca/bunnyTail");
+	tail.x = youngBeca.x;
+	tail.y = youngBeca.y;
+}
+
+if (data.species === "fox") {
+	var ears = addImage("writer/characters/rebeca/rebeca/nonBunnyEars");
+	ears.x = youngBeca.x;
+	ears.y = youngBeca.y;
+
+	var tail = addImage("writer/characters/rebeca/rebeca/foxTail");
+	tail.x = youngBeca.x;
+	tail.y = youngBeca.y;
+}
+
+if (data.species === "wolf") {
+	var ears = addImage("writer/characters/rebeca/rebeca/nonBunnyEars");
+	ears.x = youngBeca.x;
+	ears.y = youngBeca.y;
+
+	var tail = addImage("writer/characters/rebeca/rebeca/wolfTail");
+	tail.x = youngBeca.x;
+	tail.y = youngBeca.y;
+}
+
+if (data.species === "cat") {
+	var ears = addImage("writer/characters/rebeca/rebeca/nonBunnyEars");
+	ears.x = youngBeca.x;
+	ears.y = youngBeca.y;
+
+	var tail = addImage("writer/characters/rebeca/rebeca/catTail");
+	tail.x = youngBeca.x;
+	tail.y = youngBeca.y;
+}
+
+ears.layer = youngBeca.layer + 1;
+tail.layer = youngBeca.layer - 1;
+
+choicesPerPage = 1;
+`
+
+[Hawt.|Shapeshift.5]
+---
+:ShapeshiftSpeciesClarify
 
 !`
 choicesPerPage = 2;
@@ -267,12 +378,12 @@ if (data.species === "cat") {
 
 	addChoice("Yes. >:3", function() {
 		data.hasBarbs = true;
-		gotoPassage("Shapeshift.5");
+		gotoPassage("ShapeshiftSpecies");
 	});
 
 	addChoice("No.", function() {
 		data.hasBarbs = false;
-		gotoPassage("Shapeshift.5");
+		gotoPassage("ShapeshiftSpecies");
 	});
 } else {
 	if (data.species === "fox") append("Slut.");
@@ -282,12 +393,12 @@ if (data.species === "cat") {
 	
 	addChoice("Oh yes I do.", function() {
 		data.hasKnot = true;
-		gotoPassage("Shapeshift.5");
+		gotoPassage("ShapeshiftSpecies");
 	});
 
 	addChoice("No.", function() {
 		data.hasKnot = false;
-		gotoPassage("Shapeshift.5");
+		gotoPassage("ShapeshiftSpecies");
 	});
 }
 `
@@ -298,11 +409,15 @@ if (data.species === "cat") {
 !`
 choicesPerPage = 1;
 
-if (data.species === "bunny") append("Cute.\n\n");
+youngBeca.destroy();
+boobsImg.destroy();
+boyEyes.destroy();
+
+if (data.species === "bunny") append("Bunny, huh? Cute.\n\n");
 if (data.genitals === "female") {
-	if (data.species === "fox") append("Slut.\n\n");
-	if (data.species === "wolf") append("Edgy.\n\n");
-	if (data.species === "cat") append("Sexy.\n\n");
+	if (data.species === "fox") append("Fox, eh? Slut.\n\n");
+	if (data.species === "wolf") append("Wolf, right? Edgy.\n\n");
+	if (data.species === "cat") append("Cat, mmh? Sexy.\n\n");
 }
 append("Okay. All done. You haul your new body out of the red pond, all sloppy and drippy at the extremeties.");
 
