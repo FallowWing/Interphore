@@ -4,3 +4,4 @@
 *.wav filter=lfs diff=lfs merge=lfs -text
 *.ogg filter=lfs diff=lfs merge=lfs -text
 *.tmx filter=lfs diff=lfs merge=lfs -text
+*.spr filter=lfs diff=lfs merge=lfs -text
