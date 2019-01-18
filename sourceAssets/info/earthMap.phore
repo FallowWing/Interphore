@@ -43,6 +43,13 @@ execAsset("foodLand.phore");
 gotoPassage("foodLandModStart");
 `
 ---
+:oliStream
+!`
+clear();
+execAsset("oliStream.phore");
+gotoPassage("oliStreamStart");
+`
+---
 :yellowPond
 !`
 clear();
@@ -64,6 +71,9 @@ function gotoEarth() {
 
 	submitNode("Mynt's Day Off", "wendyApt2");
 	attachNode("Moving In", "Mynt's Day Off", BOTTOM);
+
+	submitNode("Olitippo's Stream", "oliStream");
+	attachNode("Mynt's Day Off", "Olitippo's Stream", BOTTOM);
 
 	submitNode("Yellow Pond", "yellowPond");
 	attachNode("Intro", "Yellow Pond", BOTTOM);

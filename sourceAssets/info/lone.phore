@@ -53,6 +53,39 @@ choicesPerPage = 1;
 ---
 :Investigate.
 
+Hey what's up, it's me stopping you. Picture me, Mr. Eyeball, with the giant eyeball on my face, arms crossed in front of his doorway, stopping you.
+
+!`
+choicesPerPage = 1;
+`
+[What the fuck let me comfort that bullied kid?|wtfLet]
+---
+:wtfLet
+
+Sure in a sec, but I'm just warning you, this isn't what it seems. This innocent kid isn't innocent. He's mentally 4000 years old, first of all, so even the kid part is a ruse.
+
+Just want you to keep that in mind in case he tries to seduce you. He's a little freak.
+
+!`
+choicesPerPage = 2;
+`
+[4000? Sounds hot, I'm into older dudes.|wtfLet3]
+[As long as he's mentally 4000, that makes it okay to be into this! ... Right?|wtfLet2]
+---
+:wtfLet2
+
+Whether or not that makes it okay to be into his underaged animal child lookin body...
+
+... it does make it okay for him to wear whatever body he chooses, since he's a consenting adult. I mean, you wouldn't ban two consenting adults from dressing up in diapers, would you?
+
+!`
+choicesPerPage = 2;
+`
+[Not to their faces, no!|wtfLet3]
+[I think I better just leave.|loneMoveAlong]
+---
+:wtfLet3
+
 You push open the bedroom door.
 
 He's sitting on the top bunk of his bed. His long, slender legs hang off the side, swinging gently.
@@ -70,7 +103,7 @@ choicesPerPage = 1;
 ---
 :lone1
 
-He nods carefully. Then he realizes his little tapered cock and his fuzzy nuts are hanging basically right in your face, and he hurries to stuff both palms over his crotch.
+He nods carefully, as if nodding too hard is dangerous. Then he realizes his little tapered cock and his fuzzy nuts are hanging basically right in your face, and he hurries to stuff both palms over his crotch.
 
 "I... let me see..."
 

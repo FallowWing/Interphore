@@ -481,6 +481,11 @@ choicesPerPassage = 1;
 if (data.genitals === "male") addChoice("You want my cock up there...?", "cartParaSit");
 if (data.genitals === "female") addChoice("You want me to ride that...?", "cartParaSit");
 if (data.genitals === "both") addChoice("You want my cock up there...?", "cartParaSit");
+if (data.genitals === undefined) addChoice("Go set your variables you rube", function() {
+	clear();
+	execAsset("thirstyCaves.phore");
+	gotoPassage("Jump in.");
+});
 `
 ---
 :cartParaSit
