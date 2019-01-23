@@ -295,12 +295,19 @@ gotoPassage("pickedSpecies");
 
 !`
 choicesPerPage = 6;
+`
+
+[Back|scratchModStart]
+
+!`
 addChoice("Test unlocking nodes", function() {
 	gotoScratch();
 });
 `
 
-[Back|scratchModStart]
+[New map test|newMapTest]
+
+
 [Tween test|tweenTest]
 [Background Test|backgroundTest]
 [Input Text Test|inputTest]
@@ -1067,6 +1074,28 @@ hookTempUpdate(function() {
 });
 `
 ---
+:newMapTest
+This is where you can test the new map!
+
+[Actually go to the map now!|startNewMap]
+---
+:startNewMap
+!`
+map.clear();
+
+var entry;
+
+entry = map.createNode("Scene 1", "Scene 1");
+entry.unlocked = true;
+
+entry = map.createNode("Scene 2", "Scene 2", RIGHT, "Scene 1");
+entry.unlocked = true;
+
+entry = map.createNode("Scene 3", "Scene 3", RIGHT, "Scene 2");
+
+map.show();
+`
+---
 :Exit
 `exitMod();`
 END_PASSAGES
@@ -1083,7 +1112,7 @@ function gotoScratch() {
 
 	setNodeLocked("Locked Scene", function() {
 		return data.finishedScene1;
-  	});
+	});
 
 	gotoMap();
 
