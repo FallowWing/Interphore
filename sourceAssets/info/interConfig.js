@@ -185,12 +185,15 @@ function newImage() {
 			addChild_internal(img.id, otherImg.id);
 		},
 
+		currentFrame: 0,
 		totalFrames: 0,
-		gotoFrame: function(frame) {
+		gotoFrame: function(frame, andStop) {
+			if (andStop === undefined) andStop = false;
+
 			if (typeof frame === "string") {
-				gotoFrameNamed(img.id, frame);
+				gotoFrameNamed(img.id, frame, andStop);
 			} else {
-				gotoFrameNum(img.id, frame);
+				gotoFrameNum(img.id, frame, andStop);
 			}
 		},
 
@@ -889,6 +892,7 @@ function realUpdate() {
 		img.justHovered = data[3];
 		img.justUnHovered = data[4];
 		img.hovering = data[5];
+		img.currentFrame = data[6];
 
 		if (img.justReleased && img.onRelease) img.onRelease();
 		if (img.justHovered && img.onHover) img.onHover();
@@ -1059,6 +1063,7 @@ function realUpdate() {
 
 			var perc = tw.elapsed / tw.totalTime;
 			if (tw.config.reversed) perc = 1 - perc;
+			var realPerc = perc;
 			perc = tweenEase(perc, tw.config.ease);
 			perc = round(perc * 1000) / 1000;
 
@@ -1069,7 +1074,7 @@ function realUpdate() {
 			}
 			tw.elapsed += elapsed;
 
-			if ((perc >= 1 && !tw.config.reversed) || (perc <= 0 && tw.config.reversed)) {
+			if ((realPerc >= 1 && !tw.config.reversed) || (realPerc <= 0 && tw.config.reversed)) {
 				if (tw.config.type == LOOPING) {
 					tw.elapsed = 0;
 				} else if (tw.config.type == PINGPONG) {

@@ -164,8 +164,8 @@ void initGame() {
 	addJsFunction("getImageProps_internal", getImageProps, 1);
 	addJsFunction("destroyImage", destroyImage, 1);
 	addJsFunction("addChild_internal", addChild, 2);
-	addJsFunction("gotoFrameNamed", gotoFrameNamed, 2);
-	addJsFunction("gotoFrameNum", gotoFrameNum, 2);
+	addJsFunction("gotoFrameNamed", gotoFrameNamed, 3);
+	addJsFunction("gotoFrameNum", gotoFrameNum, 3);
 	addJsFunction("copyPixels_internal", copyPixels, 7);
 	addJsFunction("setImageFont", setImageFont, 2);
 	addJsFunction("getTextureWidth_internal", getTextureWidth, 1);
@@ -1095,6 +1095,7 @@ duk_ret_t getImageProps(duk_context *ctx) {
 	data[3] = img->justHovered;
 	data[4] = img->justUnHovered;
 	data[5] = img->hovering;
+	data[6] = img->currentFrame;
 
 	return 1;
 }
@@ -1120,24 +1121,26 @@ duk_ret_t addChild(duk_context *ctx) {
 }
 
 duk_ret_t gotoFrameNamed(duk_context *ctx) {
-	const char *frameName = duk_get_string(ctx, -1);
-	int id = duk_get_number(ctx, -2);
+	int andStop = duk_get_int(ctx, -1);
+	const char *frameName = duk_get_string(ctx, -2);
+	int id = duk_get_number(ctx, -3);
 
 	MintSprite *img = game->images[id];
 	img->gotoFrame(frameName);
-	img->playing = false;
+	if (andStop) img->playing = false;
 
 	return 0;
 
 }
 
 duk_ret_t gotoFrameNum(duk_context *ctx) {
-	int frameNum = duk_get_number(ctx, -1);
-	int id = duk_get_number(ctx, -2);
+	int andStop = duk_get_int(ctx, -1);
+	int frameNum = duk_get_number(ctx, -2);
+	int id = duk_get_number(ctx, -3);
 
 	MintSprite *img = game->images[id];
 	img->gotoFrame(frameNum);
-	img->playing = false;
+	if (andStop) img->playing = false;
 
 	return 0;
 }
