@@ -1086,7 +1086,7 @@ map.clear();
 var entry;
 
 entry = map.createNode("Scene 1", "testMapScene1");
-entry.unlocked = true;
+entry.seenUnlocked = entry.unlocked = true;
 
 entry = map.createNode("Scene 2", "testMapScene2", RIGHT, "Scene 1");
 

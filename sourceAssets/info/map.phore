@@ -9,6 +9,11 @@ var map = {
 	dragging: false,
 	dragPointX: 0,
 	dragPointY: 0,
+
+	newlyUnlockedNodes: [],
+	prevLocX: 0,
+	prevLocY: 0,
+	startMoveTime: 0,
 };
 
 map.clear = function() {
@@ -130,7 +135,16 @@ map.show = function() {
 		icon.x = node.sprite.width - icon.width;
 		node.sprite.addChild(icon);
 		node.progressIcon = icon;
+
+		if (node.entry.unlocked && !node.entry.seenUnlocked) {
+			node.seenUnlocked = true;
+			map.newlyUnlockedNodes.push(node);
+		}
 	});
+
+	map.prevLocX = 0;
+	map.prevLocY = 0;
+	map.startMoveTime = time;
 
 	hookTempUpdate(map.update);
 };
@@ -149,6 +163,30 @@ map.update = function() {
 	if (map.dragging) {
 		map.container.x = mouseX - map.dragPointX;
 		map.container.y = mouseY - map.dragPointY;
+	}
+
+	var nextUnlockedNode = map.newlyUnlockedNodes[0];
+	if (nextUnlockedNode) {
+		var nextPosX = nextUnlockedNode.sprite.x + nextUnlockedNode.sprite.width/2;
+		var nextPosY = nextUnlockedNode.sprite.y + nextUnlockedNode.sprite.height/2;
+
+		nextPosX = gameWidth/2 - nextPosX;
+		nextPosY = gameHeight/2 - nextPosY;
+
+		var perc = (time - map.startMoveTime)/2;
+
+		var curX = lerp(perc, map.prevLocX, nextPosX);
+		var curY = lerp(perc, map.prevLocY, nextPosY);
+		map.container.x = curX;
+		map.container.y = curY;
+
+		if (perc >= 1) {
+			map.newlyUnlockedNodes.shift();
+			map.startMoveTime = time;
+
+			map.prevLocX = curX;
+			map.prevLocY = curY;
+		}
 	}
 
 	Object.keys(map.nodes).forEach(function(nodeKey) {
