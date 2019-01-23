@@ -156,6 +156,10 @@ img/writer/mapTitles/earth.spr
 img/writer/mapTransition.png
 img/writer/mapTransition.spr
 
+img/writer/halfCheck.png
+img/writer/halfCheck.png
+img/writer/fullCheck.png
+img/writer/fullCheck.png
 img/writer/nodeChoice.png
 img/writer/nodeChoice.spr
 img/writer/choiceArrow.png

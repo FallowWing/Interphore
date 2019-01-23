@@ -295,10 +295,13 @@ gotoPassage("pickedSpecies");
 
 !`
 choicesPerPage = 6;
+addChoice("Test unlocking nodes", function() {
+	gotoScratch();
+});
 `
 
-[choices per passage test|choicesbluhtest]
 [Back|scratchModStart]
+[Tween test|tweenTest]
 [Background Test|backgroundTest]
 [Input Text Test|inputTest]
 [Icon Test|iconTest]
@@ -308,7 +311,6 @@ choicesPerPage = 6;
 [Image test|imageTest]
 [Variable test|variableTest]
 [Save test|saveTest]
-[Tween test|tweenTest]
 [Msg test|msgText]
 [Text scrolling test|textScrollingTest]
 [Tag test|tagTest]
@@ -316,7 +318,46 @@ choicesPerPage = 6;
 [Tooltip Test|tooltipTest]
 [Word wrap Test|wordWrapTest]
 [Rpg test|rpgTest]
+[choices per passage test|choicesbluhtest]
 [Back|scratchModStart]
+---
+:unlockNodes1
+
+Hey bitch. :3
+
+!`
+msg("started scene1");
+data.startedScene1 = true;
+choicesPerPage = 2;
+addChoice("Next.", "unlockNodes2");
+addChoice("Back.", function() {
+	gotoScratch();
+});
+`
+---
+:unlockNodes2
+
+That was it. That was the whole scene.
+
+!`
+msg("finished scene1");
+data.finishedScene1 = true;
+choicesPerPage = 1;
+addChoice("Back.", function() {
+	gotoScratch();
+});
+`
+---
+:unlockNodesLocked
+
+How the fuck did you get in here? 3:<
+
+!`
+choicesPerPage = 1;
+addChoice("Back.", function() {
+	gotoScratch();
+});
+`
 ---
 :choicesbluhtest
 
@@ -1029,3 +1070,22 @@ hookTempUpdate(function() {
 :Exit
 `exitMod();`
 END_PASSAGES
+
+function gotoScratch() {
+	clearNodes();
+
+	submitNode("Back", "scratchModStart");
+	submitNode("Scene 1", "unlockNodes1");
+	attachNode("Back", "Scene 1", RIGHT);
+
+	submitNode("Locked Scene", "unlockNodesLocked");
+	attachNode("Scene 1", "Locked Scene", RIGHT);
+
+	setNodeLocked("Locked Scene", function() {
+		return data.finishedScene1;
+  	});
+
+	gotoMap();
+
+	setBackground(0, "writer/mainBg");
+}
