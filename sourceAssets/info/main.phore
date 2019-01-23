@@ -2,9 +2,11 @@ execAsset("introModMynt.phore");
 execAsset("scratch.phore");
 execAsset("mods.phore");
 execAsset("nodeGraph.phore");
+execAsset("map.phore");
 execAsset("utils.phore");
 execAsset("LLLmap.phore");
 execAsset("earthMap.phore");
 execAsset("archiepelagoMap.phore");
 execAsset("thirstyCaves.phore");
+
 execAsset("mainMenu.phore");

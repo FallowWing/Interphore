@@ -1,0 +1,207 @@
+//TODO(fallow): Do save fixups
+
+data.mapEntries = [];
+
+var map = {
+	nodes: [],
+	container: null,
+
+	dragging: false,
+	dragPointX: 0,
+	dragPointY: 0,
+
+	newlyUnlockedNodes: [],
+	prevLocX: 0,
+	prevLocY: 0,
+	startMoveTime: 0,
+};
+
+map.clear = function() {
+	//TODO(fallow): Do this
+};
+
+map.getEntry = function(entryName) {
+	var entry = data.mapEntries[entryName];
+
+	if (!entry) {
+		entry = {
+			name: entryName,
+			unlocked: false,
+			seenUnlocked: false,
+			started: false,
+			completed: false,
+		};
+
+		data.mapEntries[entryName] = entry;
+	}
+
+	return entry;
+};
+
+map.unlockEntry = function(entryName) {
+	var entry = map.getEntry(entryName);
+	entry.unlocked = true;
+};
+
+map.completeEntry = function(entryName) {
+	var entry = map.getEntry(entryName);
+	entry.completed = true;
+};
+
+map.createNode = function(entryName, dest, connectedDirection, connectedNodeName) {
+	var entry = map.getEntry(entryName);
+
+	var node = {
+		sprite: null,
+		textField: null,
+		progressIcon: null,
+		dest: dest,
+
+		entry: entry,
+		connectedNodeName: connectedNodeName,
+		connectedDirection: connectedDirection,
+	};
+
+	map.nodes[entryName] = node;
+
+	return entry;
+};
+
+map.show = function() {
+	if (preventNextCheckpoint) {
+		data = JSON.parse(checkpointStr);
+		preventNextCheckpoint = false;
+	} else {
+		msg("Autosaved", {silent: true});
+		saveCheckpoint();
+	}
+
+	map.container = addEmptyImage(1, 1);
+
+	Object.keys(map.nodes).forEach(function(nodeKey) {
+		var node = map.nodes[nodeKey];
+
+		node.textField = addEmptyImage(256, 256);
+		node.textField.setFont("NunitoSans-Light_22");
+		node.textField.setText(node.entry.name);
+		node.textField.tint = 0xFFa5e3f2;
+		node.textField.layer = GRAPH_NODE_TEXT_LAYER;
+
+		var textPadding = 50;
+		node.sprite = add9SliceImage(
+			"img/writer/nodeChoice",
+			node.textField.textWidth + textPadding,
+			node.textField.textHeight + textPadding,
+			22, 22, 44, 44
+		);
+		node.sprite.layer = GRAPH_NODE_LAYER;
+		map.container.addChild(node.sprite);
+
+		node.textField.x = node.sprite.width/2 - node.textField.textWidth/2;
+		node.textField.y = node.sprite.height/2 - node.textField.textHeight/2;
+		node.sprite.addChild(node.textField);
+
+		if (!node.connectedNodeName) {
+			node.sprite.x = gameWidth/2 - node.sprite.width/2;
+			node.sprite.y = gameHeight/2 - node.sprite.height/2;
+		} else {
+			var parentNode = map.nodes[node.connectedNodeName];
+			node.sprite.x = parentNode.sprite.x;
+			node.sprite.y = parentNode.sprite.y;
+
+			var nodePadding = 20;
+			if (node.connectedDirection == LEFT) {
+				node.sprite.x -= node.sprite.width/2 + parentNode.sprite.width/2 + nodePadding;
+			} else if (node.connectedDirection == RIGHT) {
+				node.sprite.x += node.sprite.width/2 + parentNode.sprite.width/2 + nodePadding;
+			} else if (node.connectedDirection == TOP) {
+				node.sprite.y -= node.sprite.height/2 + parentNode.sprite.height/2 + nodePadding;
+			} else if (node.connectedDirection == BOTTOM) {
+				node.sprite.y += node.sprite.height/2 + parentNode.sprite.height/2 + nodePadding;
+			}
+		}
+
+		var icon = null;
+		if (!node.entry.unlocked) {
+			icon = addRectImage(32, 32, 0xFF0000);
+		} else if (node.entry.completed) {
+			icon = addRectImage(32, 32, 0x00FF00);
+		} else if (node.entry.started) {
+			icon = addRectImage(16, 32, 0x00FF00);
+		} else {
+			icon = addEmptyImage(32, 32);
+		}
+
+		icon.x = node.sprite.width - icon.width;
+		node.sprite.addChild(icon);
+		node.progressIcon = icon;
+
+		if (node.entry.unlocked && !node.entry.seenUnlocked) {
+			node.seenUnlocked = true;
+			map.newlyUnlockedNodes.push(node);
+		}
+	});
+
+	map.prevLocX = 0;
+	map.prevLocY = 0;
+	map.startMoveTime = time;
+
+	hookTempUpdate(map.update);
+};
+
+map.update = function() {
+	if (mouseJustDown) {
+		map.dragging = true;
+		map.dragPointX = mouseX - map.container.x;
+		map.dragPointY = mouseY - map.container.y;
+	}
+
+	if (mouseJustUp) {
+		map.dragging = false;
+	}
+
+	if (map.dragging) {
+		map.container.x = mouseX - map.dragPointX;
+		map.container.y = mouseY - map.dragPointY;
+	}
+
+	var nextUnlockedNode = map.newlyUnlockedNodes[0];
+	if (nextUnlockedNode) {
+		var nextPosX = nextUnlockedNode.sprite.x + nextUnlockedNode.sprite.width/2;
+		var nextPosY = nextUnlockedNode.sprite.y + nextUnlockedNode.sprite.height/2;
+
+		nextPosX = gameWidth/2 - nextPosX;
+		nextPosY = gameHeight/2 - nextPosY;
+
+		var perc = (time - map.startMoveTime)/2;
+
+		var curX = lerp(perc, map.prevLocX, nextPosX);
+		var curY = lerp(perc, map.prevLocY, nextPosY);
+		map.container.x = curX;
+		map.container.y = curY;
+
+		if (perc >= 1) {
+			map.newlyUnlockedNodes.shift();
+			map.startMoveTime = time;
+
+			map.prevLocX = curX;
+			map.prevLocY = curY;
+		}
+	}
+
+	Object.keys(map.nodes).forEach(function(nodeKey) {
+		var node = map.nodes[nodeKey];
+
+		var spr = node.sprite;
+		if (node.entry.unlocked) {
+			node.sprite.tint = 0;
+
+			if (spr.justReleased) {
+				gotoPassage(node.dest);
+				node.entry.started = true;
+			}
+		} else {
+			node.sprite.tint = 0xCC0d0d0d;
+		}
+	});
+};
