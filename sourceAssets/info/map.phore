@@ -1,14 +1,21 @@
+//TODO(fallow): Do save fixups
+
 data.mapEntries = [];
 
 var map = {
 	nodes: [],
+	container: null,
+
+	dragging: false,
+	dragPointX: 0,
+	dragPointY: 0,
 };
 
 map.clear = function() {
 	//TODO(fallow): Do this
 };
 
-map.createNode = function(entryName, dest, connectedDirection, connectedNodeName) {
+map.getEntry = function(entryName) {
 	var entry = data.mapEntries[entryName];
 
 	if (!entry) {
@@ -16,15 +23,33 @@ map.createNode = function(entryName, dest, connectedDirection, connectedNodeName
 			name: entryName,
 			unlocked: false,
 			seenUnlocked: false,
+			started: false,
 			completed: false,
 		};
 
 		data.mapEntries[entryName] = entry;
 	}
 
+	return entry;
+};
+
+map.unlockEntry = function(entryName) {
+	var entry = map.getEntry(entryName);
+	entry.unlocked = true;
+};
+
+map.completeEntry = function(entryName) {
+	var entry = map.getEntry(entryName);
+	entry.completed = true;
+};
+
+map.createNode = function(entryName, dest, connectedDirection, connectedNodeName) {
+	var entry = map.getEntry(entryName);
+
 	var node = {
 		sprite: null,
 		textField: null,
+		progressIcon: null,
 		dest: dest,
 
 		entry: entry,
@@ -38,9 +63,19 @@ map.createNode = function(entryName, dest, connectedDirection, connectedNodeName
 };
 
 map.show = function() {
+	if (preventNextCheckpoint) {
+		data = JSON.parse(checkpointStr);
+		preventNextCheckpoint = false;
+	} else {
+		msg("Autosaved", {silent: true});
+		saveCheckpoint();
+	}
+
+	map.container = addEmptyImage(1, 1);
+
 	Object.keys(map.nodes).forEach(function(nodeKey) {
 		var node = map.nodes[nodeKey];
-		print("Doing "+node.name);
+
 		node.textField = addEmptyImage(256, 256);
 		node.textField.setFont("NunitoSans-Light_22");
 		node.textField.setText(node.entry.name);
@@ -55,6 +90,7 @@ map.show = function() {
 			22, 22, 44, 44
 		);
 		node.sprite.layer = GRAPH_NODE_LAYER;
+		map.container.addChild(node.sprite);
 
 		node.textField.x = node.sprite.width/2 - node.textField.textWidth/2;
 		node.textField.y = node.sprite.height/2 - node.textField.textHeight/2;
@@ -79,12 +115,42 @@ map.show = function() {
 				node.sprite.y += node.sprite.height/2 + parentNode.sprite.height/2 + nodePadding;
 			}
 		}
+
+		var icon = null;
+		if (!node.entry.unlocked) {
+			icon = addRectImage(32, 32, 0xFF0000);
+		} else if (node.entry.completed) {
+			icon = addRectImage(32, 32, 0x00FF00);
+		} else if (node.entry.started) {
+			icon = addRectImage(16, 32, 0x00FF00);
+		} else {
+			icon = addEmptyImage(32, 32);
+		}
+
+		icon.x = node.sprite.width - icon.width;
+		node.sprite.addChild(icon);
+		node.progressIcon = icon;
 	});
 
 	hookTempUpdate(map.update);
 };
 
 map.update = function() {
+	if (mouseJustDown) {
+		map.dragging = true;
+		map.dragPointX = mouseX - map.container.x;
+		map.dragPointY = mouseY - map.container.y;
+	}
+
+	if (mouseJustUp) {
+		map.dragging = false;
+	}
+
+	if (map.dragging) {
+		map.container.x = mouseX - map.dragPointX;
+		map.container.y = mouseY - map.dragPointY;
+	}
+
 	Object.keys(map.nodes).forEach(function(nodeKey) {
 		var node = map.nodes[nodeKey];
 
@@ -94,6 +160,7 @@ map.update = function() {
 
 			if (spr.justReleased) {
 				gotoPassage(node.dest);
+				node.entry.started = true;
 			}
 		} else {
 			node.sprite.tint = 0xCC0d0d0d;

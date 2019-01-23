@@ -1085,16 +1085,37 @@ map.clear();
 
 var entry;
 
-entry = map.createNode("Scene 1", "Scene 1");
+entry = map.createNode("Scene 1", "testMapScene1");
 entry.unlocked = true;
 
-entry = map.createNode("Scene 2", "Scene 2", RIGHT, "Scene 1");
-entry.unlocked = true;
+entry = map.createNode("Scene 2", "testMapScene2", RIGHT, "Scene 1");
 
-entry = map.createNode("Scene 3", "Scene 3", RIGHT, "Scene 2");
+entry = map.createNode("Scene 3", "testMapScene3", BOTTOM, "Scene 1");
 
 map.show();
 `
+---
+:testMapScene1
+You're in scene1!
+[Back|startNewMap]
+[Next|testMapScene1b]
+---
+:testMapScene1b
+You're in scene1b, and have unlocked scene2!
+!`
+map.completeEntry("Scene 1");
+map.unlockEntry("Scene 2");
+map.unlockEntry("Scene 3");
+`
+[Back|startNewMap]
+---
+:testMapScene2
+You're in scene2!
+[Back|startNewMap]
+---
+:testMapScene3
+You're in scene3!
+[Back|startNewMap]
 ---
 :Exit
 `exitMod();`
