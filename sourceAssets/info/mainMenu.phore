@@ -1,5 +1,8 @@
 clearNodes();
 
+var skipMenu = true;
+var startMuted = true;
+
 START_PASSAGES
 :mainMenuStart
 welcome
@@ -362,6 +365,9 @@ tween(cart, 1.3, {x: 70, alpha: 1}, {ease: ELASTIC_OUT});
 tween(cart, 8, {y: 30}, {type: PINGPONG, ease: QUAD_IN_OUT});
 tween(cartBG, 5, {y: 0}, {type: PINGPONG, ease: QUAD_IN_OUT});
 tween(cartBG, 4, {x: 20}, {type: PINGPONG, ease: QUAD_IN_OUT});
+
+if (startMuted) setMasterVolume(0);
+if (skipMenu) gotoPassage("scratchModStart");
 `
 
 ---
