@@ -361,7 +361,7 @@ if (randomAsset === "img/writer/mynt/face/myntBod/10.png") cart.scaleX = cart.sc
 
 container.addChild(cart);
 
-tween(cart, 1.3, {x: 70, alpha: 1}, {ease: ELASTIC_OUT});
+tween(cart, 1.3, {x: 70, alpha: 1}, {ease: QUINT_OUT});
 tween(cart, 8, {y: 30}, {type: PINGPONG, ease: QUAD_IN_OUT});
 tween(cartBG, 5, {y: 0}, {type: PINGPONG, ease: QUAD_IN_OUT});
 tween(cartBG, 4, {x: 20}, {type: PINGPONG, ease: QUAD_IN_OUT});
