@@ -55,6 +55,8 @@ info/scratch.phore
 info/basic.phore
 info/utils.phore
 
+img/writer/poof.png
+img/writer/poof.spr
 img/writer/particles.png
 img/writer/particles.spr
 img/writer/autoNineSliceTest.png
@@ -143,6 +145,13 @@ img/writer/notification.png
 img/writer/notification.spr
 img/writer/writerChoice.png
 img/writer/writerChoice.spr
+
+img/writer/xpBack.png
+img/writer/xpBack.spr
+img/writer/xpFront.png
+img/writer/xpFront.spr
+img/writer/xp9slice.png
+img/writer/xp9slice.spr
 
 img/writer/mapTitles/theRedSea.png
 img/writer/mapTitles/theRedSea.spr
