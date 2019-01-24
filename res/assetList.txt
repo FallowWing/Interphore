@@ -165,6 +165,8 @@ img/writer/mapTitles/earth.spr
 img/writer/mapTransition.png
 img/writer/mapTransition.spr
 
+img/writer/nodeLock.png
+img/writer/nodeLock.png
 img/writer/halfCheck.png
 img/writer/halfCheck.png
 img/writer/fullCheck.png
