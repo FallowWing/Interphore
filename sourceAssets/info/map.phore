@@ -128,14 +128,15 @@ map.show = function() {
 		if (!node.entry.seenUnlocked) {
 			icon = addRectImage(32, 32, 0xFF0000);
 		} else if (node.entry.seenCompleted) {
-			icon = addRectImage(32, 32, 0x00FF00);
+			icon = addImage("writer/fullCheck");
 		} else if (node.entry.started) {
-			icon = addRectImage(16, 32, 0x00FF00);
+			icon = addImage("writer/halfCheck");
 		} else {
 			icon = addEmptyImage(32, 32);
 		}
 
-		icon.x = node.sprite.width - icon.width;
+		icon.x = node.sprite.width - icon.width/2;
+		icon.y = -icon.height/2;
 		node.sprite.addChild(icon);
 		node.progressIcon = icon;
 
@@ -242,8 +243,9 @@ map.update = function() {
 		if (currentFocusedNode.entry.completed && !currentFocusedNode.entry.seenCompleted) {
 			currentFocusedNode.entry.seenCompleted = true;
 			currentFocusedNode.progressIcon.destroy();
-			currentFocusedNode.progressIcon = addRectImage(32, 32, 0x00FF00);
-			currentFocusedNode.progressIcon.x = currentFocusedNode.sprite.width - currentFocusedNode.progressIcon.width;
+			currentFocusedNode.progressIcon = addImage("writer/fullCheck");
+			currentFocusedNode.progressIcon.x = currentFocusedNode.sprite.width - currentFocusedNode.progressIcon.width/2;
+			currentFocusedNode.progressIcon.y = -currentFocusedNode.progressIcon.height/2;
 			currentFocusedNode.sprite.addChild(currentFocusedNode.progressIcon);
 		}
 	}
