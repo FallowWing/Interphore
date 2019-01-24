@@ -4,6 +4,7 @@ data.mapEntries = [];
 
 var map = {
 	nodes: [],
+	lines: [],
 	container: null,
 
 	dragging: false,
@@ -98,6 +99,7 @@ map.show = function() {
 			22, 22, 44, 44
 		);
 		node.sprite.layer = GRAPH_NODE_LAYER;
+		node.sprite.centerPivot = true;
 		map.container.addChild(node.sprite);
 
 		node.textField.x = node.sprite.width/2 - node.textField.textWidth/2;
@@ -122,11 +124,23 @@ map.show = function() {
 			} else if (node.connectedDirection == BOTTOM) {
 				node.sprite.y += node.sprite.height/2 + parentNode.sprite.height/2 + nodePadding;
 			}
+
+			var x1 = node.sprite.x + node.sprite.width/2;
+			var y1 = node.sprite.y + node.sprite.height/2;
+			var x2 = parentNode.sprite.x + parentNode.sprite.width/2;
+			var y2 = parentNode.sprite.y + parentNode.sprite.height/2;
+			var dist = pointDistance(x1, y1, x2, y2);
+			var line = addRectImage(dist, 4, 0x752b2b);
+			map.container.addChild(line);
+			line.x = x1;
+			line.y = y1;
+			line.layer = GRAPH_LINE_LAYER;
+			line.rotation = Math.atan2(y2 - y1, x2 - x1) * 180 / Math.PI;
 		}
 
 		var icon = null;
 		if (!node.entry.seenUnlocked) {
-			icon = addRectImage(32, 32, 0xFF0000);
+			icon = addImage("writer/nodeLock");
 		} else if (node.entry.seenCompleted) {
 			icon = addImage("writer/fullCheck");
 		} else if (node.entry.started) {
@@ -228,6 +242,20 @@ map.update = function() {
 			if (spr.justReleased) {
 				gotoPassage(node.dest);
 				node.entry.started = true;
+			}
+
+			var scaleSpeed = 0.05;
+			if (spr.hovering) {
+				spr.scaleX += scaleSpeed;
+				spr.scaleY += scaleSpeed;
+				var maxScale = 1.25;
+				if (spr.scaleX > maxScale) spr.scaleX = maxScale;
+				if (spr.scaleY > maxScale) spr.scaleY = maxScale;
+			} else {
+				spr.scaleX -= scaleSpeed;
+				spr.scaleY -= scaleSpeed;
+				if (spr.scaleX < 1) spr.scaleX = 1;
+				if (spr.scaleY < 1) spr.scaleY = 1;
 			}
 		} else {
 			node.sprite.tint = 0xCC0d0d0d;
