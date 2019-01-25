@@ -97,7 +97,9 @@ var GRAPH_NODE_LAYER = 50;
 var GRAPH_NODE_TEXT_LAYER = 55;
 var DEFAULT_LAYER = 60;
 var CHOICE_BUTTON_LAYER = 70;
+var CHOICE_BUTTON_UPPER_LAYER = 75;
 var CHOICE_TEXT_LAYER = 80;
+var CHOICE_TEXT_UPPER_LAYER = 85;
 var VN_TEXT_BG_LAYER = 90;
 var VN_TEXT_LAYER = 95; //@cleanup Unused
 var MSG_SPRITE_LAYER = 100;
@@ -166,6 +168,7 @@ function newImage() {
 		justHovered: false,
 		justUnHovered: false,
 		hovering: false,
+		hoveringTime: 0,
 		draggable: false,
 		dragPivotX: 0,
 		dragPivotY: 0,
@@ -261,7 +264,7 @@ function addChoice(choiceText, result, config) {
 
 	var spr = add9SliceImage("img/writer/writerChoice.png", buttonWidth, BUTTON_HEIGHT, 5, 5, 10, 10);
 	spr.temp = false;
-	spr.layer = CHOICE_BUTTON_LAYER;
+	spr.centerPivot = true;
 
 	spr.onRelease = function() {
 		if (!choice.enabled) {
@@ -284,7 +287,6 @@ function addChoice(choiceText, result, config) {
 	tf.setFont("NunitoSans-Light_22");
 	tf.tint = 0xFFa5e3f2;
 	tf.setText(choiceText);
-	tf.layer = CHOICE_TEXT_LAYER;
 	tf.x = spr.width/2 - tf.textWidth/2;
 	tf.y = spr.height/2 - tf.textHeight/2;
 
@@ -1136,9 +1138,25 @@ function realUpdate() {
 
 		spr.x = spr.width * choiceIndexOnPage + choicesOff;
 		spr.y = gameHeight - spr.height;
+		spr.scaleX = spr.scaleY = 1;
 		spr.alpha = choice.enabled ? 1 : 0.5;
+		spr.layer = CHOICE_BUTTON_LAYER;
+		tf.layer = CHOICE_TEXT_LAYER;
+		spr.smoothing = true;
+		tf.smoothing = true;
 		if (spr.justHovered) playEffect("audio/ui/hoverChoiceButtons");
-		if (spr.hovering) spr.y += 5;
+		if (spr.hovering) {
+			var moveUpPerc = spr.hoveringTime / 0.3;
+			if (moveUpPerc > 1) moveUpPerc = 1;
+			moveUpPerc = tweenEase(moveUpPerc, ELASTIC_OUT);
+
+			spr.y -= moveUpPerc * 10;
+			spr.scaleX += moveUpPerc*0.2;
+			spr.scaleY += moveUpPerc*0.2;
+
+			spr.layer = CHOICE_BUTTON_UPPER_LAYER;
+			tf.layer = CHOICE_TEXT_UPPER_LAYER;
+		}
 		choiceIndexOnPage++;
 	}
 
@@ -1181,6 +1199,12 @@ function realUpdate() {
 					img.setText(img.text);
 				}
 			}
+		}
+
+		if (img.hovering) {
+			img.hoveringTime += 1/60.0;
+		} else {
+			img.hoveringTime = 0;
 		}
 
 		setImageProps(img.id, img.x, img.y, img.scaleX, img.scaleY, img.skewX, img.skewY, img.alpha, img.rotation, img.tint, img.layer, img.smoothing, img.centerPivot, img.ignoreMouseRect);
