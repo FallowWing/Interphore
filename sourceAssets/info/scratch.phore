@@ -1078,6 +1078,7 @@ hookTempUpdate(function() {
 This is where you can test the new map!
 
 [Actually go to the map now!|startNewMap]
+[Go to another non-functional map!|startNonfunctionNewMap]
 ---
 :startNewMap
 !`
@@ -1091,6 +1092,25 @@ entry.seenUnlocked = entry.unlocked = true;
 entry = map.createNode("Scene 2", "testMapScene2", RIGHT, "Scene 1");
 
 entry = map.createNode("Scene 3", "testMapScene3", BOTTOM, "Scene 1");
+
+entry = map.createNode("Back to map test", "newMapTest", TOP, "Scene 1");
+entry.seenUnlocked = entry.unlocked = true;
+
+map.show();
+`
+---
+:startNonfunctionNewMap
+!`
+map.clear();
+
+var entry;
+entry = map.createNode("Back to map test", "newMapTest");
+entry.seenUnlocked = entry.unlocked = true;
+
+entry = map.createNode("Nonfunctional node 1", "not_yet_set", BOTTOM, "Back to map test");
+entry = map.createNode("Nonfunctional node 2", "not_yet_set", TOP, "Back to map test");
+entry = map.createNode("Nonfunctional node 3", "not_yet_set", LEFT, "Back to map test");
+entry = map.createNode("Nonfunctional node 4", "not_yet_set", RIGHT, "Back to map test");
 
 map.show();
 `

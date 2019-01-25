@@ -24,7 +24,7 @@ var map = {
 };
 
 map.clear = function() {
-	//TODO(fallow): Do this
+	map.nodes = [];
 };
 
 map.getEntry = function(entryName) {
@@ -115,8 +115,8 @@ map.show = function() {
 			node.sprite.y = gameHeight/2 - node.sprite.height/2;
 		} else {
 			var parentNode = map.nodes[node.connectedNodeName];
-			node.sprite.x = parentNode.sprite.x;
-			node.sprite.y = parentNode.sprite.y;
+			node.sprite.x = parentNode.sprite.x + parentNode.sprite.width/2 - node.sprite.width/2;
+			node.sprite.y = parentNode.sprite.y + parentNode.sprite.height/2 - node.sprite.height/2;
 
 			var nodePadding = 20;
 			if (node.connectedDirection == LEFT) {
