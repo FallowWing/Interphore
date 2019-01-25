@@ -605,6 +605,12 @@ queueCall(function() {
 		beca.addChild(boobsImg);
 	}
 
+	if (data.genitals === "male" || data.genitals === "both") {
+		var bulgeImg = addImage("writer/characters/rebeca/rebeca/bulge");
+		bulgeImg.layer = beca.layer + 1;
+		beca.addChild(bulgeImg);
+	}
+
 	if (data.species === undefined) data.species = "cat";
 
 	if (data.species === "bunny") {
