@@ -28,6 +28,7 @@ info/passageParser.js
 info/LLLmap.phore
 info/earthMap.phore
 info/archiepelagoMap.phore
+info/map.phore
 
 info/introMod.phore
 info/introModMynt.phore
