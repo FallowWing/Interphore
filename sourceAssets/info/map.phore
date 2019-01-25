@@ -17,6 +17,10 @@ var map = {
 	startMoveTime: 0,
 	curPhase: 0,
 	poofAnim: null,
+
+	saveButton: null,
+	loadButton: null,
+	extrasButton: null,
 };
 
 map.clear = function() {
@@ -172,6 +176,25 @@ map.show = function() {
 	map.poofAnim.alpha = 0;
 	map.container.addChild(map.poofAnim);
 
+	enableExit();
+
+	var buttonPad = 10;
+	var buttonEdgePad = 10;
+	map.saveButton = addImage("writer/save");
+	map.saveButton.scaleX = map.saveButton.scaleY = 2;
+	map.saveButton.x = exitButton.x;
+	map.saveButton.y = exitButton.y + exitButton.height * exitButton.scaleY + buttonPad;
+
+	map.loadButton = addImage("writer/load");
+	map.loadButton.scaleX = map.loadButton.scaleY = 2;
+	map.loadButton.x = map.saveButton.x;
+	map.loadButton.y = map.saveButton.y + map.saveButton.height * map.saveButton.scaleY  + buttonPad;
+
+	map.extrasButton = addImage("writer/extras");
+	map.extrasButton.scaleX = map.extrasButton.scaleY = 2;
+	map.extrasButton.x = map.loadButton.x;
+	map.extrasButton.y = map.loadButton.y + map.loadButton.height * map.loadButton.scaleY   + buttonPad;
+
 	hookTempUpdate(map.update);
 };
 
@@ -261,6 +284,18 @@ map.update = function() {
 			node.sprite.tint = 0xCC0d0d0d;
 		}
 	});
+
+	if (map.saveButton.justReleased) {
+		saveGame();
+	}
+
+	if (map.loadButton.justReleased) {
+		loadGame();
+	}
+
+	if (map.extrasButton.justReleased) {
+		gotoPassage("scratchModStart");
+	}
 
 	if (map.poofAnim.alpha != 0 && map.poofAnim.currentFrame == round((map.poofAnim.totalFrames-2)/2)) {
 		if (currentFocusedNode.entry.unlocked && !currentFocusedNode.entry.seenUnlocked) {
