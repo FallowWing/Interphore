@@ -253,6 +253,8 @@ map.update = function() {
 		} else {
 			map.poofAnim.gotoFrame(0);
 		}
+	} else {
+		map.curPhase = 2;
 	}
 
 	Object.keys(map.nodes).forEach(function(nodeKey) {
@@ -262,9 +264,11 @@ map.update = function() {
 		if (node.entry.seenUnlocked) {
 			node.sprite.tint = 0;
 
-			if (spr.justReleased) {
-				gotoPassage(node.dest);
-				node.entry.started = true;
+			if (map.curPhase == 2) {
+				if (spr.justReleased) {
+					gotoPassage(node.dest);
+					node.entry.started = true;
+				}
 			}
 
 			var scaleSpeed = 0.05;
@@ -285,16 +289,18 @@ map.update = function() {
 		}
 	});
 
-	if (map.saveButton.justReleased) {
-		saveGame();
-	}
+	if (map.curPhase == 2) {
+		if (map.saveButton.justReleased) {
+			saveGame();
+		}
 
-	if (map.loadButton.justReleased) {
-		loadGame();
-	}
+		if (map.loadButton.justReleased) {
+			loadGame();
+		}
 
-	if (map.extrasButton.justReleased) {
-		gotoPassage("scratchModStart");
+		if (map.extrasButton.justReleased) {
+			gotoPassage("scratchModStart");
+		}
 	}
 
 	if (map.poofAnim.alpha != 0 && map.poofAnim.currentFrame == round((map.poofAnim.totalFrames-2)/2)) {
