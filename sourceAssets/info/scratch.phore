@@ -1086,37 +1086,37 @@ This is where you can test the new map!
 ---
 :startNewMap
 !`
-map.clear();
+worldMap.clear();
 
 var entry;
 
-entry = map.createNode("Scene 1", "testMapScene1");
+entry = worldMap.createNode("Scene 1", "testMapScene1");
 entry.seenUnlocked = entry.unlocked = true;
 
-entry = map.createNode("Scene 2", "testMapScene2", RIGHT, "Scene 1");
+entry = worldMap.createNode("Scene 2", "testMapScene2", RIGHT, "Scene 1");
 
-entry = map.createNode("Scene 3", "testMapScene3", BOTTOM, "Scene 1");
+entry = worldMap.createNode("Scene 3", "testMapScene3", BOTTOM, "Scene 1");
 
-entry = map.createNode("Back to map test", "newMapTest", TOP, "Scene 1");
+entry = worldMap.createNode("Back to map test", "newMapTest", TOP, "Scene 1");
 entry.seenUnlocked = entry.unlocked = true;
 
-map.show();
+worldMap.show();
 `
 ---
 :startNonfunctionNewMap
 !`
-map.clear();
+worldMap.clear();
 
 var entry;
-entry = map.createNode("Back to map test", "newMapTest");
+entry = worldMap.createNode("Back to map test", "newMapTest");
 entry.seenUnlocked = entry.unlocked = true;
 
-entry = map.createNode("Nonfunctional node 1", "not_yet_set", BOTTOM, "Back to map test");
-entry = map.createNode("Nonfunctional node 2", "not_yet_set", TOP, "Back to map test");
-entry = map.createNode("Nonfunctional node 3", "not_yet_set", LEFT, "Back to map test");
-entry = map.createNode("Nonfunctional node 4", "not_yet_set", RIGHT, "Back to map test");
+entry = worldMap.createNode("Nonfunctional node 1", "not_yet_set", BOTTOM, "Back to map test");
+entry = worldMap.createNode("Nonfunctional node 2", "not_yet_set", TOP, "Back to map test");
+entry = worldMap.createNode("Nonfunctional node 3", "not_yet_set", LEFT, "Back to map test");
+entry = worldMap.createNode("Nonfunctional node 4", "not_yet_set", RIGHT, "Back to map test");
 
-map.show();
+worldMap.show();
 `
 ---
 :testMapScene1
@@ -1127,9 +1127,9 @@ You're in scene1!
 :testMapScene1b
 You're in scene1b, and have unlocked scene2!
 !`
-map.completeEntry("Scene 1");
-map.unlockEntry("Scene 2");
-map.unlockEntry("Scene 3");
+worldMap.completeEntry("Scene 1");
+worldMap.unlockEntry("Scene 2");
+worldMap.unlockEntry("Scene 3");
 `
 [Back|startNewMap]
 ---

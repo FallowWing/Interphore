@@ -2,7 +2,7 @@
 
 data.mapEntries = [];
 
-var map = {
+var worldMap = {
 	nodes: [],
 	lines: [],
 	container: null,
@@ -23,11 +23,11 @@ var map = {
 	extrasButton: null,
 };
 
-map.clear = function() {
-	map.nodes = [];
+worldMap.clear = function() {
+	worldMap.nodes = [];
 };
 
-map.getEntry = function(entryName) {
+worldMap.getEntry = function(entryName) {
 	var entry = data.mapEntries[entryName];
 
 	if (!entry) {
@@ -46,18 +46,18 @@ map.getEntry = function(entryName) {
 	return entry;
 };
 
-map.unlockEntry = function(entryName) {
-	var entry = map.getEntry(entryName);
+worldMap.unlockEntry = function(entryName) {
+	var entry = worldMap.getEntry(entryName);
 	entry.unlocked = true;
 };
 
-map.completeEntry = function(entryName) {
-	var entry = map.getEntry(entryName);
+worldMap.completeEntry = function(entryName) {
+	var entry = worldMap.getEntry(entryName);
 	entry.completed = true;
 };
 
-map.createNode = function(entryName, dest, connectedDirection, connectedNodeName) {
-	var entry = map.getEntry(entryName);
+worldMap.createNode = function(entryName, dest, connectedDirection, connectedNodeName) {
+	var entry = worldMap.getEntry(entryName);
 
 	var node = {
 		sprite: null,
@@ -70,12 +70,12 @@ map.createNode = function(entryName, dest, connectedDirection, connectedNodeName
 		connectedDirection: connectedDirection,
 	};
 
-	map.nodes[entryName] = node;
+	worldMap.nodes[entryName] = node;
 
 	return entry;
 };
 
-map.show = function() {
+worldMap.show = function() {
 	if (preventNextCheckpoint) {
 		data = JSON.parse(checkpointStr);
 		preventNextCheckpoint = false;
@@ -84,10 +84,10 @@ map.show = function() {
 		saveCheckpoint();
 	}
 
-	map.container = addEmptyImage(1, 1);
+	worldMap.container = addEmptyImage(1, 1);
 
-	Object.keys(map.nodes).forEach(function(nodeKey) {
-		var node = map.nodes[nodeKey];
+	Object.keys(worldMap.nodes).forEach(function(nodeKey) {
+		var node = worldMap.nodes[nodeKey];
 
 		node.textField = addEmptyImage(256, 256);
 		node.textField.setFont("NunitoSans-Light_22");
@@ -104,7 +104,7 @@ map.show = function() {
 		);
 		node.sprite.layer = GRAPH_NODE_LAYER;
 		node.sprite.centerPivot = true;
-		map.container.addChild(node.sprite);
+		worldMap.container.addChild(node.sprite);
 
 		node.textField.x = node.sprite.width/2 - node.textField.textWidth/2;
 		node.textField.y = node.sprite.height/2 - node.textField.textHeight/2;
@@ -114,7 +114,7 @@ map.show = function() {
 			node.sprite.x = gameWidth/2 - node.sprite.width/2;
 			node.sprite.y = gameHeight/2 - node.sprite.height/2;
 		} else {
-			var parentNode = map.nodes[node.connectedNodeName];
+			var parentNode = worldMap.nodes[node.connectedNodeName];
 			node.sprite.x = parentNode.sprite.x + parentNode.sprite.width/2 - node.sprite.width/2;
 			node.sprite.y = parentNode.sprite.y + parentNode.sprite.height/2 - node.sprite.height/2;
 
@@ -135,7 +135,7 @@ map.show = function() {
 			var y2 = parentNode.sprite.y + parentNode.sprite.height/2;
 			var dist = pointDistance(x1, y1, x2, y2);
 			var line = addRectImage(dist, 4, 0x752b2b);
-			map.container.addChild(line);
+			worldMap.container.addChild(line);
 			line.x = x1;
 			line.y = y1;
 			line.layer = GRAPH_LINE_LAYER;
@@ -159,62 +159,62 @@ map.show = function() {
 		node.progressIcon = icon;
 
 		if (node.entry.unlocked && !node.entry.seenUnlocked) {
-			map.newlyUpdatedNodes.push(node);
+			worldMap.newlyUpdatedNodes.push(node);
 		}
 
 		if (node.entry.completed && !node.entry.seenCompleted) {
-			map.newlyUpdatedNodes.push(node);
+			worldMap.newlyUpdatedNodes.push(node);
 		}
 	});
 
-	map.prevLocX = 0;
-	map.prevLocY = 0;
-	map.startMoveTime = time;
-	map.curPhase = 0;
+	worldMap.prevLocX = 0;
+	worldMap.prevLocY = 0;
+	worldMap.startMoveTime = time;
+	worldMap.curPhase = 0;
 
-	map.poofAnim = addImage("writer/poof");
-	map.poofAnim.alpha = 0;
-	map.container.addChild(map.poofAnim);
+	worldMap.poofAnim = addImage("writer/poof");
+	worldMap.poofAnim.alpha = 0;
+	worldMap.container.addChild(worldMap.poofAnim);
 
 	enableExit();
 
 	var buttonPad = 10;
 	var buttonEdgePad = 10;
-	map.saveButton = addImage("writer/save");
-	map.saveButton.scaleX = map.saveButton.scaleY = 2;
-	map.saveButton.x = exitButton.x;
-	map.saveButton.y = exitButton.y + exitButton.height * exitButton.scaleY + buttonPad;
+	worldMap.saveButton = addImage("writer/save");
+	worldMap.saveButton.scaleX = worldMap.saveButton.scaleY = 2;
+	worldMap.saveButton.x = exitButton.x;
+	worldMap.saveButton.y = exitButton.y + exitButton.height * exitButton.scaleY + buttonPad;
 
-	map.loadButton = addImage("writer/load");
-	map.loadButton.scaleX = map.loadButton.scaleY = 2;
-	map.loadButton.x = map.saveButton.x;
-	map.loadButton.y = map.saveButton.y + map.saveButton.height * map.saveButton.scaleY  + buttonPad;
+	worldMap.loadButton = addImage("writer/load");
+	worldMap.loadButton.scaleX = worldMap.loadButton.scaleY = 2;
+	worldMap.loadButton.x = worldMap.saveButton.x;
+	worldMap.loadButton.y = worldMap.saveButton.y + worldMap.saveButton.height * worldMap.saveButton.scaleY  + buttonPad;
 
-	map.extrasButton = addImage("writer/extras");
-	map.extrasButton.scaleX = map.extrasButton.scaleY = 2;
-	map.extrasButton.x = map.loadButton.x;
-	map.extrasButton.y = map.loadButton.y + map.loadButton.height * map.loadButton.scaleY   + buttonPad;
+	worldMap.extrasButton = addImage("writer/extras");
+	worldMap.extrasButton.scaleX = worldMap.extrasButton.scaleY = 2;
+	worldMap.extrasButton.x = worldMap.loadButton.x;
+	worldMap.extrasButton.y = worldMap.loadButton.y + worldMap.loadButton.height * worldMap.loadButton.scaleY   + buttonPad;
 
-	hookTempUpdate(map.update);
+	hookTempUpdate(worldMap.update);
 };
 
-map.update = function() {
+worldMap.update = function() {
 	if (mouseJustDown) {
-		map.dragging = true;
-		map.dragPointX = mouseX - map.container.x;
-		map.dragPointY = mouseY - map.container.y;
+		worldMap.dragging = true;
+		worldMap.dragPointX = mouseX - worldMap.container.x;
+		worldMap.dragPointY = mouseY - worldMap.container.y;
 	}
 
 	if (mouseJustUp) {
-		map.dragging = false;
+		worldMap.dragging = false;
 	}
 
-	if (map.dragging) {
-		map.container.x = mouseX - map.dragPointX;
-		map.container.y = mouseY - map.dragPointY;
+	if (worldMap.dragging) {
+		worldMap.container.x = mouseX - worldMap.dragPointX;
+		worldMap.container.y = mouseY - worldMap.dragPointY;
 	}
 
-	var currentFocusedNode = map.newlyUpdatedNodes[0];
+	var currentFocusedNode = worldMap.newlyUpdatedNodes[0];
 	if (currentFocusedNode) {
 		var nextPosX = currentFocusedNode.sprite.x + currentFocusedNode.sprite.width/2;
 		var nextPosY = currentFocusedNode.sprite.y + currentFocusedNode.sprite.height/2;
@@ -222,49 +222,49 @@ map.update = function() {
 		nextPosX = gameWidth/2 - nextPosX;
 		nextPosY = gameHeight/2 - nextPosY;
 
-		if (map.curPhase == 0) {
-			var perc = (time - map.startMoveTime) / 0.5;
+		if (worldMap.curPhase == 0) {
+			var perc = (time - worldMap.startMoveTime) / 0.5;
 			var tweenPerc = perc;
 			perc = tweenEase(perc, ELASTIC_OUT);
 
-			var curX = lerp(perc, map.prevLocX, nextPosX);
-			var curY = lerp(perc, map.prevLocY, nextPosY);
-			map.container.x = curX;
-			map.container.y = curY;
+			var curX = lerp(perc, worldMap.prevLocX, nextPosX);
+			var curY = lerp(perc, worldMap.prevLocY, nextPosY);
+			worldMap.container.x = curX;
+			worldMap.container.y = curY;
 
 			if (tweenPerc >= 1) {
-				map.startMoveTime = time;
-				map.curPhase = 1;
+				worldMap.startMoveTime = time;
+				worldMap.curPhase = 1;
 
-				map.poofAnim.alpha = 1;
-				map.poofAnim.x = currentFocusedNode.sprite.x + currentFocusedNode.sprite.width/2 - map.poofAnim.width/2;
-				map.poofAnim.y = currentFocusedNode.sprite.y + currentFocusedNode.sprite.height/2 - map.poofAnim.height/2;
+				worldMap.poofAnim.alpha = 1;
+				worldMap.poofAnim.x = currentFocusedNode.sprite.x + currentFocusedNode.sprite.width/2 - worldMap.poofAnim.width/2;
+				worldMap.poofAnim.y = currentFocusedNode.sprite.y + currentFocusedNode.sprite.height/2 - worldMap.poofAnim.height/2;
 			}
 		}
 
-		if (map.curPhase == 1) {
-			if (map.poofAnim.alpha == 0) {
-				map.startMoveTime = time;
-				map.curPhase = 0;
-				map.newlyUpdatedNodes.shift();
-				map.prevLocX = map.container.x;
-				map.prevLocY = map.container.y;
+		if (worldMap.curPhase == 1) {
+			if (worldMap.poofAnim.alpha == 0) {
+				worldMap.startMoveTime = time;
+				worldMap.curPhase = 0;
+				worldMap.newlyUpdatedNodes.shift();
+				worldMap.prevLocX = worldMap.container.x;
+				worldMap.prevLocY = worldMap.container.y;
 			}
 		} else {
-			map.poofAnim.gotoFrame(0);
+			worldMap.poofAnim.gotoFrame(0);
 		}
 	} else {
-		map.curPhase = 2;
+		worldMap.curPhase = 2;
 	}
 
-	Object.keys(map.nodes).forEach(function(nodeKey) {
-		var node = map.nodes[nodeKey];
+	Object.keys(worldMap.nodes).forEach(function(nodeKey) {
+		var node = worldMap.nodes[nodeKey];
 
 		var spr = node.sprite;
 		if (node.entry.seenUnlocked) {
 			node.sprite.tint = 0;
 
-			if (map.curPhase == 2) {
+			if (worldMap.curPhase == 2) {
 				if (spr.justReleased) {
 					gotoPassage(node.dest);
 					node.entry.started = true;
@@ -289,21 +289,21 @@ map.update = function() {
 		}
 	});
 
-	if (map.curPhase == 2) {
-		if (map.saveButton.justReleased) {
+	if (worldMap.curPhase == 2) {
+		if (worldMap.saveButton.justReleased) {
 			saveGame();
 		}
 
-		if (map.loadButton.justReleased) {
+		if (worldMap.loadButton.justReleased) {
 			loadGame();
 		}
 
-		if (map.extrasButton.justReleased) {
+		if (worldMap.extrasButton.justReleased) {
 			gotoPassage("scratchModStart");
 		}
 	}
 
-	if (map.poofAnim.alpha != 0 && map.poofAnim.currentFrame == round((map.poofAnim.totalFrames-2)/2)) {
+	if (worldMap.poofAnim.alpha != 0 && worldMap.poofAnim.currentFrame == round((worldMap.poofAnim.totalFrames-2)/2)) {
 		if (currentFocusedNode.entry.unlocked && !currentFocusedNode.entry.seenUnlocked) {
 			currentFocusedNode.entry.seenUnlocked = true;
 			currentFocusedNode.progressIcon.destroy();
@@ -320,7 +320,7 @@ map.update = function() {
 	}
 
 	//@hack Doing this one frame early because update timing is bad
-	if (map.poofAnim.alpha != 0 && map.poofAnim.currentFrame == map.poofAnim.totalFrames-2) {
-		map.poofAnim.alpha = 0;
+	if (worldMap.poofAnim.alpha != 0 && worldMap.poofAnim.currentFrame == worldMap.poofAnim.totalFrames-2) {
+		worldMap.poofAnim.alpha = 0;
 	}
 };
