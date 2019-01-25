@@ -262,9 +262,6 @@ function addChoice(choiceText, result, config) {
 	var spr = add9SliceImage("img/writer/writerChoice.png", buttonWidth, BUTTON_HEIGHT, 5, 5, 10, 10);
 	spr.temp = false;
 	spr.layer = CHOICE_BUTTON_LAYER;
-	spr.onHover = function() {
-		playEffect("audio/ui/hoverChoiceButtons");
-	}
 
 	spr.onRelease = function() {
 		if (!choice.enabled) {
@@ -1140,6 +1137,7 @@ function realUpdate() {
 		spr.x = spr.width * choiceIndexOnPage + choicesOff;
 		spr.y = gameHeight - spr.height;
 		spr.alpha = choice.enabled ? 1 : 0.5;
+		if (spr.justHovered) playEffect("audio/ui/hoverChoiceButtons");
 		if (spr.hovering) spr.y += 5;
 		choiceIndexOnPage++;
 	}
