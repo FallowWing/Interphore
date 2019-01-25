@@ -473,8 +473,12 @@ addChoice("Stop audio", function() {
 [Go back|scratchModStart]
 ---
 :iconTest   
-!`// If going here fails it's because of the spaces after the title`
+!`
+// If going here fails it's because of the spaces after the title
+`
 This is a test of the icons
+
+[Using the new icon syntax|scratchModStart] #Abuse #Cub
 
 !`
 addChoice("Go back", "scratchModStart", {icons: ["Male", "Female"]});

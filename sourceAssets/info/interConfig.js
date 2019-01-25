@@ -756,16 +756,27 @@ function append(data) {
 	lines.forEach(function(line, i) {
 		if (line.charAt(0) == "[") {
 			var barIndex = line.indexOf("|");
+			var closingBraceIndex = line.indexOf("]");
 			var choiceName = "";
 			var choiceDest = "";
 			if (barIndex != -1) {
 				choiceName = line.substring(1, barIndex);
-				choiceDest = line.substring(barIndex+1, line.length-1);
+				choiceDest = line.substring(barIndex+1, closingBraceIndex);
 			} else {
-				choiceName = line.substring(1, line.length-1);
+				choiceName = line.substring(1, closingBraceIndex);
 				choiceDest = choiceName;
 			}
-			addChoice(choiceName, choiceDest);
+
+			var choiceParams = {};
+
+			line.substring(closingBraceIndex+1, line.length).split("#").forEach(function(param) {
+				param = param.trim();
+				if (param.length == 0) return;
+				if (!choiceParams.icons) choiceParams.icons = [];
+				choiceParams.icons.push(param);
+			});
+
+			addChoice(choiceName, choiceDest, choiceParams);
 		} else {
 			newStr += line;
 			if (i < lines.length-1) newStr += "\n";
