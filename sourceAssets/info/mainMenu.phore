@@ -1,7 +1,7 @@
 clearNodes();
 
 var startMuted = false;
-var sfwMenu = true;
+var sfwMenu = false;
 
 START_PASSAGES
 :mainMenuStart
