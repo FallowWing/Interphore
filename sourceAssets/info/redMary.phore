@@ -620,6 +620,7 @@ queueCall(function() {
 		
 		beca.addChild(ears);
 		beca.addChild(tail);
+		beca.addChild(nose);
 		ears.layer = beca.layer + 2;
 		tail.layer = beca.layer - 1;
 		nose.layer = beca.layer + 2;
@@ -632,6 +633,7 @@ queueCall(function() {
 		
 		beca.addChild(ears);
 		beca.addChild(tail);
+		beca.addChild(nose);
 		ears.layer = beca.layer + 2;
 		tail.layer = beca.layer - 1;
 		nose.layer = beca.layer + 2;
@@ -644,6 +646,7 @@ queueCall(function() {
 		
 		beca.addChild(ears);
 		beca.addChild(tail);
+		beca.addChild(nose);
 		ears.layer = beca.layer + 2;
 		tail.layer = beca.layer - 1;
 		nose.layer = beca.layer + 2;
@@ -656,6 +659,7 @@ queueCall(function() {
 		
 		beca.addChild(ears);
 		beca.addChild(tail);
+		beca.addChild(nose);
 		ears.layer = beca.layer + 2;
 		tail.layer = beca.layer - 1;
 		nose.layer = beca.layer + 2;
@@ -756,6 +760,9 @@ vn.stop();
 
 vn.moveOut(0);
 vn.moveOut(1);
+vn.delay(1);
+vn.delay(1);
+vn.delay(1);
 vn.choice("End chat.", function() {
 	gotoPassage("redMaryVnEnd");
 });
