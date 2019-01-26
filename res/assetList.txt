@@ -246,6 +246,12 @@ img/writer/characters/rebeca/rebeca/bunnyEars.png
 img/writer/characters/rebeca/rebeca/bunnyEars.spr
 img/writer/characters/rebeca/rebeca/nonBunnyEars.png
 img/writer/characters/rebeca/rebeca/nonBunnyEars.spr
+img/writer/characters/rebeca/rebeca/catNose.png
+img/writer/characters/rebeca/rebeca/catNose.spr
+img/writer/characters/rebeca/rebeca/bunnyNose.png
+img/writer/characters/rebeca/rebeca/bunnyNose.spr
+img/writer/characters/rebeca/rebeca/canineNose.png
+img/writer/characters/rebeca/rebeca/canineNose.spr
 img/writer/characters/rebeca/rebeca/eyelashes.png
 img/writer/characters/rebeca/rebeca/eyelashes.spr
 img/writer/characters/rebeca/rebeca/boobs.png

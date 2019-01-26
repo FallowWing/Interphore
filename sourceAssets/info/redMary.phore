@@ -611,46 +611,54 @@ queueCall(function() {
 		beca.addChild(bulgeImg);
 	}
 
-	if (data.species === undefined) data.species = "cat";
+	if (data.species === undefined) data.species = "bunny";
 
 	if (data.species === "bunny") {
 		var ears = addImage("writer/characters/rebeca/rebeca/bunnyEars");
 		var tail = addImage("writer/characters/rebeca/rebeca/bunnyTail");
+		var nose = addImage("writer/characters/rebeca/rebeca/bunnyNose");
 		
 		beca.addChild(ears);
 		beca.addChild(tail);
 		ears.layer = beca.layer + 2;
 		tail.layer = beca.layer - 1;
+		nose.layer = beca.layer + 2;
 	}
 
 	if (data.species === "fox") {
 		var ears = addImage("writer/characters/rebeca/rebeca/nonBunnyEars");
 		var tail = addImage("writer/characters/rebeca/rebeca/foxTail");
+		var nose = addImage("writer/characters/rebeca/rebeca/canineNose");
 		
 		beca.addChild(ears);
 		beca.addChild(tail);
 		ears.layer = beca.layer + 2;
 		tail.layer = beca.layer - 1;
+		nose.layer = beca.layer + 2;
 	}
 
 	if (data.species === "wolf") {
 		var ears = addImage("writer/characters/rebeca/rebeca/nonBunnyEars");
 		var tail = addImage("writer/characters/rebeca/rebeca/wolfTail");
+		var nose = addImage("writer/characters/rebeca/rebeca/canineNose");
 		
 		beca.addChild(ears);
 		beca.addChild(tail);
 		ears.layer = beca.layer + 2;
 		tail.layer = beca.layer - 1;
+		nose.layer = beca.layer + 2;
 	}
 
 	if (data.species === "cat") {
 		var ears = addImage("writer/characters/rebeca/rebeca/nonBunnyEars");
 		var tail = addImage("writer/characters/rebeca/rebeca/catTail");
+		var nose = addImage("writer/characters/rebeca/rebeca/catNose");
 		
 		beca.addChild(ears);
 		beca.addChild(tail);
 		ears.layer = beca.layer + 2;
 		tail.layer = beca.layer - 1;
+		nose.layer = beca.layer + 2;
 	}
 });
 

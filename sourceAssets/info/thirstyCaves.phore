@@ -287,7 +287,9 @@ addChoice("Phae.", function() {
 
 You contemplate your new fursona, `data.playerName`.
 
-"Original character," you think to yourself, "please do not steal."
+"Original character," you think to yourself.
+
+"Please do not steal."
 
 !`
 playEffect("audio/ui/rewards/checkmark");
@@ -340,6 +342,10 @@ if (data.species === "bunny") {
 	var tail = addImage("writer/characters/rebeca/rebeca/bunnyTail");
 	tail.x = youngBeca.x;
 	tail.y = youngBeca.y;
+
+	var nose = addImage("writer/characters/rebeca/rebeca/bunnyNose");
+	nose.x = youngBeca.x;
+	nose.y = youngBeca.y;
 }
 
 if (data.species === "fox") {
@@ -350,6 +356,10 @@ if (data.species === "fox") {
 	var tail = addImage("writer/characters/rebeca/rebeca/foxTail");
 	tail.x = youngBeca.x;
 	tail.y = youngBeca.y;
+
+	var nose = addImage("writer/characters/rebeca/rebeca/canineNose");
+	nose.x = youngBeca.x;
+	nose.y = youngBeca.y;
 }
 
 if (data.species === "wolf") {
@@ -360,6 +370,10 @@ if (data.species === "wolf") {
 	var tail = addImage("writer/characters/rebeca/rebeca/wolfTail");
 	tail.x = youngBeca.x;
 	tail.y = youngBeca.y;
+
+	var nose = addImage("writer/characters/rebeca/rebeca/canineNose");
+	nose.x = youngBeca.x;
+	nose.y = youngBeca.y;
 }
 
 if (data.species === "cat") {
@@ -370,9 +384,14 @@ if (data.species === "cat") {
 	var tail = addImage("writer/characters/rebeca/rebeca/catTail");
 	tail.x = youngBeca.x;
 	tail.y = youngBeca.y;
+
+	var nose = addImage("writer/characters/rebeca/rebeca/catNose");
+	nose.x = youngBeca.x;
+	nose.y = youngBeca.y;
 }
 
 ears.layer = youngBeca.layer + 1;
+nose.layer = youngBeca.layer + 1;
 tail.layer = youngBeca.layer - 1;
 
 choicesPerPage = 1;
