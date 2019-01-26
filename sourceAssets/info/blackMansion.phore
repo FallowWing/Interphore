@@ -6,7 +6,7 @@ You gracefully hop out of the red pond on the forest island. There's a black man
 But before you can head down into the trees, something catches your eye: a bull dude and a lamb boy three ponds down the way. They're arguing. The bull cradles something small in his arms.
 
 !`
-choicesPerPage = 3;
+choicesPerPage = 2;
 addChoice("Eavesdrop.", "blackEaves1", {icons: ["Plot"]});
 addChoice("Skip.", "blackBeginPre");
 `
@@ -404,7 +404,7 @@ It's just where we're at right now. Maybe if the big fat Creator had done a bett
 When I say Creator I'm talking about the pear-hipped woman who coded this island: your mom.
 
 !`
-choicesPerPage = 1;
+choicesPerPage = 2;
 addChoice("Examine classroom.", "blackClass", {icons: ["Baby", "Plot"]});
 addChoice("No your mom is fat.", "black12d");
 `
