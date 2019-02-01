@@ -198,6 +198,8 @@ img/writer/shelterBg.spr
 img/writer/cartBg.png
 img/writer/cartBg.spr
 
+img/writer/cageBathtub.png
+img/writer/cageBathtub.spr
 img/writer/mynt/bg/myntBg1.png
 img/writer/mynt/bg/myntBg1.spr
 img/writer/mynt/bg/myntBg2.png

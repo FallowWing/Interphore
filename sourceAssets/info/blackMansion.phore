@@ -430,15 +430,17 @@ You wander the Fuckmeat Sanctuary.
 !`
 addChoice("Examine bedroom.", "blackBeds", {icons: ["Plot"]});
 if (data.hasBathroomKey) {
-	addChoice("Examine bathroom.", "blackBath", {icons: ["Male", "Baby", "Baby", "Baby", "Baby", "Baby", "Baby"]});
+	addChoice("Examine bathroom.", "blackBath", {icons: ["Male", "Baby", "Baby", "Baby", "Baby"], tooltip: ""});
 } else {
-	addChoice("Examine bathroom.", "blackBath", {icons: ["Male", "Baby", "Baby", "Baby", "Baby", "Baby", "Baby"], enabled: data.hasBathroomKey, tooltip: "Requires: Bathroom Key"});
+	addChoice("Examine bathroom.", "blackBath", {icons: ["Male", "Baby", "Baby", "Baby", "Baby"], enabled: data.hasBathroomKey, tooltip: "Requires: Bathroom Key"});
 }
+
 if (data.hasLoungeKey) {
-	addChoice("Examine lounge.", "blackLounge", {icons: ["Baby", "Abuse", "Gore", "Plot"]});
+	addChoice("Examine lounge.", "blackLounge", {icons: ["Baby", "Abuse", "Gore", "Plot"], tooltip: ""});
 } else {
 	addChoice("Examine lounge.", "blackLounge", {icons: ["Baby", "Abuse", "Gore", "Plot"], enabled: data.hasLoungeKey, tooltip: "Requires: Lounge Key"});
 }
+
 addChoice("Examine classroom.", "blackClass", {icons: ["Baby", "Plot"]});
 `
 ---
@@ -594,7 +596,7 @@ choicesPerPage = 1;
 
 Framed pictures rest on the endtables in here. You look at a group photo with Som the lamb boy posing shyly off to the side, a massive dogpile of doofy-looking blank-eyed fuckmeat, and, at the very bottom, absolutely all of him covered in babies besides his unimpressed expression... there's Cage. "Playtime with daddy! <3" Som's handwriting says.
 
-Cage has the same exact expression in every single picture... >:|
+Cage has the same exact expression in every single picture...
 
 They show him bottle-feeding a fuckmeat and looking pissed at the camera, sitting criss-cross applesauce in the grass and playing with a little squad of happy babies while he looks pissed at the camera, and, finally, Cage snoozing peacefully, all sprawled out on his queen-sized bed, with babies cuddled up to his abs and biceps, nuzzling their furry little snouts into any warm crevice they can find (armpits, thighs, under his heavy nuts, everything) while he looks pissed at the camera even though his eyes are shut. Must be dreaming about being pissed at the camera.
 
@@ -1475,13 +1477,23 @@ choicesPerPage = 1;
 
 You peek into the bath.
 
-Someone is in here. On the other side of the bathroom there's a tub...
+Someone is in here. Here's where the giggles came from earlier.
 
-... a bubblebath filled with happy, sudsy babies, a bobbing rubber ducky, and, at the very far end... a hulking bull dude with dead fish eyes and a big tuft of suds balanced impeccably between his horns. His hand breaks the surface of the bathwater, grabs the crown of fluffy suds, and slowly brings it back down to the water.
-
-"Get out or I'm going to fucking murder you."
+On the other side of the bathroom there's a tub...
 
 !`
+choicesPerPage = 1;
+`
+[Examine... tub?|blackBath2]
+---
+:blackBath2
+
+"Get out."
+
+!`
+var cageBathtub = addImage("writer/cageBathtub");
+cageBathtub.x = gameWidth / 2 - cageBathtub.width / 2;
+cageBathtub.y = gameHeight / 2 - cageBathtub.height / 2;
 choicesPerPage = 1;
 `
 [GET OUT IMMEDIATELY|blackEnd]
