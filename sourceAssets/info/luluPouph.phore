@@ -8,8 +8,8 @@ The wolf is about to outpace her. Suddenly, she turns right around on her heel a
 !`
 choicesPerPage = 1;
 msg("Guest Writer: Zar");
+addChoice("Hold a foot out as she passes.", "Hold a foot out as she passes.", {icons: ["Cub", "Female", "Male", "Intersex", "Feral", "Candy Gore"]});
 `
-[Hold a foot out as she passes.]
 ---
 :Hold a foot out as she passes.
 
