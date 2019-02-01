@@ -143,6 +143,13 @@ function gender(male, female, both) {
 	return "Gender not set";
 }
 
+function pouphGen(male, female, none) {
+	if (data.pouphGender === "male") return male;
+	if (data.pouphGender === "female") return female;
+	if (data.pouphGender === "none") return none;
+	return "POUPH HAS NO GENDER SET, FUCK, UH OHHHHH, GO SET IT, ";
+}
+
 /*
 function exp(amount, sfx) {
 	data.exp += amount;

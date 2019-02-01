@@ -50,6 +50,13 @@ execAsset("oliStream.phore");
 gotoPassage("oliStreamStart");
 `
 ---
+:luluPouph
+!`
+clear();
+execAsset("luluPouph.phore");
+gotoPassage("luluStart");
+`
+---
 :yellowPond
 !`
 clear();
@@ -81,6 +88,9 @@ function gotoEarth() {
 	submitNode("Foodland", "foodLand");
 	attachNode("Yellow Pond", "Foodland", BOTTOM);
 
+	submitNode("Mallow-Melon Mess", "luluPouph");
+	attachNode("Foodland", "Mallow-Melon Mess", BOTTOM);
+
 	setNodeLocked("Moving In", function() {
 		return data.metCart;
   	});
@@ -90,6 +100,10 @@ function gotoEarth() {
   	});
 
   	setNodeLocked("Foodland", function() {
+		return data.leftMynt;
+  	});
+
+  	setNodeLocked("Mallow-Melon Mess", function() {
 		return data.leftMynt;
   	});
 

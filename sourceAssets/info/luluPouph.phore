@@ -7,6 +7,7 @@ The wolf is about to outpace her. Suddenly, she turns right around on her heel a
 
 !`
 choicesPerPage = 1;
+msg("Guest Writer: Zar");
 `
 [Hold a foot out as she passes.]
 ---
@@ -52,20 +53,69 @@ You mute her with your lips. Your tongue easily slips in. Unsurprisingly, the in
 Lulu has plenty of fun slobbering all over her pussy and the tight little star beneath her wiggly tail. Each lap of his tongue makes her moan and whimper into your mouth. Judging from the way that massive, shiny green doggy-dick throbs beneath him, he's more eager for the main course.
 
 !`
-choicesPerPage = 1;
+choicesPerPage = 2;
 `
-[Much better. Heft her cute butt up for Lulu~]
+[Much better. Heft her cute butt up for Lulu~|pouphGenitalsRejoin]
+[Hmm. Wait. Can I reshape her bits?]
 ---
-:Much better. Heft her cute butt up for Lulu~
+:Hmm. Wait. Can I reshape her bits?
+
+Well, she's made of marshmallow and you've still got hands, so yes. What would you like to do?
+
+!`data.pouphGenitals = "female";`
+
+[Give her a pussy!]
+[Give her a cock 'n balls!]
+[Give her NOTHING!!]
+[Just present her to Lulu.|pouphGenitalsRejoin]
+---
+:Give her a cock 'n balls!
+You grab her by the groin, and she moans involuntarily at every kneady motion of your fingers. It takes a little effort and a lot of rough fingering to get all the right parts in all the right places. You practically have to invert her pussy. Her squirms make it that much harder, and Lulu whines at you the whole time, but you get the job done.
+
+You admire your finished handiwork: She now sports a surprisingly stiff and shapely marshmallow cock, maybe three inches big, and a cute pair of nuts below. Pre-frosting drips from the tip.
+
+!`
+choicesPerPage = 1;
+data.pouphGenitals = "male";
+`
+[Sweet! Heft her cute butt up for Lulu.|pouphGenitalsRejoin]
+---
+:Give her NOTHING!!
+
+You place your palm over the poor mallowsheep's cunt and viciously rub it down until you've stolen her very origin of pleasure. She trembles on the edge of a climax that will never arrive. Confused, she looks down and gawks with abject terror at the smooth, sexy, empty patch of mallow between her legs.
+
+!`
+choicesPerPage = 1;
+data.pouphGenitals = "none";
+`
+[Sweet! Heft her cute butt up for Lulu.|pouphGenitalsRejoin]
+---
+:Give her a pussy!
+
+... Be honest. Do you pay attention to most of what's narrated to you?
+
+[Sorry, what? I was thinking about something else.]
+---
+:Sorry, what? I was thinking about something else.
+
+Nevermind. She has a pussy. Congratulations. Great job. You did it.
+
+!`
+choicesPerPage = 1;
+data.pouphGenitals = "female";
+`
+[Sweet! Heft her cute butt up for Lulu.|pouphGenitalsRejoin]
+---
+:pouphGenitalsRejoin
 
 You wiggle the sheep-girl's ass at the wolf, and he jumps on the invitation: he bears down on the lamb in your arms and nearly knocks you over. You manage to stay upright, albeit now with a watermelon wolf's weight atop you and his front legs over your shoulders. Pink drool pours from his muzzle and down onto your back in cool, thin rivulets. Soft shivers glissade down your spine.
 
-His slick dick misses the holes and just ruts up between her pudgy buttcheeks. They bounce pleasantly around his shaft. Lulu's big green monster is almost twice as long as the lamb is tall, and yet he can't hit mark without help. His tip smacks against the back of her head over and over. She's more irritated than hurt. He whines loudly at you.
+His slick dick misses the hole`pouphGen("", "s", "")` and just ruts up between her pudgy buttcheeks. They bounce pleasantly around his shaft. Lulu's big green monster is almost twice as long as the lamb is tall, and yet he can't hit mark without help. His tip smacks against the back of her head over and over. She's more irritated than hurt. He whines loudly at you.
 
 !`
 choicesPerPage = 2;
 `
-[Make adjustments!|Yes. Yes I am. NOW make adjustments.]
+[Make adjustments!|Yes. Yes it is. NOW make adjustments.]
 [Wait, this is kinda funny.]
 ---
 :Wait, this is kinda funny.
@@ -104,7 +154,7 @@ Flecks of marshmallow fluff hang off of the tip of Lulu's cock. You barely have 
 
 "Oh no, this is baaad." She sputters up a couple more creamy tuftguts. "I told you! He's ruining my, my, uhh... not again HURP—"
 
-She tries to speak twice more, but both times the wolf mounts her jiggly cub butt and interrupts her with frenzied thrusts.. The loudest noises she can manage are her muffled whines and soft retches each time Lulu pounds inside.
+She tries to speak twice more, but both times the wolf mounts her jiggly cub butt and interrupts her with frenzied thrusts.. The loudest noises she can manage are her muffled whines and soft retches each time Lulu pounds inside. `pouphGen("Her twitchy cock drips onto your belly and lap.", "Her pussy squirts a sugary glaze onto your lap.", "She paws at her blank groin in desperate search of purchase.")`
 
 !`
 choicesPerPage = 1;
@@ -182,12 +232,11 @@ He slams the whole thing back inside. Your mutual 'friend' has only enough time 
 
 "UH OH!"
 
-She coughs and gags, but this time, her whole body trembles and lurches violently in your arms. You can decide where your mouth is going to be before her candy insides become candy outsides.
+She coughs and gags, but this time, her body trembles and lurches violently in your arms. `pouphGen("Her dick sprays a load of sugarspunk across your legs and belly in thin lines.", "Her cunt gushes skene glaze until your legs are frosted with the stuff.", "Her junkless groin twitches uselessly.")` You can decide where your mouth is going to be before her candy insides become candy outsides.
 
 !`
-choicesPerPage = 2;
+choicesPerPage = 1;
 `
-[Just cuddle and watch.]
 [Third time's the charm! Grab them chubby cub cheeks.]
 ---
 :Third time's the charm! Grab them chubby cub cheeks.
@@ -273,7 +322,7 @@ choicesPerPage = 1;
 ---
 :Seriously what?! You gonna tell me you didn't have fun?
 
-"I, uhhhm..." Her pale cheeks flush pink and she rubs her chubby thighs together. "Look, that's not the point," she grumbles at you. "I was gonna get away, honest! Then you went and did THAT!"
+"I, uhhhm..." Her pale cheeks flush pink. She rubs her chubby thighs together `pouphGen("around her hardening cock.", "as her pussy drips between them.", "around nothing.")` "Look, that's not the point," she grumbles at you. "I was gonna get away, honest! Then you went and did THAT!"
 
 She points straight at Lulu, who gives an impish zig-zag grin and wags his tail so hard his ass wiggles along with it. The mallowsheep's inert body sliiides off his deflating knot and onto the ground with a thud.
 
@@ -520,9 +569,9 @@ The cow futa pulls her head up. Her mouth is covered in dense clumps of creamy c
 !`
 choicesPerPage = 1;
 `
-[Aw man. I'd eat the whole place up if I could.]
+[Aw man. I'd eat the place up if I could.]
 ---
-:Aw man. I'd eat the whole place up if I could.
+:Aw man. I'd eat the place up if I could.
 
 So would Lulu, from the looks of it. He salivates pink drool all along the path, but Pouph keeps him satisfied enough that he doesn't go off chasing critters. Yet.
 
