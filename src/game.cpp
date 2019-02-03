@@ -1274,6 +1274,11 @@ duk_ret_t setAudioFlags(duk_context *ctx) {
 	int id = duk_get_number(ctx, -3);
 
 	Channel *channel = game->audios[id];
+	if (!channel) {
+		// @hack @bug Sounds linger in here sometimes
+		// printf("No channel\n");
+		return 0;
+	}
 	channel->looping = looping;
 	channel->userVolume = volume;
 	return 0;
