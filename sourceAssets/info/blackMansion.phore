@@ -6,7 +6,7 @@ You gracefully hop out of the red pond on the forest island. There's a black man
 But before you can head down into the trees, something catches your eye: a bull dude and a lamb boy three ponds down the way. They're arguing. The bull cradles something small in his arms.
 
 !`
-choicesPerPage = 3;
+choicesPerPage = 2;
 addChoice("Eavesdrop.", "blackEaves1", {icons: ["Plot"]});
 addChoice("Skip.", "blackBeginPre");
 `
@@ -262,6 +262,7 @@ choicesPerPage = 1;
 Yeah pretty much. Okay, it's set.
 
 !`
+msg("Respawn Point Set");
 choicesPerPage = 1;
 `
 [Now let's see...|black8]
@@ -297,22 +298,129 @@ choicesPerPage = 1;
 
 <i>Click.</i>
 
-You're surrounded by the ruins of an old mansion. Unlike the pristine outer walls of the mansion, everything inside was clearly put together by hand~~ and it's not bad, you mean, the wooden spiral staircase is treated oak, still shiny and solid, and the rooms are all intact, but none of it has the unnatural gleam of hacked perfection that you found on the outside.
+Happy orange lights fade on. You're surrounded by the ruins of an old mansion.
+
+Unlike the pristine outer walls, everything inside was clearly put together by hand. No cheating allowed. It's a little rough, but it's not bad, you mean, the wooden spiral staircase is treated oak, still shiny and solid, and the rooms are all intact, but none of it has the unnatural gleam of hacked perfection that you found on the outside. The laborous blemishes of someone's manual carpentry are ugly as fuck individually but together they make it all feel kinda cozy.
+
+Somewhere, muffled through carpet and wood, a baby giggles.
 
 !`
+choicesPerPage = 2;
+addChoice("Explore!", "black12", {icons: ["Baby"]});
+`
+[Immediately fuck off!|black12FuckOff]
+---
+:black12FuckOff
+
+You glance in the direction of the giggle and shrewdly surmise that this shit is wack.
+
+!`
+choicesPerPage = 2;
+`
+[Set my respawn point a million miles away.|blackMillion]
+[Move along.|blackEnd]
+---
+:blackMillion
+
+!`
+msg("Respawn Point Set");
+choicesPerPage = 2;
+`
+[Kick open the front door of the mansion from inside.|blackMillion2]
+[Move along.|blackEnd]
+---
+:blackMillion2
+
+The double-doors pop apart and smack the outer walls. The doorknobs smash two windows and the wood splinters.
+
+!`
+msg("Exit Thoroughly Examined");
+choicesPerPage = 2;
+`
+[Long jump into the front gate.|blackMillion3]
+[Just move along.|blackEnd]
+---
+:blackMillion3
+
+With excellent form, you throw yourself down the front steps and pirouette headfirst into the black iron gate.
+
+The instant your cranium's magnetic field nuzzles a single electron up against the gate, you are excised from being by a nonillion ultradeath lasers which kill you, bounce to your respawn point and kill you there again, bounce once more off your decimated corpse, and then scatter off into the sky with a squeal like harmless fireworks.
+
+!`
+msg("Self Obliterated");
 choicesPerPage = 1;
 `
-[Explore!|black12]
+[Move along.|blackEnd]
 ---
 :black12
 
-The silky carpet threads between your bare toes as you drift from room to room, floor creaking. A clock chimes somewhere on the other side of the mansion.
+The silky carpet threads between your bare toes as you creak from room to room. A clock chimes somewhere on the other side of the mansion.
 
-You pass by rooms packed with cribs arranged into rainbow rows by the color of their sheets, rooms filled with innocent toys, some with not-so-innocent toys, kitchens with high-chairs, bathrooms, lounges, dens, and finally a little kindergarten classroom. Journals and paperwork are strewn around everywhere.
+You pass by rooms packed with cribs arranged into rainbow rows by the color of their sheets, rooms filled with innocent toys, some with not-so-innocent toys, kitchens with high-chairs, bathrooms, lounges, dens, and finally a little daycare looking classroom. Journals and paperwork are strewn around everywhere.
+
+The paperwork is a lot of theoretical guessing. Broadly, it aims to train a mind into some mindless, degenerate porn game NPCs.
+
+!`
+choicesPerPage = 1;
+addChoice("Examine NPCs?", "black12a");
+`
+---
+:black12a
+
+The first thing you should know about these absolutely limitless little things are that they look exactly like babies.
+
+Thankfully, they act according to an empty shell of code constructs, and none of their behaviour is actually connected to a feeling being underneath, so there's no real <i>harm</i> being done even if you go ham on them while they smile and egg you on,
+
+<b>HOWEVER:</b>
+
+If they could be assimilated, if they could be somehow lifted out of mindlessness, maybe they would choose to exist as something else.
+
+Like a consenting adult, or an asexual feral, or literally anything other than a baby sex toy. (Although I'm sure there are a lot of hopeless freaks out there who would love to take their place.)
+
+!`
+choicesPerPage = 2;
+addChoice("Examine classroom.", "blackClass", {icons: ["Baby", "Plot"]});
+addChoice("That sure is a lot of justification you've got there.", "black12b");
+`
+---
+:black12b
+
+Justification for what?
+
+!`
+choicesPerPage = 2;
+addChoice("Examine classroom.", "blackClass", {icons: ["Baby", "Plot"]});
+addChoice("Baby fetish porn?", "black12c");
+`
+---
+:black12c
+
+I narrate reality. I gotta be real with you.
+
+This game is a place and there are people here. You can go down to this layer and then go back to your normal life and be okay. It's not a black hole and it's not any kind of exclusive hell for evil people or for mentally broken people or for any human in particular.
+
+It's just where we're at right now. Maybe if the big fat Creator had done a better job at her computer, it would be a bit less convoluted and fucked up.
+
+When I say Creator I'm talking about the pear-hipped woman who coded this island: your mom.
+
+!`
+choicesPerPage = 2;
+addChoice("Examine classroom.", "blackClass", {icons: ["Baby", "Plot"]});
+addChoice("No your mom is fat.", "black12d");
+`
+---
+:black12d
+
+My mom is the size of a fucking ocean, I'll give you that.
+
+Anyway, our conversation can't get too complex here. It's kind of imbalanced, isn't it, since I'm like the author and you're like the reader?
+
+If you want to talk about it more, let me know sometime. You probably shouldn't bring it up with Mynt, though.
 
 !`
 choicesPerPage = 1;
 addChoice("Examine classroom.", "blackClass", {icons: ["Baby", "Plot"]});
+addChoice("Move along.", "blackEnd");
 `
 ---
 :blackHub
@@ -320,12 +428,17 @@ addChoice("Examine classroom.", "blackClass", {icons: ["Baby", "Plot"]});
 You wander the Fuckmeat Sanctuary.
 
 !`
-addChoice("Examine lounge.", "blackLounge", {icons: ["Baby", "Abuse", "Gore", "Plot"]});
 addChoice("Examine bedroom.", "blackBeds", {icons: ["Plot"]});
 if (data.hasBathroomKey) {
-	addChoice("Examine bathroom.", "blackBath", {icons: ["Male", "Baby", "Baby", "Baby", "Baby", "Baby", "Baby"]});
+	addChoice("Examine bathroom.", "blackBath", {icons: ["Male", "Baby", "Baby", "Baby", "Baby"], tooltip: ""});
 } else {
-	addChoice("Examine bathroom.", "blackBath", {icons: ["Male", "Baby", "Baby", "Baby", "Baby", "Baby", "Baby"], enabled: data.hasBathroomKey, tooltip: "Requires: Bathroom Key"});
+	addChoice("Examine bathroom.", "blackBath", {icons: ["Male", "Baby", "Baby", "Baby", "Baby"], enabled: data.hasBathroomKey, tooltip: "Requires: Bathroom Key"});
+}
+
+if (data.hasLoungeKey) {
+	addChoice("Examine lounge.", "blackLounge", {icons: ["Baby", "Abuse", "Gore", "Plot"], tooltip: ""});
+} else {
+	addChoice("Examine lounge.", "blackLounge", {icons: ["Baby", "Abuse", "Gore", "Plot"], enabled: data.hasLoungeKey, tooltip: "Requires: Lounge Key"});
 }
 
 addChoice("Examine classroom.", "blackClass", {icons: ["Baby", "Plot"]});
@@ -453,7 +566,7 @@ choicesPerPage = 1;
 ---
 :blackClass6
 
-Som hurries to add: "But~~ it seemed like she almost mirrored your palm, there. Maybe twenty more years <b>if</b> we focus only on her~~ and <b>if</b> it's possible at all to make Fuckmeat more than dumb baby-shaped NPCs, which I uh... I still don't think it is possible."
+Som hurries to add: "But~~ it seemed like she almost mirrored your palm, there. Maybe twenty more years <b>if</b> we focus only on her~~ and <b>if</b> it's possible at all to make Fuckmeat more than dumb baby-shaped NPCs, which I uh... I still don't think it is possible. This place is <i>her</i> and since <i>she's</i> all... like that, y'know... they're here."
 
 Cage abruptly stands up and punches one of the camera's buttons with his thumb. The video stutters and refocuses. His dramatic exit falls flat.
 
@@ -474,20 +587,30 @@ choicesPerPage = 1;
 
 You sniff around in the bedrooms. Five of them have queen-sized beds and no colorful kiddy decorations, so you go through those first.
 
-Framed pictures rest on the endtables in here. You look at a group photo with Som the lamb boy posing shyly off to the side, a massive dogpile of doofy-looking blank-eyed fuckmeat, and, at the very bottom, absolutely all of him covered in babies besides his unimpressed expression... there's Cage. "Playtime with daddy! <3" Som's handwriting says.
-
-Cage has the same exact expression in every single picture. The others show him bottle-feeding a fuckmeat and looking pissed at the cameraman, sitting criss-cross applesauce in the grass and playing with a little squad of happy babies while he looks pissed at the cameraman, and, finally, Cage snoozing peacefully, all sprawled out on his queen-sized bed, with babies cuddled up to his abs and biceps, nuzzling their furry little snouts into any warm crevice they can find (armpits, thighs, under his heavy nuts, everything) while he looks pissed at the cameraman even though his eyes are shut. Must be dreaming about being pissed at the cameraman.
-
 !`
 choicesPerPage = 1;
 `
-[Check the other rooms.|blackBeds]
+[Examine personal items of whoever lives here.|blackBedsPre1]
 ---
-:blackBeds
+:blackBedsPre1
+
+Framed pictures rest on the endtables in here. You look at a group photo with Som the lamb boy posing shyly off to the side, a massive dogpile of doofy-looking blank-eyed fuckmeat, and, at the very bottom, absolutely all of him covered in babies besides his unimpressed expression... there's Cage. "Playtime with daddy! <3" Som's handwriting says.
+
+Cage has the same exact expression in every single picture...
+
+They show him bottle-feeding a fuckmeat and looking pissed at the camera, sitting criss-cross applesauce in the grass and playing with a little squad of happy babies while he looks pissed at the camera, and, finally, Cage snoozing peacefully, all sprawled out on his queen-sized bed, with babies cuddled up to his abs and biceps, nuzzling their furry little snouts into any warm crevice they can find (armpits, thighs, under his heavy nuts, everything) while he looks pissed at the camera even though his eyes are shut. Must be dreaming about being pissed at the camera.
+
+!`
+choicesPerPage = 2;
+`
+[Check the other rooms.|blackBedsPre2]
+[Back.|blackHub]
+---
+:blackBedsPre2
 
 They're all packed with cribs. At first you think they're just totally identical, but then you start to notice a gradient... the nurseries at one end of the hall look mostly normal: the walls are nice and bright blue, hand-painted with sunflowers and other happy innocent things. The cribs look pristine. Detailed records from the sanctuary operators note that no fuckmeat has ever been pure enough to sleep soundly in one of these kid-friendly rooms.
 
-As you walk down the hall, though, the rooms get lewder and lewder. The walls are painted with super wacky hardcore cartoon porn, mostly of little cubs and toddlers riding cocks, pulling their maws or asscheeks open with both hands. A guest artist even painted in some ultra-rainbow candy cubs with their guts hanging out like gummy worms.
+As you walk down the hall, though, the rooms get lewder and lewder. The walls are painted with super wacky hardcore cartoon porn, mostly of little cubs and toddlers riding cocks, pulling their maws or asscheeks open with both hands. A guest artist even painted in some ultra-rainbow candy cubs from Foodland with their guts hanging out like gummy worms.
 
 Each crib in these impure rooms has a mobile hanging over it, those little chandeliers of toys for babies, but they have tiny plastic cocks hanging off of them instead of airplanes and animals. The cute lil plushies in these bedrooms all have an S.P.H. under their tails made to fit the girth of an average babycock, and they've all been humped to pieces over the millenia.
 
@@ -501,19 +624,25 @@ choicesPerPage = 2;
 ---
 :blackBeds1
 
-It's terse and to-the-point. Cage must have written it.
+It's terse and to-the-point. Cage the bull must have written it.
 
 <i>Day 448,930 ~~ Finally giving up
 
-Kept six nurseries near our bedrooms with the original room layout and design. When they learn sentience we will have those ready for them. Should be within the next 1k if we work hard. I hope so anyway. Som is doubtful.
+Kept six nurseries near our bedrooms with the original room layout and design. When they learn sentience we will have those ready for them, as well as Som's drafted plans for additional hackdefenses. I am kind of pissed the fuck off that he said my designs for handmade automatic defense cribs were "gay." They were not gay. But I guess hacks are more powerful anyway. They are worth it.
 
-Their libido is keeping them up all night every night now. Can't sleep myself. So. Finally gave in and let Som corrupt the rest of the rooms. Had Lana over to paint the walls with porn too. Dunno why he is so into painting lately. Maybe the little ones will actually sleep through the night now that they all have goddamn cock chandeliers to stare at. Doubt it though.
+When will they be sentient, future me?? I wish you could come back in time and tell me how long it will take to atone.
+
+Should be within the next 1k if we work hard. I hope so anyway. Som is doubtful.
+
+Their libido is keeping them up all night every night now. Can't sleep myself. So. Finally gave in and let Som corrupt the rest of the rooms. Had Lana over to paint the walls with porn too. Dunno why he is so into painting lately.
+
+Maybe the little ones will actually sleep through the night now that they all have goddamn cock chandeliers to stare at. Doubt it though.
 
 Day 448,931 ~~ Goddamnit
 
-The cock chandeliers worked. They tire themselves out reaching for them. So I don't have to listen to the whining all night anymore.
+The cock chandeliers fucking worked I am pissed. They tire themselves out reaching for them. So I don't have to listen to the whining all night anymore.
 
-But I still can't sleep.
+But I still can't sleep. I guess that wasn't it.
 
 I just hope we aren't backsliding by doing this. Will it make them less sentient? Reinforce their programming?? I don't know.
 </i>
@@ -526,7 +655,7 @@ addChoice("Back.", "blackHub");
 ---
 :blackBeds2
 
-This one is extra worn and dusty. Looks four thousand years old. You peel apart the crusty pages and a little key falls out. It's got a rubber ducky charm on it and it kind of smells bad...
+This one is extra worn and dusty. Looks four thousand years old. You peel apart the crusted pages and a little key falls out. It's got a rubber ducky charm on it and it kind of smells bad...
 
 <i>Day 87 ~~ Nearing completion
 
@@ -534,11 +663,17 @@ Everyone keeps telling me to use admin powers or let them use theirs to finish t
 
 Day 88 ~~ Goddamnit
 
-I do need a defense system. Fuckmeat do not respawn. Unless I want all my hard work to periodically go down the shitter when Septrica and Marie sneak over for baby snuff rampages I will have to find some way to keep everyone out.
+I do need a defense system. The little ones do not respawn. So if I'm training anything in, I get one shot. Right? Right? So why does it feel like cheating.
+
+(Angry bull-rage scribbles fill the page.)
+
+Unless I want all my hard work to periodically go down the shitter when Septrica and Marie sneak over for baby snuff rampages I will have to find some way to keep everyone out.
 
 Day 89 ~~ Goddamnit x2
 
-Okay I let Som build a gate and a fence and a whole noclip-proof exterior with admin. I feel dirty. I will build more rooms inside to make up for it. I guess. How am I supposed to atone like this?
+Okay I let Som build a gate and a fence and a whole noclip-proof exterior with admin. I feel dirty. I will build more rooms inside to make up for it. I guess. And some nice platonic furniture. Yeah. I guess.
+
+Fuck. How am I supposed to atone like this?
 </i>
 
 !`
@@ -553,25 +688,39 @@ msg("Got Bathroom Key!");
 
 <i>Day 1,461,000 ~~ Som leaving</i>
 
-My last assistant gave up on me. He wants to leave now that the red juice aliens are letting people into their special fucking club. I don't care. He was never on board with the Sanctuary's mission anyway.
+My last assistant gave up on me. I am alone with the NPCs.
+
+He wants to leave now that the red juice aliens are letting people into their special fucking club. I don't care. He was never on board with the Sanctuary's mission anyway.
 
 The Fuckmeat are helpless and vulnerable. No one will be here to look after them if I leave. And they deserve to be part of the club too. I will not leave without them. I owe it to them. I hurt them. I abused them. And he says everything I did was basically just masturbation with a fancy type of onahole?
 
 Fuck Som. Fuck that stupid lamb. I can't just leave. I will atone.
 
-I know. I'll drop one in the pond. Maybe they'll choose a feral body, or something simple like that, it doesn't matter what~~ the point is they will <b>choose</b> something. Fucking lamb. After that he will have to admit what I did to them was wrong.
+I'll try it anyway, even if they show no improvement. I'll drop one in the pond. Maybe they'll choose a feral body, or something simple like that, it doesn't matter what, but they will <b>choose</b> something else than this fucked up situation.
+
+Fucking lamb. After that he will have to admit what I did to them was wrong.
 
 <i>Day 1,461,003 ~~ Stressed and confused</i>
 
-Confirmed my worst fears. Even after all my work. The baby wasn't assimilated. Dropped it in the pond. Gone. No response.
+Confirmed my worst fears. Even after all my work. The little thing wasn't assimilated. Dropped it in the pond. Gone. No response.
 
 I need a bath.
 
-I'll try it. I'll try to join. It won't go well. I'll be the only babyfucker up there. There's no place for me anywhere.
-
-I don't know.
+I'll try to join the club.
 
 !`
+choicesPerPage = 1;
+`
+[Last page.|blackBeds4]
+[Back.|blackHub]
+---
+:blackBeds4
+
+But what if I'm the only one like this...
+
+!`
+data.hasLoungeKey = true;
+msg("Got Lounge Key!");
 choicesPerPage = 1;
 `
 [Back.|blackHub]
@@ -580,7 +729,9 @@ choicesPerPage = 1;
 
 You head to the lounge.
 
-Here's the clock you heard earlier, ticking happily away with no one around to hear it. The couches are super duper comfy. You drop your ass in one and sink into cushions that embrace you like the womb. There's another T.V. here, a big fancy one, and some extremely dark videos:
+Here's the clock you heard earlier, ticking happily away with no one around to hear it.
+
+The sectionals are super duper comfy. You drop your ass into cushions that comfort you like the womb. There's another T.V. here, a big fancy one, and some <b>extremely dark</b> videos:
 
 Libido suppression attempt #1 ~~ Castration
 Libido suppression attempt #2 ~~ Brain fingerfuck
@@ -600,24 +751,48 @@ addChoice("... Yes.", "blackLoungeYes", {icons: ["Baby", "Abuse", "Gore", "Plot"
 Let's skip it then.
 
 !`
-choicesPerPage = 1;
+choicesPerPage = 2;
 `
+[Well no.|blackLoungeSummary]
 [Back.|blackHub]
 ---
 :blackLoungeSummary
 
 I'll summarize the videos for you:
 
-This bull dude and his lamb assisstant try a bunch of different experiments to reduce the libido of these little baby NPCs in the hopes that it will leave some room in their code for sentience to take root. It doesn't work.
+This bull dude tries to end their sad existence as literal sex objects and bring them up to the Interphore to mingle with sapient life.
+
+But it doesn't work.
+
+!`
+choicesPerPage = 2;
+`
+[Gotcha.|blackHub]
+[Can't anything be done for them?|blackNot]
+---
+:blackNot
+
+No. You need a <b>mind</b> to join a hive<b>mind</b>.
 
 !`
 choicesPerPage = 1;
 `
-[Gotcha.|blackHub]
+[Where do minds come from then?|blackNot2]
+---
+:blackNot2
+
+Good question. I'd like to know too.
+
+We have some working theories. I'll fill you in later.
+
+!`
+choicesPerPage = 1;
+`
+[Alright...|blackHub]
 ---
 :blackLoungeYes
 
-Understood. I'll do my best.
+Understood. I'll do my best to describe it in explicit detail~
 
 !`
 choicesPerPage = 1;
@@ -649,9 +824,9 @@ Cage replies from behind the camera. "Ready."
 
 "And why are we filming this again?"
 
-"In case there is an immediate change in behavior."
+"In case there is an immediate change in behavior and we need to investigate it."
 
-"The code for their libido isn't going to be affected by this, you know. They won't have any more 'room for sentience' if we do this."
+Som gets snotty. "The code for their libido isn't going to be affected by this, you know. They won't have any more 'room for sentience' if we do this."
 
 "Maybe not, but that's what we're trying to be sure about, here. Are we ready or are we not ready?"
 
@@ -1302,13 +1477,23 @@ choicesPerPage = 1;
 
 You peek into the bath.
 
-Someone is in here. On the other side of the bathroom there's a tub...
+Someone is in here. Here's where the giggles came from earlier.
 
-... a bubblebath filled with happy, sudsy babies, a bobbing rubber ducky, and, at the very far end... a hulking bull dude with dead fish eyes and a big tuft of suds balanced impeccably between his horns. His hand breaks the surface of the bathwater, grabs the crown of fluffy suds, and slowly brings it back down to the water.
-
-"Get out or I'm going to fucking murder you."
+On the other side of the bathroom there's a tub...
 
 !`
+choicesPerPage = 1;
+`
+[Examine... tub?|blackBath2]
+---
+:blackBath2
+
+"Get out."
+
+!`
+var cageBathtub = addImage("writer/cageBathtub");
+cageBathtub.x = gameWidth / 2 - cageBathtub.width / 2;
+cageBathtub.y = gameHeight / 2 - cageBathtub.height / 2;
 choicesPerPage = 1;
 `
 [GET OUT IMMEDIATELY|blackEnd]

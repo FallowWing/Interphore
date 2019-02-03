@@ -1040,6 +1040,12 @@ boobsImg.y = youngBeca.y;
 boobsImg.alpha = 0;
 boobsImg.temp = false;
 
+var bulgeImg = addImage("writer/characters/rebeca/rebeca/bulge");
+bulgeImg.x = gameWidth / 2 - youngBeca.width / 2 - nudge;
+bulgeImg.y = youngBeca.y;
+bulgeImg.alpha = 0;
+bulgeImg.temp = false;
+
 choicesPerPage = 3;
 
 queueDelay(1);
@@ -1083,6 +1089,8 @@ addChoice("Ahh. Familiar and... uh...", "afterGender");
 !`
 if (data.hasBoobs) boobsImg.alpha = 1;
 if (!data.hasBoobs) boobsImg.alpha = 0;
+if (data.genitals === "male" || data.genitals === "both") bulgeImg.alpha = 1;
+if (data.genitals === "female") bulgeImg.alpha = 0;
 
 if ((data.genitals === "male" || data.genitals === "female") && data.hasBoobs) choicesPerPage = 2;
 if ((data.genitals === "male" || data.genitals === "female") && !data.hasBoobs) choicesPerPage = 3;
@@ -1108,6 +1116,8 @@ if (data.genitals !== "female" && data.genitals !== "both") queueAddChoice("Cunt
 
 if (data.genitals !== "male" && data.genitals !== "both") queueAddChoice("Cock.", function() {
 	playEffect("audio/ui/rewards/checkmark");
+	bulgeImg.alpha = 1;
+
 	if (data.genitals === "female") {
 		data.genitals = "both";
 	} else {
@@ -1119,6 +1129,7 @@ if (data.genitals !== "male" && data.genitals !== "both") queueAddChoice("Cock."
 if (data.genitals !== "male" && data.genitals !== "female" && data.genitals !== "both" && !data.hasBoobs) queueAddChoice("Everything.", function() {
 	playEffect("audio/ui/rewards/checkmark");
 	boobsImg.alpha = 1;
+	bulgeImg.alpha = 1;
 	data.hasBoobs = true;
 	data.genitals = "both";
 	gotoPassage("pondNext");
@@ -1197,6 +1208,7 @@ addChoice("No eyelashes please.", function() {
 youngBeca.alpha = 0;
 boobsImg.alpha = 0;
 boyEyes.alpha = 0;
+bulgeImg.alpha = 0;
 
 playEffect("audio/ui/msg");
 queueDelay(1);
@@ -1312,6 +1324,7 @@ if (youngBeca) youngBeca.destroy();
 
 boyEyes.x = furryBeca.x;
 boobsImg.x = furryBeca.x;
+bulgeImg.x = furryBeca.x;
 
 if (rnd > 0.9) {
 	queueTitle("And... are you furry trash, too...?");
@@ -1403,6 +1416,10 @@ if (data.species === "bunny") {
 	var tail = addImage("writer/characters/rebeca/rebeca/bunnyTail");
 	tail.x = furryBeca.x;
 	tail.y = furryBeca.y;
+
+	var nose = addImage("writer/characters/rebeca/rebeca/bunnyNose");
+	nose.x = furryBeca.x;
+	nose.y = furryBeca.y;
 }
 
 if (data.species === "fox") {
@@ -1415,6 +1432,10 @@ if (data.species === "fox") {
 	var tail = addImage("writer/characters/rebeca/rebeca/foxTail");
 	tail.x = furryBeca.x;
 	tail.y = furryBeca.y;
+
+	var nose = addImage("writer/characters/rebeca/rebeca/canineNose");
+	nose.x = furryBeca.x;
+	nose.y = furryBeca.y;
 }
 
 if (data.species === "wolf") {
@@ -1427,6 +1448,10 @@ if (data.species === "wolf") {
 	var tail = addImage("writer/characters/rebeca/rebeca/wolfTail");
 	tail.x = furryBeca.x;
 	tail.y = furryBeca.y;
+
+	var nose = addImage("writer/characters/rebeca/rebeca/canineNose");
+	nose.x = furryBeca.x;
+	nose.y = furryBeca.y;
 }
 
 if (data.species === "cat") {
@@ -1439,9 +1464,14 @@ if (data.species === "cat") {
 	var tail = addImage("writer/characters/rebeca/rebeca/catTail");
 	tail.x = furryBeca.x;
 	tail.y = furryBeca.y;
+
+	var nose = addImage("writer/characters/rebeca/rebeca/catNose");
+	nose.x = furryBeca.x;
+	nose.y = furryBeca.y;
 }
 
 ears.layer = furryBeca.layer + 1;
+nose.layer = furryBeca.layer + 1;
 tail.layer = furryBeca.layer - 1;
 
 queueTitle("");
@@ -1461,6 +1491,7 @@ queueAddChoice("I'm finally trash.", "pickedSpecies2");
 if (furryBeca) furryBeca.destroy();
 if (boobsImg) boobsImg.destroy();
 if (boyEyes) boyEyes.destroy();
+if (bulgeImg) bulgeImg.destroy();
 playEffect("audio/ui/msg");
 
 choicesPerPage = 2;

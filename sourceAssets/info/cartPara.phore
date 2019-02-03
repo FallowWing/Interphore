@@ -136,6 +136,9 @@ choicesPerPage = 1;
 ---
 :cartPara13
 
+!`
+choicesPerPage = 1;
+`
 [See, that wasn't so hard for me to understand. Just talk like a normal person and I'll do fine.|cartPara14]
 ---
 :cartPara14

@@ -28,6 +28,7 @@ info/passageParser.js
 info/LLLmap.phore
 info/earthMap.phore
 info/archiepelagoMap.phore
+info/map.phore
 
 info/introMod.phore
 info/introModMynt.phore
@@ -197,6 +198,8 @@ img/writer/shelterBg.spr
 img/writer/cartBg.png
 img/writer/cartBg.spr
 
+img/writer/cageBathtub.png
+img/writer/cageBathtub.spr
 img/writer/mynt/bg/myntBg1.png
 img/writer/mynt/bg/myntBg1.spr
 img/writer/mynt/bg/myntBg2.png
@@ -245,10 +248,18 @@ img/writer/characters/rebeca/rebeca/bunnyEars.png
 img/writer/characters/rebeca/rebeca/bunnyEars.spr
 img/writer/characters/rebeca/rebeca/nonBunnyEars.png
 img/writer/characters/rebeca/rebeca/nonBunnyEars.spr
+img/writer/characters/rebeca/rebeca/catNose.png
+img/writer/characters/rebeca/rebeca/catNose.spr
+img/writer/characters/rebeca/rebeca/bunnyNose.png
+img/writer/characters/rebeca/rebeca/bunnyNose.spr
+img/writer/characters/rebeca/rebeca/canineNose.png
+img/writer/characters/rebeca/rebeca/canineNose.spr
 img/writer/characters/rebeca/rebeca/eyelashes.png
 img/writer/characters/rebeca/rebeca/eyelashes.spr
 img/writer/characters/rebeca/rebeca/boobs.png
 img/writer/characters/rebeca/rebeca/boobs.spr
+img/writer/characters/rebeca/rebeca/bulge.png
+img/writer/characters/rebeca/rebeca/bulge.spr
 img/writer/characters/allei/allei.png
 img/writer/characters/allei/allei.spr
 img/writer/characters/allei/silhouette1.png

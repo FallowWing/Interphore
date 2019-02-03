@@ -211,22 +211,22 @@ All done, `data.playerName`.
 ---
 :Unlock everything
 
-Your cheat zone gets gaped the fuck out with hella cheats.
-
 !`
 msg("Unlocked everything!");
 playEffect("audio/ui/rewards/boon");
 data.unlockedDev = true;
 data.metLone = true;
 data.metCart = true;
+data.hasLoungeKey = true;
+data.hasBathroomKey = true;
 data.tookStairs = true;
 data.leftMynt = true;
 data.metRen = true;
 data.metPatch = true;
 data.heardTransmission = true;
 saveCheckpoint();
+gotoPassage("cheatsStart");
 `
-[Back|cheatsStart]
 ---
 :Change Mynt's genitals
 

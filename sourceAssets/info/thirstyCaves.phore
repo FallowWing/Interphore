@@ -143,6 +143,12 @@ boobsImg.y = youngBeca.y;
 boobsImg.alpha = 0;
 boobsImg.temp = false;
 
+var bulgeImg = addImage("writer/characters/rebeca/rebeca/bulge");
+bulgeImg.x = youngBeca.x;
+bulgeImg.y = youngBeca.y;
+bulgeImg.alpha = 0;
+bulgeImg.temp = false;
+
 timer(1, function() { gotoPassage("Shapeshift.Actual"); });
 `
 ---
@@ -153,6 +159,8 @@ You reach down and fiddle with yourself.
 !`
 if (data.hasBoobs) boobsImg.alpha = 1;
 if (!data.hasBoobs) boobsImg.alpha = 0;
+if (data.genitals === "male" || data.genitals === "both") bulgeImg.alpha = 1;
+if (data.genitals === "female") bulgeImg.alpha = 0;
 
 if ((data.genitals === "male" || data.genitals === "female") && data.hasBoobs) choicesPerPage = 2;
 if ((data.genitals === "male" || data.genitals === "female") && !data.hasBoobs) choicesPerPage = 3;
@@ -168,6 +176,7 @@ if (!data.hasBoobs) queueAddChoice("Boobs.", function() {
 
 if (data.genitals !== "female" && data.genitals !== "both") queueAddChoice("Cunt.", function() {
 	playEffect("audio/ui/rewards/checkmark");
+	
 	if (data.genitals === "male") {
 		data.genitals = "both";
 	} else {
@@ -178,6 +187,8 @@ if (data.genitals !== "female" && data.genitals !== "both") queueAddChoice("Cunt
 
 if (data.genitals !== "male" && data.genitals !== "both") queueAddChoice("Cock.", function() {
 	playEffect("audio/ui/rewards/checkmark");
+	bulgeImg.alpha = 1;
+
 	if (data.genitals === "female") {
 		data.genitals = "both";
 	} else {
@@ -188,6 +199,7 @@ if (data.genitals !== "male" && data.genitals !== "both") queueAddChoice("Cock."
 
 if (data.genitals !== "male" && data.genitals !== "female" && data.genitals !== "both" && !data.hasBoobs) queueAddChoice("Everything.", function() {
 	playEffect("audio/ui/rewards/checkmark");
+	bulgeImg.alpha = 1;
 	boobsImg.alpha = 1;
 	data.hasBoobs = true;
 	data.genitals = "both";
@@ -275,7 +287,9 @@ addChoice("Phae.", function() {
 
 You contemplate your new fursona, `data.playerName`.
 
-"Original character," you think to yourself, "please do not steal."
+"Original character," you think to yourself.
+
+"Please do not steal."
 
 !`
 playEffect("audio/ui/rewards/checkmark");
@@ -328,6 +342,10 @@ if (data.species === "bunny") {
 	var tail = addImage("writer/characters/rebeca/rebeca/bunnyTail");
 	tail.x = youngBeca.x;
 	tail.y = youngBeca.y;
+
+	var nose = addImage("writer/characters/rebeca/rebeca/bunnyNose");
+	nose.x = youngBeca.x;
+	nose.y = youngBeca.y;
 }
 
 if (data.species === "fox") {
@@ -338,6 +356,10 @@ if (data.species === "fox") {
 	var tail = addImage("writer/characters/rebeca/rebeca/foxTail");
 	tail.x = youngBeca.x;
 	tail.y = youngBeca.y;
+
+	var nose = addImage("writer/characters/rebeca/rebeca/canineNose");
+	nose.x = youngBeca.x;
+	nose.y = youngBeca.y;
 }
 
 if (data.species === "wolf") {
@@ -348,6 +370,10 @@ if (data.species === "wolf") {
 	var tail = addImage("writer/characters/rebeca/rebeca/wolfTail");
 	tail.x = youngBeca.x;
 	tail.y = youngBeca.y;
+
+	var nose = addImage("writer/characters/rebeca/rebeca/canineNose");
+	nose.x = youngBeca.x;
+	nose.y = youngBeca.y;
 }
 
 if (data.species === "cat") {
@@ -358,9 +384,14 @@ if (data.species === "cat") {
 	var tail = addImage("writer/characters/rebeca/rebeca/catTail");
 	tail.x = youngBeca.x;
 	tail.y = youngBeca.y;
+
+	var nose = addImage("writer/characters/rebeca/rebeca/catNose");
+	nose.x = youngBeca.x;
+	nose.y = youngBeca.y;
 }
 
 ears.layer = youngBeca.layer + 1;
+nose.layer = youngBeca.layer + 1;
 tail.layer = youngBeca.layer - 1;
 
 choicesPerPage = 1;
@@ -412,6 +443,7 @@ choicesPerPage = 1;
 youngBeca.destroy();
 boobsImg.destroy();
 boyEyes.destroy();
+bulgeImg.destroy();
 
 if (data.species === "bunny") append("Bunny, huh? Cute.\n\n");
 if (data.genitals === "female") {
