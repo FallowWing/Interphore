@@ -360,8 +360,11 @@ function newAudio() { /// You must push into audios manually
 		volume: 1,
 		destroy: function() {
 			destroyAudio(audio.id);
-			var index = audios.indexOf(audio);
-			if (index != -1) audios.splice(index, 1);
+			for (;;) {
+				var index = audios.indexOf(audio);
+				if (index == -1) break;
+				if (index != -1) audios.splice(index, 1);
+			}
 		}
 	};
 
