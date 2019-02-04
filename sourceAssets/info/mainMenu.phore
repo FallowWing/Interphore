@@ -3,6 +3,9 @@ clearNodes();
 var startMuted = false;
 var sfwMenu = false;
 
+// startMuted = true;
+sfwMenu = true;
+
 START_PASSAGES
 :mainMenuStart
 welcome

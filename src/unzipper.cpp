@@ -1,5 +1,5 @@
 #define ZIP_HEADERS_MAX 2048
-#define INFLATE_BUFFER_SIZE (1024 * 1024)
+#define INFLATE_BUFFER_SIZE Megabytes(5)
 
 typedef unsigned char uint8;
 typedef unsigned short uint16;
@@ -70,6 +70,26 @@ void openZip(unsigned char *data, int size, Zip *zip) {
 			if (header->compressionMethod == 0) {
 				memcpy(header->uncompressedData, header->compressedData, header->uncompressedSize);
 			} else if (header->compressionMethod == 8) {
+#if 1
+				z_stream stream = {};
+				stream.next_in = header->compressedData;
+				stream.avail_in = header->compressedSize;
+				stream.next_out = header->uncompressedData;
+				stream.avail_out = header->uncompressedSize;
+
+				int status;
+				if ((status = inflateInit2(&stream, -MZ_DEFAULT_WINDOW_BITS)) == Z_OK) {
+					if ((status = inflate(&stream, Z_SYNC_FLUSH)) == Z_STREAM_END) {
+						if ((status = inflateEnd(&stream)) != Z_OK) {
+							printf("inflateEnd() failed with %d!\n", status);
+						}
+					} else {
+						printf("inflate() failed with %d!\n", status);
+					}
+				} else {
+					printf("inflateInit() failed with %d!\n", status);
+				}
+#else
 				uint infile_remaining = header->compressedSize;
 				unsigned char *inPos = header->compressedData;
 				unsigned char *outPos = header->uncompressedData;
@@ -85,7 +105,7 @@ void openZip(unsigned char *data, int size, Zip *zip) {
 					return;
 				}
 
-				for (;;) {
+				for (;;) { // I think this always happens in one iteration, unless I don't want it to for some reason
 					if (!stream.avail_in) {
 						uint bytesToGet = Min(INFLATE_BUFFER_SIZE, infile_remaining);
 
@@ -109,6 +129,8 @@ void openZip(unsigned char *data, int size, Zip *zip) {
 					}
 
 					if (status == Z_STREAM_END) {
+						// printf("%s byte are(at unzip time):\n", header->fileName);
+						// dumpHex(header->uncompressedData, header->uncompressedSize);
 						break;
 					} else if (status != Z_OK) {
 						printf("inflate() failed with status %i!\n", status);
@@ -120,6 +142,7 @@ void openZip(unsigned char *data, int size, Zip *zip) {
 					printf("inflateEnd() failed!\n");
 					return;
 				}
+#endif
 			}
 
 		} else if (signature == 0x08074b50) {

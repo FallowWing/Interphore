@@ -157,3 +157,10 @@ shipCurrent:
 	$(MAKE) shipDir SHIP_DIR="$(PARAPHORE_COM_PATH)/interphore"
 
 include $(CPP_TOOLS)/engine/buildSystem/Makefile.common
+
+testMod:
+	cd bin/workingMod; \
+	zip currentMod.phore *; \
+	mv currentMod.phore ../
+	
+	make fast
