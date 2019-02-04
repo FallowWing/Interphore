@@ -88,7 +88,7 @@ function gotoEarth() {
 	submitNode("Foodland", "foodLand");
 	attachNode("Yellow Pond", "Foodland", BOTTOM);
 
-	submitNode("Mallow-Melon Mess", "luluPouph");
+	submitNode("Marshmelon Mess", "luluPouph");
 	attachNode("Foodland", "Mallow-Melon Mess", BOTTOM);
 
 	setNodeLocked("Moving In", function() {

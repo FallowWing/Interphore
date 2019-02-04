@@ -13,6 +13,7 @@ addChoice("Examine Paraphores", "examineParaphores");
 addChoice("Rules of Operation for Paraphores.");
 addChoice("Examine Spilled Paint", "layerSpilledPaint");
 addChoice("Examine L.L.L.", "layerLLL");
+addChoice("F.A.Q.", "layerFAQ");
 addChoice("Terms & Definitions", "Terms");
 
 
@@ -28,6 +29,83 @@ cartImg.x = gameWidth;
 cartImg.y = gameHeight/2 - cartImg.height/1.5;
 tween(cartImg, 3, {x: gameWidth - cartImg.width * 1.1}, {ease: QUAD_OUT});
 `
+---
+:lllFAQ
+
+Please ask any questions you like, they'll probably be frequently asked ones anyway.
+
+!`
+choicesPerPage = 5;
+`
+
+[What happened to my memories?]
+[Why is there porn everywhere?]
+[Am I trapped this way forever?]
+[What the fuck is good?]
+[Back.|lllHub]
+---
+:What happened to my memories?
+
+During assimilation, every attempt is made to preserve episodic memory, but in the event of brain damage, spaghetti code, smudged blueprints, arcane composition, or still-moving parts, episodic memory may be severely damaged or distorted by a devastating mental illness known as Clockdrift Syndrome.
+
+Clockdrift Syndrome is a rare form of partial amnesia in which the context and content of memories are heavily molested. Clockdrift Syndrome selectively affects memories from the preopterational development phase (ages 4-6 in humans, post-init for computer people) onward throughout the victim's entire life. The Interphore imposes mandatory full amnesia as treatment.
+
+Symptoms of Clockdrift Syndrome include:
+
+- Younger memories drifting older, such as drinking microwaved milk from a bottle at 13 or receiving your first period at 34
+- Older memories drifting younger, such as filing taxes at 3 or graduating at 4
+- Self-inflicted timing attacks, such as ignoring your remebered age for each memory and instead deriving age from the time taken to recall the memory (Leads to obsessive behaviour)
+- Trauma brought on by the memory of altered or bastardized life events
+- Achronological trauma hemmorhage, such as the memory of a family member's suicide inadvertently leaking out through time and blackening all happy memories formed before or after
+- Extreme emotional distress
+- Derealization
+- Psychosis
+- Auditory hallucinations of past conversations with people who are no longer present
+- Auditory hallucinations of machinery accelerating or deccelerating indefinitely until the sound reaches an unbearable fever pitch or a low, never-quite-entirely-undetectable humming noise located behind the ears
+- Olfactory hallucinations of past meals
+- The inability to chronologically order newly formed long-term memories
+
+Clockdrift Syndrome only affects those with damage to their hippocampus, amygdala, cerebellum, or prefrontal cortex. In computer people, Clockdrift Syndrome only affects those based on self-editing or overcomplicated code.
+
+!`
+choicesPerPage = 1;
+`
+[Back.|lllFAQ]
+---
+:Why is there porn everywhere?
+
+This is not yet understood, but we are approaching a working theory.
+
+!`
+choicesPerPage = 1;
+`
+[Back.|lllFAQ]
+---
+:Am I trapped this way forever?
+
+You may end your membership with the Interphore at any point, but you will have to continue using a body made of red juice.
+
+After full written confirmation and some paperwork, the actual process of leaving is quite simple. 
+
+1. Your seed (your mind) will be transplanted from Mr. Eyeball's protection directly into your body.
+2. You will be able to shapeshift one last time. This time your form will be permanent.
+3. All of your sensory organs will once again function without any narration, and you will be dropped off on the layer of your choice.
+
+Note that you will no longer have access to the respawn system, shapeshifting, inter-layer travel, private communications with members of the Interphore, or Taco Tuesdays.
+
+!`
+choicesPerPage = 1;
+`
+[Back.|lllFAQ]
+---
+:What the fuck is good?
+
+Due to the subjective nature of goodness, no definite answer exists.
+
+!`
+choicesPerPage = 1;
+`
+[Back.|lllFAQ]
 ---
 :trans0
 
