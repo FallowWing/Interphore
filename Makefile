@@ -62,6 +62,9 @@ exportAssets:
 	# bash $(CPP_TOOLS)/engine/buildSystem/exportAssets.sh ../writerExportedAssets/img assets/img
 
 resetSite:
+	if [[ ! -d "$(PARAPHORE_COM_PATH)" ]]; then \
+		git clone git@github.com:lyricalpaws/paraphore.git $(PARAPHORE_COM_PATH) --depth=1 --recurse; \
+	fi
 	cd $(PARAPHORE_COM_PATH) && \
 		git fetch origin && \
 		git reset --hard origin/master && \
@@ -98,13 +101,15 @@ shipInter:
 	$(MAKE) boptflash EXTRA_DEFINES+="-D SEMI_DEV" SHIPPING=1
 	$(MAKE) packWindows EXTRA_DEFINES+="-D SEMI_DEV" SHIPPING=1
 	$(MAKE) bandroid EXTRA_DEFINES+="-D SEMI_DEV" SHIPPING=1
-	dirName=`ls -d $(PARAPHORE_COM_PATH)/interphore/dev/*`; \
-									cp $(PARAPHORE_COM_PATH)/interphore/index.html $$dirName/index.html; \
-									cp bin/engine.swf $$dirName/interphore.swf; \
-									cp bin/$(GAME_NAME).zip $$dirName/interphore.zip; \
-									cp bin/engine.apk $$dirName/interphore.apk;
 	
-	$(MAKE) shipDir SHIP_DIR="$(PARAPHORE_COM_PATH)/interphore/dev/"
+	cp bin/engine.swf $(PARAPHORE_COM_PATH)/games/interphoreDev.swf
+	# dirName=`ls -d $(PARAPHORE_COM_PATH)/interphore/dev/*`; \
+	# 								cp $(PARAPHORE_COM_PATH)/interphore/index.html $$dirName/index.html; \
+	# 								cp bin/engine.swf $$dirName/interphore.swf; \
+	# 								cp bin/$(GAME_NAME).zip $$dirName/interphore.zip; \
+	# 								cp bin/engine.apk $$dirName/interphore.apk;
+	
+	# $(MAKE) shipDir SHIP_DIR="$(PARAPHORE_COM_PATH)/interphore/dev/"
 
 shipInterEarly:
 	$(MAKE) resetSite
