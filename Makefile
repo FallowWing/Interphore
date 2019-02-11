@@ -63,7 +63,7 @@ exportAssets:
 
 resetSite:
 	if [[ ! -d "$(PARAPHORE_COM_PATH)" ]]; then \
-		git clone git@github.com:FallowWing/fallowwing.github.io.git $(PARAPHORE_COM_PATH) --depth=1 --recurse; \
+		git clone git@github.com:FallowWing/paraphore.com.git $(PARAPHORE_COM_PATH) --depth=1 --recurse; \
 		fi
 	
 	cd $(PARAPHORE_COM_PATH) && \
