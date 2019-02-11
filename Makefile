@@ -63,8 +63,9 @@ exportAssets:
 
 resetSite:
 	if [[ ! -d "$(PARAPHORE_COM_PATH)" ]]; then \
-		git clone git@github.com:lyricalpaws/paraphore.git $(PARAPHORE_COM_PATH) --depth=1 --recurse; \
-	fi
+		git clone git@github.com:FallowWing/fallowwing.github.io.git $(PARAPHORE_COM_PATH) --depth=1 --recurse; \
+		fi
+	
 	cd $(PARAPHORE_COM_PATH) && \
 		git fetch origin && \
 		git reset --hard origin/master && \
@@ -72,26 +73,26 @@ resetSite:
 
 shipInterNewEarlyDir:
 	$(MAKE) resetSite
-	newDirName=$(PARAPHORE_COM_PATH)/interphore/early/`date | md5sum -- `; \
+	newDirName=$(PARAPHORE_COM_PATH)/play/early/`date | md5sum -- `; \
 												newDirName=$${newDirName:0:-3}; \
-												rm -rf $(PARAPHORE_COM_PATH)/interphore/early/*; \
+												rm -rf $(PARAPHORE_COM_PATH)/play/early/*; \
 												mkdir -p $$newDirName;
-	$(MAKE) shipDir SHIP_DIR="$(PARAPHORE_COM_PATH)/interphore/early"
+	$(MAKE) shipDir SHIP_DIR="$(PARAPHORE_COM_PATH)/play/early"
 	
 	$(MAKE) shipInterEarly
-	dirName=`ls -d $(PARAPHORE_COM_PATH)/interphore/early/*`; \
+	dirName=`ls -d $(PARAPHORE_COM_PATH)/play/early/*`; \
 									echo New url is $$dirName;
 
 shipInterNewDevDir:
 	$(MAKE) resetSite
-	newDirName=$(PARAPHORE_COM_PATH)/interphore/dev/`date | md5sum -- `; \
+	newDirName=$(PARAPHORE_COM_PATH)/play/dev/`date | md5sum -- `; \
 												newDirName=$${newDirName:0:-3}; \
-												rm -rf $(PARAPHORE_COM_PATH)/interphore/dev/*; \
+												rm -rf $(PARAPHORE_COM_PATH)/play/dev/*; \
 												mkdir -p $$newDirName;
-	$(MAKE) shipDir SHIP_DIR="$(PARAPHORE_COM_PATH)/interphore/dev"
+	$(MAKE) shipDir SHIP_DIR="$(PARAPHORE_COM_PATH)/play/dev"
 	
 	$(MAKE) shipInter
-	dirName=`ls -d $(PARAPHORE_COM_PATH)/interphore/dev/*`; \
+	dirName=`ls -d $(PARAPHORE_COM_PATH)/play/dev/*`; \
 									echo New url is $$dirName;
 
 shipInter:
@@ -101,15 +102,13 @@ shipInter:
 	$(MAKE) boptflash EXTRA_DEFINES+="-D SEMI_DEV" SHIPPING=1
 	$(MAKE) packWindows EXTRA_DEFINES+="-D SEMI_DEV" SHIPPING=1
 	$(MAKE) bandroid EXTRA_DEFINES+="-D SEMI_DEV" SHIPPING=1
+	dirName=`ls -d $(PARAPHORE_COM_PATH)/play/dev/*`; \
+									cp $(PARAPHORE_COM_PATH)/play/interphore.html $$dirName/index.html; \
+									cp bin/engine.swf $$dirName/interphore.swf; \
+									cp bin/$(GAME_NAME).zip $$dirName/interphore.zip; \
+									cp bin/engine.apk $$dirName/interphore.apk;
 	
-	cp bin/engine.swf $(PARAPHORE_COM_PATH)/games/interphoreDev.swf
-	# dirName=`ls -d $(PARAPHORE_COM_PATH)/interphore/dev/*`; \
-	# 								cp $(PARAPHORE_COM_PATH)/interphore/index.html $$dirName/index.html; \
-	# 								cp bin/engine.swf $$dirName/interphore.swf; \
-	# 								cp bin/$(GAME_NAME).zip $$dirName/interphore.zip; \
-	# 								cp bin/engine.apk $$dirName/interphore.apk;
-	
-	# $(MAKE) shipDir SHIP_DIR="$(PARAPHORE_COM_PATH)/interphore/dev/"
+	$(MAKE) shipDir SHIP_DIR="$(PARAPHORE_COM_PATH)/play/dev/"
 
 shipInterEarly:
 	$(MAKE) resetSite
@@ -118,13 +117,13 @@ shipInterEarly:
 	$(MAKE) boptflash EXTRA_DEFINES+="-D SEMI_DEV" SHIPPING=1
 	$(MAKE) packWindows EXTRA_DEFINES+="-D SEMI_DEV" SHIPPING=1
 	$(MAKE) bandroid EXTRA_DEFINES+="-D SEMI_DEV" SHIPPING=1
-	dirName=`ls -d $(PARAPHORE_COM_PATH)/interphore/early/*`; \
-									cp $(PARAPHORE_COM_PATH)/interphore/index.html $$dirName/index.html; \
+	dirName=`ls -d $(PARAPHORE_COM_PATH)/play/early/*`; \
+									cp $(PARAPHORE_COM_PATH)/play/interphore.html $$dirName/index.html; \
 									cp bin/engine.swf $$dirName/interphore.swf; \
 									cp bin/$(GAME_NAME).zip $$dirName/interphore.zip; \
 									cp bin/engine.apk $$dirName/interphore.apk;
 	
-	$(MAKE) shipDir SHIP_DIR="$(PARAPHORE_COM_PATH)/interphore/early/"
+	$(MAKE) shipDir SHIP_DIR="$(PARAPHORE_COM_PATH)/play/early/"
 
 shipInterPublic:
 	$(MAKE) resetSite
@@ -134,11 +133,11 @@ shipInterPublic:
 	$(MAKE) packWindows SHIPPING=1
 	$(MAKE) bandroid SHIPPING=1
 	dirName=`ls -d `; \
-									cp bin/engine.swf $(PARAPHORE_COM_PATH)/interphore/interphore.swf; \
-									cp bin/$(GAME_NAME).zip $(PARAPHORE_COM_PATH)/interphore/interphore.zip; \
-									cp bin/engine.apk $(PARAPHORE_COM_PATH)/interphore/interphore.apk;
+									cp bin/engine.swf $(PARAPHORE_COM_PATH)/play/interphore.swf; \
+									cp bin/$(GAME_NAME).zip $(PARAPHORE_COM_PATH)/play/interphore.zip; \
+									cp bin/engine.apk $(PARAPHORE_COM_PATH)/play/interphore.apk;
 	
-	$(MAKE) shipDir SHIP_DIR="$(PARAPHORE_COM_PATH)/interphore"
+	$(MAKE) shipDir SHIP_DIR="$(PARAPHORE_COM_PATH)/play"
 
 shipDir:
 	cd $(SHIP_DIR); \
@@ -157,9 +156,7 @@ shipAll:
 		s3cmd sync --delete-removed --acl-public --exclude '.git/*' . s3://paraphore.com/
 
 shipCurrent:
-	$(MAKE) shipDir SHIP_DIR="$(PARAPHORE_COM_PATH)/paraphore/dev"
-	$(MAKE) shipDir SHIP_DIR="$(PARAPHORE_COM_PATH)/semiphore"
-	$(MAKE) shipDir SHIP_DIR="$(PARAPHORE_COM_PATH)/interphore"
+	$(MAKE) shipDir SHIP_DIR="$(PARAPHORE_COM_PATH)/play"
 
 include $(CPP_TOOLS)/engine/buildSystem/Makefile.common
 

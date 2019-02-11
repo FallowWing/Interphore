@@ -1,6 +1,3 @@
-restart0000
-0 0 24 24
-0 0 24 24
-restart0001
-0 0 24 24
-0 0 24 24
+version https://git-lfs.github.com/spec/v1
+oid sha256:89a6056c6e4cdf79a0fd45c0c384b5f4c7e81bd7e661407d696b2123bfa83c42
+size 64
