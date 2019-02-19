@@ -103,7 +103,7 @@ shipInter:
 	$(MAKE) packWindows EXTRA_DEFINES+="-D SEMI_DEV" SHIPPING=1
 	$(MAKE) bandroid EXTRA_DEFINES+="-D SEMI_DEV" SHIPPING=1
 	dirName=`ls -d $(PARAPHORE_COM_PATH)/play/dev/*`; \
-									cp $(PARAPHORE_COM_PATH)/play/interphore.html $$dirName/index.html; \
+									cp res/interphoreDevIndex.html $$dirName/index.html; \
 									cp bin/engine.swf $$dirName/interphore.swf; \
 									cp bin/$(GAME_NAME).zip $$dirName/interphore.zip; \
 									cp bin/engine.apk $$dirName/interphore.apk;
@@ -118,7 +118,7 @@ shipInterEarly:
 	$(MAKE) packWindows EXTRA_DEFINES+="-D SEMI_DEV" SHIPPING=1
 	$(MAKE) bandroid EXTRA_DEFINES+="-D SEMI_DEV" SHIPPING=1
 	dirName=`ls -d $(PARAPHORE_COM_PATH)/play/early/*`; \
-									cp $(PARAPHORE_COM_PATH)/play/interphore.html $$dirName/index.html; \
+									cp res/interphoreEarlyIndex.html $$dirName/index.html; \
 									cp bin/engine.swf $$dirName/interphore.swf; \
 									cp bin/$(GAME_NAME).zip $$dirName/interphore.zip; \
 									cp bin/engine.apk $$dirName/interphore.apk;
