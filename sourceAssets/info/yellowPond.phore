@@ -8,6 +8,8 @@ Your footsteps get closer and closer together as you descend into the dim, musky
 A gaggle of nymphs pass you, all boys. They push their little bodies through a crack in the rock wall, hardly wider than their hips, and disappear.
 
 !`
+worldMap.unlockEntry("Indigo Pond");
+
 data.metPatch = true;
 choicesPerPage = 2;
 addChoice("Follow them.", "Follow them.", {icons: ["Cub", "Male", "Male", "Male", "Piss"]});
@@ -689,6 +691,7 @@ choicesPerPage = 1;
 :yellowPondMoveAlong
 
 !`
+worldMap.completeEntry("Yellow Pond");
 gotoEarth();
 `
 

@@ -2245,6 +2245,7 @@ choicesPerPage = 1;
 :cartParaMoveAlong
 
 !`
+worldMap.completeEntry("Wet Cartography");
 gotoLLL();
 `
 

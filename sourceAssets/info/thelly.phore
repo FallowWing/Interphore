@@ -3,6 +3,7 @@ START_PASSAGES
 
 !`
 data.metRen = true;
+worldMap.unlockEntry("Bullying Lone");
 `
 You head back to the L.L.L. and push open the door to the cozy antechamber, just outside the map dome.
 
@@ -2061,6 +2062,8 @@ choicesPerPage = 1;
 :thellyMoveAlong
 
 !`
+worldMap.completeEntry("Femme Ren's");
+
 gotoLLL();
 `
 

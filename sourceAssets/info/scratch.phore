@@ -1081,8 +1081,29 @@ hookTempUpdate(function() {
 :newMapTest
 This is where you can test the new map!
 
-[Actually go to the map now!|startNewMap]
-[Go to another non-functional map!|startNonfunctionNewMap]
+[Test map!|startNewMap]
+[New LLL!|startNewMapLLL]
+[New Earth!|startNewMapEarth]
+[Non-functional map!|startNonfunctionNewMap]
+---
+:startNewMapLLL
+!`
+worldMap.clear();
+
+var entry;
+
+entry = worldMap.createNode("Scene 1", "testMapScene1");
+entry.seenUnlocked = entry.unlocked = true;
+
+entry = worldMap.createNode("Scene 2", "testMapScene2", RIGHT, "Scene 1");
+
+entry = worldMap.createNode("Scene 3", "testMapScene3", BOTTOM, "Scene 1");
+
+entry = worldMap.createNode("Back to map test", "newMapTest", TOP, "Scene 1");
+entry.seenUnlocked = entry.unlocked = true;
+
+worldMap.show();
+`
 ---
 :startNewMap
 !`

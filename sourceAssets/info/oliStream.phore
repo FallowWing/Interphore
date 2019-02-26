@@ -1207,6 +1207,7 @@ choicesPerPage = 1;
 :oliStreamEnd
 
 !`
+worldMap.completeEntry("Olitippo's Stream");
 gotoEarth();
 `
 

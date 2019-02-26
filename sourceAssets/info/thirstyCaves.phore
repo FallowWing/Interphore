@@ -472,10 +472,26 @@ execAsset("scratch.phore");
 gotoPassage("scratchModStart");
 `
 ---
-:LLL
+:Settings
 !`
-gotoChats();
+choicesPerPage = 2;
+var choiceString = "";
+if (data.fastTransition) choiceString = "Fast Transition: <b>ON</b>";
+if (!data.fastTransition) choiceString = "Fast Transition: <b>OFF</b>";
+
+addChoice(choiceString, function() {
+	if (data.fastTransition) {
+		data.fastTransition = false;
+		msg("Fast transition OFF!");
+	} else {
+		data.fastTransition = true;
+		msg("Fast transition ON!");
+	}
+	gotoPassage("Settings");
+})
+addChoice("Back.", function() { gotoThirstyCaves(); });
 `
+//[Fast Transition]
 ---
 :LLL
 !`
@@ -500,10 +516,73 @@ function gotoThirstyCaves() {
 	clearNodes();
 
 	//Map
+	worldMap.clear();
+
+	var entry;
+
+	entry = worldMap.createNode("Red Pond", "introArea");
+	entry.seenUnlocked = entry.unlocked = true;
+
+	entry = worldMap.createNode("Gay Cub Dungeon", "LLL", TOP, "Red Pond");
+	entry.seenUnlocked = entry.unlocked = true;
+
+	entry = worldMap.createNode("Earth", "earth", RIGHT, "Red Pond");
+	entry.seenUnlocked = entry.unlocked = true;
+
+	entry = worldMap.createNode("Settings", "Settings", LEFT, "Red Pond");
+	entry.seenUnlocked = entry.unlocked = true;
+
+	entry = worldMap.createNode("Archiepelago", "archiepelago", BOTTOM, "Red Pond");
+
+	//Cutscene
+	playEffect("audio/effect/mapTransition");
+
+	var animDuration = 1;
+	if (data.fastTransition) animDuration = 0.5;
+
+	var redGoop = addImage("writer/mapTransition.png");
+	redGoop.temp = false;
+	redGoop.y = -redGoop.height;
+
+	var redGoop2 = addRectImage(gameWidth, gameHeight, 0xd93c3c);
+	redGoop2.temp = false;
+	redGoop2.y = redGoop.y - redGoop2.height;
+
+	var redGoop3 = addImage("writer/mapTransition.png");
+	redGoop3.temp = false;
+	redGoop3.y = redGoop2.y;
+	redGoop3.scaleY = -1;
+
+	tween(redGoop, animDuration, {y: gameHeight + redGoop.height + redGoop2.height}, {ease: QUAD_IN_OUT});
+	tween(redGoop2, animDuration, {y: gameHeight + redGoop2.height}, {ease: QUAD_IN_OUT});
+	tween(redGoop3, animDuration, {y: gameHeight + redGoop2.height}, {ease: QUAD_IN_OUT});
+
+	var timerDuration = animDuration * 0.3;
+	if (data.fastTransition) timerDuration = animDuration / 2;
+	timer(animDuration * 0.3, function() {
+		setBackground(0, "writer/redBg");
+	})
+
+	timer(animDuration, function() {
+		if (redGoop) redGoop.destroy();
+		if (redGoop2) redGoop2.destroy();
+		if (redGoop3) redGoop3.destroy();
+		worldMap.show();
+		enableExit();
+
+		var layerSelect = addImage("writer/mapTitles/theRedSea.png");
+		layerSelect.layer = 39; //Just beneath node lines & boxes
+		layerSelect.alpha = 0;
+		layerSelect.y = -layerSelect.height;
+		tween(layerSelect, 1, {y: 0, alpha: 1}, {ease: QUINT_OUT});
+	});
+}
+
+/*
 	submitNode("L.L.L.", "LLL");
 	submitNode("Spilled Paint", "earth");
 	submitNode("Red Pond", "introArea");
-	submitNode("Chats (Coming Soon)", "chats");
+	submitNode("Settings", "Settings");
 	submitNode("Archiepelago", "archiepelago");
 	submitNode("L.L.L.", "LLL");
 
@@ -519,44 +598,4 @@ function gotoThirstyCaves() {
 		setNodeLocked("Chats (Coming Soon)", function() {
 		return data.haveChatted;
 	});
-
-	//Cutscene
-	playEffect("audio/effect/mapTransition");
-
-	var redGoop = addImage("writer/mapTransition.png");
-	redGoop.temp = false;
-	redGoop.y = -redGoop.height;
-
-	var redGoop2 = addRectImage(gameWidth, gameHeight, 0xd93c3c);
-	redGoop2.temp = false;
-	redGoop2.y = redGoop.y - redGoop2.height;
-
-	var redGoop3 = addImage("writer/mapTransition.png");
-	redGoop3.temp = false;
-	redGoop3.y = redGoop2.y;
-	redGoop3.scaleY = -1;
-
-	var animDuration = 1.5;
-
-	tween(redGoop, animDuration, {y: gameHeight + redGoop.height + redGoop2.height}, {ease: QUAD_IN_OUT});
-	tween(redGoop2, animDuration, {y: gameHeight + redGoop2.height}, {ease: QUAD_IN_OUT});
-	tween(redGoop3, animDuration, {y: gameHeight + redGoop2.height}, {ease: QUAD_IN_OUT});
-
-	timer(animDuration * 0.3, function() {
-		setBackground(0, "writer/redBg");
-	})
-
-	timer(1.5, function() {
-		if (redGoop) redGoop.destroy();
-		if (redGoop2) redGoop2.destroy();
-		if (redGoop3) redGoop3.destroy();
-		gotoMap();
-		enableExit();
-
-		var layerSelect = addImage("writer/mapTitles/theRedSea.png");
-		layerSelect.layer = 39; //Just beneath node lines & boxes
-		layerSelect.alpha = 0;
-		layerSelect.y = -layerSelect.height;
-		tween(layerSelect, 1, {y: 0, alpha: 1}, {ease: QUINT_OUT});
-	});
-}
+*/

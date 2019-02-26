@@ -18,6 +18,9 @@ welcome
 disableExit();
 getAudio("music").destroy();
 
+//Default Settings
+data.fastTransition = false;
+
 var container = addEmptyImage(1, 1);
 container.scaleX = gameWidth/desiredWidth;
 container.scaleY = gameHeight/desiredHeight;

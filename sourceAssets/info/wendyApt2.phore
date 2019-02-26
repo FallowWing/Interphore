@@ -1326,6 +1326,7 @@ addChoice(data.playerName+", please come back soon...", "myntDecoEnd2");
 :myntDecoEnd2
 
 !`
+worldMap.completeEntry("Mynt's Day Off");
 gotoEarth();
 `
 

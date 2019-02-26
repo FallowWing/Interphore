@@ -75,6 +75,54 @@ gotoPassage("cartParaModStart");
 END_PASSAGES
 
 function gotoLLL() {
+	worldMap.clear();
+
+	var entry;
+
+	//worldMap.unlockEntry("Scene 2");
+	//worldMap.completeEntry("Scene 2");
+
+	entry = worldMap.createNode("Back", "backLLL");
+	entry.seenUnlocked = entry.unlocked = true;
+
+	entry = worldMap.createNode("Meeting Cart", "meetingCart", RIGHT, "Back");
+	entry.seenUnlocked = entry.unlocked = true;
+
+	entry = worldMap.createNode("Femme Ren's", "femmeRens", BOTTOM, "Meeting Cart");
+	
+	entry = worldMap.createNode("Bullying Lone", "bullyingLone", RIGHT, "Femme Ren's");
+
+	entry = worldMap.createNode("Looking for Trouble", "loneDoors", RIGHT, "Bullying Lone");
+
+	entry = worldMap.createNode("Wet Transmission", "wetTransmission", RIGHT, "Meeting Cart");
+
+	entry = worldMap.createNode("Wet Cartography", "wetCartography", RIGHT, "Wet Transmission");;
+
+	entry = worldMap.createNode("Visit L.L.L.", "loreWhoring", LEFT, "Back");
+
+	worldMap.show();
+
+	var layerSelect = addImage("writer/mapTitles/gcd.png");
+		layerSelect.layer = 39; //Just beneath node lines & boxes
+		layerSelect.alpha = 0;
+		layerSelect.y = -layerSelect.height;
+		tween(layerSelect, 1, {y: 0, alpha: 1}, {ease: QUINT_OUT});
+
+	setBackground(0, "writer/mainBg");
+
+	var backgroundLLL = addImage("writer/gcdBg.png");
+	backgroundLLL.y = gameHeight - backgroundLLL.height;
+	backgroundLLL.layer = 38; //Below title
+	tween(backgroundLLL, 30, {y: 0}, {ease: QUAD_OUT, type: PINGPONG, startDelay: 4});
+
+	if (!data.seenLLLCredit) {
+		data.seenLLLCredit = true;
+		msg("Art: Cubber");
+	}
+}
+
+/*
+function gotoLLL() {
 	clearNodes();
 
 	submitNode("Back", "backLLL");
@@ -140,3 +188,4 @@ function gotoLLL() {
 }
 
 //Taro, Cade, Gryphon, and Kemp's truck cameo
+*/

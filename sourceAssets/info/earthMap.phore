@@ -67,7 +67,53 @@ gotoPassage("yellowPondModStart");
 END_PASSAGES
 
 function gotoEarth() {
-	clearNodes();
+	//clearNodes();
+
+	//Map
+	worldMap.clear();
+
+	var entry;
+
+	entry = worldMap.createNode("Back", "backEarth");
+	entry.seenUnlocked = entry.unlocked = true;
+
+	entry = worldMap.createNode("Intro", "myntIntro", RIGHT, "Back");
+
+	entry = worldMap.createNode("Moving In", "wendyApt", RIGHT, "Intro");
+
+	entry = worldMap.createNode("Mynt's Day Off", "wendyApt2", RIGHT, "Moving In");
+
+	entry = worldMap.createNode("Yellow Pond", "yellowPond", BOTTOM, "Intro");
+
+	entry = worldMap.createNode("Foodland", "foodLand", BOTTOM, "Yellow Pond");
+
+	entry = worldMap.createNode("Marshmelon Mess", "luluPouph", RIGHT, "Foodland");
+
+	entry = worldMap.createNode("Olitippo's Stream", "oliStream", BOTTOM, "Foodland");
+
+	worldMap.show();
+
+	var layerSelect = addImage("writer/mapTitles/earth.png");
+		layerSelect.layer = 39; //Just beneath node lines & boxes
+		layerSelect.alpha = 0;
+		layerSelect.y = -layerSelect.height;
+		tween(layerSelect, 1, {y: 0, alpha: 1}, {ease: QUINT_OUT});
+
+	setBackground(0, "writer/mainBg");
+
+	var backgroundSpilled = addImage("writer/spilledPaintBg.png");
+	backgroundSpilled.y = gameHeight - backgroundSpilled.height;
+	backgroundSpilled.layer = 38; //Below title
+	tween(backgroundSpilled, 30, {y: 0}, {ease: QUAD_OUT, type: PINGPONG, startDelay: 4});
+
+	if (!data.seenEarthCredit) {
+		data.seenEarthCredit = true;
+		msg("Art: Cubber");
+	}
+}
+
+/*
+
 
 	submitNode("Back", "backEarth");
 	submitNode("Intro", "myntIntro");
@@ -103,31 +149,11 @@ function gotoEarth() {
 		return data.leftMynt;
   	});
 
-  	setNodeLocked("Mallow-Melon Mess", function() {
+  	setNodeLocked("Marshmelon Mess", function() {
 		return data.leftMynt;
   	});
 
   	setNodeLocked("Yellow Pond", function() {
 		return data.metCart;
   	});
-
-	gotoMap();
-
-	var layerSelect = addImage("writer/mapTitles/earth.png");
-		layerSelect.layer = 39; //Just beneath node lines & boxes
-		layerSelect.alpha = 0;
-		layerSelect.y = -layerSelect.height;
-		tween(layerSelect, 1, {y: 0, alpha: 1}, {ease: QUINT_OUT});
-
-	setBackground(0, "writer/mainBg");
-
-	var backgroundSpilled = addImage("writer/spilledPaintBg.png");
-	backgroundSpilled.y = gameHeight - backgroundSpilled.height;
-	backgroundSpilled.layer = 38; //Below title
-	tween(backgroundSpilled, 30, {y: 0}, {ease: QUAD_OUT, type: PINGPONG, startDelay: 4});
-
-	if (!data.seenEarthCredit) {
-		data.seenEarthCredit = true;
-		msg("Art: Cubber");
-	}
-}
+*/

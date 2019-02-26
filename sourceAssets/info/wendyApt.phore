@@ -2,6 +2,11 @@ START_PASSAGES
 :wendyAptStart
 
 !`
+worldMap.unlockEntry("Marshmelon Mess");
+worldMap.unlockEntry("Olitippo's Stream");
+worldMap.unlockEntry("Foodland");
+worldMap.unlockEntry("Mynt's Day Off");
+
 data.tookStairs = false;
 data.leftMynt = true;
 setBackground(0, "img/writer/mainBg");
@@ -1609,6 +1614,7 @@ choicesPerPage = 1;
 :endWendyApt
 
 !`
+worldMap.completeEntry("Moving In");
 gotoEarth();
 `
 

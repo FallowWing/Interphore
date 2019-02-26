@@ -2336,6 +2336,9 @@ choicesPerPage = 1;
 ---
 :redMaryEnd
 
-!`gotoArchiepelago();`
+!`
+worldMap.completeEntry("Red & Mary");
+gotoArchiepelago();
+`
 
 END_PASSAGES

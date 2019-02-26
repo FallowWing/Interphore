@@ -1608,6 +1608,7 @@ choicesPerPage = 1;
 :loneDoors140
 
 !`
+worldMap.completeEntry("Looking for Trouble");
 gotoLLL();
 `
 

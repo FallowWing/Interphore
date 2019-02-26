@@ -604,6 +604,7 @@ choicesPerPage = 1;
 :Move along~!
 
 !`
+worldMap.completeEntry("Marshmelon Mess");
 gotoEarth();
 `
 

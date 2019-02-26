@@ -71,6 +71,12 @@ cartTween = tween(cartArt, 1, {alpha: 1});
 
 disableExit();
 
+worldMap.unlockEntry("Femme Ren's");
+worldMap.unlockEntry("Moving In");
+worldMap.unlockEntry("Yellow Pond");
+worldMap.unlockEntry("Visit L.L.L.");
+worldMap.unlockEntry("Wet Transmission");
+
 if (music) music.destroy();
 var music = playMusic("audio/ambience/cell");
 music.name = "music";
@@ -1362,6 +1368,8 @@ choicesPerPage = 2;
 !`
 resetBackgroundMode(2);
 print("leaving intro");
+
+worldMap.completeEntry("Meeting Cart");
 
 gotoLLL();
 `

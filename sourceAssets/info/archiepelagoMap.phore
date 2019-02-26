@@ -56,24 +56,24 @@ END_PASSAGES
 function gotoArchiepelago() {
 	clearNodes();
 
-	submitNode("Back", "backArchie");
-	submitNode("Farm Island", "farmIsland");
-	attachNode("Back", "Farm Island", RIGHT);
+	//Map
+	worldMap.clear();
 
-	submitNode("Red & Mary", "redMaryNode");
-	attachNode("Farm Island", "Red & Mary", RIGHT);
+	var entry;
 
-	submitNode("Indigo Pond", "indigoPond");
-	attachNode("Farm Island", "Indigo Pond", BOTTOM);
+	entry = worldMap.createNode("Back", "backArchie");
+	entry.seenUnlocked = entry.unlocked = true;
 
-	submitNode("Black Mansion", "blackMansion");
-	attachNode("Indigo Pond", "Black Mansion", BOTTOM);
+	entry = worldMap.createNode("Farm Island", "farmIsland", RIGHT, "Back");
+	entry.seenUnlocked = entry.unlocked = true;
 
-	setNodeLocked("Indigo Pond", function() {
-		return data.metPatch;
-  	});
+	entry = worldMap.createNode("Red & Mary", "redMaryNode", RIGHT, "Farm Island");
 
-	gotoMap();
+	entry = worldMap.createNode("Indigo Pond", "indigoPond", BOTTOM, "Farm Island");
+
+	entry = worldMap.createNode("Black Mansion", "blackMansion", BOTTOM, "Indigo Pond");
+
+	worldMap.show();
 
 	var layerSelect = addImage("writer/mapTitles/library2.png");
 		layerSelect.layer = 39; //Just beneath node lines & boxes
@@ -91,3 +91,22 @@ function gotoArchiepelago() {
 		msg("Art: Cubber");
 	}
 }
+
+/*
+	submitNode("Back", "backArchie");
+	submitNode("Farm Island", "farmIsland");
+	attachNode("Back", "Farm Island", RIGHT);
+
+	submitNode("Red & Mary", "redMaryNode");
+	attachNode("Farm Island", "Red & Mary", RIGHT);
+
+	submitNode("Indigo Pond", "indigoPond");
+	attachNode("Farm Island", "Indigo Pond", BOTTOM);
+
+	submitNode("Black Mansion", "blackMansion");
+	attachNode("Indigo Pond", "Black Mansion", BOTTOM);
+
+	setNodeLocked("Indigo Pond", function() {
+		return data.metPatch;
+  	});
+*/

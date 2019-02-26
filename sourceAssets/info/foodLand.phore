@@ -634,6 +634,7 @@ choicesPerPage = 1;
 :foodLandMoveAlong
 
 !`
+worldMap.completeEntry("Foodland");
 gotoEarth();
 `
 

@@ -6,6 +6,9 @@ You gracefully hop out of the red pond on the forest island. There's a black man
 But before you can head down into the trees, something catches your eye: a bull dude and a lamb boy three ponds down the way. They're arguing. The bull cradles something small in his arms.
 
 !`
+data.startedMansion = true;
+if (data.metLone) worldMap.unlockEntry("Looking for Trouble");
+
 choicesPerPage = 2;
 addChoice("Eavesdrop.", "blackEaves1", {icons: ["Plot"]});
 addChoice("Skip.", "blackBeginPre");
@@ -1500,6 +1503,9 @@ choicesPerPage = 1;
 ---
 :blackEnd
 
-!`gotoArchiepelago();`
+!`
+worldMap.completeEntry("Black Mansion");
+gotoArchiepelago();
+`
 
 END_PASSAGES

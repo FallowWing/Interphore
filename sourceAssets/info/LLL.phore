@@ -4,7 +4,9 @@ START_PASSAGES
 You're at the L.L.L.! Cartographer's little library, lounge room, and map dome.
 
 !`
-choicesPerPage = 5;
+worldMap.completeEntry("Visit L.L.L.");
+
+choicesPerPage = 3;
 addChoice("Move along.", function() {
 	clear();
 	gotoLLL();
@@ -15,7 +17,10 @@ addChoice("Examine Spilled Paint", "layerSpilledPaint");
 addChoice("Examine L.L.L.", "layerLLL");
 addChoice("F.A.Q.", "layerFAQ");
 addChoice("Terms & Definitions", "Terms");
-
+addChoice("Move along.", function() {
+	clear();
+	gotoLLL();
+});
 
 getAudio("music").destroy();
 var music = playMusic("audio/ambience/cell");
@@ -46,15 +51,15 @@ choicesPerPage = 5;
 ---
 :What happened to my memories?
 
-During assimilation, every attempt is made to preserve episodic memory, but in the event of brain damage, spaghetti code, smudged blueprints, arcane composition, or still-moving parts, episodic memory may be severely damaged or distorted by a devastating mental illness known as Clockdrift Syndrome.
+During assimilation, every attempt is made to preserve episodic memory, but in the event of brain damage, spaghetti code, smudged blueprints, arcane composition, or still-moving parts, episodic memory may be severely damaged or distorted by a devastating mental illness known as <b>Clockdrift Syndrome.</b>
 
-Clockdrift Syndrome is a rare form of partial amnesia in which the context and content of memories are heavily molested. Clockdrift Syndrome selectively affects memories from the preopterational development phase (ages 4-6 in humans, post-init for computer people) onward throughout the victim's entire life. The Interphore imposes mandatory full amnesia as treatment.
+Clockdrift Syndrome is a rare form of partial amnesia in which the context and content of memories are heavily molested. Clockdrift Syndrome selectively affects memories from the preoperational development phase (ages 4-6 in humans, post-init for computer people) onward throughout the victim's entire life. The Interphore imposes mandatory full amnesia as treatment.
 
 Symptoms of Clockdrift Syndrome include:
 
 - Younger memories drifting older, such as drinking microwaved milk from a bottle at 13 or receiving your first period at 34
 - Older memories drifting younger, such as filing taxes at 3 or graduating at 4
-- Self-inflicted timing attacks, such as ignoring your remebered age for each memory and instead deriving age from the time taken to recall the memory (Leads to obsessive behaviour)
+- Self-inflicted timing attacks, such as deducing the "real" age of a molested memory by analyzing the time taken to recall the memory (Leads to obsessive behaviour)
 - Trauma brought on by the memory of altered or bastardized life events
 - Achronological trauma hemmorhage, such as the memory of a family member's suicide inadvertently leaking out through time and blackening all happy memories formed before or after
 - Extreme emotional distress
@@ -112,8 +117,9 @@ choicesPerPage = 1;
 Cartographer is on break. He's sprawled out on the couch, naked, with a little gadget pressed to his ear.
 
 !`
+worldMap.unlockEntry("Wet Cartography");
+
 choicesPerPage = 1;
-data.heardTransmission = true;
 addChoice("Watcha listenin to, Cart? Beatles? Depeche Mode?", "trans1");
 `
 
@@ -289,6 +295,9 @@ He scurries off to his map dome, bare feetpaws pitter-pattering, flicks on the a
 "Only one way to find out!"
 
 !`
+data.heardTransmission = true;
+worldMap.completeEntry("Wet Transmission");
+
 choicesPerPage = 1;
 `
 [Wasn't he supposed to be on break...?|hubLLL]

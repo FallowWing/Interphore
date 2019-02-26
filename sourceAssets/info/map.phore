@@ -95,7 +95,7 @@ worldMap.show = function() {
 		node.textField.tint = 0xFFa5e3f2;
 		node.textField.layer = GRAPH_NODE_TEXT_LAYER;
 
-		var textPadding = 50;
+		var textPadding = 100;
 		node.sprite = add9SliceImage(
 			"img/writer/nodeChoice",
 			node.textField.textWidth + textPadding,
@@ -118,7 +118,7 @@ worldMap.show = function() {
 			node.sprite.x = parentNode.sprite.x + parentNode.sprite.width/2 - node.sprite.width/2;
 			node.sprite.y = parentNode.sprite.y + parentNode.sprite.height/2 - node.sprite.height/2;
 
-			var nodePadding = 20;
+			var nodePadding = 50;
 			if (node.connectedDirection == LEFT) {
 				node.sprite.x -= node.sprite.width/2 + parentNode.sprite.width/2 + nodePadding;
 			} else if (node.connectedDirection == RIGHT) {
@@ -269,21 +269,20 @@ worldMap.update = function() {
 					gotoPassage(node.dest);
 					node.entry.started = true;
 				}
+
+				var scaleSpeed = 0.05;
+				spr.scaleX = spr.scaleY = 1;
+
+				if (spr.hovering) {
+					var moveUpPerc = spr.hoveringTime / 0.4;
+					if (moveUpPerc > 1) moveUpPerc = 1;
+					moveUpPerc = tweenEase(moveUpPerc, ELASTIC_OUT);
+
+					spr.scaleX += moveUpPerc*0.2;
+					spr.scaleY += moveUpPerc*0.2;
+				}
 			}
 
-			var scaleSpeed = 0.05;
-			if (spr.hovering) {
-				spr.scaleX += scaleSpeed;
-				spr.scaleY += scaleSpeed;
-				var maxScale = 1.25;
-				if (spr.scaleX > maxScale) spr.scaleX = maxScale;
-				if (spr.scaleY > maxScale) spr.scaleY = maxScale;
-			} else {
-				spr.scaleX -= scaleSpeed;
-				spr.scaleY -= scaleSpeed;
-				if (spr.scaleX < 1) spr.scaleX = 1;
-				if (spr.scaleY < 1) spr.scaleY = 1;
-			}
 		} else {
 			node.sprite.tint = 0xCC0d0d0d;
 		}

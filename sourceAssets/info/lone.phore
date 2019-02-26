@@ -3,8 +3,8 @@ START_PASSAGES
 
 !`
 data.metLone = true;
+if (data.startedMansion) worldMap.unlockEntry("Looking for Trouble");
 `
-
 You stroll down the hallway in Femme Ren's, looking for the exit.
 
 "You should just change yourself in the pond, Lone."
@@ -890,6 +890,7 @@ choicesPerPage = 1;
 :loneMoveAlong
 
 !`
+worldMap.completeEntry("Bullying Lone");
 gotoLLL();
 `
 

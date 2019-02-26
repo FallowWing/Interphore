@@ -497,6 +497,36 @@ function saveGame() {
 
 function loadGame() {
 	msg("Loading game...");
+
+	//Legacy world maps
+	if (data.metCart) {
+		worldMap.unlockEntry("Femme Ren's");
+		worldMap.unlockEntry("Moving In");
+		worldMap.unlockEntry("Yellow Pond");
+		worldMap.unlockEntry("Visit L.L.L.");
+		worldMap.unlockEntry("Wet Transmission");
+		worldMap.unlockEntry("Archiepelago");
+	}
+
+	if (data.heardTransmission) {
+		worldMap.unlockEntry("Wet Cartography");
+	}
+
+	if (data.metRen) {
+		worldMap.unlockEntry("Bullying Lone");
+	}
+
+	if (data.leftMynt) {
+		worldMap.unlockEntry("Marshmelon Mess");
+		worldMap.unlockEntry("Olitippo's Stream");
+		worldMap.unlockEntry("Foodland");
+		worldMap.unlockEntry("Mynt's Day Off");
+	}
+
+	if (data.metPatch) {
+		worldMap.unlockEntry("Indigo Pond");
+	}
+
 	loadGame_internal();
 }
 
