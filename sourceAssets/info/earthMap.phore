@@ -75,7 +75,7 @@ function gotoEarth() {
 	var entry;
 
 	entry = worldMap.createNode("Back", "backEarth");
-	entry.seenUnlocked = entry.unlocked = true;
+	worldMap.preUnlockEntry("Back");
 
 	entry = worldMap.createNode("Intro", "myntIntro", RIGHT, "Back");
 

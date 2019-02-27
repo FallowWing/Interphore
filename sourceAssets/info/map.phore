@@ -51,6 +51,12 @@ worldMap.unlockEntry = function(entryName) {
 	entry.unlocked = true;
 };
 
+worldMap.preUnlockEntry = function(entryName) {
+	var entry = worldMap.getEntry(entryName);
+	entry.unlocked = true;
+	entry.seenUnlocked = true;
+};
+
 worldMap.completeEntry = function(entryName) {
 	var entry = worldMap.getEntry(entryName);
 	entry.completed = true;
@@ -257,7 +263,7 @@ worldMap.update = function() {
 		worldMap.curPhase = 2;
 	}
 
-	Object.keys(worldMap.nodes).forEach(function(nodeKey) {
+	Object.keys(worldMap.nodes).some(function(nodeKey) {
 		var node = worldMap.nodes[nodeKey];
 
 		var spr = node.sprite;
@@ -268,6 +274,7 @@ worldMap.update = function() {
 				if (spr.justReleased) {
 					gotoPassage(node.dest);
 					node.entry.started = true;
+					return true;
 				}
 
 				var scaleSpeed = 0.05;
