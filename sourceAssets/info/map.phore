@@ -163,12 +163,10 @@ worldMap.show = function() {
 
 		icon.x = node.sprite.width - icon.width/2;
 		icon.y = -icon.height/2;
-		icon.scaleX = 0.6;
-		icon.scaleY = 0.6;
 		node.sprite.addChild(icon);
 		node.progressIcon = icon;
 
-		icon.scaleX = icon.scaleY = 0.8;
+		icon.scaleX = icon.scaleY = 0.6;
 
 		if (node.entry.unlocked && !node.entry.seenUnlocked) {
 			worldMap.newlyUpdatedNodes.push(node);
@@ -247,7 +245,6 @@ worldMap.update = function() {
 			if (tweenPerc >= 1) {
 				worldMap.startMoveTime = time;
 				worldMap.curPhase = 1;
-				playEffect("audio/ui/unlockNode");
 
 				worldMap.poofAnim.alpha = 1;
 				worldMap.poofAnim.x = currentFocusedNode.sprite.x + currentFocusedNode.sprite.width/2 - worldMap.poofAnim.width/2;
@@ -342,11 +339,16 @@ worldMap.update = function() {
 
 	if (worldMap.poofAnim.alpha != 0 && worldMap.poofAnim.currentFrame == round((worldMap.poofAnim.totalFrames-2)/2)) {
 		if (currentFocusedNode.entry.unlocked && !currentFocusedNode.entry.seenUnlocked) {
+			playEffect("audio/ui/unlockNode");
+
 			currentFocusedNode.entry.seenUnlocked = true;
 			currentFocusedNode.progressIcon.destroy();
 		}
 
 		if (currentFocusedNode.entry.completed && !currentFocusedNode.entry.seenCompleted) {
+			playEffect("audio/ui/unlockNode");
+			timer(0.1, function() { playEffect("audio/ui/rewards/boon"); });
+
 			currentFocusedNode.entry.seenCompleted = true;
 			currentFocusedNode.progressIcon.destroy();
 			currentFocusedNode.progressIcon = addImage("writer/fullCheck");

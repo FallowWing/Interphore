@@ -20,6 +20,7 @@ gotoThirstyCaves();
 clear();
 worldMap.unlockEntry("Marshmelon Mess");
 worldMap.unlockEntry("Mynt's Day Off");
+worldMap.completeEntry("Moving In");
 gotoEarth();
 `
 ---
@@ -87,10 +88,11 @@ function gotoEarth() {
 
 	entry = worldMap.createNode("Intro", "myntIntro", RIGHT, "Back");
 
-	//entry = worldMap.createNode("Test Unlocks", "testUnlocker", TOP, "Back");
-	//worldMap.preUnlockEntry("Test Unlocks");
+	entry = worldMap.createNode("Test Unlocks", "testUnlocker", TOP, "Back");
+	worldMap.preUnlockEntry("Test Unlocks");
 
 	entry = worldMap.createNode("Moving In", "wendyApt", RIGHT, "Intro");
+	worldMap.preUnlockEntry("Moving In");
 
 	entry = worldMap.createNode("Mynt's Day Off", "wendyApt2", RIGHT, "Moving In");
 
