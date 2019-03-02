@@ -348,7 +348,11 @@ audio/effect/cartSlide/left/2.ogg
 audio/ui/nope.ogg
 audio/ui/nopeNode/1.ogg
 audio/ui/nopeNode/2.ogg
-audio/ui/nopeNode/3.ogg
+audio/ui/nodeClick/1.ogg
+audio/ui/nodeClick/2.ogg
+audio/ui/nodeClick/3.ogg
+audio/ui/unlockNode.ogg
+audio/ui/mapMove.ogg
 audio/ui/msg/1.ogg
 audio/ui/msg/2.ogg
 audio/ui/msg/3.ogg

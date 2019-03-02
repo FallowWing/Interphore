@@ -83,10 +83,10 @@ function gotoLLL() {
 	//worldMap.completeEntry("Scene 2");
 
 	entry = worldMap.createNode("Back", "backLLL");
-	entry.seenUnlocked = entry.unlocked = true;
+	worldMap.preUnlockEntry("Back");
 
 	entry = worldMap.createNode("Meeting Cart", "meetingCart", RIGHT, "Back");
-	entry.seenUnlocked = entry.unlocked = true;
+	worldMap.preUnlockEntry("Meeting Cart");
 
 	entry = worldMap.createNode("Femme Ren's", "femmeRens", BOTTOM, "Meeting Cart");
 	

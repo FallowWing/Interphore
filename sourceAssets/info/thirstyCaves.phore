@@ -491,7 +491,6 @@ addChoice(choiceString, function() {
 })
 addChoice("Back.", function() { gotoThirstyCaves(); });
 `
-//[Fast Transition]
 ---
 :LLL
 !`
@@ -521,16 +520,16 @@ function gotoThirstyCaves() {
 	var entry;
 
 	entry = worldMap.createNode("Red Pond", "introArea");
-	entry.seenUnlocked = entry.unlocked = true;
+	worldMap.preUnlockEntry("Red Pond");
 
 	entry = worldMap.createNode("Gay Cub Dungeon", "LLL", TOP, "Red Pond");
-	entry.seenUnlocked = entry.unlocked = true;
+	worldMap.preUnlockEntry("Gay Cub Dungeon");
 
 	entry = worldMap.createNode("Earth", "earth", RIGHT, "Red Pond");
-	entry.seenUnlocked = entry.unlocked = true;
+	worldMap.preUnlockEntry("Earth");
 
 	entry = worldMap.createNode("Settings", "Settings", LEFT, "Red Pond");
-	entry.seenUnlocked = entry.unlocked = true;
+	worldMap.preUnlockEntry("Settings");
 
 	entry = worldMap.createNode("Archiepelago", "archiepelago", BOTTOM, "Red Pond");
 

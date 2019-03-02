@@ -247,6 +247,7 @@ worldMap.update = function() {
 			if (tweenPerc >= 1) {
 				worldMap.startMoveTime = time;
 				worldMap.curPhase = 1;
+				playEffect("audio/ui/unlockNode");
 
 				worldMap.poofAnim.alpha = 1;
 				worldMap.poofAnim.x = currentFocusedNode.sprite.x + currentFocusedNode.sprite.width/2 - worldMap.poofAnim.width/2;
@@ -278,6 +279,7 @@ worldMap.update = function() {
 
 			if (worldMap.curPhase == 2) {
 				if (spr.justReleased) {
+					playEffect("audio/ui/nodeClick");
 					gotoPassage(node.dest);
 					node.entry.started = true;
 					return true;
