@@ -346,6 +346,9 @@ audio/effect/cartSlide/left/1.ogg
 audio/effect/cartSlide/left/2.ogg
 
 audio/ui/nope.ogg
+audio/ui/nopeNode/1.ogg
+audio/ui/nopeNode/2.ogg
+audio/ui/nopeNode/3.ogg
 audio/ui/msg/1.ogg
 audio/ui/msg/2.ogg
 audio/ui/msg/3.ogg

@@ -15,6 +15,14 @@ START_PASSAGES
 gotoThirstyCaves();
 `
 ---
+:testUnlocker
+!`
+clear();
+worldMap.unlockEntry("Marshmelon Mess");
+worldMap.unlockEntry("Mynt's Day Off");
+gotoEarth();
+`
+---
 :wendyApt
 !`
 clear();
@@ -78,6 +86,9 @@ function gotoEarth() {
 	worldMap.preUnlockEntry("Back");
 
 	entry = worldMap.createNode("Intro", "myntIntro", RIGHT, "Back");
+
+	entry = worldMap.createNode("Test Unlocks", "testUnlocker", TOP, "Back");
+	worldMap.preUnlockEntry("Test Unlocks");
 
 	entry = worldMap.createNode("Moving In", "wendyApt", RIGHT, "Intro");
 

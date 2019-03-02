@@ -38,6 +38,7 @@ worldMap.getEntry = function(entryName) {
 			started: false,
 			completed: false,
 			seenCompleted: false,
+			checkmark: true
 		};
 
 		data.mapEntries[entryName] = entry;
@@ -55,6 +56,7 @@ worldMap.preUnlockEntry = function(entryName) {
 	var entry = worldMap.getEntry(entryName);
 	entry.unlocked = true;
 	entry.seenUnlocked = true;
+	entry.checkmark = false;
 };
 
 worldMap.completeEntry = function(entryName) {
@@ -101,7 +103,7 @@ worldMap.show = function() {
 		node.textField.tint = 0xFFa5e3f2;
 		node.textField.layer = GRAPH_NODE_TEXT_LAYER;
 
-		var textPadding = 100;
+		var textPadding = 60;
 		node.sprite = add9SliceImage(
 			"img/writer/nodeChoice",
 			node.textField.textWidth + textPadding,
@@ -124,7 +126,7 @@ worldMap.show = function() {
 			node.sprite.x = parentNode.sprite.x + parentNode.sprite.width/2 - node.sprite.width/2;
 			node.sprite.y = parentNode.sprite.y + parentNode.sprite.height/2 - node.sprite.height/2;
 
-			var nodePadding = 50;
+			var nodePadding = 40;
 			if (node.connectedDirection == LEFT) {
 				node.sprite.x -= node.sprite.width/2 + parentNode.sprite.width/2 + nodePadding;
 			} else if (node.connectedDirection == RIGHT) {
@@ -153,7 +155,7 @@ worldMap.show = function() {
 			icon = addImage("writer/nodeLock");
 		} else if (node.entry.seenCompleted) {
 			icon = addImage("writer/fullCheck");
-		} else if (node.entry.started) {
+		} else if (node.entry.started && node.checkmark) {
 			icon = addImage("writer/halfCheck");
 		} else {
 			icon = addEmptyImage(32, 32);
@@ -161,8 +163,12 @@ worldMap.show = function() {
 
 		icon.x = node.sprite.width - icon.width/2;
 		icon.y = -icon.height/2;
+		icon.scaleX = 0.6;
+		icon.scaleY = 0.6;
 		node.sprite.addChild(icon);
 		node.progressIcon = icon;
+
+		icon.scaleX = icon.scaleY = 0.8;
 
 		if (node.entry.unlocked && !node.entry.seenUnlocked) {
 			worldMap.newlyUpdatedNodes.push(node);
@@ -229,9 +235,9 @@ worldMap.update = function() {
 		nextPosY = gameHeight/2 - nextPosY;
 
 		if (worldMap.curPhase == 0) {
-			var perc = (time - worldMap.startMoveTime) / 0.5;
+			var perc = (time - worldMap.startMoveTime) / 1;
 			var tweenPerc = perc;
-			perc = tweenEase(perc, ELASTIC_OUT);
+			perc = tweenEase(perc, QUAD_IN_OUT);
 
 			var curX = lerp(perc, worldMap.prevLocX, nextPosX);
 			var curY = lerp(perc, worldMap.prevLocY, nextPosY);
@@ -277,7 +283,7 @@ worldMap.update = function() {
 					return true;
 				}
 
-				var scaleSpeed = 0.05;
+				//var scaleSpeed = 0.05;
 				spr.scaleX = spr.scaleY = 1;
 
 				if (spr.hovering) {
@@ -286,12 +292,35 @@ worldMap.update = function() {
 					moveUpPerc = tweenEase(moveUpPerc, ELASTIC_OUT);
 
 					spr.scaleX += moveUpPerc*0.2;
-					spr.scaleY += moveUpPerc*0.2;
+					spr.scaleY += moveUpPerc*0.15;
+				}
+
+				if (spr.justHovered) {
+					playEffect("audio/ui/hoverChoiceIcons");
 				}
 			}
 
 		} else {
 			node.sprite.tint = 0xCC0d0d0d;
+
+			if (spr.justReleased) {
+				playEffect("audio/ui/nopeNode");
+			}
+
+			if (spr.justHovered) {
+				playEffect("audio/ui/myntTalk");
+			}
+
+			spr.scaleX = spr.scaleY = 1;
+
+			if (spr.hovering) {
+				var moveUpPerc = spr.hoveringTime / 0.8;
+				if (moveUpPerc > 1) moveUpPerc = 1;
+				moveUpPerc = tweenEase(moveUpPerc, QUINT_OUT);
+
+				spr.scaleX += moveUpPerc*0.07;
+				spr.scaleY += moveUpPerc*0.1;
+			}
 		}
 	});
 
