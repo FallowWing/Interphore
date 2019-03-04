@@ -9,6 +9,16 @@ START_PASSAGES
 :LLLmapStart
 
 ---
+:earth
+!`
+gotoEarth();
+`
+---
+:archiepelago
+!`
+gotoArchiepelago();
+`
+---
 :meetingCart
 
 !`
@@ -75,6 +85,7 @@ gotoPassage("cartParaModStart");
 END_PASSAGES
 
 function gotoLLL() {
+	clear();
 	worldMap.clear();
 
 	var entry;
@@ -82,10 +93,17 @@ function gotoLLL() {
 	//worldMap.unlockEntry("Scene 2");
 	//worldMap.completeEntry("Scene 2");
 
-	entry = worldMap.createNode("Back", "backLLL");
-	worldMap.preUnlockEntry("Back");
+	entry = worldMap.createNode("Up: The Red Sea", "backLLL");
+	worldMap.preUnlockEntry("Up: The Red Sea");
 
-	entry = worldMap.createNode("Meeting Cart", "meetingCart", RIGHT, "Back");
+	entry = worldMap.createNode("L.L.L.", "loreWhoring", BOTTOM, "Up: The Red Sea");
+
+	entry = worldMap.createNode("Down: Earth", "earth", BOTTOM, "L.L.L.");
+	worldMap.preUnlockEntry("Down: Earth");
+
+	entry = worldMap.createNode("Down: Archiepelago", "archiepelago", BOTTOM, "Down: Earth");
+
+	entry = worldMap.createNode("Meeting Cart", "meetingCart", RIGHT, "L.L.L.");
 	worldMap.preUnlockEntry("Meeting Cart");
 
 	entry = worldMap.createNode("Femme Ren's", "femmeRens", BOTTOM, "Meeting Cart");
@@ -96,9 +114,7 @@ function gotoLLL() {
 
 	entry = worldMap.createNode("Wet Transmission", "wetTransmission", RIGHT, "Meeting Cart");
 
-	entry = worldMap.createNode("Wet Cartography", "wetCartography", RIGHT, "Wet Transmission");;
-
-	entry = worldMap.createNode("Visit L.L.L.", "loreWhoring", LEFT, "Back");
+	entry = worldMap.createNode("Wet Cartography", "wetCartography", RIGHT, "Wet Transmission");
 
 	worldMap.show();
 

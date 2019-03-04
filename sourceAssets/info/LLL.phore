@@ -4,13 +4,14 @@ START_PASSAGES
 You're at the L.L.L.! Cartographer's little library, lounge room, and map dome.
 
 !`
-worldMap.completeEntry("Visit L.L.L.");
+worldMap.completeEntry("Explore L.L.L.");
 
 choicesPerPage = 3;
 addChoice("Move along.", function() {
 	clear();
 	gotoLLL();
 });
+addChoice("Sniff for layers...", "unlockArchie");
 addChoice("Examine Paraphores", "examineParaphores");
 addChoice("Rules of Operation for Paraphores.");
 addChoice("Examine Spilled Paint", "layerSpilledPaint");
@@ -35,6 +36,33 @@ cartImg.y = gameHeight/2 - cartImg.height/1.5;
 tween(cartImg, 3, {x: gameWidth - cartImg.width * 1.1}, {ease: QUAD_OUT});
 `
 ---
+:unlockArchie
+
+In the depths of Cart's extensive library, there is a hypersecure room which he has cordially left open for you and Mynt.
+
+In the depths of the room, there is an unhackable computer.
+
+In the depths of the computer, there is a precisely edited copy of a porn game called Library2.
+
+In the depths of the game, steeped in code rotted over four millenia of in-game time, there is a chain of islands.
+
+In the depths of those islands, there are a bunch of degenerate furries with admin powers.
+
+They call their digital home the Archiepelago.
+
+!`
+worldMap.unlockEntry("Archiepelago");
+data.unlockedArchiepelago = true;
+choicesPerPage = 2;
+`
+[Play the game.|unlockArchie2]
+[Back.|lllHub]
+---
+:unlockArchie2
+!`
+gotoArchiepelago();
+`
+---
 :lllFAQ
 
 Please ask any questions you like, they'll probably be frequently asked ones anyway.
@@ -42,7 +70,6 @@ Please ask any questions you like, they'll probably be frequently asked ones any
 !`
 choicesPerPage = 5;
 `
-
 [What happened to my memories?]
 [Why is there porn everywhere?]
 [Am I trapped this way forever?]

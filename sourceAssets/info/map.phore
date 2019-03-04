@@ -88,7 +88,7 @@ worldMap.show = function() {
 		data = JSON.parse(checkpointStr);
 		preventNextCheckpoint = false;
 	} else {
-		msg("Autosaved", {silent: true});
+		//msg("Autosaved", {silent: true});
 		saveCheckpoint();
 	}
 
@@ -104,9 +104,12 @@ worldMap.show = function() {
 		node.textField.layer = GRAPH_NODE_TEXT_LAYER;
 
 		var textPadding = 60;
+		var nodeTextWidth = node.textField.textWidth + textPadding;
+		if (nodeTextWidth < 200) nodeTextWidth = 200;
+
 		node.sprite = add9SliceImage(
 			"img/writer/nodeChoice",
-			node.textField.textWidth + textPadding,
+			nodeTextWidth,
 			node.textField.textHeight + textPadding,
 			22, 22, 44, 44
 		);

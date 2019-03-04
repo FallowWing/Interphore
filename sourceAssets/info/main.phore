@@ -8,5 +8,6 @@ execAsset("LLLmap.phore");
 execAsset("earthMap.phore");
 execAsset("archiepelagoMap.phore");
 execAsset("thirstyCaves.phore");
+execAsset("foodlandMap.phore");
 
 execAsset("mainMenu.phore");

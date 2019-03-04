@@ -492,19 +492,31 @@ addChoice(choiceString, function() {
 addChoice("Back.", function() { gotoThirstyCaves(); });
 `
 ---
+:mysteriousLayer
+
+You aren't allowed all the way up here. This is where I live.
+
+!`
+choicesPerPage = 1;
+addChoice("Back.", function() {
+	gotoThirstyCaves();
+});
+`
+---
+:redSeaExplore
+
+WIP!
+
+!`
+choicesPerPage = 1;
+addChoice("Back.", function() {
+	gotoThirstyCaves();
+});
+`
+---
 :LLL
 !`
 gotoLLL();
-`
----
-:earth
-!`
-gotoEarth();
-`
----
-:archiepelago
-!`
-gotoArchiepelago();
 `
 
 END_PASSAGES
@@ -512,26 +524,26 @@ END_PASSAGES
 function gotoThirstyCaves() {
 	disableExit();
 	clear();
-	clearNodes();
 
 	//Map
 	worldMap.clear();
 
 	var entry;
 
-	entry = worldMap.createNode("Red Pond", "introArea");
+	entry = worldMap.createNode("Up: ???", "mysteriousLayer");
+	worldMap.preUnlockEntry("Up: ???");
+
+	entry = worldMap.createNode("The Red Sea", "redSeaExplore", BOTTOM, "Up: ???");
+	worldMap.preUnlockEntry("The Red Sea");
+
+	entry = worldMap.createNode("Down: L.L.L.", "LLL", BOTTOM, "The Red Sea");
+	worldMap.preUnlockEntry("Down: L.L.L.");
+
+	entry = worldMap.createNode("Red Pond", "introArea", RIGHT, "The Red Sea");
 	worldMap.preUnlockEntry("Red Pond");
 
-	entry = worldMap.createNode("Gay Cub Dungeon", "LLL", TOP, "Red Pond");
-	worldMap.preUnlockEntry("Gay Cub Dungeon");
-
-	entry = worldMap.createNode("Earth", "earth", RIGHT, "Red Pond");
-	worldMap.preUnlockEntry("Earth");
-
-	entry = worldMap.createNode("Settings", "Settings", LEFT, "Red Pond");
+	entry = worldMap.createNode("Settings", "Settings", LEFT, "The Red Sea");
 	worldMap.preUnlockEntry("Settings");
-
-	entry = worldMap.createNode("Archiepelago", "archiepelago", BOTTOM, "Red Pond");
 
 	//Cutscene
 	playEffect("audio/effect/mapTransition");

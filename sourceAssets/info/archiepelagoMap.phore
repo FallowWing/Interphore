@@ -50,10 +50,22 @@ print("leaving archiepelagoMap");
 execAsset("redMary.phore");
 gotoPassage("redMaryStart");
 `
+---
+:archiepelagoExplore
+
+WIP!
+
+!`
+choicesPerPage = 1;
+addChoice("Back.", function() {
+	gotoArchiepelago();
+});
+`
 
 END_PASSAGES
 
 function gotoArchiepelago() {
+	clear();
 	clearNodes();
 
 	//Map
@@ -61,10 +73,13 @@ function gotoArchiepelago() {
 
 	var entry;
 
-	entry = worldMap.createNode("Back", "backArchie");
-	worldMap.preUnlockEntry("Back");
+	entry = worldMap.createNode("Up: L.L.L.", "backArchie");
+	worldMap.preUnlockEntry("Up: L.L.L.");
 
-	entry = worldMap.createNode("Farm Island", "farmIsland", RIGHT, "Back");
+	entry = worldMap.createNode("Archiepelago", "archiepelagoExplore", BOTTOM, "Up: L.L.L.");
+	worldMap.preUnlockEntry("Archiepelago");
+
+	entry = worldMap.createNode("Farm Island", "farmIsland", RIGHT, "Up: L.L.L.");
 	worldMap.preUnlockEntry("Farm Island");
 
 	entry = worldMap.createNode("Red & Mary", "redMaryNode", RIGHT, "Farm Island");

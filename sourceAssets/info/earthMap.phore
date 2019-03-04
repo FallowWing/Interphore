@@ -12,7 +12,7 @@ START_PASSAGES
 :backEarth
 
 !`
-gotoThirstyCaves();
+gotoLLL();
 `
 ---
 :testUnlocker
@@ -47,9 +47,7 @@ gotoPassage("introModMyntStart");
 ---
 :foodLand
 !`
-clear();
-execAsset("foodLand.phore");
-gotoPassage("foodLandModStart");
+gotoFoodland();
 `
 ---
 :oliStream
@@ -72,10 +70,22 @@ clear();
 execAsset("yellowPond.phore");
 gotoPassage("yellowPondModStart");
 `
+---
+:earthExplore
+
+WIP!
+
+!`
+choicesPerPage = 1;
+addChoice("Back.", function() {
+	gotoEarth();
+});
+`
 
 END_PASSAGES
 
 function gotoEarth() {
+	clear();
 	//clearNodes();
 
 	//Map
@@ -83,26 +93,28 @@ function gotoEarth() {
 
 	var entry;
 
-	entry = worldMap.createNode("Back", "backEarth");
-	worldMap.preUnlockEntry("Back");
+	entry = worldMap.createNode("Up: L.L.L.", "backEarth");
+	worldMap.preUnlockEntry("Up: L.L.L.");
 
-	entry = worldMap.createNode("Intro", "myntIntro", RIGHT, "Back");
+	entry = worldMap.createNode("Earth", "earthExplore", BOTTOM, "Up: L.L.L.");
+	worldMap.preUnlockEntry("Earth");
 
-	entry = worldMap.createNode("Test Unlocks", "testUnlocker", TOP, "Back");
-	worldMap.preUnlockEntry("Test Unlocks");
+	entry = worldMap.createNode("Down: Foodland", "foodLand", BOTTOM, "Earth");
+	worldMap.preUnlockEntry("Down: Foodland");
+
+	entry = worldMap.createNode("Intro", "myntIntro", RIGHT, "Earth");
+	worldMap.preUnlockEntry("Intro");
 
 	entry = worldMap.createNode("Moving In", "wendyApt", RIGHT, "Intro");
-	worldMap.preUnlockEntry("Moving In");
 
-	entry = worldMap.createNode("Mynt's Day Off", "wendyApt2", RIGHT, "Moving In");
+	entry = worldMap.createNode("Mynt's Day Off", "wendyApt2", BOTTOM, "Moving In");
 
 	entry = worldMap.createNode("Yellow Pond", "yellowPond", BOTTOM, "Intro");
 
-	entry = worldMap.createNode("Foodland", "foodLand", BOTTOM, "Yellow Pond");
+	entry = worldMap.createNode("Olitippo's Stream", "oliStream", BOTTOM, "Yellow Pond");
 
-	entry = worldMap.createNode("Marshmelon Mess", "luluPouph", RIGHT, "Foodland");
-
-	entry = worldMap.createNode("Olitippo's Stream", "oliStream", BOTTOM, "Foodland");
+	//entry = worldMap.createNode("Test Unlocks", "testUnlocker", TOP, "Earth");
+	//worldMap.preUnlockEntry("Test Unlocks");
 
 	worldMap.show();
 

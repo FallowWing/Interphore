@@ -27,6 +27,7 @@ info/passageParser.js
 
 info/LLLmap.phore
 info/earthMap.phore
+info/foodlandMap.phore
 info/archiepelagoMap.phore
 info/map.phore
 
@@ -156,6 +157,8 @@ img/writer/xp9slice.spr
 
 img/writer/mapTitles/theRedSea.png
 img/writer/mapTitles/theRedSea.spr
+img/writer/mapTitles/foodland.png
+img/writer/mapTitles/foodland.spr
 img/writer/mapTitles/gcd.png
 img/writer/mapTitles/gcd.spr
 img/writer/mapTitles/library2.png
@@ -193,6 +196,8 @@ img/writer/thirstyCavesBg.png
 img/writer/thirstyCavesBg.spr
 img/writer/spilledPaintBg.png
 img/writer/spilledPaintBg.spr
+img/writer/foodlandBg.png
+img/writer/foodlandBg.spr
 img/writer/shelterBg.png
 img/writer/shelterBg.spr
 img/writer/cartBg.png

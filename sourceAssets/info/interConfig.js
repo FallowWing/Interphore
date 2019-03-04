@@ -505,7 +505,7 @@ function loadGame() {
 		worldMap.unlockEntry("Yellow Pond");
 		worldMap.unlockEntry("Visit L.L.L.");
 		worldMap.unlockEntry("Wet Transmission");
-		worldMap.unlockEntry("Archiepelago");
+		worldMap.unlockEntry("Down: Archiepelago");
 	}
 
 	if (data.heardTransmission) {
@@ -519,7 +519,8 @@ function loadGame() {
 	if (data.leftMynt) {
 		worldMap.unlockEntry("Marshmelon Mess");
 		worldMap.unlockEntry("Olitippo's Stream");
-		worldMap.unlockEntry("Foodland");
+		worldMap.unlockEntry("Down: Foodland");
+		worldMap.unlockEntry("Taro & Lulu");
 		worldMap.unlockEntry("Mynt's Day Off");
 	}
 

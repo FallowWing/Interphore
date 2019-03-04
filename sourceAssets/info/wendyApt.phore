@@ -2,7 +2,6 @@ START_PASSAGES
 :wendyAptStart
 
 !`
-worldMap.unlockEntry("Marshmelon Mess");
 worldMap.unlockEntry("Olitippo's Stream");
 worldMap.unlockEntry("Foodland");
 worldMap.unlockEntry("Mynt's Day Off");

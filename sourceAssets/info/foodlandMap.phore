@@ -1,0 +1,92 @@
+print("arriving at Earth map");
+
+if (music) music.destroy();
+var music = playMusic("audio/ambience/violetMeteorite");
+music.name = "music";
+
+START_PASSAGES
+---
+:earthStart
+
+---
+:backFoodland
+
+!`
+gotoEarth();
+`
+---
+:testUnlocker
+!`
+clear();
+worldMap.unlockEntry("Marshmelon Mess");
+worldMap.unlockEntry("Mynt's Day Off");
+worldMap.completeEntry("Moving In");
+gotoFoodland();
+`
+---
+:foodLandTaro
+!`
+clear();
+execAsset("foodLand.phore");
+gotoPassage("foodLandModStart");
+`
+---
+:luluPouph
+!`
+clear();
+execAsset("luluPouph.phore");
+gotoPassage("luluStart");
+`
+---
+:foodlandExplore
+
+WIP!
+
+!`
+choicesPerPage = 1;
+addChoice("Back.", function() {
+	gotoFoodland();
+});
+`
+
+END_PASSAGES
+
+function gotoFoodland() {
+	clear();
+	//clearNodes();
+
+	//Map
+	worldMap.clear();
+
+	var entry;
+
+	entry = worldMap.createNode("Up: Earth", "backFoodland");
+	worldMap.preUnlockEntry("Up: Earth");
+
+	entry = worldMap.createNode("Foodland", "foodlandExplore", BOTTOM, "Up: Earth");
+	worldMap.preUnlockEntry("Foodland");
+
+	entry = worldMap.createNode("Taro & Lulu", "foodLandTaro", RIGHT, "Foodland");
+
+	entry = worldMap.createNode("Marshmelon Mess", "luluPouph", RIGHT, "Taro & Lulu");
+
+	worldMap.show();
+
+	var layerSelect = addImage("writer/mapTitles/foodland.png");
+		layerSelect.layer = 39; //Just beneath node lines & boxes
+		layerSelect.alpha = 0;
+		layerSelect.y = -layerSelect.height;
+		tween(layerSelect, 1, {y: 0, alpha: 1}, {ease: QUINT_OUT});
+
+	setBackground(0, "writer/mainBg");
+
+	var backgroundFoodland = addImage("writer/foodlandBg.png");
+	backgroundFoodland.y = gameHeight - backgroundFoodland.height;
+	backgroundFoodland.layer = 38; //Below title
+	tween(backgroundFoodland, 30, {y: 0}, {ease: QUAD_OUT, type: PINGPONG, startDelay: 4});
+
+	if (!data.seenEarthCredit) {
+		data.seenEarthCredit = true;
+		msg("Art: Cubber");
+	}
+}
