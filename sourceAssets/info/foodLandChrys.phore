@@ -1,7 +1,9 @@
 START_PASSAGES
 :foodLandChrysModStart
 
-Off to one side of the red pond a sign proclaims: 'Foodland Park this way!' Behind it, and in the distance, you spot a ferris wheel and a roller coaster. You follow the crowd along a path cobbled from firm cheese which leads to a grand plaza. The cobble pattern creates a frescoed design, concentric circles of different coloured cheeses, and the central space is dominated by a melon rind and rock candy fountain that gushes a stream of chocolate into the air.
+Off to one side of the red pond a sign proclaims: 'Foodland Park this way!'
+
+Behind it, and in the distance, you spot a ferris wheel and a roller coaster. You follow the crowd along a path cobbled from firm cheese which leads to a grand plaza. The cobble pattern creates a frescoed design, concentric circles of different coloured cheeses, and the central space is dominated by a melon rind and rock candy fountain that gushes a stream of chocolate into the air.
 
 Around the plaza, stalls and booths cater to tourists. There's a mining shop that sells high quality Foodland terrain for tourists to snack on, a shooting gallery, even a mini putt course! Shouts of joy draw you to a dunk tank. The dunk-ee is a jiggly gelatin cub just waiting to get eaten by the winner. The cub wiggles and laughs giddily as the victor licks at his cheek.
 
@@ -186,11 +188,10 @@ choicesPerPage = 1;
 ---
 :chrys6
 
-
 !`
 choicesPerPage = 1;
 `
-[You're so big... uh...|chrys7]
+[You're so tall, Miss... uh...|chrys7]
 ---
 :chrys7
 
@@ -702,6 +703,35 @@ choicesPerPage = 1;
 [Urrrrrrk... burp cum... and move along...|chrysEnd]
 ---
 :chrysEnd
+
+In the distance, she blows a huge steamy dragonbreath of relief and plops her ass down on a rock. The breeze plays between her tits and her doublecock~
+
+!`
+choicesPerPage = 1;
+`
+[Examine one last time...?|chrysEnd2] #Art
+---
+:chrysEnd2
+
+!`
+disableExit();
+var chrys = addImage("writer/characters/chrys/chrys");
+chrys.scaleX = chrys.scaleY = 1.43;
+chrys.x = desiredWidth / 2 - (chrys.width * chrys.scaleX) / 2;
+chrys.y = desiredHeight - chrys.height * chrys.scaleY;
+
+tween(chrys, 5, {y: desiredHeight / 2 - (chrys.height * chrys.scaleY) / 2.3}, {ease: QUAD_IN_OUT});
+msg("Art: Cubber", {silent: true});
+
+choicesPerPage = 1;
+
+chrys.onRelease = function() {
+	enableExit();
+	addChoice("Ahhh, what a beauty. Move along~", "chrysEnd3");
+}
+`
+---
+:chrysEnd3
 !`
 gotoFoodland();
 `
