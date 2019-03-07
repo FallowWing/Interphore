@@ -24,6 +24,13 @@ worldMap.completeEntry("Moving In");
 gotoFoodland();
 `
 ---
+:foodLandChrysGo
+!`
+clear();
+execAsset("foodLandChrys.phore");
+gotoPassage("foodLandChrysModStart");
+`
+---
 :foodLandTaro
 !`
 clear();
@@ -69,6 +76,8 @@ function gotoFoodland() {
 	entry = worldMap.createNode("Taro & Lulu", "foodLandTaro", RIGHT, "Foodland");
 
 	entry = worldMap.createNode("Marshmelon Mess", "luluPouph", RIGHT, "Taro & Lulu");
+
+	entry = worldMap.createNode("Chrysophylux", "foodLandChrysGo", RIGHT, "Marshmelon Mess");
 
 	worldMap.show();
 

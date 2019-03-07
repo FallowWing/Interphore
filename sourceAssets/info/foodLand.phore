@@ -8,6 +8,7 @@ You come across a farmer fucking one of his watermelons. His face is twisted up 
 !`
 choicesPerPage = 2;
 worldMap.unlockEntry("Marshmelon Mess");
+worldMap.unlockEntry("Chrysophylux");
 `
 [... Head down one layer.|foodLand1]
 [Move along.|foodLandMoveAlong]
@@ -245,7 +246,7 @@ choicesPerPage = 1;
 ---
 :foodLand10
 
-"That's it... you're just food, Lulu... let `him()` eat your paw, okay? Stay still!"
+"That's it... you're just food, Lulu... let `him();` eat your paw, okay? Stay still!"
 
 Taro wraps his arm around Lulu's throat and pins him in a chokehold, his drooling, blissed-out face pressed right against Taro's juicy tatonuts. Taro lifts and gyrates his hips, smearing both nuts over Lulu's expression.
 

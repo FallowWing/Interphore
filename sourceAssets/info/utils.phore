@@ -82,6 +82,15 @@ function fox() {
 	return data.species;
 }
 
+function species(fox, wolf, bunny, cat) {
+	if (data.species === "fox") return fox;
+	if (data.species === "wolf") return wolf;
+	if (data.species === "bunny") return bunny;
+	if (data.species === "cat") return cat;
+
+	if (data.species === undefined) return cat;
+}
+
 function hasKnot(knot, noKnot) {
 	if (data.species === undefined) return noKnot;
 	if (data.hasKnot) return knot;

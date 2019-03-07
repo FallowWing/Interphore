@@ -103,16 +103,16 @@ function gotoLLL() {
 
 	entry = worldMap.createNode("Down: Archiepelago", "archiepelago", BOTTOM, "Down: Earth");
 
-	entry = worldMap.createNode("Meeting Cart", "meetingCart", RIGHT, "L.L.L.");
-	worldMap.preUnlockEntry("Meeting Cart");
+	entry = worldMap.createNode("Cartographer", "meetingCart", RIGHT, "L.L.L.");
+	worldMap.preUnlockEntry("Cartographer");
 
-	entry = worldMap.createNode("Femme Ren's", "femmeRens", BOTTOM, "Meeting Cart");
+	entry = worldMap.createNode("Femme Ren's", "femmeRens", BOTTOM, "Cartographer");
 	
 	entry = worldMap.createNode("Bullying Lone", "bullyingLone", RIGHT, "Femme Ren's");
 
 	entry = worldMap.createNode("Looking for Trouble", "loneDoors", RIGHT, "Bullying Lone");
 
-	entry = worldMap.createNode("Wet Transmission", "wetTransmission", RIGHT, "Meeting Cart");
+	entry = worldMap.createNode("Wet Transmission", "wetTransmission", RIGHT, "Cartographer");
 
 	entry = worldMap.createNode("Wet Cartography", "wetCartography", RIGHT, "Wet Transmission");
 
@@ -142,7 +142,7 @@ function gotoLLL() {
 	clearNodes();
 
 	submitNode("Back", "backLLL");
-	submitNode("Meeting Cart", "meetingCart");
+	submitNode("Cartographer", "meetingCart");
 	submitNode("Femme Ren's", "femmeRens");
 	submitNode("Bullying Lone", "bullyingLone");
 	submitNode("Looking for Trouble", "loneDoors");
@@ -150,11 +150,11 @@ function gotoLLL() {
 	submitNode("Wet Transmission", "wetTransmission");
 	submitNode("Wet Cartography", "wetCartography");
 
-	attachNode("Back", "Meeting Cart", RIGHT);
-	attachNode("Meeting Cart", "Femme Ren's", BOTTOM);
+	attachNode("Back", "Cartographer", RIGHT);
+	attachNode("Cartographer", "Femme Ren's", BOTTOM);
 	attachNode("Femme Ren's", "Bullying Lone", BOTTOM);
 	attachNode("Bullying Lone", "Looking for Trouble", BOTTOM);
-	attachNode("Meeting Cart", "Lore Whoring", RIGHT);
+	attachNode("Cartographer", "Lore Whoring", RIGHT);
 	attachNode("Lore Whoring", "Wet Transmission", RIGHT);
 	attachNode("Wet Transmission", "Wet Cartography", RIGHT);
 

@@ -52,6 +52,7 @@ info/blackMansion.phore
 info/introCart.phore
 info/LLL.phore
 info/foodLand.phore
+info/foodLandChrys.phore
 info/cartPara.phore
 info/scratch.phore
 info/basic.phore

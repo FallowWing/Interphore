@@ -153,6 +153,8 @@ worldMap.show = function() {
 			line.rotation = Math.atan2(y2 - y1, x2 - x1) * 180 / Math.PI;
 		}
 
+		if (data.unlockedDev) node.entry.unlocked = node.entry.seenUnlocked = true;
+
 		var icon = null;
 		if (!node.entry.seenUnlocked) {
 			icon = addImage("writer/nodeLock");

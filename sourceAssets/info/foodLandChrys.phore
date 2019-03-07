@@ -1,11 +1,11 @@
 START_PASSAGES
 :foodLandChrysModStart
 
-You follow the flow of foot traffic --both local and foreign-- from the Red Pond. A large sign off to one side of the road indicates you're approaching 'Six Flags, Foodland' and you spot a ferris wheel and part of a roller coaster in the distance. You continue moving with the crowd until you're standing on a cobbled path made of blocks of firm cheese which leads to a grand plaza. The cobbles are done in concentric circles of different coloured cheeses to give the walkway a frescoed design while the central space is dominated by a large fountain made of a melon rind and rock candy which constantly gushes a stream of chocolate into the air.
+Off to one side of the red pond a sign proclaims: 'Foodland Park this way!' Behind it, and in the distance, you spot a ferris wheel and a roller coaster. You follow the crowd along a path cobbled from firm cheese which leads to a grand plaza. The cobble pattern creates a frescoed design, concentric circles of different coloured cheeses, and the central space is dominated by a melon rind and rock candy fountain that gushes a stream of chocolate into the air.
 
-Around the circular space are stalls and booths catering to tourists, reminding you of a carnival or fairgrounds on Earth. To one side you spot a place selling the highest quality bits of the terrain harvested to sell to  tourists as snacks, across the way is a shooting gallery, there's even a mini putt course! A shout of joy draws your attention to a dunk tank where the losing individual, a cub made of some kind of jiggly gelatin, was the prize to be eaten by the winner. He laughs uproariously as the victor starts to lick and nibble at him while going on their merry way.
+Around the plaza, stalls and booths cater to tourists. There's a mining shop that sells high quality Foodland terrain for tourists to snack on, a shooting gallery, even a mini putt course! Shouts of joy draw you to a dunk tank. The dunk-ee is a jiggly gelatin cub just waiting to get eaten by the winner. The cub wiggles and laughs giddily as the victor licks at his cheek.
 
-From this central plaza there are more amusements laid out, a map near the fountain indicating which way to go to get to the other sections of the amusement park.
+There's a map near the fountain for the different sections of the park.
 
 !`
 choicesPerPage = 1;
@@ -14,11 +14,29 @@ choicesPerPage = 1;
 ---
 :Check out the map.
 
-You head over to the map and, as you do, you notice another person already peering closely at it. It's obvious at first glance they're also a tourist given they're not made of food. Plus... they're over six feet tall, with horns and scales. At first you think they might be a demon, but the long, almost crocodilian tail that spools out of their tailbone and curls on the ground behind them makes it pretty clear they're more reptilian than demonic.
+It's made of pita bread. A nearby bakery booth dishes out new copies of the map every time the tourists eat too much of it.
 
-The woman is wearing a green jacket with gold trim that hangs down to her rump, a split in the middle of the hem allowing her tail, which is thicker around at the base than your thigh, to come out at the back. While the jacket lacks sleeves and the woman isn't wearing pants the exposure is compensated for by the fact that her limbs are covered in thick, shield-shaped scales, as is her tail. Auburn hair cascades down her head, passing by the black horns that emerge from the top of her head and arch backwards.
+There's a woman here. She steps politely aside to let you look at the map in peace.
 
-She doesn't seem to have noticed you yet.
+!`
+choicesPerPage = 1;
+`
+[Fuck the pita map, examine her.|chrys1]
+---
+:chrys1
+
+She's over six feet tall, with horns and scales, definitely not a local. A long, reptilian tail spools from her tailbone and curls around her feet on the ground below. It's easily thicker than your thigh!
+
+!`
+choicesPerPage = 1;
+`
+[Hmmm... reptilian, eh... examine more.|chrys2]
+---
+:chrys2
+
+A green jacket with gold trim hangs down to her rump, and a split in the back hem allows her tail to hang out. While the jacket lacks sleeves and the woman isn't wearing pants, thick, shield-shaped red scales that match her tail cover her limbs and give the illusion of clothing. Unstyled, auburn hair cascades down from her head to her mid back. Black horns emerge from it and curve backwards.
+
+She's a dragon.
 
 !`
 choicesPerPage = 1;
@@ -27,9 +45,29 @@ choicesPerPage = 1;
 ---
 :Approach the woman.
 
-You decide to approach the unusual woman, so you make your way over to where she's standing. Her attention is occupied by a map drawn in food colouring on a piece of pita-paper. "So it'd be over there..?" she mumbles to herself as she turns the map in a pair of rather large hands covered in deep crimson scales, the ends of each finger tipped with a sharp looking talon that's already punching into the soft 'paper' noticeably.
+She moves aside again, not looking up. She's determined to give you first dibs on the pita map if you're hungry.
 
-You clear your throat as you get close to draw her attention and she glances up from the map, looking over in your direction with eyes the color of molten gold, the pupil of each a black vertical slit. She tilts her head, her auburn hair cascading to the side, which seems to catch her off guard as she tries to blow it off her nose and lips, then just straightens up and adjusts it with a hand. "Uhhh, you need something?" she asks, her voice gruff but still friendly.
+!`
+choicesPerPage = 1;
+`
+[What's she doing?|chrys3]
+---
+:chrys3
+
+She traces one sharp talon down the park's curving paths until it lands on the ferris wheel.
+
+"So it'd be over there..." she mumbles to herself.
+
+!`
+choicesPerPage = 1;
+`
+[Ahem.|chrys4]
+---
+:chrys4
+
+She glances up from the map and fixes you with eyes the color of molten gold, the pupil of each a black vertical slit. She tilts her head, and her auburn hair cascades to the side.
+
+Annoyed, she blows the hair off her nose and lips. Her voice is gruff, but still friendly: "Uhhh, you need something?" 
 
 !`
 choicesPerPage = 1;
@@ -38,9 +76,31 @@ choicesPerPage = 1;
 ---
 :Ask her if it hurt when she fell from heaven, as cheesily as humanly possible.
 
-You proceed to drop the greatest (and only) pickup line you can think of, which is also potentially the cheesiest one in all of existence. You waggle your eyebrows suggestively the entire time and put on the best shit-eating grin you can muster. You couldn't possibly be more seductive at the moment, you ooze charisma from your very pores. That might just be a flash sweat from eating so much sugar.
+You proceed to drop the greatest (and only) pickup line you can think of, which is potentially the cheesiest one in all of existence. You waggle your eyebrows suggestively the entire time and put on the best shit-eating grin you can muster. You couldn't possibly be more seductive at the moment. You ooze charisma from your very pores. (That might just be a flash sweat from eating so much sugar on the way over here.)
 
-Those golden eyes narrow, the tall woman staring you down. At first you think she might be angry but, after an awkwardly long pause, she bursts into laughter loud enough to make you jump backwards reflexively. "Wow, that is, uh, just terrible," she manages to gasp out while still chuckling. "Where did you even learn pick up lines that bad?"
+She stares you down with those narrow golden eyes.
+
+!`
+choicesPerPage = 1;
+`
+[(Is she angry?)|chrys5]
+---
+:chrys5
+
+Her eyes narrow right down to hairpin slits.
+
+Then she bursts into laughter.
+
+!`
+choicesPerPage = 1;
+`
+[AAaa|chrys6]
+---
+:chrys6
+
+Her laugh was loud enough to make you jump backwards in surprise.
+
+"Wow, that is, uh, just terrible," she manages to gasp between thunderous cackles. "Where did you even learn pick up lines that bad?"
 
 !`
 choicesPerPage = 1;
@@ -49,240 +109,601 @@ choicesPerPage = 1;
 ---
 :I had a lame dad.
 
-"That so? I never knew my, uh, 'dad'." the dragon woman replies, tilting her head again as she replies and, once again, ending up with her bangs in her face. She grunts in annoyance, using her hand to tuck the hair behind one of the horns protruding from her head instead. "Stupid hair being...stupid and stuff. How do you even deal with having it all over your body?"
-
-Unable to help yourself, you ask her why her hair is proving to be such a problem. "Oh, well, I'm not used to it is all." She pauses, realizing that doesn't actually explain anything, then taps her chin with a talon as she ponders how to put it. "Let's just say this isn't what my body normally looks like, so I'm not used to having hair, or skin, or tits. But being like this does make it a lot easier for me to talk to people like you."
-
-Her hand reaches out, suddenly plopping atop your head and petting your fur. "And doing stuff like this. I heard you furry people like being pet and it's kinda nice to rub your fur." It occurs to you at this point you've been looking up to see her this whole time, the woman standing head and shoulders taller than you. Given all the cubs you hang around with, you feel weird to be the smaller one for once.
+"That so?" She tilts her head and, like before, her bangs end up in her face. She grunts in annoyance, then tucks the hair behind one of the horns protruding from her head. "Stupid hair. How do you tolerate it all over your body?"
 
 !`
 choicesPerPage = 1;
 `
-[Score! Now all you have to do is get her to pet you more!]
+[I'm used to it by now~]
 ---
-:Score!
+:I'm used to it by now~
 
-You ignore the question of what her original body may have been and instead focus on the (surprisingly warm) hand currently rubbing through the fur atop atop your head. Before long you're `species("purring", "wagging your tail", "nuzzling back against it");` happily,  the warmth emanating from the scale-covered hand making you feel cozy as can be despite being out in public like this.
-
-"You're pretty cute," she compliments. "Hmm, maybe I'll check the rest of this place out later. Want to hang out with me for a while?"
-
-You're surprised, briefly, before you're distracted by cozy pets again, the feeling of her talons carefully kneading through your fur and rubbing your head is amazing. Weren't you supposed to be asking her out? Well...whatever, it's the same end result...
 
 !`
 choicesPerPage = 1;
 `
-[Yes please!]
-[Nah, I changed my mind|Move along.Chrys]
+[Why does your hair annoy you so much?]
+---
+:Why does your hair annoy you so much?
+
+"Oh, well, I'm <i>not</i> used to it." She pauses and taps her chin with a talon as she ponders how to put it. "Let's just say this isn't what my body normally looks like, so I'm not used to having hair, or skin, or tits. But looking like this does make it a lot easier for me to talk to people like you."
+
+Her hand reaches out, plops atop your head and strokes your fur. "And doing stuff like this. I couldn't do this if I were a big feral dragon. I heard you furry people like to be pet. It feels nice for you, huh? It's kinda nice for me too."
+
+!`
+choicesPerPage = 1;
+`
+[Mmm. Push my head up... wait, up?]
+---
+:Mmm. Push my head up... wait, up?
+
+You realize you've been looking up at her this whole time. This dragon woman stands head and shoulders taller than you.
+
+!`
+choicesPerPage = 1;
+`
+[So big...]
+---
+:So big...
+
+You ignore the hanging question of what her original body may have been and instead focus on the (surprisingly warm) hand rubbing through the fur atop your head. You `species("make yiff noises all", "churr and wag your tail", "chitter and squeak", "purr and swish your tail");` happily. The warmth emanating from her scales makes you feel like you're curled up with her in a warm, private little den somewhere, instead of out in a crowded public plaza.
+
+"You're a pretty cute `fox();`. Want to hang out with me for a while?"
+
+!`
+choicesPerPage = 1;
+`
+[Oh shit. I thought I was the one approaching here.]
+---
+:Oh shit. I thought I was the one approaching here.
+
+Well... whatever, it's the same end result, and the feel of her talons kneading the top of your head is so relaxing...
+
+"Well, `fox();`?" Her headpats intensify. "I've been eyeing a special spot on this map... let's get away from the crowd."
+
+!`
+choicesPerPage = 1;
+`
+[Yes please!] #Intersex #Love
 ---
 :Yes please!
 
-You quickly agree to tag along with the woman. She smiles at you, showing off a maw full of sharp teeth, but despite the intimidating shark-like maw, you feel quite at ease with her thanks to her obviously friendly demeanor. She looks back at the map for a moment, looking for something the two of you could do together, then points at what looks to be a ferris wheel. "How about we go on that?" She suggests.
-
-You nod in response and she reaches down, taking your hand. Her hands are so big that they make you feel like a child by comparison, her scaly mitt completely engulfing your paw. "Oh, right, I forgot to introduce myself. I'm Chrysophylux. You can just call me Chrys, most people I meet have a hard time pronouncing my name."
+She smiles at you, showing off a maw full of sharp teeth. Her friendly demeanor keeps that smile pleasant, but you definitely don't want to be on the receiving end of a bite from those chompers. She looks back at the map for a moment, searching for something the two of you could do together, then stabs a talon into the ferris wheel on the pita map. "This is my special spot. I love heights, and the carriages are nice and private."
 
 !`
-addChoice("I'm "+data.playerName+".", "I'm me");
+choicesPerPage = 1;
+`
+[Sure!]
+---
+:Sure!
+
+You nod. She reaches down, taking your paw. Her scaly mitt completely engulfs it, which makes you feel like a child being led around.
+
+!`
+choicesPerPage = 1;
+`
+[Ehehe...|chrys6]
+---
+:chrys6
+
+
+!`
+choicesPerPage = 1;
+`
+[You're so big... uh...|chrys7]
+---
+:chrys7
+
+"Oh, right, I forgot to introduce myself. I'm Chrysophylux. You can just call me Chrys, though. Most people can't pronounce my name very well."
+
+!`
+choicesPerPage = 1;
+`
+[Cry-so-fill-ox?|chrys8]
+---
+:chrys8
+
+"You can just call me Chrys."
+
+!`
+choicesPerPage = 1;
+`
+[Chrisofillucks?|chrys9]
+---
+:chrys9
+
+"Just Chrys..."
+
+!`
+choicesPerPage = 1;
+`
+[Chris.|chrys10]
+---
+:chrys10
+
+"Just pronounce it like 'Cries.'" She rolls her eyes. "What's your name?"
+
+!`
+choicesPerPage = 1;
+addChoice("I'm "+data.playerName+".", "chrys11");
 `
 ---
-:I'm me
+:chrys11
 
-You introduce yourself, which gets another smile from Chrys, and she begins to lead the way down the cheese pathway going off towards the ferris wheel. You can see it atop a nearby hill after moving past the immediate clutter of the shops and stalls, the superstructure made of hard biscuits with pretzel-stick supports and gumdrops holding together the intersections. The carriages are made of cookies, candy glass and coloured frosting as paint.
+"Nice to meet you, `data.playerName`."
 
-You arrive after a short walk and wait in the line with Chrys, who continues to hold your hand. The ride attendee gives you a wink as the two of you board, sitting next to each other on soft gummy seats inside the carriage as the machine begins to make its slow rotation. You have a pretty good view from inside the carriage, allowing you to see a good ways into the distance, spotting the rolling sourdough hills and a lake of honey off to the east.
+Chrys leads the way down the cheese pathway towards the ferris wheel. After you move past the immediate clutter of the shops and stalls, you can see it atop a nearby hill. The superstructure is made of hard biscuits with pretzel-stick supports and gumdrops holding together the intersections. The carriages are made of cookies, candy glass with coloured frosting.
 
-Chrys' hand shifts from your own to rest on your thigh, idly stroking the soft fur coating it. "So, was I right about petting you furry types?" She asks, a naughty grin on her face.
+She holds your hand all the way through the queue. When you finally reach the front, the ride attendee gives you a wink. "No sex allowed in the cookie carriages please keep your arms and legs in the ride and please keep your bodily fluids in your body," he rattles off. 
 
-[Yes <3!]
-[Nope!/Move Along]
+Chrys hops in and pulls you after her.
+
+You sit down next to Chrys on a soft gummy seat inside the carriage. With a shudder, the machine begins its slow rotation. You have a pretty good view from inside the carriage... rolling melon hills, a lake of honey to the east...
+
+Chrys' hand shifts from your own to rest on your thigh, idly stroking the soft fur.
+
+"So, was I right about petting you furry types?" she asks, a naughty grin on her face.
+
+!`
+choicesPerPage = 1;
+`
+[Yes <3! We love it!]
 ---
-:Yes <3!
+:Yes <3! We love it!
 
-You respond with an enthusiastic agreement and Chrys grins wider, her hand sliding up your thigh, then back down, each time climbing a little higher. At the same time she leans closer to you, looming overtop of you and pressing her lips firmly against yours. Her breath is hot, as are her lips, the sensation a bit shocking initially but Chrys is pressing firm enough that your reflexive response to the warmth doesn't allow you to escape.
+Chrys' grin widens. Her hand slides up your thigh, then back down, and each time it climbs a little higher. She leans closer, looms above you, then she breaks the silent moment you spend in her shadow, under her hanging locks of hair: she presses her lips firmly against yours. Her breath is hot, as are her lips.
 
-Her hand climbs higher, now, her index finger starting to press against your groin. You reflexively spread your legs, opening them wider and making it easier for the dragon to get at your junk. `genitals("The kissing alone was already starting to get you hard but with the touch of her hand to your balls through the cloth of your pants your cock is already starting to strain the zipper and tent painfully.", "There's something about her scent that you inhale each time you breathe in that's making you more and more aroused, by the time her finger touches your groin, you're already dampening the fabric.", "The kissing coupled with the tender touches is making you incredibly aroused, your cock tenting your bottoms while your pussy dribbles needily to the point that, when her finger touches you the first time, you're already soaking through the fabric.");`
+The almost uncomfortable level of heat pouring from her body shocks you initially but Chrys presses firm enough that she overrides your reflexive response to jerk back.
 
-With your legs further spread she `genitals("grinds her palm into the lump your swelling cock is making, her rough scales sliding the fabric across your turgid cock slowly and teasingly as she continues to kiss aggressively at your lips.", "grinds her palm into the dampening spot at your groin, her scaled palm rubbing the fabric firmly across your needy cunt as she continues to aggressively kiss you.", "grinds her palm into the lump your swelling cock is making, her rough scales sliding the fabric across your turgid cock slowly and teasingly as she continues to kiss aggressively at your lips.");`. You let out a soft moan against her mouth, her scent filling your nostrils and her steaming hot saliva starting to pool in your mouth as she begins forcing her tongue in against yours.
+Her hand climbs higher, now. She presses her index finger lightly against your groin. You naturally spread your legs to make it easier for the dragon to get at your junk. `genitals("The kisses alone was already getting you hard but, with the touch of her hand to your balls, your cock strains against the zipper and tents your pants painfully.", "There's something about her scent that makes you more and more aroused, and, by the time her finger touches your groin, the fabric there is already damp.", "The kisses coupled with Chrys' tender touches make you incredibly aroused, your cock tenting your bottoms while your pussy dribbles needily. When her finger touches you the first time, you're already soaking through the fabric.");`
 
+Chrys `genitals("grinds her palm into the lump your swollen cock is making. Her rough scales slide across the fabric slowly while she kisses aggressively at your lips.", "grinds her palm into the damp spot in your undies. Her scaled palm rubs the fabric firmly across your needy cunt while she kisses you aggressively.", "grinds her palm into the lump your swollen cock is making. Her rough scales slide across the fabric slowly while she kisses aggressively at your lips");`. You let out a soft moan against her mouth. Her scent floods your nostrils. All that steamy dragon saliva pools in your mouth as she forces her tongue in against yours.
 
+!`
+choicesPerPage = 1;
+`
 [Get those clothes out of the way!]
 ---
 :Get those clothes out of the way!
 
-You hook your thumbs in the waistband of the meddling garments, pulling your underwear and bottoms down to your knees in one swift motion, exposing your `genitals("drooling cock", "dripping pussy", "throbbing cock and cunt");`to the sweets-and-sex scented air in the carriage.
+You hook your thumbs in the waistband of the meddling garments, pull your underwear and bottoms down to your knees, and, in one swift motion, expose your `genitals("drooling cock", "dripping pussy", "throbbing cock and cunt");` to the sugar-and-sex scented air in the carriage.
 
-Now that your junk is exposed Chrys pulls away from the kiss momentarily, glancing down at your junk and then reaching under her jacket to unfasten the ties holding the loincloth she's wearing beneath it on, letting the leather garment drop to the carriage floor as well. You briefly spot the plump cleft of her vulva crowned with an auburn tuft of hair before she presses her lips to yours again.
+Now that your junk is exposed Chrys pulls away from the kiss momentarily. Your `genitals("cock", "cunt", "junk");` hypnotizes her. She reaches under her jacket to unfasten the ties of her metal-plated loincloth, fingers fumbling. The leather garment drops to the carriage floor with a dull thud. You briefly spot the plump cleft of her vulva, crowned with an auburn tuft of hair, before she leans in and presses her lips to yours and once again blocks out the rest of the world outside her warm maw.
 
-Her hand slides down to your groin once more, scales and talons tickling fur and then bare flesh as she `genitals("grabs your cock firmly at the base and begins to slowly pump her hand up and down.", "presses one of her talons carefully between your own lower lips, working it steadily upwards inside of you.", "presses your cock down with her palm, grinding the belly of it as she curves her talons down to rub at your cunt simultaneously.")`
+Her hand slides down to your groin once more, scales and talons tickling fur and then bare flesh as she `genitals("grabs your cock firmly at the base and slowly pumps her hand up and down.", "presses one of her talons carefully between your lower lips and teases it upwards inside of you.", "presses your cock down with her palm. Her scales grind the belly of it while her curving talons slip past your balls to gently knead the outer lips of your cunt.");`
 
-[Return the favour.]
+!`
+choicesPerPage = 1;
+`
+[Return the favour!]
 ---
 :Return the favour!
 
-You can't really see what you're doing thanks to Chrys' face mashed up against yours while you exchange smooches. Her warmth all but oozes onto you, making to sweat a little from the temperature and then even more from the attention she's giving to you. You reach blindly out with one arm, hand brushing her firm abs, then feeling that tuft of hair before your fingers find purchase in the softness of Chrys' groin.
+Chrys' face mashes up against yours while you exchange smooches. Your vision is filled with her forehead, one of her horns, and half of her face, so you close your eyes and allow her warmth to surround you. You begin to sweat; partly from the temperature, but primarily from the attention she lavishes on you. You reach one arm out blindly and her firm abs meet your paw. You slide your hand down over a tuft of hair... a bit lower, and your fingers finally find purchase in the soft flesh of Chrys' groin.
 
-You jerk your hand back briefly, the intense heat radiating from her crotch enough to make you worried you might burn yourself, but you reach back and find that while the temperature is intense it's not dangerous. You start to work your finger into the supple skin, kneading and spreading it, feeling thick trails of fluid start to ooze out against your palm and forearm.
+The intense heat radiating from her crotch catches you by surprise and your reflexes kick in again to save you from a potential burn.
 
-You don't notice at first but then realize it's kind of weird to be feeling cuntslime that far up your arm. The mystery is quickly resolved when you feel something else present, a stiff and immensely warm shaft pressing in against the fur of your arm, pulsing and swelling, steadily climbing upwards with each passing second. You can't see it, but just by the feel of the thing you're pretty sure it's a cock. And a big one at that!
+"It's okay... it's not hot enough to burn..."
 
-[Worship the ladyboner!]
+After a few more hesitant tries you muster the courage to actually touch her cunt. You ignore the intense heat and work your fingers into the supple skin. The pads of your fur-covered fingers spread and knead her blushing mound and, after a bit of work, your palm drools with an even more intense warmth from the thick strings of cuntslime oozing down onto it.
+
+After a while you notice something unusual: the wet heat is travelling further and further up your arm.
+
+!`
+choicesPerPage = 1;
+`
+[Hhhmmm~?|chrys12]
 ---
-:Worship the ladyboner!
+:chrys12
 
-You weren't expecting the dick, especially given she showed no signs of having one earlier, but that doesn't make you any less enthusiastic about grabbing it near the base and starting to stroke upwards. The scent of the thing is heady, it fills the carriage with a musky aroma only amplifies your own arousal. You tug back from the kiss, wanting to get a better look at what you're dealing with...
+Ah.
 
-You swallow hard, a mouthful of your mixed saliva travelling visible down your throat as you spy what you're currently gripping.
+Something stiff and immensely warm presses against the fur of your arm. It pulses and swells, climbing upwards with every touch to the dragon's groin...
 
-Not only is the dick in your hand thicker than your wrist, and still apparently swelling, it's paired with an identical copy twitching just above it! Both shafts have a line of ridges along the top and a bulbous knot structure at the base, though the shape is different than a canine one. The head of each prick is roughly wedge-shaped, narrow at the very tip but flaring back as if built to cram these monsters into holes they shouldn't fit in. Holes like... well, yours.
+You can't see it, but just by the feel of the thing you're pretty sure it's a cock. And a big one at that!
 
-Chrys gazes at you, obviously aroused, but she's aware enough to track your gaze and worry a bit about your staring. "So, uh, you okay to keep going? You're kinda small so... if you just wanna stick to foreplay..?" She suggests, sounding a little awkward now that her twin poles are nearly at full mast, the head of each oozing a thick pre-cum steadily from the tip, the ridges along the top of each shaft flaring outwards as they finally stop growing...
-
-[Those things will tear me in half <3!]
-[Those things will tear me in half D:!]
-
+!`
+choicesPerPage = 1;
+`
+[Worship the ladyboner.]
 ---
-:Those things will tear me in half D:!
+:Worship the ladyboner.
 
-You decide you'd rather not get split in half by dragon cock today so the two of you spend the rest of the carriage ride stroking and rubbing against each other. When you finally get Chrys to cum like this, which takes three trips around the ferris wheel, she blows enough jizz through the carriage that the hard cookie flooring soaks through and you end up slipping out! The last thing you recall before waking up in the nearest red pond is the slosh of thick dragon jizz splattering your body as your consciousness fades out. Well... at least you managed to avoid having your `genitals("ass split apart!", "pussy split in half!", "pussy split in half!")`
+You didn't expect the dick, especially given she showed no signs that she had one earlier. That doesn't make you any less enthusiastic about taking a firm grip near the base, though! The scent of the thing is heady, it fills the carriage with a musky aroma only amplifies your own arousal as you begin to stroke the meaty pole. You tug back from the kiss so you can get a better look at what you're dealing with...
 
---END SCENE-- (This route doesn't acquire Chrys as a 'contact')
+You swallow hard, a mouthful of your mixed saliva visibly travels down your throat as you eye the bitch breaker your paw is halfway wrapped around.
 
+Not only is the shaft thicker than your wrist, it's paired with an identical copy just above it. Both shafts have a line of ridges along the top and a bulbous knot structure at the base, though the shape is different than that of a canine one. The head of each prick is roughly wedge-shaped, narrow at the very tip but flaring back as if built to cram these monsters into holes they shouldn't fit in. Holes like... well, yours. They're still getting bigger, too.
 
+Chrys gazes at you, obviously aroused, but she's not so lust-blinded that she forgets to check if you're okay. "So, uh, you want to keep going? You're kinda small so... if you just wanna stick to foreplay...?" she suggests reluctantly. Her twin poles are nearly at full mast, each cockhead oozing thick, translucent pre-cum as they twitch aggressively in your direction, daring you to try and back out now.
+
+!`
+choicesPerPage = 1;
+`
+[It's gonna be really really hard to fit both inside.]
 ---
-:Those things will tear me in half <3!
+:It's gonna be really really hard to fit both inside.
 
-You barely let her finish asking you if you're okay with her endowments before you're hurriedly shifting to face her, grabbing a dick in each hand and lifting them up to rub the drooling heads on your lips and cheeks, smearing her musky pre-cum across your fur. You lick and kiss the heads, switching back and forth, and trying to take more into your mouth each time.
+"Yes, so are you sure you want~~"
 
-Slobber coats the top of one cock as you gag on the other, the head so big at the back-end that it's forcing your jaw open painfully wide, the heat washing off the twin poles so great that they're steaming lightly in the air in front of you, only making that dick-scent stronger. The scent is strong, but oh so pleasant, each breath in sending your hormones into a frenzy and `genitals("your cock throbs painfully hard in response.", "your pussy gasps and oozes in response.", "your cock and cunt dribble fluids like broken faucets.")`
+!`
+choicesPerPage = 1;
+`
+[Kiss em.|chrys13]
+---
+:chrys13
 
-Chrys puts a hand atop her head when you swap back to her upper shaft, pushing you further down, the uncomfortable girth forcing your jaw open wider! Your teeth are scraping her cock but she doesn't seem to care as she starts to manually bob your head atop it, each time the tip pushes into your throat and bulges out the fur obscenely with the shape of draconic dick. Below you her other shaft pushes against your chin and throat until you reach down and grab it, pumping it in time with the motions Chrys is forcing you through. There's no way you can swallow the whole thing but you desperately try your best anyway!
+You take one of her dicks in each hand and lift them up to your lips. Each monstrous tool smears musky pre-cum across your fur and maw. You switch back and forth between each cock so you can lick and kiss the heads in equal measure, trying to take more into your mouth each time.
 
-Every time you lift up you can feel the ridges of her shaft scraping on the backstroke, rubbing on the roof of your mouth. The rough underside of the ridges make you wonder what that would feel like inside you and the thought only arouses you further...
+Slobber coats the top of one cock as you gag on the other, the head so big at the back of the glans that it's forcing your jaw open painfully wide. Heat washes off the twin poles with such intensity that they're steaming lightly in the air in front of you, the steam only making that dick-scent stronger. The musk is strong, but oh so pleasant, each breath in sends your hormones into a frenzy and `genitals("your cock throbs painfully hard in response.", "your pussy gasps and oozes in response.", "your cock and cunt dribble fluids like broken faucets.");`
 
+Chrys puts a hand atop her head when you swap back to her upper shaft, pushing you further down, the uncomfortable girth forcing your jaw open wider. Your teeth scrape her cock, but she doesn't seem to care as she moves your head onto it. Each time the tip pushes into your throat it bulges out your fur obscenely in the shape of draconic dick.
+
+Below you, her other shaft pushes against your chin and throat. You reach down and grab it, pumping the hot cock in time with the motions Chrys is forcing you through. There's no way you can swallow the whole thing... but you desperately try your best anyway!
+
+Every time her cock slides out of your mouth the ridges of her shaft scrape at you. The rough underside of her ridges tug so hard on your tongue... you have to wonder what they'll feel like in your holes.
+
+!`
+choicesPerPage = 1;
+`
 [I can't wait anymore.]
-
 ---
 :I can't wait anymore.
 
-You struggle against Chrys' grip for a few seconds before she releases her hand from your head, allowing you to finally pull back and get a good inhale. When your eyes focus again on her you can see she's concerned she hurt you or something but you just give her a big smile to reassure her.
+With so much dick in your mouth it's difficult to breathe well, and you want her inside you <b>now</b>, so you struggle against Chrys' grip until she finally lets you go. That breath of fresh (well, fresh-ish) air gets you some of your focus back and, when you look up, you see the concern on Chrys' face. She must be worried she hurt you or something.
 
-You then stand, put your hands on the candy-glass window of the carriage, stick your ass out, then begin to wiggle it towards her.
+!`
+choicesPerPage = 1;
+`
+[Give her a big smile and a thumbs up~]
+---
+:Give her a big smile and a thumbs up~
 
-Chrys raises an eyebrow briefly but chuckles shortly thereafter, shifting in the small space of the carriage to palm your ass, then running her hands up your body to kiss at your neck and cheek. "You sure about this? I'm not sure I'll be able to stop if we get started." She asks, spit-lubing her right hand and starting to rub two fingers against your butthole while the other `genitals("fondles your balls.", "works a pair of digits into your needy cunt.", "works a pair of digits into your needy cunt.")`
+She's reassured. Before she was hanging on the edge, worrying her cocks were too much for you, but now her posture melts and her eyelids sink back down with free lust.
 
+Your breaths still come in soft panted bursts. You swallow a little stray precum, stand up, turn around, place your hands on the candy-glass window, and stick your ass out towards the dragon in the best 'fuck me' pose you can pull off in this confined space.
+
+Chrys raises an eyebrow and chuckles. She shifts within the small space to maneuver behind you. She palms your ass, then runs her hands up your body to your `boobs();`. As she moves closer she kisses at your neck, then your cheek.
+
+"You sure about this? I'm not sure I'll be able to stop if we get started." The smooch snaps apart for a second so she can shove her fingers in her maw and spit-lube them up good. The thick talons begin to rub against your butthole while the other hand `genitals("fondles your balls.", "works a pair of digits into your needy cunt.", "works a pair of digits into your needy cunt.");`
+
+!`
+choicesPerPage = 1;
+`
 [Hurry up and wreck me!]
-
 ---
 :Hurry up and wreck me!
 
-The dragon chuckles again at your desperate plea, gently slapping the lower of her two cocks down between your ass cheeks. "Well, okay then, just don't blame me if this is too intense for you." She warns one last time before leaning back and lining herself up. With the small space it's a bit awkward for the tall woman to do so, and it takes a bit of bumping and grinding before `genitals("both cocks are pressed flush to your asshole.", "she has her cocks aimed at your pussy and pucker.", "she has her cocks aimed at your pussy and pucker.")`
+With a chuckle at your desperate plea the dragon slaps the lower of her two cocks down between your ass cheeks. "Well, okay then, just don't blame me if this is too intense for you," she warns you one last time.
 
-Finally she pushes forward, a foot and a half of dragon cock separating your hips from hers as the wedge-shaped heads spear against you, your body straining as she attempts to pry you open. No matter how much of a slut you may be, you're simply not prepared to take her easily! She relaxes after a that steady push, letting you catch your breath as the searing hot poles rub against you, then she pushes forward again!
+She shifts her hips back and lines up. It's a bit awkward for her tall dragonlady body to fit in the small space, and it takes a bit of bumping and grinding before `genitals("both cocks are pressed flush to your asshole.", "she has her cocks aimed at your pussy and pucker.", "she has her cocks aimed at your pussy and pucker.");`
 
-You have to commend her patience as she gradually works you wider and wider open around her cockheads. Each time she gets a bit deeper and, when she hits the point where you can't stretch any further, she eases back, prodding and grinding against you, then tries again. It takes more than five minutes before the glans is even in, by which point the ferris wheel was about halfway through its revolution.
+Finally lined up, she pushes forward, a foot and a half of dragon cock separating your hips from hers. The wedge-shaped heads shove against you. Your body strains as she attempts to pry you open and, no matter how much of a slut you may be, you're simply not prepared to take her size with so little warmup.
 
+Chrys doesn't care. She relaxes after a steady push, letting you catch your breath with both searing hot poles wedged against you.
+
+!`
+choicesPerPage = 1;
+`
+[Hahh... hahh... slow...]
+---
+:Hahh... hahh... slow...
+
+You have to commend her patience as she gradually works you open with those firm thrusts. Each time she rams her dicks a bit deeper and you spread a bit wider. When she hits the point where you can't stretch any further, she eases back and thrusts gently with the portion of her tip you've managed to take so far. It takes more than five minutes before she can force her twin heads most of the way in, by which point the ferris wheel is about halfway through its revolution.
+
+!`
+choicesPerPage = 1;
+`
 [Gnnng... ffuuuck~!]
-
 ---
 :Gnnng... ffuuuck~!
 
-Suddenly Chrys jerks forward, the last millimeter of cock keeping her heads from entering you forced through and letting your insides tighten back up around the underside of the flared head. You look over your shoulder, breathless, but you realize you haven't even taken the worst hurdle, her dick is actually thicker towards the middle than it is at the glans...
+"You're so loud when you get fucked..."
 
-"You okay?" Chrys asks, leaning up along your body and hooking her hands in your armpits, lifting you up as if you were weightless and shifting back to sit sideways on the carriage couch with you over her lap. She holds you there, like a doll, while you hastily get your feet under you on the seat to get into a sort of half-crouch reverse cowgirl style. With how long her cocks are you're virtually standing right now!
+Suddenly Chrys jerks forward, the last millimeter of cocktip forced through into you. Your insides tighten back up around the underside of the flared head while she stays still to give you a momentary break. You look over your shoulder, breathless, and realize you haven't even taken the worst hurdle: her dick is actually thicker towards the middle than it is at the glans...
 
-You look back and give Chrys a shaky nod, starting to use your hips and thighs to gyrate your waist and get some degree of control back over the coupling. Every little movement sends the searing heads of her cocks scraping at your insides, the stimulation only intensified by the heat washing into you. "Wow, you furry critters are a lot tougher than I gave you credit for." Chrys praises, reaching up to pet your head while supporting your waist with her other arm. "But you're not gonna make me cum like that~." 
+!`
+choicesPerPage = 1;
+`
+[Oh fuck...]
+---
+:Oh fuck...
 
+"You okay?" Chrys asks, her hands sliding up along your body. They stop under your armpits and you feel her grip tighten as she suddenly hauls you into the air as if you were weightless. She shifts backwards to sit sideways on the carriage couch with you over her lap. You're held there, like a doll, while you hastily get your feet under you on the seat, reverse cowgirl, squatting and twitching your hole`genitals("", "s", "s");` on those fat tapered cockheads. You lift an arm up and brace yourself against the roof of the swinging carriage.
+
+"You okay?" she presses you.
+
+!`
+choicesPerPage = 1;
+`
+[I'm good, I'm good...]
+---
+:I'm good, I'm good...
+
+You look back and reassure Chrys with a shaky nod. Once again her posture softens and she gives in to the pulsing waves of lust that radiate from her groin.
+
+You shift your hips as much as you can in her grip and gyrate your waist to get some degree of control back over the coupling. Every little movement scrapes the searing hot heads of her cocks against your insides, the stimulation only matched by the heat that washes up through your holes and into your belly. Both of you gawk a
+
+"Wow, you furry critters are a lot tougher than I gave you credit for," Chrys praises, reaching up to pet your head while supporting your waist with her other arm. "But you're not gonna make me cum like that~"
+
+!`
+choicesPerPage = 1;
+`
 [But I want it <3!]
-
 ---
 :But I want it <3!
 
-"Oh yeah?" Chrys replies with a grin, "Well, show me what you can do then, fuzzbutt." Chrys teases, leaning back and  taking a more passive role now. She continues to pet and gently scratch your head, her other hand remaining nearby for support but not  guiding your movements, not does she thrust from below. It's clear she wants to watch you fuck yourself!
+"Oh yeah?" Chrys grins. "Well, show me what you can do then, fuzzbutt."
 
-You get to it in a hurry, the sensation of the pillars of dickflesh grinding inside you already sending mind-numbing shocks of pleasure through your body and you've barely even started fucking. You're kind of terrified of what would happen if she actually went all out on you. Right now it's all you can do not to lose strength in your legs as you let gravity drag you down, `genitals("splitting your poor asshole wide open around both poles.", "spreading your cunt and splitting your asshole ever wider.", "spreading your cunt and splitting your asshole ever wider.")`
+The dragon leans back and takes a more passive role now, only using her hand to pet and gently scratch your head. Her other hand remains on your waist for support but doesn't do anything to guide your movements, ease you up, or pull you down. Nor does she thrust from below. It's clear she wants to watch you, well...
 
-As you drop lower the crest of the first ridge tests your body, the half-inch rise off the meat of her cock making your legs shake the closer you get to surmounting it. `genitals("Your pucker twitches in time with your cock throbbing, a steady stream of pre oozing down from the tip as you try to slide lower.", "Your cunt oozes a snail trail of slime down her meat pole, your clit forced from its hood by the sheer girth while your asshole twitches and gasps as you try to slide lower.", "Your cunt oozes a snail trail of slime down her meat pole, your cock throbbing up and down, oozing pre-cum as if the extra lube would help you to slide lower.")` 
+!`
+choicesPerPage = 1;
+`
+[Fuck myself. <3]
+---
+:Fuck myself. <3
 
+Those twin pillars of dickflesh slide inside you and send mind-numbing shocks of pleasure ricocheting through your body even though you've barely even started. You're kind of terrified of what would happen if she actually went all out on you. Right now it's all you can do not to lose strength in your legs as you let gravity drag you down and `genitals("split your poor asshole wide open around both poles.", "spread your cunt and split your asshole ever wider. Her shafts snuggle each other lovingly through your thin inner flesh.", "spread your cunt and split your asshole ever wider. Her shafts snuggle each other lovingly through your thin inner flesh.");`
+
+As you drop lower the crest of the first ridge tests your body and you just barely pass. Another half-inch down the meat of her cock makes your legs shake the closer you get to surmounting it. `genitals("Your pucker twitches in time with your cock throbbing, a steady stream of pre oozing down from the tip while you try to slide lower.", "Your cunt oozes a trail of slime down her meat pole, your clit forced from its hood by the sheer girth while your asshole twitches and gasps for every micron you slide lower.", "Your cunt oozes a snail trail of slime down her meat pole, your cock throbs up and down, oozing pre-cum as if the extra lube would help you to slide lower.");` 
+
+!`
+choicesPerPage = 1;
+`
 [Take the ridge!]
-
 ---
 :Take the ridge!
 
-You force yourself downwards another inch, the ridges popping through almost simultaneously, the feeling of being stretched around it at your entrance almost euphoric as you're stretched to your limit then allowed to relax, the valley between the first and second ridges allowing you to relax. Well, until you remember there's about a dozen of the things and they keep getting thicker until the midpoint.
+You force yourself downwards another inch, the ridges popping through almost simultaneously. The mix of pain and pleasure from being stretched so wide around it at your entrance is almost euphoric. Long after you stopped moving your `genitals("tailhole still hums with the feeling of her double ridges sliding into you. If you look down... oh fuck, your ass is so stretched... your cheeks might never fully close again.", "cunt and ass still hum with the feeling of her ridges sliding into you.", "cunt and ass still hum with the feeling of her ridges sliding into you.");`
 
-Chrys watches with interest, praising you and stroking your head and fur as if you're her pet. At this point you kind of wish you were. You struggle down the second ridge, then the third. By this point her monstrous cocks are making a noticeable bump in your groin that shifts and climbs whenever you move. Your legs are shaking, you're sweaty and panting and you're not even halfway down.
+You're pushed past your limit to swallow just one ridge from each cock, but the shallower 'valley' behind it allows you to momentarily relax. Your hole`genitals("", "s", "s");` aren't stretched quite as much, but now it'll be much harder to pull off... you're in this for the long haul, and there's about a dozen ridges left. They keep getting thicker until the midpoint.
 
-You're doggedly determined, however, to take the dragon cocks offered to you! You've never felt anything like this before, the immense heat and the scraping ridges are giving you micro-orgasms  already and you've barely gotten started. You test yourself with the fourth ridge, pressing down against it but the stretching and pain forcing you to let out a gasp of exertion and relent, leaning back against Chrys' shoulders to rest for a few moments before trying again.
+"Good `gender("boyyyy", "girrrl", "job");`," she whispers.
 
-On the third attempt you force yourself past the hurdle and cum hard simultaneously, `genitals("your cock twitching and spurting, jizz flying out to paint the opposite wall with your seed.", "your pussy spasming and gushing, the orgasm growing in intensity until you rhythmically squirt onto the floor in front of you.", "Your pussy spasming and spurting, your cock erupting and spattering the far wall, the intensity of both climaxes nearly mirrored as your feminine juices compete to fly as far as your masculine ones.")` At the same time you lose the feeling in your legs, almost collapsing onto Chrys and hurting yourself, were it not for her strong hands catching you and lifting you back up.
+Chrys watches with interest, praising you and stroking your head and fur as if you're her pet. At this point you kind of wish you were. You struggle down the second ridge, then the third. By this point her monstrous cocks are making a noticeable bump in your groin that shifts and climbs whenever you move. You look positively pregnant with cock. Your knees shake, you pant due to your soaring body temperature. Sweat mats your fur. And you're not even halfway down.
 
-"Looks like it's time for me to take over. You did pretty good, though~"
+!`
+choicesPerPage = 1;
+`
+[Nnnnnrgh... I CAN DO THIS...]
+---
+:Nnnnnrgh... I CAN DO THIS...
 
+You are, however, doggedly determined to take the dragon cocks offered to you! You've never felt anything like this before, the immense heat and the scraping ridges are giving you micro-orgasms, and you've barely gotten started. You test yourself with the fourth ridge, you press down against it, but the pain of the stretch forces a gasp of exertion. You relent and lean back against Chrys' shoulders to rest before your next try.
+
+On the third attempt you force yourself past the hurdle and cum. <b>Hard</b>. `genitals("Your cock twitches and spurts, jizz flying out to paint the opposite wall with your seed.", "Your pussy spasms and gushes, the orgasm growing in intensity until you rhythmically squirt onto the floor in front of you.", "Your pussy spasms and spurts, your cock erupts and splatters the far wall, the intensity of both climaxes nearly mirrored as your feminine juices compete to fly as far as your masculine ones.");` Halfway through your climax your legs go numb, and you almost collapse onto Chrys. You'd no doubt have hurt yourself were it not for her strong hands catching you mid-fall and easing you over to lay against her chest.
+
+"Looks like it's time for me to take over. You did pretty good, though~."
+
+!`
+choicesPerPage = 1;
+`
 [Fuck me!]
-
 ---
 :Fuck me!
 
-Chrys grins, leaning up and kissing your cheek as  you all but demand to keep going. She carefully adjusts your position so you can lean on her shoulders while she shifts her grip to hold you behind your knees, then moves back up into a sitting straight position with you over her lap. "Here we go, then!"
+Chrys leans up and kisses your cheek with a grin as you all but demand to keep going. The dragon carefully adjusts your position: she guides your arm behind her head so you can brace against her shoulders, then she lifts you up with a grip behind each of your knees and braces her feet down for hard sex.
 
-She lifts you up, her cocks spooling out of you, the heat and fullness you felt moments ago vacating your body and making you feel desperately empty and cold, the ridges scraping you all but inside out as you're dragged up until only the tips remain inside! She braces her feet on the bottom of the carriage next, props her waist up with her tail then suddenly hammers her waist upwards, her twin cocks spearing into you to the fourth ridge and then lifting you upwards with the fifth! Your belly bulges lewdly until Chrys settles downwards again, bringing you with her. "Mnff... looks like I gotta work you in a bit more first," she mutters, changing her tactics to hold you firmly in place and thrust up slowly and steadily, putting more and more pressure on you with the ridge, then jerking back and thrusting up /hard/ to slam it through! The rougher pace gets them in faster but it /hurts/!
+"Here we go, then!"
 
-On the other hand you just came again! The heat emanating from her shafts helps to relax and soothe your muscles, the pain is fleeting when she forces her way deeper, but the pleasure lingers as she starts to saw out, then in, once more. She keeps forcing herself further and further inside of you until the bump has crawled up to your belly button, the way further forward barred by `genitals("the entrance to your bowels.", "the battered doorway to your womb.", "the battered doorway to your womb.")`
+Her cocks spool out of you as you're lifted higher. Her wet ridges sound like a string of anal beads as she rips them out. The heat and fullness you felt moments ago vacates your body and makes you feel desperately empty and cold. The ridges scrape you all but inside out, the upwards tug nearly making you cum again. The underside of those ridges has a rough, grippy texture that's really tugging on your insides, opening you up and yanking you looser.
 
-[Fuck me more!]
+She pulls out alllllmost all the way. Only the tip of each shaft remains inside, now. Chrys braces her feet on the bottom of the carriage, props her waist up with her tail then...  
 
+!`
+choicesPerPage = 1;
+`
+[   |chrysNext]
 ---
-:Fuck me more!
+:chrysNext
 
-Your demand for more is cut off abruptly when Chrys hauls up upwards and drops you down again, shifting to lean your upper body back towards her, putting a foot up on the bench and starting to thrust into you hard and fast! She seems to have given up on getting you any deeper for now and is just fucking the hell out of you with about half her twin shafts!
+A harsh, ragged gasp fills the silent air.
 
-The overflowing precum mixed with your own sexual fluids make this whole thing a noisy, messy affair, each thrust in bulging your stomach upwards to the ceiling and every time she draws back her ridges catch on your inner walls, dragging them outwards to make your `genitals("pucker", "pussy and pucker", "pussy and pucker")` tug back with them an inch or so, her ridges sloughing fluids out of you like she was pumping a well for fuckgrease.
+Was that you? It was. She just fucked you so hard you accidentally blacked out for a second, like an involuntary Next command.
 
-The heat coupled with the brutal pace is making you pant and sweat, your tongue protruding from your mouth as your barraged with an endless sensory overload that makes it impossible to tell when you're cumming and when you're moments from cumming again! Your `genitals("spunk", "cuntslime", "spunk and slime")` rhythmically spatters the floor and wall of the carriage, soaking into the sweet biscuits.
+The vicious dragongirl hammers her waist upwards and spears her twin cocks into you up to your stopping point~~ no, fuck that, beyond your stopping point, all in one brutal stroke. The force and overstimulation reverberate and black you out over and over for just a moment at a time. Your belly bulges so heavy and lewd you can't help but go cross-eyed looking down at the shape of those two fat dicks as they fill you up. The bumps shift slowly while Chrys lowers her hips back down to rest on the seat, and of course her thick ridges drag you along for the ride. At this point you're not sure you could actually get off her dicks without her help...
 
-The person operating the ride caught sight of what was going on and didn't stop your carriage to swap riders out, though given the guttural moans and screams each thrust into your body forces out you're probably broadcasting what's going on to anyone within fifty feet. The carriage is already on its trip back around when you feel the heat inside you grow steadily more intense, feel the shafts start to swell...
+"Mnff... looks like I gotta work you in a bit more first," Chrys mutters, more to herself than to you.
 
+She lifts your waist up again but thankfully leaves at least some of her dick in you this time, so you don't feel so empty inside. Her grip shifts to pin your thighs back against your stomach so she can wrap her thumbs around your back and hold you like some kind of `fox();` onahole. Finally she moves again, her thrusts coming slow and steady. It'd almost be gentle, were it not for the strength and force behind each movement making you feel like your body is in the midst of a low-speed train crash centered on your `genitals("asshole", "ass and cunt", "ass and cunt");`.
+
+Whenever one of her ridges gets stuck, she moves faster, but only an inch or so back and forth, slapping the invading bit of flesh against you to loosen you up then slamming up harder to force it through when you've loosened up enough. The rougher pace gets them in faster, yeah, but it <b>hurts!</b>
+
+!`
+choicesPerPage = 1;
+`
+[Uuuruuguugu cum]
+---
+:Uuuruuguugu cum
+
+You cum again. It's barely even a choice, she fucks it out of you. The heat from her body (and especially her cocks) helps to relax and soothe your muscles, so the pain is fleeting when she forces her way deeper, but the pleasure lingers and grows with each time she saws into you. Chrys forces herself further and further inside of you until the lurid bulge in your gut has crawled up to your belly button. The way further forward is now barred by `genitals("the entrance to your bowels.", "the battered doorway to your womb.", "the battered doorway to your womb.");`
+
+!`
+choicesPerPage = 1;
+`
+[Fuck me MORE!]
+---
+:Fuck me MORE!
+
+Your demand for more is cut off abruptly when Chrys hauls you upwards and drops you down again. Saliva flies from your throat as you gasp in a silent O. She shifts to put a foot up on the bench so she can thrust into you with even greater ferocity with the depth she's earned for herself. She doesn't care about going deeper for now. She's happy to fuck your brains out with about half of her twin shafts!
+
+The overflow of precum mixed with your own sexual fluids has now splattered basically the entire cookie carriage. Each thrust inwards bulges your stomach upwards towards the ceiling and every time she draws back, her ridges catch on your inner walls, and drag them outwards. Your `genitals("pucker", "pussy and pucker", "pussy and pucker");` tug back with them an inch or so, giving up everything they have to offer: her ridges slough fluids out of you like she's pumping a well for fuckgrease.
+
+!`
+choicesPerPage = 1;
+`
+[HaaaaaAAAhhhh...]
+---
+:HaaaaaAAAhhhh...
+
+The heat coupled with the brutal pace is making you pant harder. Your tongue hangs limply from your mouth. Drool and tears mat your facial fur down while your body is sheened with sweat. You're barraged by an endless sensory overload that makes it impossible to tell when you're cumming and when you're moments from cumming again. When you think you're having an orgasm, you look down to find your `genitals("dick", "pussy", "dick");` dry, and when you're struggling and displeasured the most, you look down to find yourself spewing `genitals("spunk", "cuntslime", "spunk and slime");` all over the floor and wall of the carriage, hosing down the sweet dough.
+
+Down on the ground, the ride's operator finally notices that you broke the rules and had extremely rough sloppy nasty sex in his ferris wheel. He has to wait for you to come all the way back down before he can stop the ride and drag you out, though. All the other riders are peeking out their windows and fogging them up with their breath as they drink you two in...
+
+Given the guttural moans and screams each thrust pulls from your body...  you've probably been broadcasting your hard fuck to everyone within fifty feet. The carriage is already on its trip back around when the heat inside you begins to grow steadily more intense and her shafts start to swell fatter than they ever have... when...
+
+!`
+choicesPerPage = 1;
+`
 [CUM IN ME <3!]
-
 ---
 :CUM IN ME <3!
 
-"Nnggff..!" Chrys grunts beneath you, her arms squeezing you in a hug from behind as she pumps up erratically a few more times, her poles throbbing and swelling still further, the ridges flaring out wide enough that it becomes difficult for her to move inside of you and her thrusts serve more to shove you around than anything else.
+"Nnggff...!" Chrys grunts beneath you.
 
-A moment passes in silence. Your mind is rocked by sensation moments later, her orgasm flooding your insides with spunk in a steady stream seconds long, the nutbutter hot enough that, as it pumps inside of you, it feels like you're drinking barely tolerable hot chocolate through your `gentials("ass", "pussy and ass", "pussy and ass")`, the heat immense as your belly gurgling as the spunk flows inside.
+Her arms lock together and fold your body into an impossibly tight bearhug from behind. Her body heat washes over you, her arousal makes her run even hotter as she pumps up into you. Her movements are erratic and desperate. Her poles throb while they swell still further. The ridges flare out so wide her thrusts thrash your body rather around like a ragdoll while her cocks stay locked perfectly in place by those handy ridges, never moving more than an inch out from their deepest depth.
 
-She draws back and a second passes before she suddenly thrusts up again, hard! More cum floods out, another long spurt of the jelly-thick stuff. And another, and another. Chrys holds you in an iron grip, cumming like this for so long you orgasm another three times just from the feeling alone. It takes almost three minutes before she finally starts to wind down and shifts to help you up...
+A moment passes in sudden, utter silence. You want to moan, but you can barely breathe with how tightly she's squeezing you. You're not worrying about that, though, the lack of air seems a secondary concern compared to the blinding white sensory overload assaulting your mind.
 
-When the floor lets out a loud CRACK!
+The world suddenly comes back into focus as her orgasm floods into you. You can <b>hear</b> the thick load of jelly-thick spunk flow up inside you. The nutbutter is hot enough that, as it pumps inside of you, it feels like you're drinking barely tolerable hot chocolate through your `genitals("ass", "pussy and ass", "pussy and ass");`. The heat floods your insides.
 
-The spunk flowing out of you and overflowing from you has soaked enough of the cookie through at this point it lost its integrity! You only have the briefest moment of realization before both of you plummet out the bottom of the carriage nearly twenty feet, Chrys holding onto you firmly and managing to land on her feed, taking the impact with her powerful legs which sink a half-foot into the squishy ground below.
+"Listen..." she purrs. A hand rubs over your belly. It's... gurgling. Her jizz displaces everything inside you to make room for itself.
 
-Unfortunately for you, you take the impact almost entirely on Chrys' dicks, which have rammed to the root inside of you, knots and all. You're... well, you're stuck. And in a good deal of pain from the sudden rough insertion. You let out a howling moan of pain in response, drawing the gazes of everyone nearby.
+Chrys draws back. A second passes. She pounds in again <b>hard!</b> More cum floods out, another long spurt of the goopy breeding batter. Another shot, then another, and then another still. Chrys holds you in an iron grip while cum trickles from the corners of your maw, shooting like this for so long you orgasm another three times just from the intensely intimate feeling of her seed filling you. It takes almost three minutes before she finally winds down and shifts to help you up...
 
-[Oh god this is so embarrassing just kill me please.]
-[Fuck it, let's just ride this out.]
+When the floor lets out a soggy grumble.
 
+!`
+choicesPerPage = 1;
+`
+[Oh fuck.|chrysNext2]
+---
+:chrysNext2
+
+Crrrrrrr<b>RACK!</b>
+
+Now you fully understand why you're not supposed to have sloppy wet sex on the cookie ferris wheel.
+
+Your `genitals("", "girl", "");`spunk and Chrys' dragon jizz that spills from your abused orifices has finally wrecked the carriage's structural integrity. You only realize this in mid-air, after you both plummet out the bottom of the carriage. You fall nearly twenty feet.
+
+!`
+choicesPerPage = 1;
+`
+[AAAAAAAAAAAAAAAAAAAAAAAA|chrysNext3]
+---
+:chrysNext3
+
+"COME HERE!"
+
+... Chrys reaches through the twisting, weightless wall of cum droplets in the air and snags you by your scruff. She slams you into her chest and holds on tight as the ground comes rushing up to meet you, the ride operator scrambling to get out of the way, crowds knocking each other over like dominoes to clear space for~~
+
+WHAM. She lands on her strong hind legs. They crack the melon rind ground and she sinks down to her knees in red melonmush, but she lands. The impact shock yanks a high-pitched noise of discomfort from her and makes her double over with the urge to collapse, but she can't double over right now, because...
+
+Unfortunately for you, you took the impact almost entirely on Chrys' dicks, which have rammed to the root inside of you, knots and all. You're... well, you're stuck. And in a good deal of pain from the sudden rough insertion. You let out a howling moan of shock and agony (and a tiny little bit of excited pleasure) as soon as you process what just happened. Everyone nearby has their eyes firmly locked on the two of you...
+
+!`
+choicesPerPage = 2;
+`
+[Oh god this is so embarrassing just kill me please.] #Snuff
+[Fuck it, let's just ride this out.] #Love
 ---
 :Oh god this is so embarrassing just kill me please.
 
-"You sure?" Chrys asks from behind you as you ask aloud. Respawning is a very valid option out of this situation and, after a moment's contemplation, you nod. "Wait, first, uh, if I wanna come hang out with you some time where should I go?" You explain to her the location of Earth and the apartment you live in with Mynt. Chrys gives a nod. "Okay, see you around some time, then." She smiles, then puts you in a firm chokehold. Your vision blurs before she twists, the crack of your neck sending you painlessly to the Red Pond in a fresh body.
+"You sure?" Chrys asks from behind.
 
---END--
+Respawning is a very valid option out of this situation, just my personal opinion.
 
+!`
+choicesPerPage = 1;
+`
+[Yeah do it... oh god they're all looking at me...|chrysSnuff]
+---
+:chrysSnuff
+
+"First... um... where can I see you again?"
+
+!`
+choicesPerPage = 1;
+`
+[I have an apartment on Earth, 322 Peachpit... urk... hurry...|chrysSnuff2]
+---
+:chrysSnuff2
+
+The crowds are gossiping now. The ride operator is about to start chewing you out.
+
+"Okay," Chrys whispers. "I'll see you around sometime."
+
+She smiles and puts you in a firm and functional chokehold. Your vision blurs. Darkness eats at your peripherals.
+
+Then... you're back at the red pond in a fresh body.
+
+!`
+choicesPerPage = 1;
+`
+[Ahhh... move along!|chrysEnd]
 ---
 :Fuck it, let's just ride this out.
 
-"Geez, uh, you okay there?" Chrys asks, noticing the monstrous bulge in your stomach. She helpfully tries to tug you off but you weren't prepared for half her dick, let alone the whole thing and the knot, it's well and truly stuck inside of you until it goes soft. You ask her how long that takes and she gives a shrug. "Uhh... an hour or two, I guess? It'd probably have gone sooner if you, well, weren't stuck on me but... Uhh... wanna hang out somewhere else, then?"
-
-With little other choice you nod, carried around atop the monstrous poles as you hang out with Chrys for another couple of hours. You try a few more rides, even play some of the games. You do pretty well at a shooting gallery and win a stuffed Kanna plush to give to Mynt later. Finally you feel her starting to soften inside of you and, after a quick trip to the bathroom to clean up, you manage to disentangle yourself from the dragon.
-
-"That was pretty fun, though I think it'd be better to it it, uh, more normally next time. Getting me in all the way I mean." Chrys says with a smile. "Think there'll be a next time?" You give a smile back and nod, explaining to Chrys where you're currently staying on Earth. "Oh yeah? And there's free space there huh? Maybe I'll drop by some time." She pats your head, stroking your fur affectionately. "See ya." She adds before heading off to, presumably see more of Foodland. Deciding you'd rather avoid the ache you're already feeling in your groin, hips, back and waist you head over to the red pond to respawn...
-
-[... Move along~|foodLandMoveAlong]
----
-:foodLandMoveAlong
+"Geez, uh, you okay there?" Chrys asks, noticing the monstrous bulge in your stomach. `boobs("You could probably give her stiffy a titjob through your stomach right now if you wanted to. ", "");` She helpfully tries to tug you off of her cocks, but you weren't prepared for half her dick, let alone the whole thing and the knot, so... they're well and truly stuck inside of you until they go soft.
 
 !`
-gotoEarth();
+choicesPerPage = 1;
+`
+[How long will it take for them to soften...?|chrysSoft]
+---
+:chrysSoft
+
+She shrugs. "Uhh... an hour or two, I guess? It'd probably have gone sooner if you, well, weren't stuck on me but... uhh... wanna hang out somewhere else, then? Oh fuck... here he comes..."
+
+The ride operator storms up to you. "Hey listen, nothing wrong with a little fun, but when you fucking <i>flood</i> the carriage with~~" even more cum rains down on him and knocks him over from the sheer weight and viscosity of it~~ "holy FUCK, you two, I'm gonna get my manager and bar you both from ever riding on the..."
+
+!`
+choicesPerPage = 1;
+`
+[Tune him out...|chrysSoft2]
+---
+:chrysSoft2
+
+"Blah blah blah... blah blah..."
+
+Yeah he goes on like that for a while.
+
+After that's all done with, Chrys casually walks off, carrying you atop her monstrous poles. You hang out with her for another couple of hours. Every now and then you can feel her tense as another flow of jizz pushes into your already swollen stomach. She barely even notices when those casual orgasms hit her, maybe just a quiet grunt or a pause mid-sentence. There's something really hot about being used as a jizzrag without even breaking the flow of your conversation...
+
+You try a few more rides, and play some of the carnival games, moving as a team of two. You do pretty well at a shooting gallery and win a stuffed watermelon wolf plush to give to Mynt later. Finally Chrys softens inside of you and, after a quick trip to the bathroom to clean up, you manage to disentangle yourself from the dragon and flop onto the ground, panting.
+
+!`
+choicesPerPage = 1;
+`
+[Hahhhh... hahh... thanks...|chrysSoft3]
+---
+:chrysSoft3
+
+"No problem," Chrys pants. Her cocks are extra sensitive as she tucks them back away.
+
+"That was pretty fun, though I think it'd be better to do it, uh, more normally? Getting me in all the way I mean. Let's actually use lube and warmup next time." Chrys smiles. "Think there'll be a next time?"
+
+!`
+choicesPerPage = 1;
+`
+[Sure probably... hahh...|chrysSoft4]
+---
+:chrysSoft4
+
+She's elated. "Oh good. I'm trying to get better at this tourist thing. I've got the 'visit different places' part down, but the 'make friends in different places' part is still hard for me. Where uh... where can I find you again?"
+
+!`
+choicesPerPage = 1;
+`
+[I have an apartment on Earth, 322 Peachpit... urk...|chrysSoft5]
+---
+:chrysSoft5
+
+"Maybe I'll drop by some time."
+
+She pats your head, stroking your fur affectionately. "See ya."
+
+You drag yourself all the way back to the red pond, leaving a trail of thick cum behind you. All the Foodland visitors gawk and whisper to each other as this gurgling cum-soaked fuckstain named `data.playerName` army-crawls past them because `gender("his", "her", "their");` hips and legs are too numb to support `gender("his", "her", "their");` own weight~
+
+!`
+choicesPerPage = 1;
+`
+[Urrrrrrk... burp cum... and move along...|chrysEnd]
+---
+:chrysEnd
+!`
+gotoFoodland();
 `
 
 END_PASSAGES
