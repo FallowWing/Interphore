@@ -94,8 +94,8 @@ function gotoFoodland() {
 	backgroundFoodland.layer = 38; //Below title
 	tween(backgroundFoodland, 30, {y: 0}, {ease: QUAD_OUT, type: PINGPONG, startDelay: 4});
 
-	if (!data.seenEarthCredit) {
-		data.seenEarthCredit = true;
+	if (!data.seenFoodlandCredit) {
+		data.seenFoodlandCredit = true;
 		msg("Art: Cubber");
 	}
 }
