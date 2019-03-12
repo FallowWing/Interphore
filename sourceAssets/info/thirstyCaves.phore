@@ -524,6 +524,7 @@ END_PASSAGES
 function gotoThirstyCaves() {
 	disableExit();
 	clear();
+	data.currentMap = "thirstyCaves";
 
 	//Map
 	worldMap.clear();
@@ -544,6 +545,12 @@ function gotoThirstyCaves() {
 
 	entry = worldMap.createNode("Settings", "Settings", LEFT, "The Red Sea");
 	worldMap.preUnlockEntry("Settings");
+
+	if (!data.seenCubberCredit) {
+		data.seenCubberCredit = true;
+		msg("Backgrounds: Cubber");
+	}
+	
 
 	//Cutscene
 	playEffect("audio/effect/mapTransition");

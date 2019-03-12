@@ -87,6 +87,7 @@ END_PASSAGES
 function gotoEarth() {
 	clear();
 	//clearNodes();
+	data.currentMap = "earth";
 
 	//Map
 	worldMap.clear();
@@ -130,11 +131,6 @@ function gotoEarth() {
 	backgroundSpilled.y = gameHeight - backgroundSpilled.height;
 	backgroundSpilled.layer = 38; //Below title
 	tween(backgroundSpilled, 30, {y: 0}, {ease: QUAD_OUT, type: PINGPONG, startDelay: 4});
-
-	if (!data.seenEarthCredit) {
-		data.seenEarthCredit = true;
-		msg("Art: Cubber");
-	}
 }
 
 /*

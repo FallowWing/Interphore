@@ -42,6 +42,7 @@ info/thirstyCaves.phore
 info/wendyApt.phore
 info/wendyApt2.phore
 info/thelly.phore
+info/thellyAd.phore
 info/lone.phore
 info/oliStream.phore
 info/luluPouph.phore

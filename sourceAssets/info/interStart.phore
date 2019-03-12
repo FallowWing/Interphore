@@ -49,7 +49,11 @@ exitButton.onRelease = function() {
 	if (exitButton.alpha != 1) return;
 	playEffect("audio/ui/exit.ogg");
 	preventNextCheckpoint = true;
-	gotoThirstyCaves();
+	if (data.currentMap === "thirstyCaves") gotoThirstyCaves();
+	if (data.currentMap === "LLL") gotoLLL();
+	if (data.currentMap === "earth") gotoEarth();
+	if (data.currentMap === "archiepelago") gotoArchiepelago();
+	if (data.currentMap === "foodland") gotoFoodland();
 }
 exitButton.whileHovering = function() {
 	if (exitButton.alpha != 1) return;
@@ -392,9 +396,9 @@ addSoundTweak("audio/effect/cartSlide/right/2", 0.5);
 addSoundTweak("audio/effect/cartSlide/left/1", 0.5);
 addSoundTweak("audio/effect/cartSlide/left/2", 0.5);
 
-addSoundTweak("audio/music/newVictim", 0.2);
-addSoundTweak("audio/music/newEngine", 0.3);
-addSoundTweak("audio/music/newSelf", 0.4);
+addSoundTweak("audio/music/newVictim", 0.1);
+addSoundTweak("audio/music/newEngine", 0.2);
+addSoundTweak("audio/music/newSelf", 0.3);
 addSoundTweak("audio/music/bunnyLove", 0.4);
 addSoundTweak("audio/music/violetMeteorite", 0.1);
 addSoundTweak("audio/ambience/library", 0.2);

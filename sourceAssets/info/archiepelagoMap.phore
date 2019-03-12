@@ -67,6 +67,7 @@ END_PASSAGES
 function gotoArchiepelago() {
 	clear();
 	clearNodes();
+	data.currentMap = "archiepelago";
 
 	//Map
 	worldMap.clear();
@@ -100,11 +101,6 @@ function gotoArchiepelago() {
 
 	var backgroundIsland = addImage("writer/islandBg.png");
 	backgroundIsland.layer = 38; //Below title
-
-	if (!data.seenIslandCredit) {
-		data.seenIslandCredit = true;
-		msg("Art: Cubber");
-	}
 }
 
 /*

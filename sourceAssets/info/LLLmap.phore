@@ -34,6 +34,14 @@ data.metCart = true;
 gotoThirstyCaves();
 `
 ---
+:thellyAdvertise
+
+!`
+clear();
+execAsset("thellyAd.phore");
+gotoPassage("thellyAdStart");
+`
+---
 :loreWhoring
 
 !`
@@ -87,6 +95,7 @@ END_PASSAGES
 function gotoLLL() {
 	clear();
 	worldMap.clear();
+	data.currentMap = "LLL";
 
 	var entry;
 
@@ -101,12 +110,14 @@ function gotoLLL() {
 	entry = worldMap.createNode("Down: Earth", "earth", BOTTOM, "L.L.L.");
 	worldMap.preUnlockEntry("Down: Earth");
 
-	entry = worldMap.createNode("Down: Archiepelago", "archiepelago", BOTTOM, "Down: Earth");
+	entry = worldMap.createNode("Down: Archiepelago", "archiepelago", LEFT, "L.L.L.");
 
 	entry = worldMap.createNode("Cartographer", "meetingCart", RIGHT, "L.L.L.");
 	worldMap.preUnlockEntry("Cartographer");
 
 	entry = worldMap.createNode("Femme Ren's", "femmeRens", BOTTOM, "Cartographer");
+
+	entry = worldMap.createNode("Revenge of the Dads", "thellyAdvertise", BOTTOM, "Femme Ren's");
 	
 	entry = worldMap.createNode("Bullying Lone", "bullyingLone", RIGHT, "Femme Ren's");
 
@@ -130,11 +141,6 @@ function gotoLLL() {
 	backgroundLLL.y = gameHeight - backgroundLLL.height;
 	backgroundLLL.layer = 38; //Below title
 	tween(backgroundLLL, 30, {y: 0}, {ease: QUAD_OUT, type: PINGPONG, startDelay: 4});
-
-	if (!data.seenLLLCredit) {
-		data.seenLLLCredit = true;
-		msg("Art: Cubber");
-	}
 }
 
 /*
@@ -196,11 +202,6 @@ function gotoLLL() {
 	backgroundLLL.y = gameHeight - backgroundLLL.height;
 	backgroundLLL.layer = 38; //Below title
 	tween(backgroundLLL, 30, {y: 0}, {ease: QUAD_OUT, type: PINGPONG, startDelay: 4});
-
-	if (!data.seenLLLCredit) {
-		data.seenLLLCredit = true;
-		msg("Art: Cubber");
-	}
 }
 
 //Taro, Cade, Gryphon, and Kemp's truck cameo

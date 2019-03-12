@@ -61,6 +61,7 @@ END_PASSAGES
 function gotoFoodland() {
 	clear();
 	//clearNodes();
+	data.currentMap = "foodland";
 
 	//Map
 	worldMap.clear();
@@ -93,9 +94,4 @@ function gotoFoodland() {
 	backgroundFoodland.y = gameHeight - backgroundFoodland.height;
 	backgroundFoodland.layer = 38; //Below title
 	tween(backgroundFoodland, 30, {y: 0}, {ease: QUAD_OUT, type: PINGPONG, startDelay: 4});
-
-	if (!data.seenFoodlandCredit) {
-		data.seenFoodlandCredit = true;
-		msg("Art: Cubber");
-	}
 }

@@ -18,6 +18,13 @@ welcome
 disableExit();
 getAudio("music").destroy();
 
+data.species = "bunny";
+data.genitals = "both";
+data.hasBoobs = false;
+data.gender = "both";
+data.playerName = "";
+data.hasKnot = false;
+
 //Default Settings
 data.fastTransition = false;
 

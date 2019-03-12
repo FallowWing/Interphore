@@ -4,6 +4,7 @@ START_PASSAGES
 !`
 data.metRen = true;
 worldMap.unlockEntry("Bullying Lone");
+worldMap.unlockEntry("Revenge of the Dads");
 `
 You head back to the L.L.L. and push open the door to the cozy antechamber, just outside the map dome.
 
@@ -1045,7 +1046,7 @@ thellyBod.x = gameWidth/2 - thellyBod.width/2;
 thellyBod.y = gameHeight - thellyBod.height;
 
 queueCall(function() {
-	tween(thellyBod, 2, {scaleX: -1}, {ease: QUAD_IN});
+	tween(thellyBod, 2, {scaleX: -1}, {ease: ELASTIC_OUT});
 });
 queueTitle("But I still wanted to be there for him!!");
 queueTitle("I spent twenty years chasing after him every single time he glitched.");
@@ -1054,7 +1055,7 @@ queueTitle("If he needed a cute boy by his side, I was there as soon as I could 
 queueTitle("");
 queueDelay(1);
 queueCall(function() {
-	tween(thellyBod, 1.5, {scaleX: 1}, {ease: QUAD_IN});
+	tween(thellyBod, 1.5, {scaleX: 1}, {ease: ELASTIC_OUT});
 });
 queueTitle("That's what I wrote to myself, anyway.");
 queueTitle("The memories themselves are somewhere else.");
@@ -1069,14 +1070,14 @@ queueTitle("Marie didn't want me by his side anymore.");
 queueTitle("");
 queueDelay(1);
 queueCall(function() {
-	tween(thellyBod, 2.3, {scaleX: -1}, {ease: QUAD_IN});
+	tween(thellyBod, 2.3, {scaleX: -1}, {ease: ELASTIC_OUT});
 });
 queueTitle("So I don't know if I want to remember.");
 queueTitle("I think I'm content just knowing I helped him while I could.");
 queueTitle("Now that I've been assimilated, and I'm up in here with a clean slate...");
 queueTitle("I'm actually glad he doesn't want me anymore.");
 queueCall(function() {
-	tween(thellyBod, 1, {scaleX: 0}, {ease: QUAD_IN});
+	tween(thellyBod, 1, {scaleX: 0}, {ease: ELASTIC_OUT});
 });
 queueDelay(2);
 
