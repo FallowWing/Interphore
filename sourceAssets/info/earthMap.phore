@@ -71,6 +71,13 @@ execAsset("yellowPond.phore");
 gotoPassage("yellowPondModStart");
 `
 ---
+:kitteryMaine
+!`
+clear();
+execAsset("kitteryMaine.phore");
+gotoPassage("calliopeStart");
+`
+---
 :earthExplore
 
 WIP!
@@ -107,6 +114,8 @@ function gotoEarth() {
 	worldMap.preUnlockEntry("Intro");
 
 	entry = worldMap.createNode("Moving In", "wendyApt", RIGHT, "Intro");
+
+	entry = worldMap.createNode("Kittery, Maine", "kitteryMaine", RIGHT, "Moving In");
 
 	entry = worldMap.createNode("Mynt's Day Off", "wendyApt2", BOTTOM, "Moving In");
 

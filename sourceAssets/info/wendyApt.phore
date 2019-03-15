@@ -5,6 +5,7 @@ START_PASSAGES
 worldMap.unlockEntry("Olitippo's Stream");
 worldMap.unlockEntry("Foodland");
 worldMap.unlockEntry("Mynt's Day Off");
+worldMap.unlockEntry("Kittery, Maine");
 
 data.tookStairs = false;
 data.leftMynt = true;

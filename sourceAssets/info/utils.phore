@@ -161,20 +161,22 @@ function pouphGen(male, female, none) {
 
 /*
 function exp(amount, sfx) {
-	data.exp += amount;
 
-	msg("EXP: +data.exp);
+	playEffect(sfx);
+
+	msg("  + "+amount+"  ");
+	data.exp += amount;
 	
 	var bar = addImage("writer/exp/bar");
 	bar.x = gameWidth / 2 - bar.width / 2;
 	bar.y = -bar.height;
-	tween(bar, 2, {y: 0}, {ease: QUINT_OUT});
+	tween(bar, 2, {y: 0}, {ease: QUINT_OUT});]]
 
 	if (data.exp > 100) {
 		data.exp - 100;
 		data.level += 1;
-		msg("Level: "+data.level);
 	}
+	msg("Level: "+data.level);
 
 	var fillWidth = bar.width * data.exp;
 

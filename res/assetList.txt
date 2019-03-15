@@ -41,6 +41,7 @@ info/main.phore
 info/thirstyCaves.phore
 info/wendyApt.phore
 info/wendyApt2.phore
+info/kitteryMaine.phore
 info/thelly.phore
 info/thellyAd.phore
 info/lone.phore
