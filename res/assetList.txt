@@ -208,6 +208,12 @@ img/writer/cartBg.spr
 
 img/writer/cageBathtub.png
 img/writer/cageBathtub.spr
+img/writer/mynt/myntBed1.png
+img/writer/mynt/myntBed1.spr
+img/writer/mynt/myntBed2.png
+img/writer/mynt/myntBed2.spr
+img/writer/mynt/myntBed3.png
+img/writer/mynt/myntBed3.spr
 img/writer/mynt/bg/myntBg1.png
 img/writer/mynt/bg/myntBg1.spr
 img/writer/mynt/bg/myntBg2.png

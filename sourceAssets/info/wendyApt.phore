@@ -25,7 +25,7 @@ Mynt's finger trails down the buttons... and lands on one with the name <i>Wendy
 
 She turns to you. "Our mom's name is Wendy," she breathlessly reveres. "I knew I remembered it right. Had a feeling it was Pater Pannish, at least..."
 
-[Yeah. Just like Peter Pan.]
+[end2]
 ---
 :Yeah. Just like Peter Pan.
 
@@ -1386,10 +1386,39 @@ choicesPerPage = 1;
 :end2
 
 !`
+disableExit();
 if (music) music.destroy();
 var music = playMusic("audio/ambience/library");
 music.name = "music";
 choicesPerPassage = 1;
+
+var myntBed = addImage("writer/mynt/myntBed1");
+myntBed.scaleX = 1;
+myntBed.scaleY = 1;
+myntBed.centerPivot = true;
+myntBed.temp = false;
+myntBed.x = desiredWidth * 0.5 - (myntBed.width * myntBed.scaleX) * 0.5 + 200;
+myntBed.y = desiredHeight - myntBed.height * myntBed.scaleY;
+
+var myntBed2 = addImage("writer/mynt/myntBed2");
+myntBed2.scaleX = 1;
+myntBed2.scaleY = 1;
+myntBed2.centerPivot = true;
+myntBed2.temp = false;
+myntBed2.x = desiredWidth * 0.5 - (myntBed2.width * myntBed2.scaleX) * 0.5;
+myntBed2.y = desiredHeight - myntBed2.height * myntBed2.scaleY;
+
+var myntBed3 = addImage("writer/mynt/myntBed3");
+myntBed3.scaleX = 1;
+myntBed3.scaleY = 1;
+myntBed3.centerPivot = true;
+myntBed3.temp = false;
+myntBed3.x = desiredWidth * 0.5 - (myntBed3.width * myntBed3.scaleX) * 0.5;
+myntBed3.y = desiredHeight - myntBed3.height * myntBed3.scaleY + 100;
+
+myntBed.alpha = 0;
+myntBed2.alpha = 1;
+myntBed3.alpha = 0;
 `
 
 Mynt burrows under the sheets of the bed and becomes a shivering lump in two seconds.
@@ -1400,7 +1429,7 @@ Mynt burrows under the sheets of the bed and becomes a shivering lump in two sec
 ---
 :What's the matter~?
 
-"It's too ginormo out there!!!"
+"It's too big out there!!!"
 
 !`
 choicesPerPage = 1;
@@ -1409,7 +1438,11 @@ choicesPerPage = 1;
 ---
 :Whaaat? But you were all excited about that earlier!
 
-"I didn't~~ until I looked at the sky, I didn't~~ it's <i>way too big!!!!</i> How did you LIVE here?! Weren't you scared of falling off the planet, into all that endless black?!"
+"I didn't~~ until I looked at the sky, I didn't~~
+
+"How did you LIVE here?!"
+
+"Weren't you scared of falling into all that endless black?!"
 
 !`
 choicesPerPage = 1;
@@ -1423,13 +1456,15 @@ Her voice comes out muffled from underneath several covers, now:
 "Your universal constants could shift at any time!!! Don't get so comfortable!!!!!!"
 
 !`
+myntBed.alpha = 1;
+myntBed2.alpha = 0;
 choicesPerPage = 1;
 `
 [Cool it with the exclamation marks. I'll go.]
 ---
 :Cool it with the exclamation marks. I'll go.
 
-"Okay!!!!!!!!!!!! Thank you!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! Sorry!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+"Okay!!!!!!!!!!!! Thank you!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! Sorry!!!!!!!"
 
 !`
 choicesPerPage = 1;
@@ -1443,15 +1478,19 @@ She peeks her head out from the end of the bed.
 "I'm sorry! I really am!"
 
 !`
+myntBed.alpha = 0;
+myntBed2.alpha = 1;
 choicesPerPage = 1;
 `
 [It's fine, it's fine. Go get some dildos and some flowers for the room while I'm gone, ya?]
 ---
 :It's fine, it's fine. Go get some dildos and some flowers for the room while I'm gone, ya?
 
-"Okay," she says, smiling weakly. Her perky ears tent the blankets. "I'll see if I can find some pink paint or something, too. Let's really gay up the place!"
+"Okay!"
 
 !`
+myntBed2.alpha = 0;
+myntBed3.alpha = 1;
 choicesPerPage = 1;
 `
 [Lol, sounds good.]
@@ -1463,6 +1502,8 @@ She slips back under the blankets.
 "Okay. Good. Thanks again. I'm just gonna um... I just need a second to calm down, here..."
 
 !`
+myntBed.alpha = 1;
+myntBed3.alpha = 0;
 choicesPerPage = 1;
 `
 [Gotcha. I'm gonna go through those keepsakes out front, then I'll jump out the window.]
@@ -1485,6 +1526,9 @@ The hall is completely black. You hadn't really noticed how dark it was, since t
 The darkness doesn't make it easy to sort through this pile of maybe-not-junk. You end up just feeling over most things... soft, fuzzy... hard, metallic... crinkly paper...
 
 !`
+myntBed.alpha = 0;
+myntBed2.alpha = 0;
+myntBed3.alpha = 0;
 choicesPerPage = 3;
 `
 [Examine fuzzy thing.]
@@ -1539,6 +1583,7 @@ You head back into the room.
 "Find any lore?" the bed asks you.
 
 !`
+myntBed.alpha = 1;
 choicesPerPage = 1;
 `
 [Nothing juicy.]
@@ -1550,6 +1595,8 @@ The bed sighs.
 "Aw. That sucks. But hey... I feel a little better now!"
 
 !`
+myntBed.alpha = 0;
+myntBed3.alpha = 1;
 choicesPerPage = 1;
 `
 [Oh yeah? Brave enough to come out and see me off?]
@@ -1563,6 +1610,10 @@ Mynt toddles over to you and wraps you up in her burrito. She kisses you on the 
 "You're jumping now?"
 
 !`
+disableExit();
+myntBed.destroy();
+myntBed2.destroy();
+myntBed3.destroy();
 choicesPerPage = 1;
 `
 [Mhm. Unless you wanna throw me off the roof or something fun.]
