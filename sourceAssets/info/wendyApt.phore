@@ -25,7 +25,7 @@ Mynt's finger trails down the buttons... and lands on one with the name <i>Wendy
 
 She turns to you. "Our mom's name is Wendy," she breathlessly reveres. "I knew I remembered it right. Had a feeling it was Pater Pannish, at least..."
 
-[end2]
+[Yeah. Just like Peter Pan.]
 ---
 :Yeah. Just like Peter Pan.
 
@@ -1610,7 +1610,7 @@ Mynt toddles over to you and wraps you up in her burrito. She kisses you on the 
 "You're jumping now?"
 
 !`
-disableExit();
+enableExit();
 myntBed.destroy();
 myntBed2.destroy();
 myntBed3.destroy();
