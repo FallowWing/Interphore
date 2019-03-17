@@ -189,6 +189,7 @@ He's been staring at the floor this whole time, face pointed down, and his head 
 "I heard that you were the one who saved my island. That's all."
 
 !`
+gainExp(15);
 choicesPerPage = 1;
 `
 [Are you from the same place as Thelly, too?|loneThelly]
@@ -200,6 +201,7 @@ He's been staring at the floor this whole time, face pointed down. Now he tenses
 "I'm not a fuck...! I just... I just heard that you were the one who saved my island. That's all."
 
 !`
+gainExp(40);
 choicesPerPage = 1;
 `
 [Are you from the same place as Thelly, too?|loneThelly]
@@ -303,6 +305,7 @@ He blushes hard and swallows his bravery. Shame wells up to replace it.
 "Ah... you can go, it's alright."
 
 !`
+gainExp(15);
 choicesPerPage = 1;
 `
 [Move along.|loneMoveAlong]
@@ -654,6 +657,7 @@ He fidgets and glances at your paws.
 He trots away from you, down a long street that ends in a mess of rotted, empty buildings. His white wool contrasts hard against their darkness. Soon, he's too far away for you to even see his bruises.
 
 !`
+gainExp(15);
 choicesPerPage = 1;
 `
 [Move along.|loneMoveAlong]

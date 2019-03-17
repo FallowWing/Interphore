@@ -63,6 +63,7 @@ You circle the tree. Something isn't adding up. Yes, it's a prostitution thing; 
 ... Hold on. Up at the very crest of the tree, there's a little bushel of hard candy bells, all connected to the licorice pulleys. You might want to come back to this later.
 
 !`
+gainExp(20);
 choicesPerPage = 1;
 `
 [Hmmm... follow the potato cat for now.|foodLand2]
@@ -306,6 +307,7 @@ if (data.genitals === "male" || data.genitals === "both") {
 Lulu shivers and obeys his master. His hind legs are taut and still. He lifts his ass as high as it'll go, perched on the tippy-toes of his back paws. You run your paws over both cheeks and peel them apart with your thumbs, inspecting him.
 
 !`
+gainExp(40);
 choicesPerPage = 1;
 `
 [Lick it first.|foodLandEat]
@@ -381,6 +383,7 @@ Meanwhile, you line your dick up along Lulu's crack and hotdog him with long, se
 Taro guides your paws to his cheeks. You squeeze em tight. A little whine leaks out of Lulu's mouth, muffled by dank tatosack.
 
 !`
+gainExp(30);
 choicesPerPage = 1;
 `
 [Aim.|foodLandFuck2]
@@ -533,6 +536,7 @@ Taro grabs his pet by the chin. "Stay still, okay cunt~? Time for a respawn!"
 Lulu's tail wags with all the strength he has left. He sticks his sticky, bright red tongue out and pants through a puppy smile.
 
 !`
+gainExp(40);
 choicesPerPage = 1;
 `
 [Stomp the melon open~|foodLandSnuff]
@@ -551,6 +555,7 @@ choicesPerPage = 1;
 You look away while Taro does his thing.
 
 !`
+gainExp(20);
 choicesPerPage = 1;
 `
 [Next~?|foodLandRejoin2]
@@ -574,6 +579,7 @@ Something breaks under his ass. Taro drops down an inch. Lulu's belly heaves onc
 Taro reaches down and plays with his limp wolfcock, yanking on it abusively. "There we go," he whispers.
 
 !`
+gainExp(30);
 choicesPerPage = 1;
 `
 [Next~?|foodLandRejoin2]

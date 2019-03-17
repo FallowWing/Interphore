@@ -89,7 +89,6 @@ As always, thanks so much for your support!!!! <3
 [New|newStart]
 
 !`
-worldMap.completeEntry("Moving In");
 if (internal) addChoice("VN test", "vnTest");
 if (internal) addChoice("Weird choices", "weirdChoiceTest");
 `

@@ -193,12 +193,13 @@ function gainExp(amount) {
 	tween(xpFront, 0.5, {y: xpBackY}, {ease: QUINT_OUT, onComplete: function() {
 		data.exp += amount;
 
+		msg("  + <b>"+amount+"</b> XP  ", true);
+
 		if (data.exp > 100) {
 			while (data.exp > 100) {
 				data.level += 1;
 				data.exp -= 100;
 			}
-
 			msg("Level: <b>"+data.level+"</b>\nXP: <b>"+data.totalExp+"</b>");
 			playEffect("audio/ui/rewards/levels");
 
@@ -216,7 +217,6 @@ function gainExp(amount) {
 				worldMap.unlockEntry("Chrysophylux");
 			}
 		} else {
-			msg("  + <b>"+amount+"</b> XP  ", true);
 			if (amount <= 10) playEffect("audio/ui/rewards/xp/0");
 			if (amount > 10 && amount <= 20) playEffect("audio/ui/rewards/xp/1");
 			if (amount > 20 && amount <= 40) playEffect("audio/ui/rewards/xp/2");

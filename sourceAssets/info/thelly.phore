@@ -62,6 +62,7 @@ choicesPerPage = 2;
 "Makes sense. Your memories of each other should be gone."
 
 !`
+gainExp(20);
 choicesPerPage = 1;
 `
 [How did he tell you all about me, then?|nextThelly3]
@@ -71,6 +72,7 @@ choicesPerPage = 1;
 "Wow, really? I thought you had amnesia."
 
 !`
+gainExp(5);
 choicesPerPage = 1;
 `
 [Yes.|nextThelly3yes2]
@@ -289,6 +291,7 @@ choicesPerPage = 2;
 He sucks it up and smiles anyway. "I just need to diversify, that's all."
 
 !`
+gainExp(10);
 choicesPerPage = 1;
 `
 [Ahhh...|nextThelly15]
@@ -300,6 +303,7 @@ He looks back over his shoulder and smiles at you. His milky irises glitter in t
 "I like myself better this way."
 
 !`
+gainExp(20);
 choicesPerPage = 1;
 `
 [Ahh, good for you. :3|nextThelly15]
@@ -375,6 +379,7 @@ Then... slowly... he exhales. He deflates. His whole body ripples with waves of 
 "Warn me next time," he whispers. Then he bites his lip. "On second thought, never warn me. My ass is public property."
 
 !`
+gainExp(10);
 choicesPerPage = 1;
 `
 [Gotcha~|nextThelly21]
@@ -444,6 +449,7 @@ Ren sees you looking. He toys absent-mindedly with his pink key, turning it over
 He holds the key out to you.
 
 !`
+gainExp(15);
 choicesPerPage = 1;
 `
 [Next?|nextThelly22]
@@ -607,6 +613,7 @@ addChoice("Shouldn't we head to your office, Ren?", "nextThelly30Records", {icon
 "Good. Go."
 
 !`
+gainExp(25);
 choicesPerPage = 1;
 data.thellySkippedMachine = true;
 `
@@ -623,6 +630,7 @@ The cubs blush and stop whispering.
 Ren takes you by your shoulder. "We'll go get him out before we head to my office. He's probably at his limit by now."
 
 !`
+gainExp(50);
 choicesPerPage = 1;
 data.thellySkippedMachine = false;
 `
@@ -976,6 +984,7 @@ Ren slaps the folders shut and fixes his red eyes squarely and definitively on n
 "Found it."
 
 !`
+gainExp(15);
 choicesPerPage = 1;
 `
 [Yes!!!|nextThellyMom]
@@ -1309,6 +1318,7 @@ He pouts.
 ... He pouts a little more, hoping you'll change your mind. Then he drops his skirt again. The soft fabric flutters down over his asscheeks, clinging to their silhouette.
 
 !`
+gainExp(5);
 choicesPerPage = 2;
 `
 [Now smack him.|nextThellyAnother]
@@ -1824,6 +1834,7 @@ Ren grabs him by the throat. He screws his eyes shut and concentrates.
 "Open... that's... it... say aaahhhh."
 
 !`
+gainExp(15);
 choicesPerPage = 2;
 if (data.genitals !== "female") addChoice("Piss up Thelly's butt. <3", "thellySexPiss2");
 else addChoice("Mmmf... next...", "thellySexPiss2a");

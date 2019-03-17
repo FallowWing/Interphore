@@ -56,7 +56,10 @@ Dust chunks and broken ceiling tiles and cables and glass shards from the broken
 ---
 :Sure. I'm lazy.
 
-!`data.tookStairs = false;`
+!`
+gainExp(20);
+data.tookStairs = false;
+`
 
 Mynt presses the UP button. The elevator <i>dings</i> and starts to drop.
 
@@ -111,6 +114,7 @@ She forces a smile.
 "Come on, step in. Their ghosts would be scandalized if we took the stairs after that."
 
 !`
+gainExp(20);
 choicesPerPage = 1;
 `
 [Step inside.]
@@ -146,7 +150,10 @@ choicesPerPage = 1;
 ---
 :The stairs would be safer.
 
-!`data.tookStairs = true;`
+!`
+gainExp(40);
+data.tookStairs = true;
+`
 
 "Right," she says, eyeing the burnt-out tubes in the flourescent lights. "We don't want the power cutting out halfway up."
 
@@ -229,6 +236,7 @@ It's perched on a pile of what looks like dirty laundry.
 Whatever it is, it has wings.
 
 !`
+gainExp(25);
 choicesPerPage = 1;
 `
 [THAT'S NOT MOM|notMom]

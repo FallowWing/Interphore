@@ -104,6 +104,7 @@ choicesPerPage = 1;
 No shenanigans.
 
 !`
+gainExp(50);
 choicesPerPage = 2;
 `
 [Fine... change my body for real this time.|Shapeshift.]
@@ -495,6 +496,8 @@ addChoice("Back.", function() { gotoThirstyCaves(); });
 :mysteriousLayer
 
 You aren't allowed all the way up here. This is where I live.
+
+Sorry to let you down.
 
 !`
 choicesPerPage = 1;

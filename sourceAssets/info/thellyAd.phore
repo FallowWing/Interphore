@@ -658,6 +658,7 @@ choicesPerPage = 2;
 A tiny bead of red sits on his quivery lip like a piercing~
 
 !`
+gainExp(5);
 choicesPerPage = 2;
 `
 [Ooo.|thellyAdRejoin]
@@ -668,6 +669,7 @@ choicesPerPage = 2;
 You brush your lips against the little droplet and your tongue darts out to tickle him a bit. He winks and licks his paw a bit, reddening it~
 
 !`
+gainExp(15);
 choicesPerPage = 1;
 `
 [Mmn.|thellyAdRejoin]
@@ -717,6 +719,7 @@ choicesPerPage = 2;
 "Yeah, eighty percent wasn't enough? They gotta take more... take, take, take... appropriating our fuckin dad culture, man..."
 
 !`
+gainExp(25);
 choicesPerPage = 1;
 `
 [Eighty percent...?|thellyAdRejoinerooni]
@@ -818,6 +821,7 @@ One dad kicks at chunks of loose concrete, beaning them off the dirty brick wall
 "Fuckin remember when this city was still alive... fuckin red shit, fuckin eyeballer... eighty percent of the boys fuck off to other layers, and this faggot cat n dog duo wanna take half of what's left and <b>charge us</b> to see them? Fuckin... <b>fuck</b>..."
 
 !`
+gainExp(20);
 choicesPerPage = 1;
 `
 [Eighty percent... go check on Thelly and Ren.|thellyAdRejoinAgain]
@@ -909,6 +913,7 @@ They're not here any more?
 All the locals are now indistinguishable from the islanders, and everyone in the crowd has their tongue out and their cock in hand... you're not sure if anyone is even upset anymore. The city has embraced Thelly and Ren!
 
 !`
+gainExp(30);
 choicesPerPage = 2;
 `
 [Focus on Thelly.|thellyAdThelly2]
@@ -1032,6 +1037,7 @@ You hop up on the table like a prancing deer and land gracefully. Thelly's messy
 You squat deep, paws running down your thighs, over your knees. You hold yourself by the ankles while your `genitals("heavy nuts dangle above Thelly's throat. He hyperventilates to get in all the breath he can before you use him like he knows you're going to. It's the perfect position for your cock and nuts to fog up and drip cumbreath condensation.", "cunt hovers above Thelly's throat. He hyperventilates to get in all the breath he can before you use him like he knows you're going to. It's the perfect position for your lower lips to fog up and drip along the  condensation.", "heavy nuts dangle above Thelly's throat. He hyperventilates to get in all the breath he can before you use him like he knows you're going to. It's the perfect position for your cunt and nuts to fog up and drip cumbreath condensation.");`
 
 !`
+gainExp(10);
 choicesPerPage = 1;
 `
 [Open.|thellyAdDrink]
@@ -1088,6 +1094,7 @@ choicesPerPage = 1;
 You raise your ass above Ren's terrified face. `genitals("Your nuts hang heavy over him and cast a doom shadow.", "Your cunt twitches cutely before his eyes.", "Your nuts hang heavy over him and cast a doom shadow.");`
 
 !`
+gainExp(20);
 choicesPerPage = 1;
 `
 [GROUND POUND|thellyAdRim]
@@ -1258,9 +1265,10 @@ choicesPerPage = 3;
 ---
 :thellyAdGet3
 
-Yes, you are sticking their heads in a puddle.
+Yes, right now you are effectively just sticking their heads in a puddle.
 
 !`
+gainExp(5);
 choicesPerPage = 2;
 `
 [Make sure they're in all the way.|thellyAdMake] #Abuse
@@ -1271,6 +1279,7 @@ choicesPerPage = 2;
 You punt their little taints a bit. They slide in all the way.
 
 !`
+gainExp(10);
 choicesPerPage = 1;
 `
 [Wait til they come out.|thellyAdRejoing] #Feral
@@ -1282,6 +1291,7 @@ You press your palms against their big bouncy asscheeks and apply your feet to t
 Their resources are re-absorbed. Their souls are released from their cum-heavy mortal coils and left to roam free in the liquid.
 
 !`
+gainExp(25);
 choicesPerPage = 1;
 `
 [Wait til they come out.|thellyAdRejoing] #Feral
@@ -1305,6 +1315,7 @@ choicesPerPage = 2;
 The cat and the puppy look up at you, not understanding.
 
 !`
+gainExp(5);
 choicesPerPage = 1;
 `
 [Wow. They really are feral... I wanna try too.|thellyAdPick]

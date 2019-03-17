@@ -63,18 +63,37 @@ You wander for hours like this, repeatedly pondering over pointless choices. Som
 !`
 choicesPerPage = 1;
 `
+[Right.|nextIndigo]
+[Left.|nextIndigo]
+[Down.|nextIndigo]
+[Up.|nextIndigo]
+---
+:nextIndigoLoop
+
+Still lost.
+
+[Right.|nextIndigo]
+[Left.|nextIndigo]
+[Down.|nextIndigo]
+[Up.|nextIndigo]
 [... Hold on. Try heading in the opposite direction.|nextIndigo2]
 ---
 :nextIndigo2
 
+You turn around and head back the way you came.
+
+Of course, there is a new path here, somehow.
+
 ... You come to a fork. Down the left path, nymph voices eagerly discussing which booze makes you pee fastest. Down the right, more dripping water and silence.
 
 !`
+gainExp(30);
 choicesPerPage = 1;
 `
 [Yeah. Take the right.|nextIndigo3]
 ---
 :nextIndigo3
+
 You take the right path. It's a long one, but the voices never get any quieter; you head down low-ceiling'd tunnelways that force you to get down on your hands and knees, exposing your ass completely to any cave critters; you circumnavigate giant holes in the cave floor, including one so huge you can't see the other side of it; and, finally, panting for breath, you push through into a massive, crowded cavern.
 
 It's an underground pond. There are nymphs everywhere, mostly boys. They're all curled up on squishy velvet cushions, swimming naked in the pond, or kissing each other passionately at the bar. A nearby sign explains this place to you with very curly letters and prose: it's a secret, nymphs-only bar and urinal. Behind the bar, a pipeline marked ALCOHOL LAYER runs into the rock.
@@ -87,6 +106,7 @@ choicesPerPage = 1;
 [Go for a dip.]
 ---
 :Go for a dip.
+
 You dunk your toe in the piss, first. It's hypnotically warm. The rest of your foot slips below the surface without a thought.
 
 "What's `he()` doing here?" someone asks someone else. For a moment, you freeze. You look around. All the nymphs are staring at you.
@@ -328,6 +348,7 @@ addChoice("Mint.", function() {
 He scoops up a chilly `data.drinkFlavor` cooler and brings all three back over to the bed.
 
 !`
+gainExp(10);
 choicesPerPage = 1;
 `
 [Grab my drink.]
@@ -405,6 +426,7 @@ addChoice("How old is that custom?", "custom", {icons: ["Plot"]});
 He presses down on his cocklet with both paws, trying to contain the bursting pressure. His piss-dripping thighs rub together desperately. "Oh, no... I really gotta go..."
 
 !`
+gainExp(20);
 choicesPerPage = 1;
 `
 [I could go for another drink...]
@@ -425,6 +447,7 @@ choicesPerPage = 2;
 ---
 :No namecalls pls.
 !`
+gainExp(20);
 choicesPerPage = 1;
 data.nameCalls = false;
 `
@@ -435,8 +458,10 @@ data.nameCalls = false;
 ---
 :I don't mind being called a urinal.
 !`
+gainExp(40);
 data.nameCalls = true;
 `
+
 "See? Told you. Total urinal."
 
 The shy one tries to contain his happiness and fails utterly. A mischievous little smile leaks over his lips. "I... I guess `he()` really is a urinal..."

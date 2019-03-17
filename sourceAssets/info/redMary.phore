@@ -173,27 +173,27 @@ She scowls over the rim of the log, just her eyes. "What's that supposed to mean
 !`
 choicesPerPage = 1;
 `
-[You don't know what lummox means?|redMaryLummox]
+[You don't know what lummox means?|redMaryLummox2]
 ---
-:redMaryLummox
+:redMaryLummox2
 
 "No??"
 
 !`
 choicesPerPage = 1;
 `
-[Wow. You really are a lummox.|redMaryLummox]
+[Wow. You really are a lummox.|redMaryLummox3]
 ---
-:redMaryLummox
+:redMaryLummox3
 
 "So a lummox is the type of person to not know what lummox means huh?? I think I get the message."
 
 !`
 choicesPerPage = 1;
 `
-[Ascend the log.|redMaryLummox]
+[Ascend the log.|redMaryLummox4]
 ---
-:redMaryLummox
+:redMaryLummox4
 
 You do a sick wall-jump off a nearby trunk and lock into the landing on one knee, head down, eyes shadowed by your flowing bangs.
 
@@ -202,63 +202,63 @@ Mynt scowls at you and almost falls off the log again just trying to stand up an
 !`
 choicesPerPage = 1;
 `
-[Why are we here again?|redMaryLummox]
+[Why are we here again?|redMaryLummox5]
 ---
-:redMaryLummox
+:redMaryLummox5
 
 "We're searching for mom, you boob. Or anyone who might have seen mom. You absolute clodhopper."
 
 !`
 choicesPerPage = 1;
 `
-[What's that supposed to mean?|redMaryLummox]
+[What's that supposed to mean?|redMaryLummox6]
 ---
-:redMaryLummox
+:redMaryLummox6
 
 She ignores your banter bait and leads the way down the log path, taking care to keep her feets along the center of each log. Her dress bounces and sways. Crispy-fresh forest air plays with the hem.
 
 !`
 choicesPerPage = 1;
 `
-[Why do you think she was interested in the Archiepelago? This layer?|redMaryLummox]
+[Why do you think she was interested in the Archiepelago? This layer?|redMaryLummox7]
 ---
-:redMaryLummox
+:redMaryLummox7
 
 "Cause she programmed it. It's a whole game she made, and I used to oversee it."
 
 !`
 choicesPerPage = 1;
 `
-[Ahh. And I played this game from up on my layer.|redMaryLummox]
+[Ahh. And I played this game from up on my layer.|redMaryLummox8]
 ---
-:redMaryLummox
+:redMaryLummox8
 
 "Yuh."
 
 !`
 choicesPerPage = 1;
 `
-[I wish I could remember this place. Was it fun?|redMaryLummox]
+[I wish I could remember this place. Was it fun?|redMaryLummox9]
 ---
-:redMaryLummox
+:redMaryLummox9
 
 "It was alright, but it had a lot of bugs and in my opinion there were way too many characters with not enough development devoted to each one."
 
 !`
 choicesPerPage = 1;
 `
-[Islanders, you mean.|redMaryLummox]
+[Islanders, you mean.|redMaryLummox10]
 ---
-:redMaryLummox
+:redMaryLummox10
 
 "Yeah islanders."
 
 !`
 choicesPerPage = 1;
 `
-[You clown.|redMaryLummox]
+[You clown.|redMaryLummox11]
 ---
-:redMaryLummox
+:redMaryLummox11
 
 Mynt snake-eyes you over her shoulder.
 
@@ -267,18 +267,18 @@ Mynt snake-eyes you over her shoulder.
 !`
 choicesPerPage = 1;
 `
-[Excuse me???|redMaryLummox]
+[Excuse me???|redMaryLummox12]
 ---
-:redMaryLummox
+:redMaryLummox12
 
 "You heard me."
 
 !`
 choicesPerPage = 1;
 `
-[3:<|redMaryLummox]
+[3:<|redMaryLummox13]
 ---
-:redMaryLummox
+:redMaryLummox13
 
 She puts her eyes back on the road.
 
@@ -296,6 +296,7 @@ choicesPerPage = 3;
 "The islanders probably already fixed everything better than she could have."
 
 !`
+gainExp(10);
 choicesPerPage = 1;
 `
 [Mmm.|redMaryLummoxRejoin]
@@ -307,6 +308,7 @@ choicesPerPage = 1;
 Memories of the red pond leak back into your mind and the sloshing high water mark overtakes your hippocampus.
 
 !`
+gainExp(10);
 choicesPerPage = 1;
 `
 [Mmm. I remember.|redMaryLummoxRejoin]
@@ -316,6 +318,7 @@ choicesPerPage = 1;
 "If she wanted to see me again, she came to the wrong timeline here."
 
 !`
+gainExp(15);
 choicesPerPage = 1;
 `
 [Mmm.|redMaryLummoxRejoin]
@@ -347,9 +350,9 @@ The trees whisper conspiratorily around you. You hear wingbeats from off in the 
 !`
 choicesPerPage = 1;
 `
-[Okay stop it you're making me sad.|redMaryLummox]
+[Okay stop it you're making me sad.|redMaryLummoxMom2]
 ---
-:redMaryLummox
+:redMaryLummoxMom2
 
 Mynt turns back to you with an apologetic smile. At least she isn't crying or anything.
 
@@ -369,18 +372,18 @@ choicesPerPage = 1;
 !`
 choicesPerPage = 1;
 `
-[I literally supported your ass with my face.|redMaryHelp]
+[I literally supported your ass with my face.|redMaryHelp2]
 ---
-:redMaryHelp
+:redMaryHelp2
 
 She huffs.
 
 !`
 choicesPerPage = 1;
 `
-[And at least I was trying! You're just laying there like a lump.|redMaryHelp]
+[And at least I was trying! You're just laying there like a lump.|redMaryHelp3]
 ---
-:redMaryHelp
+:redMaryHelp3
 
 Mynt sighs and climbs shakily back to her hands and knees.
 
@@ -389,18 +392,18 @@ She offers a hand, glaring at you.
 !`
 choicesPerPage = 1;
 `
-[Alright... plant my feet on the side, stay steady and slow...|redMaryHelp]
+[Alright... plant my feet on the side, stay steady and slow...|redMaryHelp4]
 ---
-:redMaryHelp
+:redMaryHelp4
 
 Her claws strain against the wood. She grits her teeth.
 
 !`
 choicesPerPage = 1;
 `
-[Easy now...|redMaryHelp]
+[Easy now...|redMaryHelp5]
 ---
-:redMaryHelp
+:redMaryHelp5
 
 Beads of sweat roll down her forehead. She blinks them out of her eyes.
 
@@ -409,18 +412,18 @@ You take one step up the side of the log... two... three...
 !`
 choicesPerPage = 1;
 `
-[Steady as she goes...|redMaryHelp]
+[Steady as she goes...|redMaryHelp6]
 ---
-:redMaryHelp
+:redMaryHelp6
 
 Mynt wobbles. You feel her hand slip an inch out of yours.
 
 !`
 choicesPerPage = 1;
 `
-[EASY NOW... STEADY AS SHE GOES...|redMaryHelp]
+[EASY NOW... STEADY AS SHE GOES...|redMaryHelp7]
 ---
-:redMaryHelp
+:redMaryHelp7
 
 She keeps her shit together. She retakes the lost inch and more by grabbing your wrist and really hauling on you.
 
@@ -429,45 +432,45 @@ She keeps her shit together. She retakes the lost inch and more by grabbing your
 !`
 choicesPerPage = 1;
 `
-[Maybe I put on a little too much...|redMaryHelp]
+[Maybe I put on a little too much...|redMaryHelp8]
 ---
-:redMaryHelp
+:redMaryHelp8
 
 
 
 !`
 choicesPerPage = 1;
 `
-[When I picked this new bod, I was sick of being sickly and thin and old.|redMaryHelp]
+[When I picked this new bod, I was sick of being sickly and thin and old.|redMaryHelp9]
 ---
-:redMaryHelp
+:redMaryHelp9
 
 You hear wingbeats from off in the distance somewhere.
 
 !`
 choicesPerPage = 1;
 `
-[I kinda wanted to get that youthful plumpness, you know?|redMaryHelp]
+[I kinda wanted to get that youthful plumpness, you know?|redMaryHelp10]
 ---
-:redMaryHelp
+:redMaryHelp10
 
 
 
 !`
 choicesPerPage = 1;
 `
-[So I juiced myself up. At least around the hips.|redMaryHelp]
+[So I juiced myself up. At least around the hips.|redMaryHelp11]
 ---
-:redMaryHelp
+:redMaryHelp11
 
 She responds with a contemptuous grunt. "Mmmmmhm."
 
 !`
 choicesPerPage = 1;
 `
-[I'm not that fat. Am I that fat?|redMaryHelp]
+[I'm not that fat. Am I that fat?|redMaryHelp12]
 ---
-:redMaryHelp
+:redMaryHelp12
 
 Mynt's arms have started to shake with the effort. She steadies herself for one last heave-ho. 
 
@@ -476,36 +479,36 @@ Mynt's arms have started to shake with the effort. She steadies herself for one 
 !`
 choicesPerPage = 1;
 `
-[I figured I'd be lounging around having sex with everyone, not climbing logs.|redMaryHelp]
+[I figured I'd be lounging around having sex with everyone, not climbing logs.|redMaryHelp13]
 ---
-:redMaryHelp
+:redMaryHelp13
 
 
 
 !`
 choicesPerPage = 1;
 `
-[If we make it through this log adventure together I'll edit my ass to be a bit more petite.|redMaryHelp]
+[If we make it through this log adventure together I'll edit my ass to be a bit more petite.|redMaryHelp14]
 ---
-:redMaryHelp
+:redMaryHelp14
 
 
 
 !`
 choicesPerPage = 1;
 `
-[Promise!|redMaryHelp]
+[Promise!|redMaryHelp15]
 ---
-:redMaryHelp
+:redMaryHelp15
 
 Her canines jut out. "Talk less. Climb more. And keep your~~" she pauses to pull in a deep, strained breath, eyes shut~~ "keep your ass how it is, I like it plump. Usually. Not right now. But usually."
 
 !`
 choicesPerPage = 1;
 `
-[Oop sorry. Okay.|redMaryHelp]
+[Oop sorry. Okay.|redMaryHelp16]
 ---
-:redMaryHelp
+:redMaryHelp16
 
 You put a little more gumption into it and really haul. Your center of gravity nuzzles up the side of the log, almost past the tipping point... aaaaaaaaaaaaaaaaaaaaaaaand...
 
@@ -518,22 +521,23 @@ Mynt's eyes go wide and flick to a point in the air over your left shoulder. She
 !`
 choicesPerPage = 1;
 `
-[OW|redMaryHelp]
+[OW|redMaryHelp17]
 ---
-:redMaryHelp
+:redMaryHelp17
 
 Where would you like to respawn? You can set your respawn point anywhere.
 
 !`
 choicesPerPage = 1;
 `
-['Anywhere' sounds good.|redMaryHelp]
+['Anywhere' sounds good.|redMaryHelp18]
 ---
-:redMaryHelp
+:redMaryHelp18
 
 You respawn behind a nearby tree.
 
 !`
+gainExp(15);
 choicesPerPage = 1;
 `
 [Who's there? Assess the danger.|redMaryRejoinLog]
@@ -1409,6 +1413,7 @@ She walks off a bit and kicks a chunk of dirt out of Mary's perfect lawn.
 "I don't like it any more than you do. But this is what we gotta do. We gotta cool down out here and then we gotta march back inside and kiss her ass hard for that juicy mom lore. Yeah?"
 
 !`
+gainExp(20);
 choicesPerPage = 1;
 `
 [Ugh... yeah.|redMarySorry2]
@@ -1589,6 +1594,7 @@ choicesPerPage = 1;
 You grope the heavy padlock and peek in its sexy keycrack. Looks super tight... unf... totally unpickable.
 
 !`
+gainExp(15);
 choicesPerPage = 1;
 `
 [Wonder what's down there...|redMaryGreenhouseRejoin]
@@ -1747,6 +1753,7 @@ Mynt is just over in the corner like @_@. "I won't tell..."
 
 
 !`
+gainExp(5);
 choicesPerPage = 1;
 `
 [Right. Never happened.|redMaryGreenhouseRejoin2]
@@ -1765,6 +1772,7 @@ She whimpers into your `boobs()` and squeezes down hard. She's got a fat lump in
 
 
 !`
+gainExp(35);
 choicesPerPage = 1;
 `
 [It's okay...|redMaryGreenhouseSex2]
@@ -2224,6 +2232,7 @@ Mary stands up.
 "Where are you taking my~~"
 
 !`
+gainExp(50);
 data.redAttemptedTheft = true;
 choicesPerPage = 1;
 `

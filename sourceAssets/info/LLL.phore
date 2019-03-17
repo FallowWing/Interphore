@@ -82,7 +82,7 @@ choicesPerPage = 2;
 
 !`
 disableExit();
-
+gainExp(50);
 choicesPerPage = 1;
 tween(eyeballHands, 3, {alpha: 1});
 queueTitle("See this thing?");
@@ -224,6 +224,7 @@ queueAddChoice("Let's go!", "eyeballEnd");
 :eyeballSkip
 
 !`
+gainExp(25);
 var backRect = addRectImage(desiredWidth, desiredHeight, 0x262626);
 tween(eyeballHands, 3, {alpha: 1});
 var eyeball = addImage("writer/characters/eyeball/seedAnim");
@@ -377,6 +378,7 @@ choicesPerPage = 2;
 :trans2
 
 !`
+gainExp(5);
 choicesPerPage = 2;
 `
 [Okay sorry I'm done.|trans7]
@@ -385,9 +387,9 @@ choicesPerPage = 2;
 :trans3
 
 !`
+gainExp(5);
 choicesPerPage = 1;
 `
-
 [Oh no, I pegged you all wrong. You're a Witch House pastel goth shota, aren'tcha? I see that blue hair.|trans3a]
 ---
 :trans3a
@@ -401,6 +403,7 @@ choicesPerPage = 2;
 :trans4
 
 !`
+gainExp(5);
 choicesPerPage = 2;
 `
 [... I'm really sorry about this.|trans7]
@@ -410,6 +413,7 @@ choicesPerPage = 2;
 
 !`
 choicesPerPage = 2;
+gainExp(5);
 `
 [You're pretty patient huh.|trans7]
 [You geekin out to some Benny Benassi? Wobblin on that eurobeat hardstyle?|trans5]
@@ -420,6 +424,7 @@ Even though you can't see his eyes, you're pretty sure he's looking at you like 
 
 !`
 choicesPerPage = 2;
+gainExp(5);
 `
 [Okay I'll stop.|trans7]
 [You bitchin on Bach? You groovin to some Gerschwin?|trans6]
@@ -428,6 +433,7 @@ choicesPerPage = 2;
 
 !`
 choicesPerPage = 1;
+gainExp(5);
 `
 [You goofin wild on some sticky fresh Wank House bangers with a~~|trans7]
 ---

@@ -62,7 +62,10 @@ choicesPerPage = 2;
 
 Well, she's made of marshmallow and you've still got hands, so yes. What would you like to do?
 
-!`data.pouphGenitals = "female";`
+!`
+gainExp(35);
+data.pouphGenitals = "female";
+`
 
 [Give her a pussy!]
 [Give her a cock 'n balls!]

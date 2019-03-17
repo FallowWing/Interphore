@@ -607,6 +607,7 @@ choicesPerPage = 2;
 Respawning is a very valid option out of this situation, just my personal opinion.
 
 !`
+gainExp(70);
 choicesPerPage = 1;
 `
 [Yeah do it... oh god they're all looking at me...|chrysSnuff]
@@ -640,6 +641,7 @@ choicesPerPage = 1;
 "Geez, uh, you okay there?" Chrys asks, noticing the monstrous bulge in your stomach. `boobs("You could probably give her stiffy a titjob through your stomach right now if you wanted to. ", "");` She helpfully tries to tug you off of her cocks, but you weren't prepared for half her dick, let alone the whole thing and the knot, so... they're well and truly stuck inside of you until they go soft.
 
 !`
+gainExp(20);
 choicesPerPage = 1;
 `
 [How long will it take for them to soften...?|chrysSoft]
