@@ -59,7 +59,7 @@ exitButton.onRelease = function() {
 }
 exitButton.whileHovering = function() {
 	if (exitButton.alpha != 1) return;
-	showTooltip("Exit (Resets current scene!)");
+	showTooltip("Exit (XP will be lost)");
 }
 
 var titleBg = addRectImage(gameWidth, 50, 0x2d354c);

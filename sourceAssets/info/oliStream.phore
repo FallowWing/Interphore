@@ -1200,6 +1200,7 @@ Ol glances at the camera before he dives in for a warm, healthy meal of ass.
 He smiles, shyly, and throws one last peace sign out for the remaining chat members. "Thanks for tuning in, guys... um... if you stick around, you'll get to watch me suck sweat off my rapists... so... please keep watching! <3 Don't touch that dial!"
 
 !`
+worldMap.completeEntry("Olitippo's Stream");
 choicesPerPage = 1;
 `
 [Touch that dial.|oliStreamEnd]
@@ -1207,7 +1208,6 @@ choicesPerPage = 1;
 :oliStreamEnd
 
 !`
-worldMap.completeEntry("Olitippo's Stream");
 gotoEarth();
 `
 

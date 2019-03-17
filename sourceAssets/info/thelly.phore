@@ -2057,14 +2057,13 @@ Ren crushes him in a supermassive hug. Thelly squeaks. His fluffy tail helicopte
 
 !`
 choicesPerPage = 1;
+worldMap.completeEntry("Femme Ren's");
 `
 [Move along.|thellyMoveAlong]
 ---
 :thellyMoveAlong
 
 !`
-worldMap.completeEntry("Femme Ren's");
-
 gotoLLL();
 `
 

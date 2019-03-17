@@ -59,15 +59,13 @@ worldMap.preUnlockEntry = function(entryName) {
 	entry.seenUnlocked = true;
 	entry.checkmark = false;
 };
-/*
-worldMap.setLockTooltip = function(entryName, tooltip) {
-	var entry = worldMap.getEntry(entryName);
-	entry.lockedMessage = tooltip;
-};*/
 
-worldMap.completeEntry = function(entryName) {
+worldMap.completeEntry = function(entryName, exp) {
 	var entry = worldMap.getEntry(entryName);
 	entry.completed = true;
+
+	msg("Completed <b>"+entryName+"!</b>");
+	gainExp(25);
 };
 
 worldMap.createNode = function(entryName, dest, connectedDirection, connectedNodeName) {
@@ -179,7 +177,7 @@ worldMap.show = function() {
 
 		icon.scaleX = icon.scaleY = 0.6;
 
-		if (node.entry.unlocked && !node.entry.seenUnlocked) {
+		if (!node.entry.completed && node.entry.unlocked && !node.entry.seenUnlocked) {
 			worldMap.newlyUpdatedNodes.push(node);
 		}
 
@@ -351,14 +349,11 @@ worldMap.update = function() {
 	}
 
 	if (worldMap.poofAnim.alpha != 0 && worldMap.poofAnim.currentFrame == round((worldMap.poofAnim.totalFrames-2)/2)) {
-		if (currentFocusedNode.entry.unlocked && !currentFocusedNode.entry.seenUnlocked) {
-			playEffect("audio/ui/unlockNode");
-
-			currentFocusedNode.entry.seenUnlocked = true;
-			currentFocusedNode.progressIcon.destroy();
-		}
+		
 
 		if (currentFocusedNode.entry.completed && !currentFocusedNode.entry.seenCompleted) {
+			currentFocusedNode.entry.unlocked = true;
+			currentFocusedNode.entry.seenUnlocked = true;
 			playEffect("audio/ui/unlockNode");
 			timer(0.1, function() { playEffect("audio/ui/rewards/boon"); });
 
@@ -368,6 +363,11 @@ worldMap.update = function() {
 			currentFocusedNode.progressIcon.x = currentFocusedNode.sprite.width - currentFocusedNode.progressIcon.width/2;
 			currentFocusedNode.progressIcon.y = -currentFocusedNode.progressIcon.height/2;
 			currentFocusedNode.sprite.addChild(currentFocusedNode.progressIcon);
+		} else if (currentFocusedNode.entry.unlocked && !currentFocusedNode.entry.seenUnlocked) {
+			playEffect("audio/ui/unlockNode");
+
+			currentFocusedNode.entry.seenUnlocked = true;
+			currentFocusedNode.progressIcon.destroy();
 		}
 	}
 

@@ -73,8 +73,6 @@ disableExit();
 
 worldMap.unlockEntry("Femme Ren's");
 worldMap.unlockEntry("Moving In");
-worldMap.unlockEntry("Yellow Pond");
-worldMap.unlockEntry("Visit L.L.L.");
 worldMap.unlockEntry("Wet Transmission");
 
 if (music) music.destroy();
@@ -1347,6 +1345,7 @@ The door shuts. You listen to almost-empty tubes of paint making farty squirting
 Mynt hugs you, now. "Back to Earth now, right? Back to the meteorite?"
 
 !`
+worldMap.completeEntry("Cartographer");
 choicesPerPage = 1;
 `
 [Let's go.|cartEndMap]
@@ -1368,8 +1367,6 @@ choicesPerPage = 2;
 !`
 resetBackgroundMode(2);
 print("leaving intro");
-
-worldMap.completeEntry("Meeting Cart");
 
 gotoLLL();
 `

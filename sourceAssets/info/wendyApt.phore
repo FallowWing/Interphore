@@ -2,8 +2,6 @@ START_PASSAGES
 :wendyAptStart
 
 !`
-worldMap.unlockEntry("Olitippo's Stream");
-worldMap.unlockEntry("Foodland");
 worldMap.unlockEntry("Mynt's Day Off");
 worldMap.unlockEntry("Kittery, Maine");
 
@@ -1658,6 +1656,7 @@ Mynt's face pops out of the window. She extracts a paw from her burrito and wave
 "I'll clean you up!" Mynt assures your corpse.
 
 !`
+worldMap.completeEntry("Moving In");
 choicesPerPage = 1;
 `
 [Next.|endWendyApt]
@@ -1665,7 +1664,6 @@ choicesPerPage = 1;
 :endWendyApt
 
 !`
-worldMap.completeEntry("Moving In");
 gotoEarth();
 `
 

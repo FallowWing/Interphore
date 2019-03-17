@@ -106,26 +106,34 @@ function gotoLLL() {
 	worldMap.preUnlockEntry("Up: The Red Sea");
 
 	entry = worldMap.createNode("L.L.L.", "loreWhoring", BOTTOM, "Up: The Red Sea");
+	entry.lockedMessage = "Requires <b>Level 3</b>";
 
 	entry = worldMap.createNode("Down: Earth", "earth", BOTTOM, "L.L.L.");
 	worldMap.preUnlockEntry("Down: Earth");
 
 	entry = worldMap.createNode("Down: Archiepelago", "archiepelago", LEFT, "L.L.L.");
+	entry.lockedMessage = "???";
 
 	entry = worldMap.createNode("Cartographer", "meetingCart", RIGHT, "L.L.L.");
 	worldMap.preUnlockEntry("Cartographer");
 
 	entry = worldMap.createNode("Femme Ren's", "femmeRens", BOTTOM, "Cartographer");
+	entry.lockedMessage = "Requires <b>Cartographer</b>";
 
 	entry = worldMap.createNode("Revenge of the Dads", "thellyAdvertise", BOTTOM, "Femme Ren's");
+	entry.lockedMessage = "Requires <b>Femme Ren's</b>";
 	
 	entry = worldMap.createNode("Bullying Lone", "bullyingLone", RIGHT, "Femme Ren's");
+	entry.lockedMessage = "Requires <b>Femme Ren's</b>";
 
 	entry = worldMap.createNode("Looking for Trouble", "loneDoors", RIGHT, "Bullying Lone");
+	entry.lockedMessage = "Requires <b>Bullying Lone</b> and <b>Black Mansion</b>";
 
 	entry = worldMap.createNode("Wet Transmission", "wetTransmission", RIGHT, "Cartographer");
+	entry.lockedMessage = "Requires <b>Cartographer</b>";
 
 	entry = worldMap.createNode("Wet Cartography", "wetCartography", RIGHT, "Wet Transmission");
+	entry.lockedMessage = "Requires <b>Wet Transmission</b>";
 
 	worldMap.show();
 

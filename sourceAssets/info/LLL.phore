@@ -4,14 +4,17 @@ START_PASSAGES
 You're at the L.L.L.! Cartographer's little library, lounge room, and map dome.
 
 !`
-worldMap.completeEntry("Explore L.L.L.");
+worldMap.preUnlockEntry("L.L.L.");
 
 choicesPerPage = 3;
 addChoice("Move along.", function() {
 	clear();
 	gotoLLL();
 });
-addChoice("Sniff for layers...", "unlockArchie");
+
+var entry = worldMap.getEntry("Down: Archiepelago");
+
+if (!entry.unlocked) ("Sniff for layers...", "unlockArchie");
 addChoice("Examine Paraphores", "examineParaphores");
 addChoice("Rules of Operation for Paraphores.");
 addChoice("Examine Spilled Paint", "layerSpilledPaint");
@@ -263,7 +266,7 @@ eyeballEye.destroy();
 eyeballHands.destroy();
 backRect.destroy();
 enableExit();
-worldMap.unlockEntry("Archiepelago");
+worldMap.unlockEntry("Down: Archiepelago");
 data.unlockedArchiepelago = true;
 choicesPerPage = 2;
 `

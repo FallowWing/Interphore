@@ -479,13 +479,13 @@ choicesPerPage = 1;
 You tuck the drawing nice and gentle into your pocket. The trophy is a bit of a clunky fit, but you slide it in your other pocket and get on your way.
 
 !`
+worldMap.completeEntry("Kittery, Maine");
 choicesPerPage = 1;
 `
 [Move along.|calliopeEnd]
 ---
 :calliopeEnd
 !`
-worldMap.completeEntry("Kittery, Maine");
 gotoEarth();
 `
 

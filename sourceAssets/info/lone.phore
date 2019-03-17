@@ -883,6 +883,7 @@ choicesPerPage = 1;
 He hugs you tightly. You lean down to rest your chin on his little head. His fresh wool smells like pine.
 
 !`
+worldMap.completeEntry("Bullying Lone");
 choicesPerPage = 1;
 `
 [I will. <3|loneMoveAlong]
@@ -890,7 +891,6 @@ choicesPerPage = 1;
 :loneMoveAlong
 
 !`
-worldMap.completeEntry("Bullying Lone");
 gotoLLL();
 `
 

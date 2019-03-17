@@ -15,15 +15,6 @@ START_PASSAGES
 gotoEarth();
 `
 ---
-:testUnlocker
-!`
-clear();
-worldMap.unlockEntry("Marshmelon Mess");
-worldMap.unlockEntry("Mynt's Day Off");
-worldMap.completeEntry("Moving In");
-gotoFoodland();
-`
----
 :foodLandChrysGo
 !`
 clear();
@@ -75,10 +66,13 @@ function gotoFoodland() {
 	worldMap.preUnlockEntry("Foodland");
 
 	entry = worldMap.createNode("Taro & Lulu", "foodLandTaro", RIGHT, "Foodland");
+	worldMap.preUnlockEntry("Taro & Lulu");
 
 	entry = worldMap.createNode("Marshmelon Mess", "luluPouph", RIGHT, "Taro & Lulu");
+	entry.lockedMessage = "Requires <b>Taro & Lulu</b>";
 
 	entry = worldMap.createNode("Chrysophylux", "foodLandChrysGo", RIGHT, "Marshmelon Mess");
+	entry.lockedMessage = "Requires <b>Level 5</b>";
 
 	worldMap.show();
 

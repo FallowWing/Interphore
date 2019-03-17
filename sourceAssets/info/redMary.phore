@@ -2330,6 +2330,7 @@ You set a fresh bowl in her lap. She licks her lips and mows down.
 "Oh, thank you. Come visit again. I don't know what went wrong... I know my granddaughter can be overbearing... mm... she makes a good stew, though..."
 
 !`
+worldMap.completeEntry("Red & Mary");
 choicesPerPage = 1;
 `
 [We'll be back. Sorry about this.|redMaryEnd]
@@ -2337,7 +2338,6 @@ choicesPerPage = 1;
 :redMaryEnd
 
 !`
-worldMap.completeEntry("Red & Mary");
 gotoArchiepelago();
 `
 

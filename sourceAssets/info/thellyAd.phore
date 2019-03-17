@@ -1865,13 +1865,13 @@ choicesPerPage = 1;
 You got room in the apartments, don'tcha~?
 
 !`
+worldMap.completeEntry("Revenge of the Dads");
 choicesPerPage = 1;
 `
 [:3c|thellyAdEnd]
 ---
 :thellyAdEnd
 !`
-worldMap.completeEntry("Revenge of the Dads");
 gotoLLL();
 `
 

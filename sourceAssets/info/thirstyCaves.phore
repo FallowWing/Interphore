@@ -532,7 +532,8 @@ function gotoThirstyCaves() {
 	var entry;
 
 	entry = worldMap.createNode("Up: ???", "mysteriousLayer");
-	worldMap.preUnlockEntry("Up: ???");
+	//worldMap.preUnlockEntry("Up: ???");
+	entry.lockedMessage = "Requires <b>Level 5</b>";
 
 	entry = worldMap.createNode("The Red Sea", "redSeaExplore", BOTTOM, "Up: ???");
 	worldMap.preUnlockEntry("The Red Sea");

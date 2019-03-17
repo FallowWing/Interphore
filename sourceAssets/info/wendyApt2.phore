@@ -1320,13 +1320,13 @@ You sprawl out on the paint-flecked bed and focus on your breathing again.
 
 !`
 choicesPerPage = 1;
+worldMap.completeEntry("Mynt's Day Off");
 addChoice(data.playerName+", please come back soon...", "myntDecoEnd2");
 `
 ---
 :myntDecoEnd2
 
 !`
-worldMap.completeEntry("Mynt's Day Off");
 gotoEarth();
 `
 

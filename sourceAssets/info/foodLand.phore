@@ -8,7 +8,6 @@ You come across a farmer fucking one of his watermelons. His face is twisted up 
 !`
 choicesPerPage = 2;
 worldMap.unlockEntry("Marshmelon Mess");
-worldMap.unlockEntry("Chrysophylux");
 `
 [... Head down one layer.|foodLand1]
 [Move along.|foodLandMoveAlong]
@@ -629,6 +628,7 @@ Lulu bolts, using your lap as a springboard for his hindpaws. He kicks you over 
 "HEY!" Taro stands up, trips over his sore feet, and lumbers after him. "See you another time, `data.playerName`~~ HEY! LU! GET THE FUCK BACK HERE!"
 
 !`
+worldMap.completeEntry("Taro & Lulu");
 choicesPerPage = 1;
 `
 [... Move along~|foodLandMoveAlong]
@@ -636,7 +636,6 @@ choicesPerPage = 1;
 :foodLandMoveAlong
 
 !`
-worldMap.completeEntry("Foodland");
 gotoEarth();
 `
 

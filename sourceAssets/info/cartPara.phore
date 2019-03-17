@@ -1117,6 +1117,7 @@ Cart peeks out over his laptop and waves.
 "See you then!"
 
 !`
+worldMap.completeEntry("Wet Cartography");
 choicesPerPage = 1;
 `
 [Move along.|cartParaMoveAlong]
@@ -2245,7 +2246,6 @@ choicesPerPage = 1;
 :cartParaMoveAlong
 
 !`
-worldMap.completeEntry("Wet Cartography");
 gotoLLL();
 `
 

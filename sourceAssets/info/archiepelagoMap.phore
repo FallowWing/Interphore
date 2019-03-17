@@ -84,10 +84,13 @@ function gotoArchiepelago() {
 	worldMap.preUnlockEntry("Farm Island");
 
 	entry = worldMap.createNode("Red & Mary", "redMaryNode", RIGHT, "Farm Island");
+	entry.lockedMessage = "Requires <b>Farm Island</b>";
 
 	entry = worldMap.createNode("Indigo Pond", "indigoPond", BOTTOM, "Farm Island");
+	entry.lockedMessage = "Requires <b>Level 3</b>";
 
 	entry = worldMap.createNode("Black Mansion", "blackMansion", BOTTOM, "Indigo Pond");
+	entry.lockedMessage = "Requires <b>Level 4</b>";
 
 	worldMap.show();
 

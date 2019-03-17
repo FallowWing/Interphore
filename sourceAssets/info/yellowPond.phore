@@ -8,8 +8,6 @@ Your footsteps get closer and closer together as you descend into the dim, musky
 A gaggle of nymphs pass you, all boys. They push their little bodies through a crack in the rock wall, hardly wider than their hips, and disappear.
 
 !`
-worldMap.unlockEntry("Indigo Pond");
-
 data.metPatch = true;
 choicesPerPage = 2;
 addChoice("Follow them.", "Follow them.", {icons: ["Cub", "Male", "Male", "Male", "Piss"]});
@@ -684,6 +682,7 @@ Patch laughs. The cave echoes with dozens of soft, tinkling, faggy nymph voices.
 Five or so nymphs shyly approach and rub your body down with hot, fresh handtowels, cleaning the pee and sweat from it. So many paws, all sliding over your fur, dipping deep into your armpits, between your thighs, feeling you up eeeeeverywhere... it's unlike anything you've ever felt before. Even though it's all just one mind, you blush hard and shiver like it really is just a crowd of strangers molesting you all at once.
 
 !`
+worldMap.completeEntry("Yellow Pond");
 choicesPerPage = 1;
 `
 [Move along.|yellowPondMoveAlong]
@@ -691,7 +690,6 @@ choicesPerPage = 1;
 :yellowPondMoveAlong
 
 !`
-worldMap.completeEntry("Yellow Pond");
 gotoEarth();
 `
 

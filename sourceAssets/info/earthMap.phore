@@ -109,7 +109,7 @@ function gotoEarth() {
 	worldMap.preUnlockEntry("Earth");
 
 	entry = worldMap.createNode("Down: Foodland", "foodLand", BOTTOM, "Earth");
-	worldMap.preUnlockEntry("Down: Foodland");
+	entry.lockedMessage = "Requires <b>Level 4</b>";
 
 	entry = worldMap.createNode("Intro", "myntIntro", RIGHT, "Earth");
 	worldMap.preUnlockEntry("Intro");
@@ -121,13 +121,16 @@ function gotoEarth() {
 	entry.lockedMessage = "Requires <b>Moving In</b>";
 
 	entry = worldMap.createNode("Mynt's Day Off", "wendyApt2", BOTTOM, "Moving In");
+	entry.lockedMessage = "Requires <b>Moving In</b>";
 
 	entry = worldMap.createNode("Yellow Pond", "yellowPond", BOTTOM, "Intro");
+	entry.lockedMessage = "Requires <b>Level 2</b>";
 
 	entry = worldMap.createNode("Olitippo's Stream", "oliStream", BOTTOM, "Yellow Pond");
+	entry.lockedMessage = "Requires <b>Level 2</b>";
 
-	entry = worldMap.createNode("Test Unlocks", "testUnlocker", TOP, "Up: L.L.L.");
-	worldMap.preUnlockEntry("Test Unlocks");
+	//entry = worldMap.createNode("Test Unlocks", "testUnlocker", TOP, "Up: L.L.L.");
+	//worldMap.preUnlockEntry("Test Unlocks");
 
 	worldMap.show();
 

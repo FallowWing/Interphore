@@ -1494,6 +1494,7 @@ choicesPerPage = 1;
 "Get out."
 
 !`
+worldMap.completeEntry("Black Mansion");
 var cageBathtub = addImage("writer/cageBathtub");
 cageBathtub.x = gameWidth / 2 - cageBathtub.width / 2;
 cageBathtub.y = gameHeight / 2 - cageBathtub.height / 2;
@@ -1504,7 +1505,6 @@ choicesPerPage = 1;
 :blackEnd
 
 !`
-worldMap.completeEntry("Black Mansion");
 gotoArchiepelago();
 `
 
