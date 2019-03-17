@@ -80,6 +80,7 @@ Changelog 0.1.3
 
 As always, thanks so much for your support!!!! <3
 
+[expTest]
 [Mods|modsStart]
 [Cheats|cheatsStart]
 [Tests|testsStart]
@@ -90,6 +91,24 @@ As always, thanks so much for your support!!!! <3
 !`
 if (internal) addChoice("VN test", "vnTest");
 if (internal) addChoice("Weird choices", "weirdChoiceTest");
+`
+---
+:expTest
+
+This is the exp test.
+
+!`
+addChoice("add 10", function() {
+	gainExp(10);
+});
+addChoice("add 30", function() {
+	gainExp(30);
+});
+addChoice("add 45", function() {
+	gainExp(45);
+});
+addChoice("Back", "scratchModStart");
+
 `
 ---
 :cheatsStart

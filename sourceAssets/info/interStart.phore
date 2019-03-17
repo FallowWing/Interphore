@@ -1,5 +1,7 @@
 setFontTag("i", "NunitoSans-Italic_26");
 setFontTag("b", "NunitoSans-Bold_26");
+setFontTag("ii", "NunitoSans-Italic_22");
+setFontTag("bb", "NunitoSans-Bold_22");
 
 var currentMusic;
 
@@ -379,6 +381,12 @@ addSoundTweak("audio/ui/nopeNode/2", 0.2);
 addSoundTweak("audio/ui/msg/1", 0.7);
 addSoundTweak("audio/ui/msg/2", 0.7);
 addSoundTweak("audio/ui/msg/3", 0.7);
+addSoundTweak("audio/ui/rewards/xp/1", 0.5);
+addSoundTweak("audio/ui/rewards/xp/2", 0.5);
+addSoundTweak("audio/ui/rewards/xp/3", 0.5);
+addSoundTweak("audio/ui/rewards/levels/1", 0.5);
+addSoundTweak("audio/ui/rewards/levels/2", 0.5);
+addSoundTweak("audio/ui/rewards/levels/3", 0.5);
 addSoundTweak("audio/ui/rewards/boon/1", 0.5);
 addSoundTweak("audio/ui/rewards/boon/2", 0.5);
 addSoundTweak("audio/ui/rewards/boon/3", 0.5);

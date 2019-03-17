@@ -159,27 +159,72 @@ function pouphGen(male, female, none) {
 	return "POUPH HAS NO GENDER SET, FUCK, UH OHHHHH, GO SET IT, ";
 }
 
-/*
-function exp(amount, sfx) {
+function gainExp(amount) {
+	data.totalExp += amount;
 
-	playEffect(sfx);
+	var xpBackY = desiredHeight - 200;
+	var xpBarY = xpBackY + 4;
 
-	msg("  + "+amount+"  ");
-	data.exp += amount;
-	
-	var bar = addImage("writer/exp/bar");
-	bar.x = gameWidth / 2 - bar.width / 2;
-	bar.y = -bar.height;
-	tween(bar, 2, {y: 0}, {ease: QUINT_OUT});]]
+	var xpBack = addImage("writer/xpBack");
+	xpBack.x = desiredWidth / 2 - xpBack.width / 2;
+	xpBack.y = desiredHeight - xpBack.height;
+	tween(xpBack, 0.5, {y: xpBackY}, {ease: QUINT_OUT});
 
-	if (data.exp > 100) {
-		data.exp - 100;
-		data.level += 1;
-	}
-	msg("Level: "+data.level);
+	var xpBar1 = addImage("writer/xpBar1");
+	xpBar1.x = xpBack.x + 10;
+	xpBar1.y = desiredHeight - xpBack.height;
+	tween(xpBar1, 0.5, {y: xpBarY}, {ease: QUINT_OUT});
 
-	var fillWidth = bar.width * data.exp;
+	var xpBar2 = addImage("writer/xpBar2");
+	xpBar2.x = xpBar1.x + xpBar1.width + 1;
+	xpBar2.scaleX = 49 + (xpBack.width - 75) * data.exp * 0.01;
+	xpBar2.y = desiredHeight - xpBack.height;
+	tween(xpBar2, 0.5, {y: xpBarY}, {ease: QUINT_OUT});
 
-	var fill =  = add9SliceImage("img/writer/exp/fill.png", fillWidth, bar.height, 5, 5, 10, 10);
+	var xpBar3 = addImage("writer/xpBar3");
+	xpBar3.x = xpBar2.x + xpBar2.width * xpBar2.scaleX;
+	xpBar3.y = desiredHeight - xpBack.height;
+	tween(xpBar3, 0.5, {y: xpBarY}, {ease: QUINT_OUT});
+
+	var xpFront = addImage("writer/xpFront");
+	xpFront.x = xpBack.x;
+	xpFront.y = desiredHeight - xpFront.height;
+
+	tween(xpFront, 0.5, {y: xpBackY}, {ease: QUINT_OUT, onComplete: function() {
+		data.exp += amount;
+
+		if (data.exp > 100) {
+			while (data.exp > 100) {
+				data.level += 1;
+				data.exp -= 100;
+			}
+
+			msg("Level: <b>"+data.level+"</b>\nXP: <b>"+data.totalExp+"</b>");
+			playEffect("audio/ui/rewards/levels");
+		} else {
+			msg("  + <b>"+amount+"</b> XP  ", true);
+			if (amount <= 10) playEffect("audio/ui/rewards/xp/0");
+			if (amount > 10 && amount <= 20) playEffect("audio/ui/rewards/xp/1");
+			if (amount > 20 && amount <= 40) playEffect("audio/ui/rewards/xp/2");
+			if (amount > 40) playEffect("audio/ui/rewards/xp/3");
+		}
+
+		tween(xpBar2, 1 + 0.7 * amount * 0.01, {scaleX: 49 + (xpBack.width - 75) * data.exp * 0.01}, {ease: ELASTIC_OUT});
+		tween(xpBar3, 1 + 0.7 * amount * 0.01, {x: xpBar2.x + xpBar2.width * 49 + (xpBack.width - 75) * data.exp * 0.01}, {ease: ELASTIC_OUT});
+		
+		xpBar1.y = xpBarY + 10;
+		xpBar2.y = xpBarY + 10;
+		xpBar3.y = xpBarY + 10;
+		tween(xpBar1, 0.1, {y: xpBarY}, {ease: QUAD_IN_OUT});
+		tween(xpBar2, 0.1, {y: xpBarY}, {ease: QUAD_IN_OUT});
+		tween(xpBar3, 0.1, {y: xpBarY}, {ease: QUAD_IN_OUT});
+	}});
+
+	tween(xpFront, 2.5, {alpha: 1}, {onComplete: function() {
+		tween(xpBack, 3, {alpha: 0});
+		tween(xpBar1, 3, {alpha: 0});
+		tween(xpBar2, 3, {alpha: 0});
+		tween(xpBar3, 3, {alpha: 0});
+		tween(xpFront, 3, {alpha: 0});
+	}});
 }
-*/

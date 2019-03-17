@@ -18,9 +18,10 @@ gotoLLL();
 :testUnlocker
 !`
 clear();
-worldMap.unlockEntry("Marshmelon Mess");
+worldMap.unlockEntry("Kittery, Maine");
 worldMap.unlockEntry("Mynt's Day Off");
 worldMap.completeEntry("Moving In");
+worldMap.completeEntry("Kittery, Maine");
 gotoEarth();
 `
 ---
@@ -114,8 +115,10 @@ function gotoEarth() {
 	worldMap.preUnlockEntry("Intro");
 
 	entry = worldMap.createNode("Moving In", "wendyApt", RIGHT, "Intro");
+	entry.lockedMessage = "Requires <b>Cartographer</b>";
 
 	entry = worldMap.createNode("Kittery, Maine", "kitteryMaine", RIGHT, "Moving In");
+	entry.lockedMessage = "Requires <b>Moving In</b>";
 
 	entry = worldMap.createNode("Mynt's Day Off", "wendyApt2", BOTTOM, "Moving In");
 
@@ -123,8 +126,8 @@ function gotoEarth() {
 
 	entry = worldMap.createNode("Olitippo's Stream", "oliStream", BOTTOM, "Yellow Pond");
 
-	//entry = worldMap.createNode("Test Unlocks", "testUnlocker", TOP, "Earth");
-	//worldMap.preUnlockEntry("Test Unlocks");
+	entry = worldMap.createNode("Test Unlocks", "testUnlocker", TOP, "Up: L.L.L.");
+	worldMap.preUnlockEntry("Test Unlocks");
 
 	worldMap.show();
 

@@ -748,6 +748,7 @@ function msg(str, config) {
 		tf = addEmptyImage(256, 512);
 	}
 
+	tf.setFont("NunitoSans-Light_26");
 	if (config.smallFont) tf.setFont("NunitoSans-Light_22");
 	tf.temp = false;
 	tf.layer = MSG_TEXT_LAYER;
@@ -874,10 +875,11 @@ function showTooltip(str) {
 	if (str != tooltipTf.text) rebuildBg = true;
 
 	tooltipTf.setText(str);
+	tooltipTf.setFont("NunitoSans-Light_26");
 
 	if (rebuildBg) {
 		if (tooltipBg) tooltipBg.destroy();
-		tooltipBg = add9SliceImage("img/writer/writerChoice.png", tooltipTf.textWidth + 16, tooltipTf.textHeight + 16, 5, 5, 10, 10);
+		tooltipBg = add9SliceImage("img/writer/writerChoice.png", tooltipTf.textWidth + 20, tooltipTf.textHeight + 20, 5, 5, 10, 10);
 		tooltipBg.temp = false;
 		tooltipBg.layer = TOOLTIP_SPRITE_LAYER;
 		tooltipTf.addChild(tooltipBg);

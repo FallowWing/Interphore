@@ -155,8 +155,12 @@ img/writer/xpBack.png
 img/writer/xpBack.spr
 img/writer/xpFront.png
 img/writer/xpFront.spr
-img/writer/xp9slice.png
-img/writer/xp9slice.spr
+img/writer/xpBar1.png
+img/writer/xpBar1.spr
+img/writer/xpBar2.png
+img/writer/xpBar2.spr
+img/writer/xpBar3.png
+img/writer/xpBar3.spr
 
 img/writer/mapTitles/theRedSea.png
 img/writer/mapTitles/theRedSea.spr
@@ -376,6 +380,13 @@ audio/ui/mapMove.ogg
 audio/ui/msg/1.ogg
 audio/ui/msg/2.ogg
 audio/ui/msg/3.ogg
+audio/ui/rewards/xp/0.ogg
+audio/ui/rewards/xp/1.ogg
+audio/ui/rewards/xp/2.ogg
+audio/ui/rewards/xp/3.ogg
+audio/ui/rewards/levels/1.ogg
+audio/ui/rewards/levels/2.ogg
+audio/ui/rewards/levels/3.ogg
 audio/ui/rewards/boon/1.ogg
 audio/ui/rewards/boon/2.ogg
 audio/ui/rewards/boon/3.ogg

@@ -38,7 +38,8 @@ worldMap.getEntry = function(entryName) {
 			started: false,
 			completed: false,
 			seenCompleted: false,
-			checkmark: true
+			checkmark: true,
+			lockedMessage: null
 		};
 
 		data.mapEntries[entryName] = entry;
@@ -58,6 +59,11 @@ worldMap.preUnlockEntry = function(entryName) {
 	entry.seenUnlocked = true;
 	entry.checkmark = false;
 };
+/*
+worldMap.setLockTooltip = function(entryName, tooltip) {
+	var entry = worldMap.getEntry(entryName);
+	entry.lockedMessage = tooltip;
+};*/
 
 worldMap.completeEntry = function(entryName) {
 	var entry = worldMap.getEntry(entryName);
@@ -75,7 +81,7 @@ worldMap.createNode = function(entryName, dest, connectedDirection, connectedNod
 
 		entry: entry,
 		connectedNodeName: connectedNodeName,
-		connectedDirection: connectedDirection,
+		connectedDirection: connectedDirection
 	};
 
 	worldMap.nodes[entryName] = node;
@@ -318,6 +324,8 @@ worldMap.update = function() {
 			spr.scaleX = spr.scaleY = 1;
 
 			if (spr.hovering) {
+				if (node.entry.lockedMessage) showTooltip(node.entry.lockedMessage);
+
 				var moveUpPerc = spr.hoveringTime / 0.8;
 				if (moveUpPerc > 1) moveUpPerc = 1;
 				moveUpPerc = tweenEase(moveUpPerc, QUINT_OUT);

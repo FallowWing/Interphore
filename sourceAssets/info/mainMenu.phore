@@ -24,6 +24,9 @@ data.hasBoobs = false;
 data.gender = "both";
 data.playerName = "";
 data.hasKnot = false;
+data.totalExp = 0;
+data.exp = 0;
+data.level = 1;
 
 //Default Settings
 data.fastTransition = false;
