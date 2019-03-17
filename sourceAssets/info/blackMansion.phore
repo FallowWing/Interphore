@@ -770,7 +770,6 @@ This bull dude tries to end their sad existence as literal sex objects and bring
 It doesn't work.
 
 !`
-gainExp(5);
 choicesPerPage = 2;
 `
 [Gotcha.|blackHub]
@@ -781,20 +780,20 @@ choicesPerPage = 2;
 No. You need a <b>mind</b> to join a hive<b>mind</b>.
 
 !`
-gainExp(5);
-choicesPerPage = 1;
+choicesPerPage = 2;
 `
+[Gotcha.|blackHub]
 [Where do minds come from then?|blackNot2]
 ---
 :blackNot2
 
 Good question. I'd like to know too.
 
-We have some working theories. I'll fill you in later.
+We have some working theories. Seeds are involved. I'll fill you in later.
 
 !`
 gainExp(15);
-choicesPerPage = 1;
+choicesPerPage = 2;
 `
 [Alright...|blackHub]
 ---

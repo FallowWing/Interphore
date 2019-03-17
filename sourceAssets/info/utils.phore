@@ -237,8 +237,9 @@ function gainExp(amount) {
 		} else {
 			if (amount <= 10) playEffect("audio/ui/rewards/xp/0");
 			if (amount > 10 && amount <= 20) playEffect("audio/ui/rewards/xp/1");
-			if (amount > 20 && amount <= 40) playEffect("audio/ui/rewards/xp/2");
-			if (amount > 40) playEffect("audio/ui/rewards/xp/3");
+			if (amount > 20 && amount <= 30) playEffect("audio/ui/rewards/xp/2");
+			if (amount > 30 && amount <= 50) playEffect("audio/ui/rewards/xp/3");
+			if (amount > 50) playEffect("audio/ui/rewards/xp/4");
 		}
 
 		xpNewText.setText("XP: <b>"+data.exp+" / 100</b>");

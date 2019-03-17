@@ -189,7 +189,6 @@ He's been staring at the floor this whole time, face pointed down, and his head 
 "I heard that you were the one who saved my island. That's all."
 
 !`
-gainExp(15);
 choicesPerPage = 1;
 `
 [Are you from the same place as Thelly, too?|loneThelly]
@@ -201,7 +200,7 @@ He's been staring at the floor this whole time, face pointed down. Now he tenses
 "I'm not a fuck...! I just... I just heard that you were the one who saved my island. That's all."
 
 !`
-gainExp(40);
+gainExp(10);
 choicesPerPage = 1;
 `
 [Are you from the same place as Thelly, too?|loneThelly]
@@ -370,6 +369,7 @@ Then, slowly, his cock starts to slide out of its sheath. Pitiful whimpers leak 
 Lone sniffles hard. Tears trickle down that pretty little welt. Teartracks lace his flat chest.
 
 !`
+gainExp(5);
 choicesPerPage = 1;
 `
 [... You okay, Lone?]
@@ -417,6 +417,7 @@ Other boys peek through the door and the ceiling boards.
 Lone apologizes breathlessly to every one of them. Some boys don't even say anything~~ as soon as they see it's Lone doing the yowling, they just roll their eyes and keep walking.
 
 !`
+gainExp(5);
 choicesPerPage = 1;
 `
 [Drag this cute punching bag off his bed.]
@@ -568,13 +569,27 @@ Ren looks in your direction.
 Lone is still bent over, sobbing and shaking.
 
 !`
-choicesPerPage = 1;
+choicesPerPage = 2;
 `
+[No it wasn't.|lone16a]
 [... He did bring it up, yeah.|lone16]
+---
+:lone16a
+
+Lone sticks his little paw out in the air, clinging onto anything. He finds a sturdy support beam and leans himself up against it.
+
+"Nooo," he croaks. "Don't lie for me like that... that's not right." He shares a non-look with Ren, eyes distant. "It was my idea."
+
+!`
+gainExp(20);
+choicesPerPage = 2;
+`
+[What can we do to fix this?|lone16]
+[He'll have to leave, won't he.|lone17]
 ---
 :lone16
 
-"Then he'll have to leave."
+"He'll have to leave."
 
 Lone suddenly stands erect, ears whipping up through the air again, although his cock has softened and retracted back into its sheath now. The ugly bruises you gave him are like a siren duct-taped to his head: every pair of eyes in the room except Ren's magnetizes right to his big fat welt the moment he faces them.
 
@@ -644,6 +659,7 @@ He pulls his knees up to his face, nose and chin wedged between them. His poofy 
 He stands up. His little butt is smudged with street grime.
 
 !`
+gainExp(5);
 choicesPerPage = 1;
 `
 [You gonna go now?|loneQuit2]
@@ -657,7 +673,7 @@ He fidgets and glances at your paws.
 He trots away from you, down a long street that ends in a mess of rotted, empty buildings. His white wool contrasts hard against their darkness. Soon, he's too far away for you to even see his bruises.
 
 !`
-gainExp(15);
+gainExp(5);
 choicesPerPage = 1;
 `
 [Move along.|loneMoveAlong]
@@ -707,9 +723,23 @@ Lone squeaks with real fear, but he obeys. He watches you carefully as he pulls 
 "Wh-What are you gonna~~"
 
 !`
-choicesPerPage = 1;
+choicesPerPage = 2;
 addChoice("You're cute and good. (Beat him.)", "lone26", {icons: ["Abuse", "Blood", "Gore"]});
+addChoice("You're cute and good. (Treat him.)", "lone26reass", {icons: ["Love"]});
 `
+---
+:lone26reass
+
+You pet his poor belly and fix him up with gauze and ointment and lots of bandaids. He squeaks every time you touch him. Takes about an hour, and you learn a lot about how to do bandages up cause he fixes your mistakes about five times.
+
+"Urrr..." he mumbles. "Thanks..."
+
+... He's politely thankful, but really he'd rather just hobble over to the red pond and get a new body.
+
+!`
+gainExp(35);
+`
+[Oh right.|loneKill2]
 ---
 :lone26
 
@@ -722,11 +752,14 @@ After that, you stand over him in complete control. You look down. His tiny body
 "Thank you," he gasps, inhaling street stank. "Th-Thank~~"
 
 !`
-choicesPerPage = 1;
+choicesPerPage = 2;
 `
 [It's okay to like pain. (Curbstomp! :3)|lone27]
+[Skip.|loneKill2]
 ---
 :lone27
+
+The attack devastates this weak ass little <b>Level 1 Fuckgoat</b> but he isn't worth much XP.
 
 "~~ YOUUUUuuuu-rghk..."
 
@@ -735,9 +768,11 @@ You bring your foot down on the back of his skull, right between his tiny nubbly
 A couple dads walk by and ask if everything is alright. Lone gurgles like a retard and peels his swollen asscheeks open, showing them how badly his little donut needs more punches. They walk away in disgust.
 
 !`
-choicesPerPage = 1;
+gainExp(5);
+choicesPerPage = 2;
 `
 [Ignore them. (Rape him.)|lone28]
+[Skip.|loneKill2]
 ---
 :lone28
 
@@ -748,18 +783,20 @@ Lone turns his cute, broken face over his shoulder, lip split, eyes black, eyeli
 "Is it in y-yet?"
 
 !`
-choicesPerPage = 1;
+choicesPerPage = 2;
 `
 [GrRRRRR!! Rape harder!!|lone29]
+[Skip.|loneKill2]
 ---
 :lone29
 
 You slam your palm down on the dent in the back of his head, grab a fistful of goat hide, and bash his screaming, sobbing face into the concrete while you rape your `genitals("cock", "fist", "cock")` up into his belly.
 
 !`
-choicesPerPage = 1;
+choicesPerPage = 2;
 addChoice("HARDER!! <b>HARDER!!!</b> YOU'RE A <b>GREAT</b> PERSON OKAY YOU LITTLE CUBCUNT!?", "lone30", {icons: ["Love"]});
 `
+[Skip.|loneKill2]
 ---
 :lone30
 
@@ -788,6 +825,7 @@ Then you pull out. No more beating, no more praise.
 He's sprawled out like a little puddle of goat, halfway on the sidewalk and halfway on the street. His poor asshole is about the size of a coke can.
 
 !`
+gainExp(50);
 choicesPerPage = 1;
 `
 [I'm gonna head out now, hun. (Kiss his cheek.)|loneSpare2]
@@ -838,15 +876,19 @@ Then he dies. <3
 You rape his corpse for another twenty minutes anyway.
 
 !`
+gainExp(5);
 choicesPerPage = 1;
 `
 [Phwaa...|loneKill2]
 ---
 :loneKill2
 
+You carry Lone over to the red pond and drop him in so he can get better!
+
 When he respawns, he steps out of the door to Femme Ren's again, blushing hard. "Forgot my respawn point was still set in there... they all thought I was trying to sneak back in or something. Ugh..."
 
 !`
+gainExp(5);
 choicesPerPage = 1;
 `
 [Ah. Are you feeling better though?|loneKill3]
@@ -886,7 +928,22 @@ choicesPerPage = 1;
 
 He hugs you tightly. You lean down to rest your chin on his little head. His fresh wool smells like pine.
 
+[Move along~|loneKill7]
+---
+:loneKill7
+
+"Oh!" he jumps. His tail is erect. "I almost forgot!"
+
+[What?|loneKill8]
+---
+:loneKill8
+
+He gives your thigh a gentle kiss and transfers even more of his preciously low XP to you.
+
+"For the road. Stay safe. <3"
+
 !`
+msg("Lone: <b>- 25</b> XP", true);
 worldMap.completeEntry("Bullying Lone");
 choicesPerPage = 1;
 `

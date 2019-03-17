@@ -42,6 +42,7 @@ tween(cartImg, 3, {x: gameWidth - cartImg.width * 1.1}, {ease: QUAD_OUT});
 :unlockArchie
 
 !`
+disableExit();
 var backRect = addRectImage(desiredWidth, desiredHeight, 0x262626);
 backRect.temp = false;
 
@@ -81,7 +82,6 @@ choicesPerPage = 2;
 :eyeballAnim2
 
 !`
-disableExit();
 gainExp(50);
 choicesPerPage = 1;
 tween(eyeballHands, 3, {alpha: 1});
@@ -209,6 +209,7 @@ choicesPerPage = 1;
 queueTitle("The kind with no comments and 23984 mutant if statements.");
 queueTitle("I have to interpret, and re-interpret, and then re-interpret one more time, just to tell you:");
 queueTitle("The penis entered the butthole.");
+queueTitle("That's why you're blind without my narration.");
 queueAddChoice("I see.");
 `
 ---
@@ -225,12 +226,7 @@ queueAddChoice("Let's go!", "eyeballEnd");
 
 !`
 gainExp(25);
-var backRect = addRectImage(desiredWidth, desiredHeight, 0x262626);
 tween(eyeballHands, 3, {alpha: 1});
-var eyeball = addImage("writer/characters/eyeball/seedAnim");
-eyeball.x = desiredWidth / 2 - eyeball.width / 2;
-eyeball.y = desiredHeight / 2 - eyeball.width / 2;
-tween(eyeball, 6, {scaleX: 1.1, scaleY: 1.1}, {ease: QUAD_IN_OUT, type: PINGPONG});
 
 choicesPerPage = 1;
 

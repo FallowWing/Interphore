@@ -384,6 +384,7 @@ audio/ui/rewards/xp/0.ogg
 audio/ui/rewards/xp/1.ogg
 audio/ui/rewards/xp/2.ogg
 audio/ui/rewards/xp/3.ogg
+audio/ui/rewards/xp/4.ogg
 audio/ui/rewards/levels/1.ogg
 audio/ui/rewards/levels/2.ogg
 audio/ui/rewards/levels/3.ogg

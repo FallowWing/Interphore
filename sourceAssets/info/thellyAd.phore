@@ -6,7 +6,7 @@ You hop out of the pond outside the L.L.L. The musky dungeon air affronts you.
 !`
 choicesPerPage = 1;
 `
-[Check on those two bois.|thellyAdPick] #Male
+[Check on those two bois.|thellyAd1] #Male
 ---
 :thellyAd1
 
