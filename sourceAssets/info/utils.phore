@@ -186,6 +186,23 @@ function gainExp(amount) {
 	xpBar3.y = desiredHeight - xpBack.height;
 	tween(xpBar3, 0.5, {y: xpBarY}, {ease: QUINT_OUT});
 
+	var xpText = addEmptyImage(200, 70);
+	xpText.setFont("NunitoSans-Light_26");
+	xpText.setText("XP: <b>"+data.exp+" / 100</b>");
+	xpText.x = desiredWidth - xpText.textWidth - 50;
+	xpText.tint = 0xFF00a6fc;
+	xpText.centerPivot = true;
+	xpText.y = desiredHeight;
+	tween(xpText, 0.5, {y: xpBackY - xpText.textHeight}, {ease: QUINT_OUT});
+
+	var xpNewText = addEmptyImage(200, 70);
+	xpNewText.setFont("NunitoSans-Light_26");
+	xpText.setText("XP: <b>"+data.exp+" / 100</b>");
+	xpNewText.x = desiredWidth - xpNewText.textWidth - 50;
+	xpNewText.tint = 0xFF00a6fc;
+	xpNewText.y = desiredHeight;
+	tween(xpNewText, 0.5, {y: xpBackY - xpNewText.textHeight}, {ease: QUINT_OUT});
+
 	var xpFront = addImage("writer/xpFront");
 	xpFront.x = xpBack.x;
 	xpFront.y = desiredHeight - xpFront.height;
@@ -195,11 +212,12 @@ function gainExp(amount) {
 
 		msg("  + <b>"+amount+"</b> XP  ", true);
 
-		if (data.exp > 100) {
-			while (data.exp > 100) {
+		if (data.exp >= 100) {
+			while (data.exp >= 100) {
 				data.level += 1;
 				data.exp -= 100;
 			}
+
 			msg("Level: <b>"+data.level+"</b>\nXP: <b>"+data.totalExp+"</b>");
 			playEffect("audio/ui/rewards/levels");
 
@@ -223,8 +241,21 @@ function gainExp(amount) {
 			if (amount > 40) playEffect("audio/ui/rewards/xp/3");
 		}
 
-		tween(xpBar2, 1 + 0.7 * amount * 0.01, {scaleX: 49 + (xpBack.width - 75) * data.exp * 0.01}, {ease: ELASTIC_OUT});
-		tween(xpBar3, 1 + 0.7 * amount * 0.01, {x: xpBar2.x + xpBar2.width * 49 + (xpBack.width - 75) * data.exp * 0.01}, {ease: ELASTIC_OUT});
+		xpNewText.setText("XP: <b>"+data.exp+" / 100</b>");
+		xpNewText.x = desiredWidth - xpNewText.textWidth - 50;
+		xpNewText.y = xpBackY - xpNewText.textHeight;
+		xpNewText.alpha = 0;
+		xpNewText.scaleY = 0;
+		xpNewText.centerPivot = true;
+
+		tween(xpText, 0.2, {scaleY: 0}, {ease: QUAD_IN, onComplete: function() {
+			xpText.alpha = 0;
+			xpNewText.alpha = 1;
+			tween(xpNewText, 0.6, {scaleY: 1}, {ease: ELASTIC_OUT});
+		}});
+
+		tween(xpBar2, 1 + 0.7 * amount * 0.01, {scaleX: 49 + (xpBack.width - 100) * data.exp * 0.01}, {ease: ELASTIC_OUT});
+		tween(xpBar3, 1 + 0.7 * amount * 0.01, {x: xpBar2.x + xpBar2.width * 49 + (xpBack.width - 100) * data.exp * 0.01}, {ease: ELASTIC_OUT});
 		
 		xpBar1.y = xpBarY + 10;
 		xpBar2.y = xpBarY + 10;
@@ -240,5 +271,6 @@ function gainExp(amount) {
 		tween(xpBar2, 3, {alpha: 0});
 		tween(xpBar3, 3, {alpha: 0});
 		tween(xpFront, 3, {alpha: 0});
+		tween(xpNewText, 3, {alpha: 0});
 	}});
 }

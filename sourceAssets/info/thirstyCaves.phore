@@ -12,9 +12,12 @@ You find a red pond, no matter where you are.
 
 If you jump in, you can change your body again.
 
+Looking into the glassy surface, you ruminate on all of your XPeriences...
+
 !`
 setBackground(0, "writer/mainBg");
 choicesPerPage = 2;
+msg("Current Level: <b>"+data.level+"</b>");
 addChoice("Jump in.");
 `
 [Move along.]
