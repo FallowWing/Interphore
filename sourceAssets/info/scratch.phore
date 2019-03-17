@@ -97,14 +97,18 @@ if (internal) addChoice("Weird choices", "weirdChoiceTest");
 This is the exp test.
 
 !`
+choicesPerPage = 5
 addChoice("add 10", function() {
 	gainExp(10);
 });
 addChoice("add 30", function() {
 	gainExp(30);
 });
-addChoice("add 45", function() {
+addChoice("add 40", function() {
 	gainExp(45);
+});
+addChoice("add 60", function() {
+	gainExp(50);
 });
 addChoice("Back", "scratchModStart");
 

@@ -219,6 +219,7 @@ function gainExp(amount) {
 			}
 
 			msg("Level: <b>"+data.level+"</b>\nXP: <b>"+data.totalExp+"</b>");
+			
 			playEffect("audio/ui/rewards/levels");
 
 			if (data.level >= 2) {
@@ -238,8 +239,8 @@ function gainExp(amount) {
 			if (amount <= 10) playEffect("audio/ui/rewards/xp/0");
 			if (amount > 10 && amount <= 20) playEffect("audio/ui/rewards/xp/1");
 			if (amount > 20 && amount <= 30) playEffect("audio/ui/rewards/xp/2");
-			if (amount > 30 && amount <= 50) playEffect("audio/ui/rewards/xp/3");
-			if (amount > 50) playEffect("audio/ui/rewards/xp/4");
+			if (amount > 30 && amount <= 49) playEffect("audio/ui/rewards/xp/3");
+			if (amount > 49) playEffect("audio/ui/rewards/xp/4");
 		}
 
 		xpNewText.setText("XP: <b>"+data.exp+" / 100</b>");

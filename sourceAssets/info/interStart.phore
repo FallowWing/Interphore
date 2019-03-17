@@ -384,6 +384,7 @@ addSoundTweak("audio/ui/msg/3", 0.7);
 addSoundTweak("audio/ui/rewards/xp/1", 0.5);
 addSoundTweak("audio/ui/rewards/xp/2", 0.5);
 addSoundTweak("audio/ui/rewards/xp/3", 0.5);
+addSoundTweak("audio/ui/rewards/xp/4", 0.35);
 addSoundTweak("audio/ui/rewards/levels/1", 0.5);
 addSoundTweak("audio/ui/rewards/levels/2", 0.5);
 addSoundTweak("audio/ui/rewards/levels/3", 0.5);

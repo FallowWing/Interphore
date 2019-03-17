@@ -994,10 +994,15 @@ function realUpdate() {
 		var spr = msgs[i].sprite;
 
 		msg.timeShown += elapsed;
-		if (spr.justReleased) msg.timeShown = 99;
+		if (spr.justReleased) {
+			msg.timeShown = 99;
+			data.exp += 5;
+			playEffect("audio/ui/choiceClick");
+		}
 
 		if (msg.timeShown > 5) {
 			msg.sprite.alpha -= 0.2;
+			if (msg.sprite.scaleY > 0) msg.sprite.scaleY -= 0.1;
 			if (msg.sprite.alpha <= 0) msgsToDestroy.push(msg);
 		} else {
 			msg.sprite.alpha += 0.2;
