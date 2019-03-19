@@ -210,7 +210,7 @@ function gainExp(amount) {
 	tween(xpFront, 0.5, {y: xpBackY}, {ease: QUINT_OUT, onComplete: function() {
 		data.exp += amount;
 
-		msg("  + <b>"+amount+"</b> XP  ", true);
+		msg("  + <b>"+amount+"</b> XP  ", {silent: true});
 
 		if (data.exp >= 100) {
 			while (data.exp >= 100) {
@@ -218,7 +218,7 @@ function gainExp(amount) {
 				data.exp -= 100;
 			}
 
-			msg("Level: <b>"+data.level+"</b>\nXP: <b>"+data.totalExp+"</b>");
+			msg("Level: <b>"+data.level+"</b>\nXP: <b>"+data.totalExp+"</b>", {silent: true});
 			
 			playEffect("audio/ui/rewards/levels");
 

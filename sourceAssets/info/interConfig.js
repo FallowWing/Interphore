@@ -996,7 +996,10 @@ function realUpdate() {
 		msg.timeShown += elapsed;
 		if (spr.justReleased) {
 			msg.timeShown = 99;
-			data.exp += 5;
+			if (rndFloat() > 0.8) {
+				playEffect("audio/ui/rewards/xp/0");
+				data.exp += 5;
+			}
 			playEffect("audio/ui/choiceClick");
 		}
 

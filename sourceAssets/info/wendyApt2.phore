@@ -472,7 +472,6 @@ choicesPerPage = 2;
 You don't even want to hear about our economy lore.
 
 !`
-gainExp(10);
 choicesPerPage = 1;
 `
 [Back.|myntDecoHall]

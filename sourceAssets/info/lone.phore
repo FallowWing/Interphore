@@ -943,7 +943,7 @@ He gives your thigh a gentle kiss and transfers even more of his preciously low 
 "For the road. Stay safe. <3"
 
 !`
-msg("Lone: <b>- 25</b> XP", true);
+msg("Lone: <b>- 25</b> XP", {silent: true});
 worldMap.completeEntry("Bullying Lone");
 choicesPerPage = 1;
 `
