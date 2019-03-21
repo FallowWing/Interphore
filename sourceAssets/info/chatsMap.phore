@@ -88,6 +88,8 @@ vn.say(0, "But had I left it before?");
 vn.say(0, "How long was I in there?");
 vn.say(1, "You don't remember...?");
 vn.say(0, "No, I don't. Refresh me.");
+vn.say(0, "How long?");
+vn.say(1, "...");
 vn.say(0, "How long was I alone in the bomb shelter Gabe.");
 vn.say(1, "Oh... just...");
 vn.say(1, "Not too long, really. Some time. I'm sorry.");

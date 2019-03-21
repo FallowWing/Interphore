@@ -1,5 +1,7 @@
 setFontTag("i", "NunitoSans-Italic_26");
 setFontTag("b", "NunitoSans-Bold_26");
+setFontTag("ii", "NunitoSans-Italic_22");
+setFontTag("bb", "NunitoSans-Bold_22");
 
 var currentMusic;
 
@@ -49,11 +51,11 @@ exitButton.onRelease = function() {
 	if (exitButton.alpha != 1) return;
 	playEffect("audio/ui/exit.ogg");
 	preventNextCheckpoint = true;
-	gotoThirstyCaves();
+	gotoLastMap();
 }
 exitButton.whileHovering = function() {
 	if (exitButton.alpha != 1) return;
-	showTooltip("Exit (Resets current scene!)");
+	showTooltip("Exit (XP will be lost)");
 }
 
 var titleBg = addRectImage(gameWidth, 50, 0x2d354c);
@@ -361,20 +363,34 @@ addSoundTweak("audio/ui/hoverChoiceButtons/3", 0.03);
 addSoundTweak("audio/ui/tooltip/1", 0.2);
 addSoundTweak("audio/ui/tooltip/2", 0.2);
 addSoundTweak("audio/ui/tooltip/3", 0.2);
+addSoundTweak("audio/ui/myntTalk/1", 0.6);
+addSoundTweak("audio/ui/myntTalk/2", 0.6);
+addSoundTweak("audio/ui/myntTalk/3", 0.6);
+addSoundTweak("audio/ui/myntTalk/4", 0.6);
+addSoundTweak("audio/ui/myntTalk/5", 0.6);
 addSoundTweak("audio/ui/hoverChoiceIcons/1", 0.6);
 addSoundTweak("audio/ui/hoverChoiceIcons/2", 0.6);
 addSoundTweak("audio/ui/hoverChoiceIcons/3", 0.6);
+addSoundTweak("audio/ui/nopeNode/1", 0.2);
+addSoundTweak("audio/ui/nopeNode/2", 0.2);
 
 addSoundTweak("audio/ui/msg/1", 0.7);
 addSoundTweak("audio/ui/msg/2", 0.7);
 addSoundTweak("audio/ui/msg/3", 0.7);
+addSoundTweak("audio/ui/rewards/xp/1", 0.5);
+addSoundTweak("audio/ui/rewards/xp/2", 0.5);
+addSoundTweak("audio/ui/rewards/xp/3", 0.5);
+addSoundTweak("audio/ui/rewards/xp/4", 0.35);
+addSoundTweak("audio/ui/rewards/levels/1", 0.5);
+addSoundTweak("audio/ui/rewards/levels/2", 0.5);
+addSoundTweak("audio/ui/rewards/levels/3", 0.5);
 addSoundTweak("audio/ui/rewards/boon/1", 0.5);
 addSoundTweak("audio/ui/rewards/boon/2", 0.5);
 addSoundTweak("audio/ui/rewards/boon/3", 0.5);
 addSoundTweak("audio/ui/rewards/checkmark", 0.5);
 addSoundTweak("audio/ui/rewards/party", 0.5);
 addSoundTweak("audio/effect/trashTransmission", 0.7);
-addSoundTweak("audio/effect/mapTransition", 0.8);
+addSoundTweak("audio/effect/mapTransition", 0.2);
 addSoundTweak("audio/effect/adminGained", 0.05);
 addSoundTweak("audio/effect/despairSting", 0.8);
 addSoundTweak("audio/effect/owlScream", 0.2);
@@ -385,9 +401,9 @@ addSoundTweak("audio/effect/cartSlide/right/2", 0.5);
 addSoundTweak("audio/effect/cartSlide/left/1", 0.5);
 addSoundTweak("audio/effect/cartSlide/left/2", 0.5);
 
-addSoundTweak("audio/music/newVictim", 0.2);
-addSoundTweak("audio/music/newEngine", 0.3);
-addSoundTweak("audio/music/newSelf", 0.4);
+addSoundTweak("audio/music/newVictim", 0.1);
+addSoundTweak("audio/music/newEngine", 0.2);
+addSoundTweak("audio/music/newSelf", 0.3);
 addSoundTweak("audio/music/bunnyLove", 0.4);
 addSoundTweak("audio/music/violetMeteorite", 0.1);
 addSoundTweak("audio/ambience/library", 0.2);

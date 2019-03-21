@@ -21,6 +21,7 @@ Som crosses his little wooly lamb arms with absolute resolution. Cage puffs stea
 "... up your own ass with unfounded self-pity," Som says. "Let's just get in the pond and meet up with the rest of existence already."
 
 !`
+gainExp(50);
 choicesPerPage = 1;
 `
 [...|blackEaves2]
@@ -712,6 +713,7 @@ I need a bath.
 I'll try to join the club.
 
 !`
+gainExp(30);
 choicesPerPage = 1;
 `
 [Last page.|blackBeds4]
@@ -763,9 +765,9 @@ choicesPerPage = 2;
 
 I'll summarize the videos for you:
 
-This bull dude tries to end their sad existence as literal sex objects and bring them up to the Interphore to mingle with sapient life.
+This bull dude tries to end their sad existence as literal sex objects and bring them up to the Interphore to mingle with sapient life. His methodology is a little fucked though.
 
-But it doesn't work.
+It doesn't work.
 
 !`
 choicesPerPage = 2;
@@ -778,18 +780,20 @@ choicesPerPage = 2;
 No. You need a <b>mind</b> to join a hive<b>mind</b>.
 
 !`
-choicesPerPage = 1;
+choicesPerPage = 2;
 `
+[Gotcha.|blackHub]
 [Where do minds come from then?|blackNot2]
 ---
 :blackNot2
 
 Good question. I'd like to know too.
 
-We have some working theories. I'll fill you in later.
+We have some working theories. Seeds are involved. I'll fill you in later.
 
 !`
-choicesPerPage = 1;
+gainExp(15);
+choicesPerPage = 2;
 `
 [Alright...|blackHub]
 ---
@@ -1459,7 +1463,9 @@ The little lamb shota peels his rubber shorts off again. He can't spend more tha
 
 He poses for the camera with the roasted babytard between his legs, cuddling up against his fat cubcock and nuts. He guides the baby's skull into the soft divot where his shaft meets his sack and wafts away the residual smoke that trails off of it in the meantime.
 
-"Hello," Som says to him. The baby's eyes are empty. "Hello."
+"Hello," Som says to him. The baby's eyes are empty.
+
+"Hello."
 
 !`
 choicesPerPage = 2;
@@ -1494,6 +1500,7 @@ choicesPerPage = 1;
 "Get out."
 
 !`
+worldMap.completeEntry("Black Mansion");
 var cageBathtub = addImage("writer/cageBathtub");
 cageBathtub.x = gameWidth / 2 - cageBathtub.width / 2;
 cageBathtub.y = gameHeight / 2 - cageBathtub.height / 2;
@@ -1504,7 +1511,6 @@ choicesPerPage = 1;
 :blackEnd
 
 !`
-worldMap.completeEntry("Black Mansion");
 gotoArchiepelago();
 `
 

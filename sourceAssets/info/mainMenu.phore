@@ -4,7 +4,7 @@ var startMuted = false;
 var sfwMenu = false;
 
 // startMuted = true;
-sfwMenu = true;
+// sfwMenu = true;
 
 START_PASSAGES
 :mainMenuStart
@@ -17,6 +17,16 @@ welcome
 !`
 disableExit();
 getAudio("music").destroy();
+
+data.species = "bunny";
+data.genitals = "both";
+data.hasBoobs = false;
+data.gender = "both";
+data.playerName = "";
+data.hasKnot = false;
+data.totalExp = 0;
+data.exp = 0;
+data.level = 1;
 
 //Default Settings
 data.fastTransition = false;
@@ -314,7 +324,7 @@ muteButton.onRelease = function() {
 	isMuted = !isMuted;
 	if (isMuted) setMasterVolume(0);
 	else setMasterVolume(1);
-	playEffect("audio/ui/bestChoiceClick");
+	playEffect("audio/ui/nodeClick");
 };
 
 muteButton.onHover = function() {

@@ -1859,6 +1859,7 @@ choicesPerPage = 2;
 She shrugs. "Not that I remember..."
 
 !`
+gainExp(10);
 choicesPerPage = 1;
 addChoice("Right. Shit.", "myntRejoin");
 `
@@ -1868,6 +1869,7 @@ addChoice("Right. Shit.", "myntRejoin");
 She kisses you again. Her tongue fandangles around yours, all excited. "That'sh the shpirit!"
 
 !`
+gainExp(30);
 choicesPerPage = 1;
 addChoice("Mmn~!", "myntRejoin");
 `
@@ -2306,6 +2308,7 @@ You wrap your paws around Mynt's lower back and hug her belly. You nuzzle it wit
 She pants a little. "Now what are you doing down there...?"
 
 !`
+gainExp(25);
 choicesPerPage = 1;
 addChoice("Make out with it.", "myntSex");
 `
@@ -2886,7 +2889,6 @@ addChoice("Step into the pond.", "myntAdvent16knew5");
 resetBackgroundMode(2);
 print("leaving intro");
 
-worldMap.completeEntry("Intro");
 gotoEarth();
 `
 

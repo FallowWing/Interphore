@@ -10,7 +10,6 @@ Most of the farmhouses have cheery lights on and humping shadows at the windows,
 !`
 choicesPerPage = 1;
 worldMap.unlockEntry("Red & Mary");
-worldMap.unlockEntry("Black Mansion");
 `
 [Examine abandoned farm.|rox2a]
 ---
@@ -914,7 +913,6 @@ choicesPerPage = 1;
 :roxMoveAlong
 
 !`
-worldMap.completeEntry("Farm Island");
 gotoArchiepelago();
 `
 

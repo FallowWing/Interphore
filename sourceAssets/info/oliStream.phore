@@ -81,6 +81,7 @@ The futa's paws slide down over his cheeks, kneading them. Ol's tail automatical
 "You guys ready?"
 
 !`
+gainExp(20);
 choicesPerPage = 1;
 `
 [Ready!|oliStreamShow2]
@@ -199,6 +200,7 @@ Ol smiles a bit. Someone punches him in the back of the head for looking happy i
 Paws grope over him. He tilts his chin up and closes his eyes and allows the streamers to wrap their fingers right around his throat. "Don't you have a suggestion to be carrying out right now, slut?"
 
 !`
+gainExp(40);
 choicesPerPage = 1;
 `
 [Next.|oliStreamDumb1]
@@ -652,6 +654,7 @@ She pulls off his fucked-up sideways finger, tongue out, trailing strands of mur
 The futa cleans taste of mouse fingers off the woman's breathy maw. "Save it for the finale," she says in a fluttery voice. Meanwhile she's had about three finales of her own up Ol's ass, and she's only now pulling out, still hard, cock twitching and coated in hot blood.
 
 !`
+gainExp(30);
 choicesPerPage = 1;
 `
 [Next.|oliStreamRejoin2]
@@ -920,6 +923,7 @@ You finally snap out of it and start paying attention again only near the end of
 But he stands. He looks at the camera and does a pretty shitty excuse for a cute smile. His little cocklet is permasoft now that eleven inches of futacock basically popped his prostate, but that doesn't stop the female from jacking it off with thumb and forefinger for the camera.
 
 !`
+gainExp(30);
 choicesPerPage = 2;
 `
 [Wind down.|oliStreamRejoin2]
@@ -930,6 +934,7 @@ choicesPerPage = 2;
 You mute the stream and pop open some eyebleach in a different tab for a while.
 
 !`
+gainExp(10);
 choicesPerPage = 1;
 `
 [Return to the stream.|oliStreamRejoin2]
@@ -1139,6 +1144,7 @@ In the reflection of his glassy, dead eyes, the viewer count ticks down... 20,00
 "See?" the futa purrs. She pulls a respawned Ol out from the hallway and rubs his little ass while the viewer count drops even lower. "No one gives a fuck about you..."
 
 !`
+gainExp(20);
 choicesPerPage = 2;
 `
 [Next.|oliStream11]
@@ -1149,6 +1155,7 @@ choicesPerPage = 2;
 You shut your eyes tight and wince at the screen as they feed him some nasty gross mean soup. He gets fed soup so rapily you just can't even stand it. You've never seen anyone get raped and defiled so hard with soup.
 
 !`
+gainExp(10);
 choicesPerPage = 1;
 `
 [Thanks man, thanks for skipping that. Fuck you|oliStream11]
@@ -1200,6 +1207,7 @@ Ol glances at the camera before he dives in for a warm, healthy meal of ass.
 He smiles, shyly, and throws one last peace sign out for the remaining chat members. "Thanks for tuning in, guys... um... if you stick around, you'll get to watch me suck sweat off my rapists... so... please keep watching! <3 Don't touch that dial!"
 
 !`
+worldMap.completeEntry("Olitippo's Stream");
 choicesPerPage = 1;
 `
 [Touch that dial.|oliStreamEnd]
@@ -1207,7 +1215,6 @@ choicesPerPage = 1;
 :oliStreamEnd
 
 !`
-worldMap.completeEntry("Olitippo's Stream");
 gotoEarth();
 `
 

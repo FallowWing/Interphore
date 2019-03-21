@@ -2,10 +2,8 @@ START_PASSAGES
 :wendyAptStart
 
 !`
-worldMap.unlockEntry("Marshmelon Mess");
-worldMap.unlockEntry("Olitippo's Stream");
-worldMap.unlockEntry("Foodland");
 worldMap.unlockEntry("Mynt's Day Off");
+worldMap.unlockEntry("Kittery, Maine");
 
 data.tookStairs = false;
 data.leftMynt = true;
@@ -58,7 +56,10 @@ Dust chunks and broken ceiling tiles and cables and glass shards from the broken
 ---
 :Sure. I'm lazy.
 
-!`data.tookStairs = false;`
+!`
+gainExp(20);
+data.tookStairs = false;
+`
 
 Mynt presses the UP button. The elevator <i>dings</i> and starts to drop.
 
@@ -113,6 +114,7 @@ She forces a smile.
 "Come on, step in. Their ghosts would be scandalized if we took the stairs after that."
 
 !`
+gainExp(20);
 choicesPerPage = 1;
 `
 [Step inside.]
@@ -148,7 +150,10 @@ choicesPerPage = 1;
 ---
 :The stairs would be safer.
 
-!`data.tookStairs = true;`
+!`
+gainExp(40);
+data.tookStairs = true;
+`
 
 "Right," she says, eyeing the burnt-out tubes in the flourescent lights. "We don't want the power cutting out halfway up."
 
@@ -231,6 +236,7 @@ It's perched on a pile of what looks like dirty laundry.
 Whatever it is, it has wings.
 
 !`
+gainExp(25);
 choicesPerPage = 1;
 `
 [THAT'S NOT MOM|notMom]
@@ -1386,10 +1392,39 @@ choicesPerPage = 1;
 :end2
 
 !`
+disableExit();
 if (music) music.destroy();
 var music = playMusic("audio/ambience/library");
 music.name = "music";
 choicesPerPassage = 1;
+
+var myntBed = addImage("writer/mynt/myntBed1");
+myntBed.scaleX = 1;
+myntBed.scaleY = 1;
+myntBed.centerPivot = true;
+myntBed.temp = false;
+myntBed.x = desiredWidth * 0.5 - (myntBed.width * myntBed.scaleX) * 0.5 + 200;
+myntBed.y = desiredHeight - myntBed.height * myntBed.scaleY;
+
+var myntBed2 = addImage("writer/mynt/myntBed2");
+myntBed2.scaleX = 1;
+myntBed2.scaleY = 1;
+myntBed2.centerPivot = true;
+myntBed2.temp = false;
+myntBed2.x = desiredWidth * 0.5 - (myntBed2.width * myntBed2.scaleX) * 0.5;
+myntBed2.y = desiredHeight - myntBed2.height * myntBed2.scaleY;
+
+var myntBed3 = addImage("writer/mynt/myntBed3");
+myntBed3.scaleX = 1;
+myntBed3.scaleY = 1;
+myntBed3.centerPivot = true;
+myntBed3.temp = false;
+myntBed3.x = desiredWidth * 0.5 - (myntBed3.width * myntBed3.scaleX) * 0.5;
+myntBed3.y = desiredHeight - myntBed3.height * myntBed3.scaleY + 100;
+
+myntBed.alpha = 0;
+myntBed2.alpha = 1;
+myntBed3.alpha = 0;
 `
 
 Mynt burrows under the sheets of the bed and becomes a shivering lump in two seconds.
@@ -1400,7 +1435,7 @@ Mynt burrows under the sheets of the bed and becomes a shivering lump in two sec
 ---
 :What's the matter~?
 
-"It's too ginormo out there!!!"
+"It's too big out there!!!"
 
 !`
 choicesPerPage = 1;
@@ -1409,7 +1444,11 @@ choicesPerPage = 1;
 ---
 :Whaaat? But you were all excited about that earlier!
 
-"I didn't~~ until I looked at the sky, I didn't~~ it's <i>way too big!!!!</i> How did you LIVE here?! Weren't you scared of falling off the planet, into all that endless black?!"
+"I didn't~~ until I looked at the sky, I didn't~~
+
+"How did you LIVE here?!"
+
+"Weren't you scared of falling into all that endless black?!"
 
 !`
 choicesPerPage = 1;
@@ -1423,13 +1462,15 @@ Her voice comes out muffled from underneath several covers, now:
 "Your universal constants could shift at any time!!! Don't get so comfortable!!!!!!"
 
 !`
+myntBed.alpha = 1;
+myntBed2.alpha = 0;
 choicesPerPage = 1;
 `
 [Cool it with the exclamation marks. I'll go.]
 ---
 :Cool it with the exclamation marks. I'll go.
 
-"Okay!!!!!!!!!!!! Thank you!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! Sorry!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+"Okay!!!!!!!!!!!! Thank you!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! Sorry!!!!!!!"
 
 !`
 choicesPerPage = 1;
@@ -1443,15 +1484,19 @@ She peeks her head out from the end of the bed.
 "I'm sorry! I really am!"
 
 !`
+myntBed.alpha = 0;
+myntBed2.alpha = 1;
 choicesPerPage = 1;
 `
 [It's fine, it's fine. Go get some dildos and some flowers for the room while I'm gone, ya?]
 ---
 :It's fine, it's fine. Go get some dildos and some flowers for the room while I'm gone, ya?
 
-"Okay," she says, smiling weakly. Her perky ears tent the blankets. "I'll see if I can find some pink paint or something, too. Let's really gay up the place!"
+"Okay!"
 
 !`
+myntBed2.alpha = 0;
+myntBed3.alpha = 1;
 choicesPerPage = 1;
 `
 [Lol, sounds good.]
@@ -1463,6 +1508,8 @@ She slips back under the blankets.
 "Okay. Good. Thanks again. I'm just gonna um... I just need a second to calm down, here..."
 
 !`
+myntBed.alpha = 1;
+myntBed3.alpha = 0;
 choicesPerPage = 1;
 `
 [Gotcha. I'm gonna go through those keepsakes out front, then I'll jump out the window.]
@@ -1485,6 +1532,9 @@ The hall is completely black. You hadn't really noticed how dark it was, since t
 The darkness doesn't make it easy to sort through this pile of maybe-not-junk. You end up just feeling over most things... soft, fuzzy... hard, metallic... crinkly paper...
 
 !`
+myntBed.alpha = 0;
+myntBed2.alpha = 0;
+myntBed3.alpha = 0;
 choicesPerPage = 3;
 `
 [Examine fuzzy thing.]
@@ -1539,6 +1589,7 @@ You head back into the room.
 "Find any lore?" the bed asks you.
 
 !`
+myntBed.alpha = 1;
 choicesPerPage = 1;
 `
 [Nothing juicy.]
@@ -1550,6 +1601,8 @@ The bed sighs.
 "Aw. That sucks. But hey... I feel a little better now!"
 
 !`
+myntBed.alpha = 0;
+myntBed3.alpha = 1;
 choicesPerPage = 1;
 `
 [Oh yeah? Brave enough to come out and see me off?]
@@ -1563,6 +1616,10 @@ Mynt toddles over to you and wraps you up in her burrito. She kisses you on the 
 "You're jumping now?"
 
 !`
+enableExit();
+myntBed.destroy();
+myntBed2.destroy();
+myntBed3.destroy();
 choicesPerPage = 1;
 `
 [Mhm. Unless you wanna throw me off the roof or something fun.]
@@ -1607,6 +1664,7 @@ Mynt's face pops out of the window. She extracts a paw from her burrito and wave
 "I'll clean you up!" Mynt assures your corpse.
 
 !`
+worldMap.completeEntry("Moving In");
 choicesPerPage = 1;
 `
 [Next.|endWendyApt]
@@ -1614,7 +1672,6 @@ choicesPerPage = 1;
 :endWendyApt
 
 !`
-worldMap.completeEntry("Moving In");
 gotoEarth();
 `
 

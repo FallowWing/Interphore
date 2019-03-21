@@ -62,7 +62,10 @@ choicesPerPage = 2;
 
 Well, she's made of marshmallow and you've still got hands, so yes. What would you like to do?
 
-!`data.pouphGenitals = "female";`
+!`
+gainExp(35);
+data.pouphGenitals = "female";
+`
 
 [Give her a pussy!]
 [Give her a cock 'n balls!]
@@ -597,6 +600,7 @@ In the barn, it's clear where Pouph belongs: there's a pen full of sheep nearly 
 You quietly crack the pen's gate open, then set her down and pat her on the butt. She makes it about three steps before she flops to all fours and crawls the rest of the way into the snuggle pile. It only takes seconds for her to start snoring.
 
 !`
+worldMap.completeEntry("Marshmelon Mess");
 choicesPerPage = 1;
 `
 [Move along~!]
@@ -604,7 +608,6 @@ choicesPerPage = 1;
 :Move along~!
 
 !`
-worldMap.completeEntry("Marshmelon Mess");
 gotoEarth();
 `
 

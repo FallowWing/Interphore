@@ -9,6 +9,16 @@ START_PASSAGES
 :LLLmapStart
 
 ---
+:earth
+!`
+gotoEarth();
+`
+---
+:archiepelago
+!`
+gotoArchiepelago();
+`
+---
 :meetingCart
 
 !`
@@ -22,6 +32,14 @@ data.metCart = true;
 
 !`
 gotoThirstyCaves();
+`
+---
+:thellyAdvertise
+
+!`
+clear();
+execAsset("thellyAd.phore");
+gotoPassage("thellyAdStart");
 `
 ---
 :loreWhoring
@@ -75,30 +93,48 @@ gotoPassage("cartParaModStart");
 END_PASSAGES
 
 function gotoLLL() {
+	clear();
 	worldMap.clear();
+	data.currentMap = "LLL";
 
 	var entry;
 
-	//worldMap.unlockEntry("Scene 2");
-	//worldMap.completeEntry("Scene 2");
+	entry = worldMap.createNode("Up: The Red Sea", "backLLL");
+	entry.color = 1;
+	worldMap.preUnlockEntry("Up: The Red Sea");
 
-	entry = worldMap.createNode("Back", "backLLL");
-	entry.seenUnlocked = entry.unlocked = true;
+	entry = worldMap.createNode("L.L.L.", "loreWhoring", BOTTOM, "Up: The Red Sea");
+	entry.color = 2;
+	entry.lockedMessage = "Requires <b>Level 3</b>";
 
-	entry = worldMap.createNode("Meeting Cart", "meetingCart", RIGHT, "Back");
-	entry.seenUnlocked = entry.unlocked = true;
+	entry = worldMap.createNode("Down: Earth", "earth", BOTTOM, "L.L.L.");
+	entry.color = 1;
+	worldMap.preUnlockEntry("Down: Earth");
 
-	entry = worldMap.createNode("Femme Ren's", "femmeRens", BOTTOM, "Meeting Cart");
+	entry = worldMap.createNode("Down: Archiepelago", "archiepelago", LEFT, "L.L.L.");
+	entry.color = 1;
+	entry.lockedMessage = "???";
+
+	entry = worldMap.createNode("Cartographer", "meetingCart", RIGHT, "L.L.L.");
+	worldMap.preUnlockEntry("Cartographer");
+
+	entry = worldMap.createNode("Femme Ren's", "femmeRens", BOTTOM, "Cartographer");
+	entry.lockedMessage = "Requires <b>Cartographer</b>";
+
+	entry = worldMap.createNode("Revenge of the Dads", "thellyAdvertise", BOTTOM, "Femme Ren's");
+	entry.lockedMessage = "Requires <b>Femme Ren's</b>";
 	
 	entry = worldMap.createNode("Bullying Lone", "bullyingLone", RIGHT, "Femme Ren's");
+	entry.lockedMessage = "Requires <b>Femme Ren's</b>";
 
 	entry = worldMap.createNode("Looking for Trouble", "loneDoors", RIGHT, "Bullying Lone");
+	entry.lockedMessage = "Requires <b>Bullying Lone</b> and <b>Black Mansion</b>";
 
-	entry = worldMap.createNode("Wet Transmission", "wetTransmission", RIGHT, "Meeting Cart");
+	entry = worldMap.createNode("Wet Transmission", "wetTransmission", RIGHT, "Cartographer");
+	entry.lockedMessage = "Requires <b>Cartographer</b>";
 
-	entry = worldMap.createNode("Wet Cartography", "wetCartography", RIGHT, "Wet Transmission");;
-
-	entry = worldMap.createNode("Visit L.L.L.", "loreWhoring", LEFT, "Back");
+	entry = worldMap.createNode("Wet Cartography", "wetCartography", RIGHT, "Wet Transmission");
+	entry.lockedMessage = "Requires <b>Wet Transmission</b>";
 
 	worldMap.show();
 
@@ -114,11 +150,6 @@ function gotoLLL() {
 	backgroundLLL.y = gameHeight - backgroundLLL.height;
 	backgroundLLL.layer = 38; //Below title
 	tween(backgroundLLL, 30, {y: 0}, {ease: QUAD_OUT, type: PINGPONG, startDelay: 4});
-
-	if (!data.seenLLLCredit) {
-		data.seenLLLCredit = true;
-		msg("Art: Cubber");
-	}
 }
 
 /*
@@ -126,7 +157,7 @@ function gotoLLL() {
 	clearNodes();
 
 	submitNode("Back", "backLLL");
-	submitNode("Meeting Cart", "meetingCart");
+	submitNode("Cartographer", "meetingCart");
 	submitNode("Femme Ren's", "femmeRens");
 	submitNode("Bullying Lone", "bullyingLone");
 	submitNode("Looking for Trouble", "loneDoors");
@@ -134,11 +165,11 @@ function gotoLLL() {
 	submitNode("Wet Transmission", "wetTransmission");
 	submitNode("Wet Cartography", "wetCartography");
 
-	attachNode("Back", "Meeting Cart", RIGHT);
-	attachNode("Meeting Cart", "Femme Ren's", BOTTOM);
+	attachNode("Back", "Cartographer", RIGHT);
+	attachNode("Cartographer", "Femme Ren's", BOTTOM);
 	attachNode("Femme Ren's", "Bullying Lone", BOTTOM);
 	attachNode("Bullying Lone", "Looking for Trouble", BOTTOM);
-	attachNode("Meeting Cart", "Lore Whoring", RIGHT);
+	attachNode("Cartographer", "Lore Whoring", RIGHT);
 	attachNode("Lore Whoring", "Wet Transmission", RIGHT);
 	attachNode("Wet Transmission", "Wet Cartography", RIGHT);
 
@@ -180,11 +211,6 @@ function gotoLLL() {
 	backgroundLLL.y = gameHeight - backgroundLLL.height;
 	backgroundLLL.layer = 38; //Below title
 	tween(backgroundLLL, 30, {y: 0}, {ease: QUAD_OUT, type: PINGPONG, startDelay: 4});
-
-	if (!data.seenLLLCredit) {
-		data.seenLLLCredit = true;
-		msg("Art: Cubber");
-	}
 }
 
 //Taro, Cade, Gryphon, and Kemp's truck cameo

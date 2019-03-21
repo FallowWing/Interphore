@@ -1601,6 +1601,7 @@ You both fall the fuck over and gasp for breath. Blood, cum, and piss, and silk 
 "Thank... you..." Cart pants. "This was the last map... I needed to do... for today."
 
 !`
+worldMap.completeEntry("Looking for Trouble");
 choicesPerPage = 1;
 `
 [End. <3|loneDoors140]
@@ -1608,7 +1609,6 @@ choicesPerPage = 1;
 :loneDoors140
 
 !`
-worldMap.completeEntry("Looking for Trouble");
 gotoLLL();
 `
 

@@ -73,8 +73,6 @@ disableExit();
 
 worldMap.unlockEntry("Femme Ren's");
 worldMap.unlockEntry("Moving In");
-worldMap.unlockEntry("Yellow Pond");
-worldMap.unlockEntry("Visit L.L.L.");
 worldMap.unlockEntry("Wet Transmission");
 
 if (music) music.destroy();
@@ -182,7 +180,7 @@ Mynt's eyes go everywhere, anywhere except around that corner. She turns robotic
 
 !`
 choicesPerPage = 2;
-addChoice("Follow Mynt.", "followMynt");
+addChoice("Follow Mynt.", "followMyntStraight");
 addChoice("... Take a look.", "seedy", {icons: ["Cub", "Male", "Male", "Male", "Male", "Male"]});
 `
 
@@ -200,6 +198,7 @@ It's got graffiti'd off-yellow walls decorated by little multicolored paint-drip
 A random cub otter boy patters up on quick feetpaws and grabs your hand, tugging you over to the bustling playground.
 
 !`
+gainExp(20);
 choicesPerPage = 2;
 `
 [Go with him.]
@@ -322,6 +321,18 @@ She stifles a giggle. "Well, at least you were brave enough to try it out. I don
 choicesPerPage = 1;
 `
 [Ahhh, I see.|followMynt]
+---
+:followMyntStraight
+
+Mynt shoots you a faithful smile so bright it overflows into your XP.
+
+"Thanks for sticking with me... it's seedy around here..."
+
+!`
+choicesPerPage = 1;
+gainExp(60);
+`
+[No prob.|followMynt]
 ---
 :followMynt
 
@@ -536,11 +547,13 @@ choicesPerPage = 2;
 addChoice("Watch him.", function() {
 	watchCart = true;
 	gotoPassage("cartWatch1");
+	gainExp(10);
 }, {icons: ["Art", "Cub", "Male"]});
 
 addChoice("Just talk from in here.", function() {
 	watchCart = false;
 	gotoPassage("cartWatch1");
+	gainExp(20);
 });
 `
 ---
@@ -839,6 +852,7 @@ Cart dips into a cabinet and comes back out with three blue cups and a still-hot
 Mynt squicks out. "That's not blood tea, is it...?"
 
 !`
+gainExp(20);
 choicesPerPage = 1;
 `
 [...|tea2]
@@ -886,6 +900,7 @@ You pinch the handle and bring the teacup to your lips. You take a hearty sip. T
 "Watch out." Cart giggles at your reaction. "It is conductive. I put a couple volts into the first pot of the day. Wakes me up."
 
 !`
+gainExp(10);
 choicesPerPage = 1;
 `
 [Look at Mynt again.|tea6]
@@ -951,6 +966,7 @@ choicesPerPage = 2;
 "My real name is Lana. People just call me Cart for the same reason Spilled Paint people called each other Smith. It is easier to remember someone if their profession is their name, and a lot of people need to remember me."
 
 !`
+gainExp(10);
 choicesPerPage = 1;
 `
 [And what am I, now that I've been assimilated?|assim]
@@ -1009,6 +1025,7 @@ Cart watches her. "Why are you staring at my boots?"
 "No reason!" Mynt squeaks. She sips her wine violently. It goes down the wrong tube and she starts hacking into a balled fist, trying to keep her mouth closed. The result is a cute little grunting sound, watery eyes, and her cheeks get all puffed-out.
 
 !`
+gainExp(10);
 choicesPerPage = 1;
 `
 [Sip my wine.|booze2]
@@ -1112,6 +1129,7 @@ He's still sweaty from painstaking paint-skating. He tenses his arm and holds yo
 "Thank me," he whispers.
 
 !`
+gainExp(20);
 choicesPerPage = 1;
 `
 [Thank you for building this afterlife and pulling us into it, God.|booze8a]
@@ -1347,6 +1365,7 @@ The door shuts. You listen to almost-empty tubes of paint making farty squirting
 Mynt hugs you, now. "Back to Earth now, right? Back to the meteorite?"
 
 !`
+worldMap.completeEntry("Cartographer");
 choicesPerPage = 1;
 `
 [Let's go.|cartEndMap]
@@ -1358,6 +1377,7 @@ Mynt coughs awkwardly. "I'd rather you didn't do that right now."
 Cart smiles hopefully and looks from one of you to the other, resting his chin on a paw. "Maybe another time?"
 
 !`
+gainExp(10);
 choicesPerPage = 2;
 `
 [Okay, tea for now.|Tea, please.]
@@ -1368,8 +1388,6 @@ choicesPerPage = 2;
 !`
 resetBackgroundMode(2);
 print("leaving intro");
-
-worldMap.completeEntry("Meeting Cart");
 
 gotoLLL();
 `

@@ -7,7 +7,7 @@ music.name = "music";
 
 setBackground(0, "img/writer/mainBg");
 setBackground(1, "");
-//choicesPerPage = 4;
+choicesPerPage = 5;
 `
 Dev Menu
 
@@ -90,6 +90,28 @@ As always, thanks so much for your support!!!! <3
 !`
 if (internal) addChoice("VN test", "vnTest");
 if (internal) addChoice("Weird choices", "weirdChoiceTest");
+`
+---
+:expTest
+
+This is the exp test.
+
+!`
+choicesPerPage = 5
+addChoice("add 10", function() {
+	gainExp(10);
+});
+addChoice("add 30", function() {
+	gainExp(30);
+});
+addChoice("add 40", function() {
+	gainExp(45);
+});
+addChoice("add 60", function() {
+	gainExp(50);
+});
+addChoice("Back", "scratchModStart");
+
 `
 ---
 :cheatsStart
@@ -289,7 +311,14 @@ gotoPassage("wendyApt2Start");
 !`
 gotoPassage("pickedSpecies");
 `
+---
+:xploreTest
 
+!`
+choicesPerPage = 3;
+explore(["cat", "dog", "something"]);
+`
+[Back to tests.|testsStart]
 ---
 :testsStart
 
@@ -298,7 +327,8 @@ choicesPerPage = 6;
 `
 
 [Back|scratchModStart]
-
+[Explore test|xploreTest]
+[expTest]
 !`
 addChoice("Test unlocking nodes", function() {
 	gotoScratch();

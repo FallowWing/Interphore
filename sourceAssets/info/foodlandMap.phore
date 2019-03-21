@@ -1,0 +1,93 @@
+print("arriving at Earth map");
+
+if (music) music.destroy();
+var music = playMusic("audio/ambience/violetMeteorite");
+music.name = "music";
+
+START_PASSAGES
+---
+:earthStart
+
+---
+:backFoodland
+
+!`
+gotoEarth();
+`
+---
+:foodLandChrysGo
+!`
+clear();
+execAsset("foodLandChrys.phore");
+gotoPassage("foodLandChrysModStart");
+`
+---
+:foodLandTaro
+!`
+clear();
+execAsset("foodLand.phore");
+gotoPassage("foodLandModStart");
+`
+---
+:luluPouph
+!`
+clear();
+execAsset("luluPouph.phore");
+gotoPassage("luluStart");
+`
+---
+:foodlandExplore
+
+WIP!
+
+!`
+choicesPerPage = 1;
+addChoice("Back.", function() {
+	gotoFoodland();
+});
+`
+
+END_PASSAGES
+
+function gotoFoodland() {
+	clear();
+	//clearNodes();
+	data.currentMap = "foodland";
+
+	//Map
+	worldMap.clear();
+
+	var entry;
+
+	entry = worldMap.createNode("Up: Earth", "backFoodland");
+	entry.color = 1;
+	worldMap.preUnlockEntry("Up: Earth");
+
+	entry = worldMap.createNode("Foodland", "foodlandExplore", BOTTOM, "Up: Earth");
+	entry.color = 2;
+	worldMap.preUnlockEntry("Foodland");
+
+	entry = worldMap.createNode("Taro & Lulu", "foodLandTaro", RIGHT, "Foodland");
+	worldMap.preUnlockEntry("Taro & Lulu");
+
+	entry = worldMap.createNode("Marshmelon Mess", "luluPouph", RIGHT, "Taro & Lulu");
+	entry.lockedMessage = "Requires <b>Taro & Lulu</b>";
+
+	entry = worldMap.createNode("Chrysophylux", "foodLandChrysGo", RIGHT, "Marshmelon Mess");
+	entry.lockedMessage = "Requires <b>Level 5</b>";
+
+	worldMap.show();
+
+	var layerSelect = addImage("writer/mapTitles/foodland.png");
+		layerSelect.layer = 39; //Just beneath node lines & boxes
+		layerSelect.alpha = 0;
+		layerSelect.y = -layerSelect.height;
+		tween(layerSelect, 1, {y: 0, alpha: 1}, {ease: QUINT_OUT});
+
+	setBackground(0, "writer/mainBg");
+
+	var backgroundFoodland = addImage("writer/foodlandBg.png");
+	backgroundFoodland.y = gameHeight - backgroundFoodland.height;
+	backgroundFoodland.layer = 38; //Below title
+	tween(backgroundFoodland, 30, {y: 0}, {ease: QUAD_OUT, type: PINGPONG, startDelay: 4});
+}

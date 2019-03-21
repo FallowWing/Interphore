@@ -505,7 +505,7 @@ function loadGame() {
 		worldMap.unlockEntry("Yellow Pond");
 		worldMap.unlockEntry("Visit L.L.L.");
 		worldMap.unlockEntry("Wet Transmission");
-		worldMap.unlockEntry("Archiepelago");
+		worldMap.unlockEntry("Down: Archiepelago");
 	}
 
 	if (data.heardTransmission) {
@@ -517,9 +517,9 @@ function loadGame() {
 	}
 
 	if (data.leftMynt) {
-		worldMap.unlockEntry("Marshmelon Mess");
 		worldMap.unlockEntry("Olitippo's Stream");
-		worldMap.unlockEntry("Foodland");
+		worldMap.unlockEntry("Down: Foodland");
+		worldMap.unlockEntry("Taro & Lulu");
 		worldMap.unlockEntry("Mynt's Day Off");
 	}
 
@@ -748,6 +748,7 @@ function msg(str, config) {
 		tf = addEmptyImage(256, 512);
 	}
 
+	tf.setFont("NunitoSans-Light_26");
 	if (config.smallFont) tf.setFont("NunitoSans-Light_22");
 	tf.temp = false;
 	tf.layer = MSG_TEXT_LAYER;
@@ -874,10 +875,11 @@ function showTooltip(str) {
 	if (str != tooltipTf.text) rebuildBg = true;
 
 	tooltipTf.setText(str);
+	tooltipTf.setFont("NunitoSans-Light_26");
 
 	if (rebuildBg) {
 		if (tooltipBg) tooltipBg.destroy();
-		tooltipBg = add9SliceImage("img/writer/writerChoice.png", tooltipTf.textWidth + 16, tooltipTf.textHeight + 16, 5, 5, 10, 10);
+		tooltipBg = add9SliceImage("img/writer/writerChoice.png", tooltipTf.textWidth + 20, tooltipTf.textHeight + 20, 5, 5, 10, 10);
 		tooltipBg.temp = false;
 		tooltipBg.layer = TOOLTIP_SPRITE_LAYER;
 		tooltipTf.addChild(tooltipBg);
@@ -992,10 +994,18 @@ function realUpdate() {
 		var spr = msgs[i].sprite;
 
 		msg.timeShown += elapsed;
-		if (spr.justReleased) msg.timeShown = 99;
+		if (spr.justReleased) {
+			msg.timeShown = 99;
+			if (rndFloat() > 0.8) {
+				playEffect("audio/ui/rewards/xp/0");
+				data.exp += 5;
+			}
+			playEffect("audio/ui/choiceClick");
+		}
 
 		if (msg.timeShown > 5) {
 			msg.sprite.alpha -= 0.2;
+			if (msg.sprite.scaleY > 0) msg.sprite.scaleY -= 0.1;
 			if (msg.sprite.alpha <= 0) msgsToDestroy.push(msg);
 		} else {
 			msg.sprite.alpha += 0.2;

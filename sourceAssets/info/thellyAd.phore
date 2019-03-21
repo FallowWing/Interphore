@@ -1,0 +1,1889 @@
+START_PASSAGES
+:thellyAdStart
+
+You hop out of the pond outside the L.L.L. The musky dungeon air affronts you.
+
+!`
+choicesPerPage = 1;
+`
+[Check on those two bois.|thellyAd1] #Male
+---
+:thellyAd1
+
+!`
+choicesPerPage = 1;
+`
+[Who were those boys again? I'm losing track.|thellyAd2] #Male
+---
+:thellyAd2
+
+On this layer?
+
+!`
+choicesPerPage = 1;
+`
+[Yeah, in the dungeon city.|thellyAdBoys]
+---
+:thellyAdBoys
+
+You know four boys on this layer:
+
+!`
+choicesPerPage = 3;
+addChoice("Cartographer?", "thellyBoyCart", {icons: ["Male", "Cub"]});
+addChoice("Ren & Thelly?", "thellyBoyThelly", {icons: ["Male", "Male"]});
+
+if (data.metLone) {
+	append("Cartographer, Thelly, Ren, and Lone.");
+	addChoice("Lone?", "thellyBoyLone", {icons: ["Male", "Cub"]});
+} else {
+	append("Cartographer, Thelly, and Ren.");
+	addChoice("Lone?", "thellyBoyLone", {icons: ["Male", "Cub"], enabled: false, toolTip: "Haven't met this goat yet."});
+}
+`
+---
+:thellyBoyLone
+
+!`
+choicesPerPage = 1;
+var loneBod = addImage("writer/characters/lone/loneFramed");
+//loneBod.scaleX = -1;
+loneBod.centerPivot = true;
+loneBod.x = gameWidth/2 - loneBod.width/2;
+loneBod.y = gameHeight - loneBod.height;
+
+//tween(loneBod, 2, {scaleX: -1}, {ease: ELASTIC_OUT, type: PINGPONG});
+
+setTitle("Lone left the layer in search of a home. Cage lends you a picture anyway.");
+`
+
+[No the other boys.|thellyAdBoys]
+---
+:thellyBoyCart
+
+!`
+choicesPerPage = 1;
+var cartBod = addImage("writer/characters/cart/cart");
+//cartBod.scaleX = -1;
+cartBod.centerPivot = true;
+cartBod.scaleX = 1.3;
+cartBod.scaleY = 1.3;
+cartBod.x = gameWidth/2 - cartBod.width/2;
+cartBod.y = gameHeight/2 - cartBod.height/2;
+
+//tween(cartBod, 2, {scaleX: -1}, {ease: ELASTIC_OUT, type: PINGPONG});
+
+setTitle("Cart is busy studying distress signals and waterpeople language.");
+`
+
+[No the other boys.|thellyAdBoys]
+---
+:thellyBoyThelly
+
+!`
+choicesPerPage = 1;
+var thellyBod = addImage("writer/characters/thelly/thelly");
+//thellyBod.scaleX = -1;
+thellyBod.centerPivot = true;
+thellyBod.x = gameWidth * 0.75 - thellyBod.width/2;
+thellyBod.y = gameHeight - thellyBod.height;
+
+tween(thellyBod, 4, {scaleX: -1}, {ease: ELASTIC_OUT, type: PINGPONG});
+
+var renBod = addImage("writer/characters/ren/ren");
+//renBod.scaleX = -1;
+renBod.centerPivot = true;
+renBod.x = gameWidth * 0.25 - renBod.width/2;
+renBod.y = gameHeight - renBod.height;
+
+tween(renBod, 4, {scaleX: -1}, {ease: ELASTIC_OUT, type: PINGPONG});
+
+setTitle("These boys are at their brothel. Something has gone wrong.");
+`
+
+[Go see how my boys are doing.|thellyAdBegin]
+---
+:thellyAdBegin
+
+!`
+choicesPerPage = 1;
+setTitle("");
+`
+
+The boys have aged themselves up to 18.
+
+You roll up to Thelly and Ren's brothel to see how business has been going. Wow! Must be really bumping, because someone took all the posters outside. Probably wanted to bring them back home for fap material.
+
+Oh, wow, they can't even close the door it's so busy! Although you don't see anybody coming or going, the door is just open.
+
+Oh. And the hinges are broken.
+
+[Oh no.|thellyAd3]
+---
+:thellyAd3
+
+You rush inside.
+
+The dungeon falls away behind you. You come out into an impossibly open area, rolling hills, wide sky, sunshine, all of it just as beautiful as last time. But now, there are no boys playing in the river.
+
+"Oh no," Thelly pouts, touching a fresh spraypainted dick. "It's not our age, Ren... these dad vandals are mad about something else..."
+
+!`
+choicesPerPage = 1;
+`
+[Examine state of brothel.|thellyAd4]
+---
+:thellyAd4
+
+The brothel is fucking wrecked. Central support beams crackle like a distant, icy lake. It leans at a 45 degree angle. The building's spine is just a single column of occupied rooms that shake and shudder.
+
+!`
+choicesPerPage = 1;
+`
+[Examine boys.|thellyAd5]
+---
+:thellyAd5
+
+A couple rooms fall off the sides. Boys scream and try to climb out of the windows, but they can't escape in time. One of them runs <i>away</i> from his window to try and save his blue stuffed bunny first, dooming himself.
+
+A support beam snaps and sixteen rooms crumble like a long, thrashing wooden caterpillar trying to wriggle away from the rest of the building. Ren and Thelly shield their little crowd of cubs from wooden shrapnel as it whips through the air. Big wooden javelin of wreckage pierce the grass and the soft soil.
+
+The brothel's spine twists. Once straight columns of rooms now look more like an overweight flamingo as the upper floors pancake each other one by one.
+
+!`
+choicesPerPage = 1;
+`
+[Get closer!! Are the boys okay?|thellyAd6]
+---
+:thellyAd6
+
+The boys that remain are okay.
+
+There's a few mangled corpses in the wreckage where the rooms fell off, but their owners have respawned now, and Ren has personally hugged and patted the head of each anxious cublet to make sure the shock doesn't have time to fester into trauma.
+
+There's something more than just shock in the air though, something that headpats can't hold back: paranoia.
+
+A big slab of wood marked with dark graffiti lands with a thud at the edge of the crowd. They all scurry away.
+
+Eyes shift. Tails are all low. Ears are listening.
+
+!`if (data.genitals === "male" && data.gender === "male") append("The boys glare at your femmy hips... they puff their chests out and act as masculine as they can, checking their periphery compulsively. Some of them cower from you, mistaking you for a dad.");`
+
+!`
+choicesPerPage = 1;
+`
+[Ren, what happened???|thellyAd7]
+---
+:thellyAd7
+
+"Look and see."
+
+He points at the rolling hills.
+
+They're empty...?
+
+Thelly finishes plucking splinters from his perfect girly hair. He hurries to Ren, still determined to be good and helpful, even though the sawdust hangs like fog in the air and irritates his baggy eyes. He gently pushes Ren's pointing finger towards the brothel doors.
+
+"Ah yes. Sorry," Ren says, "I meant to point over here."
+
+You follow the point to five words in bright, bloody red juice...
+
+!`
+choicesPerPage = 1;
+`
+[Examine words?|thellyAd8]
+---
+:thellyAd8
+
+<b>FIND A NEW LAYER FAGGOTS</b>
+
+!`
+choicesPerPage = 1;
+`
+[Oh.|thellyAd9]
+---
+:thellyAd9
+
+The boys surround you, little chests and bellies pressed to your legs. They're all whining and crying.
+
+"Can you please help us find them?"
+
+"They took out a couple of the secondary support beams, stole all our boys, and broke the front door."
+
+"They called me a... a... a dumb sissycub."
+
+"They were so hairy and muscular... just total mean dads..."
+
+"One of them spit on me!!! I'm not even INTO THAT!!!!! It was fucking gROSSS!!!!"
+
+Ren calms the last one down and peels the boys off of you one at a time, tail by tail, ear by ear, ankle by ankle. "I'm sorry. Forgive them. They're ruffled."
+
+!`
+choicesPerPage = 1;
+`
+[Is that all true, Ren?|thellyAd10]
+---
+:thellyAd10
+
+He lowers his head.
+
+"This place is very male-focused, that's all. I will close down temporarily and attempt to re-integrate with the locals. I should have guessed why we had no customers."
+
+Thelly narrows his eyes. "We're already hurting. We need repairs. We need replacement boys. We can't close down when we were barely pulling in business in the first place!"
+
+!`
+choicesPerPage = 1;
+`
+[...|thellyAd11]
+---
+:thellyAd11
+
+Ren agrees to disagree by touching Thelly's shoulder and not offering any constructive response or rebuttal. Thelly swallows the counter-argument he had prepard and drops it for now. "I think we should just go out there and talk to them..."
+
+Separate from the group, a little cub sits before his wrecked room. It just fell. He fishes around in the wreckage and pulls out a blue stuffed bunny peppered with splinters. You see him from behind, shuddering with his shoulders hunched, feetpaws tucked beneath his butt, toes curled, while he picks the splinters out of his bunny.
+
+"Why?" he says in his little voice. "Why'd they do that?"
+
+Thelly pats him. "It'll be okay."
+
+"I know it'll be okay," the boy pouts. "I just wanna know why."
+
+!`
+choicesPerPage = 1;
+`
+[...|thellyAd12]
+---
+:thellyAd12
+
+"It's because we need to try a little harder, is all," Ren pipes up. He clears his throat and orates with impeccable tone deafness; no one else is ready to feel the hope that swells his chest.
+
+"We need to band together in this time of crisis and join paws to keep our brothel standing. We may not be welcome today, maybe not this moment, but the moment we are accepted into this realm of gorgeous dads is out there~~" Ren's pawfinger goes erect with raw pontification~~ "acceptance is ALMOST HERE, it's just ahead, in the near future, simply itching to be grasped by small paws such as our own! All we have to do is~~"
+
+The boys look at him shrewdly. "If the dads heard you say that, they'd punch you and knock down the rest of the rooms."
+
+Ren's finger goes flaccid. "I haven't even proposed my plan yet."
+
+!`
+choicesPerPage = 1;
+`
+[It probably involves whoring yourselves out to all the dads, huh?|thellyAd13]
+---
+:thellyAd13
+
+Ren blushes. "N-No. At least uh. I had a bit more to it."
+
+The boys turn away from Ren, their madame, their leader, once the elegant cat they looked up to more than anyone, and instead, they turn to Thelly.
+
+"What should we do?"
+
+!`
+choicesPerPage = 1;
+`
+[...|thellyAd14]
+---
+:thellyAd14
+
+Thelly falters. Does he even have a plan either?
+
+"W-W-W-Well..."
+
+!`
+choicesPerPage = 1;
+`
+[What's the plan going to achieve, even?|thellyAd15]
+---
+:thellyAd15
+
+All eyes turn to you. A couple boys magnetize to your legs again, eager to hear your ideas. They need your ideas bad. They grind their soft face cheeks over your inner thighs, `genitals("cool wet snouts kissing your nuts", "snouts snoofling and sniffling tears right near your cunt", "cool wet snouts kissing your nuts");`.
+
+Ren's gentle suggestion: "Ideally, we want to at least be able to keep a structure erect."
+
+Thelly's paws slam to his hips. His fat yellow ass quakes with authority. "We'll need to be able to keep our posters up, too, and we need at least enough customers to stay afloat. We'll also have to get the dads to apologize and repair all the shit they broke. They must <b>also</b> return every single boy they stole from us."
+
+The boys cheer.
+
+"Yeah!"
+
+"FUCKIN RIGHTS!"
+
+"I agree with the pisspup!"
+
+Ren protests, but the indignant boys shush him before he can inject any realism into the discussion.
+
+!`
+choicesPerPage = 1;
+`
+[Welllllll.|thellyAd16]
+---
+:thellyAd16
+
+All eyes on you again. When you look down, there are about four more boys attached to you than there were last time. Unasked questions swirl in their starstruck eyes.
+
+!`
+choicesPerPage = 1;
+`
+[I don't think you can demand a minimum amount of customers.|thellyAd17]
+---
+:thellyAd17
+
+"But we need to stay afl~~"
+
+!`
+choicesPerPage = 1;
+`
+[Like, you can't forcibly underwrite all these dads to support your brothel.|thellyAd18]
+---
+:thellyAd18
+
+Thelly goes :\
+
+!`
+choicesPerPage = 1;
+`
+[What you're asking for is like. Some sort of nonconsensual Dad Subsidy.|thellyAd19]
+---
+:thellyAd19
+
+Ren jumps in at the very first chance:
+
+"Yes. Your suggestions are a little naive, Thelly. You were only just assimilated, so you should let~~"
+
+The boys shush him again. He slinks back, away from the group, into the dark, injured slant of the brothel's shadow.
+
+!`
+choicesPerPage = 1;
+`
+[The other stuff Thelly said is a reasonable request I think.|thellyAd20]
+---
+:thellyAd20
+
+"Yeah!! See? I'll say it again, so listen, Ren." All eyes snap back to Thelly's glorious ass. He declares his demands with one wobble per syllable:
+
+1. An apology.
+2. Free expression, so posters.
+3. Repairs to the brothel.
+4. Give us back the stolen boys.
+
+!`
+choicesPerPage = 1;
+`
+[Okay. That sounds reasonable.|thellyAd21]
+---
+:thellyAd21
+
+Ren asks a question from the shadows. Only a sliver of milky cornea peeks out from between his relaxed eyelids.
+
+"How will you convince them? Sex? They don't like the shape of your body period."
+
+!`
+choicesPerPage = 1;
+`
+[Thelly, maybe you could jump in the pond and become less of a cute little girly bitch boy.|thellyAd22]
+---
+:thellyAd22
+
+He crosses his arms. "No! The point of this is to get them to accept us as we are, not as high-testosterone versions of ourselves... god, those freaks probably get off to soccer-print bedspreads and action figure collections... and we should just... well..."
+
+The boys aren't so locked to him anymore. After this and the dad subsidy, they're losing faith.
+
+!`
+choicesPerPage = 1;
+`
+[But then how will you convince them?|thellyAd23]
+---
+:thellyAd23
+
+"We'll just have to... y'know, get together in the middle of town, and set up a little booth, maybe something that states our demands, and we can fly a 'Change my mind' poster there to start a discussion. Right? That sounds fine, right?"
+
+From the shadows: "They won't go for it, I'm telling you... those dads are too angry for civil discussion..."
+
+"Shush, Ren."
+
+"I had more to my plan, if you'll let me finish..."
+
+!`
+choicesPerPage = 1;
+`
+[Let him finish.|thellyAd24]
+---
+:thellyAd24
+
+Thelly shuts up :x
+
+Ren's voice is cool: "I'm not suggesting anything crazy difficult. We can at least try the booth thing. My only suggestion is this: bring phones, bring cameras, pass them around, and keep them running."
+
+The boys whisper. Tails perk up. Little boi lips brush against ears.
+
+Thelly puzzles over it. It takes effort for him break his contrarian combo. "I guess there's nothing wrong with that..."
+
+"Whatever happens, whether they sit down and listen, or whether they tease us or bully us, or whether they just launch into a gangbang despite claiming they aren't into girly boys, we can at least spread the video and draw customers in from other layers."
+
+!`
+choicesPerPage = 1;
+`
+[Mmm. :3c|thellyAd25]
+---
+:thellyAd25
+
+Wind rolls over the hills and lanky stalks of grass sway around Thelly's ankles as he marches over and yanks Ren out of the shadows, back into the sunlight. Those cute milky eyes flutter and blink. The boys coagulate like a little league team going for a huddle.
+
+"We'll do both," Thelly declares, to the sky, and to the highest spire of the delicately balanced brothel. "We'll seize acceptance from those dads if it costs us our dignity!"
+
+The boys all go nuts with motivation. Ren seems a little pissed they couldn't give him this reaction earlier.
+
+"Let's make fliers!"
+
+"I'll build the booth!"
+
+"Where are we gonna get enough cameras..."
+
+!`
+choicesPerPage = 1;
+`
+[...|thellyAd26]
+---
+:thellyAd26
+
+Everyone looks over at you. You're standing a good ten feet away from the huddle, just casually observing.
+
+A cub voice hisses to you: "C'mere!" It's the boy with his now splinter-free blue stuffed bunny under his arm, poking his head out from the crowd.
+
+!`
+choicesPerPage = 1;
+`
+[Join the huddle!|thellyAd27]
+---
+:thellyAd27
+
+You hop into the pile of soft girly boys and count it the fuck down!
+
+"ONE! TWO! THREE! BREAK!"
+
+!`
+choicesPerPage = 1;
+`
+[Next x10!!!|thellyAd28]
+---
+:thellyAd28
+
+Here we go.
+
+Exactly and definitively ten "moments" later, Thelly leads you and the boy squad out to the middle of the city. Meanwhile, Ren sneaks through the growing crowds of curious dads and hands out anything with a camera on it.
+
+The locals are curious. Not all of them know what happened at the brothel this morning.
+
+Approximately no boy has even considered the possibility that he won't get fucked in the next five minutes, so instead of expecting civil discussion, Thelly, Ren, and all the cubs are blatantly dolling themselves up: lube is passed around and slathered down any asscrack available. Blush, eyeliner, and hard mascara make their rounds next. Bellies get puffed out to accentuate the erotic boycurves of all these girly boyish boy girl boys. Everyone in your squad makes it painfully clear that they're not from here.
+
+The locals are a little indignant. But it only thickens the crowd, because they have something to mutter about in this otherwise boring ghost town.
+
+The booth pops up, sending a few boys flying. Thelly printed fliers that explain in flowery detail all the beautiful, moral arguments for why his four demands are completely justified and should be served immediately.
+
+1. An apology.
+2. Free expression, so posters.
+3. Repairs to the brothel.
+4. The stolen boys.
+
+Thelly passes them out, bowing, apologizing, and being as gentle and accomodating as he possibly can. His soft boi voice (his boice, if you will) only enrages the dads more for how feminine it is. Ren introduces himself without emotion and tacks a couple posters up loosely. He doesn't bother to fix the ones hanging crooked, because he clearly doesn't think they're going to stay up any more than they did last time.
+
+The locals are past indignation or anger. Now, there is only eerie, silent disinterest.
+
+!`
+choicesPerPage = 1;
+`
+[Introduce myself, too.|thellyAd29]
+---
+:thellyAd29
+
+The dads, the boys, everyone looks at you. No one quite knows who you are or where you came from besides Thelly, who has a vague notion that you used to fuck on a porn video game or something in the distant past. Nevertheless, your faithful pup waves to you from the crowd of blank faces.
+
+!`
+choicesPerPage = 1;
+addChoice("I'm "+data.playerName+".", "thellyAdName");
+`
+---
+:thellyAdName
+
+
+
+!`
+choicesPerPage = 1;
+`
+[I uh. I want a clean fight. I mean a clean discussion.|thellyAd30]
+---
+:thellyAd30
+
+
+
+
+!`
+choicesPerPage = 1;
+`
+[You dads, you already crippled the brothel.|thellyAd31]
+---
+:thellyAd31
+
+
+
+
+!`
+choicesPerPage = 1;
+`
+[And you girlybois, you did kind of dent the masculine atmosphere here, as far as I know.|thellyAd32]
+---
+:thellyAd32
+
+
+
+
+!`
+choicesPerPage = 1;
+`
+[You've both got reasons to fuckfight this conflict out.|thellyAd33]
+---
+:thellyAd33
+
+
+
+
+!`
+choicesPerPage = 1;
+`
+[But, instead of that, let's try to fuck towards a compromise, alright?|thellyAd34]
+---
+:thellyAd34
+
+Someone says thanks. Applause barely gets off the ground. The crowd looks away and dissolves back into dark dad murmurs.
+
+!`
+choicesPerPage = 1;
+`
+[Alright well. Yeah, anyway. That's all I wanted to say...|thellyAd35]
+---
+:thellyAd35
+
+The murmurs reach a fever pitch.
+
+The boys hunker down and take their positions around the table. Chests puff up and show off bare nipples. Smooth, fuzzy shoulders pull back so the shoulder blades can kiss in the middle. Boys everywhere tremble lightly with restrained excitement/fear as their conversation partners, the most open-minded dads, drag big rough palms over their bare fur.
+
+Thelly and Ren sit behind the table.
+
+!`
+choicesPerPage = 1;
+`
+[Examine table and posters.|thellyAd36]
+---
+:thellyAd36
+
+Big signs:
+WE ARE NOT YOUR ENEMY ---> We can all get together and unite over our love of BOYS!!!! GIRLY OR NOT!!!
+aa
+Ren even threw in some straight up ads for the brothel:
+PLEASE CONSIDER HELPING US REPAIR "FEMME REN'S" ---> so we can give you CUTE SAVINGS on lots of CUTE BOYS!!!
+
+Big foam arrows pointing to the brothel:
+---> THIS WAY THIS WAY THIS WAY ---> PLEASE YOU GUYS
+
+Big Thelly ass all wrecked with permanent marker:
+Left cheek says I NEED COCK, right cheek says AND SO DO THE OTHER BOYS <3 and down his shivering thighs, some dumb lil cubby femboi writes SO PLEASE ACCEPT US INTO YOUR COMMUNITY! <3
+
+All their special cute boi sex deals are displayed with colorful posters that hang off the table, too.
+
+Oh shit. Another crowd is coming. The size is about to double.
+
+!`
+choicesPerPage = 1;
+`
+[???|thellyAd37]
+---
+:thellyAd37
+
+A troop of men roll down the street, freshly assimilated from the Archiepelago and looking for boys to ruin. In contrast to the crossed-arms shrewd-eyes locals, these guys are all full of smiles and throbbing hard, arms swaying at their sides like they own the place. Thelly and Ren share a glance— well, Thelly tries to, but Ren looks in the opposite direction. Thelly nudges him. "Hey," he whispers. "We got some outsiders from my layer..."
+
+The men descend on Thelly and Ren, who cower helplessly.
+
+Fat, sloppy cockheads bully them together from all directions. This initial act of depravity sets off all the locals, who were barely holding themselves back in the first place.
+
+One of the islanders notes Ren's milky eyes. He leans to the right and coos "Hey there, cutie!" then, when Ren turns his head that way, his big open palm <i>fwaps</i> down from the opposite direction. Ren squeaks. For these islanders, this is just a warmup— "He's blind, haha! He can't even see where we're coming from! Hey, what's this—" the men jack off in his fluffy ears. Thick pale yellow precum slops down over Ren's ears and cheeks. They all laugh at him. "What's this? What's that sound like? Can you tell what it is?"
+
+Ren tanks the pestering in silence, face flushed like a pitcher of cherry kool-aid. They clearly just want to hear his little cub boi maw form the word "cock."
+
+!`
+choicesPerPage = 1;
+`
+[How long you boys been in the 'phore now?|thellyAd38]
+---
+:thellyAd38
+
+"Just got here."
+
+"Man, I think I'm gonna like this place... fuckin streets are grimy... is this the whole thing?"
+
+"No man, there's like a bunch of worlds, or something. This is just one."
+
+"Aren't we here to get orientated or some shit? Where's that Cartographer kid at?"
+
+Deep-chested laughter booms. "Hahahah! Fuck orientation! Homosexuality is the only orientation I need! We're in a uhhhhhh big sexy boy hiver mind or some shit, makes enough sense for me!"
+
+They shove Thelly to the grimy cobble, ass up. Someone grunts in his ear: "I gotta piss. Your fur is yellow for a reason, right cunt?"
+
+Thelly quakes. A little whimper wavers in his throat. He's forced to nod.
+
+"I... I..." He falters.
+
+!`
+choicesPerPage = 1;
+`
+[Next.|thellyAd39]
+---
+:thellyAd39
+
+Everyone contributes for the team effort: perfect silence and all eyes on Thelly, just to make it even harder for him to speak up.
+
+He drops his head down and silky, girly black hair covers his face.
+
+"Is that the reason, pisspup?"
+
+Thelly's stutter finally pops out: "Y-Yes sir. That's why my fur is y-yellow..."
+
+Thelly chances a peek up through his hair: over on the other side of the table, the men have surrounded Ren's spotty catbutt, and he's already been thoroughly foreplayed with. Precum smears decorate his face and dribble down his ears. He's already on the verge of tears, and his lip is...
+
+!`
+choicesPerPage = 2;
+`
+[Next.|thellyAdRejoin]
+[Examine Thelly's lip.|thellyAdLip] #Blood
+---
+:thellyAdLip
+
+A tiny bead of red sits on his quivery lip like a piercing~
+
+!`
+gainExp(5);
+choicesPerPage = 2;
+`
+[Ooo.|thellyAdRejoin]
+[Smooch it off.|thellyAdRejoinSmooch]
+---
+:thellyAdRejoinSmooch
+
+You brush your lips against the little droplet and your tongue darts out to tickle him a bit. He winks and licks his paw a bit, reddening it~
+
+!`
+gainExp(15);
+choicesPerPage = 1;
+`
+[Mmn.|thellyAdRejoin]
+---
+:thellyAdRejoin
+
+Paws tug Thelly's tail upwards. Fingers hook into those cute little black panties and wedge them up tightly between his cheeks, flossing the crack, so the slow pull down to his ankles takes a nice long time. Once both perfect buttcheeks are free of their prison, the pre-stained seat of Thelly's panties flutter in a breeze that whistles through his thigh gap.
+
+Greasy adult paws come down hard on Thelly's now-bare ass. A whispered phrase skitters through the crowd like a fucked-up game of telephone: "Hit him." No one is quite sure which cub "him" refers to, but no one gives much of a shit where their open palms land anyway.
+
+Someone cockslaps the back of Ren's skull so he falls to his knees with a pitiful squeak. Tears stream down his cheeks. The islanders aren't even happy with that. They're already down at Thelly's ankles, basically all the way off already... but, regardless, horny rapists wrestle over whether to pull Thelly's panties all the way off his girly ass, whether to keep them halfway down his cheeks so the waistband can grind against the cock that fucks him open first, or whether to keep them yanked up his asscrack. The last one wins.
+
+A massive 8 incher nuzzles up against the sheer string of bunched panty fabric between his piss slit and his boycunt. That cock's got a sloppy foreskin and a fat swirly vein like ketchup on a hot dog. He grunts with his chest pressed to the pup's shoulder blades. Thelly feels the vibrations.
+
+He whispers something in one of those dopey floppy dumbfuck puppy ears.
+
+Then he demands:
+
+"Say what I just told you to say. Loud. Let everyone hear."
+
+Whatever he just whispered, it made Thelly go white. That girlish little pussypup can only shake his head and shit out some flaccid excuses~~ but five burly fingers wrap around his throat and tug and squeeze and milk a pained yelp from the canine.
+
+"Say it, pissbitch!" the man repeats. He gives Thelly's cranium another shake and releases him. Thelly's face flops off to the side with an arc of lost spittle. He pants and gasps air into his abused throat. When he speaks, it's tentative, and he has to start and stop a couple times. His little legs squeeze together. He concentrates hard.
+
+Then, finally, those disgusting, embarassing words fall from his lips:  "I... I w-want to be your... be your sissy s-slut, Daddy!"
+
+Everyone gasps, scandalized. Especially the locals.
+
+"So gross..."
+
+"Can't believe that shit just came out of his mouth..."
+
+"God, 'Daddy?' this pisspup is making me cringe."
+
+Ren tries to speak up to explain that Thelly was forced to say that, but no one cares about logic when their cocks are this hard.
+
+!`
+choicesPerPage = 2;
+`
+[Next.|thellyAdRejoinerooni]
+[Eavesdrop on the locals...|thellyAdDads] #Plot
+---
+:thellyAdDads
+
+"Fuckin nerve of these tourists..."
+
+"Yeah, eighty percent wasn't enough? They gotta take more... take, take, take... appropriating our fuckin dad culture, man..."
+
+!`
+gainExp(25);
+choicesPerPage = 1;
+`
+[Eighty percent...?|thellyAdRejoinerooni]
+---
+:thellyAdRejoinerooni
+
+The locals bleed into the island crowd. No one is sure who is from where anymore... so there's no social shame in jacking off to these girly boys catching so much degradation.
+
+Still, some hardcore locals on the edge of the crowd speak up in their booming, manly voices:
+
+"You island guys have no standards... can't you see these boys are too fuckin girly... ignore them. Leave them hungry."
+
+No one listens to them.
+
+"Say it again," the islander barks at Thelly. Thelly complies. And again. And a couple more times. Soon everyone in earshot has been thoroughly reminded that Thelly wants to be this guy's slut.
+
+Five minutes ago what Thelly said was a scandal, but now, according to the shifting winds of abuse, 'I wanna be your slut Daddy' is a laudable little proverb which should definitely be studied and memorized by boisluts the whole phore over for the sake of good family values. The guys pass it around and whisper it in his ear and never let him forget the cringy shit that just came out of his maw.
+
+Thelly despairs.
+
+"Awwww!" The crowd beats off harder than ever. Pure, genuine smiles light their faces! "He's so cute. Look at those hips."
+
+"Good girl," a local behind Thelly grunts, in a mould-breaking first for femboi rights. His fist locks around the base of his pissbitch's tail. That sexy, fluffy little tail will not be lowered until Thelly is broken and unconscious on the pavement.
+
+!`
+choicesPerPage = 1;
+`
+[Next.|thellyAd40]
+---
+:thellyAd40
+
+The mood of the crowd oscillates between loving affection and brutal, unrelenting hate. Those sympathetic to the brothel's plight mainly give the affection, but the hate shifts from genuine to purely kinky to a weird mixture of both. It's common to see men passionately kiss the boys one moment and slap them in the mouth the very next moment.
+
+Soon, Thelly and Ren are delirious and psychologically backwards from the constant confusion, and their reactions start to get mixed up: when the horny, heavy-set men raise a fist like they're about to put a brand new sexy red mark on their little cub bodies, the boys sigh with relief and lean forward into it like a romantic embrace. But when the men simply stroke their smooth bodies, kiss the curves of their wide hips, or even just lean in and do absolutely nothing sexual, even when they only smile (or in Ren's case, whisper) the cat and pup flinch back like weak little bitches, squealing, struggling to cover their slappable asses and faces~~ if, at that moment, a horny guy hasn't already claimed their paws to handjob his greasy rapecock~
+
+!`
+choicesPerPage = 1;
+`
+[Next.|thellyAd41]
+---
+:thellyAd41
+
+Everyone laughs and agrees: the boys must be fucked up in the head from too much cockmusk huffin!
+
+One of the guys is impatient, though: "Wait, weren't we gonna rape them and piss in them and stuff? We're getting distracted..."
+
+"We'll get to it... but these boys are trying to advertise their brothel, aren't they? We gotta help em advertise."
+
+A dozen phones leave their pockets. A dozen more click on, all the cameras that Ren handed out. You weren't even sure there were people still clothed at this point, but there are: mostly blue dadjeans, big nuts and shafts hanging out the front of their unzipped zippers.
+
+"Pleash," Ren speaks up. You glance over. All the lenses turn to him. He's got a cock smashed up against each of his cheeks, but he can still barely get some words out. "Pleash like, share, commend, and shubshcribe!"
+
+His little paws wander up and trail over the cocks. He pulls them closer, against his face, and his tongue darts out to blblblblblbl over both frenulums where they meet just in front of his snout. His nostrils flare. He pulls in cockmusk and coughs cutely.
+
+!`
+choicesPerPage = 1;
+`
+[Next.|thellyAd42]
+---
+:thellyAd42
+
+The crowd magnetizes around Ren with a colossal deep-bellied "AWWWWWWWW LOOKIT THAT FUCKIN BOYYYYY," and the current of a dozen muscular dads forces you inward.
+
+Most of the uninformed dungeonfolk, the locals from this layer, the ones who needed to be convinced that femboys were worth crowding around in the first place, they can hardly see what's going on over there. Must be something really cool. Ah well, too many people in the way.
+
+Someone hands you a wireless webcam and tells you to get a close up for him before the wall of biceps close shut and he's totally blocked out. There's a button on one side for snapping pics and another for video.
+
+Through the jostling crowd, Ren's needy eyes lock to yours. He can't see you, of course, but I can at least narrate to him that you are looking his way.
+
+A single, cute, drippy, shaking cat paw rises above the turmoil. He smiles wearily and mimes the <i>click</i> of a button.
+
+!`
+choicesPerPage = 1;
+`
+[Snap some pics to start. <3|thellyAd43]
+---
+:thellyAd43
+
+Some dark-eyed locals disappear into an alley together.
+
+You try to push up through the crowd but the guys are just too fucking horny. Every muscle in sight is clenched to the max with pent-up dadrage.
+
+!`
+choicesPerPage = 2;
+`
+[Elbow my way in then, fuck these guys.|thellyAd44]
+[Eavesdrop again...|thellyAdDads2] #Plot
+---
+:thellyAdDads2
+
+"... intentionally diluting the culture, basically."
+
+"So, no matter what we do, the videos get out, and the faggots bring in <i>more</i> traffic."
+
+"We've been collecting the phones and the cameras and shit. Gettin redistributed to friendlies. They won't notice any difference in the numbers, but if we can track them all down..."
+
+One dad kicks at chunks of loose concrete, beaning them off the dirty brick walls of the alley. He walks off away from the group.
+
+"Fuckin remember when this city was still alive... fuckin red shit, fuckin eyeballer... eighty percent of the boys fuck off to other layers, and this faggot cat n dog duo wanna take half of what's left and <b>charge us</b> to see them? Fuckin... <b>fuck</b>..."
+
+!`
+gainExp(20);
+choicesPerPage = 1;
+`
+[Eighty percent... go check on Thelly and Ren.|thellyAdRejoinAgain]
+---
+:thellyAdRejoinAgain
+
+You bean a dad or two in the ribcage and endure a little revenge rape until you can finally fight your way to the center.
+
+Thelly and Ren are slammed together back-to-back. Their girly hairdos have been tied up into temporary ponytails so everyone has a perfect view of their red, ahegao faces at all times.
+
+!`
+choicesPerPage = 2;
+`
+[Photoshoot Thelly.|thellyAdThelly]
+[Photoshoot Ren.|thellyAdRen]
+---
+:thellyAdThelly
+
+You start with some establishing shots:
+
+A few from below, first. You slide the webcam between Thelly's thighs and point it up to get a shot that accentuates the size of his cock and nuts. They tower from the camera's perspective, almost breaking through the top of the frame. The guys respectfully stop beating on Thelly with their cocks for a second so they can shove his head down and make him cry on camera, big fat shiny teardrops pattering onto his cocklet~
+
+Next some pics from the back and the sides. One showing his bare, yanked-open asscrack just below the fist locked around the base of his tail. Another where he's in a chokehold with both paws scrabbling at those muscular dadly forearms, hips accentuated, flat belly out for everyone to see. Some pics show men rubbing and spitting on it as the crowd whirls in a smear of shadows and glowing red eyes.
+
+!`
+choicesPerPage = 1;
+`
+[Let's see...|thellyAdRejoin]
+---
+:thellyAdRen
+
+You start with some establishing shots:
+
+First, better get a close-up of his face! His milky eyes are restless. It's like his body thinks if he looks around hard enough and in enough directions he'll eventually catch a glimpse of the roving, shifting crowds, maybe a heads-up for the nearest cock. He never sees it coming. A big 10-inch horsecock flops down over his head and smears dickgrease all in his pretty hair.
+
+!`
+choicesPerPage = 1;
+`
+[Let's see...|thellyAdRejoin]
+---
+:thellyAdRejoin
+
+The men grab Thelly and Ren and dry their tears lovingly. Of course, they don't use a tissue or even a shirt or something, they just use those perfectly dry and perfectly smooth boy asses. They shove Thelly's face up against Ren's ass (and they share a couple whispered, dirty lines together as his snout basically disappears up the crack, like, fuck, what a fat ass for a little cat boy like Ren!) and then, after Thelly's face is dry, they spin him around and do vice versa with Ren's face smashed up against Thelly's ass.
+
+Now both boys are sparkly clean and tearless! Except their maws are tight with anticipation. A berjillion sparkling lenses peek out from the cracks in the crowd. Again, Thelly stays shy, but Ren speaks up:
+
+"I-I hope you're enjoying... this so far, and... ah. I run a brothel, it's called Femme Ren's, and we could really use more... ah, customers, since we... so we can... ah—"
+
+He's silenced by three big fingers down his throat. Thelly suffers the same.
+
+Hands grope and yank them from all directions until the boys finally lock into that sacred position, the ultimate sex pose for any puppyfag or kittyfag:
+
+Asses out. Arms around each other. Lips together. Chests together.
+
+!`
+choicesPerPage = 1;
+`
+[Take some video...~|thellyAd44]
+---
+:thellyAd44
+
+Two squeaks meet in the middle when big paws slam down on the back of their heads. Dad breath washes over their ears: "Make out for the camera."
+
+They obey. Soft tongues roll over split lips. They pull strands of saliva from each other's maw, breathing heavy up their own snouts; they're so far gone at this point they can't help their little vocalizations, the embarassing mmmhs and ooomhs and aaahns that naturally escape when you throw yourself into a kiss. Thelly's shaky paws wrap around Ren's shoulders.
+
+Behind them, two malevolent horsecocks droop down from the shadows. Fat globs of pre mingle with the lube that the cubwhores had earlier applied to Thelly and Ren's asses. Neither tail is allowed to even droop, so their spread cracks glisten in the dingy dungeon light~
+
+Their eyes flash open. That deep, romantic kiss snaps apart. Both horsecocks have sunken in to the flare halfway down their shaft. With a greasy adult grunt, the horse guys both slide in right to the nuts.
+
+Thelly and Ren collide. They cling to each other, barely, just barely able to stay conscious. Their chests and nipples slide together with the violent rocking motion of two huge hips thrusting down at full force and speed, zero warmup. Thelly's shocked face slides down, cheek dragging cute tearstains over Ren's belly. Ren gropes helplessly for any solid piece of pup to hold onto. The crowd cheers and laughs as the boys struggle for breath between periodic reverse-throatfuls of cock.
+
+"Thell~~ urk~~ y keep~~ urk~~ smiling..." Ren grunts gutturally. Though thick horsecum leaks from the corners of his maw, he still manages to pull out a calm, collected little smirk.
+
+Thelly tries to take inspiration from him and utterly fails. He can't smile! He can only grimace, one eye twitchy, and drop the weight of his upper body against Ren's chest. His arm muscles flutter and give out. It's okay. Ren is here for him. He supports Thelly, holding that soft little head to his chest and hugging it with one arm.
+
+"Fuckin cute! The puppy's almost passed out! HARDER!"
+
+!`
+choicesPerPage = 3;
+`
+[Focus on Thelly.|thellyAdThelly2]
+[Focus on Ren.|thellyAdRen2]
+[Eavesdrop on the dads?|thellyAdDadsAgain]
+---
+:thellyAdDadsAgain
+
+They're not here any more?
+
+All the locals are now indistinguishable from the islanders, and everyone in the crowd has their tongue out and their cock in hand... you're not sure if anyone is even upset anymore. The city has embraced Thelly and Ren!
+
+!`
+gainExp(30);
+choicesPerPage = 2;
+`
+[Focus on Thelly.|thellyAdThelly2]
+[Focus on Ren.|thellyAdRen2]
+---
+:thellyAdThelly2
+
+Someone grabs him by his fluffy ears and yanks his head away from Ren. "Don't comfort him! He doesn't deserve comfort~"
+
+The horse guy wraps one, two, three, four, five fingers around Thelly's throat and pulls him away from Ren's soft touch. Webs of sloppy cum-saliva stretch between their chests and break.
+
+"Please," Ren burps past throatfuls of precum welling up from inside him, "go easy... on him..."
+
+"Fuck no~!"
+
+You shove the camera up nice and close to capture Thelly's bright red face, his eyes pointing in opposite directions, sweat running over his forehead and his matted black hair. The horse holds him crushingly by the throat and feeds him length after length of dick like he's just a big fat-hipped cocksock puppy. Thelly's legs flop open. His flaccid cocklet bounces happily against the guy's nuts, which are tight with anticipation of orgasm, each massive horse testicle about the circumference of Thelly's entire thighs.
+
+He... he's almost gone. He can't support his weight anymore, and Ren is too busy getting fucked to help much either...
+
+!`
+choicesPerPage = 1;
+`
+[Next.|thellyAdRejoin2]
+---
+:thellyAdRen2
+
+Ren takes his allotted horsecock like a champ.
+
+He even has enough strength left over to grit his teeth and force his little ass down further, too. And no matter how deep he sinks or how much cum splurts from his maw and nose, he can always find room for another inch.
+
+The horse guys laugh at Ren (Such a slut!), although you can bet they'd laugh at him for being such a bitch if he wasn't taking it this well. Ren's rapist wiggles his cock down to the flare (he actually has to yank Ren up by the tail instead of down, cause this cat is so determined to slide down to the base) and, once the bumpy swollen ridge of his flare sinks into Ren's ass, he picks up a vicious corkscrew fuckrhythm. The flare slides in and out, repeatedly wrecking that lil kittyhole and soon synchronizing with Ren's panicked breath.
+
+The horse guy grunts, like fuck, <b>grunts</b>, he's so into this filmed rape it sounds like a caveman celebrating his first fresh kill after two days of starvation. He pounds the fuck outta this girly boy all quivery between his legs, nuts clappin off the boy's taint. He obviously wants to be dicked deep, choosing an ass like that in the pond...
+
+"Yeah you like that? You fuckin like that?"
+
+"Come on man, at least put some effort into yer dirty talk. I don't wanna listen to the same shit all day."
+
+"Mmm! Yahhh! You like that shit huh!! You like that big horse dick up in you!!"
+
+Ren was doing so well, too. Now he can't handle the cock anymore. His maw widens. Cum and spittle spatters the lens. The horse guy claims his orgasm and locks both fists around Ren's upper arms for one final thrust that pops out the veins in his big dadmuscles. Ren slides helplessly to the base and burps thick, hot, gurgly cum all over Thelly's vacant face. Ren can't support Thelly's weight now, even though his arms are now free: the horse guy roars with climax and lets Ren go.
+
+!`
+choicesPerPage = 1;
+`
+[Next.|thellyAdRejoin2]
+---
+:thellyAdRejoin2
+
+Cat and puppy both drop to the table. Their chests slam down to the surface. The legs groan. The posters snap off and flutter away. A shadowy dad wanders through the crowd, collecting all of them before word of mouth can carry Ren's advertisement too far.
+
+The horse guys unplug their flaccid cocks and wipe them off on Ren's face. "Haha, fuck, he doesn't care what he looks like, cum-coated or whatever, doesn't matter, not like he checks in the mirror before he heads out the house... mess him up..."
+
+They wrench Ren's limp head up by his hair and smother his gasping maw in soft, wet horsecock. Their hips sway in and out, not with the certain force of fuck-thrusts, just enough gyration to make sure every inch of floppy dadshaft is clean. By the time they're satisfied, Ren's barely twitching eyelashes hang heavy with cum, and his lips are connected by glossy cumbubbles and cumstrings.
+
+The guys fuck off. You just know your boys would still be smiling and flashing peace signs at the cameras if they were still coherent enough to see the glimmer of the lenses. There are fewer lenses than there were earlier, still... your boys breath heavy through cummy throats... there's just not as much going on anymore. The crowd disintegrates.
+
+!`
+choicesPerPage = 1;
+`
+[Grab one of the cubs~|thellyAd45a]
+---
+:thellyAd45a
+
+You search around the melting crowd, but can't see any. It's so weird. Everyone decided to leave at once.
+
+!`
+choicesPerPage = 1;
+`
+[Where are they.|thellyAd45]
+---
+:thellyAd45
+
+Oh. You haven't paid attention to them in forever.
+
+... They've been stolen.
+
+!`
+choicesPerPage = 1;
+`
+[THOSE COWARDS|thellyAd46]
+---
+:thellyAd46
+
+Yeah, that was pretty sneaky of them. They used their huge guts and masculine bodies to clog up the space and ferry them away one by one.
+
+!`
+choicesPerPage = 1;
+`
+[Shit... for now, tend to Thelly and Ren.|thellyAd47]
+---
+:thellyAd47
+
+You poke their cheeks a bit. Hot greasy horsecum spills out from between each pair.
+
+... Almost all the locals are gone. A gaggle of islander dads chills out on the fringes, still, casually filming in this direction while they chat.
+
+Thelly and Ren both look up at you, eyes barely cracked. "Hrrrk... keep... goin... pleash..."
+
+Well. While there's still an audience...
+
+!`
+choicesPerPage = 1;
+`
+[... Take my turn. >:3|thellyAd48]
+---
+:thellyAd48
+
+You can't take it anymore. You need to advertise these boys badly.
+
+!`
+choicesPerPage = 2;
+`
+[Make the kitty rim me <b>hard</b>|thellyAdRim] #Abuse
+[Make the pisspup drink some gold, his belly isn't cumbloated enough yet~|thellyAdDrink] #Piss
+---
+:thellyAdDrink
+
+You hop up on the table like a prancing deer and land gracefully. Thelly's messy face is framed between your feetpaws.
+
+You squat deep, paws running down your thighs, over your knees. You hold yourself by the ankles while your `genitals("heavy nuts dangle above Thelly's throat. He hyperventilates to get in all the breath he can before you use him like he knows you're going to. It's the perfect position for your cock and nuts to fog up and drip cumbreath condensation.", "cunt hovers above Thelly's throat. He hyperventilates to get in all the breath he can before you use him like he knows you're going to. It's the perfect position for your lower lips to fog up and drip along the  condensation.", "heavy nuts dangle above Thelly's throat. He hyperventilates to get in all the breath he can before you use him like he knows you're going to. It's the perfect position for your cunt and nuts to fog up and drip cumbreath condensation.");`
+
+!`
+gainExp(10);
+choicesPerPage = 1;
+`
+[Open.|thellyAdDrink]
+---
+:thellyAdDrink
+
+Thelly can barely twitch one of his fingers, but, somehow, he defies the suctiony glue of cum in his maw and peels his lips open. He'll power through the stickiest cumload in the world if it means he gets to drink your pee~
+
+You work your fingers into his girly hair and pin his head to the table. Your `genitals("semi-hard dick slides down his throat easily, since the horsecock already gaped it out from the inside", "cuntlips make out with his exhausted face, drops of oil pittering to the back of his throat", "semi-hard dick slides down his throat easily, since the horsecock already gaped it out from the inside");`.
+
+You lock eyes with Ren. Something about his inability to even look back while you use his loyal puppy sub as a urinal... a heat swells in your `genitals("nuts", "clit", "nuts and clit");` alongside the heat in your bladder.
+
+You hit the brink and fly over it. Your hips drop. Thelly squeaks pointlessly as a thick gush of yellow fills his maw and washes over his cheeks, his floppy cum-clogged ears...
+
+!`
+choicesPerPage = 1;
+`
+[Rock into it.|thellyAdDrink2]
+---
+:thellyAdDrink2
+
+You swing your hips back and forth and flex your peemuscles in the same rhythm. Thelly swallows naturally after each violent spurt from your `genitals("cockhead against the back of your throat", "cunt", "cockhead while more piss trickles out from your cunt, riding the seam on the back of your nuts and finally dribbling down to his bare throat");`. 
+
+The few lenses left draw closer and glitter with renewed interest.
+
+"`gender("Is he", "Is she", "Are they");` pissing down that pup's throat...? The poor fuck's barely conscious... ugh, and he's still swallowing hard..."
+
+You throw your head back, tongue out, and play up your relief for the cameras with a blast of hot breath that floats all the way up to the painted ceiling. You swear the dungeon city is getting more humid as this goes on...
+
+Thelly chokes adorably. You caress his cheek and help coax him to gulp down three more mouthfuls of hot piss. Nope. Another chain of pathetic chokes.
+
+"Come on," one of the filming dads grunts. His fist beats against his chubby fupa as he works his cock to the sight of Thelly's struggles. "Come on... fill that belly up..."
+
+!`
+choicesPerPage = 1;
+`
+[Squeeze my stream off. <3|thellyAdDrink3]
+---
+:thellyAdDrink3
+
+You slam your `genitals("cock down Thelly's throat", "cunt to Thelly's face", "cock down Thelly's throat");` and finish up with a few tight squeezes of your peemuscles. He's bright blue now, and every attempt at a gulp just ripples out into uncontrollable gags and full-body spasms that wrack him right down to his curled toes.
+
+"Fuck!" the lone dad says, and slaps that big jiggly belly~
+
+Thelly's eyes cross and his cheeks puff out. Somehow, he kills his gag reflex one last time and re-swallows all your juicy, delicious pee right back down to his belly. The red handprint fades in... it's so cute...
+
+!`
+choicesPerPage = 1;
+`
+[Ahhhn. Cum on my slut boys~|thellyAdCum]
+---
+:thellyAdRim
+
+You raise your ass above Ren's terrified face. `genitals("Your nuts hang heavy over him and cast a doom shadow.", "Your cunt twitches cutely before his eyes.", "Your nuts hang heavy over him and cast a doom shadow.");`
+
+!`
+gainExp(20);
+choicesPerPage = 1;
+`
+[GROUND POUND|thellyAdRim]
+---
+:thellyAdRim
+
+URNGH!!!
+
+!`
+choicesPerPage = 1;
+//playEffect("audio/effect/thwomp");
+`
+[Hahaha fuck|thellyAdRim]
+---
+:thellyAdRim
+
+You almost break the fucking table under your ass. Ren, that paragon of effortless self-control, that cool and collected dom archetype, he freaks out and scrabbles at your fat buttcheeks, "accidentally" gurgling still-hot cum right up your hole.
+
+You smush his little kitten snout down between your cheeks, squeezin em tight together to lock his nostrils in a prison of assmusk.
+
+"Wow! Fuck!" the remaining dads rush over to get a close up of Ren's wide, bloodshot eyes where they peek out under your fat ass. "He can hardly breathe~!"
+
+!`
+choicesPerPage = 1;
+`
+[Good. <3|thellyAdRim]
+---
+:thellyAdRim 
+
+You purr deep in your belly and chest. `boobs("Your tits vibrate, puffy nips leaking. ", "");`Every time your hole schlicks over his snout, you get a blast of his hot desperate breath up inside you. Your paws clamp down on his thighs and hold him in place for a violent, sweaty face-twerking sesh. 
+
+!`
+choicesPerPage = 1;
+`
+[Give him exactly one breath.|thellyAdRim]
+---
+:thellyAdRim
+
+You peel your ass off Ren's face for a second. One long, raspy, choking breath slides down his throat.
+
+"A-Ah... hot..." the dad breathes. His dick throbs and drools pre between Ren's open lips, and Ren sputters on it when it hits his little uvula... <3
+
+He wheezes on the exhale. That's good enough, you decide, and drop your ass back down for one last deep swing of your hips, the kind of long grind that drags your `genitals("taint and nuts right over his gagging maw", "bare cunt over his gagging maw", "cunt and nuts over his gagging maw");`. You feel his squirms nestled deep between your cheeks... his tongue slides out, finally, and slobbers pathetically right up your crack~ Even at the edge of consciousness, half-suffocated, Ren has just enough strength left to give your bare hole a nice, deep tongue bath.
+
+!`
+choicesPerPage = 1;
+`
+[Unf. Lock him down.|thellyAdRim2]
+---
+:thellyAdRim2
+
+You clench your cheeks shut, reach back, and hold his whole skull deep between your cheeks. You rock back and forth just an inch at a time. Wet, squishy noises. The scent of fresh cum slathered over butt pheromones... it all shoots straight up your nose, right to your brain, and triggers a burst of heat in your belly.
+
+!`
+choicesPerPage = 1;
+`
+[Cum. <33333|thellyAdCum]
+---
+:thellyAdCum
+
+You smack your boys' heads together carelessly, both not even awake enough to feel the soreness in their skulls, and squat over them, dwarfing their slack expressions in the shadow of your ass.
+
+Orgasm sits like a coiled snake in your groin. Looking down at Thelly and Ren, your two cute fagboys, their cummy cheeks squashed together, their fishlips just barely touching... the snake inside you strikes.
+
+`genitals("Your nutsack tenses up and locks into the first of eight violent cumshots. Hot jizz splurts out over their faces. They barely feel it or react, except their tongues wander out and clean it up a little... <3", "Your cunt tenses up and locks into the first of eight pleasure waves. Hot girlcum splurts out over their faces. They barely feel it or react, except their tongues wander out and clean it up a little... <3", "Your nutsack tenses up and locks into the first of eight violent cumshots. Hot jizz splurts out over their faces. They barely feel it or react, except their tongues wander out and clean it up a little... <3");`
+
+!`
+choicesPerPage = 1;
+`
+[Ahhhhn.|thellyAdCum2]
+---
+:thellyAdCum2
+
+The cameras catch all of it. <3
+
+Wait no, they don't. You're not sure where the dads or the islanders have gone, but... all the cameras have disappeared now. You're alone with your little barely-breathing cumrags squished between your thighs.
+
+!`
+choicesPerPage = 1;
+`
+[... Oh jeez, check on my boys.|thellyAd49]
+---
+:thellyAd49
+
+Thelly and Ren have both passed out ass-up on their little booth.
+
+The table legs strain and snap. There are no posters left, none of the long-forgotten demands, no boys, and no cameras. Some men in construction outfits walk over confidently like they definitely are supposed to be here. They pick up the table, carelessly shake Thelly and Ren off of it, and haul it away.
+
+... It's like there wasn't even a demonstration in the first place.
+
+!`
+choicesPerPage = 1;
+`
+[Are they okay though?|thellyAd50]
+---
+:thellyAd50
+
+They got their insides reamed out by horsecock and then you abused them even more on top of that. They're unconscious right now, but when they wake up, I might force a little uncomfortable narration onto them because they're just that sexually exhausted.
+
+!`
+choicesPerPage = 1;
+`
+[Ahh fuck. Refresh them somehow.|thellyAd51]
+---
+:thellyAd51
+
+Red pond time?
+
+!`
+choicesPerPage = 1;
+`
+[Yeah!|thellyAd52]
+---
+:thellyAd52
+
+
+
+!`
+choicesPerPage = 1;
+`
+[Throw them into the pond. Next x??? however long it takes to get them there.|thellyAd53]
+---
+:thellyAd53
+
+First you spend the long journey carrying both their fat-assed cum-slippery bodies fireman style over towards the nearest red pond. I conveniently summarize this tedious journey for you in one sentence.
+
+You gently nudge Thelly and Ren into the pond.
+
+They slide halfway off the edge, inhaling juice. Their hips wiggle helplessly on the shore.
+
+!`
+choicesPerPage = 3;
+`
+[Here. Get better.|thellyAdGetBet]
+[Make sure they're in all the way.|thellyAdMake] #Abuse
+[Gently nudge them again.|thellyAdNudge] #Love
+---
+:thellyAdGetBet
+
+They do get better. They switch to a form well suited to winding down.
+
+!`
+choicesPerPage = 1;
+`
+[Hmm?|thellyAdRejoing]
+---
+:thellyAdGet
+
+They're not quite in yet.
+
+!`
+choicesPerPage = 3;
+`
+[So?|thellyAdGet2]
+[Make sure they're in all the way.|thellyAdMake] #Abuse
+[Gently nudge them again.|thellyAdNudge] #Love
+---
+:thellyAdGet2
+
+So they haven't been assimilated, they're just halfway.
+
+!`
+choicesPerPage = 3;
+`
+[It has to be all the way?|thellyAdGet3]
+[Make sure they're in all the way.|thellyAdMake] #Abuse
+[Gently nudge them again.|thellyAdNudge] #Love
+---
+:thellyAdGet3
+
+Yes, right now you are effectively just sticking their heads in a puddle.
+
+!`
+gainExp(5);
+choicesPerPage = 2;
+`
+[Make sure they're in all the way.|thellyAdMake] #Abuse
+[Gently nudge them again.|thellyAdNudge] #Love
+---
+:thellyAdMake
+
+You punt their little taints a bit. They slide in all the way.
+
+!`
+gainExp(10);
+choicesPerPage = 1;
+`
+[Wait til they come out.|thellyAdRejoing] #Feral
+---
+:thellyAdNudge
+
+You press your palms against their big bouncy asscheeks and apply your feet to the dirt so hard that pebbles squeeze up between your toes. With careful, protective force, you guide their big femboi hips and legs into the red.
+
+Their resources are re-absorbed. Their souls are released from their cum-heavy mortal coils and left to roam free in the liquid.
+
+!`
+gainExp(25);
+choicesPerPage = 1;
+`
+[Wait til they come out.|thellyAdRejoing] #Feral
+---
+:thellyAdRejoing
+
+Two ferals spring out from the pond: a little snowy white leopard and a golden retriever.
+
+They run up the streets, shoulder to shoulder, and dart across rooftops, kicking off the dungeon city's many supports and columns for momentum. You watch them race along routes they must have followed a million times since they moved here; Ren leading, since he's the veteran, and Thelly following close behind like a dutiful student. Despite the grimy streets, the dim light, the lack of all nature, this layer is a parkour playground for ferals who know their way around.
+
+Thelly and Ren both return to twist between your legs, nuzzling, marking your ankles with the corners of their maws. They slobber on you and declare you as their territory to the city's strays, who watch with big curious eyes from the alleyways.
+
+!`
+choicesPerPage = 2;
+`
+[That must feel refreshing.|thellyAdRefresh]
+[Canonball into the pond.|thellyAdPick]
+---
+:thellyAdRefresh
+
+The cat and the puppy look up at you, not understanding.
+
+!`
+gainExp(5);
+choicesPerPage = 1;
+`
+[Wow. They really are feral... I wanna try too.|thellyAdPick]
+---
+:thellyAdPick
+
+You drop your ass into the perfect, mirror-still pond. Your cheeks crest the surface down and smash it into droplets.
+
+You burst back out as a...
+
+!`
+if (data.species === undefined) data.species = "bunny";
+if (data.species === "cat") {
+	addChoice("Lynx.", function() {
+		clear();
+		append("Ren sniffs at your ears and licks inside them gently. It's really affectionate but not sexual at all.");
+	});
+
+	addChoice("Sphynx.", function() {
+		clear();
+		append("Ren explores your hairless throat with her chin, rubbing feral cat oils all over you. Smells a little saucy.");
+		addChoice("Lick em up and wind down back at the brothel.", "thellyRejoinSubSpecies");
+	});
+
+	addChoice("Maine coon.", function() {
+		clear();
+		append("Ren runs over to some random alley that she or Thelly must've found the last time they ran around as ferals. At right around this time each evening, one of the boys who works at the lingerie shops puts out eight saucers of milk for the ferals. His dad can't find out or he'll be in serious shit.\n\nRen dashes up and licks his hand and grabs a saucer and runs away. She brings it back to you so you can lap it up.\n\nOther people put out milk at other times of the day, but some of them don't realize that feral cats are lactose intolerant, so it's kind of a gamble if Ren wants to snack around midday. The lingerie boy always uses cat-safe milk.");
+		addChoice("Sniff back and wind down back at the brothel.", "thellyRejoinSubSpecies");
+	});
+
+	addChoice("Serval.", function() {
+		clear();
+		append("Thelly runs away from you because you look so cool and menacing. Ren chases him down and pins him by the scruff. He whimpers as you approach an imminent playfight.");
+		addChoice("Pounce the fuck out of him and wind down back at the brothel.", "thellyRejoinSubSpecies");
+	});
+}
+
+if (data.species === "wolf") {
+		addChoice("Grey wolf.", function() {
+			clear();
+			append("Thelly thinks you look soooo cool. While the three of you wander around the city, he's always right behind you, his muzzle sniffing at your butthole and your haunches.");
+			addChoice("Sniff back snout to snout and wind down back at the brothel.", "thellyRejoinSubSpecies");
+		});
+	
+
+	addChoice("Jackal.", function() {
+		clear();
+		append("Ren and Thelly chase each other around the city. You follow them, doing feral parkour up the sides of buildings, walljumping off big concrete support columns, with the sex murals swaying and sliding by consistently above you. Your momentum hugs to the insides of corners as instinct takes over.\n\nThen you put your foot on the wrong person's balcony. A trap snaps shut around your leg. Flesh caves in under iron. Thankfully, you're just getting this narrated to you, so you can kind of lean in or out of the experience as you want.\n\nHow about I just don't even put ya through the pain. We get it all sorted out. Don't even worry.");
+		addChoice("Awww darn.", "thellyRejoinSubSpecies");
+		addChoice("Thanks. Wind down at the brothel?", "thellyRejoinSubSpecies");
+	}, {icons: ["Gore"]}); 
+
+	addChoice("Coyote", function() {
+		clear();
+		append("All three of you explore the city, eating from gracious restaurant owners and the kind boy who puts cat-safe milk out for Ren, a lingerie shopkeeper boy.\n\nYou run off all the pent-up sexual tension in your bodies and end up back at the brothel. Something doesn't look right, but as dumb ferals the river consumes your entire focus, and you can't really think too much about the plot.\n\nYou and Ren drag a nervous Thelly into the currents and slide away. Your muzzles point to the stars. Your hips slide against each other in a daze on the lazy rapids.\n\nThe rolling hills are infinite. You're soon off the graph entirely, lightyears away from the brothel. Over billions of years the law of large numbers brings you eventually back to the little island with the door and the dungeon wall and the rickety wooden building, which still doesn't look right at all.\n\nNo time has passed. I was just fucking with you for dramatic effect.");
+		addChoice("Thanks.", "thellyRejoinSubSpecies");
+	});
+
+addChoice("Hyena.", function() {
+		clear();
+		append("You lapse into a giggle fit with Ren and Thelly, who have started playfighting and tickling each other with their snouts. Ren paps Thely's face down with a swiped paw while Thelly braces his front down and yips.\n\nYou barrel into the action and laugh off sexual tension in blasts of pneumatic steam.");
+		addChoice("Thanks.", "thellyRejoinSubSpecies");
+	});
+}
+
+if (data.species === "bunny") {
+	addChoice("Lionhead.", function() {
+		clear();
+		append("You climb out of the pond with a long flowing bunny mane and two cute little beady eyes.\n\nYou can't quite keep up with the boys. Sure, you can run really fast as a bunny, pitter-pattering over the dark city streets almost faster than they can, but they can slow to a trot... you don't really have a 'trot,' you can either hop really slowly and awkwardly or all-out sprint, with no in-between.\n\nInstead of doing crazy feral parkour, then, Thelly and Ren plod along awkwardly with you. Together, you explore the city streets, sniffing the butts of other ferals, picking at tasty scraps behind the restaurants... honestly, since you're a feral, you don't even care if it's gross. It's just food to you~");
+		addChoice("Yum!!! :3", "thellyRejoinSubSpecies");
+	});
+
+	addChoice("Jackalope.", function() {
+		clear();
+		append("Two cute nubbly antlers spurt from your lil bunny noggin. Ren affectionately scratches his face on em like any good cat would do. Thelly licks up between your antlers, his big long puppy tongue droobling slobber over your forehead.\n\nYou lay back and lavish in the attention. This sensation... two warm feral bodies rubbin all over you... it's so simple and nice. The sounds of a quiet city tickle your sensitive bunny ears as you shut your eyes and lean into it.");
+		addChoice("Thanks.", "thellyRejoinSubSpecies");
+	});
+
+	addChoice("Lop.", function() {
+		clear();
+		append("You shift into a lop-eared bunny and spend at least a couple hours chilling out with Thelly and Ren in the dungeoncity. For some reason, as a feral, this world is so much happier and cleaner than the grimy shithole it felt like when you were anthro. Maybe your standards have just lowered along with your intellect, but the air seems alive with the scents of nearby restaurants: fresh baked bread, greasy french fries, salty bar snacks. The marks of pee and pheromones from the bustling feral community here paints all the drab grey buildings with bright olfactory colors.\n\nOh hell yes. Thelly's nose leads you all to the best food scraps. You nibble at some leftover salad while the boys fight over chicken wings with a couple mangy alley mutts.");
+		addChoice("Ahhh... so cronchy...", "thellyRejoinSubSpecies");
+	});
+
+addChoice("Jackrabbit.", function() {
+		clear();
+		append("Your ears are MASSIVE. They stick straight up. Thelly and Ren sniff at them extensively before they let you hang out with them in a their little feral cuddle pile.\n\nBut... once you're in the cuddle pile... your own greatly improved hearing distracts you:\n\nAll around you, throughout the city, dads are fucking hard. You fold your ears back and sit between Thelly and Ren as they playfight and cuddle while you just listen to the deep grunts, the porn moans, the barrel-chested bellows of 'I'M GONNA FUCKEN SPOOOOooo...'\n\nThe boys poke you with their snouts. They don't get why you're so distracted.");
+		addChoice("Glad I chose this species.", "thellyRejoinSubSpecies");
+	});
+}
+
+if (data.species === "fox") {
+	addChoice("Arctic fox.", function() {
+		clear();
+		append("Thelly and Ren are immediately hypnotized by your fur.\n\nIt's so soft... pure white, flowing, thick... oh my gosh. They stuff their snouts up into your fur coat and huff those freezy arctic fox scents down their nostrils.");
+		addChoice("Uuah~", "thellyRejoinSubSpecies");
+	});
+
+	addChoice("Fennec.", function() {
+		clear();
+		append("You turn into a smug, cute little fennec fox and run around the city with Thelly and Ren. They show you all the best little spots to get height, the slanted windowsills, the fences with easy pawholds. Soon, you're flying over rooftops, yippin hard with the boys and doing crazy parkour.\n\nBut after a full tour of this layer's craziest parkour routes, you're feeling overheated. You show the boys how fennec foxes deal with high body heat:\n\nFirst, you hunch your hind legs down. Then you stick your head out and floomp your ears out to full mast. Fennec fox ears are massive, so Thelly and Ren both ogle you right away.\n\nThen the magic happens. Due to the surface area of your bigass ears, all the veins inside can carry your blood through and let it cool down fast. Within a few moments Thelly has a big dumbfounded puppy smile on his face and Ren looks on with cool, reserved feline admiration. They press their cold snoots to your paws... your sides... and yup. You're cool and refreshed as a motherfucker! :3");
+		addChoice("Aaahh~!", "thellyRejoinSubSpecies");
+	});
+
+	addChoice("Kit fox.", function() {
+		clear();
+		append("Oh boy. You have a very distinct fox scent to you. It's not quite as bad as red foxes, who have the most basic slut advertisement pheromones of all foxes, but it's still a scent so unique half the city's ferals come out to sniff you ass.\n\nIt's not too rowdy. Thelly and Ren act as your bodyguards. They make everyone else line up to sniff you, and they nip at the mutts if their knots start to swell a bit too big while they sniffle and snoofle at your butthole.");
+		addChoice("Mmmf~", "thellyRejoinSubSpecies");
+	});
+
+	addChoice("Red fox.", function() {
+		clear();
+		append("All of the male canines in the city immediately magnetize to you. They spill out of alleys, over rooftops, across windowsills, their sniffers all on high alert. Your basic ass foxslut pheromones have alerted them.\n\nThelly and Ren just barely hold them off. You all became ferals to cool down from the intense sex marathon, not to get knotted again. Still... it's so fucking hard... something about your bright red fur, like a big advertisement... it makes these puppy boys slobber over you nonstop. Thelly and Ren try their best, clawing and barking, but they can't stop everyone. Eventually a few mutts break through and dry hump your face and butt a little bit with their big angry red dogcocks. You endure it with a little feral fox smirk. You don't mind having feral cockscent rubbed off on you~");
+		addChoice("Uuuuph~", "thellyRejoinSubSpecies");
+	});
+}
+`
+---
+:thellyRejoinSubSpecies
+
+You, Thelly, and Ren run around town as ferals for a bit, stirrin up all kinda mischief. The thought of dads, of demands for equal treatment and civil discussion, of femboi gangrape advertisement videos... ferals don't have any room in their heads for worries like those.
+
+You're more interested in the way the streets smell and the cool secret scenic routes these two have already memorized. You spend the whole evening like this, just wandering around on your pawpads and enoying simple pleasures with your snow leopard guide and your loyal golden retriever pal.
+
+Eventually, though, I do a little check to make sure you're all still happy at this intelligence level. I boost you back up to normal sapience just for a second.
+
+!`
+choicesPerPage = 1;
+`
+[Oh yeah sapience!! I forgot about that!|thellyAd54]
+---
+:thellyAd54
+
+Yeah. Thelly and Ren have really lapped this time up. It's been such a nice bubble bath for their minds after all the hard rape and stuff. But they have questions that need answering.
+
+They leap back into the pond and come back out as their normal, fat-hipped femboi selves. Thelly wrings out Ren's hair for him like a good pup.
+
+"Did we do it? Do you think we did it?" Thelly asks, tail a-waggy.
+
+Ren smiles, but his eyes are sad. He shakes his head and headpats Thelly. "Let's just head back to the brothel."
+
+"What?" Thelly's brows peak. "I thought we did okay... kinda passed out though, don't remember... who cleaned up the table?"
+
+!`
+choicesPerPage = 1;
+`
+
+[Some guys...|thellyAd55]
+---
+:thellyAd55
+
+They both look at you.
+
+"Guys?" Ren asks. "Dads?"
+
+!`
+choicesPerPage = 1;
+`
+[Yeah. They just dragged it off somewhere.|thellyAd56]
+---
+:thellyAd56
+
+"Well, you collected the cameras at least, right?
+
+!`
+choicesPerPage = 1;
+`
+[Well no. The guys cleaned those up too. I think.|thellyAd57]
+---
+:thellyAd57
+
+Thelly and Ren share a dark look.
+
+"Dads cleaned those up."
+
+!`
+choicesPerPage = 1;
+`
+[Was I supposed to be in charge of this?|thellyAd58]
+---
+:thellyAd58
+
+Ren places a proud paw on his chest. "I set my best boys to work. I told them, as soon as the crowd turns rotten or the event dies down, collect the cameras and the phones."
+
+!`
+choicesPerPage = 1;
+`
+[Oh... uh...|thellyAd59]
+---
+:thellyAd59
+
+Thelly looks around.
+
+"Where... where are the boys? Didn't we bring like thirty of them into town with us??"
+
+Ren doesn't look around, but not just cause he's blind, his whole body language is relaxed, unsurprised.
+
+!`
+choicesPerPage = 1;
+`
+[Well, I kind of lost track of them too...|thellyAd60]
+---
+:thellyAd60
+
+"`data.playerName`!!!" Thelly rushes up to you, pissed off, ears flopping.
+
+Ren tsks at him but he doesn't listen.
+
+!`
+choicesPerPage = 1;
+`
+[I got distracted by the wild sex okay. :c|thellyAd61]
+---
+:thellyAd61
+
+
+
+!`
+choicesPerPage = 1;
+`
+[And then you two cooled down as ferals and I wanted to play too.|thellyAd62]
+---
+:thellyAd62
+
+
+
+!`
+choicesPerPage = 1;
+`
+[What's the big deal, anyway? They're probably just back at the brothel waiting for us.|thellyAd63]
+---
+:thellyAd63
+
+Ren has already walked away, down the street, while Thelly was grabbing you by the shoulders and getting all in your face. Both of you look after him. His spotty butt sways with cool confidence.
+
+... It's hard not to follow such charisma. Thelly takes your paw and tugs you after him, back to Femme Ren's.
+
+"I still can't believe you just let them get stolen," he hisses as you walk. "We already lost so many..."
+
+!`
+choicesPerPage = 1;
+`
+[I was busy filming you dumb sluts... like you asked...|thellyAd64]
+---
+:thellyAd64
+
+Ren makes it all the way back to the brothel just by memory. He doesn't even need to reach out and check where the broken doorway is, he just walks right through it and into the grass.
+
+The brothel is fucked. It's actively falling apart in front of you. A plank snaps off and topples to the ground about once per five seconds.
+
+There are no boys in the river. There are no boys anywhere but inside, in that same stack of rooms that used to be the spine of the brothel, now just a rickety crutch that barely holds it up. Its wooden guts are exposed: all the crazy architecture, the spots where rooms bleed into each other, the secret crawlspaces and passageways, the lounge rooms with bean bags and cute pornographic tapestries, the foosball tables, the sex tables, the sex beds, the sex couches, the sex stains...
+
+Exactly three boys remain in their rooms at the bottom of the stack. They lean out the windows and call to you.
+
+Wait. They're not talking to you. They're talking to a pack of dads downstairs.
+
+Thelly and Ren consider running over and shooing them off, but... they don't have the strength anymore. They just stand there.
+
+!`
+choicesPerPage = 1;
+`
+[HEY. Run over and stop them from doing whatever they're doing.|thellyAd65]
+---
+:thellyAd65
+
+You run over through the grass. The dads side-eye you as you approach.
+
+!`
+choicesPerPage = 1;
+`
+[HEY STOP!|thellyAd66]
+---
+:thellyAd66
+
+"It's already over," one of them grunts, jerking his dick casually. He holds out an arm. The three boys climb out onto their windowsills and canonball down into his comfortable elbow crook. They nuzzle up against his impeccable pecs and wrap their arms around his big meathead neck and his broad shoulders. One boy reaches down with a footpaw and rubs his little beans over the guy's cock, which hardens up at the merest tickle of soft boy feet.
+
+!`
+choicesPerPage = 1;
+`
+[What do you mean?? Give those boys back. Boys, jump down.|thellyAd67]
+---
+:thellyAd67
+
+"They don't want to jump down," one of the other dads says. "And who the fuck are you, anyway?"
+
+!`
+choicesPerPage = 1;
+`
+[I'm... well I don't really live here, but I visit a lot. Well okay. I visited once...|thellyAd68]
+---
+:thellyAd68
+
+The boys grimace at you and murmur apologies. They don't want to look over to Thelly and Ren, who have dropped to their butts in the grass now, heads resting on each other's soft, furry shoulders.
+
+The dads all grin at you like a pack of hyenas. "These boys were born here. They're locals, like us. Ya think they'd really give up all this daddy dick~~" they grab their cocks and nuts and jiggle them around menacingly~~ "for a couple sissies like those two? Fuck nah. They just needed a lil reminder that we were waitin for em back home. You tourists don't ever fuckin learn, do ya? The bond between a dad and his son is unbreakable. Unmolestable. You can't fuck with us. You can't steal our boys and get away with it. Every single time, we just gotta show up and let em get a whiff of our fat nuts, and they'll come right back home."
+
+They spit at your feet and file out.
+
+"Fuck you. And fuck this grass, too. Who wrote all this in? Sposed to be a city, not a fuckin savannah."
+
+!`
+choicesPerPage = 1;
+`
+[...|thellyAd69]
+---
+:thellyAd69
+
+They roll out through the doorway. They don't stop to talk shit or apologize or do anything for Thelly or Ren.
+
+!`
+choicesPerPage = 1;
+`
+[Examine brothel.|thellyAd70]
+---
+:thellyAd70
+
+This place never had any structural integrity, but it used to be stable.
+
+Now you understand what kept it that way. The wood was never made to hold. The supports were never designed to hold anything up. The only thing that kept Femme Ren's erect was the dozens and dozens of soft, hyper little cub bodies that used to scramble through it like a bloodstream.
+
+The last support cracks right down the middle.
+
+A little stuffed bunny falls from the highest window. You trace it down through the air with your eyes. It lands on a pile of cracked cameras and stomped-out phones that the dads left behind, beady bunny eyes on you.
+
+!`
+choicesPerPage = 1;
+`
+[Fuck.|thellyAd71]
+---
+:thellyAd71
+
+Femme Ren's collapses.
+
+You don't shield yourself. You just let the wooden slivers and chips blast you in the face and clog up your hair. A two-foot piece of timber pierces your gut and drops you to your knees. The roof, the rooms, the cushions, the walls, the drawers, the cute posters, the couches, the beds, the tables, the chairs, and the kitchen sink, all of it comes down on your head and shoulders. You are crushed into the soil.
+
+!`
+choicesPerPage = 1;
+`
+[Respawn.|thellyAd72]
+---
+:thellyAd72
+
+You respawn behind Thelly and Ren. They have their arms around each other, just two soft silhouettes before a giant jagged splinter heap.
+
+"Welp," Thelly sighs. "At least we have the footage somewhere, right? It'll get out, and we'll get popular enough to... rebuild, right? Or something."
+
+!`
+choicesPerPage = 1;
+`
+[Nah, they stole all of it and broke the cameras.|thellyAd73]
+---
+:thellyAd73
+
+"Oh."
+
+!`
+choicesPerPage = 1;
+`
+[...|thellyAd74]
+---
+:thellyAd74
+
+You all sit there for a little while.
+
+!`
+choicesPerPage = 1;
+`
+[...|thellyAd75]
+---
+:thellyAd75
+
+...
+
+!`
+choicesPerPage = 1;
+`
+[...|thellyAd76]
+---
+:thellyAd76
+
+Alright, a little more than a while. Thelly and Ren don't share more than a couple sentences of dialogue between them (how are you, I'm okay, what are you thinking about, you know just some stuff) but mostly they just sit and think. Sitting turns to laying turns to sleeping in the windblown grass. The river trickles by steadily. It's nice white noise...
+
+!`
+choicesPerPage = 1;
+`
+[Sleep...|thellyAd77]
+---
+:thellyAd77
+
+You nuzzle your face up to a nice pillow.
+
+!`
+choicesPerPage = 2;
+`
+[Ren's ass.|thellyAdRenAss]
+[Thelly's ass.|thellyAdThellyAss]
+---
+:thellyAdRenAss
+
+Ren actually really appreciates the affection. There aren't any tears on his face like there are on Thelly's, but that doesn't mean he needs no comfort.
+
+You grab a couple greedy pawfuls of spotted cat butt and snuggle up with your cheek nuzzled just beside his buttcrack. It smells fresh and fine, since he just cleaned himself up in the pond earlier this evening. The river flows by... and flows... and flows...
+
+Exhaustion trickles in from the corners of your eyes. Your focus stays on the swaying stalks of grass that play between glittery river ripples. You blink a few times, slowly. Black fuzz fades in around your vision and whisks you away.
+
+!`
+choicesPerPage = 1;
+`
+[Sleep...|thellyAdSleep]
+---
+:thellyAdThellyAss
+
+Thelly needs it bad. He's been holding back his sobs and his sniffles, but the tearstains are obvious. They glitter in the evening light. On the other hand, Ren hasn't shed a tear. He seems steeled, and won't say much, even after Thelly prods him over and over (how are you, I'm okay, what are you thinking about, you know just some stuff).
+
+You grab a couple greedy pawfuls of fat golden retriever ass and plant your face on his big smooth buttcheek. He whines and pouts and tries to push you off, saying this isn't the time for that shit, this is a serious emotional moment for him, but you don't care. You just nuzzle it deeper and get a couple good pawfuls of assmeat smushed up together for your own comfort.
+
+Even though he hates it, it obviously makes him feel a little better. Eventually he stops whining and accepts it.
+
+The river flows by... and flows... and flows...
+
+Exhaustion trickles in from the corners of your eyes. Your focus stays on the swaying stalks of grass that play between sparkly river ripples. You blink a few times, slowly. Black fuzz fades in around your vision and whisks you away.
+
+!`
+choicesPerPage = 1;
+`
+[Sleep...|thellyAdSleep]
+---
+:thellyAdSleep
+
+You slumber.
+
+!`
+choicesPerPage = 1;
+`
+[Sleep more...|thellyAd79]
+---
+:thellyAd79
+
+The sun is up. Your pillow slides out from under you, leaving only soft grass.
+
+!`
+choicesPerPage = 1;
+`
+[Sleep... more...|thellyAd80]
+---
+:thellyAd80
+
+Thelly nudges you awake.
+
+"Hey."
+
+!`
+choicesPerPage = 1;
+`
+[Sleep...|thellyAd81]
+---
+:thellyAd81
+
+"We're going to stay with Cart for a bit while we find out where to live."
+
+!`
+choicesPerPage = 1;
+`
+[More...|thellyAd82]
+---
+:thellyAd82
+
+The sun blasts into your open eyes.
+
+!`
+choicesPerPage = 1;
+`
+[Mmmh? Where? Who?|thellyAd83]
+---
+:thellyAd83
+
+Thelly and Ren are gone. Cart gave them the couch for now until they decide where they want to go. They left you a little thank-you note, a sewed-up stuffed bunny, and a beautiful little collar sitting in the grass at your feet.
+
+!`
+choicesPerPage = 1;
+`
+[Examine note.|thellyAd84]
+---
+:thellyAd84
+
+<i>Maybe we won't be able to run around here on all fours again,</i> the note says. The borders are filled with comforting little doodles of hearts, paws, stars, and at the bottom Thelly has doodled Ren and himself waving to you with an arm around each other. <i>But wherever we end up, we'll make sure it has lots of good smells and climbing spots. Thanks for trying to help, `data.playerName`. <3 Seeya round.</i>
+
+!`
+choicesPerPage = 1;
+`
+[Bleh.|thellyAd85]
+---
+:thellyAd85
+
+Do you feel responsible for this?
+
+!`
+choicesPerPage = 1;
+`
+[Not really no...|thellyAd86]
+---
+:thellyAd86
+
+
+!`
+choicesPerPage = 1;
+`
+[I didn't really feel like I had much power over the situation.|thellyAd87]
+---
+:thellyAd87
+
+
+!`
+choicesPerPage = 1;
+`
+[I kinda just rode the rails and went with it.|thellyAd88]
+---
+:thellyAd88
+
+
+
+!`
+choicesPerPage = 1;
+`
+[That's kinda what I always do anyway.|thellyAd89]
+---
+:thellyAd89
+
+Maybe you should be more proactive.
+
+!`
+choicesPerPage = 1;
+`
+[Fuck that nerd shit.|thellyAd90]
+---
+:thellyAd90
+
+Then I don't know what to tell ya.
+
+Move in, coax boys into signing up for your brothel, get bullied out. There's not much you or Thelly or Ren could have really done to prevent it.
+
+!`
+choicesPerPage = 1;
+`
+[But what do they do now? They built their whole shit here.|thellyAd91]
+---
+:thellyAd91
+
+They'll find their home out there somewhere.
+
+!`
+choicesPerPage = 1;
+`
+[I hope so.|thellyAd92]
+---
+:thellyAd92
+
+You got room in the apartments, don'tcha~?
+
+!`
+worldMap.completeEntry("Revenge of the Dads");
+choicesPerPage = 1;
+`
+[:3c|thellyAdEnd]
+---
+:thellyAdEnd
+!`
+gotoLLL();
+`
+
+END_PASSAGES

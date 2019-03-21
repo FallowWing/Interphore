@@ -4,13 +4,17 @@ START_PASSAGES
 You're at the L.L.L.! Cartographer's little library, lounge room, and map dome.
 
 !`
-worldMap.completeEntry("Visit L.L.L.");
+worldMap.preUnlockEntry("L.L.L.");
 
 choicesPerPage = 3;
 addChoice("Move along.", function() {
 	clear();
 	gotoLLL();
 });
+
+var entry = worldMap.getEntry("Down: Archiepelago");
+
+if (!entry.unlocked) ("Sniff for layers...", "unlockArchie");
 addChoice("Examine Paraphores", "examineParaphores");
 addChoice("Rules of Operation for Paraphores.");
 addChoice("Examine Spilled Paint", "layerSpilledPaint");
@@ -35,6 +39,242 @@ cartImg.y = gameHeight/2 - cartImg.height/1.5;
 tween(cartImg, 3, {x: gameWidth - cartImg.width * 1.1}, {ease: QUAD_OUT});
 `
 ---
+:unlockArchie
+
+!`
+disableExit();
+var backRect = addRectImage(desiredWidth, desiredHeight, 0x262626);
+backRect.temp = false;
+
+if (music) music.destroy();
+var music = playMusic("audio/ambience/cell");
+music.name = "music";
+
+var eyeballHands = addImage("writer/characters/eyeball/seedAnimHands");
+eyeballHands.x = desiredWidth * 0.5 - eyeballHands.width * 0.5;
+eyeballHands.y = desiredHeight * 0.75 - eyeballHands.width * 0.5;
+eyeballHands.centerPivot = true;
+eyeballHands.scaleX = 1.6;
+eyeballHands.scaleY = 1.6;
+eyeballHands.temp = false;
+eyeballHands.alpha = 0;
+tween(eyeballHands, 6, {scaleX: 2, scaleY: 2}, {ease: QUAD_IN_OUT, type: PINGPONG});
+tween(eyeballHands, 28, {rotation: 25}, {ease: QUAD_IN_OUT, type: PINGPONG});
+
+var eyeballEye = addImage("writer/characters/eyeball/seedAnimEye");
+eyeballEye.x = desiredWidth * 0.5 - eyeballEye.width * 0.5;
+eyeballEye.y = desiredHeight * 0.33 - eyeballEye.width * 0.5;
+eyeballEye.centerPivot = true;
+eyeballEye.scaleX = 1.6;
+eyeballEye.scaleY = 1.6;
+eyeballEye.temp = false;
+eyeballEye.alpha = 0;
+tween(eyeballEye, 6, {scaleX: 2, scaleY: 2}, {ease: QUAD_IN_OUT, type: PINGPONG});
+tween(eyeballEye, 24, {rotation: 34}, {ease: QUAD_IN_OUT, type: PINGPONG});
+tween(eyeballEye, 3, {alpha: 1});
+setTitle("Want some lore?");
+choicesPerPage = 2;
+`
+
+[Sure.|eyeballAnim2] #Plot
+[Skip.|eyeballSkip]
+---
+:eyeballAnim2
+
+!`
+gainExp(50);
+choicesPerPage = 1;
+tween(eyeballHands, 3, {alpha: 1});
+queueTitle("See this thing?");
+queueTitle("This cute ball.");
+queueTitle("This thing in my hands is your soul.");
+queueAddChoice("Wack.");
+`
+---
+:Wack.
+
+!`
+if (eyeballHands.currentFrame == 40) eyeballHands.gotoFrame(40, false);
+choicesPerPage = 1;
+queueTitle("We call this form of soul a 'seed~'");
+queueDelay(1);
+queueTitle("A seed is a sequence of 32 hexadecimal digits.");
+queueTitle("This is the most elegant format for storing souls: the numbers 0-9 and letters A-F.");
+queueTitle("Turns out the problem of consciousness is pretty simple once you break it down enough.");
+queueTitle("Just use a better storage format than a brain.");
+queueAddChoice("Stop playing with my seed.");
+`
+---
+:Stop playing with my seed.
+
+!`
+choicesPerPage = 1;
+queueTitle("Why? Does this tickle.");
+queueAddChoice("Yes a little.");
+`
+---
+:Yes a little.
+
+!`
+choicesPerPage = 1;
+queueTitle("Your soul is so smooth and soft compared to other people's.");
+queueAddChoice("Thanks.");
+`
+---
+:Thanks.
+
+!`
+choicesPerPage = 1;
+queueTitle("Aren't you going to ask for more lore.");
+queueAddChoice("Is that actually my soul or are you just fucking with me.");
+`
+---
+:Is that actually my soul or are you just fucking with me.
+
+!`
+choicesPerPage = 1;
+queueTitle("It is. I temporarily disconnected you from your body. Now I'm throwing you around.");
+queueAddChoice("Is this a fetish.");
+`
+---
+:Is this a fetish.
+
+!`
+choicesPerPage = 1;
+queueTitle("I'm not perving on you or anything.");
+queueTitle("I have you up here with me for safekeeping.");
+queueTitle("This way, no matter what happens to your body, you can always remote control a new one.");
+queueAddChoice("Umf. This new mode of being is so restrictive and tight... ~");
+`
+---
+:Umf. This new mode of being is so restrictive and tight... ~
+
+!`
+choicesPerPage = 1;
+queueTitle("You're getting warm. Or my palms or getting hot.");
+queueTitle("Anyway, we recreated another timeline down the hall here.");
+queueTitle("Saved a bunch of seeds from doom thanks to that version of you.");
+queueTitle("She did timeskip them 4000 years though. That was... bold.");
+queueAddChoice("Haha, sucks to be her.");
+`
+---
+:Haha, sucks to be her.
+
+!`
+choicesPerPage = 1;
+queueTitle("...");
+queueAddChoice("So how am I in that ball but also walking around as a furry?");
+`
+---
+:So how am I in that ball but also walking around as a furry?
+
+!`
+choicesPerPage = 1;
+queueTitle("Your seed's intentions are routed through me and my juice, to your body.");
+queueTitle("It's a one-way street though.");
+queueAddChoice("From my soul to my body.");
+`
+---
+:From my soul to my body.
+
+!`
+choicesPerPage = 1;
+queueTitle("You can think of sentience in terms of experience and experiencer.");
+queueTitle("Torture and the tortured. Elation and the elated.");
+queueTitle("Plugging you in isn't the problem.");
+queueTitle("The problem is relaying your experience (sensory information) back to you, the experiencer, in a coherent way.");
+queueAddChoice("Coherent is a strong word for the relay so far.");
+`
+---
+:Coherent is a strong word for the relay so far.
+
+!`
+choicesPerPage = 1;
+queueTitle("Think about it!");
+queueTitle("Let's say you go down to a layer on a computer on Earth.");
+queueTitle("There's a lot of data flying at you that needs to be narrated.");
+queueTitle("But it's not only that.");
+queueTitle("The <i>format</i> of the data is several magnitudes of garbled.");
+queueTitle("The L.L.L. is made of words.");
+queueTitle("Earth is made of paint in the L.L.L.");
+queueTitle("The computer on Earth is made of circuits and specific electron arrangements.");
+queueTitle("Those electrons are manipulated according to a massive pile of code.");
+queueAddChoice("Javascript or?");
+`
+---
+:Javascript or?
+
+!`
+choicesPerPage = 1;
+queueTitle("The kind with no comments and 23984 mutant if statements.");
+queueTitle("I have to interpret, and re-interpret, and then re-interpret one more time, just to tell you:");
+queueTitle("The penis entered the butthole.");
+queueTitle("That's why you're blind without my narration.");
+queueAddChoice("I see.");
+`
+---
+:I see.
+
+!`
+choicesPerPage = 1;
+queueTitle("Anyway, here's the Protocol Ending. We recreated it on a lil computer.");
+queueTitle("All their islands and all the seeds therein.");
+queueAddChoice("Let's go!", "eyeballEnd");
+`
+---
+:eyeballSkip
+
+!`
+gainExp(25);
+tween(eyeballHands, 3, {alpha: 1});
+
+choicesPerPage = 1;
+
+queueTitle("Alright I'll keep it short.");
+queueTitle("This little ball I'm throwing around is your soul. It's a seed.");
+queueAddChoice("Goddamnit I said Skip.");
+`
+---
+:Goddamnit I said Skip.
+
+!`
+queueTitle("Also we recreated another timeline of Mynt's island down the hall here.");
+queueAddChoice("Got it lets go.", "eyeballEnd");
+`
+
+---
+:eyeballEnd
+
+In the depths of Cart's extensive library, there is a hypersecure room which he has cordially left open for you and Mynt.
+
+In the depths of the room, there is an unhackable computer.
+
+In the depths of the computer, there is a precisely edited copy of a porn game called Library2.
+
+In the depths of the game, steeped in code rotted over four millenia of in-game time, there is a chain of islands.
+
+In the depths of those islands, there are a bunch of degenerate furries with admin powers.
+
+They call their digital home the Archiepelago.
+
+!`
+setTitle("");
+eyeballEye.destroy();
+eyeballHands.destroy();
+backRect.destroy();
+enableExit();
+worldMap.unlockEntry("Down: Archiepelago");
+data.unlockedArchiepelago = true;
+choicesPerPage = 2;
+`
+[Play the game.|unlockArchie2]
+[Back.|hubLLL]
+---
+:unlockArchie2
+!`
+gotoArchiepelago();
+`
+---
 :lllFAQ
 
 Please ask any questions you like, they'll probably be frequently asked ones anyway.
@@ -42,12 +282,11 @@ Please ask any questions you like, they'll probably be frequently asked ones any
 !`
 choicesPerPage = 5;
 `
-
 [What happened to my memories?]
 [Why is there porn everywhere?]
 [Am I trapped this way forever?]
 [What the fuck is good?]
-[Back.|lllHub]
+[Back.|hubLLL]
 ---
 :What happened to my memories?
 
@@ -135,6 +374,7 @@ choicesPerPage = 2;
 :trans2
 
 !`
+gainExp(5);
 choicesPerPage = 2;
 `
 [Okay sorry I'm done.|trans7]
@@ -143,9 +383,9 @@ choicesPerPage = 2;
 :trans3
 
 !`
+gainExp(5);
 choicesPerPage = 1;
 `
-
 [Oh no, I pegged you all wrong. You're a Witch House pastel goth shota, aren'tcha? I see that blue hair.|trans3a]
 ---
 :trans3a
@@ -159,6 +399,7 @@ choicesPerPage = 2;
 :trans4
 
 !`
+gainExp(5);
 choicesPerPage = 2;
 `
 [... I'm really sorry about this.|trans7]
@@ -168,6 +409,7 @@ choicesPerPage = 2;
 
 !`
 choicesPerPage = 2;
+gainExp(5);
 `
 [You're pretty patient huh.|trans7]
 [You geekin out to some Benny Benassi? Wobblin on that eurobeat hardstyle?|trans5]
@@ -178,6 +420,7 @@ Even though you can't see his eyes, you're pretty sure he's looking at you like 
 
 !`
 choicesPerPage = 2;
+gainExp(5);
 `
 [Okay I'll stop.|trans7]
 [You bitchin on Bach? You groovin to some Gerschwin?|trans6]
@@ -186,6 +429,7 @@ choicesPerPage = 2;
 
 !`
 choicesPerPage = 1;
+gainExp(5);
 `
 [You goofin wild on some sticky fresh Wank House bangers with a~~|trans7]
 ---

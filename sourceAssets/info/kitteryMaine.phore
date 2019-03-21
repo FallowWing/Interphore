@@ -1,0 +1,492 @@
+START_PASSAGES
+:calliopeStart
+
+Your respawn point is a bit off. You land in the middle of a dead silent forest somewhere in Maine.
+
+!`
+choicesPerPage = 1;
+`
+[Walk the rest of the way.|calliope1]
+---
+:calliope1
+
+The walk to the Calliope magazine HQ mostly routes through quiet, gutted ecosystems. Most of the animals tried on sapience in the red pond and never looked back. A dark brown twittering laughing cloud of finches rushes by, both feral and anthro. I asked them real quick and they say they chose to stay on Earth because the air is clean and free of sex smog; no other layer has wind currents this dynamic and titillating under the wingtips.
+
+Inside the small town of Kittery, empty houses lean on their deflated lungs. You don't see many people. Just a baggy-eyed woman running a mostly empty trailer park, some dirt-smeared purple-skinned nymph who stealthily licks herself clean and runs away at the sight of you, and a couple anthro finch girls cuddled together atop rooftop roosts.
+
+!`
+choicesPerPage = 1;
+`
+[Where's this magazine place.|calliope2]
+---
+:calliope2
+
+You arrive at the Calliope HQ. It's a tiny empty cabin near the water.
+
+!`
+choicesPerPage = 1;
+`
+[Examine cabin.|calliope3]
+---
+:calliope3
+
+It's half-collapsed now. Logs jut out like broken bones where the fertile hillside has eaten into it.
+
+A faded sign out front says <b>Head Office of the Editor and Founder of Calliope Magazine: Allei</b>
+
+!`
+choicesPerPage = 1;
+`
+[Moooom?|calliope4]
+---
+:calliope4
+
+No one answers.
+
+You push the door open. Moss flakes off under your paw. Zephyrs of glitterdust sway in the air~~ if dust is dead skin particles from humans, glitterdust is the equivalent for nymphs.
+
+It smells like mildew and ancient girlcum in here. You duck through the collapsed beams that once supported the roof and come into a room plastered from baseboards to ceiling with drawings of cute girls.
+
+!`
+choicesPerPage = 1;
+`
+[Search for the contest archives.|calliope5]
+---
+:calliope5
+
+It takes hour after gruelling hour. The musty stink of rotten wood seeps into your brain and makes you go a little dumb. But then you find it.
+
+Here's a stack of drawings, half-eaten by insects and rodents, wet from a crater in the tile roof. Each one has a cute girl, a message from the contestant, and a small slip with their name, address, and email.
+
+You thumb through the stack of old yellowed papers and pull out the original copy of the Mynt fanart you found earlier... attached is Wendy's message and info written in purple pen on a little slip of paper, crisp and clean white.
+
+"hi here is my drawing its a little cat girl i used to know named mynt"
+
+Contestant: Wendy Archibald
+Address: 123 Fake Lane
+Email: scrubadub@dubbins.realm
+
+!`
+choicesPerPage = 1;
+`
+[... What?|calliope6]
+---
+:calliope6
+
+That's what she wrote, apparently.
+
+!`
+choicesPerPage = 1;
+`
+[Flip the slip over.|calliope7]
+---
+:calliope7
+
+It's blank on this side.
+
+!`
+choicesPerPage = 1;
+`
+[Okay, check out the drawing of Mynt she submitted?|calliope8]
+---
+:calliope8
+
+It's pretty quick and dirty. Just a doodle.
+
+But it's clear she put time into it. It really does look like Mynt. She even got the little paw barette right.
+
+!`
+choicesPerPage = 1;
+`
+[There's really nothing else I can glean here???|calliope9]
+---
+:calliope9
+
+Well, I don't know. You looked through the stack over and over to track that little slip down. I'm pretty sure that's all there is to see.
+
+!`
+choicesPerPage = 1;
+`
+[Sniff the drawing.|calliope10]
+---
+:calliope10
+
+It's got that thick, intoxicating old paper smell.
+
+!`
+choicesPerPage = 1;
+`
+[Fuckin sniff the slip.|calliope11]
+---
+:calliope11
+
+Your snout wanders over the name Wendy Archibald. Smells like fresh clean paper.
+
+If you sniff hard enough you might be able to magically discover her location.
+
+!`
+choicesPerPage = 1;
+`
+[Alright search the rest of this place.|calliope12]
+---
+:calliope12
+
+You peek around...
+
+There's a bunch of glitterdust everywhere. Instead of making you sneeze like regular dust, it makes you gay. You feel your `gender("attraction to heavy, swaying nuts and cocks growing by the minute.", "attraction to taut, puffy weinerholsters and clitori rising by the minute.", "neutral gender mind struggling to figure out which direction is gay, and in the end, the glitterdust just gives up and makes you asexual.");`
+
+No matter which room you dig through, no matter which boxes you tip, no matter which documents you pore over, absolutely nothing you find has any relevance to your mom.
+
+!`
+choicesPerPage = 1;
+`
+[Examine EVERYTHING then.|calliope13]
+---
+:calliope13
+
+You're really asking a lot of me here, but I understand you're on a quest, so whatever, I'll hook you up this one time.
+
+When you examine everything you naturally start with the thing closest to your eyeballs at that time: the glitterdust.
+
+It hangs heavier in the bedrooms. In the front room and the living room, it seems a little lighter. Almost all of it is boring as fuck and there's nothing to even really report. However, you do notice one strange thing.
+
+In one of the closets, there is a square of empty, clean floor. No glitterdust. Something was there until very recently.
+
+!`
+choicesPerPage = 1;
+`
+[Examine mysterious empty spot!|calliope14]
+---
+:calliope14
+
+I basically just did. There's nothing else about it. It's a spot where the dust has been disturbed.
+
+If you really want me to draw the conclusion for you...
+
+!`
+choicesPerPage = 1;
+`
+[No I got it.|calliope15]
+---
+:calliope15
+
+This means...
+
+!`
+choicesPerPage = 1;
+`
+[This means someone was here before me.|calliope16]
+---
+:calliope16
+
+What could this mean.
+
+!`
+choicesPerPage = 1;
+`
+[...|calliope17]
+---
+:calliope17
+
+You wanna search more?
+
+!`
+choicesPerPage = 1;
+`
+[Yup.|calliopeThings]
+---
+:calliopeThings
+
+You tear the place up, pull out floorboards like rotten teeth, run your paw along the baseboards, tap the walls.
+
+Three things of interest:
+
+A safe in the wall, a box of matches with no dust on them, and a pen with no dust on it.
+
+!`
+choicesPerPage = 3;
+`
+[Examine matches.|calliopeMatches]
+[Examine pen.|calliopePen]
+[Examine safe.|calliopeSafe]
+---
+:calliopeMatches
+
+They're pink and cute. The brand on them says Indigo Pond.
+
+!`
+choicesPerPage = 2;
+`
+[Back.|calliopeThings]
+[Hmmmm. Search the backyard.|calliopeRejoin]
+---
+:calliopePen
+
+It's purple and cute.
+
+!`
+choicesPerPage = 2;
+`
+[Back.|calliopeThings]
+[Hmmmm. Search the backyard.|calliopeRejoin]
+---
+:calliopeSafe
+
+It's pink and cute, but it's locked. Needs three digits to open.
+
+!`
+choicesPerPage = 2;
+`
+[Back.|calliopeThings]
+[Hmmmm. Search the backyard.|calliopeRejoin]
+---
+:calliopeRejoin
+
+There is no backyard, this cabin is surrounded by woods.
+
+!`
+choicesPerPage = 1;
+`
+[Just examine where the backyard would be.|calliope18]
+---
+:calliope18
+
+You peek out the window and peruse the backyard. The overgrowth is heavy, but one section is mysteriously void of weeds or wildlife tracks. It's a smooth little stretch of fresh brown dirt.
+
+!`
+choicesPerPage = 1;
+`
+[DIG!|calliope19]
+---
+:calliope19
+
+You drop to your hands and knees and claw your way through the loose, fresh earth. After thirty minutes and a layer of dirt on your face and fur...
+
+Your claws strike metal.
+
+Here it is.
+
+The ultimate clue.
+
+!`
+choicesPerPage = 1;
+`
+[Examine x100.|calliope20]
+---
+:calliope20
+
+You unearth...
+
+A snapped, burnt trophy.
+
+The engraved name and event have both been viciously scratched out.
+
+Only two words and a date are still readable:
+
+L--TLE D-VAS.
+
+--98.
+
+!`
+choicesPerPage = 1;
+`
+[What in the fuck...|calliope21]
+---
+:calliope21
+
+Probably LITTLE DIVAS, 1998.
+
+You turn the trophy over and over in your hands. Dirt patters onto your thighs.
+
+As your fingers rove across the surface, you notice dents, slashed holes... someone really took out their rage on this thing.
+
+!`
+choicesPerPage = 1;
+`
+[Does 'Little Divas' mean anything to you?|calliope22]
+---
+:calliope22
+
+No. Must be some Earth shit.
+
+!`
+choicesPerPage = 1;
+`
+[Examine the entire town.|calliope23]
+---
+:calliope23
+
+You can't expect me to just examine an entire town.
+
+!`
+choicesPerPage = 1;
+`
+[Okay well walk around town and look for anything 'Little Divas' related.|calliope24]
+---
+:calliope24
+
+You do a quick lap around Kittery. Nothing diva-related at all. The old middle-aged guys fishing on Gooseberry island don't know shit about divas. The trailer park girl scratches her head and points you to the hairstylists, which closed down sixty-six years ago when the meteorite fell.
+
+Hey, maybe you should try the internet.
+
+!`
+choicesPerPage = 1;
+`
+[Search 'Little Divas'!|calliope25]
+---
+:calliope25
+
+Ah. Here's something.
+
+Little Divas was a child beauty pageant that peaked in the mid to late 90's. It toured around to different hotel banquet halls all over Maine. When the meteorite hit, it had already disbanded.
+
+!`
+choicesPerPage = 1;
+`
+[Oh shit. So that trophy...|calliope26]
+---
+:calliope26
+
+... was for a child in 1998.
+
+!`
+choicesPerPage = 1;
+`
+[Mom.|calliope27]
+---
+:calliope27
+
+Probably, yeah.
+
+!`
+choicesPerPage = 1;
+`
+[Who burnt, twisted, stabbed, dented, and buried her trophy?|calliope28]
+---
+:calliope28
+
+I don't know. I don't know why someone would do that.
+
+!`
+choicesPerPage = 1;
+`
+[Hmm...|calliope29]
+---
+:calliope29
+
+What else can we look into?
+
+!`
+choicesPerPage = 1;
+`
+[Let's examine every hotel Little Divas ever went to.|calliope30]
+---
+:calliope30
+
+That's like thirty hotels.
+
+!`
+choicesPerPage = 1;
+`
+[Well...|calliope31]
+---
+:calliope31
+
+That's too many hotels, seriously. It would take you probably a month to search through every single one.
+
+!`
+choicesPerPage = 1;
+`
+[But this is the only lead I have.|calliope32]
+---
+:calliope32
+
+Then you'll just have to look for another lead.
+
+!`
+choicesPerPage = 1;
+`
+[But.|calliope33]
+---
+:calliope33
+
+...
+
+!`
+choicesPerPage = 1;
+`
+[What if whoever buried this trophy...|calliope34]
+---
+:calliope34
+
+I know what you're thinking, but I can't get behind it. It's a stretch.
+
+!`
+choicesPerPage = 1;
+`
+[... what if they're hunting mom too??|calliope35]
+---
+:calliope35
+
+We have too little information to speculate right now.
+
+!`
+choicesPerPage = 1;
+`
+[Ugh.|calliope36]
+---
+:calliope36
+
+I think we're done here.
+
+!`
+choicesPerPage = 1;
+`
+[What am I supposed to tell Mynt?|calliope37]
+---
+:calliope37
+
+That you searched for clues as hard as you could, but in the end, you only found one of her old trophies and a slip of paper with a bunch of fake information.
+
+You won't be coming back entirely empty-handed. You also have this:
+
+!`
+choicesPerPage = 1;
+`
+[Hn?!|calliope38]
+---
+:calliope38
+
+You found her original Mynt drawing. The one you only saw in the magazine before.
+
+!`
+msg("Mynt Drawing x1");
+choicesPerPage = 1;
+`
+[Ah!! That's right!|calliope39]
+---
+:calliope39
+
+I'm sure Mynt will cherish it. <3
+
+!`
+choicesPerPage = 1;
+`
+[Fuck yeah she will!!|calliope40]
+---
+:calliope40
+
+You tuck the drawing nice and gentle into your pocket. The trophy is a bit of a clunky fit, but you slide it in your other pocket and get on your way.
+
+!`
+worldMap.completeEntry("Kittery, Maine");
+choicesPerPage = 1;
+`
+[Move along.|calliopeEnd]
+---
+:calliopeEnd
+!`
+gotoEarth();
+`
+
+END_PASSAGES

@@ -27,6 +27,7 @@ info/passageParser.js
 
 info/LLLmap.phore
 info/earthMap.phore
+info/foodlandMap.phore
 info/archiepelagoMap.phore
 info/map.phore
 
@@ -40,7 +41,9 @@ info/main.phore
 info/thirstyCaves.phore
 info/wendyApt.phore
 info/wendyApt2.phore
+info/kitteryMaine.phore
 info/thelly.phore
+info/thellyAd.phore
 info/lone.phore
 info/oliStream.phore
 info/luluPouph.phore
@@ -51,6 +54,7 @@ info/blackMansion.phore
 info/introCart.phore
 info/LLL.phore
 info/foodLand.phore
+info/foodLandChrys.phore
 info/cartPara.phore
 info/scratch.phore
 info/basic.phore
@@ -151,11 +155,17 @@ img/writer/xpBack.png
 img/writer/xpBack.spr
 img/writer/xpFront.png
 img/writer/xpFront.spr
-img/writer/xp9slice.png
-img/writer/xp9slice.spr
+img/writer/xpBar1.png
+img/writer/xpBar1.spr
+img/writer/xpBar2.png
+img/writer/xpBar2.spr
+img/writer/xpBar3.png
+img/writer/xpBar3.spr
 
 img/writer/mapTitles/theRedSea.png
 img/writer/mapTitles/theRedSea.spr
+img/writer/mapTitles/foodland.png
+img/writer/mapTitles/foodland.spr
 img/writer/mapTitles/gcd.png
 img/writer/mapTitles/gcd.spr
 img/writer/mapTitles/library2.png
@@ -172,8 +182,14 @@ img/writer/halfCheck.png
 img/writer/halfCheck.png
 img/writer/fullCheck.png
 img/writer/fullCheck.png
+img/writer/nodeArrow.png
+img/writer/nodeArrow.spr
 img/writer/nodeChoice.png
 img/writer/nodeChoice.spr
+img/writer/nodeSpecial.png
+img/writer/nodeSpecial.spr
+img/writer/nodeSuperSpecial.png
+img/writer/nodeSuperSpecial.spr
 img/writer/choiceArrow.png
 img/writer/choiceArrow.spr
 img/writer/statusBox.png
@@ -193,6 +209,8 @@ img/writer/thirstyCavesBg.png
 img/writer/thirstyCavesBg.spr
 img/writer/spilledPaintBg.png
 img/writer/spilledPaintBg.spr
+img/writer/foodlandBg.png
+img/writer/foodlandBg.spr
 img/writer/shelterBg.png
 img/writer/shelterBg.spr
 img/writer/cartBg.png
@@ -200,6 +218,12 @@ img/writer/cartBg.spr
 
 img/writer/cageBathtub.png
 img/writer/cageBathtub.spr
+img/writer/mynt/myntBed1.png
+img/writer/mynt/myntBed1.spr
+img/writer/mynt/myntBed2.png
+img/writer/mynt/myntBed2.spr
+img/writer/mynt/myntBed3.png
+img/writer/mynt/myntBed3.spr
 img/writer/mynt/bg/myntBg1.png
 img/writer/mynt/bg/myntBg1.spr
 img/writer/mynt/bg/myntBg2.png
@@ -230,8 +254,14 @@ img/writer/mynt/face/myntBod/10.png
 img/writer/mynt/face/myntBod/10.spr
 img/writer/mynt/face/myntBod/11.png
 img/writer/mynt/face/myntBod/11.spr
+img/writer/characters/eyeball/seedAnimHands.png
+img/writer/characters/eyeball/seedAnimHands.spr
+img/writer/characters/eyeball/seedAnimEye.png
+img/writer/characters/eyeball/seedAnimEye.spr
 img/writer/characters/rebeca/oldBeca.png
 img/writer/characters/rebeca/oldBeca.spr
+img/writer/characters/deerHippy/deerHippy.png
+img/writer/characters/deerHippy/deerHippy.spr
 img/writer/characters/rebeca/rebeca/base.png
 img/writer/characters/rebeca/rebeca/base.spr
 img/writer/characters/rebeca/rebeca/human.png
@@ -260,6 +290,8 @@ img/writer/characters/rebeca/rebeca/boobs.png
 img/writer/characters/rebeca/rebeca/boobs.spr
 img/writer/characters/rebeca/rebeca/bulge.png
 img/writer/characters/rebeca/rebeca/bulge.spr
+img/writer/characters/chrys/chrys.png
+img/writer/characters/chrys/chrys.spr
 img/writer/characters/allei/allei.png
 img/writer/characters/allei/allei.spr
 img/writer/characters/allei/silhouette1.png
@@ -346,9 +378,24 @@ audio/effect/cartSlide/left/1.ogg
 audio/effect/cartSlide/left/2.ogg
 
 audio/ui/nope.ogg
+audio/ui/nopeNode/1.ogg
+audio/ui/nopeNode/2.ogg
+audio/ui/nodeClick/1.ogg
+audio/ui/nodeClick/2.ogg
+audio/ui/nodeClick/3.ogg
+audio/ui/unlockNode.ogg
+audio/ui/mapMove.ogg
 audio/ui/msg/1.ogg
 audio/ui/msg/2.ogg
 audio/ui/msg/3.ogg
+audio/ui/rewards/xp/0.ogg
+audio/ui/rewards/xp/1.ogg
+audio/ui/rewards/xp/2.ogg
+audio/ui/rewards/xp/3.ogg
+audio/ui/rewards/xp/4.ogg
+audio/ui/rewards/levels/1.ogg
+audio/ui/rewards/levels/2.ogg
+audio/ui/rewards/levels/3.ogg
 audio/ui/rewards/boon/1.ogg
 audio/ui/rewards/boon/2.ogg
 audio/ui/rewards/boon/3.ogg

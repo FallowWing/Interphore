@@ -82,6 +82,15 @@ function fox() {
 	return data.species;
 }
 
+function species(fox, wolf, bunny, cat) {
+	if (data.species === "fox") return fox;
+	if (data.species === "wolf") return wolf;
+	if (data.species === "bunny") return bunny;
+	if (data.species === "cat") return cat;
+
+	if (data.species === undefined) return cat;
+}
+
 function hasKnot(knot, noKnot) {
 	if (data.species === undefined) return noKnot;
 	if (data.hasKnot) return knot;
@@ -150,25 +159,140 @@ function pouphGen(male, female, none) {
 	return "POUPH HAS NO GENDER SET, FUCK, UH OHHHHH, GO SET IT, ";
 }
 
-/*
-function exp(amount, sfx) {
-	data.exp += amount;
+function gainExp(amount) {
+	data.totalExp += amount;
 
-	msg("EXP: +data.exp);
-	
-	var bar = addImage("writer/exp/bar");
-	bar.x = gameWidth / 2 - bar.width / 2;
-	bar.y = -bar.height;
-	tween(bar, 2, {y: 0}, {ease: QUINT_OUT});
+	var xpBackY = desiredHeight - 200;
+	var xpBarY = xpBackY + 4;
 
-	if (data.exp > 100) {
-		data.exp - 100;
-		data.level += 1;
-		msg("Level: "+data.level);
-	}
+	var xpBack = addImage("writer/xpBack");
+	xpBack.x = desiredWidth / 2 - xpBack.width / 2;
+	xpBack.y = desiredHeight - xpBack.height;
+	tween(xpBack, 0.5, {y: xpBackY}, {ease: QUINT_OUT});
 
-	var fillWidth = bar.width * data.exp;
+	var xpBar1 = addImage("writer/xpBar1");
+	xpBar1.x = xpBack.x + 10;
+	xpBar1.y = desiredHeight - xpBack.height;
+	tween(xpBar1, 0.5, {y: xpBarY}, {ease: QUINT_OUT});
 
-	var fill =  = add9SliceImage("img/writer/exp/fill.png", fillWidth, bar.height, 5, 5, 10, 10);
+	var xpBar2 = addImage("writer/xpBar2");
+	xpBar2.x = xpBar1.x + xpBar1.width + 1;
+	xpBar2.scaleX = 49 + (xpBack.width - 75) * data.exp * 0.01;
+	xpBar2.y = desiredHeight - xpBack.height;
+	tween(xpBar2, 0.5, {y: xpBarY}, {ease: QUINT_OUT});
+
+	var xpBar3 = addImage("writer/xpBar3");
+	xpBar3.x = xpBar2.x + xpBar2.width * xpBar2.scaleX;
+	xpBar3.y = desiredHeight - xpBack.height;
+	tween(xpBar3, 0.5, {y: xpBarY}, {ease: QUINT_OUT});
+
+	var xpText = addEmptyImage(200, 70);
+	xpText.setFont("NunitoSans-Light_26");
+	xpText.setText("XP: <b>"+data.exp+" / 100</b>");
+	xpText.x = desiredWidth - xpText.textWidth - 50;
+	xpText.tint = 0xFF00a6fc;
+	xpText.centerPivot = true;
+	xpText.y = desiredHeight;
+	tween(xpText, 0.5, {y: xpBackY - xpText.textHeight}, {ease: QUINT_OUT});
+
+	var xpNewText = addEmptyImage(200, 70);
+	xpNewText.setFont("NunitoSans-Light_26");
+	xpText.setText("XP: <b>"+data.exp+" / 100</b>");
+	xpNewText.x = desiredWidth - xpNewText.textWidth - 50;
+	xpNewText.tint = 0xFF00a6fc;
+	xpNewText.y = desiredHeight;
+	tween(xpNewText, 0.5, {y: xpBackY - xpNewText.textHeight}, {ease: QUINT_OUT});
+
+	var xpFront = addImage("writer/xpFront");
+	xpFront.x = xpBack.x;
+	xpFront.y = desiredHeight - xpFront.height;
+
+	tween(xpFront, 0.5, {y: xpBackY}, {ease: QUINT_OUT, onComplete: function() {
+		data.exp += amount;
+
+		msg("  + <b>"+amount+"</b> XP  ", {silent: true});
+
+		if (data.exp >= 100) {
+			while (data.exp >= 100) {
+				data.level += 1;
+				data.exp -= 100;
+			}
+
+			msg("Level: <b>"+data.level+"</b>\nXP: <b>"+data.totalExp+"</b>", {silent: true});
+			
+			playEffect("audio/ui/rewards/levels");
+
+			if (data.level >= 2) {
+				worldMap.unlockEntry("Yellow Pond");
+				worldMap.unlockEntry("Olitippo's Stream");
+			} else if (data.level >= 3) {
+				worldMap.unlockEntry("Indigo Pond");
+				worldMap.unlockEntry("L.L.L.");
+			} else if (data.level >= 4) {
+				worldMap.unlockEntry("Down: Foodland");
+				worldMap.unlockEntry("Black Mansion");
+			} else if (data.level >= 5) {
+				worldMap.unlockEntry("Up: ???");
+				worldMap.unlockEntry("Chrysophylux");
+			}
+		} else {
+			if (amount <= 10) playEffect("audio/ui/rewards/xp/0");
+			if (amount > 10 && amount <= 20) playEffect("audio/ui/rewards/xp/1");
+			if (amount > 20 && amount <= 30) playEffect("audio/ui/rewards/xp/2");
+			if (amount > 30 && amount <= 49) playEffect("audio/ui/rewards/xp/3");
+			if (amount > 49) playEffect("audio/ui/rewards/xp/4");
+		}
+
+		xpNewText.setText("XP: <b>"+data.exp+" / 100</b>");
+		xpNewText.x = desiredWidth - xpNewText.textWidth - 50;
+		xpNewText.y = xpBackY - xpNewText.textHeight;
+		xpNewText.alpha = 0;
+		xpNewText.scaleY = 0;
+		xpNewText.centerPivot = true;
+
+		tween(xpText, 0.2, {scaleY: 0}, {ease: QUAD_IN, onComplete: function() {
+			xpText.alpha = 0;
+			xpNewText.alpha = 1;
+			tween(xpNewText, 0.6, {scaleY: 1}, {ease: ELASTIC_OUT});
+		}});
+
+		tween(xpBar2, 1 + 0.7 * amount * 0.01, {scaleX: 49 + (xpBack.width - 100) * data.exp * 0.01}, {ease: ELASTIC_OUT});
+		tween(xpBar3, 1 + 0.7 * amount * 0.01, {x: xpBar2.x + xpBar2.width * 49 + (xpBack.width - 100) * data.exp * 0.01}, {ease: ELASTIC_OUT});
+		
+		xpBar1.y = xpBarY + 10;
+		xpBar2.y = xpBarY + 10;
+		xpBar3.y = xpBarY + 10;
+		tween(xpBar1, 0.1, {y: xpBarY}, {ease: QUAD_IN_OUT});
+		tween(xpBar2, 0.1, {y: xpBarY}, {ease: QUAD_IN_OUT});
+		tween(xpBar3, 0.1, {y: xpBarY}, {ease: QUAD_IN_OUT});
+	}});
+
+	tween(xpFront, 2.5, {alpha: 1}, {onComplete: function() {
+		tween(xpBack, 3, {alpha: 0});
+		tween(xpBar1, 3, {alpha: 0});
+		tween(xpBar2, 3, {alpha: 0});
+		tween(xpBar3, 3, {alpha: 0});
+		tween(xpFront, 3, {alpha: 0});
+		tween(xpNewText, 3, {alpha: 0});
+	}});
 }
-*/
+
+function gotoLastMap() {
+	if (data.currentMap === "thirstyCaves") gotoThirstyCaves();
+	if (data.currentMap === "LLL") gotoLLL();
+	if (data.currentMap === "earth") gotoEarth();
+	if (data.currentMap === "archiepelago") gotoArchiepelago();
+	if (data.currentMap === "foodland") gotoFoodland();
+}
+
+function explore(explorables) {
+	addChoice("Explore.", function() {
+		var ranExplorable = rndInt(0, explorables.length - 1);
+		var chosenExplorable = explorables[ranExplorable];
+		gotoPassage(chosenExplorable);
+	});
+
+	addChoice("Back.", function() {
+		gotoLastMap();
+	});
+}

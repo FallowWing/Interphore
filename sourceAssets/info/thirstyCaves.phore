@@ -12,9 +12,12 @@ You find a red pond, no matter where you are.
 
 If you jump in, you can change your body again.
 
+Looking into the glassy surface, you ruminate on all of your XPeriences...
+
 !`
 setBackground(0, "writer/mainBg");
 choicesPerPage = 2;
+msg("Current Level: <b>"+data.level+"</b>");
 addChoice("Jump in.");
 `
 [Move along.]
@@ -104,6 +107,7 @@ choicesPerPage = 1;
 No shenanigans.
 
 !`
+gainExp(50);
 choicesPerPage = 2;
 `
 [Fine... change my body for real this time.|Shapeshift.]
@@ -491,21 +495,34 @@ addChoice(choiceString, function() {
 })
 addChoice("Back.", function() { gotoThirstyCaves(); });
 `
-//[Fast Transition]
+---
+:mysteriousLayer
+
+You aren't allowed all the way up here. This is where I live.
+
+Sorry to let you down.
+
+!`
+choicesPerPage = 1;
+addChoice("Back.", function() {
+	gotoThirstyCaves();
+});
+`
+---
+:redSeaExplore
+
+WIP!
+
+!`
+choicesPerPage = 1;
+addChoice("Back.", function() {
+	gotoThirstyCaves();
+});
+`
 ---
 :LLL
 !`
 gotoLLL();
-`
----
-:earth
-!`
-gotoEarth();
-`
----
-:archiepelago
-!`
-gotoArchiepelago();
 `
 
 END_PASSAGES
@@ -513,26 +530,36 @@ END_PASSAGES
 function gotoThirstyCaves() {
 	disableExit();
 	clear();
-	clearNodes();
+	data.currentMap = "thirstyCaves";
 
 	//Map
 	worldMap.clear();
 
 	var entry;
 
-	entry = worldMap.createNode("Red Pond", "introArea");
-	entry.seenUnlocked = entry.unlocked = true;
+	entry = worldMap.createNode("Up: ???", "mysteriousLayer");
+	entry.color = 1;
+	entry.lockedMessage = "Requires <b>Level 5</b>";
 
-	entry = worldMap.createNode("Gay Cub Dungeon", "LLL", TOP, "Red Pond");
-	entry.seenUnlocked = entry.unlocked = true;
+	entry = worldMap.createNode("The Red Sea", "redSeaExplore", BOTTOM, "Up: ???");
+	entry.color = 2;
+	worldMap.preUnlockEntry("The Red Sea");
 
-	entry = worldMap.createNode("Earth", "earth", RIGHT, "Red Pond");
-	entry.seenUnlocked = entry.unlocked = true;
+	entry = worldMap.createNode("Down: L.L.L.", "LLL", BOTTOM, "The Red Sea");
+	entry.color = 1;
+	worldMap.preUnlockEntry("Down: L.L.L.");
 
-	entry = worldMap.createNode("Settings", "Settings", LEFT, "Red Pond");
-	entry.seenUnlocked = entry.unlocked = true;
+	entry = worldMap.createNode("Red Pond", "introArea", RIGHT, "The Red Sea");
+	worldMap.preUnlockEntry("Red Pond");
 
-	entry = worldMap.createNode("Archiepelago", "archiepelago", BOTTOM, "Red Pond");
+	entry = worldMap.createNode("Settings", "Settings", LEFT, "The Red Sea");
+	worldMap.preUnlockEntry("Settings");
+
+	if (!data.seenCubberCredit) {
+		data.seenCubberCredit = true;
+		msg("Backgrounds: Cubber");
+	}
+	
 
 	//Cutscene
 	playEffect("audio/effect/mapTransition");
@@ -577,25 +604,3 @@ function gotoThirstyCaves() {
 		tween(layerSelect, 1, {y: 0, alpha: 1}, {ease: QUINT_OUT});
 	});
 }
-
-/*
-	submitNode("L.L.L.", "LLL");
-	submitNode("Spilled Paint", "earth");
-	submitNode("Red Pond", "introArea");
-	submitNode("Settings", "Settings");
-	submitNode("Archiepelago", "archiepelago");
-	submitNode("L.L.L.", "LLL");
-
-	attachNode("L.L.L.", "Spilled Paint", BOTTOM);
-	attachNode("Spilled Paint", "Red Pond", RIGHT);
-	attachNode("Spilled Paint", "Chats (Coming Soon)", LEFT);
-	attachNode("Spilled Paint", "Archiepelago", BOTTOM);
-
-	setNodeLocked("Archiepelago", function() {
-		return data.metCart;
-	});
-
-		setNodeLocked("Chats (Coming Soon)", function() {
-		return data.haveChatted;
-	});
-*/

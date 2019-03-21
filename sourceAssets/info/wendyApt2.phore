@@ -428,6 +428,7 @@ addChoice("Back.", "myntDecoHall");
 The rank, earthy~~
 
 !`
+gainExp(20);
 choicesPerPage = 1;
 `
 [Nope can't do it.|myntDecoShit2]
@@ -509,6 +510,7 @@ You pin her up on the back of your apartment door and smooth her little chest an
 She looks perfect there.
 
 !`
+gainExp(20);
 data.stoleKanna = true;
 choicesPerPage = 2;
 addChoice("There now... <3", "myntDecoHall", {icons: ["Love", "Cub", "Female"]});
@@ -568,7 +570,7 @@ You steal all their shit and set it up in your apartment. The computer was an ab
 !`
 if (data.tookStairs) {
 	choicesPerPage = 2;
-	append("As you head back to the room, you hear a chittering coming from the elevator.");
+	append("As you head back to the room, you hear a chittering from the elevator.");
 	addChoice("... Investigate.", "myntDecoAnimal");
 	addChoice("Meh, go back to the room.", "myntDecoRoomRejoin");
 } else {
@@ -596,6 +598,7 @@ choicesPerPage = 1;
 A family of yous.
 
 !`
+gainExp(70);
 choicesPerPage = 1;
 `
 [Of mes.|myntDecoAnimal3]
@@ -1320,13 +1323,13 @@ You sprawl out on the paint-flecked bed and focus on your breathing again.
 
 !`
 choicesPerPage = 1;
+worldMap.completeEntry("Mynt's Day Off");
 addChoice(data.playerName+", please come back soon...", "myntDecoEnd2");
 `
 ---
 :myntDecoEnd2
 
 !`
-worldMap.completeEntry("Mynt's Day Off");
 gotoEarth();
 `
 
