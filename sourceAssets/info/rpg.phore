@@ -57,6 +57,68 @@ function deinitRpgBattle(won) {
 	rpg.whenDone();
 }
 
+function getUnitSkeleton(unit) {
+	var skeleton = {};
+
+	skeleton.name = unit.name;
+	skeleton.hp = unit.hp;
+	skeleton.maxHp = unit.maxHp;
+	skeleton.mp = unit.mp;
+	skeleton.maxMp = unit.maxMp;
+	skeleton.limit = unit.limit;
+	skeleton.attack = unit.attack;
+	skeleton.defence = unit.defence;
+	skeleton.speed = unit.speed;
+	skeleton.specialAttack = unit.specialAttack;
+	skeleton.friendly = unit.friendly;
+	skeleton.dead = unit.dead;
+	skeleton.skipsNextTurn = unit.skipsNextTurn;
+	skeleton.spellNames = unit.spellNames.slice();
+	skeleton.ai = unit.ai;
+	skeleton.affinities = unit.affinities.slice();
+
+	skeleton.buffTrackers = [];
+	unit.buffTrackers.forEach(function(buffTracker) {
+		var newBuffTracker = {};
+		Object.assign(newBuffTracker, buffTracker);
+
+		skeleton.buffTrackers.push(newBuffTracker);
+	});
+
+	print("Getting skeleton with "+ skeleton.hp + " hp");
+
+	return skeleton;
+}
+
+function restoreUnitSkeleton(unit, skeleton) {
+	unit.name = skeleton.name;
+	unit.hp = skeleton.hp;
+	unit.maxHp = skeleton.maxHp;
+	unit.mp = skeleton.mp;
+	unit.maxMp = skeleton.maxMp;
+	unit.limit = skeleton.limit;
+	unit.attack = skeleton.attack;
+	unit.defence = skeleton.defence;
+	unit.speed = skeleton.speed;
+	unit.specialAttack = skeleton.specialAttack;
+	unit.friendly = skeleton.friendly;
+	unit.dead = skeleton.dead;
+	unit.skipsNextTurn = skeleton.skipsNextTurn;
+	unit.spellNames = skeleton.spellNames.slice();
+	unit.ai = skeleton.ai;
+	unit.affinities = skeleton.affinities.slice();
+
+	unit.buffTrackers = [];
+	skeleton.buffTrackers.forEach(function(buffTracker) {
+		var newBuffTracker = {};
+		Object.assign(newBuffTracker, buffTracker);
+
+		unit.buffTrackers.push(newBuffTracker);
+	});
+
+	print("Restored unit with "+ unit.hp + " hp");
+}
+
 function createUnit() {
 	var unit;
 
