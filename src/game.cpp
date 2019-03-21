@@ -1096,7 +1096,6 @@ duk_ret_t getImageProps(duk_context *ctx) {
 	data[4] = img->justUnHovered;
 	data[5] = img->hovering;
 	data[6] = img->currentFrame;
-	// if (img->justReleased) printf("Button %d was just released at %f\n", id, engine->time);
 
 	return 1;
 }
