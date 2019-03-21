@@ -311,7 +311,14 @@ gotoPassage("wendyApt2Start");
 !`
 gotoPassage("pickedSpecies");
 `
+---
+:xploreTest
 
+!`
+choicesPerPage = 3;
+explore(["cat", "dog", "something"]);
+`
+[Back to tests.|testsStart]
 ---
 :testsStart
 
@@ -320,6 +327,7 @@ choicesPerPage = 6;
 `
 
 [Back|scratchModStart]
+[Explore test|xploreTest]
 [expTest]
 !`
 addChoice("Test unlocking nodes", function() {

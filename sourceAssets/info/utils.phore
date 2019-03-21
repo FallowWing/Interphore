@@ -276,3 +276,23 @@ function gainExp(amount) {
 		tween(xpNewText, 3, {alpha: 0});
 	}});
 }
+
+function gotoLastMap() {
+	if (data.currentMap === "thirstyCaves") gotoThirstyCaves();
+	if (data.currentMap === "LLL") gotoLLL();
+	if (data.currentMap === "earth") gotoEarth();
+	if (data.currentMap === "archiepelago") gotoArchiepelago();
+	if (data.currentMap === "foodland") gotoFoodland();
+}
+
+function explore(explorables) {
+	addChoice("Explore.", function() {
+		var ranExplorable = rndInt(0, explorables.length - 1);
+		var chosenExplorable = explorables[ranExplorable];
+		gotoPassage(chosenExplorable);
+	});
+
+	addChoice("Back.", function() {
+		gotoLastMap();
+	});
+}

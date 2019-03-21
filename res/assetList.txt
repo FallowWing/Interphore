@@ -182,8 +182,14 @@ img/writer/halfCheck.png
 img/writer/halfCheck.png
 img/writer/fullCheck.png
 img/writer/fullCheck.png
+img/writer/nodeArrow.png
+img/writer/nodeArrow.spr
 img/writer/nodeChoice.png
 img/writer/nodeChoice.spr
+img/writer/nodeSpecial.png
+img/writer/nodeSpecial.spr
+img/writer/nodeSuperSpecial.png
+img/writer/nodeSuperSpecial.spr
 img/writer/choiceArrow.png
 img/writer/choiceArrow.spr
 img/writer/statusBox.png
@@ -254,6 +260,8 @@ img/writer/characters/eyeball/seedAnimEye.png
 img/writer/characters/eyeball/seedAnimEye.spr
 img/writer/characters/rebeca/oldBeca.png
 img/writer/characters/rebeca/oldBeca.spr
+img/writer/characters/deerHippy/deerHippy.png
+img/writer/characters/deerHippy/deerHippy.spr
 img/writer/characters/rebeca/rebeca/base.png
 img/writer/characters/rebeca/rebeca/base.spr
 img/writer/characters/rebeca/rebeca/human.png

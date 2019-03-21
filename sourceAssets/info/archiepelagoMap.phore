@@ -1,5 +1,23 @@
 print("arriving at Archiepelago map");
 
+var archieExplorables = [
+"archieExplore1", 
+"archieExplore2", 
+"archieExplore3", 
+"archieExplore4", 
+"archieExplore5", 
+"archieExplore6", 
+"archieExplore7", 
+"archieExplore8", 
+"archieExplore9", 
+"archieExplore10", 
+"archieExplore11", 
+"archieExplore12", 
+"archieExplore13", 
+"archieExplore14", 
+"archieExplore15"
+];
+
 if (music) music.destroy();
 var music = playMusic("audio/ambience/cell");
 music.name = "music";
@@ -51,15 +69,184 @@ execAsset("redMary.phore");
 gotoPassage("redMaryStart");
 `
 ---
-:archiepelagoExplore
+:archieExploreHub
 
-WIP!
+You wander the Archiepelago in search of Wendy.
 
 !`
-choicesPerPage = 1;
-addChoice("Back.", function() {
-	gotoArchiepelago();
+choicesPerPage = 2;
+explore(archieExplorables);
+`
+---
+:archieExplore1
+
+The City harbour's bilge tanks spew vitriol at the people on the docks. They've come to argue about who gets to live in the sewer this year. Organized by rage, a few hundred islanders combine their admin powers to expand the Sewer Suburbs infinitely downwards. Those who live on the deepest y positions have not yet been assimilated. Our spelunkers are on the job.
+
+!`
+choicesPerPage = 2;
+explore(archieExplorables);
+`
+---
+:archieExplore2
+
+Septrica runs a massive glorious Escape Room event every few years, each time with a different theme. So far, we've had a team of nine volunteers escape from these rooms:
+- Year 1998: Giant cube made of smaller cubes
+- Year 2052: A log cabin in the forest
+- Year 3492: A planet
+- Year 3495: A hackscape
+
+The next Escape Room opens a week from now.
+
+!`
+choicesPerPage = 2;
+explore(archieExplorables);
+`
+---
+:archieExplore3
+
+Someone drops their ice cream cone and bends down to lick it off the sidewalk.
+
+This place is fucked.
+
+!`
+choicesPerPage = 2;
+explore(archieExplorables);
+`
+---
+:archieExplore4
+
+A couple dads chill and tuck into brewskies on their studio apartmnet balcony, overlooking the city. Banter turns to ribbing turns to teasing turns arguement turns to a rowdy admin powers fist fight that cracks eight other balconies and threatens the structural intergrity of the complex. After the fight they help the other residents hack in some fixes and kiss and make up, unspilled beers still in hand.
+
+"I was just fucking with you, bro..."
+
+!`
+choicesPerPage = 2;
+explore(archieExplorables);
+`
+---
+:archieExplore5
+
+A puzzled feral watermelon wolf wanders by on the street.
+
+!`
+choicesPerPage = 2;
+explore(archieExplorables);
+`
+---
+:archieExplore6
+
+Bump n grind type songs flow from a nearby bar. Everyone is celebrating their recent assimilation with a red juice pool party, poppin off firecrackers, jackin on the dancefloor. A drunk hyena girl stumbles out and trips over her own fat ass.
+
+She gurgles "Four thousan years too lonk" and passes out on the street. Her girlfriends gasp ("MARLENE!") and pull her back inside by her legs, which spread wide. Her miniskirt slides up. Snores fall out of her snout and her tits drag across the club's glossy hardwood... and she's gone.
+
+!`
+choicesPerPage = 2;
+explore(archieExplorables);
+`
+---
+:archieExplore7
+
+Someone's playing quick jazz in their apartment. Someone else is doing a mean, sloppy, drawling scat. The jazz kind of scat.
+
+!`
+choicesPerPage = 2;
+explore(archieExplorables);
+`
+---
+:archieExplore8
+
+A dog pees on a fire hydrant.
+
+!`
+choicesPerPage = 2;
+explore(archieExplorables);
+`
+---
+:archieExplore9
+
+There's a tourist hobbling around sneakily in a fire hydrant costume... looks like a nymph girl.
+
+!`
+choicesPerPage = 2;
+explore(archieExplorables);
+`
+---
+:archieExplore10
+
+The bank here is barely a bank at all, since the economy was nullified by infinite supply of all commodity via cheat codes. The bank's previous owner, a greasy crocodile named Snagg, has disappeared. Basically now the bank just lets you store your collections of valuables behind anti-noclip barriers, black with red edges that glow like an event horizon.
+
+!`
+choicesPerPage = 2;
+explore(archieExplorables);
+`
+---
+:archieExplore11
+
+You run into a deer hippy who has somehow been chilling on this exact streetcorner for four thousand years.
+
+"Sup," she says. "Give me a kiss and I'll tell you some facts."
+
+!`
+var facts = ["I got assimilated for the otherwordly knowledge, but then I left and just kept the body. Wouldn't you trade memories for forbidden lore about the context of upper universes? Pretty good deal to me.", "Have you seen Kemp? He's an otter. About ye high. Sensitive.", "You've met the little wolf right? Red? I miss her. She used to suck my ass.", "Cart is gay, pass it on.", "Taro is gay, pass it on.", "There's nothing better than sex. Especially after year 3528, that's when it really gets good.", "Heard you lost your memory. Me too. Glad I was one of the first to try assimilation, cause when I came back down, everyone was still just their old selves, and they filled me in on my life history. People get to know you if you stand on a street corner all day like a bum.", "I don't think we ever had more of a relationship than fortune teller and client, but I'm still glad to see you again, "+data.playerName+".", "I'm gay, pass it on.", "You got an apartment now, right? Can't understand it. Planet is littered with mansions and you and Mynt go for that.", "I love flowers so much. I think they are probably my favorite type of feral.", "Can't stand living out in a nice house or hanging out with friends all day. Can't stand trees or canopy smothering me. Can't stand living in a sky castle or a cave or a hackscaped palace or a grassy field or a trailer park. No, I can't stand anywhere else but here.", "Mary phoned me one time when her little wolf was street camping out here with me, it was fun, we had passerby coming in and playing harmonicas and Marlene brought us beers and everything. Now the wolf had been gone for a while, so Mary phones me all huffy and upset and not making any sense, like stammering the sense completely out of her sentences, and the wolf froze up just from hearing her voice on my phone, like a kid caught doing something wrong, and she grabbed for it. But I just put my palm on her little forehead and held her back and told Mary 'In the quiet words of your namesake: come again?'", "You don't read the Bible, do you? It's your baggy eyes. Religious people sleep way too much.", "Facts are usually correct.", "My friends asked me if I wanted to intregrate my shadow with them on the weekend.", "I'm trying to get my friends to say 'get down with your bad self' instead of 'integrate your shadow.'", "I don't know what the world is like up there, but it's probably sexual, isn't it? Figures.", "I deeply regret my last visit to the forest. Had to bring a wolf back home.", "Woo! Twelve years clean from sweetgrass tomorrow! Coulda just removed my cravings in the pond, but that's cheating.", "Kisses make my tail perk up~", "My favorite sexual position? Probably post-rock or chillstep. Wait.", "You heard about Mynt already, right? I almost feel bad for existing.", "Come closer. My deermusk smells like berries I swear to god. Yes, it counts as a fact. I say it's a fact.", "Heard Thelly kept a record of his memories in his cute little diary. Smart puppy. Knew his faggotry would come in handy one day... maybe I should start another journal... ah, but I still have a bunch to fill out first...", "Man that little mapmaker played the long con with my ass. Knew there was something weird about his sciencelust. I can't get into the new hairstyle at all. I liked him better when he had no hair, just fur. And glasses. He was cuter in glasses...", "Be glad Snagg is missing. That croc is fucking crusty.", "You know when a cat lays back and exposes themselves, and you go for their belly, they close into a little death ball on your hand? Bins is like that if you try to steal his trash.", "Marie loves to hunt me.", "Septrica loves to kiss me for hours and hours at a time. She's a great listener. I think she also just breathes gossip.", "Rox left.", "Can't blame me for snubbing your big apartment complex, can you? This is my home.", "Hey, listen, if you want this mysterious Mr. Eyeball person to narrate your life and sass you whenever you try to talk to him about literally anything, that's your choice, but for me it's a much better option to stay down here with my boy Protocol narrating my life and sassing me whenever I try to talk to them about literally anything.", "Where is Archie, anyway? Even though we named the Archiepelago after him, that crusty motherfucker still hasn't come to visit. Guess it hasn't been 4000 years for him though. Timeskips... so confusing... its like setting your computer clock forward a bit, I spose... well, if you see your dad, let him know the deer hippy wants to corrupt him.", "Hold on. I just received a very important piece of lore through the grapevine. Apparently the Archiepelago isn't on your old shelter computer at all anymore, it's on a different computer, up in the mapmaking place... weird? Am I even the original deer hippy, then? Or just a copy? Not sure how this all works. But whatever. Didn't stop thinking I was real when I learned I was just made of computer code, so it shouldn't stop me now, either. Right? I think therefore I am right? Stop looking at me like that, I'm totally real. Fuck off.", "I just want to cuddle that little brown fuzzy wolf belly again. I miss when Red used to bully me out of the forest. I talk about her too much, too...", "Just say the word if you ever need to vent, here. I'll be sure to dispense facts loud enough to drown out your whining.", "Septrica and Marie are the cutest sisters, honestly. It's not even an incest thing half the time. I saw them go out for lunch at Marlene's the other day... Sep had pancakes with wayyyy too much butter, like a disgustingly slobbery amount, and Marie just had greyberry salad, but the real cute part was they picked from each other's meals, fed each other tidy forkfuls, and at the end Marie kissed the butter off Septrica's maw. Just a few light platonic pecks. <3", "Have you seen the bunny caravan that rolls around the Archiepelago? Look for the fluffbeasts, the rickety wheels, and the perky sets of ears that poke out the back window.", "Mary tried starting a book club a few thousand years ago, according to the people who still have their memories. Bins brought Lolita just to be a shit disturber and Mary kicked him out, hah.", "Stay away from that trash island if you know what's good for you. Bins is a nice boy, and all, but once you step foot in that muck, you tend to sink deeper and deeper... until you become trash incarnate.", "Lana never told anyone who he was, I don't think. Maybe just John, Patch, and Septrica. You getting tired of names you don't remember yet?", "You're gay, pass it on.", "Love your new body. So much more expressive than that old grey default player character you used to have.", "Can't really get too deep into it, but just know this: something fucky is afoot in that bomb shelter of yours.", "Don't... wanna... gurrrrhhhhh... I'm too tired to come up with a new fact, and that's a fact...", "You wanna get high?", "You probably wanna fuck me, huh. I got a nice gushy deerpussy too. Total prey. Rawr. Come at me with another kiss, why don'tcha....", "How old am I? Oh, that's a bastardly question. 66 or so, in real time, like that's how long I've been running on computer hardware, but I was born already in my mid-twenties, so more like 86, but I was also stuck in here for 4000 years or so after you saved all of existence for our people, so more like 4086, but also age is pretty meaningless to your sense of self past a certain point so consider me like 26. Yeah let's just call it 26."];
+
+choicesPerPage = 3;
+
+var deerHippy = addImage("writer/characters/deerHippy/deerHippy");
+deerHippy.x = desiredWidth - deerHippy.width * 1.7;
+deerHippy.y = desiredHeight - deerHippy.height * 1.1;
+
+addChoice("Kiss.", function() {
+	clearText();
+
+	var chosenFact = rndInt(0, facts.length - 1);
+	append("\""+facts[chosenFact]+"\"");
 });
+
+explore(archieExplorables);
+`
+---
+:archieExplore12
+
+A lonely nerd surrounds himself with hacked-in plushies til he is cocooned in a cutesy island with no hard edges. At the pit of the island, under button eyes hanging on loose thread, the nerd sits with his ass on a supremely comfortable throne, chin on fist, eyes on nothing.
+
+Just as soon as he brought it into existence, he allows his hacks to rot. His plushies scamper and squeak into position to form a bridge between the water and his feet. He walks back to shore. The rounded, lumpy spires lean over and fall back into individual cats, bunnies, puppies, bears. Cotton stuffing evaporates. Basic support structures despawn without an admin to maintain them. 
+
+His castle falls away into nothing behind him.
+
+!`
+choicesPerPage = 2;
+explore(archieExplorables);
+`
+---
+:archieExplore13
+
+A pair of incredibly buff and tan catgirls in shredded, skimpy clothes stand on a mountain of myriad monster corpses. The island is literally buried underneath the sheer volume of dead things. They fire comically oversized machine guns into the crowds of NPCs mindlessly flailing towards them with one hand, their other arms wrapped around one another. Blood splatters onto their toned bodies and they sloppily make out in the middle of just absolutely tearing shit up. They don't stop for anything.
+
+That's pretty metal.
+
+!`
+choicesPerPage = 2;
+explore(archieExplorables);
+`
+---
+:archieExplore14
+
+You see a chain of large islands covered in snow and ice. The inhabitants struggle to just barely eke out the bare basics of survival. They've created makeshift shelters and the odd log cabin, and some of the better-off fellows built little boats to get themselves from one island to the other for resource collection, trade and the occasional raid on other settlements. It must be a LARP area.
+
+Each area is owned by a different admin and thus a little different from the others. One island has more accomodations for feral players in the form of abundant natural shelters, NPC prey and edible flora, and its neighbor was designed to be more of a resource node for boaters than anything else.
+
+!`
+choicesPerPage = 2;
+explore(archieExplorables);
+`
+---
+:archieExplore15
+
+Fractal patterns swirl in the dark and twist into new shapes before your very eyes, coiling like a snake only to unwind moments later and blossom into vast flowers. A group of people sit at the edge of a nearby isle and smoke sweetgrass while they watch.
+
+!`
+choicesPerPage = 2;
+explore(archieExplorables);
 `
 
 END_PASSAGES
@@ -75,9 +262,11 @@ function gotoArchiepelago() {
 	var entry;
 
 	entry = worldMap.createNode("Up: L.L.L.", "backArchie");
+	entry.color = 1;
 	worldMap.preUnlockEntry("Up: L.L.L.");
 
-	entry = worldMap.createNode("Archiepelago", "archiepelagoExplore", BOTTOM, "Up: L.L.L.");
+	entry = worldMap.createNode("Archiepelago", "archieExploreHub", BOTTOM, "Up: L.L.L.");
+	entry.color = 2;
 	worldMap.preUnlockEntry("Archiepelago");
 
 	entry = worldMap.createNode("Farm Island", "farmIsland", RIGHT, "Up: L.L.L.");
@@ -105,22 +294,3 @@ function gotoArchiepelago() {
 	var backgroundIsland = addImage("writer/islandBg.png");
 	backgroundIsland.layer = 38; //Below title
 }
-
-/*
-	submitNode("Back", "backArchie");
-	submitNode("Farm Island", "farmIsland");
-	attachNode("Back", "Farm Island", RIGHT);
-
-	submitNode("Red & Mary", "redMaryNode");
-	attachNode("Farm Island", "Red & Mary", RIGHT);
-
-	submitNode("Indigo Pond", "indigoPond");
-	attachNode("Farm Island", "Indigo Pond", BOTTOM);
-
-	submitNode("Black Mansion", "blackMansion");
-	attachNode("Indigo Pond", "Black Mansion", BOTTOM);
-
-	setNodeLocked("Indigo Pond", function() {
-		return data.metPatch;
-  	});
-*/

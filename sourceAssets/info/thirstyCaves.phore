@@ -538,13 +538,15 @@ function gotoThirstyCaves() {
 	var entry;
 
 	entry = worldMap.createNode("Up: ???", "mysteriousLayer");
-	//worldMap.preUnlockEntry("Up: ???");
+	entry.color = 1;
 	entry.lockedMessage = "Requires <b>Level 5</b>";
 
 	entry = worldMap.createNode("The Red Sea", "redSeaExplore", BOTTOM, "Up: ???");
+	entry.color = 2;
 	worldMap.preUnlockEntry("The Red Sea");
 
 	entry = worldMap.createNode("Down: L.L.L.", "LLL", BOTTOM, "The Red Sea");
+	entry.color = 1;
 	worldMap.preUnlockEntry("Down: L.L.L.");
 
 	entry = worldMap.createNode("Red Pond", "introArea", RIGHT, "The Red Sea");
@@ -602,25 +604,3 @@ function gotoThirstyCaves() {
 		tween(layerSelect, 1, {y: 0, alpha: 1}, {ease: QUINT_OUT});
 	});
 }
-
-/*
-	submitNode("L.L.L.", "LLL");
-	submitNode("Spilled Paint", "earth");
-	submitNode("Red Pond", "introArea");
-	submitNode("Settings", "Settings");
-	submitNode("Archiepelago", "archiepelago");
-	submitNode("L.L.L.", "LLL");
-
-	attachNode("L.L.L.", "Spilled Paint", BOTTOM);
-	attachNode("Spilled Paint", "Red Pond", RIGHT);
-	attachNode("Spilled Paint", "Chats (Coming Soon)", LEFT);
-	attachNode("Spilled Paint", "Archiepelago", BOTTOM);
-
-	setNodeLocked("Archiepelago", function() {
-		return data.metCart;
-	});
-
-		setNodeLocked("Chats (Coming Soon)", function() {
-		return data.haveChatted;
-	});
-*/

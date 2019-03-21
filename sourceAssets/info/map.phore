@@ -39,7 +39,8 @@ worldMap.getEntry = function(entryName) {
 			completed: false,
 			seenCompleted: false,
 			checkmark: true,
-			lockedMessage: null
+			lockedMessage: null,
+			color: ""
 		};
 
 		data.mapEntries[entryName] = entry;
@@ -111,8 +112,12 @@ worldMap.show = function() {
 		var nodeTextWidth = node.textField.textWidth + textPadding;
 		if (nodeTextWidth < 200) nodeTextWidth = 200;
 
+		var nodeGraphic = "img/writer/nodeChoice";
+		if (node.entry.color == 1) nodeGraphic = "img/writer/nodeSpecial";
+		if (node.entry.color == 2) nodeGraphic = "img/writer/nodeSuperSpecial";
+
 		node.sprite = add9SliceImage(
-			"img/writer/nodeChoice",
+			nodeGraphic,
 			nodeTextWidth,
 			node.textField.textHeight + textPadding,
 			22, 22, 44, 44

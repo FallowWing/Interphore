@@ -51,11 +51,7 @@ exitButton.onRelease = function() {
 	if (exitButton.alpha != 1) return;
 	playEffect("audio/ui/exit.ogg");
 	preventNextCheckpoint = true;
-	if (data.currentMap === "thirstyCaves") gotoThirstyCaves();
-	if (data.currentMap === "LLL") gotoLLL();
-	if (data.currentMap === "earth") gotoEarth();
-	if (data.currentMap === "archiepelago") gotoArchiepelago();
-	if (data.currentMap === "foodland") gotoFoodland();
+	gotoLastMap();
 }
 exitButton.whileHovering = function() {
 	if (exitButton.alpha != 1) return;

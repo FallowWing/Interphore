@@ -103,12 +103,15 @@ function gotoEarth() {
 	var entry;
 
 	entry = worldMap.createNode("Up: L.L.L.", "backEarth");
+	entry.color = 1;
 	worldMap.preUnlockEntry("Up: L.L.L.");
 
 	entry = worldMap.createNode("Earth", "earthExplore", BOTTOM, "Up: L.L.L.");
+	entry.color = 2;
 	worldMap.preUnlockEntry("Earth");
 
 	entry = worldMap.createNode("Down: Foodland", "foodLand", BOTTOM, "Earth");
+	entry.color = 1;
 	entry.lockedMessage = "Requires <b>Level 4</b>";
 
 	entry = worldMap.createNode("Intro", "myntIntro", RIGHT, "Earth");
@@ -147,49 +150,3 @@ function gotoEarth() {
 	backgroundSpilled.layer = 38; //Below title
 	tween(backgroundSpilled, 30, {y: 0}, {ease: QUAD_OUT, type: PINGPONG, startDelay: 4});
 }
-
-/*
-
-
-	submitNode("Back", "backEarth");
-	submitNode("Intro", "myntIntro");
-	attachNode("Back", "Intro", RIGHT);
-
-	submitNode("Moving In", "wendyApt");
-	attachNode("Intro", "Moving In", RIGHT);
-
-	submitNode("Mynt's Day Off", "wendyApt2");
-	attachNode("Moving In", "Mynt's Day Off", BOTTOM);
-
-	submitNode("Olitippo's Stream", "oliStream");
-	attachNode("Mynt's Day Off", "Olitippo's Stream", BOTTOM);
-
-	submitNode("Yellow Pond", "yellowPond");
-	attachNode("Intro", "Yellow Pond", BOTTOM);
-
-	submitNode("Foodland", "foodLand");
-	attachNode("Yellow Pond", "Foodland", BOTTOM);
-
-	submitNode("Marshmelon Mess", "luluPouph");
-	attachNode("Foodland", "Mallow-Melon Mess", BOTTOM);
-
-	setNodeLocked("Moving In", function() {
-		return data.metCart;
-  	});
-
-  	setNodeLocked("Mynt's Day Off", function() {
-		return data.leftMynt;
-  	});
-
-  	setNodeLocked("Foodland", function() {
-		return data.leftMynt;
-  	});
-
-  	setNodeLocked("Marshmelon Mess", function() {
-		return data.leftMynt;
-  	});
-
-  	setNodeLocked("Yellow Pond", function() {
-		return data.metCart;
-  	});
-*/

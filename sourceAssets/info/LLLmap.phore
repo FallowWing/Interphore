@@ -99,19 +99,20 @@ function gotoLLL() {
 
 	var entry;
 
-	//worldMap.unlockEntry("Scene 2");
-	//worldMap.completeEntry("Scene 2");
-
 	entry = worldMap.createNode("Up: The Red Sea", "backLLL");
+	entry.color = 1;
 	worldMap.preUnlockEntry("Up: The Red Sea");
 
 	entry = worldMap.createNode("L.L.L.", "loreWhoring", BOTTOM, "Up: The Red Sea");
+	entry.color = 2;
 	entry.lockedMessage = "Requires <b>Level 3</b>";
 
 	entry = worldMap.createNode("Down: Earth", "earth", BOTTOM, "L.L.L.");
+	entry.color = 1;
 	worldMap.preUnlockEntry("Down: Earth");
 
 	entry = worldMap.createNode("Down: Archiepelago", "archiepelago", LEFT, "L.L.L.");
+	entry.color = 1;
 	entry.lockedMessage = "???";
 
 	entry = worldMap.createNode("Cartographer", "meetingCart", RIGHT, "L.L.L.");

@@ -60,9 +60,11 @@ function gotoFoodland() {
 	var entry;
 
 	entry = worldMap.createNode("Up: Earth", "backFoodland");
+	entry.color = 1;
 	worldMap.preUnlockEntry("Up: Earth");
 
 	entry = worldMap.createNode("Foodland", "foodlandExplore", BOTTOM, "Up: Earth");
+	entry.color = 2;
 	worldMap.preUnlockEntry("Foodland");
 
 	entry = worldMap.createNode("Taro & Lulu", "foodLandTaro", RIGHT, "Foodland");
