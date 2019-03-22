@@ -369,7 +369,6 @@ void updateGame() {
 
 void runMod(char *serialData) {
 	// printf("About to parse: %s\n", serialData);
-
 	int serialDataLen = strlen(serialData);
 	int lineNum = 0;
 	for (int i = 0; i < serialDataLen; i++) {
@@ -577,7 +576,7 @@ void modLoaded(char *data, int size) {
 	int firstInt = ((int *)data)[0];
 	if (firstInt == 0x04034b50) { // Is zip file
 		//@cleanup This will eventually overflow the assets
-		printf("Is zip file that's %0.2fkb\n", (float)size/(float)Kilobytes(1));
+		printf("Is zip file that's %0.2fkb (%d bytes)\n", (float)size/(float)Kilobytes(1), size);
 
 		Zip zip;
 		openZip((unsigned char *)data, size, &zip);

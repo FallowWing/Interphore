@@ -56,16 +56,16 @@ void openZip(unsigned char *data, int size, Zip *zip) {
 
 			header->fileName = (char *)Malloc(header->fileNameLength+1);
 			memset(header->fileName, 0, header->fileNameLength+1);
+			ConsumeBytes(header->fileName, data, header->fileNameLength);
 
 			header->extraField = (char *)Malloc(header->extraFieldLength+1);
 			memset(header->extraField, 0, header->extraFieldLength+1);
+			ConsumeBytes(header->extraField, data, header->extraFieldLength);
 
 			header->compressedData = (unsigned char *)Malloc(header->compressedSize);
-			header->uncompressedData = (unsigned char *)Malloc(header->uncompressedSize);
-
-			ConsumeBytes(header->fileName, data, header->fileNameLength);
-			ConsumeBytes(header->extraField, data, header->extraFieldLength);
 			ConsumeBytes(header->compressedData, data, header->compressedSize);
+
+			header->uncompressedData = (unsigned char *)Malloc(header->uncompressedSize);
 
 			if (header->compressionMethod == 0) {
 				memcpy(header->uncompressedData, header->compressedData, header->uncompressedSize);
