@@ -503,7 +503,7 @@ function loadGame() {
 		worldMap.unlockEntry("Femme Ren's");
 		worldMap.unlockEntry("Moving In");
 		worldMap.unlockEntry("Yellow Pond");
-		worldMap.unlockEntry("Visit L.L.L.");
+		worldMap.unlockEntry("L.L.L.");
 		worldMap.unlockEntry("Wet Transmission");
 		worldMap.unlockEntry("Down: Archiepelago");
 	}

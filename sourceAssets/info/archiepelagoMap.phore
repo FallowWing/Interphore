@@ -261,15 +261,15 @@ function gotoArchiepelago() {
 
 	var entry;
 
-	entry = worldMap.createNode("Up: L.L.L.", "backArchie");
+	entry = worldMap.createNode("Up: G.C.D.", "backArchie");
 	entry.color = 1;
-	worldMap.preUnlockEntry("Up: L.L.L.");
+	worldMap.preUnlockEntry("Up: G.C.D.");
 
-	entry = worldMap.createNode("Archiepelago", "archieExploreHub", BOTTOM, "Up: L.L.L.");
+	entry = worldMap.createNode("Archiepelago", "archieExploreHub", BOTTOM, "Up: G.C.D.");
 	entry.color = 2;
 	worldMap.preUnlockEntry("Archiepelago");
 
-	entry = worldMap.createNode("Farm Island", "farmIsland", RIGHT, "Up: L.L.L.");
+	entry = worldMap.createNode("Farm Island", "farmIsland", RIGHT, "Up: G.C.D.");
 	worldMap.preUnlockEntry("Farm Island");
 
 	entry = worldMap.createNode("Red & Mary", "redMaryNode", RIGHT, "Farm Island");

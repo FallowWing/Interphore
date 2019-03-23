@@ -637,7 +637,7 @@ queueTitle("Wendy... Wenders... Wendalynn... Wendygo...");
 queueTitle("OH. Yes. Now I remember.");
 queueTitle("Wendy is...");
 queueTitle("...");
-queueTitle("Wendy is definitely a Spilled Paint name, right?");
+queueTitle("Wendy is definitely an Earth name, right?");
 
 choicesPerPage = 1;
 queueAddChoice("How did I know God was going to be a weird little fuck.", "cartWatch8");
@@ -650,7 +650,7 @@ specialTitle("I am normal.");
 
 choicesPerPage = 1;
 if (watchCart) queueAddChoice("You're a naked cub boi paint-skating around an anti-gravity map dome.", "cartWatch9");
-if (!watchCart) queueAddChoice("Spilled Paint...? You know what, nevermind. Have you seen our mom?", "cartWatch10");
+if (!watchCart) queueAddChoice("Have you seen our mom?", "cartWatch10");
 `
 ---
 :cartWatch9
@@ -876,7 +876,7 @@ Cart fills the last teacup steaming full and sets the kettle down with a soft cl
 
 He takes a hot sip to prove it. He spasms mildly, exhales, and pats his little belly, refreshed.
 
-"Ahhh. Reminds me of the hot springs in a thunderstorm, down on Spilled Paint's meteorite."
+"Ahhh. Reminds me of the hot springs in a thunderstorm, down on the Gray Meteorite."
 
 !`
 choicesPerPage = 1;
@@ -963,7 +963,7 @@ choicesPerPage = 2;
 ---
 :gayName
 
-"My real name is Lana. People just call me Cart for the same reason Spilled Paint people called each other Smith. It is easier to remember someone if their profession is their name, and a lot of people need to remember me."
+"My real name is Lana. People just call me Cart for the same reason your people called each other Smith. It is easier to remember someone if their profession is their name, and a lot of people need to remember me."
 
 !`
 gainExp(10);
@@ -1057,7 +1057,7 @@ Mynt hangs off of Cart, her arms linked under his armpits and between his should
 
 He nuzzles up underneath her chin automatically. His thighs slide around her hips and his feet lock around the ankles, just above her butt.
 
-"My accident," he says over her shoulder, "was your universe. Your layer. It is called Spilled Paint for a reason."
+"My accident," he says over her shoulder, "was your universe. Your layer. I accidentally made it when I spilled some paint."
 
 !`
 choicesPerPage = 1;
@@ -1160,7 +1160,7 @@ addChoice("No, we were just having a little moment.", function() {
 
 Mynt steps between you two and plops down on a beanbag, arms crossed.
 
-"Well, let's stop talking about all this complex abstract stuff," she pouts. "Layers? Paraphores? Spilled Paint? Assimilation? Red juice? Fogeddaboutit. We came here to ask about Wendy. Let's talk about Wendy."
+"Well, let's stop talking about all this complex abstract stuff," she pouts. "Layers? Paraphores? Assimilation? Red juice? Forget about it. We came here to ask about Wendy. Let's talk about Wendy."
 
 Cart grins at you. "Your cat is right, `data.playerName`."
 
@@ -1218,11 +1218,7 @@ choicesPerPage = 1;
 ---
 :member4
 
-Mynt nods aggressively. "Right. Okay. So we've got three leads. Library2, RELAXATIONGAME, and Wendy's apartment down on... not Earth, sorry..."
-
-"Spilled Paint."
-
-"Right. Down on Spilled Paint."
+Mynt nods aggressively. "Right. Okay. So we've got three leads. Library2, RELAXATIONGAME, and Wendy's apartment."
 
 She nods nods nods.
 
@@ -1235,16 +1231,27 @@ choicesPerPage = 1;
 
 Cart rests his chin on both palms and stares at you lovingly. At least you think he's doing it lovingly. His hair is in the way.
 
-"I'm so excited for you two," he gushes. "I wish I could go on a mom quest like this. We only have dads, here. Where are you going to go first?"
+"I'm so excited for you two," he gushes. "I wish I could go on a mom quest like this. We only have dads here. Where are you going to go first?"
 
 Mynt ponders.
 
 !`
 choicesPerPage = 3;
-addChoice("We have to go down to the porn game, Library2. (WIP)", "member5", {enabled: false});
+addChoice("We have to go down to the porn game, Library2.", "memberPorn");
 addChoice("Let's plumb the unknown RELAXATIONGAME. (WIP)", "member5", {enabled: false});
 addChoice("Gotta search her apartment first, right?", "member6");
 `
+---
+:memberPorn
+
+Cart sizes you up.
+
+"Get some levels on you first. Then come and see me again. I will hook you up at that point."
+
+!`
+choicesPerPage = 1;
+`
+[Awww alright. For now, the apartment.|member6]
 ---
 :member6
 
