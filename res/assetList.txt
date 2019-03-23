@@ -164,6 +164,8 @@ img/writer/xpBar3.spr
 
 img/writer/mapTitles/theRedSea.png
 img/writer/mapTitles/theRedSea.spr
+img/writer/mapTitles/mysteryLayer.png
+img/writer/mapTitles/mysteryLayer.spr
 img/writer/mapTitles/foodland.png
 img/writer/mapTitles/foodland.spr
 img/writer/mapTitles/gcd.png

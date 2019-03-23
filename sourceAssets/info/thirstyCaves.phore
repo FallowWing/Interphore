@@ -1,8 +1,13 @@
 print("arriving at thirstyCaves");
 
-if (music) music.destroy();
-var music = playMusic("audio/ambience/violetMeteorite");
-music.name = "music";
+var redSeaExplorables = [
+"redSeaExplore1", 
+"redSeaExplore2", 
+"redSeaExplore3", 
+"redSeaExplore4", 
+"redSeaExplore5", 
+"redSeaExplore6"
+];
 
 START_PASSAGES
 ---
@@ -496,7 +501,13 @@ addChoice(choiceString, function() {
 addChoice("Back.", function() { gotoThirstyCaves(); });
 `
 ---
-:mysteriousLayer
+:mysteryLayerTeleport
+
+!`
+gotoMystery();
+`
+---
+:mysteryLayer
 
 You aren't allowed all the way up here. This is where I live.
 
@@ -505,24 +516,84 @@ Sorry to let you down.
 !`
 choicesPerPage = 1;
 addChoice("Back.", function() {
-	gotoThirstyCaves();
-});
-`
----
-:redSeaExplore
-
-WIP!
-
-!`
-choicesPerPage = 1;
-addChoice("Back.", function() {
-	gotoThirstyCaves();
+	gotoMystery();
 });
 `
 ---
 :LLL
 !`
 gotoLLL();
+`
+
+---
+:redSeaExploreHub
+
+This is where all the red juice comes from.
+
+You can't really wander here, since you're only juice. But you can flow around.
+
+!`
+choicesPerPage = 2;
+explore(redSeaExplorables);
+`
+---
+:redSeaExplore1
+
+You lay back and let your consciousness stretch out across multiple ponds from multiple layers. You hold the form and control your breath. You feel decentralized and delicate, like a spiderweb that spans a continent.
+
+!`
+choicesPerPage = 2;
+explore(redSeaExplorables);
+`
+---
+:redSeaExplore2
+
+In the red, your mind nuzzles up with the traffic of people switching layers. Daily commutes are dark gray, buzzing, unresponsive. Explorers are bright orange and green and they all pelt you with lore questions if you let your mind rub up against them for too long. Occasionally you bump into someone in a real panic or a real moment of elation. The overflow can shake you up at times.
+
+!`
+choicesPerPage = 2;
+explore(redSeaExplorables);
+`
+---
+:redSeaExplore3
+
+Panicked minds blow past you in the juice. The turbulence leaves you scattered, and you have to slowly collect your juice back into a cohesive clump.
+
+You can't quite tell what's got them so terrified, only the grand abstracts: fear, hell, run, bad.
+
+But, throughout those spastic thoughts, something appears too often and too consistently for it to be coincidence. One word:
+
+Clowns.
+
+!`
+choicesPerPage = 2;
+explore(redSeaExplorables);
+---
+:redSeaExplore4
+
+A pissed-off mom blows past you and asks to see my manager because she needs to talk to the manager about the Archiepelago; it's clearly too raunchy and violent for the rest of the Interphore and should not be allowed in.
+
+!`
+choicesPerPage = 2;
+explore(redSeaExplorables);
+`
+---
+:redSeaExplore5
+
+A bunch of tenderfoots, childlike and feral and otherwise not ready to face the whole Interphore, they all flow up the juice right beside you, destined for a secure layer.
+
+!`
+choicesPerPage = 2;
+explore(redSeaExplorables);
+`
+---
+:redSeaExplore6
+
+A degenerate but cute furry soul from the Archiepelago zooms up to the very top layer just to see what's up here.
+
+!`
+choicesPerPage = 2;
+explore(redSeaExplorables);
 `
 
 END_PASSAGES
@@ -537,13 +608,13 @@ function gotoThirstyCaves() {
 
 	var entry;
 
-	entry = worldMap.createNode("Up: ???", "mysteriousLayer");
-	entry.color = 1;
-	entry.lockedMessage = "Requires <b>Level 5</b>";
-
-	entry = worldMap.createNode("The Red Sea", "redSeaExplore", BOTTOM, "Up: ???");
+	entry = worldMap.createNode("The Red Sea", "redSeaExploreHub");
 	entry.color = 2;
 	worldMap.preUnlockEntry("The Red Sea");
+
+	entry = worldMap.createNode("Up: ???", "mysteryLayerTeleport", TOP, "The Red Sea");
+	entry.color = 1;
+	entry.lockedMessage = "Requires <b>Level 5</b>";
 
 	entry = worldMap.createNode("Down: G.C.D.", "LLL", BOTTOM, "The Red Sea");
 	entry.color = 1;
@@ -597,10 +668,65 @@ function gotoThirstyCaves() {
 		worldMap.show();
 		enableExit();
 
+		if (music) music.destroy();
+		getAudio("music").destroy();
+		var music = playMusic("audio/ambience/violetMeteorite");
+		music.name = "music";
+
 		var layerSelect = addImage("writer/mapTitles/theRedSea.png");
 		layerSelect.layer = 39; //Just beneath node lines & boxes
 		layerSelect.alpha = 0;
 		layerSelect.y = -layerSelect.height;
 		tween(layerSelect, 1, {y: 0, alpha: 1}, {ease: QUINT_OUT});
 	});
+}
+
+function gotoMystery() {
+	disableExit();
+	clear();
+	setBackground(0, "");
+	data.currentMap = "thirstyCaves";
+
+	//Map
+	worldMap.clear();
+
+	var entry;
+
+	entry = worldMap.createNode("???", "mysteryLayer");
+	entry.color = 2;
+	worldMap.preUnlockEntry("???");
+
+	entry = worldMap.createNode("Down: The Red Sea", "Move along.", BOTTOM, "???");
+	entry.color = 1;
+	worldMap.preUnlockEntry("Down: The Red Sea");
+
+	//Cutscene
+	getAudio("music").destroy();
+
+	if (!data.sawMysteryLayer) {
+		timer(3, function() { playEffect("audio/effect/despairSting"); });
+		data.sawMysteryLayer = true;
+		worldMap.show();
+
+		var layerSelect = addImage("writer/mapTitles/mysteryLayer.png");
+		layerSelect.layer = 39; //Just beneath node lines & boxes
+		layerSelect.alpha = 0;
+		layerSelect.y = -layerSelect.height;
+		tween(layerSelect, 1, {y: 0, alpha: 1}, {ease: QUINT_OUT, startDelay: 7});
+
+		var fader = addRectImage(desiredWidth, desiredHeight, 0x000000);
+		tween(fader, 7, {alpha: 0}, {startDelay: 3, onComplete: function() {
+			enableExit();
+		}});
+	} else {
+		worldMap.show();
+
+		var layerSelect = addImage("writer/mapTitles/mysteryLayer.png");
+		layerSelect.layer = 39; //Just beneath node lines & boxes
+		layerSelect.alpha = 0;
+		layerSelect.y = -layerSelect.height;
+		tween(layerSelect, 1, {y: 0, alpha: 1}, {ease: QUINT_OUT});
+
+		enableExit();
+	}
 }
