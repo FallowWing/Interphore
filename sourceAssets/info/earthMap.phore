@@ -138,11 +138,11 @@ explore(earthExplorables);
 ---
 :earthExplore4
 
-A chubby, short, pale, bespectacled pedo gerbil is sniffing around the city. He's got mustard stains on a shirt that can't cover his belly, shorts, and flip flops. "Where are all the human cubs...?"
+A chubby, short, pale, bespectacled gerbil is sniffing around the city. He's got mustard stains on a shirt that can't cover his belly, shorts, and flip flops. "Where are all the human cubs...?"
 
 !`
 choicesPerPage = 3;
-addChoice("Where are they actually?", "earthCubs", {icons: "Plot"});
+addChoice("Where are they actually?", "earthCubs", {icons: ["Plot"]});
 explore(earthExplorables);
 `
 ---
@@ -178,9 +178,9 @@ If you had left the bomb shelter sooner, you would have been forcibly opted in.
 
 If children don't have parents or guardians, or if their parents or guardians have abandoned them, we default to the majority opinion. Most parents wanted their kids in no-travel til 19, so that's where you woulda gone.
 
-[What about the restrictions on their actions?|earthCubsActions]
 !`
 choicesPerPage = 3;
+addChoice("What about the restrictions on their actions?", "earthCubsActions");
 explore(earthExplorables);
 `
 ---
@@ -193,8 +193,8 @@ Restrictions range from sex before marriage, fetishplay, polyamory, anal, oral, 
 Other parents imposed permanent travel bans to hypersexual or cub-heavy layers, even after they were of age and ready for freedom of movement.
 
 !`
+choicesPerPage = 3;
 addChoice("Who came up with this.", "earthCubs3");
-choicesPerPage = 2;
 explore(earthExplorables);
 `
 ---
