@@ -109,7 +109,7 @@ explore(foodlandExplorables);
 Around the grassy melon hills under the rollercoaster, under its towering stilts and supports, a team of bread janitors dutifully cleans away.
 
 !`
-choicesPerPage = 2;
+choicesPerPage = 3;
 addChoice("Examine janitors.", "foodlandExplorePuke", {icons: ["Vomit"]});
 explore(foodlandExplorables);
 `
@@ -236,7 +236,7 @@ function gotoFoodland() {
 	entry.color = 1;
 	worldMap.preUnlockEntry("Up: Earth");
 
-	entry = worldMap.createNode("Foodland", "foodlandExplore", BOTTOM, "Up: Earth");
+	entry = worldMap.createNode("Foodland", "foodlandExploreHub", BOTTOM, "Up: Earth");
 	entry.color = 2;
 	worldMap.preUnlockEntry("Foodland");
 
