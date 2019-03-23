@@ -8,9 +8,6 @@ music.name = "music";
 setBackground(0, "img/writer/mainBg");
 setBackground(1, "");
 choicesPerPage = 5;
-data.unlockedDev = true;
-gotoFoodland();
-
 `
 Dev Menu
 

@@ -108,9 +108,12 @@ worldMap.show = function() {
 		node.textField.tint = 0xFFa5e3f2;
 		node.textField.layer = GRAPH_NODE_TEXT_LAYER;
 
-		var textPadding = 60;
+		var textPadding = 50;
+		if (node.entry.color == 1) textPadding = textPadding * 0.9;
+		if (node.entry.color == 2) textPadding = textPadding * 1.3;
+
 		var nodeTextWidth = node.textField.textWidth + textPadding;
-		if (nodeTextWidth < 200) nodeTextWidth = 200;
+		if (nodeTextWidth < 160) nodeTextWidth = 160;
 
 		var nodeGraphic = "img/writer/nodeChoice";
 		if (node.entry.color == 1) nodeGraphic = "img/writer/nodeSpecial";
@@ -138,15 +141,15 @@ worldMap.show = function() {
 			node.sprite.x = parentNode.sprite.x + parentNode.sprite.width/2 - node.sprite.width/2;
 			node.sprite.y = parentNode.sprite.y + parentNode.sprite.height/2 - node.sprite.height/2;
 
-			var nodePadding = 40;
+			var nodePadding = 50;
 			if (node.connectedDirection == LEFT) {
-				node.sprite.x -= node.sprite.width/2 + parentNode.sprite.width/2 + nodePadding;
+				node.sprite.x -= node.sprite.width/2 + parentNode.sprite.width/2 + nodePadding * 1.2;
 			} else if (node.connectedDirection == RIGHT) {
-				node.sprite.x += node.sprite.width/2 + parentNode.sprite.width/2 + nodePadding;
+				node.sprite.x += node.sprite.width/2 + parentNode.sprite.width/2 + nodePadding * 1.2;
 			} else if (node.connectedDirection == TOP) {
-				node.sprite.y -= node.sprite.height/2 + parentNode.sprite.height/2 + nodePadding;
+				node.sprite.y -= node.sprite.height/2 + parentNode.sprite.height/2 + nodePadding * 0.8;
 			} else if (node.connectedDirection == BOTTOM) {
-				node.sprite.y += node.sprite.height/2 + parentNode.sprite.height/2 + nodePadding;
+				node.sprite.y += node.sprite.height/2 + parentNode.sprite.height/2 + nodePadding * 0.8;
 			}
 
 			var x1 = node.sprite.x + node.sprite.width/2;
