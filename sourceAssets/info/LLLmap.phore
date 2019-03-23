@@ -4,9 +4,116 @@ if (music) music.destroy();
 var music = playMusic("audio/ambience/cell");
 music.name = "music";
 
+var LLLexplorables = [
+"LLLexplore1", 
+"LLLexplore2", 
+"LLLexplore3", 
+"LLLexplore4", 
+"LLLexplore5", 
+"LLLexplore6", 
+"LLLexplore7"
+];
+
 START_PASSAGES
 ---
 :LLLmapStart
+
+---
+:LLLexploreHub
+
+You wander the Gay Cub Dungeon in search of Wendy.
+
+!`
+choicesPerPage = 2;
+explore(LLLexplorables);
+`
+---
+:LLLexplore1
+
+Two dads fight over whether their son should be allowed to wear a bow in his hair.
+
+!`
+choicesPerPage = 2;
+explore(LLLexplorables);
+`
+---
+:LLLexplore2
+
+Dad News blares from a dad's radio. He's aggressively digging beans out of a can with a stink-eye.
+
+<i>Welcome to DAD NEWS! OHHHH YEAHHHHHHHH!!! This week, the infamous Femme Ren's faces further controversy as...</i>
+
+!`
+choicesPerPage = 2;
+explore(LLLexplorables);
+`
+---
+:LLLexplore3
+
+Three boys play street hockey in the middle of downtown and no one cares because the whole dungeon city has like one car. It's pretty small, so everyone just walks everywhere.
+
+!`
+choicesPerPage = 2;
+explore(LLLexplorables);
+`
+---
+:LLLexplore4
+
+After hours of wandering, you pass out on the street.
+
+You wake up to someone scratching his nuts right beside your ear. A few pubes fall on your face.
+
+!`
+choicesPerPage = 3;
+addChoice("PBBBTBHTPTPBHB (flail arms)", "LLLflail");
+explore(LLLexplorables);
+`
+---
+:LLLflail
+
+You lock both lips together and blow violently, slapping your own face. You manage to brush the greasy pubes off.
+
+"Ungrateful." The crusty clears his throat and shows you his ass while he waddles off, cock swinging with raw arrogance.
+
+!`
+choicesPerPage = 2;
+explore(LLLexplorables);
+`
+---
+:LLLexplore5
+
+As you wander, you gain a reputation with the cubs. They're interested in `gender("males.", "females, since they hardly see them.", "non-males, since they're so rare around here.");`
+
+Slowly... one by one... you end up with a fan club: a huge, fluffy boi horde that trails you through town.
+
+!`
+choicesPerPage = 2;
+explore(LLLexplorables);
+`
+---
+:LLLexplore6
+
+You stop in for some tea with a family of reserved snow owls, fathers and son, all wearing glasses. The boy's room has "no girls allowed" sign on his door.
+
+The next family you meet has the same sign on their son's door, too. And another one.
+
+They all do.
+
+!`
+choicesPerPage = 2;
+explore(LLLexplorables);
+`
+---
+:LLLexplore7
+
+!`
+var entry = worldMap.getEntry("Revenge of the Dads");
+if (!entry.started) append("Two ferals, a lithe white snow leopard and a golden retriever, chase each other across the rooftops. When they're tired, they crash land on a cushioned city bench (leopard on top) and lick at each other with serious passion, tails all <i>whap whap whap</i> against the sidewalk and the back of the bench. Their hind legs stumble over each other and their maws leak drool.");
+if (entry.started) append("The ferals in the city are sniffing around, because two of their best friends have gone missing.");
+
+choicesPerPage = 2;
+explore(LLLexplorables);
+`
 
 ---
 :earth
@@ -103,19 +210,22 @@ function gotoLLL() {
 	entry.color = 1;
 	worldMap.preUnlockEntry("Up: The Red Sea");
 
-	entry = worldMap.createNode("L.L.L.", "loreWhoring", BOTTOM, "Up: The Red Sea");
+	entry = worldMap.createNode("G.C.D.", "LLLexploreHub", BOTTOM, "Up: The Red Sea");
 	entry.color = 2;
-	entry.lockedMessage = "Requires <b>Level 3</b>";
 
-	entry = worldMap.createNode("Down: Earth", "earth", BOTTOM, "L.L.L.");
+	entry = worldMap.createNode("Down: Earth", "earth", BOTTOM, "G.C.D.");
 	entry.color = 1;
 	worldMap.preUnlockEntry("Down: Earth");
 
-	entry = worldMap.createNode("Down: Archiepelago", "archiepelago", LEFT, "L.L.L.");
+	entry = worldMap.createNode("L.L.L.", "loreWhoring", LEFT, "G.C.D.");
+	entry.color = 2;
+	entry.lockedMessage = "Requires <b>Level 3</b>";
+
+	entry = worldMap.createNode("Down: Archiepelago", "archiepelago", BOTTOM, "L.L.L.");
 	entry.color = 1;
 	entry.lockedMessage = "???";
 
-	entry = worldMap.createNode("Cartographer", "meetingCart", RIGHT, "L.L.L.");
+	entry = worldMap.createNode("Cartographer", "meetingCart", RIGHT, "G.C.D.");
 	worldMap.preUnlockEntry("Cartographer");
 
 	entry = worldMap.createNode("Femme Ren's", "femmeRens", BOTTOM, "Cartographer");

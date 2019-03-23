@@ -227,7 +227,7 @@ function gainExp(amount) {
 				worldMap.unlockEntry("Olitippo's Stream");
 			} else if (data.level >= 3) {
 				worldMap.unlockEntry("Indigo Pond");
-				worldMap.unlockEntry("L.L.L.");
+				worldMap.unlockEntry("Visit L.L.L.");
 			} else if (data.level >= 4) {
 				worldMap.unlockEntry("Down: Foodland");
 				worldMap.unlockEntry("Black Mansion");

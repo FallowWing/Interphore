@@ -102,11 +102,11 @@ function gotoEarth() {
 
 	var entry;
 
-	entry = worldMap.createNode("Up: L.L.L.", "backEarth");
+	entry = worldMap.createNode("Up: G.C.D.", "backEarth");
 	entry.color = 1;
-	worldMap.preUnlockEntry("Up: L.L.L.");
+	worldMap.preUnlockEntry("Up: G.C.D.");
 
-	entry = worldMap.createNode("Earth", "earthExplore", BOTTOM, "Up: L.L.L.");
+	entry = worldMap.createNode("Earth", "earthExplore", BOTTOM, "Up: G.C.D.");
 	entry.color = 2;
 	worldMap.preUnlockEntry("Earth");
 
@@ -132,7 +132,7 @@ function gotoEarth() {
 	entry = worldMap.createNode("Olitippo's Stream", "oliStream", BOTTOM, "Yellow Pond");
 	entry.lockedMessage = "Requires <b>Level 2</b>";
 
-	//entry = worldMap.createNode("Test Unlocks", "testUnlocker", TOP, "Up: L.L.L.");
+	//entry = worldMap.createNode("Test Unlocks", "testUnlocker", TOP, "Up: G.C.D.");
 	//worldMap.preUnlockEntry("Test Unlocks");
 
 	worldMap.show();

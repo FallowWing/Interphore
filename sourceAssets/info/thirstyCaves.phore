@@ -545,9 +545,9 @@ function gotoThirstyCaves() {
 	entry.color = 2;
 	worldMap.preUnlockEntry("The Red Sea");
 
-	entry = worldMap.createNode("Down: L.L.L.", "LLL", BOTTOM, "The Red Sea");
+	entry = worldMap.createNode("Down: G.C.D.", "LLL", BOTTOM, "The Red Sea");
 	entry.color = 1;
-	worldMap.preUnlockEntry("Down: L.L.L.");
+	worldMap.preUnlockEntry("Down: G.C.D.");
 
 	entry = worldMap.createNode("Red Pond", "introArea", RIGHT, "The Red Sea");
 	worldMap.preUnlockEntry("Red Pond");
