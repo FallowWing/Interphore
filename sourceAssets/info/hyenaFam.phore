@@ -5,7 +5,13 @@ Just as you haul yourself out of the Violet Meteorite's bubbly red hot springs, 
 
 A set of stairs carved out of the chunky purple rock.
 
+[Examine potential climbers of the stairs.|hyenaFam]
+---
+:hyenaFam
+
 Shadows approach you through the steam.
+
+"Where'd Doggy go? I hope he doesn't get lost..."
 
 It's a tuckered old grandma hyena following her daughter/wife, way behind. Over Grandma's shoulders, in her big lumpy stiched-up backpack, three curious toddleryena faces poke out from their comfortable perch.
 
@@ -477,6 +483,7 @@ While you were playing with one cub, the other two were picking their noses and 
 ---
 :hyenaFamSneeze
 
+[Next.|hyenaFamRejoiner]
 [Sneeze on the sissyboi's face.|hyenaFamFaceSneeze]
 ---
 :hyenaFamFaceSneeze
@@ -533,6 +540,7 @@ She grabs her dick hard around the base, thumb and forefinger barely able to con
 
 "Just fucking admit it," she grunts. "You want to shit down my cock."
 
+[Skip.|hyenaFamRejoiner]
 [Now that you mention it.|hyenaFamFuta] #Scat
 ---
 :hyenaFamFuta
@@ -720,21 +728,41 @@ Grandma is still scratching her scruffy chin and going "Yep. Yeah. Yep." and gri
 
 "What did you put in your journal?" the futa asks you, eyes lit up.
 
-[Ohhhhhhh I didn't make one.|hyenaFam]
+[Examine futa cub again.|hyenaFamExamineFu]
+[Ohhhhhhh I didn't make one.|hyenaFamChildhood]
 ---
-:hyenaFam
+:hyenaFamExamineFu
 
-"So how do you know what happened after yer childhood though then...?"
+She picks her nose thoughtfully. A few thoughtful fingers slide down over her fupa, cupping it. Two digits tighten a V around the base of her cocklet.
 
-[I uh... I'll pick up the pieces!|hyenaFam]
+"Stop zamining me."
+
+[Examine even harder.|hyenaFamChildhood]
 ---
-:hyenaFam
+:hyenaFamChildhood
+
+She plays with one of her ears. Her tail cocks with curiosity. "So... how do you know what happened after yer childhood though then...?"
+
+[Collecting lore is my thing.|hyenaFamLoreColl]
+[I don't care to know.|hyenaFamJoy]
+[I kind of rushed into this.|hyenaFamBooger]
+
+---
+:hyenaFamLoreColl
 
 "Isn't that super confusing... and time consuming...?"
 
-[Yeah, but it's more fun.|hyenaFam]
+[Yeah, but it's more fun.|hyenaFamRegoober]
 ---
-:hyenaFam
+:hyenaFamJoy
+
+"Same," she says. I just realized she has been aggressively grinding her buttcrack on your leg under the pretense of conversation this whole time. I don't know how I missed that. She winks at you or me, I can't tell.
+
+[Keep it in your pants kid.|hyenaFamRegoober]
+---
+:hyenaFamRegoober
+
+A distraction from across the pond:
 
 "Ahhh!"
 
@@ -742,927 +770,1223 @@ Grandma cums on Mom's face, casually, and her nuts barely even have to twitch to
 
 "We are?!"
 
+[We are?|hyenaFamRejigger]
+[I already did a while ago.|hyenaFamRejigger]
+---
+:hyenaFamRejigger
+
+The boi jumps up and down, his pacifier necklace bouncing against his chest. "We are~?"
+
 "Yeah we are, I don't care if you're actually ready or not, I say we're ready."
 
 Grandma gets up and dusts the shitchunks off her thighs, which jiggle hard. "Help me pitch these little fuckers in the drink, `data.playerName`!"
 
-[Caaaan do!|hyenaFamPitch]
-[Gently help the cubs in.|hyenaFamGentle]
+[Throw em in!|hyenaFamPitch] #Abuse
+[Gently help the cubs in.|hyenaFamGentle] #Love
 ---
 :hyenaFamPitch
 
+You grab a triple fistful of perky hyena tail and whirl the squealing cubs over your head for a second before tossing them all in the drink like you'd toss a lasso.
 
+<i>Plunk plunk plunk~</i>
 
-[|hyenaFamRejoii]
+"YEE HAW"
+
+Grandma kicks off the rock and dunks her own ass into the pond.
+
+<i>fuckin</i> <b>PLUNK</b>
+
+[Help Mom in.|hyenaFamRejoii]
 ---
 :hyenaFamGentle
 
+You gently lower the cubs into the pond, one by one, and soon all that's left is a couple cute little bubbles and a tail sticking out.
 
+(Mom lovingly tucks it in under the surface.)
 
-[|hyenaFamRejoii]
+[Help Mom in.|hyenaFamRejoii]
 ---
 :hyenaFamRejoii
 
+You go to help her, but she's already in. She awkwardly wades into the pond like it's a kiddie pool, her arms all spazzy above her head, tits jiggling just a hair above the calm red surface.
 
-- cubs respawn innocent
+"A-Ah! That really hurts... I can handle it, though..."
 
-[Test|hyenaFam]
+[Just dive in. Don't go so slow.|hyenaFamLava]
+---
+:hyenaFamLava
+
+She waves that away with enough motion to throw her chest around. "O-Oh no, it's fine," she insists. Her arm slips down between her partially shapeshifted legs and rubs at herself, panting, til the red swallows up her blushing face.
+
+<i>Pluuuu~uuuu~uunk</i>
+
+She drops all the way in with a tiny splash.
+
+[Oh what the heck join em.|hyenaFamJoin]
+---
+:hyenaFamJoin
+
+You jump in with a big saucy splash. Character customization opens.
+
+!`
+choicesPerPage = 2;
+if (data.genitals == "female") {
+	addChoice("Switch to cock.", function() [
+		data.genitals = "male";
+		gotoPassage("hyenaFamFam");
+	});
+} else {
+	choicesPerPage = 1;
+	addChoice("Switch to cunt.", function() [
+		data.genitals = "female";
+		gotoPassage("hyenaFamFam");
+	});
+}
+addChoice("Next.", "hyenaFamFam");
+`
 ---
 :hyenaFamFam
 
+The cubs come out of the pond unrecognizable, dive back in, and come out unrecognizable again, and not just because the characteristic film of grease on their bodies has finally been deep-cleaned away: they're shifting form entirely. They transform themselves into planes, big monsters, dinosaurs, creative custom space aliens, and anything else childlike they can think of, all chittery and hyper excited. The result is a wall of chaos that spins around you, three blurs of primary colors and wacky body designs.
 
-- cubs try on differnet bodies for fun
+Then they all pop back out as hyena cubs again, panting and giggling with each other. "Nothin beats this. <3"
 
-[|hyenaFam]
+[You okay?|hyenaFam]
 ---
 :hyenaFam
 
-- super innocent... curious about what just happened <3
-- mom wants to jump in but grandma stops her
-- lets put on a show for the kids and re-corrupt them
+"Yeah!" they all say in unison. The girl brags "We got the book, so it's okay if we forgot stuff!" and tugs the futa off a little as a tease.
 
-[Dom.|hyenaFamDom]
-[Sub.|hyenaFamSub]
----
-:hyenaFamDom
+The futa stumbles back, scandalized.
 
-fun scat
+<b>SPLOOSH</b>
 
-[|hyenaFamDom]
----
-:hyenaFamDom
+Grandma throws herself out of the pond and lands on two feet. She looks like she shed a couple years and made herself taller and stronger, a little amazonian, but she kept her fit 30-something-lookin bod, her tits, and her hanging half-hard vein yeencock. It's even bigger and more menacing than her old one.
 
-fun scat
+Mom awkwardly climbs out the edge of the puddle, paws glued to the surface and tits splayed out on the warm rock. She gave herself a boob job for sure.
 
-[|hyenaFamDom]
----
-:hyenaFamDom
+"Where's the journal at?" Grandma clutches her head and winces. "Kids, stop fuckin around, you're makin Gramma confused. Man, what did we just..."
 
-fun scat
+"We jumped in the pond..." Mom reassures her.
 
-[|hyenaFamDom]
+"No I remember why we did that. But what about... the stuff before?"
+
+[The lewd stuff?|hyenaFam]
 ---
-:hyenaFamDom
+:hyenaFam
 
-fun scat
+The girl leads her siblings to swarm Grandma's thighs and rub up against her, sticking their little butts out. Mom is hypnotized by the sight of their naked bodies grinding up so hard and with so much excitement on Grandma.
 
-[|hyenaFamRejog]
----
-:hyenaFamSub
+You expect her to reach down and cuff them over the head for fun, or rub her sloppy cock on their fresh innocnet little faces, or even just turn around and peel her cheeks open so they can all huff the dirty adult ass she knows they love so much. But she doesn't do any of that. Grandma does the absolute last thing you'd expect:
 
-fun scat
+She blushes.
 
-[|hyenaFamSub]
----
-:hyenaFamSub
+"Hey," Grandma grunts. She pushes the kids off a bit. "Put some clothes on, I can feel your privates on me."
 
-fun scat
+The cubs blink and look from their junk to each other. Their tiny toddlerpaws cup down over their crotches. "Sorry, Grammy..."
 
-[|hyenaFamSub]
+[Examine mom?!|hyenaFam]
 ---
-:hyenaFamSub
+:hyenaFam
+
+... She's covering her tits and her pussy. She lifts a shaky paw off her pussylips and watches the syrupy strands of cunt oil pull away with a mortified expression, like she's watching the birth of a thousand spiders between her legs. "Why is this..."
 
-fun scat
+"Why are we..." Grandma whispers.
 
-[|hyenaFamSub]
+[Why are you...?!|hyenaFam]
 ---
-:hyenaFamSub
+:hyenaFam
 
-fun scat
+"Why are we such degenerates?!??!!?!?!?"
+
+[Oh god.|hyenaFam]
+---
+:hyenaFam
 
-[|hyenaFamSub]
+[... Consult the journal.|hyenaFam]
 ---
-:hyenaFamSub
+:hyenaFam
+
+You flip right back to the start and... yep.
 
-fun scat
+In this family's early memories, when the game had just started, they were all still fairly vanilla. Over time, trapped in a porn game and surrounded by debauchery, they became filthloving cubfucking snotsucking weirdos.
 
-[|hyenaFamRejog]
+[Uhhhh shit help them?|hyenaFam]
 ---
-:hyenaFamRejog
+:hyenaFam
+
+They all look to you. The contrast is wildest with Grandma: this towering, no-bullshit amazon woman with a cock half the size of her leg and tits that could crush a kid if they jiggled the wrong way, she's just looking at you like a lost kindergardener. She squats, pendulous sack kissing the ground, and sniffs her girlcub's flat chest. "Your scent..."
+
+The girlcub stands off to one side. She flicks her clit happily. "What's all the fuss about~? I still feel kinky."
 
-- cubs are thoroughly corrupt
+The futa hesitantly sniffs her sister. "I always remember you were the lewdest one..."
 
-[|hyenaFam]
+"Help!" Mom breathes deep. "My little cubs... such awful acts... and just twenty minutes ago...!"
+
+Her sissyboy prances over and comforts her with a big hug. "It's okay~"
+
+... But that only makes Mom panic more, because his tiny cocklet presses up against her nipple, tip to tip, and slides along the entire length, until her areola finds a cozy new home smushed between his nuts.
+
+She pushes him away with a desperate sob. He reels back, hurt.
+
+[Alright now listen.|hyenaFam]
 ---
 :hyenaFam
 
-- mom and grandma jump in
+They listen.
 
-[|hyenaFam]
+[I went through exactly what you guys did.|hyenaFam]
 ---
 :hyenaFam
 
-- they come out again
 
-[|hyenaFam]
+[My childhood memories are pretty innocent and simple.|hyenaFam]
 ---
 :hyenaFam
 
-- try to reconcile their init minds with what just happened
 
-[|hyenaFam]
+[But my recent memory, just before the pond, my mind was swimming in sex chemicals.|hyenaFam]
 ---
 :hyenaFam
 
-- cubs try to corrupt them back
 
-[|hyenaFam]
+[It was awkward, although I didn't make a big deal about it at the time...|hyenaFam]
 ---
 :hyenaFam
 
-- mom and grandma are hesitant and guilty
 
-[|hyenaFam]
+[Then I don't think I even really noticed after a while.|hyenaFam]
 ---
 :hyenaFam
 
-- mom and grandma ask for reassurance from cubs and get it
 
-[|hyenaFam]
+[I just needed to hang out, have sex, experiment, and find myself again.|hyenaFam]
 ---
 :hyenaFam
 
-- you see them still confused and anxious about what they are now
 
-[|hyenaFam]
+[And my tastes fell back into place.|hyenaFam]
 ---
 :hyenaFam
 
-- tell them to go talk to cart one layer up
 
-[|hyenaFam]
+[I'm sure yours will too.|hyenaFam]
 ---
 :hyenaFam
 
-- they thank you and go ahead
+
+[If they don't, or if you don't want them to, you can always remove them in the pond.|hyenaFam]
+---
+:hyenaFam
 
-END
+All but the girl cast a sideways glance at the pond. Their paws slowly lower away from their naked bodies.
 
+"Remove it...?"
 
+"I guess there's no harm in just trying... more of that stuff... just to see if we really do like it..."
 
-- go over to mom and grandma
-- mom has to write a scrapbook with all their memories and grandma dictates to her while you fuck
-- get assfucked
-- eat out a shitty ass
-- clean the smeg and shit off the dick that fucked you
-- burp and puke after grandma throatrapes it out of you
-- mom desperately tries to keep the scrapbook clean
-- family photos of them being more and more lewder over time
-- grandma doms her by trying her hardest to get it dirty, she even rips a few pages out
-- grandma doms the cubs by pissing on their memories
-- grandma makes mom piss on the cubs family photos too
-- but then she actually had a backup in the pages she ripped out
-- cubs get thrown in
-- whole family comes back up and re-acquaints with each other and reverts back to vanilla ness cause family photos
+"You guys are crazy," the girl pants, her little paw just a blur as it molests her clitty with merciless force. Her tongue flops out and drips saliva over her bare, flat chest. "Why <i>wouldn't</i> you wanna be a sex demon?!"
 
-- kids become different fun kid things, try on different ages
-- mom and grandma grapple with personal guilt
-- the girl cub wants to try the rough stuff though, but family is unsure
-- You take her up on it
-- the family moves on, sexually confused but still loving of their girl
+Grandma chuckles heartily. Mom frets. The futa and the boi try rubbing their cocklets and find that it feels really good.
 
+[Well, come on, everyone! Experiment! :3|hyenaFam]
 ---
-:hyenaFamMem
+:hyenaFam
+
+The sissyboi slides a finger down his asscrack and smells it. He jerks back. "Ugh. Grosssss... how is anyone into this?"
 
+"Hey!" the girlcub squeaks. She has one tiny finger pushing at the entrance to her toddlercunt. "I'm super tight again!! Hurry, Gramma, take my virginity!"
 
+Grandma laughs awkwardly and scratches behind one of her ears. Her cock twitches up to half-hardness. "Heh. Uh. I guess I can try."
 
-Up on the Violet Meteorite, the last few families are getting ready to move out.
+[Grab his finger and suck it.|hyenaFamSucker] #Scat #Male
+[Help Grandma wrangle the lil virgin.|hyenaFamVirgin] #Blood #Female
+---
+:hyenaFamSucker
 
-Two women throw their happily squealing little toddlers into the pond, all three, sploosh splash splish,
+You take him by the wrist and plug that slimy little finger in your maw. It doesn't even reach to the back of your throat, he's so small. His wide eyes lock to yours and his cocklet hardens up so much it slaps against his belly. He listens to the gentle, wet sound of shitjuice getting sucked off his finger, and his ears perk when a gag ripples out of your throat.
 
+"Are you okay...?"
+
+[Yuh... mm. Okay, your turn now.|hyenaFamSucker]
 ---
+:hyenaFamSucker
+
+He gulps.
 
-Five adult shadows play in the red pondwater. Three are engaged in a giggly splash war, excited as little kids, while the other two lounge on the edge of the pond with their legs in the water and kiss each other gently for something to do.
+[Reach back...|hyenaFamSucker]
+---
+:hyenaFamSucker
 
+He starts jacking his toddlercock with two pinched fingers. He knows what's coming.
 
+[Wipe a finger up my ass, nice and slow...|hyenaFamSucker]
+---
+:hyenaFamSucker
 
+You drag a single finger from your `genitals("plump taint", "cuntlips", "plump cuntlips");` along the deepest crevice of your asscrack, really curling into the hole so you can collect a cute, pudgy little clump of toxic shit on your fingertip.
 
+You grab him by the hair and hold your nasty finger right under his snout. His eyelashes flutter. The fumes make him go shitdrunk for a moment, pupils expanded, face flushed, cocklet puking pre.
 
+[Open.|hyenaFamSucker]
+---
+:hyenaFamSucker
 
+He opens. His little maw is perfectly clean, warm, and wet.
 
-!`
-choicesPerPage = 1;
-`
-[|hyenaFam]
+[Push it down his throat.|hyenaFamSucker]
 ---
-:hyenaFam
+:hyenaFamSucker
 
+You completely avoid his tongue so he isn't too overwhelmed by the taste, but your grip on his head doesn't budge. He gags hard and squirms against you, little body coated in fresh sweat. He focuses and controls himself enough to swallow on your finger as it slides all the way down his tiny throat, smearing dirty shit over his uvula and deeper.
 
+Finally he pulls off your finger, coughing cutely. "Unnnnh... why am I so hard from that...?!"
 
-!`
-choicesPerPage = 1;
-`
-[|hyenaFam]
+"Cause it's hot," his sister moans. She splits her little legs open and pushes her belly and chest out like a total toddlerslut as Grandma approaches.
+
+[Help Grandma wrangle the lil virgin.|hyenaFamVirgin] #Blood #Female
 ---
-:hyenaFam
+:hyenaFamVirgin
 
+You grab her arms and twist them behind her back. "Unf~!" she squeaks. "There we go! <i>Some</i>one's on the same page as me! Okay... go as hard as you can, you two, um... safe word is 'bumblebee' or a tap-out..."
 
+"You really do want this, huh...?"
 
-!`
-choicesPerPage = 1;
-`
-[|hyenaFam]
----
-:hyenaFam
+Grandma stands between the girl's legs, cock standing proud in the air. It's so huge and heavy... holy fuck... its shadow completely covers her granddaughter's naked body.
 
+She lets it fall. It collides with that tiny cub body with a big meaty slap, pre-spewing head nuzzled up against the girl's cheek, shaft weighing heavy on her ribcage, her hips, and of course her tiny vulnerable pussy.
 
+"Dirty talk me, Grammy..." she begs through winded breath.
 
 !`
-choicesPerPage = 1;
+choicesPerPage = 2;
 `
-[|hyenaFam]
+[Spit in her maw.|hyenaFamVirgin]
+[Skip.|hyenaFamVirginRejoin]
 ---
-:hyenaFam
+:hyenaFamVirgin
 
+You hock a fat loogie in the girlcub's maw, which she obediently holds open as soon as she realizes what you're doing. Her eyelids droop and she does a cute yeen purr. She sucks on your saliva a little... then swallows deep. "Your spit is inside me now..." she breathes.
 
+Grandma has been trying to think of dirty talk this whole time, but she's pulling a blank. "Oh, I don't know... uh... I'm gonna fuck you! You ready for this cock, hun?"
 
+The girl pouts. "More dirty. More mean."
+
 !`
-choicesPerPage = 1;
+choicesPerPage = 2;
 `
-[|hyenaFam]
+['I'm gonna give you this cock whether you're ready or not?'|hyenaFamVirgin]
+[Skip.|hyenaFamVirginRejoin]
 ---
-:hyenaFam
+:hyenaFamVirgin
+
+The girl makes a 'meh' face.
+
+Grandma scratches her chin and casually rolls her hips back and forth while she thinks, using the tiny toddler as a cockrag. Slowly, layer by layer, oily cockgrease builds up on the little girl's chest and face and pussy. Her vulva looks shiny, coated with it.
 
+"How about... 'I'm gonna rape the innocence outta you?'"
 
+The girl's ears perk up at the word 'rape.' "Oooo! Warmer!"
 
 !`
-choicesPerPage = 1;
+choicesPerPage = 2;
 `
-[|hyenaFam]
+[Yank this little slut's legs up.|hyenaFamVirgin]
+[Skip.|hyenaFamVirginRejoin]
 ---
-:hyenaFam
+:hyenaFamVirgin
 
+You reach down and grab both tiny ankles. Then you pull them back viciously until her toes are next to her twitchy ears and the smooth, puffy bulge of her kiddycunt is wide open for everyone to see.
 
+Grandma blushes really, really hard. "I think I thought of something... I'm gonna... I'm gonna..." She pulls back until the tip of her massive cock just barely kisses that toddlerslit. The size difference is just stupid. There's no way it's going to fit. But still, the little yeen throws her hips around, uncontrollably lustful, smearing ample cubjuice over that cockhead and basically making out with it using her lower lips.
 
+"What is it?" the girl begs. "Tell me..."
+
 !`
-choicesPerPage = 1;
+choicesPerPage = 2;
 `
-[|hyenaFam]
+[:3???|hyenaFamVirgin]
+[Skip.|hyenaFamVirginRejoin]
 ---
-:hyenaFam
+:hyenaFamVirgin
 
+Grandma lowers her voice and leans down. She tries her best to look actually terrifying, big teeth out in a grin.
 
+"I'm gonna bust that tiny hymen and douse my nuts in toddlerblood~"
 
+The girl cums on the spot. She throws her head back, moaning maw muffled in your `data.genitals("cockbulge", "cuntfolds", "cockbulge");`. Her vulnerable, untouched pussy spews lasvicious natural lube all over her Gramma's hard cock. "Now <i>th-that's</i> dirty talk!"
+
 !`
-choicesPerPage = 1;
+choicesPerPage = 2;
 `
-[|hyenaFam]
+[Dry hump her face.|hyenaFamVirgin]
+[Skip.|hyenaFamVirginRejoin]
 ---
-:hyenaFam
+:hyenaFamVirgin
 
+You bang your crotch off the little cublet's face to disorientate her. `genitals("Your cock smears grease over her gasping lips.", "Your cunt smears oil over her gasping lips.", "Your cock smears grease over her gasping lips.");` Grandma looks a little self conscious about what just came out of her maw, but she swallows her embarassment and pushes forward harder to compensate.
 
+"Gnnnfh... open up, cunt..." she breathes. That insurmountable monstercock pushes against her little girl's pussy, struggling to get even a quarter of an inch inside.
 
 !`
-choicesPerPage = 1;
+choicesPerPage = 2;
 `
-[|hyenaFam]
+[Slide my hips all the way forward...|hyenaFamVirgin]
+[Skip.|hyenaFamVirginRejoin]
 ---
-:hyenaFam
+:hyenaFamVirgin
 
+You casually guide your `genitals("cock", "cunt forward so your juices will gush", "cock");` down the girl's tight kiddythroat. Her eyes roll up in her skull. "Mmmmnghhh! Grrmgnh gmmhhh!" she begs into your junk, meaning "Harder! Pop me!"
 
+Grandma has a moment of doubt. She's already pushing hard enough to strain the girl's hips. Those tiny chicken wing thighs can't split any farther apart without some damage being done inside. This huge cock... way too huge for such a little body... should she really force it in like this? Should she really ruin her own cub?
 
+Her cockhead strains at the very edge of insertion, bright red, swollen, angrily trying to force its way inside that cub pussy but not quite past the threshold. All it would take is one... good...
+
 !`
-choicesPerPage = 1;
+choicesPerPage = 2;
 `
-[|hyenaFam]
+[Push.|hyenaFamVirgin]
+[Skip.|hyenaFamVirginRejoin]
 ---
-:hyenaFam
+:hyenaFamVirgin
 
+You throw a vicious hump at the girl's face. `genitals("She gags and burps on your cock, deep in her gullet.", "She gags and coughs up your violent burst of cuntjuice.", "She gags and burps on your cock, deep in her gullet, while your cuntjuice trickles over her forehead and fluffy ears.");`
 
+A single inch of Grandma's head slips inside. The girl scream-squeals and her legs thrash automatically.
 
-!`
-choicesPerPage = 1;
-`
-[|hyenaFam]
----
-:hyenaFam
+"Oh fuck," Grandma pales. "You okay kid?"
 
+... Of course, after the struggling act is over, the little girl flashes a thumps up and points to her pussy. Does she wants more, harder? No. She's gesturing to something else...
 
+You and Grandma follow the gesture: she's pointing to her own tiny toddlerclit, which is now adjacent to an absolutely gorgeous, shiny, bright red little droplet of cuntblood.
 
+"Oh fuck," Grandma grunts. She screws her eyes shut. Something inside her clicks.
+
+She's finally into it.
+
 !`
-choicesPerPage = 1;
+choicesPerPage = 2;
 `
-[|hyenaFam]
+[You gonna take her or what? <3|hyenaFamVirgin]
+[Skip.|hyenaFamVirginRejoin]
 ---
-:hyenaFam
+:hyenaFamVirgin
 
+"Yeah I'm gonna take her... c'mere bitch... time to pop."
 
+Grandma slams a palm down on the cub's throat and thrusts with the full intention of doing harm.
 
-!`
-choicesPerPage = 1;
-`
-[|hyenaFam]
----
-:hyenaFam
+<b>POP.</b>
 
+Five unforgiving inches of adult cock force their way up between the girl's hips and rip her fucking hymen apart. The force and girth of it split those little hips open so wide they'll never close properly again. You let your tongue hang out while you `genitals("feed her length after length of your cock from the other end", "bounce your tingly snatch on her screaming face", "feed her length after length of your cock from the other end, pounding her forehead with your tingly snatch");`, and downstairs, Grandma goes equally hard: no mercy for a fresh ex-virgin, none at all, she just rapes in more inches with each thrust, six, seven, eight, and finally the whole fifteen incher, showering you both in a wet, sexy spray of hymen blood.
 
+The girl chokes on her own saliva between feral, tortured, yet reassuring screams: "I'm okay! I'm alright! Keep going! Keep going!"
 
+"Little slut," Grandma breathes with respect and reverence for her little one's endurance. She throws the whole weight of her body into the rape, nuts banging off the rock and those tiny cub asscheeks. "Fucking look at you... bleeding all over my dick..."
+
 !`
-choicesPerPage = 1;
+choicesPerPage = 2;
 `
-[|hyenaFam]
+[Lean in and examine her cock...|hyenaFamVirgin]
+[Skip.|hyenaFamVirginRejoin]
 ---
-:hyenaFam
+:hyenaFamVirgin
 
+You lean down over the girl's body, which totally hides it, and Grandma pulls half her dick out and stops thrusting just for you. It's so hard... <b>throbbing</b> doesn't even come close. You can see her racing heartbeat in the fat veins, all the smears of sexy red up and down the shaft, pooled in a sticky half-dried mess around her pubes at the base. Grandma grabs her sack with both hands and massages the blood into her fur. Her nuts churn even harder for it. They're almost done building up a fat load of cum that's destined for her toddler's womb.
 
-
 !`
-choicesPerPage = 1;
+choicesPerPage = 2;
 `
-[|hyenaFam]
+[Huff it...|hyenaFamVirgin]
+[Skip.|hyenaFamVirginRejoin]
 ---
-:hyenaFam
+:hyenaFamVirgin
+
+You deeply huff on the coppery, rank scent of fresh cub blood.
 
+Grandma's really in the spirit of things now. She pushes your head down and makes you kiss her shaft. She holds eye contact while you slobber and lick up all the deep red.
 
+"There we go..." she purrs. While you two are having this nice little moment, `genitals("your cock is still plugged deep down the toddler's esophagus, so deep her face is going blue and she can barely handle it anymore.", "your cunt has enveloped the girl's maw and nose entirely, suffocating her and making her squirm hard.", "your cock is still plugged deep down the toddler's esophagus, so deep her face is going blue and she can barely handle it anymore.");` Grandma doesn't care. She keeps your lips pressed right to the lips of that tiny blown-out childpussy as inch after slow inch slides back in, displacing a hot gush of blood. She lets you suckle and slurp on it, red running down your chin...
 
 !`
-choicesPerPage = 1;
+choicesPerPage = 2;
 `
-[|hyenaFam]
+[Mmf... phwa... pull off...|hyenaFamVirgin]
+[Skip.|hyenaFamVirginRejoin]
 ---
-:hyenaFam
+:hyenaFamVirgin
 
+You let the little one breathe and pull away. As soon as her lungs are full, she empties them with another hot scream. "AAAaAAAAAAaA" she squeals, shaky paws reaching for her swollen cunt. She touches it gingerly. "I-I'm broken... I'm broken down there...!"
 
+"No you're not," Grandma grunts darkly. She two-hands her babygirl's throat and throttlefucks her. Her underaged womb splits open around hard adult cock. Long before it's ready to carry a baby, she's forced to carry a cock. She gives birth to her Grammy's fat cock over and over, every time it pulls all the way out of her birth canal and slams all the way back in, rattling her tiny ovaries. "Does that hurt?" Grandma asks her. "That fucking hurt? Huh?"
 
-!`
-choicesPerPage = 1;
-`
-[|hyenaFam]
----
-:hyenaFam
+"HURTS!" she screams again. "BAD! OW! OW! PLEASE! BAD!"
+
+Grandma falters for just a second. because she really can't believe it... but... sure enough, after the girlcub is done screaming for her life in that cute barely-intelligent toddler voice, she shoots you both a wink. "AAAA!" she jumps right back into it. "PLEASE! NO!"
 
+Grandma's face is half-hidden in darkness. She won't falter again. She knows to listen for 'bumblebee' and watch for a tap-out. Beyond those two things, nothing the little toddler does will stop her cock ever again.
 
+"Hold her down," she commands you. "I'm going to make her cry."
 
 !`
-choicesPerPage = 1;
+choicesPerPage = 2;
 `
-[|hyenaFam]
+[Pull her back by her nose.|hyenaFamVirgin]
+[Skip.|hyenaFamVirginRejoin]
 ---
-:hyenaFam
+:hyenaFamVirgin
 
+You slip two fingers up her snout and yank it back, exposing her wailing maw. She looks like a total fuckpig with her nostrils pulled open so wide. Grandma pulls all the way out, allows that yawning pussy to clap closed, and then re-breaks her hymen with a full power thrust.
 
+The girl breaks out in tears. She sniffles and snuffles pathetically against your fingers, eyes scrunched up, snot running over her face. Grandma looks down at it with a warm smile, like a mother looking at her newborn for the first time.
 
+Then her smile disappears. "Keep that fucking snout open," Grandma yells in her face, raping hard enough to crack the rock ground beneath you. "I want you to smell my dick from all the way up there. Hey, `data.playerName`. Come smell my dick too."
+
 !`
-choicesPerPage = 1;
+choicesPerPage = 2;
 `
-[|hyenaFam]
+[Let her smell some of her special red juice~|hyenaFamVirgin]
+[Skip.|hyenaFamVirginRejoin]
 ---
-:hyenaFam
+:hyenaFamVirgin
 
+You reach down and crush the toddler's clit under two fingers, rapidly wiggling them to set her sexual systems on fire. She thrashes under the onslaught of a wombfuck and such a vicious clitrub, but that's not the reason you're doing this. You just want to get your fingers nice and coated red so you can...
 
+... So you can yank her nose up again and smear your fingers over it. A hot mixture of blood and sex oil dribbles into the fucktot's tiny nostrils, running down the back of her throat, seeping heavily into her olfactory sense until all she can smell is adult cockmusk and her own thick blood. "Unnnnghk! Gnnnk! Achoo!" she groan-sneezes, spraying her tiny chest with speckles of red.
 
-!`
-choicesPerPage = 1;
-`
-[|hyenaFam]
----
-:hyenaFam
+"Fuck that's hot." Grandma humps away and looks to the sky with her eyes closed, brows arched, expression needy. She's at the edge, afraid to even look in case it makes her cum. "Fuck. Fuck. Sneezing blood. Fuck... <3"
 
+She can't help it. She cracks an eye and looks down at her lil baby girl.
 
+The cub is pale, maw hanging open, eyelids drooped. Red snot runs from her gaped snout. Grandma's eyes wander down... over the sexy red-and-blue marks those big paws left when they wrung out her throat... over the heaving chest, so tiny, barely bigger than the width of her cock... over the bruised, cock-stuffed, pregnant-looking belly... over her fupa, swollen and red from the impacts of each thrust... and finally to the gash between her twitching legs, still gushing steamy blood out over her thighs.
 
+"Puh... puh... please..." she gurgles. She flexes her childpussy on Grandma's cock.
+
 !`
-choicesPerPage = 1;
+choicesPerPage = 2;
 `
-[|hyenaFam]
+[Cum on her face. <3|hyenaFamVirgin]
+[Skip.|hyenaFamVirginRejoin]
 ---
-:hyenaFam
+:hyenaFamVirgin
 
+`genitals("You aim your hose over the little girl's eyes and spew out a few white cumstrings which lace over her pale expression, defiling her innocence~", "You squat over the little girl's eyes and flick your clit while splurt after splurt of pussyjuice sprays over her pale expression, defiling her innocence~", "You aim your hose over the little girl's eyes and spew out a few white cumstrings which lace over her pale expression, defiling her innocence~");`
 
+Grandma is interested in a bit more than your run-of-the-mill defiled innocence. She palms her little girl's entire face, hiding it, not caring to check how tortured the cublet's expression is. She rapes down like her kid is a sex toy, zero regard for her comfort or well-being. Every five thrusts the girl slides a foot up the rock and Grandma has to yank her back down by both ankles til her pussy slaps against those adult nuts and sprays blood on them. Thrust thrust thrust thrust thrust pull back thrust thrust thrust thrust thrust pull back thrust pull thrust pull thrust pull thrust pull THRUST (the toddlergirl burps cum as it fills her belly) pullllllllllll.
 
+Grandma keeps her fupa and nuts crushed up against the girl's bleeding cunt. "Put pressure on the wound," she grunts. Her cock pulses as cumshot after cumshot fills the cub's womb. Eventually it bursts fully out of her little maw and nose in a flood of white, tiny jets splurting out through the bridges of Grandma's fierce gripped fingers. You grind your crotch down on her as she gurgles cum, uncaring, just enjoying the warm wet sensation between your thighs.
+
 !`
-choicesPerPage = 1;
+choicesPerPage = 2;
 `
-[|hyenaFam]
+[Phwaaaaa...|hyenaFamVirgin]
+[Skip.|hyenaFamVirginRejoin]
 ---
-:hyenaFam
+:hyenaFamVirgin
 
+Grandma pulls away, breathing and sweating like she just defused a bomb. You do the same and fall on your ass with a heave of fresh air, free of the stench of blood or sex smog.
 
+The girl drags her sorry ass over to the pond, leaving a trail of red and white, and flops in. She pops back out fresh and tight as new, licking her paws of residual red juice. "Mmmn!" She smiles at you both. "See? It's fun when you give it a shot!"
 
-!`
-choicesPerPage = 1;
-`
-[|hyenaFam]
+Grandma looks down at her floppy, flaccid cock, stained red like the rest of her crotch. Looks like she fucked a watermelon open. "Heh... that wasn't too bad, I guess... little intense..."
+
+[A little...|hyenaFamVirginRejoin]
 ---
-:hyenaFam
+:hyenaFamVirginRejoin
 
+Some time after the brutal fuck, the little girl uses her tongue to clean Grammy up nice and squeaky.
 
+On the other side of the pond, Mom and her two cubs, futa and male, are whispering nervously to each other.
 
-!`
-choicesPerPage = 1;
-`
-[|hyenaFam]
+[See how they're doing.|hyenaFamOthers]
 ---
-:hyenaFam
+:hyenaFamOthers
 
+You tune into their conversation halfway:
 
+The sissyboi was asking a question: "... this weird guy talking in my head?"
 
-!`
-choicesPerPage = 1;
-`
-[|hyenaFam]
+"That's Mr. Eyeball," Mom patiently explains. "He narrates for us now, instead of Protocol."
+
+The futa was entranced watching Grandma and her sister fuck like demons, but now she snaps back to reality. "Ahh, the narrator...? He seems scary..." she whispers like it will make it harder for me to hear her.
+
+[You guys down to experiment with me a little?|hyenaFamOthers]
 ---
-:hyenaFam
+:hyenaFamOthers
 
+... They're unsure. They did only just meet you, after all.
 
+"I'm down!" The futa scampers up to you. "Safe word is 'bumblebee,' okay everybody?"
 
-!`
-choicesPerPage = 1;
-`
-[|hyenaFam]
+The sissyboi trots after her, twiddling his thumbs. "Bumblebee... okay. Are you sure about this, sis...?"
+
+"Well... how extreme...?" Mom frets. "I don't want to go too rough on my darlings."
+
+[Oh I wasn't thinking anything rough, just something dirty...|hyenaFamOthers]
 ---
-:hyenaFam
+:hyenaFamOthers
 
+You bend over and clap one paw onto your asscheek so it ripples. Your pawpads put in serious gription as you pull it to the side, peeeeeeling the crevice open to reveal a stinky, steamy brown donut hidden at the bottom of the valley. It twitches. The air feels cool on it.
 
+The futa and the sissyboi cub both lean in where they are kneeling, hands on their thighs, eyes full of stars.
 
-!`
-choicesPerPage = 1;
-`
-[|hyenaFam]
+"I can smell it from here! Ewww!"
+
+"Wow, your butthole is huuuuge..."
+
+[Go ahead. Look closer. Now that you're assimilated, you can Examine things, y'know~|hyenaFamOthers]
 ---
-:hyenaFam
+:hyenaFamOthers
 
+"We could already do that," Mom informs you, dry and sour. "Our world is narrated too."
 
+You ignore her snippiness and pull your other buttcheek open. You squat down fully, heels against the back of your thighs, and stick your ass right in the little toddlers' faces. They can't believe it... it's so big. It arrests the attention with no bail.
 
-!`
-choicesPerPage = 1;
-`
-[|hyenaFam]
+"Woooow..." the sissyboi mewls, his cocklet stirring. He pokes at your heavy assmeat, starting first on the smooth expanse of your cheeks and then slowly moving inward until his little digit circles your hole. The futa gives your clean buttcheek an experimental lick and then smacks her lips. "Mmmn... can we go even closer?"
+
+[Get as close as you want. <3 Get in there.|hyenaFamOthers]
 ---
-:hyenaFam
+:hyenaFamOthers
 
+The futa licks a little closer to the crack. She just barely slurps up a streak of light brown and then stops to thoughtfully suck on her tongue, thinking the taste over. "It tastes bad," she says, "but like a good bad!"
 
+The sissyboi tries to copy her but the moment his sensitive nose gets close to your pooched-out asshole, he pulls himself back and coughs. "Urk... that's not a good bad, that's a bad bad..."
 
-!`
-choicesPerPage = 1;
-`
-[|hyenaFam]
+The futa dares to shove her face in deep and lance a quick lick right across your bare hole. You tighten up and tingle with the flash of warmth. She pulls back, a strand of caramel breaking from her lips, and swallows deeply. "MMMMM! No, that's definitely yummy... why do I like the taste of shit so much...? It must be deep down inside me at this point..."
+
+While the two cubs experiment under your swishy tail, you look over to see Mom with her arms crossed and her pussy dry as a bone.
+
+[Whisper to Mom...|hyenaFamOthers]
 ---
-:hyenaFam
+:hyenaFamOthers
 
+The kids are busy, they don't hear you. The sissyboi has finally built up the courage to try kissing your hole, one swift cautious peck at a time. The futa jacks herself off and tugs on her lil bro's cocklet too, urging him to lick deeper, kiss longer, but he's too nervous still.
 
+You whisper to Mom:
 
-!`
-choicesPerPage = 1;
-`
-[|hyenaFam]
+[Hey. Just try one thing for me.|hyenaFamOthers]
 ---
-:hyenaFam
+:hyenaFamOthers
+
+She looks left, right. Her eyes narrow. "What?" she hisses back.
 
+[Shove your son's head up my ass.|hyenaFamOthers]
+---
+:hyenaFamOthers
 
+She goes pale and makes a face like 8|
 
-!`
-choicesPerPage = 1;
-`
-[|hyenaFam]
+[Just try it once~|hyenaFamOthers]
 ---
-:hyenaFam
+:hyenaFamOthers
 
+Her eyebrows drop. Unimpressed.
 
+... But a single shiny bead of oil has fallen from her pussy.
 
-!`
-choicesPerPage = 1;
-`
-[|hyenaFam]
+"Fine," she whispers back, sneaking up behind the boi. "But just once. Then I think you should move along, here, you're a bad influence..."
+
+[Just once... hunker down.|hyenaFamOthers]
 ---
-:hyenaFam
+:hyenaFamOthers
 
+You lower your center of gravity and tense your thighmuscles. Your asscheeks naturally close shut around the sissyboi's face. He pulls back gently, confused, both paws pressed to your heavy cheeks. The futa looks from you to Mom and instantly realizes what you're trying to do, so she grabs his paws and holds them behind his back.
 
+"Mmmn mmmn!" he protests.
 
-!`
-choicesPerPage = 1;
-`
-[|hyenaFam]
----
-:hyenaFam
+"Tap me with your foot, if you need a safe word," the futa hisses in his ear. His pawfoot twitches... but doesn't quite commit to it. He still wants more... you can feel his hot breath deep in your asscrack, his cool snout on your hole.
 
+Mom takes her palm... places it on the back of his skull... and just when he's struggling anew to pull out, she shoves him right back in. His tiny face is crushed against your shit-smeared hole. His snout wiggles around desperately to try and avoid a stench it will never un-smell. It slips halfway inside, circles your donut, sneezes shit, blows steamy breath up your ass.
 
+Mom is nervous, but she doesn't let up.
 
-!`
-choicesPerPage = 1;
-`
-[|hyenaFam]
+[There we go... there we go... now push.|hyenaFamOthers]
 ---
-:hyenaFam
+:hyenaFamOthers
 
+She gives one good <i>shove.</i>
 
+"Oh my god!" the futa squeals.
 
-!`
-choicesPerPage = 1;
-`
-[|hyenaFam]
+Her brother's whole head just pops right up your ass. You endure a deep needy urgency that sparks up in the pit of your belly. Your body wants this massive foreign object out NOW. But you wait. You milk it. While Mom and the futa watch on in horrified arousal, you flex your anal ring hard on the little toddlerfag's throat, milking his whole skull with your ass, suckling on it like a baby sucks a paci. Then, when his thrashing gets to be too cute to handle, you...
+
+[Shit him out.|hyenaFamOthers]
 ---
-:hyenaFam
+:hyenaFamOthers
 
+A deep grunt resonates through your gut and yes, you clench so hard his head pops out of your ass again, stained brown and gasping. He collapses. Mom catches him before he hits the ground.
 
+"Oh no," she frets frets frets, "oh nonono, are you okay? I'm so sorry... I don't know why I listened to `him();`, really, I'm sorry, I shouldn't have pushed you in deeper when you wanted to come out... I..."
 
-!`
-choicesPerPage = 1;
-`
-[|hyenaFam]
+... The boy gives her a brown smile. "It's okay, mom," he croaks between gags. "That was... urk... really... urk... hot. <3"
+
+[Atta boy. <3|hyenaFamOthers]
 ---
-:hyenaFam
+:hyenaFamOthers
 
+Mom backs off, shocked. Her pussy is absolutely gushing now. She can't say anything.
 
+The futa is desperate for her turn. She hugs your ass with both arms barely reaching around the girth and slobbers alllll the fuck over your asshole. She pulls back, giggling, and squishes your cheeks closed so she can suckle on the crack and pretend she's eating out a big pussy.
 
-!`
-choicesPerPage = 1;
-`
-[|hyenaFam]
+The boi is a little slow to get to his feet and catch his breath, but once he does, he's bullying his sister out of the way and trying to get his tongue back into your shithole again.
+
+Mom stands in the background the whole time. Her jaw is slack. She drools on her tits.
+
+[Go at it kids... fuck... get in there, eat my ass...|hyenaFamOthers]
 ---
-:hyenaFam
+:hyenaFamOthers
 
+Your personal little toilet paper toddlers are so into it they almost fall over.
 
+Mom is near her breaking point. She doesn't need to be told to come get behind them and hold their hips steady so they can stand on their tippy toes and viciously make out with your ass/each other. Shitstrings coat both of their faces and the cleft of your crack in a spiderweb of caramel.
 
-!`
-choicesPerPage = 1;
-`
-[|hyenaFam]
+You look over your shoulder and make eye contact with Mom. Her tits are nuzzled against her children. She sees the commanding look in your eyes and wants to act on it, but she doesn't know how... she gently gropes those plump cub butts, she pushes on the back of their heads sometimes, she whispers low-tier dirty talk like "Come on..." and "There you go, you can do it..."
+
+But she's restless. It's clear the pulsing bulge of pussymeat between her legs wants something more that she just can't imagine yet.
+
+[Hrk... you know what, I gotta full belly...|hyenaFamOthers]
 ---
-:hyenaFam
+:hyenaFamOthers
 
+Mom is leaking so hard. Her pawtoes soak in a puddle of it.
 
+She whispers to you once again: "Do you have to... go?"
 
-!`
-choicesPerPage = 1;
-`
-[|hyenaFam]
+[Mmm, whatcha mean...?|hyenaFamOthers]
 ---
-:hyenaFam
-
+:hyenaFamOthers
 
+"You know..." she looks away. "Do you have to go... to the bathroom?"
 
-!`
-choicesPerPage = 1;
-`
-[|hyenaFam]
+[You want me to?|hyenaFamOthers]
 ---
-:hyenaFam
+:hyenaFamOthers
 
+Mom balks. "I'm... not sure."
 
+She looks down to the filthy little fuckpig toddlers giggling and eating ass while their tiny bodies grind between her tits. The futa bullies her little bro: whether that means she spits shitjuice in his face, or laughs at him when he accidentally gets poop up his nose, or even just dirty talks him under her breath, calling him a toilet, a shitstain, just trying different filthy namecalls on to see how she likes them.
 
-!`
-choicesPerPage = 1;
-`
-[|hyenaFam]
----
-:hyenaFam
+Mom watches all this. She looks back to you. "I... I want you to."
 
+[You want me to what.|hyenaFamOthers]
+---
+:hyenaFamOthers
 
+She swallows and looks down shamefully. "I want you to shit in my cub's maw."
 
-!`
-choicesPerPage = 1;
-`
-[|hyenaFam]
+[Oh, why didn't you say so! Sure, let's do it!|hyenaFamOthers]
 ---
-:hyenaFam
+:hyenaFamOthers
 
+You reach back, grab both cub skulls in each hand, and pull their faces up to your hole. You can just imagine how they look with their cheeks squashed together and your greasy assmeat closing them and suffocating them from all sides... the thought of it makes your guts stir.
 
+With a clench and a grunt and a series of spluttery wet pre-shit farts, a log of sludge gapes you out from the inside and bursts into the kids' innocent faces. Their eyes and maws go wide in shock, which means they get a full helping of shit in both of them. You hang your head and breathe deeply as the first of many, many logs pinches off and Mom is left cuddling a double armful of her toiletcubs.
 
-!`
-choicesPerPage = 1;
-`
-[|hyenaFam]
+[Unnngk...|hyenaFamOthers]
 ---
-:hyenaFam
+:hyenaFamOthers
 
+Automatically the cubs start chewing and swallowing. "Mmn! It tastes awful!"
 
+"Yah!" the boi agrees, happily munching away. He shivers and swallows hard, and you swear you can almost hear the <i>plop</i> of a hot, fresh shitglob as it drops to the pit of his belly. The futa leans in so she can blast a hot brown burp in her poor brother's face. He reels back, coughing and hacking on the stench.
 
-!`
-choicesPerPage = 1;
-`
-[|hyenaFam]
+Your hands are still on their skulls...
+
+[Now kiss.|hyenaFamOthers]
 ---
-:hyenaFam
+:hyenaFamOthers
 
+You slam their little heads together so hard it hurts them. Mom twitches with shock. A deep inner conflict stirs up in her... this is wrong, and mean. But it's also making her pussy gush. She thought you'd be gentle... isn't it hotter if it's gentle and loving...?
 
+Not to the kids, it seems. They relish the roughness, making out with each other hard, spewing up hot and spicy shitchunks that slather between their lips and build up a thick foam.
 
-!`
-choicesPerPage = 1;
-`
-[|hyenaFam]
+[What's wrong, Mom? Come on... they're having fun~|hyenaFamOthers]
 ---
-:hyenaFam
+:hyenaFamOthers
 
+She's so needy and embarrassed. "I-I don't know... I don't know about the rough stuff like this..."
 
+"Mnnnyaa... I can try... rougher..." the boi mewls, his little girly hips swaying while he makes out with his sister and frots on her shit-smeared toddlercock. Their tiny golfball nutsacks grind together as shit drools over their chests, bellies, fupas, and lower.
 
-!`
-choicesPerPage = 1;
-`
-[|hyenaFam]
----
-:hyenaFam
+Mom covers her face and backs away again. "I'll just watch," she says shakily. "I don't wanna do rough stuff so soon. I need time to adjust, here!"
 
+[Mkay, suit yourself... so you want it rough, boi?|hyenaFamOthers]
+---
+:hyenaFamOthers
 
+He looks up at you, shit boogers hanging out of his nose, eyes half-lidded like a dumb slut. He just nods, shitstrands swaying, and says "Yuh. Hard."
 
-!`
-choicesPerPage = 1;
-`
-[|hyenaFam]
+[Pin him down and slap him. Hey futacub, get his ass warmed up while he can't struggle.|hyenaFamOthers]
 ---
-:hyenaFam
+:hyenaFamOthers
 
+She salutes you. "Aye aye!"
 
+You approach the little toddlerboi. You tower over him and back him into a corner. He plays the whimpering, unsure, pseudo-rape card. That's all fine by you, you don't care how he reacts to this. All you need is for him to stay fucking still.
 
-!`
-choicesPerPage = 1;
-`
-[|hyenaFam]
----
-:hyenaFam
+You drop him to his back on the ground and sit on his tiny chest. Your bare, dirty asshole grinds up on his smooth fur and ruins it with shitstains. He struggles to fill his lungs. You feel the real effort he has to put in just to lift your weight a few inches off his lungs.
 
+"Ahhh! Hhhhh!" he wheezes as the futa sneaks up behind and pops a finger up his ass. His sexy, feminine legs spread open, knees up, heels above his asscheeks. He relaxes. He pooches his hole out. And he takes it.
 
+You give him even more to take by bringing your open palm down on his face over and over. Every single time it lands he squeaks, even after you've slapped him ten times, twenty times, it's always a fresh cute squeak. Slowly his tiny body starts to jerk around with each impact and his face grows redder and redder, more abused, his eyes screwed shut and full of sexy tears.
 
-!`
-choicesPerPage = 1;
-`
-[|hyenaFam]
+[Check on Mom.|hyenaFamOthers]
 ---
-:hyenaFam
+:hyenaFamOthers
 
+... She's just stunned. How can you crush her son under your whole adult weight? How can you slap his cute little face so mercilessly...?
 
+And <i>why</i> is it making her so wet?!
 
-!`
-choicesPerPage = 1;
-`
-[|hyenaFam]
+[Shit down her boi's ass.|hyenaFamOthers]
 ---
-:hyenaFam
+:hyenaFamOthers
 
+You absolutely make sure that Mom is looking before you spin the little fucktot around and plant your asshole directly against his.
 
+The futacub pants behind you while she helps out. Her hot breath fogs up your asscrack and makes beige condensation form along the inner crease. When your hole splits open and a fresh shitlog about the size of the boi's entire leg comes out, the futa is there to pull his asshole wide and make sure he takes every last chunk of it inside him. She's about as bewildered as Mom, just following your lead at this point, but her rock-hard dicklet assures you she's still enjoying the ride.
 
-!`
-choicesPerPage = 1;
-`
-[|hyenaFam]
+Mom locks eyes with her son. His cheeks puff out as your shitlog bloats his belly out and fills his body beyond capacity. Somehow, he screws his eyes shut and barely manages to swallow it back down.
+
+[Nnnnf... there... see, not so rough...|hyenaFamOthers]
 ---
-:hyenaFam
+:hyenaFamOthers
 
+You pull off. The futa does too. Mom is hypnotized.
 
+Her three-year-old sissyboi with his child-bearing hips and his pouty maw... he looks pregnant. He waddles to his feet and gawks down at his own tummy, which hangs almost below his thighs; it covers his little excuse for a cock completely. A few light veins have started to appear from the strain.
 
-!`
-choicesPerPage = 1;
-`
-[|hyenaFam]
----
-:hyenaFam
+He grabs his beach ball belly with both paws and he can barely even lift it. "Uuuurk..." he burps, his blown-out butthole trickling shit onto the ground with loud splatters.
 
+"Mmm... mummm... lookit me... I'm... urk. I'm pregnan... with... a shitbaby."
 
+He stumbles over to Mom like a zombie and collapses into her lap, legs split out on the ground, showing off that fat sloppy toddlercunt between his cheeks.
 
-!`
-choicesPerPage = 1;
-`
-[|hyenaFam]
+You and the futa water at the mouth. You're about to go dive for that tiny ass... but someone beats you to it.
+
+[Hm?!|hyenaFamOthers]
 ---
-:hyenaFam
+:hyenaFamOthers
 
+Mom finally breaks.
 
+"UrrrrRRRRGH!" she whines. Her pussy squirts as she cums just from the thought of what she's about to do... that is:
 
-!`
-choicesPerPage = 1;
-`
-[|hyenaFam]
+She puts her son in a gentle, loving chokehold, so just his head and his shit-pregnant belly and his flailing arms are visible. "You like shit?" she growls in his ear.
+
+"Yesmum," he gurgles.
+
+"Thought you said it smelled gross. Smell it again. Tell me if it's gross." She scoops up a fat, steamy chunk and holds it right to his snout, so the glistening brown almost kisses his nostrils. He obediently huffs in deep.
+
+"Snnnffff.... urrrrk... it's gross..."
+
+"It's gross, huh?" Mom takes a whole handful of shit from the endless fountain of her son's brutalized asshole. She wraps her shit-filled palm all the way around his tiny toddlersnout and starts jacking it off aggressively like a cock that's about to cum. Her little boy's eyes water as he struggles to open his maw and reply. She doesn't let him do anything but groan. "It's gross? You think greasy, slimy shit is gross? Then why do you like it so much? Huh? Is it because you're a shitrag? Huh, little toddler?"
+
+The futa just stares, speechless.
+
+[Next!|hyenaFamOthers]
 ---
-:hyenaFam
+:hyenaFamOthers
 
+"Here," Mom purrs. "Mommy's gonna help you get it all down..."
 
+She tosses a palmful of spilled shit in her maw and chews it into a gummy, slushy mess, then she yanks her sissyboi's shithole mouth open and baby birds it to him. He splutters and gags and can barely even manage to swallow because his insides are just so packed and clogged with waste. Toxic brown spills over his lips. Mom scoops it up and guides it back down his throat...
 
-!`
-choicesPerPage = 1;
-`
-[|hyenaFam]
+Once he's eaten absolutely every morsel of shit she can find, she simply throws him to the ground. The impact dents his heavy belly and makes him piss himself, but that earns him no mercy. His loving Mom approaches with a slow, purposeful stride, and then as soon as he rolls onto his back she brings her heel down right on his tiny cocklet and nuts, crushing them flat to the unforgiving rock. "UNGH! THERE!" she yells at him, foot slamming down. He squeals, head flailing, paws shooting down to protect his little boiclit, and tears stream over his slapped-up face...
+
+But, even yet... no safe word comes out his lips~
+
+This just makes Mom even more aroused. Even with his cocklet and nuts bruised up, even with that huge, sexy shitbaby weighing his girly little body down... she's determined to push him further past his limits.
+
+[Shove his face in the shit puddle for her~|hyenaFamOthers]
 ---
-:hyenaFam
+:hyenaFamOthers
 
+You palm his head and force it down to the steaming pile of shit that all your shenanigans have formed so far. He looks at you fearfully, looks back down... and starts to gobble all that nasty, toxic brown assmud like a good piggy. 
 
+"You're gonna eat more shit, you hear me? More. More. No you can't stop yet, more."
 
-!`
-choicesPerPage = 1;
-`
-[|hyenaFam]
+"B-But I'm already f-full... URK!"
+
+"I don't care..." she hisses, one paw working her clit. It turns her on just to say that. "I don't care. You said you like shit, so eat it. Eat more."
+
+He drops his head back down and chews and swallows another mouthful, crying.
+
+Mom pets the back of his head, scratches behind his ears. "There we go... swallow, don't chew, just swallow... if you somehow manage to choke on this soft, syrupy shit, you're even more worthless than I thought... you won't choke... swallow. No, don't chew," she slaps him for even trying. He squeaks. "I said don't fucking chew. Just swallow. Gulp. Gulp. Yes. There we go. Now you're a proper toilet. Toilets don't chew, they just swallow mouthful after mouthful after..."
+
+His belly is strained to the absolute max, and still she won't stop.
+
+The futa, long overdue to snap out of her trance, she scrambles to get behind him and slip her little toddlercock up his ruined ass. It's kind of like throwing a hot dog down a hallway but he's warm, and tight, and he's her little brother, so she relishes the anal shitfuck anyway.
+
+[Next.|hyenaFamOthersNex]
+[Fuck my fingers down his throat. <3|hyenaFamOthersFuck] #Vomit
 ---
-:hyenaFam
+:hyenaFamOthersFuck
 
+Mom cums again. Her pussy spasms with a full fifteen-minute chain orgasm. "Ohhhhhhh ffuuuuUUUUuUUuck," she wails.
 
+What sent her over the edge was you grabbing her little boy's exhausted head and unmercifully pounding the full length of three fingers all the way down his tiny rapesock of a throat. Patiently, free paw working your `genitals("shaft", "cuntlips", "shaft");`, you force the little shitfag to puke up all his hard-earned progress. The futa doubles her thrust speed and closes her eyes so she can just concentrate on the pitiful girly sounds of wet shit as it explodes out her brother's maw. He coughs and hacks and suckles on your fingers until you finally pull them out, wipe them on his eyelashes, and let Mom take over his abuse again.
 
-!`
-choicesPerPage = 1;
-`
-[|hyenaFam]
+Mom's squatting over her son with hatelust glowing in her eyes. She casually licks your fingers clean (her mouth is so big and her tongue so experienced compared to the sissyboi) while she concocts fantasy after fantasy behind her glassy eyes. The futa cums twice in her bro and pulls out to reveal a gorgeous little shit-drippy cubdick. She casually grabs his tail and uses it to clean herself off. <3
+
+[|hyenaFamOthersNex]
 ---
-:hyenaFam
+:hyenaFamOthersNex
 
+Finally, Grandma and the girl finish up their afterglow and stop at this depraved sight, wonderstruck.
 
+"What..." Grandma flounders. "What did you do to our son?"
 
-!`
-choicesPerPage = 1;
-`
-[|hyenaFam]
+[Well uh...|hyenaFamOthers]
 ---
-:hyenaFam
+:hyenaFamOthers
 
+Mom stares Grandma dead in the face and ignores her question completely.
 
+"I want you to kill him."
 
-!`
-choicesPerPage = 1;
-`
-[|hyenaFam]
+He gulps.
+
+All five of you watch for his reaction, Mom included...
+
+[...|hyenaFamOthers]
 ---
-:hyenaFam
+:hyenaFamOthers
 
+... But he doesn't use the safeword. He closes his eyes and smiles.
 
+"It's okaaauuurrrrkay," he gurgles past the logs of shit stuck in his throat. His voice sounds thick and husky. "I'm... down... to experimennnnrrrk..."
 
-!`
-choicesPerPage = 1;
-`
-[|hyenaFam]
+[...|hyenaFamOthers]
 ---
-:hyenaFam
+:hyenaFamOthers
 
+She may not be on board right away, but... Grandma's dick is <b>hard.</b>
 
+She stops herself from touching it just yet. The girlcub happily starts giving her a double pawjob while she thinks this over.
 
-!`
-choicesPerPage = 1;
-`
-[|hyenaFam]
+"What?" Grandma blinks.
+
+Mom doubles down and closes a fist around her boy's tiny throat.
+
+"I said I want you to kill him. Snuff. Kill. He's our son, right?"
+
+"Well, grandson/son, but..."
+
+"He's our son. So he's ours to kill, right? And I mean... just look at him."
+
+The sissyboi burps creamy brown over his chest and looks up at Grandma with big cute puppy eyes. "Blerph."
+
+Grandma's still on the fence. "I don't... this is so..."
+
+[Maybe we can help convince you. <3|hyenaFamOthers]
 ---
-:hyenaFam
+:hyenaFamOthers
+
+Mom happily shoves her boy out of her lap towards you and gets back to rubbing her clit. She leans back on one elbow and loses herself in the quest for the next orgasm. "Hurt him," she begs, lost in lust. "Fuck him up!"
 
+[I mean, it's my shitbaby inside him, so I gotta take responsibility for it.|hyenaFamOthers]
+---
+:hyenaFamOthers
 
+The scared lil cub clings to your chest. "W-What are you gonna dooourgh...?"
 
-!`
-choicesPerPage = 1;
-`
-[|hyenaFam]
+[I'm gonna make you give birth! <3|hyenaFamOthers]
 ---
-:hyenaFam
+:hyenaFamOthers
 
+You slip him into a brutal full nelson and crush his tiny arms back and his head forward. His belly juts out on full display, innie straining to become an outie at this point. `genitals("Without any ceremony your cock slides right up his sloppy ass and rapes deep into his boywomb. Shockwaves ripple through his belly and your sudden zero-warmup flurry of thrusts makes his heavy belly swing around so violently that the girl and the futa have to duck out of the way unless they want to get knocked the fuck out. The stress you're putting on his anal ring makes it spasm and clench with panic diarrhea, a noisy spluttering wave of shit that blasts out over your nuts and crotch. Hot shitjuice trickles over your sex lines and the cracks between your thighs and your churning sack.\n\nYou fuck the shitbaby apart inside him, busting chunky logs in two with your dick.", "You simply ram your knee into the small of his back. This forces him to bend and arch it. And this means, at last, there is simply too much pressure on his belly for it to hold any longer.", "Without any ceremony your cock slides right up his sloppy ass and rapes deep into his boywomb. Shockwaves ripple through his belly and your sudden zero-warmup flurry of thrusts makes his heavy belly swing around so violently that the girl and the futa have to duck out of the way unless they want to get knocked the fuck out. The stress you're putting on his anal ring makes it spasm and clench with panic diarrhea, a noisy spluttering wave of shit that blasts out over your nuts and crotch. Hot shitjuice trickles over your sex lines and the cracks between your thighs and your churning sack.\n\nYou fuck the shitbaby apart inside him, busting chunky logs in two with your dick.");` Upstairs, his maw hangs open and his eyes point in opposite directions. Shit blows out of his nose, his ears, his maw. Something has to give.
 
+Finally, his two weak paws lift up. They can barely move for the tightness of your full nelson hold, but he does it: he flashes Grandma a double peace sign, smiles at her, and gives oral and anal birth.
 
-!`
-choicesPerPage = 1;
-`
-[|hyenaFam]
+[Boi, PUUUUSH! <3 And Grandma, plug his throat! Quick!|hyenaFamOthers]
 ---
-:hyenaFam
+:hyenaFamOthers
 
+The sissyboi squeals a deep, wet squeal and a log the size of his thigh splits his tiny ass open and crashes to the ground. Shitchunks spew from his tear ducts as he sobs deeply and spasms from the stress of it all. His sisters are there to massage the fat bulge of his shitpacked bladder, to catch in their open mouths the brown stream of shitpiss that sprays from his babycock. Mom is right behind them, urging them on, slapping her son in the face just to push him even further while he struggles to cope as it is.
 
+Grandma's still unsure, but once she hurries forward and aims her cock at his sexy lips to stem the violent flow of shit between them, she can't stop pushing til her cock pops right into his throat.
 
-!`
-choicesPerPage = 1;
-`
-[|hyenaFam]
+"Deepthroat him!" Mom yells. "I wanna hear him choke on your dick!!"
+
+A feral groan leaks through her clenched teeth and she feeds her little toiletfag three inches, five inches, ten inches of hard cock while he actively tries to spew shit around her. She wrestles her dick in deeper with zero mercy. It doesn't matter if he's gagging or if he's crying or if shit is spraying from his tiny nose, Grandma's got her cock halfway through his shitpacked belly and she's not going to stop until he kisses her pubes.
+
+Mom slides up behind Grandma and coos sweet corruptive encouragement in her ear. "He likes this... it's okay... keep going, more, more. More. Did you hear that little gag he just gave? Sounded like a cub trying to puke shit while he deepthroats a cock ten times his age." Her feelsy fingers wander all over, up Grandma's tits, down to her cockbase. "How many inches left now...? Maybe three? Two? Fuck. It's going to come out his ass. Get ready, girls."
+
+They scurry down to his sloppy hole, maws open and wet with brown saliva. `genitals("When they aren't slobbering all over your shit-splattered nuts, t", "T", "When they aren't slobbering all over your shit-splattered nuts, t");`hey gawk at the huge adult cockhead crowning from the inside of their bro's tiny anal canal... it's so huge, stretching him so wide, and he hasn't even taken the whole thing yet.
+
+The toddlerboi is so out of it now. His face is a deep, worrying blue. Grandma bites her lip and stops pushing. "Maybe I should let him breathe..."
+
+Mom squeezes Grandma's fat ass. "Nooo, you should go <i>deeper</i>."
+
+"Are you sure...? It's going to~~ oh~~ fuck~~"
+
+[Push his head forward.|hyenaFamOthers]
 ---
-:hyenaFam
+:hyenaFamOthers
 
+With a hateful growl you tighten your full nelson and shove the kid down two more inches. He goes <i>glrk.</i>
 
+His muscles tense. Then... with a shudder of effort...
 
-!`
-choicesPerPage = 1;
-`
-[|hyenaFam]
+Grandma's bulbous head pops out of his ass`genitals(" right beside your cock.", ".", "right beside your cock.");`. He shits out three more inches in a dazzling spray of brown. He screams and screams and screams past Grandma's cock, his face all screwed up in the throes of hard sex as her nutsack envelops his neck and chin and her plump fupa swallows up his suffocating face entirely.
+
+Both toddlergirls hurry to make out with the cockhead jutting from his ass. "Mmmn!" they coo to each other between pre-stained kisses.
+
+Grandma wants to pull out... she wants to. But she doesn't. And she isn't going to. She looks worriedly from Mom to you to her girls.
+
+"Are you guys really sure... we should be getting off to... you know... a toddler's death?"
+
+[A *fake toddler's *fake death, sure!|hyenaFamOthersRego]
+[I'm just along for the ride, it was Mom's idea...|hyenaFamOthersRego]
 ---
-:hyenaFam
+:hyenaFamOthersRego
 
+"Of course we should be getting off when a disgusting little fucking toddlerpig chokes out on dick," she says in a whirl of irrational lust, "that's what he's for! Aren't you toilet? Huh? HUH?"
 
+She grabs the only part of him not crushed between you and Grandma, his thrashing little chicken wing legs, and yanks them down. His whole body shudders as Grandma's cock slides back up into his ass and he's forced to shit it back out again. "What's wrong?" Mom goads him, slapping his tiny thighs so hard that red pawprints fade in. He squeals with pain on Grandma's dick and almost makes her cum from the sheer force of the vibration.
 
-!`
-choicesPerPage = 1;
-`
-[|hyenaFam]
+"What's wrong? What's wrong? Wake up, eyes open... keep those pretty eyes open..." Mom basically talks to herself at this point. She's shooting for her third orgasm and yanking his legs around nonstop. "Sexy little girly little legs..."
+
+"You say little too much..."
+
+"Little fucking sissyboi..." Mom grinds her boiling pussy against his bare pawfoot. "Wonder if I could fuck myself with them... unnnf..."
+
+Grandma addresses me: "Can you check if he's okay?"
+
+[Examine boi!|hyenaFamOthers]
 ---
-:hyenaFam
+:hyenaFamOthers
 
+He's good. He's pretty out of it, but he can still hear Mom rambling, and it's amusing him.
 
+"Ah, good," Grandma sighs. "Well... I'm in it this far, I might as well enjoy myself."
 
-!`
-choicesPerPage = 1;
-`
-[|hyenaFam]
+[Mom you doin okay?|hyenaFamOthers]
 ---
-:hyenaFam
+:hyenaFamOthers
 
+She's batshit with lust. "MORE! HARDER!"
 
+"I'm doin more and harder already," Grandma grunts, forcing her cock in as deep as it can go. Her sack tightens up and her nuts churn. "Close..."
 
-!`
-choicesPerPage = 1;
-`
-[|hyenaFam]
+"FUCK!" Mom grabs a double fistful of that huge, heavy sack and yanks it up so it completely covers her boy's entire skull. She takes Grandma's nuts, one in each palm, and massages them around the sides of his head, just adding an extra 2% of suffocation and blinding out the light completely. "Unnnnnnn," she drawls, pussy spilling clear and shiny juice to the ground, "it's dark and scary in there, huhhh? You don't like being in the nuts prison... the testicle penitentiary... poor toddlercunt. Too bad. These nuts made you, and they're gonna kill you, too... huff in the scent of her sack, pull it in... uuuuunnnnf..."
+
+"I think he's almost done..." Grandma breathes light.
+
+"MMnnn," Mom scrunches up her face. "It's not enough! More! Faster! I need him dead NOW! Let go! Give him to me!"
+
+[Let him off...|hyenaFamOthers]
 ---
-:hyenaFam
+:hyenaFamOthers
 
+You un-pretzel your arms from around his little shoulders and skull, which flop down limply. Although Mom pesters Grandma in her high-pitch needy voice, Grandma takes her sweet old time slooooowly pulling her cock all the way out through the half-dead toddler's entire body. First she has to really tug to get the ridge of her cockhead to slide back up into his ass, then she has to take her time and admire the stripes of beige, brown, and finally juicy white that have collected along the length of her shaft.
 
+At last her cock pops out of his maw.
 
-!`
-choicesPerPage = 1;
-`
-[|hyenaFam]
+He takes one gurgly wet breath and blinks asynchronously.
+
+[How are you going to...|hyenaFamOthers]
 ---
-:hyenaFam
+:hyenaFamOthers
 
+"RRRRRRAAAAAAAGGGGHHHHHH"
 
+Mom tears him out of your arms and throws him on the ground and squats over his terrified face and goes full ape. A brown fan spray of shit bursts from between her iron-clenched asscheeks as she brings her ass down on his weak little cub skull over and over and over, pounding him into the rock, her sweaty thighs flexing, her head thrown back in a howl to the sky.
 
-!`
-choicesPerPage = 1;
-`
-[|hyenaFam]
+Things just get worse and worse from there. Long after he's dead and respawned (he shyly watches from the outskirts while the girl and futa coax him closer to watch) Mom is still going hard on his old body.
+
+"Sexy... fucking... shit... cub..." she pants, sitting down one last time. This time she took his whole corpse up her ass except his little legs. "With those sexy... little... legs.... uuuuuuuUUUNH~!"
+
+The futa and the girl whisper to their brother for a moment. He nods... he's ready for even more, since Mom clearly still has gas in the tank. The girls push their brother up to face her unstoppable wrathlust. He stands before her, fresh and new, totally unblemished, paws clasped behind his back, and simply waits for the abuse he knows is coming.
+
+"MMmm, there you are, okay... watch now... watch Mommy... she's gonna put on a little show for you, mkay?" She leans down and kisses him gently on the forehead. He flinches and gives a little sissy "Okay~..."
+
+Mom launches into an impromptu erotic dance like she's the star of the stage at a strip club. She spreads her cuntlips open, fingers in a V, and squirts clear juice all over her son's scrunched face while his corpse's legs dangle erotically from her asshole. "Looook," she purrs, and thumbs his eyelids up. "Mommy wants you to see this."
+
+He gulps and looks between her juicy thighs: there, the legs are swaying, <i>his</i> legs. "You see that?" she asks him.
+
+"Mhm..."
+
+"No you don't. You need a better view. Girls, get him under me."
+
+His sisters push him to the ground, between Mom's legs. He stares up at her ass and blinks pussyjuice out of his eyes as it patters down. Meanwhile, the girls go to town molesting his little cocklet and nuts. He can barely form a sentence from the overstimulation: "I see that those... I um... I see them... I see my old body hanging out of your... butt."
+
+Mom pops the deepest squat you've seen yet. The sissyboi whimpers as those sexy, feminine legs slide over his tiny body, over his face. Shitjuice trickles down them as Mom periodically pooches her hole, shitting a few inches of his corpse out, maybe up to the hips, then sucking it all the way back in with a harsh inhale through her teeth.
+
+"Fuck." She clutches the lumpy bulge in her belly. It gurgles. "Eyes open, boi. This is what a shit toddler is for. Shitting."
+
+He moans with despair or arousal or both as Mom hunkers down and shits his corpse out on top of him. Limp, soft-furred, shit-coated limbs flop down over his face. The girls simply nudge it out of the way so they can keep orally abusing his nuts and cocklet.
+
+At this point Grandma is off in the corner, her guilty face hidden in a paw. The other one strokes her cock, though, she just can't help it. "Are you done yet...?"
+
+"Almost," Mom grunts. "One last thing."
+
+[What next...|hyenaFamOthers]
 ---
-:hyenaFam
+:hyenaFamOthers
 
+Mom lays her toddlerboy next to his corpse and makes him kiss it. "Good boy. Here we go."
 
+She grabs a tiny, sexy leg each, one from the corpse and one from him. She squishes the thighs together tight... and creates... one giant, very long improvised dildo.
 
-!`
-choicesPerPage = 1;
-`
-[|hyenaFam]
+His toesies kiss her pussy first. Then you blink, and~~
+
+"FfffuuuuUUUUCK YES!"
+
+Mom slides her cunt down as far as it can go. She strains and struggles to gape herself around the two fat femmy toddlercub thighs.
+
+Shit casually splutters from her ass, dousing the girls. Mom cranks into a brutal frantic fuck. She absolutely ruins her pussy. One of her paws slams down on his throat and pins him. Next to his cute bright red face, his corpse's peaceful expression jiggles with the impacts of her hips. "Fuck! Fuck! Fuck!" she humps down. Both identical cocklets go flaccid and she pushes her hips down a bit too hard and too far... both plump thighs slide deep inside her birth canal, but that's just not good enough, it's never good enough, she needs more, harder, crazier, more violence, more filth, oh god, her code is alive with a flood of electrons that ricochet from pleasure receptor to pleasure receptor, she needs to, she ne
+
+<i>Snap.</i>
+
+[She just keeps going...?!|hyenaFamOthers]
 ---
-:hyenaFam
+:hyenaFamOthers
 
+Her little boy screams his head off as his leg bends the wrong way inside his mom's tight cunt. Her face goes blank. You know she felt the deep reverberation of his bone when it cracked inside her.
 
+She keeps humping. Never enough. Need more. More more more. Her eyes are on fire. She slams her merciless pussy down on his broken leg and still he never screams the safe word or taps out. The girl, the futa, Grandma, and you look on with pure astonishment. This weak sissyboi really has incredible endurance after all.
 
-!`
-choicesPerPage = 1;
-`
-[|hyenaFam]
+Mom hurtles to the precipice of her last orgasm, howling "DEAD KID IN MY PUSSY! DEAD KID IN MY PUSSY!" and stuffing four fingers down her throat til she pukes all over her toddler's sobbing, contorted face "SWALLOW, PUKEPIG!" and bashing her fist off his freshly respawned asspussy until her knuckles bust inside "OPEN YOUR SHITHOLE" and she can finally achieve orgasm via all this combined with the sensation of beating on a three-year-old's prostate til he sprays his own tortured body with hot cum.
+
+[...|hyenaFamOthers]
 ---
-:hyenaFam
+:hyenaFamOthers
 
+...
 
+[...|hyenaFamOthers]
+---
+:hyenaFamOthers
 
-!`
-choicesPerPage = 1;
-`
-[|hyenaFam]
+Grandma puts a paw on Mom's shoulder.
+
+"You okay there?"
+
+[...|hyenaFamOthers]
 ---
-:hyenaFam
+:hyenaFamOthers
 
+Mom gracefully glides down off the crest of her seventh and final orgasm and returns to reality. She blinks, pulls the cub legs out of her pussy, and dusts her drool-covered tits off. "Ah," she croaks. "Yah. I'm okay. I don't... know where that came from. Is he..."
 
+The sissyboi respawns a second time. He collapses on the side of the pond, mentally exhausted.
 
-!`
-choicesPerPage = 1;
-`
-[|hyenaFam]
+[You got a little excited there huh.|hyenaFamOthers]
 ---
-:hyenaFam
+:hyenaFamOthers
 
+"Did I?" Mom looks around at the mess. "Well... I guess yeah, but you know, you were all doing super kinky stuff, so I... figured I'd try... yeah, yeah turned out okay. I think I don't mind the super extreme stuff."
 
+Grandma snrks. The girlcubs giggle and whisper.
 
-!`
-choicesPerPage = 1;
-`
-[|hyenaFam]
+"What are you two talking about?" Mom's thumbs magnetize together and twiddle. Nothing, the girls say. Mom pouts. "But uh... is he..."
+
+[Examine boi.|hyenaFamOthers]
 ---
-:hyenaFam
+:hyenaFamOthers
 
+He's okay, but beyond speechless. He just lays on his back and stares at the sky, breathing.
 
+[You're so tough!! Good job? Good job.|hyenaFamOthers]
+---
+:hyenaFamOthers
 
-!`
-choicesPerPage = 1;
-`
-[|hyenaFam]
+He doesn't respond.
+
+"He's just laying there," Mom frets frets frets. "Did he... did he even enjoy that...?"
+
+"I don't know what to say." Grandma idly strokes her cock. "I think he just needs a moment."
+
+[That was|hyenaFamOthers]
 ---
-:hyenaFam
+:hyenaFamOthers
 
+"YES!"
 
+[?!|hyenaFamOthers]
+---
+:hyenaFamOthers
 
-!`
-choicesPerPage = 1;
-`
-[|hyenaFam]
+The sissyboi sits up straight, paws on his ankles. He shoots Mom, and Grandma, and you a bright, reassuring smile.
+
+"I thought about it for a second, and YES."
+
+"You enjoyed it after all?" Mom clasps her hands together in front of her tits, all hopeful.
+
+He nods so hard his ears flop a bit. "It was crazy and disturbing, of course, but y'know, it felt pretty cozy and familiar, after I was halfway passed out! Why's that? Maybe I guess all the years we spent in here are baked into my body... even if I can't remember them...?" He peers cross-eyed at his own bellybutton. "Either way. It was scary at first, but then it was... kinda nice!"
+
+Mom whines to herself with pent-up love and rushes over to scoop him up in her arms and smooch him platonically as she can. He giggles and leans into it, wrapping his arms around her big shoulders. "Thanks, mom."
+
+[Welp, you definitely experimented.|hyenaFamOthers]
 ---
-:hyenaFam
+:hyenaFamOthers
 
+The futa tugs Grandma's tail. Grandma grunts and looks down. "What?"
 
+"Hey Gramma," she asks shyly, "are we really like this?"
 
-!`
-choicesPerPage = 1;
-`
-[|hyenaFam]
+Grandma looks at the sky. Then she looks at you. "Well."
+
+[You can remove the kinks, so...|hyenaFamOthers]
 ---
-:hyenaFam
+:hyenaFamOthers
 
+"So it don't matter either way," the girl postulates with a finger thoughtfully lodged up her toddlercunt.
 
+[Yeah basically. If you don't want to be like this, you don't have to be.|hyenaFamOthers]
+---
+:hyenaFamOthers
 
-!`
-choicesPerPage = 1;
-`
-[|hyenaFam]
+The family dog bounds over from behind a crag, a shaggy big-dicked sheepdog with his tongue out in the wind. He almost knocks Mom and the sissyboi over trying to lick her clean of all the bodily fluids that drip from her curves.
+
+"Heyyy!" the futa stands up and runs over, nuts out in the wind. "Doggy made the climb after all!"
+
+"Is that our dog?" Grandma blinks. "I guess he didn't quite make it into my recent memories..."
+
+[You named your dog 'Doggy?'|hyenaFamOthers]
 ---
-:hyenaFam
+:hyenaFamOthers
 
+"No shit I do believe we did. Cubs probably came up with it." Grandma smirks. "Grandma, Mom, Doggy, and the little sluts don't even get to have names. These people I call my family are wack."
 
+"Grammy!" the cubs call from over near the pond. "We're gonna take turns and suck his dogcock, okay? Is that okay?"
 
-!`
-choicesPerPage = 1;
-`
-[|hyenaFam]
+Grandma cups her hands and shouts back: "You don't need my permission to suck a dogcock, fuck, I don't even remember him. Go nuts!"
+
+"Yayyyyy!"
+
+[I guess I oughta head out now.|hyenaFamOthers]
 ---
-:hyenaFam
+:hyenaFamOthers
+
+Grandma gets up and tugs her cock a little, waking it up. "I feel you. After this dogcock business I think I'm gonna take a break from extreme sex for a while. I just got my mind cleared in the pond and it's already fogged up with fantasies... seeya round, eh?"
+
+[You too.|hyenaFamOthers]
+---
+:hyenaFamOthers
+
+You wave to Mom, the triplets, and Doggy. Grandma half-jogs over to help the sissyboi get his maw in the right position.
+
+Steamclouds swirl around you and obscure the rocky meteoric landscape. You get the feeling that wherever your family is, they're not like them. They're probably normal. Human normal.
 
+The Archiepelago extends to the horizon. As thousands and thousands of islanders run their admin commands and change their environment piece by piece according to whim, the landscape shifts and settles to new patterns, new colors. Structures rise from nothing and collapse back into nothing.
 
+[Move along.|hyenaFamOthers]
+---
+:hyenaFamOthers
 
+You move along in search of Wendy.
+
 !`
-choicesPerPage = 1;
+worldMap.completeEntry("Hyena Family");
 `
-[|hyenaFam]
+[   |hyenaFamEnd]
 ---
-:hyenaFam
+:hyenaFamEnd
+
+!`
+gotoArchiepelago();
+`
+
+END_PASSAGES

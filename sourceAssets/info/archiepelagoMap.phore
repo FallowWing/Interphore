@@ -60,6 +60,15 @@ execAsset("blackMansion.phore");
 gotoPassage("blackMansionStart");
 `
 ---
+:hyenaFamGo
+
+!`
+clear();
+print("leaving archiepelagoMap");
+execAsset("hyenaFam.phore");
+gotoPassage("hyenaFamStart");
+`
+---
 :redMaryNode
 
 !`
@@ -280,6 +289,9 @@ function gotoArchiepelago() {
 
 	entry = worldMap.createNode("Black Mansion", "blackMansion", BOTTOM, "Indigo Pond");
 	entry.lockedMessage = "Requires <b>Level 4</b>";
+
+	entry = worldMap.createNode("Hyena Family", "hyenaFamGo", BOTTOM, "Black Mansion");
+	entry.lockedMessage = "Requires <b>Level 5</b>";
 
 	worldMap.show();
 

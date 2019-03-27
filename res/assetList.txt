@@ -373,6 +373,7 @@ audio/effect/doorbell.ogg
 audio/effect/trashTransmission.ogg
 audio/effect/owlScream.ogg
 audio/effect/despairSting.ogg
+audio/effect/newSting.ogg
 audio/effect/adminGained.ogg
 audio/effect/cartSlide/right/1.ogg
 audio/effect/cartSlide/right/2.ogg
