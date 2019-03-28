@@ -393,6 +393,7 @@ addSoundTweak("audio/effect/trashTransmission", 0.7);
 addSoundTweak("audio/effect/mapTransition", 0.2);
 addSoundTweak("audio/effect/adminGained", 0.05);
 addSoundTweak("audio/effect/despairSting", 0.8);
+addSoundTweak("audio/effect/newSting", 0.5);
 addSoundTweak("audio/effect/owlScream", 0.2);
 addSoundTweak("audio/effect/buzzer", 0.2);
 addSoundTweak("audio/effect/buzzerSpam", 0.2);

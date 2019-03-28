@@ -278,7 +278,7 @@ function gotoArchiepelago() {
 	entry.color = 2;
 	worldMap.preUnlockEntry("Archiepelago");
 
-	entry = worldMap.createNode("Farm Island", "farmIsland", RIGHT, "Up: G.C.D.");
+	entry = worldMap.createNode("Farm Island", "farmIsland", RIGHT, "Archiepelago");
 	worldMap.preUnlockEntry("Farm Island");
 
 	entry = worldMap.createNode("Red & Mary", "redMaryNode", RIGHT, "Farm Island");

@@ -1204,9 +1204,9 @@ function realUpdate() {
 			if (moveUpPerc > 1) moveUpPerc = 1;
 			moveUpPerc = tweenEase(moveUpPerc, ELASTIC_OUT);
 
-			spr.y -= moveUpPerc * 10;
-			spr.scaleX += moveUpPerc*0.2;
-			spr.scaleY += moveUpPerc*0.2;
+			spr.y -= moveUpPerc * 7;
+			spr.scaleX += moveUpPerc*0.08;
+			spr.scaleY += moveUpPerc*0.08;
 
 			spr.layer = CHOICE_BUTTON_UPPER_LAYER;
 			tf.layer = CHOICE_TEXT_UPPER_LAYER;
