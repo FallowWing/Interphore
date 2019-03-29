@@ -288,10 +288,10 @@ function gotoArchiepelago() {
 	entry.lockedMessage = "Requires <b>Level 3</b>";
 
 	entry = worldMap.createNode("Black Mansion", "blackMansion", BOTTOM, "Indigo Pond");
-	entry.lockedMessage = "Requires <b>Level 4</b>";
+	entry.lockedMessage = "Requires <b>Level 5</b>";
 
 	entry = worldMap.createNode("Hyena Family", "hyenaFamGo", BOTTOM, "Black Mansion");
-	entry.lockedMessage = "Requires <b>Level 5</b>";
+	entry.lockedMessage = "Requires <b>Level 4</b>";
 
 	worldMap.show();
 

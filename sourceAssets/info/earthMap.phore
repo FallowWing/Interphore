@@ -330,10 +330,10 @@ function gotoEarth() {
 	entry.lockedMessage = "Requires <b>Moving In</b>";
 
 	entry = worldMap.createNode("Yellow Pond", "yellowPond", BOTTOM, "Intro");
-	entry.lockedMessage = "Requires <b>Level 2</b>";
+	worldMap.preUnlockEntry("Yellow Pond");
 
 	entry = worldMap.createNode("Olitippo's Stream", "oliStream", BOTTOM, "Yellow Pond");
-	entry.lockedMessage = "Requires <b>Level 2</b>";
+	worldMap.preUnlockEntry("Olitippo's Stream");
 
 	//entry = worldMap.createNode("Test Unlocks", "testUnlocker", TOP, "Up: G.C.D.");
 	//worldMap.preUnlockEntry("Test Unlocks");

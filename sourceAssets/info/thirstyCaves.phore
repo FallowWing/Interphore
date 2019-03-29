@@ -618,7 +618,7 @@ function gotoThirstyCaves() {
 
 	entry = worldMap.createNode("Up: ???", "mysteryLayerTeleport", TOP, "The Red Sea");
 	entry.color = 1;
-	entry.lockedMessage = "Requires <b>Level 5</b>";
+	entry.lockedMessage = "Requires <b>Level 7</b>";
 
 	entry = worldMap.createNode("Down: G.C.D.", "LLL", BOTTOM, "The Red Sea");
 	entry.color = 1;
