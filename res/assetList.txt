@@ -262,6 +262,13 @@ img/writer/characters/eyeball/seedAnimEye.png
 img/writer/characters/eyeball/seedAnimEye.spr
 img/writer/characters/rebeca/oldBeca.png
 img/writer/characters/rebeca/oldBeca.spr
+
+img/writer/characters/deerHippy/deerHippy.png
+img/writer/characters/deerHippy/deerHippy.spr
+img/writer/characters/wendy/wendyFlashback1.png
+img/writer/characters/wendy/wendyFlashback1.spr
+img/writer/characters/wendy/wendyFlashback2.png
+img/writer/characters/wendy/wendyFlashback2.spr
 img/writer/characters/deerHippy/deerHippy.png
 img/writer/characters/deerHippy/deerHippy.spr
 img/writer/characters/rebeca/rebeca/base.png

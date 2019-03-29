@@ -1764,8 +1764,8 @@ tween(wendy, 0.8, {alpha: targetAlpha}, {startDelay: 0.4, onComplete: function()
 
 	tween(wendy2, 1.8, {alpha: 0}, {onComplete: function() {
 		gotoPassage("quickArt2");
-	});
-});
+	}});
+}});
 `
 ---
 :quickArt2
@@ -1837,7 +1837,7 @@ choicesPerPage = 1;
 !`
 choicesPerPage = 1;
 `
-[I know because I saw her when she...]
+[I know because I saw her when she...|gogo2]
 ---
 :gogo2
 
@@ -1863,7 +1863,7 @@ tween(wendy, 3.3, {alpha: targetAlpha}, {startDelay: 0.4, onComplete: function()
 	wendy2.onRelease = function() {
 		gotoPassage("gogo3");
 	}
-});
+}});
 `
 ---
 :gogo3

@@ -30,7 +30,7 @@ START_PASSAGES
 :backArchie
 
 !`
-gotoThirstyCaves();
+gotoLLL();
 `
 ---
 :farmIsland
