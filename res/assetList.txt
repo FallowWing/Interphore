@@ -258,6 +258,8 @@ img/writer/mynt/face/myntBod/11.png
 img/writer/mynt/face/myntBod/11.spr
 img/writer/characters/eyeball/seedAnimHands.png
 img/writer/characters/eyeball/seedAnimHands.spr
+img/writer/characters/eyeball/hoodie.png
+img/writer/characters/eyeball/hoodie.spr
 img/writer/characters/eyeball/seedAnimEye.png
 img/writer/characters/eyeball/seedAnimEye.spr
 img/writer/characters/rebeca/oldBeca.png

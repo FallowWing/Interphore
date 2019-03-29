@@ -514,6 +514,10 @@ You aren't allowed all the way up here. This is where I live.
 Sorry to let you down.
 
 !`
+var eyeball = addImage("writer/characters/eyeball/hoodie");
+eyeball.x = desiredWidth - eyeball.width * 1.6;
+eyeball.y = desiredHeight / 2 - eyeball.height / 2 - 50;
+
 choicesPerPage = 1;
 addChoice("Back.", function() {
 	gotoMystery();
