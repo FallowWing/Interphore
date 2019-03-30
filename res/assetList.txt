@@ -271,6 +271,10 @@ img/writer/characters/wendy/wendyFlashback1.png
 img/writer/characters/wendy/wendyFlashback1.spr
 img/writer/characters/wendy/wendyFlashback2.png
 img/writer/characters/wendy/wendyFlashback2.spr
+img/writer/characters/wendy/wendyFlashback1a.png
+img/writer/characters/wendy/wendyFlashback1a.spr
+img/writer/characters/wendy/wendyFlashback2a.png
+img/writer/characters/wendy/wendyFlashback2a.spr
 img/writer/characters/deerHippy/deerHippy.png
 img/writer/characters/deerHippy/deerHippy.spr
 img/writer/characters/rebeca/rebeca/base.png

@@ -1748,6 +1748,8 @@ choicesPerPage = 1;
 !`
 var targetAlpha = 0.1;
 
+var back = addRectImage(desiredWidth, desiredHeight, 0x180c0c);
+
 var wendy = addImage("writer/characters/wendy/wendyFlashback1");
 wendy.x = desiredWidth / 2 - wendy.width / 2;
 wendy.alpha = 0;
@@ -1758,11 +1760,11 @@ wendy2.alpha = 0;
 
 playEffect("audio/effect/despairSting");
 
-tween(wendy, 0.8, {alpha: targetAlpha}, {startDelay: 0.4, onComplete: function() {
+tween(wendy, 1.8, {alpha: targetAlpha}, {startDelay: 0.4, onComplete: function() {
 	wendy.alpha = 0;
 	wendy2.alpha = targetAlpha;
 
-	tween(wendy2, 1.8, {alpha: 0}, {onComplete: function() {
+	tween(wendy2, 1.8, {alpha: 0}, {startDelay: 1, onComplete: function() {
 		gotoPassage("quickArt2");
 	}});
 }});
@@ -1842,39 +1844,55 @@ choicesPerPage = 1;
 :gogo2
 
 !`
-var targetAlpha = 1;
+var back = addRectImage(desiredWidth, desiredHeight, 0x180c0c);
 
 var wendy = addImage("writer/characters/wendy/wendyFlashback1");
 wendy.x = desiredWidth / 2 - wendy.width / 2;
 wendy.alpha = 0;
 
-var wendy2 = addImage("writer/characters/wendy/wendyFlashback2");
-wendy2.x = desiredWidth / 2 - wendy.width / 2;
-wendy2.alpha = 0;
+var wendyBack = addImage("writer/characters/wendy/wendyFlashback1a");
+wendyBack.x = desiredWidth / 2 - wendyBack.width / 2;
+wendyBack.alpha = 0;
 
-playEffect("audio/effect/despairSting");
+tween(wendy, 1, {alpha: 1}, {startDelay: 0.4, onComplete: function() {
 
-tween(wendy, 3.3, {alpha: targetAlpha}, {startDelay: 0.4, onComplete: function() {
-	wendy.alpha = 0;
-	wendy2.alpha = targetAlpha;
+	tween(wendy, 1, {alpha: 1}, {onComplete: function() {
+		playEffect("audio/effect/newSting");
+		tween(wendyBack, 1, {alpha: 1}, {ease: BOUNCE_OUT});
+	}});
 
-	playEffect("audio/effect/newSting");
-
-	wendy2.onRelease = function() {
-		gotoPassage("gogo3");
+	wendyBack.onRelease = function() {
+		gotoPassage("gogo3a");
 	}
 }});
+`
+---
+:gogo3a
+
+!`
+var back = addRectImage(desiredWidth, desiredHeight, 0x180c0c);
+
+var wendy = addImage("writer/characters/wendy/wendyFlashback2");
+wendy.x = desiredWidth / 2 - wendy.width / 2;
+wendy.alpha = 1;
+
+var wendyBack = addImage("writer/characters/wendy/wendyFlashback2a");
+wendyBack.x = desiredWidth / 2 - wendyBack.width / 2;
+wendyBack.alpha = 0;
+
+tween(wendy, 1, {alpha: 1}, {onComplete: function() {
+	playEffect("audio/effect/newSting");
+	tween(wendyBack, 1, {alpha: 1}, {ease: BOUNCE_OUT});
+}});
+
+wendyBack.onRelease = function() {
+	gotoPassage("gogo3");
+}
 `
 ---
 :gogo3
 
 !`
-var wendy2 = addImage("writer/characters/wendy/wendyFlashback2");
-wendy2.x = desiredWidth / 2 - wendy.width / 2;
-wendy2.alpha = 1;
-
-tween(wendy2, 5, {alpha: 0});
-
 choicesPerPage = 1;
 `
 [... left me.|gogo4]
