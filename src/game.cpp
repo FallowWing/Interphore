@@ -37,6 +37,15 @@ struct Game {
 
 	Asset *loadedAssets[ASSETS_MAX];
 
+	char **slowLoadNames;
+	void **slowLoadDatas;
+	int *slowLoadDataSizes;
+	int slowLoadDatasNum;
+	int slowLoadIndex;
+	Zip slowLoadZip;
+	char *slowLoadCodeToRun;
+
+
 	char mainTextStr[HUGE_STR];
 	MintSprite *mainText;
 	Passage *passages[PASSAGE_MAX];
@@ -365,6 +374,65 @@ void updateGame() {
 	}
 
 	game->debugOverlay.update();
+
+	if (game->slowLoadDatasNum) {
+		char *curAssetName = game->slowLoadNames[game->slowLoadIndex];
+		void *curAssetData = game->slowLoadDatas[game->slowLoadIndex];
+		int curAssetDataSize = game->slowLoadDataSizes[game->slowLoadIndex];
+
+		char buf[PATH_LIMIT + 256];
+		sprintf(
+			buf,
+			"clear();\n"
+			"append(\"Loading mod asset %d/%d\");",
+			game->slowLoadIndex,
+			game->slowLoadDatasNum
+		);
+		runJs(buf);
+
+		for (int j = 0; j < engine->assets.assetsNum; j++) {
+			Asset *curAsset = &engine->assets.assets[j];
+			if (streq(curAsset->name, curAssetName)) {
+				// printf("Destroyed %s\n", curAssetName);
+				destroyAsset(curAsset);
+			}
+		}
+
+		addAsset(curAssetName, (char *)curAssetData, curAssetDataSize);
+
+		if (strstr(curAssetName, ".png")) {
+			for (int spriteI = 0; spriteI < SPRITE_LIMIT; spriteI++) {
+				MintSprite *spr = &engine->spriteData.sprites[spriteI];
+				if (!spr->exists) continue;
+
+				if (streq(spr->assetId, curAssetName)) {
+					Asset *texAsset = getTextureAsset(spr->assetId);
+					spr->assetId = texAsset->name;
+					spr->reloadGraphic();
+				}
+			}
+		}
+
+		if (streq(curAssetName, "assets/main.phore")) {
+			game->slowLoadCodeToRun = stringClone((char *)curAssetData);
+		}
+
+		game->slowLoadIndex++;
+		if (game->slowLoadIndex == game->slowLoadDatasNum) {
+			for (int i = 0; i < game->slowLoadDatasNum; i++) Free(game->slowLoadNames[i]);
+			Free(game->slowLoadNames);
+			Free(game->slowLoadDatas);
+			Free(game->slowLoadDataSizes);
+			game->slowLoadDatasNum = 0;
+
+			closeZip(&game->slowLoadZip);
+			if (game->slowLoadCodeToRun) {
+				runMod(game->slowLoadCodeToRun);
+				Free(game->slowLoadCodeToRun);
+				return;
+			}
+		}
+	}
 }
 
 void runMod(char *serialData) {
@@ -578,53 +646,34 @@ void modLoaded(char *data, int size) {
 		//@cleanup This will eventually overflow the assets
 		printf("Is zip file that's %0.2fkb (%d bytes)\n", (float)size/(float)Kilobytes(1), size);
 
-		Zip zip;
-		openZip((unsigned char *)data, size, &zip);
+		openZip((unsigned char *)data, size, &game->slowLoadZip);
 
-		char *codeToRun = NULL;
+		game->slowLoadNames = (char **)malloc(sizeof(char *) * game->slowLoadZip.headersNum);
+		game->slowLoadDatas = (void **)malloc(sizeof(void *) * game->slowLoadZip.headersNum);
+		game->slowLoadDataSizes = (int *)malloc(sizeof(int) * game->slowLoadZip.headersNum);
+		game->slowLoadDatasNum = game->slowLoadZip.headersNum;
+		game->slowLoadIndex = 0;
+		game->slowLoadCodeToRun = NULL;
 
-		for (int i = 0; i < zip.headersNum; i++) {
-			LocalFileHeader *curHeader = &zip.headers[i];
+		for (int i = 0; i < game->slowLoadZip.headersNum; i++) {
+			LocalFileHeader *curHeader = &game->slowLoadZip.headers[i];
 			if (curHeader->uncompressedSize == 0) continue;
 
 			char realName[PATH_LIMIT] = {};
 			strcpy(realName, "assets/");
 			strcat(realName, curHeader->fileName);
 
-			for (int j = 0; j < engine->assets.assetsNum; j++) {
-				Asset *curAsset = &engine->assets.assets[j];
-				if (streq(curAsset->name, realName)) {
-					// printf("Destroyed %s\n", realName);
-					destroyAsset(curAsset);
-				}
-			}
+			game->slowLoadNames[i] = stringClone(realName);
 
-			void *assetData = Malloc(curHeader->uncompressedSize+1);
-			memcpy(assetData, curHeader->uncompressedData, curHeader->uncompressedSize);
-			((char *)assetData)[curHeader->uncompressedSize] = '\0';
-			addAsset(realName, (char *)assetData, curHeader->uncompressedSize+1);
+			void *curAssetData = Malloc(curHeader->uncompressedSize+1);
+			memcpy(curAssetData, curHeader->uncompressedData, curHeader->uncompressedSize);
+			((char *)curAssetData)[curHeader->uncompressedSize] = '\0';
 
-			if (strstr(realName, ".png")) {
-				for (int spriteI = 0; spriteI < SPRITE_LIMIT; spriteI++) {
-					MintSprite *spr = &engine->spriteData.sprites[spriteI];
-					if (!spr->exists) continue;
-
-					if (streq(spr->assetId, realName)) {
-						Asset *texAsset = getTextureAsset(spr->assetId);
-						spr->assetId = texAsset->name;
-						spr->reloadGraphic();
-					}
-				}
-			}
-
-			if (streq(realName, "assets/main.phore")) codeToRun = (char *)assetData;
+			game->slowLoadDatas[i] = curAssetData;
+			game->slowLoadDataSizes[i] = curHeader->uncompressedSize+1;
 		}
 
-		closeZip(&zip);
 		Free(data);
-
-		// printf("Code to run is:\n%s\n", codeToRun);
-		if (codeToRun) runMod(codeToRun);
 		return;
 	}
 
