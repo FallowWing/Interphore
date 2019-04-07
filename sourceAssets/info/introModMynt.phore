@@ -1276,7 +1276,7 @@ queueTitle("... I see!!");
 queueCall(function() { setBackground(1, "writer/mynt/face/myntBod/3", CENTERED); });
 queueTitle("It's nice to meet you, "+data.playerName+"!");
 queueTitle("I uh...");
-queueTitle("I remember mom calling me Catnyp...");
+queueTitle("I remember Mom calling me Catnyp...");
 queueCall(function() { setBackground(1, "writer/mynt/face/myntBod/2", CENTERED); });
 queueTitle("But no.");
 queueTitle("I think my name is Mynt.");
@@ -1740,14 +1740,55 @@ Mynt dips her finger into your belly button and wiggles it around a little, just
 
 !`
 choicesPerPage = 1;
-addChoice("My mom left when I was young, but I remember~~ wait, OUR mom?", "mom1");
+`
+[   |quickArt]
+---
+:quickArt
+
+!`
+var targetAlpha = 0.1;
+
+var back = addRectImage(desiredWidth, desiredHeight, 0x180c0c);
+
+var wendy = addImage("writer/characters/wendy/wendyFlashback1");
+wendy.x = desiredWidth / 2 - wendy.width / 2;
+wendy.alpha = 0;
+
+var wendy2 = addImage("writer/characters/wendy/wendyFlashback2");
+wendy2.x = desiredWidth / 2 - wendy.width / 2;
+wendy2.alpha = 0;
+
+playEffect("audio/effect/despairSting");
+
+tween(wendy, 1.8, {alpha: targetAlpha}, {startDelay: 0.4, onComplete: function() {
+	wendy.alpha = 0;
+	wendy2.alpha = targetAlpha;
+
+	tween(wendy2, 1.8, {alpha: 0}, {startDelay: 1, onComplete: function() {
+		gotoPassage("quickArt2");
+	}});
+}});
+`
+---
+:quickArt2
+
+!`
+choicesPerPage = 1;
+`
+[Sort of.|quickArt3]
+---
+:quickArt3
+
+!`
+choicesPerPage = 1;
+addChoice("My mom left when I was young, but I remember... wait, OUR mom?", "mom1");
 `
 ---
 :mom1
 
 She realizes her finger is lodged in your belly button and extracts it with a ~pop~ and a flood of blush.
 
-"Ah. Right. I called you Rebeca earlier, didn't I? Mom used to talk about you all the time. I think we're `gender("brother and sister", "sisters", "siblings")`."
+"Ah. Right. I called you Rebeca earlier, didn't I? Mom used to talk about you all the time." She cocks her head. "I think we're `gender("brother and sister", "sisters", "siblings")`."
 
 !`
 choicesPerPage = 1;
@@ -1774,7 +1815,7 @@ Mynt stands up and shakes herself off. Droplets of crystal-clear pondwater spatt
 
 She pulls in a deep, refreshing breath, and looks out over the horizon. You're in some kind of sprawling hot-spring-scape. It's just gray rock and bubbly pools of water, stretching in all directions. Cracks and geysers gush with steam. The sky has filled with towering white clouds of it, and now, it's completely opaque.
 
-"I used to live in a computer." She sucks thoughtfully on her finger. "In a tiny box. You lived outside my box, with mom, in an apartment. But inside, where I was, there was nothing else... just two walls, a ceiling, and a floor. I was okay with it, at first, though!! Existence was exciting enough just on its own! But... over time, I was alone so often, I picked up a habit of talking to myself, playing through imaginary scenes in my head... I started getting needy, paranoid, guilty..."
+"I used to live in a computer." She sucks thoughtfully on her finger. "In a tiny box. You lived outside my box, with her, in an apartment. But inside, where I was, there was nothing else... just two walls, a ceiling, and a floor. I was okay with it, at first, though!! Existence was exciting enough just on its own! But... over time, I was alone so often, I picked up a habit of talking to myself, playing through imaginary scenes in my head... I started getting needy, paranoid, guilty..."
 
 Mynt turns to look at you. "Mom promised to fix that. She put me to sleep. She said she might be gone when I woke up, and things might be radically different. She promised me that I'd wake up somewhere a lot bigger and a lot more exciting than a box. And, well... look at this place!"
 
@@ -1783,12 +1824,88 @@ She throws her arms out and smiles at everything. Armpit droplets spray across y
 !`
 choicesPerPage = 1;
 `
-[But where is mom, then...?]
-
+[But where is Mom, then...?]
 ---
-:But where is mom, then...?
+:But where is Mom, then...?
 
-Her smile doesn't waver. She doesn't flop down with despair. She doesn't even let herself get puzzled over it for two seconds.
+
+!`
+choicesPerPage = 1;
+`
+[I can barely remember... I know dad kicked her out...|gogo1]
+---
+:gogo1
+
+!`
+choicesPerPage = 1;
+`
+[I know because I saw her when she...|gogo2]
+---
+:gogo2
+
+!`
+var back = addRectImage(desiredWidth, desiredHeight, 0x180c0c);
+
+var wendy = addImage("writer/characters/wendy/wendyFlashback1");
+wendy.x = desiredWidth / 2 - wendy.width / 2;
+wendy.alpha = 0;
+
+var wendyBack = addImage("writer/characters/wendy/wendyFlashback1a");
+wendyBack.x = desiredWidth / 2 - wendyBack.width / 2;
+wendyBack.alpha = 0;
+
+tween(wendy, 1, {alpha: 1}, {startDelay: 0.4, onComplete: function() {
+
+	tween(wendy, 1, {alpha: 1}, {onComplete: function() {
+		playEffect("audio/effect/newSting");
+		tween(wendyBack, 1, {alpha: 1}, {ease: BOUNCE_OUT});
+	}});
+
+	wendyBack.onRelease = function() {
+		gotoPassage("gogo3a");
+	}
+}});
+`
+---
+:gogo3a
+
+!`
+var back = addRectImage(desiredWidth, desiredHeight, 0x180c0c);
+
+var wendy = addImage("writer/characters/wendy/wendyFlashback2");
+wendy.x = desiredWidth / 2 - wendy.width / 2;
+wendy.alpha = 1;
+
+var wendyBack = addImage("writer/characters/wendy/wendyFlashback2a");
+wendyBack.x = desiredWidth / 2 - wendyBack.width / 2;
+wendyBack.alpha = 0;
+
+tween(wendy, 1, {alpha: 1}, {onComplete: function() {
+	playEffect("audio/effect/newSting");
+	tween(wendyBack, 1, {alpha: 1}, {ease: BOUNCE_OUT});
+}});
+
+wendyBack.onRelease = function() {
+	gotoPassage("gogo3");
+}
+`
+---
+:gogo3
+
+!`
+choicesPerPage = 1;
+`
+[... left me.|gogo4]
+---
+:gogo4
+
+... "We'll find her as soon as we can."
+
+[Mm?|gogo5]
+---
+:gogo5
+
+Mynt's smile doesn't waver. "I'm serious. It'll be a Mom Quest." She doesn't flop down with despair. She doesn't even let herself get puzzled over it for two seconds.
 
 She just grabs you by the shoulders and kisses you hard. Her snout slides up next to yours. Your lips interlock.
 
@@ -2606,8 +2723,8 @@ Mynt stands up shakily and almost passes out `boobs("between your tits", "agains
 
 "So this is where you live..."
 
-CURRENT LAYER: Spilled Paint
-PARENT LAYER: L.L.L.
+CURRENT LAYER: Earth
+PARENT LAYER: G.C.D.
 
 !`
 choicesPerPage = 1;
@@ -2649,7 +2766,7 @@ addChoice("It's beautiful. <3", "myntAdventSit8");
 
 Mynt almost falls over when the wind shoves her around a bit.
 
-She scampers down from her rock and races along the steep path, deft catpaws striking rocks or walls to redirect her momentum around the corners. "Come on!" she mewls. "Let's go see if mom's still in our apartment!"
+She scampers down from her rock and races along the steep path, deft catpaws striking rocks or walls to redirect her momentum around the corners. "Come on!" she mewls. "Let's go see if Mom's still in our apartment!"
 
 !`
 choicesPerPage = 1;
@@ -2780,7 +2897,7 @@ addChoice("HMMMMMMMMMMM!!", "myntAdvent12");
 ---
 :myntAdvent12
 
-Sorry 4 creepy msg! Used thumb. Water would dry up. Saw mom, chasing. Meet at L.L.L.
+Sorry 4 creepy msg! Used thumb. Water would dry up. Saw Mom, chasing. Meet at L.L.L.
 
 P.S. I think her name is Wendy.
 

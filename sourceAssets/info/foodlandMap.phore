@@ -1,5 +1,20 @@
 print("arriving at Earth map");
 
+var foodlandExplorables = [
+"foodlandExplore1", 
+"foodlandExplore2", 
+"foodlandExplore3", 
+"foodlandExplore4", 
+"foodlandExplore5", 
+"foodlandExplore6", 
+"foodlandExplore7", 
+"foodlandExplore8", 
+"foodlandExplore9", 
+"foodlandExplore10", 
+"foodlandExplore11",
+"foodlandExplore12"
+]; 
+
 if (music) music.destroy();
 var music = playMusic("audio/ambience/violetMeteorite");
 music.name = "music";
@@ -36,15 +51,173 @@ execAsset("luluPouph.phore");
 gotoPassage("luluStart");
 `
 ---
-:foodlandExplore
+:foodlandExploreHub
 
-WIP!
+You wander Foodland in search of Wendy.
 
 !`
-choicesPerPage = 1;
-addChoice("Back.", function() {
-	gotoFoodland();
-});
+choicesPerPage = 2;
+explore(foodlandExplorables);
+`
+---
+:foodlandExplore1
+
+A procession of sweaty muffin men march past you singing about the great deals going on at Foodland Park.
+
+You accidentally get in their way. The lead muffin flinches at you and mumbles something like 'What? You got a problem? What?' under his breath.
+
+!`
+choicesPerPage = 2;
+explore(foodlandExplorables);
+`
+---
+:foodlandExplore2
+
+The cheese weasels start to freak out and claw at the sides of their hanging glass chambers. Their cheesy paws struggle to climb the glass.
+
+All eyes turn to the tree and the swinging glass. Sirens are primed to blow. Robotic stilts contract up under the buildings, the roller coaster, the ferris wheel, which drops all architecture in sight by a good four feet. The tourists on the rides squeal with delight as their bellies sink.
+
+Nope. Nevermind. The weasels calm down. The stilts relax again. 
+
+False alarm.
+
+!`
+choicesPerPage = 2;
+explore(foodlandExplorables);
+`
+---
+:foodlandExplore3
+
+A stampede of terrified Earth tourists topples past you, chased by a single excited watermelon wolf. His juicy jaws snap at their heels.
+
+!`
+choicesPerPage = 2;
+explore(foodlandExplorables);
+`
+---
+:foodlandExplore4
+
+Two cute fruits share a little PDA on a park bench: a peach kittengirl with soft orange skin, and a strawberry turtleboy with seeds all in his shell.
+
+!`
+choicesPerPage = 2;
+explore(foodlandExplorables);
+`
+---
+:foodlandExplore5
+
+Around the grassy melon hills under the rollercoaster, under its towering stilts and supports, a team of bread janitors dutifully cleans away.
+
+!`
+choicesPerPage = 3;
+addChoice("Examine janitors.", "foodlandExplorePuke", {icons: ["Vomit"]});
+explore(foodlandExplorables);
+`
+---
+:foodlandExplorePuke
+
+Of course, these janitors don't use mops or brooms.
+
+They're a bunch of chubby filthglutton min wage workers. Their bodies are bread, but old crusty stale bread, since they can't even be bothered to jump in the pond and clean themselves up between shifts. They comb the shiny rind ground for puddles of steaming rainbow candypuke to slurp, their snouts drooling toxic pink and green, chunks rolling over their multitudinous chins~
+
+You're not even sure this is a job to them? They like being fat and sloppy. They like locking their open lips to the rind and making out with random strangers' puke~
+
+!`
+choicesPerPage = 2;
+explore(foodlandExplorables);
+`
+---
+:foodlandExplore6
+
+A hesitant Earth tourist pokes her head out of the pond and looks around. A purple tarocat waltzes by her, casually snacking on his own fingers. He's really mowing down, big hearty smile and everything.
+
+The tourist goes :| and slowly lowers herself back down into the pond...
+
+!`
+choicesPerPage = 2;
+explore(foodlandExplorables);
+`
+---
+:foodlandExplore7
+
+There's a Pumpkin Cakes stand up near the front of the park. A sweaty pony-tailed butter tart cashier takes and dishes out orders like an auctioneer. Her ponytail won't be able to hold much longer.
+
+"How many you want sir? Six? What? SIXTY? We can't do that, call ahead next time~~ you, did you order already? How many?" she inhales and turns to the kitchens "TWO MORE HOT ONES UP FRONT!"
+
+Two delightful, plump little pumpkins waddle out of the kitchen, all spiced up with sexy frosting. A female customer takes their soft orange paws and licks her lips, leading the little ones off towards the ferris wheel. Way in the back of the shop, the remaining merchandise (a squad of half-frosted little pumpkins) waves goodbye to their two coworkers~
+
+!`
+choicesPerPage = 2;
+explore(foodlandExplorables);
+`
+---
+:foodlandExplore8
+
+A tourist teeters by. He's got heavy, voluptuous strands of pumpkin juice dangling from his maw, and seeds spattered over his chestfur. He burps and pats his big belly.
+
+!`
+choicesPerPage = 2;
+explore(foodlandExplorables);
+`
+---
+:foodlandExplore9
+
+Cartographer made his way all the way down here on his break. His bright blue hair fits in perfectly, here.
+
+He looks over the roller coaster... ferris wheel... all the prize booths... the Pumpkin Cakes shop catches his eye.
+
+He stands on his tip-toes to look over the counter. "Do you have any bois here?"
+
+"Boys?" The frazzled cashier eyes the huge line-up behind him. She's about to go run to the back and check.
+
+"No. Bois."
+
+She goes "phew" and blows her messy bangs out of the way. "Oh, <i>bois,</i> course we do. How many?"
+
+"Is twelve okay?"
+
+"TWELVE?!"
+
+He grins and shows his sharp fox teeth. Under his white coattails, his bushy tail flicks back and forth. "I have a big appetite."
+
+!`
+choicesPerPage = 2;
+explore(foodlandExplorables);
+`
+---
+:foodlandExplore10
+
+You stumble on the ground for a second. But when you look down... there's nothing there?
+
+...
+
+It's a tiny feral twinkie mouse. She skitters around with unfettered, simple-minded joy, tripping tourists up left and right.
+
+!`
+choicesPerPage = 2;
+explore(foodlandExplorables);
+`
+---
+:foodlandExplore11
+
+You head away from the park and the tourists and wander all the quaint little homes. There's the cosplayers, like a boy living in a giant peach and an old lady in a gingerbread house. There's the functional folks, who prefer sturdy low-maintenance homes: massive uncracked walnuts the size of a double decker bus, flavored ice palaces, 
+
+!`
+choicesPerPage = 2;
+explore(foodlandExplorables);
+`
+---
+:foodlandExplore12
+
+A boy from the G.C.D. gets a little too excited and shapeshifts himself into a beef jerky boy so he can join the fun!
+
+Except the moment he's in sight of a security camera, the muffin men are sent after him.
+
+They drag him away back to the red pond. "Didn'tcha get the hint, kid? Look around," one of them mutters.
+
+!`
+choicesPerPage = 2;
+explore(foodlandExplorables);
 `
 
 END_PASSAGES
@@ -63,7 +236,7 @@ function gotoFoodland() {
 	entry.color = 1;
 	worldMap.preUnlockEntry("Up: Earth");
 
-	entry = worldMap.createNode("Foodland", "foodlandExplore", BOTTOM, "Up: Earth");
+	entry = worldMap.createNode("Foodland", "foodlandExploreHub", BOTTOM, "Up: Earth");
 	entry.color = 2;
 	worldMap.preUnlockEntry("Foodland");
 

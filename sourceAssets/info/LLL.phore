@@ -17,8 +17,8 @@ var entry = worldMap.getEntry("Down: Archiepelago");
 if (!entry.unlocked) ("Sniff for layers...", "unlockArchie");
 addChoice("Examine Paraphores", "examineParaphores");
 addChoice("Rules of Operation for Paraphores.");
-addChoice("Examine Spilled Paint", "layerSpilledPaint");
-addChoice("Examine L.L.L.", "layerLLL");
+addChoice("Examine Earth.", "layerSpilledPaint");
+addChoice("Examine G.C.D.", "layerLLL");
 addChoice("F.A.Q.", "layerFAQ");
 addChoice("Terms & Definitions", "Terms");
 addChoice("Move along.", function() {
@@ -547,10 +547,9 @@ choicesPerPage = 1;
 [Wasn't he supposed to be on break...?|hubLLL]
 ---
 :layerLLL
-LAYER NAME: L.L.L. ~~ formerly G.C.D. (GAY CUB DUNGEON)
+LAYER NAME: G.C.D. (GAY CUB DUNGEON)
 PARENT LAYER: The Red Sea
-PARENT ENTITY: Mr. Eyeball
-CHILD LAYERS: Spilled Paint (+87 children)
+CHILD LAYERS: Earth
 PARAPHRASED TIMELINES:
 	> Redacted.
 
@@ -612,15 +611,13 @@ choicesPerPage = 1;
 ---
 :layerSpilledPaint
 
-<b>LAYER NAME:</b> Spilled Paint
-<b>PARENT LAYER:</b> L.L.L.
-<b>PARENT ENTITY:</b> Cartographer
+<b>LAYER NAME:</b> Earth
+<b>PARENT LAYER:</b> G.C.D.
 <b>CHILD LAYERS:</b> Library2 (+3 children), RELAXATIONGAME
 <b>PARAPHRASED TIMELINES:</b> Redacted.
 
 <b>LAYER NAME:</b> Library2
-<b>PARENT LAYER:</b> Spilled Paint
-<b>PARENT ENTITY:</b> Wendy Archibald
+<b>PARENT LAYER:</b> Earth
 <b>CHILD LAYERS:</b> Catnyp, Vanylla, Mynt, RELAXATIONGAME
 <b>PARAPHRASED TIMELINES:</b> 4
 

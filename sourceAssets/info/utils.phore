@@ -222,18 +222,17 @@ function gainExp(amount) {
 			
 			playEffect("audio/ui/rewards/levels");
 
-			if (data.level >= 2) {
-				worldMap.unlockEntry("Yellow Pond");
-				worldMap.unlockEntry("Olitippo's Stream");
-			} else if (data.level >= 3) {
+			if (data.level >= 3) {
 				worldMap.unlockEntry("Indigo Pond");
-				worldMap.unlockEntry("L.L.L.");
+				worldMap.unlockEntry("Visit L.L.L.");
 			} else if (data.level >= 4) {
 				worldMap.unlockEntry("Down: Foodland");
-				worldMap.unlockEntry("Black Mansion");
+				worldMap.unlockEntry("Hyena Family");
 			} else if (data.level >= 5) {
-				worldMap.unlockEntry("Up: ???");
 				worldMap.unlockEntry("Chrysophylux");
+				worldMap.unlockEntry("Black Mansion");
+			} else if (data.level >= 7) {
+				worldMap.unlockEntry("Up: ???");
 			}
 		} else {
 			if (amount <= 10) playEffect("audio/ui/rewards/xp/0");

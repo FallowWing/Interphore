@@ -1,5 +1,19 @@
 print("arriving at Earth map");
 
+var earthExplorables = [
+"earthExplore1", 
+"earthExplore2", 
+"earthExplore3", 
+"earthExplore4", 
+"earthExplore5", 
+"earthExplore6", 
+"earthExplore7", 
+"earthExplore8", 
+"earthExplore9", 
+"earthExplore10", 
+"earthExplore11"
+]; 
+
 if (music) music.destroy();
 var music = playMusic("audio/ambience/violetMeteorite");
 music.name = "music";
@@ -79,15 +93,204 @@ execAsset("kitteryMaine.phore");
 gotoPassage("calliopeStart");
 `
 ---
-:earthExplore
+:earthExploreHub
 
-WIP!
+You wander Earth in search of Wendy.
 
 !`
-choicesPerPage = 1;
-addChoice("Back.", function() {
-	gotoEarth();
-});
+choicesPerPage = 2;
+explore(earthExplorables);
+`
+---
+:earthExplore1
+
+Two deer nibble at some copies of <i>Calliope,</i> a cute girls magazine.
+
+Lots of puffy vulvas, hanging breasts, smooth sex lines, pear-shapped booties all slathered with glitterdust, a pinky fingernail on a pierced lip, a single teardrop gem that dangles from a clit piercing...
+
+!`
+choicesPerPage = 2;
+explore(earthExplorables);
+`
+---
+:earthExplore2
+
+!`
+var entry = worldMap.getEntry("Chrysophylux");
+if (!entry.started) append("A dragongirl with red scales");
+if (entry.started) append("Chrysophylux");
+  ` stands on the Grey Meteorite, reading a little Earth Travel comment section for tourism reviews. She heads down to Foodland instead because it has more stars.
+
+!`
+choicesPerPage = 2;
+explore(earthExplorables);
+`
+---
+:earthExplore3
+
+A bunch of freshly assimilated islanders from the Archiepelago looked up the coordinates of the Window's XP default background, Bliss. Now they're throwing down beach towels and getting oiled up with each other on the grassy hills.
+
+
+!`
+choicesPerPage = 2;
+explore(earthExplorables);
+`
+---
+:earthExplore4
+
+A chubby, short, pale, bespectacled gerbil is sniffing around the city. He's got mustard stains on a shirt that can't cover his belly, shorts, and flip flops. "Where are all the human cubs...?"
+
+!`
+choicesPerPage = 3;
+addChoice("Where are they actually?", "earthCubs", {icons: ["Plot"]});
+explore(earthExplorables);
+`
+---
+:earthCubs
+
+About sixty years ago, parental restrictions were imposed on the freedom of movement and action of humans under 19.
+
+They were kept in a secret no-travel layer until they were of age. I would stop narration if they did anything restricted, sexual, or dangerous. To ensure they didn't go stir-crazy, though, we kept up regular contact with parents and guardians and educated them about the world outside their little no-travel layer.
+
+They've been out exploring for almost half a century now.
+
+!`
+addChoice("Actions?", "earthCubsActions");
+addChoice("Freedom of movement?", "earthCubs2a");
+explore(earthExplorables);
+`
+---
+:earthCubs2a
+
+No-travel layer means you can't go to certain places. Restricted from jumping into a red pond and going to a new layer, up or down.
+
+Since, y'know... just look at this shit.
+
+!`
+choicesPerPage = 3;
+addChoice("I guess my parents opted out of that.", "earthCubs2b");
+explore(earthExplorables);
+`
+---
+:earthCubs2b
+
+If you had left the bomb shelter sooner, you would have been forcibly opted in.
+
+If children don't have parents or guardians, or if their parents or guardians have abandoned them, we default to the majority opinion. Most parents wanted their kids in no-travel til 19, so that's where you woulda gone.
+
+!`
+choicesPerPage = 3;
+addChoice("What about the restrictions on their actions?", "earthCubsActions");
+explore(earthExplorables);
+`
+---
+:earthCubsActions
+
+For example, some parents requested that their children be restricted from homosexual activity. That means I cut off narration of their senses and temporarily blind them whenever they attempt to be gay.
+
+Restrictions range from sex before marriage, fetishplay, polyamory, anal, oral, heavy petting, touching erogenous zones, kissing, to hugging, to contact closer than two feet, but the Interphore does not condone the blanket restriction of all touch, sexual or non-sexual, for certain fundamentalists and their virgin daughters. Happiness requires touch.
+
+Other parents imposed permanent travel bans to hypersexual or cub-heavy layers, even after they were of age and ready for freedom of movement.
+
+!`
+choicesPerPage = 3;
+addChoice("Who came up with this.", "earthCubs3");
+explore(earthExplorables);
+`
+---
+:earthCubs3
+
+Parents did. It's different for every species.
+
+We will never allow a parent to set restrictions overly soft compared to the majority opinion and the sexual norms in their culture.
+
+That said, some make their kids wait til 25. Some allow experimentation only after puberty. 
+
+Some have a tiered system which has different rules for ages 14, 16, and 18.
+
+Depending on the timescale of the assimilated layer, the parents of some ancient species may request we keep their children in 100,000 years of celibate asceticism and sexual education before they are even allowed to attempt a kiss.
+
+!`
+choicesPerPage = 2;
+gainExp(5);
+addChoice("Well thanks. That clears things up.", "earthCubs4");
+explore(earthExplorables);
+`
+---
+:earthCubs4
+
+Good!
+
+We may have a lot of freaks around here, but we don't condone greasy behaviour or throwing kids out into a giant sea of porn with no oversight.
+
+!`
+choicesPerPage = 2;
+explore(earthExplorables);
+`
+---
+:earthExplore5
+
+Two ladies walk in the sunshine along the hills of an overgrown golf course, totally naked. From the jiggle you can tell they were generous with themselves in the red pond.
+
+They hop on a battered golf cart with two drunk men and speed off towards the merge lane of a now-empty highway. The cart drifts onto the pavement. Wine and piss fly out the sides.
+
+!`
+choicesPerPage = 2;
+explore(earthExplorables);
+`
+---
+:earthExplore6
+
+A family of mennonites in black clothes stare at you until you go away.
+
+!`
+choicesPerPage = 2;
+explore(earthExplorables);
+`
+---
+:earthExplore7
+
+You walk through the black shell of a zoo which looks like it endured a serious explosion.
+
+!`
+choicesPerPage = 2;
+explore(earthExplorables);
+`
+---
+:earthExplore8
+
+San Francisco is now packed with gay furries.
+
+!`
+choicesPerPage = 2;
+explore(earthExplorables);
+`
+---
+:earthExplore9
+
+A black, feral cat with sleek fur hops into a red pond. She shapeshifts into an anthro cat, responds to her texts while she has thumbs, and then turns back into a feral again and runs away.
+
+!`
+choicesPerPage = 2;
+explore(earthExplorables);
+`
+---
+:earthExplore10
+
+Two old men sit at a chess table.
+
+!`
+choicesPerPage = 2;
+explore(earthExplorables);
+`
+---
+:earthExplore11
+
+A sales representative has made himself into a lifelike version of his company's mascot, and he's got minions shapeshifting into it too so they can go hand out coupons on different layers. He stops you to ask if you invest in gold, and you can see the inside of his mouth where the human is supposed to be inside the costume.
+
+!`
+choicesPerPage = 2;
+explore(earthExplorables);
 `
 
 END_PASSAGES
@@ -102,11 +305,11 @@ function gotoEarth() {
 
 	var entry;
 
-	entry = worldMap.createNode("Up: L.L.L.", "backEarth");
+	entry = worldMap.createNode("Up: G.C.D.", "backEarth");
 	entry.color = 1;
-	worldMap.preUnlockEntry("Up: L.L.L.");
+	worldMap.preUnlockEntry("Up: G.C.D.");
 
-	entry = worldMap.createNode("Earth", "earthExplore", BOTTOM, "Up: L.L.L.");
+	entry = worldMap.createNode("Earth", "earthExploreHub", BOTTOM, "Up: G.C.D.");
 	entry.color = 2;
 	worldMap.preUnlockEntry("Earth");
 
@@ -127,12 +330,12 @@ function gotoEarth() {
 	entry.lockedMessage = "Requires <b>Moving In</b>";
 
 	entry = worldMap.createNode("Yellow Pond", "yellowPond", BOTTOM, "Intro");
-	entry.lockedMessage = "Requires <b>Level 2</b>";
+	worldMap.preUnlockEntry("Yellow Pond");
 
 	entry = worldMap.createNode("Olitippo's Stream", "oliStream", BOTTOM, "Yellow Pond");
-	entry.lockedMessage = "Requires <b>Level 2</b>";
+	worldMap.preUnlockEntry("Olitippo's Stream");
 
-	//entry = worldMap.createNode("Test Unlocks", "testUnlocker", TOP, "Up: L.L.L.");
+	//entry = worldMap.createNode("Test Unlocks", "testUnlocker", TOP, "Up: G.C.D.");
 	//worldMap.preUnlockEntry("Test Unlocks");
 
 	worldMap.show();

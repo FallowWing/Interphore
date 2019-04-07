@@ -164,6 +164,8 @@ img/writer/xpBar3.spr
 
 img/writer/mapTitles/theRedSea.png
 img/writer/mapTitles/theRedSea.spr
+img/writer/mapTitles/mysteryLayer.png
+img/writer/mapTitles/mysteryLayer.spr
 img/writer/mapTitles/foodland.png
 img/writer/mapTitles/foodland.spr
 img/writer/mapTitles/gcd.png
@@ -256,10 +258,23 @@ img/writer/mynt/face/myntBod/11.png
 img/writer/mynt/face/myntBod/11.spr
 img/writer/characters/eyeball/seedAnimHands.png
 img/writer/characters/eyeball/seedAnimHands.spr
+img/writer/characters/eyeball/hoodie.png
+img/writer/characters/eyeball/hoodie.spr
 img/writer/characters/eyeball/seedAnimEye.png
 img/writer/characters/eyeball/seedAnimEye.spr
 img/writer/characters/rebeca/oldBeca.png
 img/writer/characters/rebeca/oldBeca.spr
+
+img/writer/characters/deerHippy/deerHippy.png
+img/writer/characters/deerHippy/deerHippy.spr
+img/writer/characters/wendy/wendyFlashback1.png
+img/writer/characters/wendy/wendyFlashback1.spr
+img/writer/characters/wendy/wendyFlashback2.png
+img/writer/characters/wendy/wendyFlashback2.spr
+img/writer/characters/wendy/wendyFlashback1a.png
+img/writer/characters/wendy/wendyFlashback1a.spr
+img/writer/characters/wendy/wendyFlashback2a.png
+img/writer/characters/wendy/wendyFlashback2a.spr
 img/writer/characters/deerHippy/deerHippy.png
 img/writer/characters/deerHippy/deerHippy.spr
 img/writer/characters/rebeca/rebeca/base.png
@@ -371,6 +386,7 @@ audio/effect/doorbell.ogg
 audio/effect/trashTransmission.ogg
 audio/effect/owlScream.ogg
 audio/effect/despairSting.ogg
+audio/effect/newSting.ogg
 audio/effect/adminGained.ogg
 audio/effect/cartSlide/right/1.ogg
 audio/effect/cartSlide/right/2.ogg
