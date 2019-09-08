@@ -14,7 +14,7 @@ addChoice("Move along.", function() {
 
 var entry = worldMap.getEntry("Down: Archiepelago");
 
-if (!entry.unlocked) ("Sniff for layers...", "unlockArchie");
+if (!entry.unlocked) addChoice("Sniff for layers...", "unlockArchie");
 addChoice("Examine Paraphores", "examineParaphores");
 addChoice("Rules of Operation for Paraphores.");
 addChoice("Examine Earth.", "layerSpilledPaint");
